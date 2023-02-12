@@ -10,6 +10,8 @@
 
     <modules>
         <module>fly-context</module>
+        <module>fly-core</module>
+        <module>fly-hardware</module>
     </modules>
 
     <properties>

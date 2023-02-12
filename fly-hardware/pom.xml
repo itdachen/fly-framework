@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0"
+         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+    <modelVersion>4.0.0</modelVersion>
+    <parent>
+        <groupId>com.itdachen.framework</groupId>
+        <artifactId>fly-framework</artifactId>
+        <version>0.0.1</version>
+    </parent>
+
+    <artifactId>fly-hardware</artifactId>
+    <name>fly-hardware</name>
+    <packaging>jar</packaging>
+    <version>${fly.framework.version}</version>
+    <description>获取服务器环境情况</description>
+
+    <properties>
+        <!-- 读取服务器硬件 -->
+        <oshi.core.version>6.4.0</oshi.core.version>
+    </properties>
+
+    <dependencies>
+        <dependency>
+            <groupId>com.itdachen.framework</groupId>
+            <artifactId>fly-context</artifactId>
+            <version>${fly.framework.version}</version>
+            <scope>compile</scope>
+        </dependency>
+
+        <dependency>
+            <groupId>com.github.oshi</groupId>
+            <artifactId>oshi-core</artifactId>
+            <version>${oshi.core.version}</version>
+        </dependency>
+    </dependencies>
+
+</project>
