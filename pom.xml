@@ -9,9 +9,16 @@
     <packaging>pom</packaging>
 
     <modules>
+        <module>fly-dependencies</module>
         <module>fly-context</module>
         <module>fly-core</module>
         <module>fly-hardware</module>
+        <module>fly-datasource</module>
+        <module>fly-file</module>
+        <module>fly-jwt</module>
+        <module>fly-webmvc</module>
+        <module>fly-response</module>
+        <module>fly-runner</module>
     </modules>
 
     <properties>
