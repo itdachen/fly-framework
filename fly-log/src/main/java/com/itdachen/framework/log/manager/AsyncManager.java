@@ -1,6 +1,6 @@
 package com.itdachen.framework.log.manager;
 
-import cn.edu.hubu.tools.SpringUtils;
+import com.itdachen.framework.spring.SpringBeanUtils;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
@@ -31,7 +31,7 @@ public class AsyncManager {
     /**
      * 异步操作任务调度线程池
      */
-    private static final ScheduledExecutorService executor = SpringUtils.getBean("scheduledExecutorService");
+    private static final ScheduledExecutorService executor = SpringBeanUtils.getBean("scheduledExecutorService");
 
     /**
      * 单例模式
