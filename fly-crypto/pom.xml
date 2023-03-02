@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0"
+         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+    <modelVersion>4.0.0</modelVersion>
+    <parent>
+        <groupId>com.itdachen.framework</groupId>
+        <artifactId>fly-framework</artifactId>
+        <version>0.0.1</version>
+    </parent>
+
+    <artifactId>fly-crypto</artifactId>
+    <name>fly-crypto</name>
+    <packaging>jar</packaging>
+    <version>${fly.framework.version}</version>
+    <description>自定义加密方式模块</description>
+
+    <dependencies>
+        <dependency>
+            <groupId>org.slf4j</groupId>
+            <artifactId>slf4j-api</artifactId>
+        </dependency>
+    </dependencies>
+
+</project>

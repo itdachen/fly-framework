@@ -1,6 +1,6 @@
 package com.itdachen.framework.boot.runner.handler;
 
-import com.itdachen.framework.boot.runner.utils.SpringBeanUtils;
+import com.itdachen.framework.spring.SpringBeanUtils;
 import org.apache.commons.lang3.StringUtils;
 import org.springframework.core.env.Environment;
 

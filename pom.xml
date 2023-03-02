@@ -19,6 +19,12 @@
         <module>fly-webmvc</module>
         <module>fly-response</module>
         <module>fly-runner</module>
+        <module>fly-spring</module>
+        <module>fly-tools</module>
+        <module>fly-rbac</module>
+        <module>fly-crypto</module>
+        <module>fly-assets</module>
+        <module>fly-log</module>
     </modules>
 
     <properties>
