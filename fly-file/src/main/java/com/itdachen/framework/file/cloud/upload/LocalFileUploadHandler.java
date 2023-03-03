@@ -15,7 +15,7 @@ import java.io.IOException;
 import java.util.Objects;
 
 /**
- * Description:
+ * Description: 本地文件上传
  * Created by 王大宸 on 2023/02/10 16:52
  * Created with IntelliJ IDEA.
  */
@@ -35,23 +35,26 @@ public class LocalFileUploadHandler extends FileUploadService {
             if (StringUtils.isEmpty(file.getOriginalFilename())) {
                 throw new Exception("请选择需要上传的文件");
             }
-
             /* 校验文件头 */
             if (properties.getVerifyFileHeader()) {
                 verifyFileHeaderService.verifyFileHeader(file);
             }
-
 
             long size = file.getSize();
             String fileName = file.getOriginalFilename();
 
             // 文件上传
             String src = fileUpload(file, filePath());
-            // 文件网络地址
-            String url = properties.getLocalHttp() + MapPathUtils.mapPath(properties.getMapPath()) + src.replace(properties.getDiskFolder(), "");
-
+            // 文件网络地址处理
+            String url = MapPathUtils.mapPath(properties.getMapPath()) + src.replace(properties.getDiskFolder(), "");
+            url = url.replaceAll("//", "/");
+            if (properties.getLocalHttp().endsWith("/")) {
+                url = properties.getLocalHttp().substring(0, properties.getLocalHttp().length() - 1) + url;
+            } else {
+                url = properties.getLocalHttp() + url;
+            }
             return new FileInfo.Builder()
-                    .url(url.replaceAll("//", "/"))
+                    .url(url)
                     .name(fileName)
                     .size(size)
                     .format(fileName.substring(fileName.lastIndexOf(".")))
