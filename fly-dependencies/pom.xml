@@ -158,6 +158,11 @@
                 <artifactId>fly-log</artifactId>
                 <version>${fly.framework.dependencies.version}</version>
             </dependency>
+            <dependency>
+                <groupId>com.itdachen.framework</groupId>
+                <artifactId>fly-security</artifactId>
+                <version>${fly.framework.dependencies.version}</version>
+            </dependency>
 
             <!-- alibaba json -->
             <dependency>

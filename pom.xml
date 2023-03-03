@@ -25,6 +25,7 @@
         <module>fly-crypto</module>
         <module>fly-assets</module>
         <module>fly-log</module>
+        <module>fly-security</module>
     </modules>
 
     <properties>
