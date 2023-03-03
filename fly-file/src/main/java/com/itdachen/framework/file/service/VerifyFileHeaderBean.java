@@ -15,7 +15,7 @@ public class VerifyFileHeaderBean {
 
     @Bean
     @ConditionalOnMissingBean(IVerifyFileHeaderService.class)
-    public IVerifyFileHeaderService imageValidateCodeGenerator() {
+    public IVerifyFileHeaderService verifyFileHeaderService() {
        return new VerifyFileHeaderServiceImpl();
     }
 
