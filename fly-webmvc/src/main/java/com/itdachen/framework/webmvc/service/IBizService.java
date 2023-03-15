@@ -18,13 +18,6 @@ import java.util.List;
 public interface IBizService<T, V, Q extends BizQuery, PK> {
 
     /**
-     * 查询所有
-     * @return java.util.List<V>
-     * @throws Exception
-     */
-    List<V> list() throws Exception;
-
-    /**
      * 分页查询
      * @param params 查询参数
      * @return com.itdachen.framework.core.response.TableData<V>
@@ -44,17 +37,9 @@ public interface IBizService<T, V, Q extends BizQuery, PK> {
      * 根据id查询数据
      *
      * @param id 根据id查询数据
-     * @return T
-     */
-    T getById(PK id) throws Exception;
-
-    /**
-     * 根据id查询数据
-     *
-     * @param id 根据id查询数据
      * @return V
      */
-    V getVoById(PK id) throws Exception;
+    V getById(PK id) throws Exception;
 
     /**
      * 更新数据

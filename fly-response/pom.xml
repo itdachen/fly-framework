@@ -13,9 +13,19 @@
     <name>fly-response</name>
     <packaging>jar</packaging>
     <version>${fly.framework.version}</version>
-    <description>系统认证 token 生成及解析模块</description>
+    <description>统一返回模块</description>
 
     <dependencies>
+        <dependency>
+            <groupId>com.itdachen.framework</groupId>
+            <artifactId>fly-context</artifactId>
+        </dependency>
+        <dependency>
+            <groupId>com.itdachen.framework</groupId>
+            <artifactId>fly-core</artifactId>
+            <scope>compile</scope>
+        </dependency>
+
         <dependency>
             <groupId>org.springframework</groupId>
             <artifactId>spring-webmvc</artifactId>
@@ -24,21 +34,9 @@
             <groupId>org.springframework.boot</groupId>
             <artifactId>spring-boot-autoconfigure</artifactId>
         </dependency>
-
-        <!-- 工具类 -->
         <dependency>
             <groupId>com.fasterxml.jackson.datatype</groupId>
             <artifactId>jackson-datatype-jsr310</artifactId>
-        </dependency>
-        <dependency>
-            <groupId>com.itdachen.framework</groupId>
-            <artifactId>fly-context</artifactId>
-        </dependency>
-        <dependency>
-            <groupId>com.itdachen.framework</groupId>
-            <artifactId>fly-core</artifactId>
-            <version>0.0.1</version>
-            <scope>compile</scope>
         </dependency>
         <dependency>
             <groupId>org.slf4j</groupId>

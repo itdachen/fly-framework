@@ -87,7 +87,7 @@ public class BizController<BizService extends IBizService<T, V, Q, PK>, T, V, Q 
     @GetMapping(value = "/{id}")
     @ResponseBody
     public ServerResponse<V> getById(@PathVariable("id") PK id) throws Exception {
-        return ServerResponse.okData(bizService.getVoById(id));
+        return ServerResponse.okData(bizService.getById(id));
     }
 
     /**

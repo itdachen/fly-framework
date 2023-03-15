@@ -13,12 +13,7 @@
     <name>fly-webmvc</name>
     <packaging>jar</packaging>
     <version>${fly.framework.version}</version>
-    <description>系统认证 token 生成及解析模块</description>
-
-    <properties>
-        <maven.compiler.source>17</maven.compiler.source>
-        <maven.compiler.target>17</maven.compiler.target>
-    </properties>
+    <description>基础 MVC 模块</description>
 
     <dependencies>
         <dependency>
@@ -77,7 +72,6 @@
             <artifactId>spring-jdbc</artifactId>
         </dependency>
 
-        <!-- 工具类 -->
         <dependency>
             <groupId>com.fasterxml.jackson.datatype</groupId>
             <artifactId>jackson-datatype-jsr310</artifactId>

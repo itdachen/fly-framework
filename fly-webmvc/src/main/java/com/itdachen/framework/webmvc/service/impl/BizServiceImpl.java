@@ -7,6 +7,7 @@ import com.itdachen.framework.core.exception.BizException;
 import com.itdachen.framework.core.response.TableData;
 import com.itdachen.framework.core.utils.StringUtils;
 import com.itdachen.framework.webmvc.entity.EntityUtils;
+import com.itdachen.framework.webmvc.mapper.IBizMapper;
 import com.itdachen.framework.webmvc.service.IBizService;
 import com.itdachen.framework.webmvc.utils.JdbcUtils;
 import org.slf4j.Logger;
@@ -15,7 +16,6 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.jdbc.core.JdbcTemplate;
 import org.springframework.transaction.annotation.Transactional;
 import org.springframework.util.CollectionUtils;
-import tk.mybatis.mapper.common.Mapper;
 import tk.mybatis.mapper.entity.Example;
 
 import java.lang.reflect.ParameterizedType;
@@ -27,27 +27,12 @@ import java.util.Map;
  * Created by 王大宸 on 2022-06-30 9:47
  * Created with IntelliJ IDEA.
  */
-public class BizServiceImpl<IBizMapper extends Mapper<T>, T, V, Q extends BizQuery, PK> implements IBizService<T, V, Q, PK> {
+public class BizServiceImpl<BizMapper extends IBizMapper<T, V, Q, PK>, T, V, Q extends BizQuery, PK> implements IBizService<T, V, Q, PK> {
     private static final Logger logger = LoggerFactory.getLogger(BizServiceImpl.class);
     @Autowired
-    protected IBizMapper bizMapper;
+    protected BizMapper bizMapper;
     @Autowired
     protected JdbcTemplate jdbcTemplate;
-
-    /**
-     * 查询所有
-     *
-     * @return java.util.List<V>
-     * @throws BizException
-     */
-    @Override
-    public List<V> list() throws Exception {
-        return (List<V>) bizMapper.selectAll();
-    }
-
-    protected List<T> selectByExample(Object example) throws Exception {
-        return bizMapper.selectByExample(example);
-    }
 
     /**
      * 分页查询
@@ -69,9 +54,9 @@ public class BizServiceImpl<IBizMapper extends Mapper<T>, T, V, Q extends BizQue
                         .orEqualTo(entry.getKey(), entry.getValue() == null ? "" : entry.getValue());
             }
         }
-        example.setOrderByClause("create_time DESC");
+        example.setOrderByClause("id DESC");
         Page<V> page = PageHelper.startPage(params.getPage(), params.getLimit());
-        List<V> list = (List<V>) this.selectByExample(example);
+        List<V> list = (List<V>) bizMapper.selectByExample(example);
         return new TableData<V>(page.getTotal(), list);
     }
 
@@ -94,24 +79,12 @@ public class BizServiceImpl<IBizMapper extends Mapper<T>, T, V, Q extends BizQue
      * 根据id查询
      *
      * @param id 根据id查询数据
-     * @return T
-     * @throws BizException
-     */
-    @Override
-    public T getById(PK id) throws Exception {
-        return bizMapper.selectByPrimaryKey(id);
-    }
-
-    /**
-     * 根据id查询
-     *
-     * @param id 根据id查询数据
      * @return V
      * @throws BizException
      */
     @Override
-    public V getVoById(PK id) throws Exception {
-        return (V) bizMapper.selectByPrimaryKey(id);
+    public V getById(PK id) throws Exception {
+        return bizMapper.selectInfoVo(id);
     }
 
     /**
