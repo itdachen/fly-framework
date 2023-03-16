@@ -5,7 +5,7 @@
     <modelVersion>4.0.0</modelVersion>
     <parent>
         <artifactId>fly-framework</artifactId>
-        <groupId>com.itdachen.framework</groupId>
+        <groupId>com.github.itdachen.framework</groupId>
         <version>0.0.1</version>
     </parent>
 
@@ -17,7 +17,7 @@
 
     <dependencies>
         <dependency>
-            <groupId>com.itdachen.framework</groupId>
+            <groupId>com.github.itdachen.framework</groupId>
             <artifactId>fly-context</artifactId>
         </dependency>
         <dependency>

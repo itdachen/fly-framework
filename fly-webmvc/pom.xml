@@ -4,7 +4,7 @@
          xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
     <parent>
         <artifactId>fly-framework</artifactId>
-        <groupId>com.itdachen.framework</groupId>
+        <groupId>com.github.itdachen.framework</groupId>
         <version>0.0.1</version>
     </parent>
     <modelVersion>4.0.0</modelVersion>
@@ -17,19 +17,19 @@
 
     <dependencies>
         <dependency>
-            <groupId>com.itdachen.framework</groupId>
+            <groupId>com.github.itdachen.framework</groupId>
             <artifactId>fly-runner</artifactId>
         </dependency>
         <dependency>
-            <groupId>com.itdachen.framework</groupId>
+            <groupId>com.github.itdachen.framework</groupId>
             <artifactId>fly-context</artifactId>
         </dependency>
         <dependency>
-            <groupId>com.itdachen.framework</groupId>
+            <groupId>com.github.itdachen.framework</groupId>
             <artifactId>fly-response</artifactId>
         </dependency>
         <dependency>
-            <groupId>com.itdachen.framework</groupId>
+            <groupId>com.github.itdachen.framework</groupId>
             <artifactId>fly-core</artifactId>
         </dependency>
 
