@@ -20,6 +20,14 @@ public class BizQuery implements Serializable {
      */
     private int limit = 10;
 
+    public BizQuery() {
+    }
+
+    public BizQuery(int page, int limit) {
+        this.page = page;
+        this.limit = limit;
+    }
+
     public int getPage() {
         return page;
     }
