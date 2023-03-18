@@ -42,6 +42,7 @@
 
         <!-- 工具集 -->
         <cn.hutool>5.8.11</cn.hutool>
+        <commons.io.version>2.11.0</commons.io.version>
     </properties>
 
     <dependencyManagement>
@@ -163,6 +164,16 @@
                 <artifactId>fly-security</artifactId>
                 <version>${fly.framework.dependencies.version}</version>
             </dependency>
+            <dependency>
+                <groupId>com.github.itdachen.framework</groupId>
+                <artifactId>fly-body-advice</artifactId>
+                <version>${fly.framework.dependencies.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>com.github.itdachen.framework</groupId>
+                <artifactId>fly-weixin</artifactId>
+                <version>${fly.framework.dependencies.version}</version>
+            </dependency>
 
             <!-- alibaba json -->
             <dependency>
@@ -225,7 +236,11 @@
                 <artifactId>hutool-http</artifactId>
                 <version>${cn.hutool}</version>
             </dependency>
-
+            <dependency>
+                <groupId>commons-io</groupId>
+                <artifactId>commons-io</artifactId>
+                <version>${commons.io.version}</version>
+            </dependency>
         </dependencies>
     </dependencyManagement>
 
