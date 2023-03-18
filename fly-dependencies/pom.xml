@@ -41,7 +41,7 @@
         <org.mybatis.boot>3.0.1</org.mybatis.boot>
 
         <!-- 工具集 -->
-        <cn.hutool>5.8.11</cn.hutool>
+        <cn.hutool>5.8.15</cn.hutool>
         <commons.io.version>2.11.0</commons.io.version>
     </properties>
 
