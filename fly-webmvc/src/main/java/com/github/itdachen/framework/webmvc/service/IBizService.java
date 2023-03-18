@@ -1,7 +1,7 @@
 package com.github.itdachen.framework.webmvc.service;
 
 import com.github.itdachen.framework.core.biz.BizQuery;
-import com.github.itdachen.framework.core.exception.BizException;
+import com.github.itdachen.framework.context.exception.BizException;
 import com.github.itdachen.framework.core.response.TableData;
 
 /**

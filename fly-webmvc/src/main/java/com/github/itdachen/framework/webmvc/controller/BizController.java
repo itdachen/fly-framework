@@ -3,7 +3,7 @@ package com.github.itdachen.framework.webmvc.controller;
 import com.github.itdachen.framework.context.annotation.Log;
 import com.github.itdachen.framework.core.biz.BizQuery;
 import com.github.itdachen.framework.core.constants.LogType;
-import com.github.itdachen.framework.core.exception.BizException;
+import com.github.itdachen.framework.context.exception.BizException;
 import com.github.itdachen.framework.core.response.ServerResponse;
 import com.github.itdachen.framework.core.response.TableData;
 import com.github.itdachen.framework.webmvc.service.IBizService;

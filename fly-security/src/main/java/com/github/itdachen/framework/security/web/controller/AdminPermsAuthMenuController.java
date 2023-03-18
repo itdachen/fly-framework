@@ -3,7 +3,7 @@ package com.github.itdachen.framework.security.web.controller;
 
 import com.github.itdachen.framework.context.BizContextHandler;
 import com.github.itdachen.framework.context.annotation.IgnoreResponseAdvice;
-import com.github.itdachen.framework.core.exception.BizException;
+import com.github.itdachen.framework.context.exception.BizException;
 import com.github.itdachen.framework.core.response.ServerResponse;
 import com.github.itdachen.framework.security.client.WebClientConfig;
 import com.github.itdachen.framework.security.user.LYearAdminMenu;

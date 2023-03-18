@@ -14,8 +14,8 @@ import java.util.Map;
  * Created by 王大宸 on 2023/03/18 22:50
  * Created with IntelliJ IDEA.
  */
-public class WeChatBizHttpApi {
-    private static final Logger logger = LoggerFactory.getLogger(WeChatBizHttpApi.class);
+public class WeChatBizHttp {
+    private static final Logger logger = LoggerFactory.getLogger(WeChatBizHttp.class);
 
     /***
      * http 请求默认请求头
@@ -71,7 +71,7 @@ public class WeChatBizHttpApi {
 
     public static JSONObject createPost(String uri, Map<String, String> body) {
         return JSONObject.parseObject(HttpUtil.createPost(uri)
-                .headerMap(WeChatBizHttpApi.requestHeader(), false)
+                .headerMap(WeChatBizHttp.requestHeader(), false)
                 .body(String.valueOf(body))
                 .execute()
                 .body()
@@ -80,7 +80,7 @@ public class WeChatBizHttpApi {
 
     public static JSONObject createPost(String uri, Map<String, String> body, String containsKey, String title) throws Exception {
         JSONObject json = JSONObject.parseObject(HttpUtil.createPost(uri)
-                .headerMap(WeChatBizHttpApi.requestHeader(), false)
+                .headerMap(WeChatBizHttp.requestHeader(), false)
                 .body(String.valueOf(body))
                 .execute()
                 .body()

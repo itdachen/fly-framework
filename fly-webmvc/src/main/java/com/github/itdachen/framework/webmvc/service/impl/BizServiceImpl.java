@@ -3,7 +3,7 @@ package com.github.itdachen.framework.webmvc.service.impl;
 import com.github.pagehelper.Page;
 import com.github.pagehelper.PageHelper;
 import com.github.itdachen.framework.core.biz.BizQuery;
-import com.github.itdachen.framework.core.exception.BizException;
+import com.github.itdachen.framework.context.exception.BizException;
 import com.github.itdachen.framework.core.response.TableData;
 import com.github.itdachen.framework.core.utils.StringUtils;
 import com.github.itdachen.framework.webmvc.entity.EntityUtils;

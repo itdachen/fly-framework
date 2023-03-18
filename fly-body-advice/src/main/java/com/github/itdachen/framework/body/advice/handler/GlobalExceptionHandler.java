@@ -1,6 +1,6 @@
 package com.github.itdachen.framework.body.advice.handler;
 
-import com.github.itdachen.framework.core.exception.BizException;
+import com.github.itdachen.framework.context.exception.BizException;
 import com.github.itdachen.framework.core.response.ServerResponse;
 import org.apache.commons.lang3.StringUtils;
 import org.slf4j.Logger;

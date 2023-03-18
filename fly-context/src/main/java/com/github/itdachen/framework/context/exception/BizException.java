@@ -1,4 +1,4 @@
-package com.github.itdachen.framework.core.exception;
+package com.github.itdachen.framework.context.exception;
 
 /**
  * Description: 自定义基础异常
@@ -40,7 +40,6 @@ public class BizException extends Exception {
     public BizException(String message, Throwable cause, boolean enableSuppression, boolean writableStackTrace) {
         super(message, cause, enableSuppression, writableStackTrace);
     }
-
 
     public Integer getStatus() {
         return status;
