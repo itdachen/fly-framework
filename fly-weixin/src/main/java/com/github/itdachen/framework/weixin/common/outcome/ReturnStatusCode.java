@@ -8,6 +8,7 @@ package com.github.itdachen.framework.weixin.common.outcome;
 public class ReturnStatusCode {
     public static final String ERR_CODE_FILED = "errcode";
     public static final String ERR_MSG_FILED = "errmsg";
+    public static final String DEFAULT_MSG = "微信官方发生了一个错误";
 
     public static Integer OK = 0;
     public static Integer ERROR = -1;
