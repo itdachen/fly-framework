@@ -17,7 +17,6 @@
         <module>fly-file</module>
         <module>fly-jwt</module>
         <module>fly-webmvc</module>
-        <module>fly-response</module>
         <module>fly-runner</module>
         <module>fly-spring</module>
         <module>fly-tools</module>
@@ -26,6 +25,7 @@
         <module>fly-assets</module>
         <module>fly-log</module>
         <module>fly-security</module>
+        <module>fly-body-advice</module>
     </modules>
 
     <properties>

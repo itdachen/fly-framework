@@ -1,4 +1,4 @@
-package com.github.itdachen.framework.response.handler;
+package com.github.itdachen.framework.body.advice.handler;
 
 import com.github.itdachen.framework.core.exception.BizException;
 import com.github.itdachen.framework.core.response.ServerResponse;
@@ -16,12 +16,18 @@ import javax.servlet.http.HttpServletResponse;
  * Created by 王大宸 on 2023/02/26 23:42
  * Created with IntelliJ IDEA.
  */
-@RestControllerAdvice(basePackages = {"com.itdachen"})
+@RestControllerAdvice(basePackages = {"com.github.itdachen"})
 public class GlobalExceptionHandler {
     private static final Logger logger = LoggerFactory.getLogger(GlobalExceptionHandler.class);
 
-    /**
+    /***
      * 统一异常处理,自定义抛出异常
+     *
+     * @author 王大宸
+     * @date 2023/3/18 18:34
+     * @param response response
+     * @param ex ex
+     * @return com.github.itdachen.framework.core.response.ServerResponse<java.lang.String>
      */
     @ExceptionHandler(BizException.class)
     public ServerResponse<String> bizExceptionHandler(HttpServletResponse response, BizException ex) {
@@ -33,9 +39,14 @@ public class GlobalExceptionHandler {
         return ServerResponse.errMsg(ex.getMessage());
     }
 
-
-    /**
+    /***
      * 其他异常
+     *
+     * @author 王大宸
+     * @date 2023/3/18 18:34
+     * @param response response
+     * @param ex ex
+     * @return com.github.itdachen.framework.core.response.ServerResponse<java.lang.String>
      */
     @ExceptionHandler(Exception.class)
     public ServerResponse<String> baseExceptionHandler(HttpServletResponse response, Exception ex) {

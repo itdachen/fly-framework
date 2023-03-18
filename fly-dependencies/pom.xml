@@ -21,13 +21,13 @@
         <project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
 
         <!-- Spring Cloud/Spring Boot 组件依赖 -->
-        <spring.boot.version>2.6.6</spring.boot.version>
+        <spring.boot.version>2.6.11</spring.boot.version>
         <spring-cloud-dependencies.version>2021.0.5</spring-cloud-dependencies.version>
         <spring-cloud-alibaba-dependencies.version>2021.0.4.0</spring-cloud-alibaba-dependencies.version>
         <feign.httpclient>12.1</feign.httpclient>
         <spring.boot.admin.server.version>2.6.6</spring.boot.admin.server.version>
 
-        <!-- 项目依赖 -->
+        <!-- alibaba.fastjson -->
         <com.alibaba.fastjson2>2.0.21</com.alibaba.fastjson2>
         <com.alibaba.fastjson>2.0.21</com.alibaba.fastjson>
         <com.alibaba.druid>1.2.15</com.alibaba.druid>

@@ -2,18 +2,18 @@
 <project xmlns="http://maven.apache.org/POM/4.0.0"
          xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
          xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+    <modelVersion>4.0.0</modelVersion>
     <parent>
-        <artifactId>fly-framework</artifactId>
         <groupId>com.github.itdachen.framework</groupId>
+        <artifactId>fly-framework</artifactId>
         <version>0.0.1</version>
     </parent>
-    <modelVersion>4.0.0</modelVersion>
 
-    <artifactId>fly-response</artifactId>
-    <name>fly-response</name>
+    <artifactId>fly-body-advice</artifactId>
+    <name>fly-body-advice</name>
     <packaging>jar</packaging>
     <version>${fly.framework.version}</version>
-    <description>统一返回模块</description>
+    <description>统一返回数据格式模块</description>
 
     <dependencies>
         <dependency>
@@ -38,10 +38,7 @@
             <groupId>com.fasterxml.jackson.datatype</groupId>
             <artifactId>jackson-datatype-jsr310</artifactId>
         </dependency>
-        <dependency>
-            <groupId>org.slf4j</groupId>
-            <artifactId>slf4j-api</artifactId>
-        </dependency>
     </dependencies>
+
 
 </project>

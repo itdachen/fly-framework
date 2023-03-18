@@ -1,4 +1,4 @@
-package com.github.itdachen.framework.response.handler;
+package com.github.itdachen.framework.body.advice.handler;
 
 import com.fasterxml.jackson.core.JsonProcessingException;
 import com.fasterxml.jackson.databind.ObjectMapper;
@@ -19,7 +19,7 @@ import org.springframework.web.servlet.mvc.method.annotation.ResponseBodyAdvice;
  * Created by 王大宸 on 2023/02/26 23:43
  * Created with IntelliJ IDEA.
  */
-@RestControllerAdvice(basePackages = {"com.itdachen"})
+@RestControllerAdvice(basePackages = {"com.github.itdachen"})
 public class IgnoreResponseAdviceHandler implements ResponseBodyAdvice<Object> {
     private static final Logger logger = LoggerFactory.getLogger(IgnoreResponseAdviceHandler.class);
 
