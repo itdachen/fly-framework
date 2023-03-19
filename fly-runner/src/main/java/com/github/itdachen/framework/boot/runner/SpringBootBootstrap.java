@@ -30,9 +30,9 @@ public class SpringBootBootstrap {
                 .run(args)
                 .getEnvironment();
 
-        String http = env.getProperty("server.ssl.key-store") != null ? "https" : "http";
-        String port = env.getProperty("server.port");
-        String contextPath = env.getProperty("server.servlet.context-path") == null ? "" : env.getProperty("server.servlet.context-path");
+        final String http = env.getProperty("server.ssl.key-store") != null ? "https" : "http";
+        final String port = env.getProperty("server.port");
+        final String contextPath = env.getProperty("server.servlet.context-path") == null ? "" : env.getProperty("server.servlet.context-path");
         stopWatch.stop();
 
         logger.info("\n" + SeparatorLine.SEPARATOR_LINE + "\n\t" +

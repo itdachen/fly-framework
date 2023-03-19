@@ -1,7 +1,7 @@
 package com.github.itdachen.framework.boot.runner.constants;
 
 /**
- * Description:
+ * Description: 分割线
  * Created by 王大宸 on 2023-01-03 11:24
  * Created with IntelliJ IDEA.
  */
