@@ -30,9 +30,16 @@ public class HikariDataSourceConfiguration extends HikariDataSource implements I
 
     @Override
     public void afterPropertiesSet() throws Exception {
-        this.setPassword(dataSourceEncoder.decrypt(basicProperties.getPassword()));
-        this.setUsername(dataSourceEncoder.decrypt(basicProperties.getUsername()));
-        this.setJdbcUrl(dataSourceEncoder.decrypt(basicProperties.getUrl()));
+        if (super.getPassword() == null) {
+            this.setPassword(dataSourceEncoder.decrypt(basicProperties.getPassword()));
+        }
+        if (super.getUsername() == null) {
+            this.setUsername(dataSourceEncoder.decrypt(basicProperties.getUsername()));
+        }
+        if (super.getJdbcUrl() == null) {
+            this.setJdbcUrl(dataSourceEncoder.decrypt(basicProperties.getUrl()));
+        }
+
     }
 
 }
