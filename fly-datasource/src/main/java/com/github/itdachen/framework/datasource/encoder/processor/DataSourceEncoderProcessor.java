@@ -1,11 +1,11 @@
-package com.github.itdachen.framework.datasource.encoder;
+package com.github.itdachen.framework.datasource.encoder.processor;
 
 /**
- * Description: 加解密接口
- * Created by 王大宸 on 2023/01/28 15:11
+ * Description:
+ * Created by 王大宸 on 2023/03/28 16:30
  * Created with IntelliJ IDEA.
  */
-public interface DataSourceEncoder {
+public interface DataSourceEncoderProcessor {
 
     /***
      * 加密

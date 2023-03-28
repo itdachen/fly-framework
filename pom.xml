@@ -28,6 +28,7 @@
         <module>fly-body-advice</module>
         <module>fly-weixin</module>
         <module>fly-cloud-gateway-dynamic-routes</module>
+        <module>fly-druid-view</module>
     </modules>
 
     <properties>

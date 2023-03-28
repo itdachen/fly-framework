@@ -1,6 +1,6 @@
-package com.github.itdachen.framework.datasource;
+package com.github.itdachen.framework.datasource.config;
 
-import com.github.itdachen.framework.datasource.encoder.DataSourceEncoder;
+import com.github.itdachen.framework.datasource.DataSourceEncoder;
 import com.zaxxer.hikari.HikariDataSource;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
