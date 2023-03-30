@@ -7,7 +7,6 @@ import com.github.itdachen.framework.context.exception.BizException;
 import com.github.itdachen.framework.core.response.TableData;
 import com.github.itdachen.framework.core.utils.StringUtils;
 import com.github.itdachen.framework.webmvc.entity.EntityUtils;
-import com.github.itdachen.framework.webmvc.mapper.IBizMapper;
 import com.github.itdachen.framework.webmvc.service.IBizService;
 import com.github.itdachen.framework.webmvc.utils.JdbcUtils;
 import org.slf4j.Logger;
@@ -16,6 +15,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.jdbc.core.JdbcTemplate;
 import org.springframework.transaction.annotation.Transactional;
 import org.springframework.util.CollectionUtils;
+import tk.mybatis.mapper.common.Mapper;
 import tk.mybatis.mapper.entity.Example;
 
 import java.lang.reflect.ParameterizedType;
@@ -27,10 +27,10 @@ import java.util.Map;
  * Created by 王大宸 on 2022-06-30 9:47
  * Created with IntelliJ IDEA.
  */
-public class BizServiceImpl<BizMapper extends IBizMapper<T, V, Q, PK>, T, V, Q extends BizQuery, PK> implements IBizService<T, V, Q, PK> {
+public class BizServiceImpl<IBizMapper extends Mapper, T, V, Q extends BizQuery, PK> implements IBizService<T, V, Q, PK> {
     private static final Logger logger = LoggerFactory.getLogger(BizServiceImpl.class);
     @Autowired
-    protected BizMapper bizMapper;
+    protected IBizMapper bizMapper;
     @Autowired
     protected JdbcTemplate jdbcTemplate;
 
@@ -84,7 +84,7 @@ public class BizServiceImpl<BizMapper extends IBizMapper<T, V, Q, PK>, T, V, Q e
      */
     @Override
     public V getById(PK id) throws Exception {
-        return bizMapper.selectInfoVo(id);
+        return (V)bizMapper.selectByPrimaryKey(id);
     }
 
     /**
