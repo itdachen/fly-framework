@@ -21,7 +21,7 @@
         <project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
 
         <!-- Spring Cloud/Spring Boot 组件依赖 -->
-        <spring.boot.version>2.6.11</spring.boot.version>
+        <spring.boot.version>2.7.10</spring.boot.version>
         <spring-cloud-dependencies.version>2021.0.5</spring-cloud-dependencies.version>
         <spring-cloud-alibaba-dependencies.version>2021.0.4.0</spring-cloud-alibaba-dependencies.version>
         <feign.httpclient>12.1</feign.httpclient>
@@ -39,6 +39,7 @@
         <tk.mybatis.boot>4.2.2</tk.mybatis.boot>
         <org.mybatis>3.5.11</org.mybatis>
         <org.mybatis.boot>3.0.1</org.mybatis.boot>
+        <mysql.version>8.0.32</mysql.version>
 
         <!-- 工具集 -->
         <cn.hutool>5.8.15</cn.hutool>
@@ -234,6 +235,11 @@
                 <groupId>com.alibaba</groupId>
                 <artifactId>druid-spring-boot-starter</artifactId>
                 <version>${com.alibaba.druid}</version>
+            </dependency>
+            <dependency>
+                <groupId>mysql</groupId>
+                <artifactId>mysql-connector-java</artifactId>
+                <version>${mysql.version}</version>
             </dependency>
 
             <!-- 通用工具类 -->

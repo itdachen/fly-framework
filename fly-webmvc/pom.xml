@@ -24,10 +24,10 @@
             <groupId>com.github.itdachen.framework</groupId>
             <artifactId>fly-context</artifactId>
         </dependency>
-        <dependency>
-            <groupId>com.github.itdachen.framework</groupId>
-            <artifactId>fly-response</artifactId>
-        </dependency>
+<!--        <dependency>-->
+<!--            <groupId>com.github.itdachen.framework</groupId>-->
+<!--            <artifactId>fly-response</artifactId>-->
+<!--        </dependency>-->
         <dependency>
             <groupId>com.github.itdachen.framework</groupId>
             <artifactId>fly-core</artifactId>

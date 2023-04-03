@@ -27,10 +27,10 @@ import java.util.Map;
  * Created by 王大宸 on 2022-06-30 9:47
  * Created with IntelliJ IDEA.
  */
-public class BizServiceImpl<IBizMapper extends Mapper, T, V, Q extends BizQuery, PK> implements IBizService<T, V, Q, PK> {
+public class BizServiceImpl<BizMapper extends Mapper, T, V, Q extends BizQuery, PK> implements IBizService<T, V, Q, PK> {
     private static final Logger logger = LoggerFactory.getLogger(BizServiceImpl.class);
     @Autowired
-    protected IBizMapper bizMapper;
+    protected BizMapper bizMapper;
     @Autowired
     protected JdbcTemplate jdbcTemplate;
 
