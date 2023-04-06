@@ -78,15 +78,18 @@ public class LogAspectj {
 
             // *========数据库日志=========*//
             ApiLogClient apiLog = new ApiLogClient();
-            apiLog.setMethod(ServletUtils.getRequest().getMethod());
+            apiLog.setRequestMethod(ServletUtils.getRequest().getMethod());
             setRequestValue(apiLog, joinPoint);
+            apiLog.setTenantId(BizContextHandler.getTenantId());
             apiLog.setJsonResult(JSONObject.toJSONString(resultJson));
+            apiLog.setServiceId(ServletUtils.getRequest().getContextPath());
             apiLog.setRequestUri(ServletUtils.getRequest().getRequestURI());
-            apiLog.setRemoteIp(ServletUtils.getIPAddress());
-            apiLog.setRemoteType(log.type());
-            String className = joinPoint.getTarget().getClass().getName();
-            String methodName = joinPoint.getSignature().getName();
-            apiLog.setMethod(className + "." + methodName + "()");
+            apiLog.setMakeUseIp(ServletUtils.getIPAddress());
+            apiLog.setLogType(log.type());
+            apiLog.setMakeUseType(log.title());
+//            String className = joinPoint.getTarget().getClass().getName();
+//            String methodName = joinPoint.getSignature().getName();
+            //  apiLog.set(className + "." + methodName + "()");
 
             // 获取当前的用户
             apiLog.setId(IdUtils.getId());
@@ -96,17 +99,17 @@ public class LogAspectj {
 
             CheckApiClient apiClient = joinPoint.getTarget().getClass().getAnnotation(CheckApiClient.class);
             if (null != apiClient) {
-                apiLog.setTitle(apiClient.title());
+                apiLog.setMenuTitle(apiClient.title());
                 apiLog.setClientId(apiClient.clientId());
             }
 
             // 业务操作
             ServerResponse res = ObjectUtils.objToClass(resultJson, ServerResponse.class);
             if (null != res) {
-                apiLog.setRemoteStatus(ApiLogConstant.IS_OK);
+                apiLog.setMakeUseStatus(ApiLogConstant.IS_OK);
                 apiLog.setMsg(res.getMsg());
                 if (!res.getSuccess()) {
-                    apiLog.setRemoteStatus(ApiLogConstant.IS_ERR);
+                    apiLog.setMakeUseStatus(ApiLogConstant.IS_ERR);
                 }
             }
             // 保存数据库

@@ -26,7 +26,7 @@ public class AsyncFactory {
             @Override
             public void run() {
                 // 远程查询操作地点
-                apiLog.setRemoteAddress(AddressUtils.getRealAddressByIP(apiLog.getRemoteIp()));
+                apiLog.setMakeUseAddress(AddressUtils.getRealAddressByIP(apiLog.getMakeUseIp()));
                 SpringBeanUtils.getBean(IApiLogClientService.class).save(apiLog);
             }
         };
