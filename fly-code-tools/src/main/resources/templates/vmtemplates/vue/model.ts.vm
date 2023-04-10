@@ -1,0 +1,38 @@
+/*
+ * Description: ${comments}
+ * Created by ${author} on ${datetime}
+ * Created with IntelliJ Webstorm.
+ */
+
+import {BizQuery} from "@/hooks/biz/BizModel";
+
+/**
+ * ${functionName} 查询参数
+ *
+ * @author ${author}
+ * @date ${datetime}
+ */
+export interface ${ClassName}Query extends BizQuery {
+    #foreach ($column in $columns)
+        #if($column.isQuery == '1')
+            /** $column.columnComment */
+           $column.javaField?: string,
+        #end
+    #end
+}
+
+
+/**
+ * ${functionName} 向后端传值对象
+ *
+ * @author ${author}
+ * @date ${datetime}
+ */
+export interface ${ClassName} {
+    #foreach ($column in $columns)
+        #if($column.isDtoVo == '1')
+            /** $column.columnComment */
+                $column.javaField?: string,
+        #end
+    #end
+}

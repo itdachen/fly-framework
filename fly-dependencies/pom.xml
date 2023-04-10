@@ -186,6 +186,11 @@
                 <artifactId>fly-druid-view</artifactId>
                 <version>${fly.framework.dependencies.version}</version>
             </dependency>
+            <dependency>
+                <groupId>com.github.itdachen.framework</groupId>
+                <artifactId>fly-code-tools</artifactId>
+                <version>${fly.framework.dependencies.version}</version>
+            </dependency>
 
 
             <!-- alibaba json -->

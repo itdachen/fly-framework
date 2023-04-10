@@ -1,0 +1,77 @@
+<template>
+    <el-container>
+        <el-main>
+            <!-- 表格展示 -->
+            <pro-table :data="tableDataVo" :columns="columns" @reloadDate="reloadDate">
+                <template #tableHeader="scope">
+                    <el-form label-width="80px" :inline="true">
+                        <el-form-item class="search-item">
+                            <el-input :prefix-icon="Search" placeholder="请输入名称"
+                                      v-model="queryParams.name"
+                                      @keyup.enter="handlerSearch(queryParams)"></el-input>
+                        </el-form-item>
+                        <el-form-item>
+                            <el-button :icon="Search" @click="handlerSearch(queryParams)">搜索</el-button>
+                            <el-button v-permission="['${permsPrefix}:save']" type="primary" :icon="CirclePlus" plain
+                                       @click="handlerSave()">新增
+                            </el-button>
+                        </el-form-item>
+                    </el-form>
+                </template>
+                <!-- 表格操作 -->
+                <template #operation="scope">
+                    <el-button v-permission="['${permsPrefix}:view']" type="primary" plain :icon="View"
+                               @click="handlerView(scope.row)">查看
+                    </el-button>
+                    <el-button v-permission="['${permsPrefix}:update']" type="primary" plain :icon="Edit"
+                               color="#626aef"
+                               @click="handlerUpdate(scope.row)">编辑
+                    </el-button>
+                    <el-button v-permission="['${permsPrefix}:delete']" type="warning" plain :icon="Delete"
+                               @click="handlerRemove(scope.row.id, scope.row.name)">删除
+                    </el-button>
+                </template>
+            </pro-table>
+
+        </el-main>
+
+        <!-- 数据操作:新增/修改/查看 -->
+        <Ref${ClassName} ref="ref${ClassName}" @submit="onSubmit"></Ref${ClassName}>
+
+    </el-container>
+</template>
+
+<script setup lang="ts">
+    import {onMounted} from 'vue';
+    import {Search, Edit, CirclePlus, View, Delete} from '@element-plus/icons';
+    import ProTable from '@/components/table/index.vue';
+    import Ref${ClassName} from './Ref${ClassName}.vue';
+    import use${ClassName}Composable from "@/composables/${moduleName}/${ClassName}Composable";
+
+    const {
+        ref${ClassName},
+        tableDataVo,
+        columns,
+        queryParams,
+        reloadDate,
+        handlerSearch,
+        loadTableData,
+        handlerView,
+        handlerSave,
+        handlerUpdate,
+        handlerRemove,
+        onSubmit
+    } = use${ClassName}Composable();
+
+    /**
+     * 初始化页面时加载
+     */
+    onMounted(() => {
+        loadTableData(queryParams);
+    })
+
+</script>
+
+<style lang="scss" scoped>
+
+</style>

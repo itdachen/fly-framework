@@ -87,9 +87,6 @@ public class VelocityUtils {
     }
 
 
-
-
-
     /***
      * 获取模板信息
      *
@@ -117,7 +114,11 @@ public class VelocityUtils {
         /* 菜单 sql */
         templates.add("templates/vmtemplates/sql/menu.sql.vm");
 
-        if (UiStyleConstant.NONE.equals(uiStyle) || "".equals(uiStyle)) {
+        if ("".equals(uiStyle)) {
+            uiStyle = UiStyleConstant.LAY_UI;
+        }
+
+        if (UiStyleConstant.NONE.equals(uiStyle)) {
             return templates;
         }
 
@@ -147,7 +148,6 @@ public class VelocityUtils {
 
         return templates;
     }
-
 
 
     /**
