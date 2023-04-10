@@ -1,7 +1,7 @@
 package com.github.itdachen.framework.security.context;
 
 import com.github.itdachen.framework.security.exception.ClientTokenException;
-import com.github.itdachen.framework.security.user.CurrentUser;
+import com.github.itdachen.framework.security.user.CurrentUserInfo;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.security.authentication.UsernamePasswordAuthenticationToken;
@@ -73,7 +73,7 @@ public class SecurityContextHandler {
      * @param
      * @return com.home.security.model.CurrentUser
      */
-    public static CurrentUser getUserInfo() throws ClientTokenException {
+    public static CurrentUserInfo getUserInfo() throws ClientTokenException {
         SecurityContext context = SecurityContextHolder.getContext();
         if (null == context) {
             throw new ClientTokenException("用户未登录!");
@@ -86,8 +86,8 @@ public class SecurityContextHandler {
         if (null == principal) {
             throw new ClientTokenException("用户未登录!");
         }
-        if (principal instanceof CurrentUser) {
-            return (CurrentUser) principal;
+        if (principal instanceof CurrentUserInfo) {
+            return (CurrentUserInfo) principal;
         }
         if ("anonymousUser".equals(principal)) {
             logger.error("匿名用户...");

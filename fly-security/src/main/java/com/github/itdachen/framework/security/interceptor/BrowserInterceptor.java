@@ -2,7 +2,7 @@ package com.github.itdachen.framework.security.interceptor;
 
 import com.github.itdachen.framework.context.BizContextHandler;
 import com.github.itdachen.framework.security.context.SecurityContextHandler;
-import com.github.itdachen.framework.security.user.CurrentUser;
+import com.github.itdachen.framework.security.user.CurrentUserInfo;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.http.HttpMethod;
@@ -29,7 +29,7 @@ public class BrowserInterceptor implements HandlerInterceptor {
             return true;
         }
 
-        CurrentUser userInfo = SecurityContextHandler.getUserInfo();
+        CurrentUserInfo userInfo = SecurityContextHandler.getUserInfo();
 
         BizContextHandler.setAccount(userInfo.getUsername());
         BizContextHandler.setUserName(userInfo.getName());

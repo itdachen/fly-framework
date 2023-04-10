@@ -3,7 +3,7 @@ package com.github.itdachen.framework.security.details;
 import com.github.itdachen.framework.context.permission.PermissionInfo;
 import com.github.itdachen.framework.core.constants.UserStatusConstant;
 import com.github.itdachen.framework.core.permission.LoginUserModel;
-import com.github.itdachen.framework.security.user.CurrentUser;
+import com.github.itdachen.framework.security.user.CurrentUserInfo;
 import com.github.itdachen.framework.security.exception.BizSecurityException;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -37,7 +37,7 @@ public abstract class AbstractSecurityUserDetailsService implements UserDetailsS
      * @return com.itdachen.security.core.model.CurrentUser
      */
     @Override
-    public CurrentUser loadUserByUsername(String username) throws UsernameNotFoundException {
+    public CurrentUserInfo loadUserByUsername(String username) throws UsernameNotFoundException {
         logger.info("当前登录账号: " + username);
         logger.info("请实现根据登录账号查询用户信息");
         return null;
@@ -51,7 +51,7 @@ public abstract class AbstractSecurityUserDetailsService implements UserDetailsS
      * @param mobile 手机号码
      * @return com.itdachen.security.core.model.CurrentUser
      */
-    public CurrentUser loadUserByMobile(String mobile) throws UsernameNotFoundException {
+    public CurrentUserInfo loadUserByMobile(String mobile) throws UsernameNotFoundException {
         logger.info("当前登录手机号: " + mobile);
         logger.info("请实现根据手机号查询用户信息...");
         return null;
@@ -66,7 +66,7 @@ public abstract class AbstractSecurityUserDetailsService implements UserDetailsS
      * @param providerId     小程序提供商id
      * @return com.itdachen.security.core.model.CurrentUser
      */
-    public CurrentUser appletCodeUser(String appCode, String providerId) throws BizSecurityException {
+    public CurrentUserInfo appletCodeUser(String appCode, String providerId) throws BizSecurityException {
         logger.info("当前登录appCode: " + appCode + "  当前登录providerId: " + providerId);
         logger.info("根据登录账号密码绑定用户信息...");
         return null;
@@ -81,7 +81,7 @@ public abstract class AbstractSecurityUserDetailsService implements UserDetailsS
      * @param providerId   提供商id
      * @return com.itdachen.security.core.model.CurrentUser
      */
-    public CurrentUser loadUserByOpenId(String openId, String providerId) throws BizSecurityException {
+    public CurrentUserInfo loadUserByOpenId(String openId, String providerId) throws BizSecurityException {
         logger.info("当前登录openId: " + openId + "  当前登录providerId: " + providerId);
         logger.info("请实现根据openId查询用户...");
         return null;
@@ -98,7 +98,7 @@ public abstract class AbstractSecurityUserDetailsService implements UserDetailsS
      * @param password     登录密码
      * @return com.itdachen.security.core.model.CurrentUser
      */
-    public CurrentUser bindUserByOpenId(String openId, String providerId, String username, String password) throws BizSecurityException {
+    public CurrentUserInfo bindUserByOpenId(String openId, String providerId, String username, String password) throws BizSecurityException {
         logger.info("当前登录openId: " + openId + "  当前登录providerId: " + providerId);
         logger.info("当前登录username: " + username + "  当前登录password: " + password);
         logger.info("根据登录账号密码绑定用户信息...");
@@ -114,8 +114,8 @@ public abstract class AbstractSecurityUserDetailsService implements UserDetailsS
      * @param userPermission        用户权限
      * @return com.itdachen.security.core.model.CurrentUser
      */
-    protected CurrentUser setUserPermission(LoginUserModel user,
-                                            Set<PermissionInfo> userPermission) {
+    protected CurrentUserInfo setUserPermission(LoginUserModel user,
+                                                Set<PermissionInfo> userPermission) {
         boolean enabled = isEnabled();
         boolean accountNonExpired = accountNonExpired();
         boolean credentialsNonExpired = credentialsNonExpired();
@@ -167,15 +167,15 @@ public abstract class AbstractSecurityUserDetailsService implements UserDetailsS
      * @param grantedAuthorities      权限
      * @return com.itdachen.security.core.model.CurrentUser
      */
-    protected CurrentUser currentUser(LoginUserModel user,
-                                      boolean enabled,
-                                      boolean accountNonExpired,
-                                      boolean credentialsNonExpired,
-                                      boolean accountNonLocked,
-                                      Set<PermissionInfo> userPermission,
-                                      Set<String> perms,
-                                      List<GrantedAuthority> grantedAuthorities) {
-        return new CurrentUser.Builder()
+    protected CurrentUserInfo currentUser(LoginUserModel user,
+                                          boolean enabled,
+                                          boolean accountNonExpired,
+                                          boolean credentialsNonExpired,
+                                          boolean accountNonLocked,
+                                          Set<PermissionInfo> userPermission,
+                                          Set<String> perms,
+                                          List<GrantedAuthority> grantedAuthorities) {
+        return new CurrentUserInfo.Builder()
                 .accountNonExpired(accountNonExpired)
                 .accountNonLocked(accountNonLocked)
                 .credentialsNonExpired(credentialsNonExpired)

@@ -13,7 +13,7 @@ import java.util.Set;
  * Created by 王大宸 on 2022-10-16 13:50
  * Created with IntelliJ IDEA.
  */
-public class CurrentUser extends User implements UserDetails {
+public class CurrentUserInfo extends User implements UserDetails {
     private static final long serialVersionUID = 3011307718906802263L;
     /**
      * 用户id
@@ -107,7 +107,7 @@ public class CurrentUser extends User implements UserDetails {
      */
     private Collection<GrantedAuthority> authorities;
 
-    public CurrentUser(Builder builder) {
+    public CurrentUserInfo(Builder builder) {
         // 登录账号,数据库密码,账号是否可用,账号没有过期,密码没过期,账户没被冻结,权限
         super(builder.username,
                 builder.password,
@@ -262,8 +262,8 @@ public class CurrentUser extends User implements UserDetails {
             return this;
         }
 
-        public CurrentUser build() {
-            return new CurrentUser(this);
+        public CurrentUserInfo build() {
+            return new CurrentUserInfo(this);
         }
     }
 
