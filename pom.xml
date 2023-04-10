@@ -29,7 +29,7 @@
         <module>fly-weixin</module>
         <module>fly-cloud-gateway-dynamic-routes</module>
         <module>fly-druid-view</module>
-        <module>fly-code-build</module>
+        <module>fly-code-tools</module>
     </modules>
 
     <properties>

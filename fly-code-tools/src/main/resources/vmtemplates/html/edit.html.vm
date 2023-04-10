@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <th:block th:include="common/common::common('修改${functionName}')"/>
+    <script th:src="@{/static${menuUrl}/edit.js}" charset="utf-8"></script>
+</head>
+<body>
+
+<form class="layui-form" id="edit${ClassName}Form" th:object="${${className}}">
+    <div class="layui-form-body">
+        #foreach($column in $columns)
+            #set($field=$column.javaField)
+            #if($column.isForm == '1')
+                #set($parentheseIndex=$column.columnComment.indexOf("（"))
+                #if($parentheseIndex != -1)
+                    #set($comment=$column.columnComment.substring(0, $parentheseIndex))
+                #else
+                    #set($comment=$column.columnComment)
+                #end
+                #set($dictType=$column.dictType)
+
+                #if($column.htmlType == "input")
+                    <div class="layui-form-item">
+                        <label class="layui-form-label">
+                            #if($column.isRequired == '1')<span class="required">*</span>#end${comment}
+                        </label>
+                        <div class="layui-input-block">
+                            <input type="text" id="${field}" name="${field}" th:field="*{${field}}"
+                                   autocomplete="off" #if($column.isRequired == '1')lay-verify="required"#end class="layui-input">
+                        </div>
+                    </div>
+                #elseif($column.htmlType == "textarea")
+                    <div class="layui-form-item">
+                        <label class="layui-form-label">
+                            #if($column.isRequired == '1')<span class="required">*</span>#end${comment}
+                        </label>
+                        <div class="layui-input-block">
+                        <textarea id="${field}" name="${field}" th:field="*{${field}}" maxlength="200"
+                                #if($column.isRequired == '1')lay-verify="required"#end autocomplete="off" class="layui-textarea"></textarea>
+                        </div>
+                    </div>
+                #elseif($column.htmlType == "select")
+                    <div class="layui-form-item">
+                        <label class="layui-form-label">
+                            #if($column.isRequired == '1')<span class="required">*</span>#end${comment}
+                        </label>
+                        <div class="layui-input-block">
+                            <select id="${field}" name="${field}" th:with="dicts=${@dict.data('${dictType}')}">
+                                <option value="">请选择${comment}</option>
+                                <option th:each="dict : ${dicts}"
+                                        th:id="${'${field}_' + dict.value}"
+                                        th:field="*{${field}}"
+                                        th:text="${dict.label}"
+                                        th:value="${dict.value}"
+                                        th:checked="${field}">
+                                </option>
+                            </select>
+                        </div>
+                    </div>
+                #elseif($column.htmlType == "radio")
+                    <div class="layui-form-item">
+                        <label class="layui-form-label">
+                            #if($column.isRequired == '1')<span class="required">*</span>#end${comment}
+                        </label>
+                        <div class="layui-input-block" th:with="dicts=${@dict.data('${dictType}')}">
+                            <input type="radio" name="${field}" th:each="dict : ${dicts}"
+                                   th:id="${'${field}_' + dict.value}"
+                                   th:field="*{${field}}"
+                                   th:title="${dict.label}"
+                                   th:value="${dict.value}"
+                                   th:checked="${${className}.${field}}">
+                        </div>
+                    </div>
+                #elseif($column.htmlType == "checkbox")
+                    <div class="layui-form-item">
+                        <label class="layui-form-label">
+                            #if($column.isRequired == '1')<span class="required">*</span>#end${comment}
+                        </label>
+                        <div class="layui-input-block" th:with="dicts=${@dict.data('${dictType}')}">
+                            <input type="checkbox" name="${field}" lay-skin="primary" th:each="dict : ${dicts}"
+                                   th:id="${'${field}_' + dict.value}"
+                                   th:field="*{${field}}"
+                                   th:title="${dict.label}"
+                                   th:value="${dict.value}"
+                                   th:checked="${field}">
+                        </div>
+                    </div>
+                #elseif($column.htmlType == "datetime")
+                    <div class="layui-form-item">
+                        <label class="layui-form-label">
+                            #if($column.isRequired == '1')<span class="required">*</span>#end${comment}
+                        </label>
+                        <div class="layui-input-block">
+                            <input type="text" id="${field}" name="${field}" placeholder="yyyy-MM-dd" th:field="*{${field}}"
+                                   autocomplete="off" #if($column.isRequired == '1')lay-verify="required"#end class="layui-input">
+                        </div>
+                    </div>
+                #elseif($column.htmlType == "imageUpload")
+                    <div class="layui-form-item">
+                        <label class="layui-form-label">
+                            #if($column.isRequired == '1')<span class="required">*</span>#end${comment}
+                        </label>
+                        <div class="layui-input-block">
+                            <div id="${field}UploadImage" class="upload-block">
+                                <div class="layui-upload-drag" id="${field}UploadTips">
+                                    <i class="layui-icon layui-icon-picture" style="color: #999"></i>
+                                    <p>点击上传${comment}</p>
+                                </div>
+                                <img src="" id="${field}ImgSrc" class="upload-block" style="display: none">
+                            </div>
+                            <input type="text" id="${field}" name="${field}"
+                                   th:field="*{${field}}" style="display: none" class="layui-input">
+                        </div>
+                    </div>
+                #elseif($column.htmlType == "fileUpload")
+                    <div class="layui-form-item">
+                        <label class="layui-form-label">
+                            #if($column.isRequired == '1')<span class="required">*</span>#end${comment}
+                        </label>
+                        <div class="layui-input-block">
+                            <input type="text" id="${field}Name" name="${field}Name" readonly="readonly"
+                                   lay-verify="required" autocomplete="off" class="layui-input">
+                            <button type="button" id="${field}Upload" class="layui-btn input-button">
+                                <i class="layui-icon layui-icon-upload"></i>
+                                点击上传${comment}
+                            </button>
+                            <input type="text" id="${field}" name="${field}"
+                                   th:field="*{${field}}"  style="display: none" class="layui-input">
+                        </div>
+                    </div>
+                #end
+            #end
+        #end
+    </div>
+
+    <div class="form-footer">
+        <button type="button" class="button-sub" lay-submit lay-filter="edit${ClassName}">保存</button>
+        <button type="button" class="button-close" id="buttonClose">关闭</button>
+    </div>
+    <input type="text" th:value="*{id}" id="id" name="id" style="display: none">
+</form>
+
+</body>
+</html>

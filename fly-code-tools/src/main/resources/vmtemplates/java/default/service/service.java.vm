@@ -1,0 +1,66 @@
+package ${package}.service;
+
+import ${package}.sdk.dto.${ClassName}Dto;
+import ${package}.sdk.query.${ClassName}Query;
+import ${package}.sdk.vo.${ClassName}Vo;
+import com.github.itdachen.framework.core.response.TableData;
+
+/**
+ * ${functionName} service
+ *
+ * @author ${author}
+ * @date ${datetime}
+ */
+public interface I${ClassName}Service {
+
+    /***
+     * 分页
+     *
+     * @author ${author}
+     * @date ${datetime}
+     * @param params ${package}.query.${ClassName}Query
+     * @return cn.edu.hubu.common.core.response.TableData<${package}.sdk.vo.${ClassName}Vo>
+     */
+    TableData< ${ClassName}Vo > find${ClassName}Page(${ClassName}Query params) throws Exception;
+
+    /***
+     * 新增
+     *
+     * @author ${author}
+     * @date ${datetime}
+     * @param ${className}Dto ${className}Dto
+     * @return ${package}.sdk.dto.${className}
+     */
+     ${ClassName}Dto save${ClassName}(${ClassName}Dto ${className}Dto) throws Exception;
+
+    /***
+     * 根据id查询
+     *
+     * @author ${author}
+     * @date ${datetime}
+     * @param id 需要查询数据的id
+     * @return ${package}.sdk.vo.${ClassName}Vo
+     */
+        ${ClassName}Vo get${ClassName}ById(${primaryKey} id) throws Exception;
+
+    /***
+     * 修改
+     *
+     * @author ${author}
+     * @date ${datetime}
+     * @param ${className}Dto ${className}Dto
+     * @return ${package}.sdk.dto.${className}
+     */
+        ${ClassName}Dto update${ClassName}(${ClassName}Dto ${className}Dto) throws Exception;
+
+    /***
+     * 根据id删除
+     *
+     * @author ${author}
+     * @date ${datetime}
+     * @param id 需要删除数据的id
+     * @return int 影响行数
+     */
+    int remove${ClassName}(${primaryKey} id) throws Exception;
+
+}

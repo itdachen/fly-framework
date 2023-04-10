@@ -1,0 +1,44 @@
+package ${package}.service.impl;
+
+import com.github.pagehelper.Page;
+import com.github.pagehelper.PageHelper;
+import ${package}.entity.${ClassName};
+import ${package}.sdk.query.${ClassName}Query;
+import ${package}.sdk.vo.${ClassName}Vo;
+import com.github.itdachen.framework.core.response.TableData;
+import com.github.itdachen.framework.webmvc.service.impl.BizServiceImpl;
+import ${package}.mapper.I${ClassName}Mapper;
+import ${package}.service.I${ClassName}Service;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
+import org.springframework.stereotype.Service;
+
+import java.util.List;
+
+/**
+ * ${functionName} 业务实现
+ *
+ * @author ${author}
+ * @date ${datetime}
+ */
+@Service
+public class ${ClassName}ServiceImpl extends BizServiceImpl< I${ClassName}Mapper, ${ClassName},  ${ClassName}Vo, ${ClassName}Query, ${primaryKey} > implements I${ClassName}Service {
+    private static final Logger logger = LoggerFactory.getLogger(${ClassName}ServiceImpl.class);
+
+    /***
+    * 分页
+    *
+    * @author ${author}
+    * @date ${datetime}
+    * @param params params
+    * @return cn.edu.hubu.common.core.response.TableData<${package}.sdk.vo.${className}Vo>
+    */
+    @Override
+    public TableData<${ClassName}Vo> page(${ClassName}Query params) throws Exception {
+        Page<${ClassName}Vo> page = PageHelper.startPage(params.getPage(), params.getLimit());
+        List<${ClassName}Vo> list = bizMapper.page(params);
+        return new TableData<${ClassName}Vo>(page.getTotal(), list);
+    }
+
+
+}

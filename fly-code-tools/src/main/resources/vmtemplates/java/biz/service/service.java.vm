@@ -1,0 +1,16 @@
+package ${package}.service;
+
+import ${package}.entity.${ClassName};
+import ${package}.sdk.query.${ClassName}Query;
+import ${package}.sdk.vo.${ClassName}Vo;
+import com.github.itdachen.framework.webmvc.service.IBizService;
+
+/**
+ * ${functionName} 业务接口
+ *
+ * @author ${author}
+ * @date ${datetime}
+ */
+public interface I${ClassName}Service extends IBizService< ${ClassName}, ${ClassName}Vo, ${ClassName}Query, ${primaryKey} > {
+
+}

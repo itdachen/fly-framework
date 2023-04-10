@@ -1,0 +1,116 @@
+package ${package}.service.impl;
+
+import com.github.pagehelper.Page;
+import com.github.pagehelper.PageHelper;
+import ${package}.entity.${ClassName};
+import ${package}.mapper.I${ClassName}Mapper;
+import ${package}.service.I${ClassName}Service;
+import ${package}.sdk.dto.${ClassName}Dto;
+import ${package}.sdk.query.${ClassName}Query;
+import ${package}.sdk.vo.${ClassName}Vo;
+import com.github.itdachen.framework.core.response.TableData;
+import com.github.itdachen.framework.webmvc.entity.EntityUtils;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
+import org.springframework.beans.BeanUtils;
+import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
+
+import java.util.List;
+
+/**
+ * ${functionName} serverImpl
+ *
+ * @author ${author}
+ * @date ${datetime}
+ */
+@Service
+public class ${ClassName}ServiceImpl implements I${ClassName}Service {
+    private static final Logger logger = LoggerFactory.getLogger(${ClassName}ServiceImpl.class);
+
+    private final I${ClassName}Mapper ${className}Mapper;
+
+    public ${ClassName}ServiceImpl(I${ClassName}Mapper ${className}Mapper) {
+        this.${className}Mapper = ${className}Mapper;
+    }
+
+    /***
+     * 分页
+     *
+     * @author ${author}
+     * @date ${datetime}
+     * @param params ${package}.sdk.query.${ClassName}Query
+     * @return cn.edu.hubu.common.core.response.TableData<${package}.sdk.vo.${ClassName}Vo>
+     */
+    @Override
+    public TableData< ${ClassName}Vo > find${ClassName}Page(${ClassName}Query params) throws Exception {
+        Page< ${ClassName}Vo > page = PageHelper.startPage(params.getPage(), params.getLimit());
+        List< ${ClassName}Vo > list = ${className}Mapper.find${ClassName}Page(params);
+        return new TableData< ${ClassName}Vo >(page.getTotal(), list);
+    }
+
+    /***
+     * 新增
+     *
+     * @author ${author}
+     * @date ${datetime}
+     * @param ${className}Dto ${className}Dto
+     * @return ${package}.sdk.dto.${className}
+     */
+    @Override
+    @Transactional(rollbackFor = Exception.class)
+    public ${ClassName}Dto save${ClassName}(${ClassName}Dto ${className}Dto) throws Exception {
+        ${ClassName} ${className} = new ${ClassName}();
+        BeanUtils.copyProperties(${className}Dto, ${className});
+        EntityUtils.setCreatAndUpdateInfo(${className});
+        ${className}Mapper.save${ClassName}(${className});
+        ${className}Dto.setId(${className}.getId());
+        return ${className}Dto;
+    }
+
+    /***
+     * 根据id查询
+     *
+     * @author ${author}
+     * @date ${datetime}
+     * @param id 需要查询数据的id
+     * @return ${package}.sdk.vo.${ClassName}Vo
+     */
+    @Override
+    public ${ClassName}Vo get${ClassName}ById(${primaryKey} id) throws Exception {
+        return ${className}Mapper.getById(id);
+    }
+
+    /***
+     * 修改
+     *
+     * @author ${author}
+     * @date ${datetime}
+     * @param ${className}Dto ${className}Dto
+     * @return ${package}.sdk.dto.${className}
+     */
+    @Override
+    @Transactional(rollbackFor = Exception.class)
+    public ${ClassName}Dto update${ClassName}(${ClassName}Dto ${className}Dto) throws Exception {
+        ${ClassName} ${className} = new ${ClassName}();
+        BeanUtils.copyProperties(${className}Dto, ${className});
+        EntityUtils.setUpdatedInfo(${className});
+        ${className}Mapper.update${ClassName}(${className});
+        return ${className}Dto;
+    }
+
+    /***
+     * 删除
+     *
+     * @author ${author}
+     * @date ${datetime}
+     * @param id 需要删除数据的id
+     * @return int 影响行数
+     */
+    @Override
+    @Transactional(rollbackFor = Exception.class)
+    public int remove${ClassName}(${primaryKey} id) throws Exception {
+           return ${className}Mapper.delete${ClassName}ById(id);
+    }
+
+}

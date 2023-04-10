@@ -1,0 +1,173 @@
+package ${package}.controller;
+
+import ${package}.service.I${ClassName}Service;
+import ${package}.sdk.dto.${ClassName}Dto;
+import ${package}.sdk.query.${ClassName}Query;
+import ${package}.sdk.vo.${ClassName}Vo;
+import com.github.itdachen.framework.context.annotation.Log;
+import com.github.itdachen.framework.core.constants.LogType;
+import com.github.itdachen.framework.context.exception.BizException;
+import com.github.itdachen.framework.core.response.ServerResponse;
+import com.github.itdachen.framework.core.response.TableData;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
+import org.springframework.security.access.prepost.PreAuthorize;
+import org.springframework.stereotype.Controller;
+import org.springframework.validation.annotation.Validated;
+import org.springframework.web.bind.annotation.*;
+
+/**
+ * ${functionName}
+ *
+ * @author ${author}
+ * @date ${datetime}
+ */
+@Controller
+@RequestMapping("${menuUrl}")
+@CheckApiClient(title = "${functionName}", clientId = ClientConstant.CLIENT_WEB)
+public class ${ClassName}Controller {
+    private static final Logger logger = LoggerFactory.getLogger(${ClassName}Controller.class);
+    private static final String PATH_PREFIX = "${pathPrefix}";
+
+    private final I${ClassName}Service ${className}Service;
+
+    public ${ClassName}Controller(I${ClassName}Service ${className}Service) {
+        this.${className}Service = ${className}Service;
+    }
+
+    /***
+     * 跳转到信息管理界面
+     *
+     * @author ${author}
+     * @date ${datetime}
+     * @return java.lang.String
+     */
+    @GetMapping(value = "/index")
+    @PreAuthorize("hasAuthority('${permsPrefix}:index')")
+    public String index() {
+        return PATH_PREFIX + "/index";
+    }
+
+    /***
+     * 跳转到添加页面
+     *
+     * @author ${author}
+     * @date ${datetime}
+     * @return java.lang.String
+     */
+    @GetMapping(value = "/add")
+    @PreAuthorize("hasAuthority('${permsPrefix}:save')")
+    public String add() {
+        return PATH_PREFIX + "/add";
+    }
+
+    /***
+     * 跳转到修改页面
+     *
+     * @author ${author}
+     * @date ${datetime}
+     * @param id         需要修改数据的id
+     * @param modelMap   modelMap
+     * @return java.lang.String
+     */
+    @GetMapping(value = "/edit/{id}")
+    @PreAuthorize("hasAuthority('${permsPrefix}:update')")
+    public String edit(@PathVariable("id") String id, ModelMap modelMap) throws Exception {
+        modelMap.put("${className}", bizService.getById(id));
+        return PATH_PREFIX + "/edit";
+    }
+
+    /***
+     * 跳转到查看页面
+     *
+     * @author ${author}
+     * @date  ${datetime}
+     * @param id          需要查看数据的id
+     * @param modelMap    modelMap
+     * @return java.lang.String
+     */
+    @GetMapping(value = "/view/{id}")
+    @PreAuthorize("hasAuthority('${permsPrefix}:view')")
+    public String see(@PathVariable("id") String id, ModelMap modelMap) throws Exception {
+        modelMap.put("${className}", bizService.getById(id));
+        return PATH_PREFIX + "/see";
+    }
+
+    /***
+     * 分页
+     *
+     * @author ${author}
+     * @date ${datetime}
+     * @param params  ${package}.sdk.query.${ClassName}Query
+     * @return cn.edu.hubu.framework.core.response.ServerResponse<cn.edu.hubu.framework.core.response.TableData<${package}.sdk.vo.${ClassName}Vo>>
+     */
+    @GetMapping(value = "/page")
+    @PreAuthorize("hasAuthority('${permsPrefix}:query')")
+    public ServerResponse< TableData < ${ClassName}Vo > > find${ClassName}Page(${ClassName}Query params) throws Exception {
+        return  ServerResponse.okData(${className}Service.find${ClassName}Page(params));
+    }
+
+    /***
+     * 新增
+     *
+     * @author ${author}
+     * @date ${datetime}
+     * @param ${className}Dto ${className}Dto
+     * @return cn.edu.hubu.framework.core.response.ServerResponse<${package}.sdk.dto.${className}>
+     */
+    @PostMapping(value = "")
+    @PreAuthorize("hasAuthority('${permsPrefix}:save')")
+    @ResponseBody
+    @Log(title = "新增", operationType = LogType.SAVE)
+    public ServerResponse< ${ClassName}Dto > save${ClassName}(@Validated @RequestBody ${ClassName}Dto ${className}Dto) throws Exception {
+        return ServerResponse.okData(${className}Service.save${ClassName}(${className}Dto));
+    }
+
+    /***
+     * 修改
+     *
+     * @author ${author}
+     * @date ${datetime}
+     * @param ${className}Dto ${className}Dto
+     * @return cn.edu.hubu.framework.core.response.ServerResponse<${package}.sdk.dto.${className}>
+     */
+    @PutMapping(value = "/{id}")
+    @PreAuthorize("hasAuthority('${permsPrefix}:update')")
+    @ResponseBody
+    @Log(title = "修改", operationType = LogType.UPDATE)
+    public ServerResponse< ${ClassName}Dto > update${ClassName}(@Validated @RequestBody ${ClassName}Dto ${className}Dto) throws Exception {
+        return ServerResponse.okData(${className}Service.update${ClassName}(${className}Dto));
+    }
+
+    /***
+     * 根据id查询
+     *
+     * @author ${author}
+     * @date ${datetime}
+     * @param id 需要查询数据的id
+     * @return cn.edu.hubu.framework.core.response.ServerResponse<${package}.sdk.vo.${ClassName}Vo>
+     */
+    @GetMapping(value = "/{id}")
+    @PreAuthorize("hasAuthority('${permsPrefix}:view')")
+    public ServerResponse< ${ClassName}Vo > get${ClassName}ById(@PathVariable("id") ${primaryKey} id) throws Exception {
+        return ServerResponse.okData(${className}Service.get${ClassName}ById(id));
+    }
+
+    /***
+     * 删除
+     *
+     * @author ${author}
+     * @date ${datetime}
+     * @param id 需要删除数据的id
+     * @return cn.edu.hubu.framework.core.response.ServerResponse<${package}.sdk.vo.${ClassName}Vo>
+     */
+    @DeleteMapping(value = "/{id}")
+    @PreAuthorize("hasAuthority('${permsPrefix}:delete')")
+    @ResponseBody
+    @Log(title = "删除", operationType = LogType.REMOVE)
+    public ServerResponse< ${ClassName}Vo > remove${ClassName}(@PathVariable("id") ${primaryKey} id) throws Exception {
+            ${className}Service.remove${ClassName}(id);
+        return ServerResponse.ok();
+    }
+
+}

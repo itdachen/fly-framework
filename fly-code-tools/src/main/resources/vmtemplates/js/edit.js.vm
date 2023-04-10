@@ -1,0 +1,48 @@
+﻿layui.use(['form'#foreach($column in $columns)#if('1' ==$column.isForm)
+#if($column.htmlType == 'datetime'), 'laydate'#elseif($column.htmlType == 'imageUpload'), 'upload'#end#end#end], function () {
+    let form = layui.form;
+    form.render();
+    #foreach ($column in $columns)
+        #if('1' ==$column.isForm)
+            #if($column.htmlType == 'datetime')
+    let laydate = layui.laydate;
+            #elseif($column.htmlType == 'imageUpload')
+    let upload = layui.upload;
+            #end  #end
+    #end
+
+    #foreach ($column in $columns)
+        #set($field=$column.javaField)
+        #if ('1' ==$column.isForm)
+        #if($column.htmlType == 'datetime')
+
+            laydate.render({
+                elem: '#${field}'
+            });
+        #elseif($column.htmlType == 'imageUpload')
+
+            $.oss.imageUpload(upload, {
+                id: '${field}UploadImage',
+                tipsBox: '${field}UploadTips',
+                imageSrc: '${field}ImgSrc',
+                fieldName: '${field}',
+                uri: $('#${field}').val()
+            })
+        #elseif($column.htmlType == 'fileUpload')
+
+            $.oss.fileUpload(upload, {
+                id: '${field}Upload',
+                fileUri: '${field}',     // 存放路径字段id
+                fileName: '${field}Name' // 存放文件名称id
+            })
+        #end#end#end
+
+    /* 提交 */
+    form.on('submit(edit${ClassName})', function (data) {
+        $.form.submit({
+            url: '${menuUrl}/' + data.field.id,
+            data: data.field
+        })
+    });
+
+});
