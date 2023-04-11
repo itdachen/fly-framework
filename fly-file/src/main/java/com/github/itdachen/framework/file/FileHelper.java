@@ -25,9 +25,9 @@ public class FileHelper {
      * 文件上传
      *
      * @author 王大宸
-     * @date 2023/2/13 9:52
+     * @date 2023/4/11 21:14
      * @param file file
-     * @return cn.edu.hubu.framework.file.entity.FileInfo
+     * @return com.github.itdachen.framework.file.entity.FileInfo
      */
     public FileInfo upload(MultipartFile file) throws Exception {
         return factory.build().upload(file);

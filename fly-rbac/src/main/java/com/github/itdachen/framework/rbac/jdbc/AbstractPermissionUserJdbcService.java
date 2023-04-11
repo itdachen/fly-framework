@@ -18,7 +18,7 @@ public abstract class AbstractPermissionUserJdbcService implements IPermissionUs
      * @date 2022/12/13 14:12
      * @param userId 当前登录用户ID
      * @param jobId  当前岗位ID
-     * @return java.util.List<cn.edu.hubu.framework.context.permission.PermissionInfo>
+     * @return java.util.List<com.github.itdachen.framework.context.permission.PermissionInfo>
      */
     @Override
     public List<PermissionInfo> findUserJobPermission(String userId,
@@ -35,7 +35,7 @@ public abstract class AbstractPermissionUserJdbcService implements IPermissionUs
      * @author 王大宸
      * @date 2022/12/13 14:13
      * @param userId 当前登录用户ID
-     * @return java.util.List<cn.edu.hubu.framework.context.permission.PermissionInfo>
+     * @return java.util.List<com.github.itdachen.framework.context.permission.PermissionInfo>
      */
     @Override
     public List<PermissionInfo> findUserPermission(String userId,
@@ -53,7 +53,7 @@ public abstract class AbstractPermissionUserJdbcService implements IPermissionUs
      * @param userId 当前用户id
      * @param hostIp 当前登录系统ip
      * @param jobId 当前岗位
-     * @return java.util.List<cn.edu.hubu.framework.context.permission.PermissionInfo>
+     * @return java.util.List<com.github.itdachen.framework.context.permission.PermissionInfo>
      */
     protected abstract List<PermissionInfo> findUserJobMenuPermission(String userId,
                                                                       String hostIp,
@@ -67,7 +67,7 @@ public abstract class AbstractPermissionUserJdbcService implements IPermissionUs
      * @param userId 当前用户id
      * @param hostIp 当前登录系统ip
      * @param jobId 当前岗位
-     * @return java.util.List<cn.edu.hubu.framework.context.permission.PermissionInfo>
+     * @return java.util.List<com.github.itdachen.framework.context.permission.PermissionInfo>
      */
     protected abstract List<PermissionInfo> findUserJobElementPermission(String userId,
                                                                          String hostIp,
@@ -80,7 +80,7 @@ public abstract class AbstractPermissionUserJdbcService implements IPermissionUs
      * @date 2022/12/13 15:29
      * @param userId 用户id
      * @param hostIp 当前系统 ip
-     * @return java.util.List<cn.edu.hubu.framework.context.permission.PermissionInfo>
+     * @return java.util.List<com.github.itdachen.framework.context.permission.PermissionInfo>
      */
     protected abstract List<PermissionInfo> findUserMenuPermission(String userId,
                                                                    String hostIp) throws Exception;
@@ -92,7 +92,7 @@ public abstract class AbstractPermissionUserJdbcService implements IPermissionUs
      * @date 2022/12/13 15:30
      * @param userId 用户id
      * @param hostIp 当前系统 ip
-     * @return java.util.List<cn.edu.hubu.framework.context.permission.PermissionInfo>
+     * @return java.util.List<com.github.itdachen.framework.context.permission.PermissionInfo>
      */
     protected abstract List<PermissionInfo> findUserElementPermission(String userId,
                                                                       String hostIp) throws Exception;

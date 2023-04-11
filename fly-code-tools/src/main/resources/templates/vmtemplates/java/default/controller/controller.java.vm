@@ -99,7 +99,7 @@ public class ${ClassName}Controller {
      * @author ${author}
      * @date ${datetime}
      * @param params  ${package}.sdk.query.${ClassName}Query
-     * @return cn.edu.hubu.framework.core.response.ServerResponse<cn.edu.hubu.framework.core.response.TableData<${package}.sdk.vo.${ClassName}Vo>>
+     * @return com.github.itdachen.framework.core.response.ServerResponse<com.github.itdachen.framework.core.response.TableData<${package}.sdk.vo.${ClassName}Vo>>
      */
     @GetMapping(value = "/page")
     @PreAuthorize("hasAuthority('${permsPrefix}:query')")
@@ -113,7 +113,7 @@ public class ${ClassName}Controller {
      * @author ${author}
      * @date ${datetime}
      * @param ${className}Dto ${className}Dto
-     * @return cn.edu.hubu.framework.core.response.ServerResponse<${package}.sdk.dto.${className}>
+     * @return com.github.itdachen.framework.core.response.ServerResponse<${package}.sdk.dto.${className}>
      */
     @PostMapping(value = "")
     @PreAuthorize("hasAuthority('${permsPrefix}:save')")
@@ -129,7 +129,7 @@ public class ${ClassName}Controller {
      * @author ${author}
      * @date ${datetime}
      * @param ${className}Dto ${className}Dto
-     * @return cn.edu.hubu.framework.core.response.ServerResponse<${package}.sdk.dto.${className}>
+     * @return com.github.itdachen.framework.core.response.ServerResponse<${package}.sdk.dto.${className}>
      */
     @PutMapping(value = "/{id}")
     @PreAuthorize("hasAuthority('${permsPrefix}:update')")
@@ -145,7 +145,7 @@ public class ${ClassName}Controller {
      * @author ${author}
      * @date ${datetime}
      * @param id 需要查询数据的id
-     * @return cn.edu.hubu.framework.core.response.ServerResponse<${package}.sdk.vo.${ClassName}Vo>
+     * @return com.github.itdachen.framework.core.response.ServerResponse<${package}.sdk.vo.${ClassName}Vo>
      */
     @GetMapping(value = "/{id}")
     @PreAuthorize("hasAuthority('${permsPrefix}:view')")
@@ -159,7 +159,7 @@ public class ${ClassName}Controller {
      * @author ${author}
      * @date ${datetime}
      * @param id 需要删除数据的id
-     * @return cn.edu.hubu.framework.core.response.ServerResponse<${package}.sdk.vo.${ClassName}Vo>
+     * @return com.github.itdachen.framework.core.response.ServerResponse<${package}.sdk.vo.${ClassName}Vo>
      */
     @DeleteMapping(value = "/{id}")
     @PreAuthorize("hasAuthority('${permsPrefix}:delete')")

@@ -16,8 +16,8 @@ public interface IPermissionJdbcService {
      * 获取所有的权限信息
      *
      * @author 王大宸
-     * @date 2022/12/13 14:09
-     * @return java.util.List<cn.edu.hubu.framework.context.permission.PermissionInfo>
+     * @date 2023/4/11 21:13
+     * @return java.util.List<com.github.itdachen.framework.context.permission.PermissionInfo>
      */
     List<PermissionInfo> findAllPermission() throws Exception;
 

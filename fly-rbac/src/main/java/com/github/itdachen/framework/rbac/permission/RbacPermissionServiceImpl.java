@@ -32,7 +32,7 @@ public class RbacPermissionServiceImpl implements IRbacPermissionService {
      * @param hostIp        当前登录IP
      * @param requestUri    请求地址
      * @param requestMethod 请求方法
-     * @return cn.edu.hubu.framework.context.permission.CheckPermissionInfo
+     * @return com.github.itdachen.framework.context.permission.CheckPermissionInfo
      */
     @Override
     public CheckPermissionInfo checkUserPermission(String userId,

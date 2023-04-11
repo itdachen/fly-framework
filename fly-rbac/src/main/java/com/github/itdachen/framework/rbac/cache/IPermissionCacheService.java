@@ -16,7 +16,7 @@ public interface IPermissionCacheService {
      *
      * @author 王大宸
      * @date 2022/12/13 14:09
-     * @return java.util.List<cn.edu.hubu.framework.context.permission.PermissionInfo>
+     * @return java.util.List<com.github.itdachen.framework.context.permission.PermissionInfo>
      */
     List<PermissionInfo> findAllPermission() throws Exception;
 
@@ -27,7 +27,7 @@ public interface IPermissionCacheService {
      * @date 2022/12/13 14:12
      * @param userId 当前登录用户ID
      * @param jobId  当前岗位ID
-     * @return java.util.List<cn.edu.hubu.framework.context.permission.PermissionInfo>
+     * @return java.util.List<com.github.itdachen.framework.context.permission.PermissionInfo>
      */
     List<PermissionInfo> findUserJobPermission(String userId, String hostIp, String jobId) throws Exception;
 
@@ -37,7 +37,7 @@ public interface IPermissionCacheService {
      * @author 王大宸
      * @date 2022/12/13 14:13
      * @param userId 当前登录用户ID
-     * @return java.util.List<cn.edu.hubu.framework.context.permission.PermissionInfo>
+     * @return java.util.List<com.github.itdachen.framework.context.permission.PermissionInfo>
      */
     List<PermissionInfo> findUserPermission(String userId, String hostIp) throws Exception;
 

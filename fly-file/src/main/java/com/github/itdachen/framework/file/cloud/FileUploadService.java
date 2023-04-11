@@ -21,9 +21,9 @@ public abstract class FileUploadService {
      * 文件上传统一接口
      *
      * @author 王大宸
-     * @date 2023/2/10 17:00
+     * @date 2023/4/11 21:14
      * @param file file
-     * @return cn.edu.hubu.framework.file.entity.FileInfo
+     * @return com.github.itdachen.framework.file.entity.FileInfo
      */
     public abstract FileInfo upload(MultipartFile file) throws Exception;
 

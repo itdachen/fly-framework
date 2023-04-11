@@ -30,8 +30,8 @@ public class FileFactory {
      * 文件上传
      *
      * @author 王大宸
-     * @date 2023/2/10 17:07
-     * @return cn.edu.hubu.framework.file.cloud.FileUploadService
+     * @date 2023/4/11 21:15
+     * @return com.github.itdachen.framework.file.cloud.FileUploadService
      */
     public FileUploadService build() {
         return new LocalFileUploadHandler(properties, verifyFileHeaderService);
@@ -42,9 +42,9 @@ public class FileFactory {
      * 文件下载
      *
      * @author 王大宸
-     * @date 2023/2/10 16:56
+     * @date 2023/4/11 21:15
      * @param uri uri
-     * @return cn.edu.hubu.framework.file.factory.DownloadService
+     * @return com.github.itdachen.framework.file.cloud.DownloadService
      */
     public DownloadService build(String uri) {
         if (uri.startsWith(properties.getLocalHttp())) {

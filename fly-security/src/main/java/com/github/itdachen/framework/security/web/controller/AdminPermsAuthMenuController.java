@@ -62,7 +62,7 @@ public class AdminPermsAuthMenuController {
      *
      * @author 王大宸
      * @date 2023/2/3 9:16
-     * @return cn.edu.hubu.framework.core.response.ServerResponse<java.util.List < com.github.itdachen.framework.user.LYearAdminMenu>>
+     * @return com.github.itdachen.framework.core.response.ServerResponse<java.util.List < com.github.itdachen.framework.user.LYearAdminMenu>>
      */
     @GetMapping("/lyear/admin/menu")
     public ServerResponse<List<LYearAdminMenu>> findLYearAdminMenu() throws Exception {

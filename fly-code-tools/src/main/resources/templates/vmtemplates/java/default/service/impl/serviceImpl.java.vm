@@ -40,7 +40,7 @@ public class ${ClassName}ServiceImpl implements I${ClassName}Service {
      * @author ${author}
      * @date ${datetime}
      * @param params ${package}.sdk.query.${ClassName}Query
-     * @return cn.edu.hubu.common.core.response.TableData<${package}.sdk.vo.${ClassName}Vo>
+     * @return com.github.itdachen.framework.core.response.TableData<${package}.sdk.vo.${ClassName}Vo>
      */
     @Override
     public TableData< ${ClassName}Vo > find${ClassName}Page(${ClassName}Query params) throws Exception {

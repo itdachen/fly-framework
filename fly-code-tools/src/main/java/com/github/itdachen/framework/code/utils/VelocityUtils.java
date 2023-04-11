@@ -241,9 +241,9 @@ public class VelocityUtils {
      * 获取 dto/vo 属性的字段
      *
      * @author 王大宸
-     * @date 2023/3/20 14:15
+     * @date 2023/4/11 21:15
      * @param columns columns
-     * @return java.util.List<cn.edu.hubu.tools.sdk.vo.TableColumnVo>
+     * @return java.util.List<com.github.itdachen.framework.code.sdk.vo.TableColumnVo>
      */
     private static List<TableColumnVo> dtoVoColumnName(List<TableColumnVo> columns) {
         List<TableColumnVo> list = new ArrayList<>();
@@ -259,9 +259,9 @@ public class VelocityUtils {
      * 获取 查询/query 属性的字段
      *
      * @author 王大宸
-     * @date 2023/3/20 14:57
+     * @date 2023/4/11 21:15
      * @param columns columns
-     * @return java.util.List<cn.edu.hubu.tools.sdk.vo.TableColumnVo>
+     * @return java.util.List<com.github.itdachen.framework.code.sdk.vo.TableColumnVo>
      */
     private static List<TableColumnVo> queryColumnName(List<TableColumnVo> columns) {
         List<TableColumnVo> list = new ArrayList<>();
