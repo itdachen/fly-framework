@@ -259,7 +259,7 @@ public class VelocityUtils {
      * 获取 查询/query 属性的字段
      *
      * @author 王大宸
-     * @date 2023/4/11 21:15
+     * @date 2023/4/11 21:29
      * @param columns columns
      * @return java.util.List<com.github.itdachen.framework.code.sdk.vo.TableColumnVo>
      */

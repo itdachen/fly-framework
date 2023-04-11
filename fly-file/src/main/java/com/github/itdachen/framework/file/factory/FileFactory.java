@@ -42,7 +42,7 @@ public class FileFactory {
      * 文件下载
      *
      * @author 王大宸
-     * @date 2023/4/11 21:15
+     * @date 2023/4/11 21:28
      * @param uri uri
      * @return com.github.itdachen.framework.file.cloud.DownloadService
      */

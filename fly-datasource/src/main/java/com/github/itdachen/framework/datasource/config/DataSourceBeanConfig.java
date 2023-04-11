@@ -54,7 +54,7 @@ public class DataSourceBeanConfig {
      */
     @Bean
     @ConditionalOnMissingBean(DataSourceEncoder.class)
-    public DataSourceEncoder smsCodeSender() {
+    public DataSourceEncoder defaultDataSourceEncoder() {
         return new DefaultDataSourceEncoder(encoderProcessor);
     }
 

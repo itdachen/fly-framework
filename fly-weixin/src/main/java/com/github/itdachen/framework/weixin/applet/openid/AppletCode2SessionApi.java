@@ -1,7 +1,7 @@
 package com.github.itdachen.framework.weixin.applet.openid;
 
 import com.alibaba.fastjson.JSONObject;
-import com.github.itdachen.framework.weixin.applet.eneity.AppletCode2SessionInfo;
+import com.github.itdachen.framework.weixin.applet.entity.AppletCode2SessionInfo;
 import com.github.itdachen.framework.weixin.common.client.WeChatBizHttp;
 import com.github.itdachen.framework.weixin.common.outcome.ReturnStatusCode;
 import org.slf4j.Logger;

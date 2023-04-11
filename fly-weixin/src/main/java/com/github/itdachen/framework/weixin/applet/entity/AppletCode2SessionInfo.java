@@ -1,4 +1,4 @@
-package com.github.itdachen.framework.weixin.applet.eneity;
+package com.github.itdachen.framework.weixin.applet.entity;
 
 import org.apache.commons.lang3.builder.ToStringBuilder;
 import org.apache.commons.lang3.builder.ToStringStyle;

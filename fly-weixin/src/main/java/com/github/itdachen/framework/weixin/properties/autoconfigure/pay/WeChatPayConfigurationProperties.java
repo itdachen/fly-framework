@@ -1,18 +1,24 @@
-package com.github.itdachen.framework.weixin.properties.configuration.pay;
-
-import java.io.Serializable;
+package com.github.itdachen.framework.weixin.properties.autoconfigure.pay;
 
 /**
- * Description: 微信支付配置
- * Created by 王大宸 on 2023/03/19 13:26
+ * Description: 微信支付配置文件
+ * Created by 王大宸 on 2023/04/11 21:29
  * Created with IntelliJ IDEA.
  */
-public class WeChatPayProperties implements Serializable {
-    private static final long serialVersionUID = 3413550161118989335L;
-
+public class WeChatPayConfigurationProperties {
 
     /**
-     * 小程序/公众号等 appId
+     * 是否启动微信支付
+     */
+    private Boolean enabled = false;
+
+    /**
+     * 是否加密
+     */
+    private Boolean crypto = false;
+
+    /**
+     * 公众号/小程序 appId
      */
     private String appId;
 
@@ -34,12 +40,28 @@ public class WeChatPayProperties implements Serializable {
     /**
      * APIv3密钥
      */
-    private String key;
+    private String secretKey;
 
     /**
-     * 接收结果通知地址, 配置域名, 例如: https://api.pay.itdachen.com
+     * 接收结果通知地址, 配置域名, 例如: https://api.pay.itdachen.github.com
      */
     private String notifyDomain;
+
+    public Boolean getEnabled() {
+        return enabled;
+    }
+
+    public void setEnabled(Boolean enabled) {
+        this.enabled = enabled;
+    }
+
+    public Boolean getCrypto() {
+        return crypto;
+    }
+
+    public void setCrypto(Boolean crypto) {
+        this.crypto = crypto;
+    }
 
     public String getMchId() {
         return mchId;
@@ -65,12 +87,12 @@ public class WeChatPayProperties implements Serializable {
         this.privateKeyPath = privateKeyPath;
     }
 
-    public String getKey() {
-        return key;
+    public String getSecretKey() {
+        return secretKey;
     }
 
-    public void setKey(String key) {
-        this.key = key;
+    public void setSecretKey(String secretKey) {
+        this.secretKey = secretKey;
     }
 
     public String getAppId() {
@@ -88,5 +110,6 @@ public class WeChatPayProperties implements Serializable {
     public void setNotifyDomain(String notifyDomain) {
         this.notifyDomain = notifyDomain;
     }
+
 
 }
