@@ -45,6 +45,8 @@
         <cn.hutool>5.8.15</cn.hutool>
         <commons.io.version>2.11.0</commons.io.version>
         <commons-lang.version>2.6</commons-lang.version>
+        <io.jsonwebtoken.jjwt.version>0.11.5</io.jsonwebtoken.jjwt.version>
+        <joda-time.version>2.12.2</joda-time.version>
     </properties>
 
     <dependencyManagement>
@@ -119,6 +121,11 @@
             <dependency>
                 <groupId>com.github.itdachen.framework</groupId>
                 <artifactId>fly-jwt</artifactId>
+                <version>${fly.framework.dependencies.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>com.github.itdachen.framework</groupId>
+                <artifactId>fly-jjwt</artifactId>
                 <version>${fly.framework.dependencies.version}</version>
             </dependency>
             <dependency>
@@ -268,6 +275,33 @@
                 <groupId>commons-lang</groupId>
                 <artifactId>commons-lang</artifactId>
                 <version>${commons-lang.version}</version>
+            </dependency>
+
+            <!-- jjwt -->
+            <dependency>
+                <groupId>io.jsonwebtoken</groupId>
+                <artifactId>jjwt-api</artifactId>
+                <version>${io.jsonwebtoken.jjwt.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>io.jsonwebtoken</groupId>
+                <artifactId>jjwt-impl</artifactId>
+                <version>${io.jsonwebtoken.jjwt.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>io.jsonwebtoken</groupId>
+                <artifactId>jjwt-jackson</artifactId>
+                <version>${io.jsonwebtoken.jjwt.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>io.jsonwebtoken</groupId>
+                <artifactId>jjwt-gson</artifactId>
+                <version>${io.jsonwebtoken.jjwt.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>joda-time</groupId>
+                <artifactId>joda-time</artifactId>
+                <version>${joda-time.version}</version>
             </dependency>
         </dependencies>
     </dependencyManagement>

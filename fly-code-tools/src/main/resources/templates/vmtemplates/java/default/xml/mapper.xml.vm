@@ -127,7 +127,7 @@
     <update id="batchUpdate" parameterType="java.util.List">
         <foreach collection="list" item="item" index="index" separator=";">
             UPDATE  ${tableName}
-            <SET>
+            <set>
                 #foreach($column in $columns)
                     #if($column.columnName != $primaryKey.columnName)
                         <if test="null != item.$column.javaField #if($column.javaType ==
@@ -136,7 +136,7 @@
                         </if>
                     #end
                 #end
-            </SET>
+            </set>
             WHERE id = #{item.id}
         </foreach>
     </update>
