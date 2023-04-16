@@ -4,6 +4,7 @@ import org.apache.commons.lang3.builder.ToStringBuilder;
 import org.apache.commons.lang3.builder.ToStringStyle;
 
 import java.io.Serializable;
+import java.time.LocalDateTime;
 import java.util.Map;
 
 /**
@@ -110,6 +111,21 @@ public class CurrentUserDetails implements Serializable {
     private Boolean isSuperAdmin;
 
     /**
+     * 删除标志(1-已删除;0-未删除)
+     */
+    private String delFlag;
+
+    /**
+     * 是否可删除(0-不可删除;1-可删除)
+     */
+    private String canDel;
+
+    /**
+     * 过期时间(密码过期时间, 有些系统需要定期更新账号的密码)
+     */
+    private LocalDateTime expireTime;
+
+    /**
      * 其他信息
      */
     private Map<String, String> other;
@@ -136,6 +152,8 @@ public class CurrentUserDetails implements Serializable {
                               String sex, String deptId,
                               String deptTitle, String postId,
                               String postTitle, String grade,
+                              String delFlag, String canDel,
+                              LocalDateTime expireTime,
                               Boolean isSuperAdmin, Map<String, String> other) {
         this.id = id;
         this.tenantId = tenantId;
@@ -155,6 +173,9 @@ public class CurrentUserDetails implements Serializable {
         this.postId = postId;
         this.postTitle = postTitle;
         this.grade = grade;
+        this.delFlag = delFlag;
+        this.canDel = canDel;
+        this.expireTime = expireTime;
         this.isSuperAdmin = isSuperAdmin;
         this.other = other;
     }
@@ -319,6 +340,30 @@ public class CurrentUserDetails implements Serializable {
         this.status = status;
     }
 
+    public String getDelFlag() {
+        return delFlag;
+    }
+
+    public void setDelFlag(String delFlag) {
+        this.delFlag = delFlag;
+    }
+
+    public String getCanDel() {
+        return canDel;
+    }
+
+    public void setCanDel(String canDel) {
+        this.canDel = canDel;
+    }
+
+    public LocalDateTime getExpireTime() {
+        return expireTime;
+    }
+
+    public void setExpireTime(LocalDateTime expireTime) {
+        this.expireTime = expireTime;
+    }
+
     @Override
     public String toString() {
         return new ToStringBuilder(this, ToStringStyle.MULTI_LINE_STYLE)
@@ -342,6 +387,9 @@ public class CurrentUserDetails implements Serializable {
                 .append("other", getOther())
                 .append("accountSecret", getAccountSecret())
                 .append("status", getStatus())
+                .append("delFlag", getDelFlag())
+                .append("canDel", getCanDel())
+                .append("expireTime", getExpireTime())
                 .toString();
     }
 
