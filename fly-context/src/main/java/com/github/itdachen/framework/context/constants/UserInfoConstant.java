@@ -88,6 +88,11 @@ public class UserInfoConstant {
     public static final String E_MAIL = "email";
 
     /**
+     * 其他
+     */
+    public static final String OTHER = "other";
+
+    /**
      * 用户 token
      */
     public static final String TOKEN = "token";

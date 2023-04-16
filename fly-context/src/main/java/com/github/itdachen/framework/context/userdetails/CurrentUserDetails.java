@@ -104,8 +104,16 @@ public class CurrentUserDetails implements Serializable {
      */
     private Map<String, String> other;
 
+    public CurrentUserDetails() {}
 
-    public CurrentUserDetails() {
+    public CurrentUserDetails(String id,
+                              String tenantId,
+                              String nickName,
+                              String avatar) {
+        this.id = id;
+        this.tenantId = tenantId;
+        this.nickName = nickName;
+        this.avatar = avatar;
     }
 
     public CurrentUserDetails(String id, String tenantId,
@@ -137,164 +145,163 @@ public class CurrentUserDetails implements Serializable {
         this.other = other;
     }
 
-    public static CurrentUserDetailsBuilder builder() {
-        return new CurrentUserDetailsBuilder();
-    }
-
-    public static class CurrentUserDetailsBuilder {
-        private String id;
-        private String tenantId;
-        private String nickName;
-        private String avatar;
-        private String telephone;
-        private String email;
-        private String account;
-        private String appId;
-        private String openId;
-        private String userType;
-        private String sex;
-        private String deptId;
-        private String deptTitle;
-        private String postId;
-        private String postTitle;
-        private String grade;
-        private String isSuperAdmin;
-        private Map<String, String> other;
-
-        public CurrentUserDetailsBuilder() {
-        }
-
-        /* 用户ID */
-        public CurrentUserDetailsBuilder id(String id) {
-            this.id = id;
-            return this;
-        }
-
-        /* 租户ID */
-        public CurrentUserDetailsBuilder tenantId(String tenantId) {
-            this.tenantId = tenantId;
-            return this;
-        }
-
-        /* 昵称 */
-        public CurrentUserDetailsBuilder nickName(String nickName) {
-            this.nickName = nickName;
-            return this;
-        }
-
-        /* 头像 */
-        public CurrentUserDetailsBuilder avatar(String avatar) {
-            this.avatar = avatar;
-            return this;
-        }
-
-        /* 联系电话 */
-        public CurrentUserDetailsBuilder telephone(String telephone) {
-            this.telephone = telephone;
-            return this;
-        }
-
-        /* 电子邮箱 */
-        public CurrentUserDetailsBuilder email(String email) {
-            this.email = email;
-            return this;
-        }
-
-        /* 登录账号 */
-        public CurrentUserDetailsBuilder account(String account) {
-            this.account = account;
-            return this;
-        }
-
-        /* 服务提供商ID */
-        public CurrentUserDetailsBuilder appId(String appId) {
-            this.appId = appId;
-            return this;
-        }
-
-        /* 服务商提供的用户ID */
-        public CurrentUserDetailsBuilder openId(String openId) {
-            this.openId = openId;
-            return this;
-        }
-
-        /* 用户类型 */
-        public CurrentUserDetailsBuilder userType(String userType) {
-            this.userType = userType;
-            return this;
-        }
-
-        /* 用户性别 */
-        public CurrentUserDetailsBuilder sex(String sex) {
-            this.sex = sex;
-            return this;
-        }
-
-        /* 部门ID */
-        public CurrentUserDetailsBuilder deptId(String deptId) {
-            this.deptId = deptId;
-            return this;
-        }
-
-        /* 部门名称 */
-        public CurrentUserDetailsBuilder deptTitle(String deptTitle) {
-            this.deptTitle = deptTitle;
-            return this;
-        }
-
-        /* 岗位ID */
-        public CurrentUserDetailsBuilder postId(String postId) {
-            this.postId = postId;
-            return this;
-        }
-
-        /* 岗位名称 */
-        public CurrentUserDetailsBuilder postTitle(String postTitle) {
-            this.postTitle = postTitle;
-            return this;
-        }
-
-        /* 等级/级次 */
-        public CurrentUserDetailsBuilder grade(String grade) {
-            this.grade = grade;
-            return this;
-        }
-
-        /* 是否超级管理员 */
-        public CurrentUserDetailsBuilder isSuperAdmin(String isSuperAdmin) {
-            this.isSuperAdmin = isSuperAdmin;
-            return this;
-        }
-
-        /* 其他信息 */
-        public CurrentUserDetailsBuilder other(Map<String, String> other) {
-            this.other = other;
-            return this;
-        }
-
-        public CurrentUserDetails build() {
-            return new CurrentUserDetails(id,
-                    tenantId,
-                    nickName,
-                    avatar,
-                    telephone,
-                    email,
-                    account,
-                    appId,
-                    openId,
-                    userType,
-                    sex,
-                    deptId,
-                    deptTitle,
-                    postId,
-                    postTitle,
-                    grade,
-                    isSuperAdmin,
-                    other
-            );
-        }
-
-    }
+//    public static CurrentUserDetailsBuilder builder() {
+//        return new CurrentUserDetailsBuilder();
+//    }
+//
+//    public static class CurrentUserDetailsBuilder {
+//        private String id;
+//        private String tenantId;
+//        private String nickName;
+//        private String avatar;
+//        private String telephone;
+//        private String email;
+//        private String account;
+//        private String appId;
+//        private String openId;
+//        private String userType;
+//        private String sex;
+//        private String deptId;
+//        private String deptTitle;
+//        private String postId;
+//        private String postTitle;
+//        private String grade;
+//        private String isSuperAdmin;
+//        private Map<String, String> other;
+//
+//        public CurrentUserDetailsBuilder() {
+//        }
+//
+//        /* 用户ID */
+//        public CurrentUserDetailsBuilder id(String id) {
+//            this.id = id;
+//            return this;
+//        }
+//
+//        /* 租户ID */
+//        public CurrentUserDetailsBuilder tenantId(String tenantId) {
+//            this.tenantId = tenantId;
+//            return this;
+//        }
+//
+//        /* 昵称 */
+//        public CurrentUserDetailsBuilder nickName(String nickName) {
+//            this.nickName = nickName;
+//            return this;
+//        }
+//
+//        /* 头像 */
+//        public CurrentUserDetailsBuilder avatar(String avatar) {
+//            this.avatar = avatar;
+//            return this;
+//        }
+//
+//        /* 联系电话 */
+//        public CurrentUserDetailsBuilder telephone(String telephone) {
+//            this.telephone = telephone;
+//            return this;
+//        }
+//
+//        /* 电子邮箱 */
+//        public CurrentUserDetailsBuilder email(String email) {
+//            this.email = email;
+//            return this;
+//        }
+//
+//        /* 登录账号 */
+//        public CurrentUserDetailsBuilder account(String account) {
+//            this.account = account;
+//            return this;
+//        }
+//
+//        /* 服务提供商ID */
+//        public CurrentUserDetailsBuilder appId(String appId) {
+//            this.appId = appId;
+//            return this;
+//        }
+//
+//        /* 服务商提供的用户ID */
+//        public CurrentUserDetailsBuilder openId(String openId) {
+//            this.openId = openId;
+//            return this;
+//        }
+//
+//        /* 用户类型 */
+//        public CurrentUserDetailsBuilder userType(String userType) {
+//            this.userType = userType;
+//            return this;
+//        }
+//
+//        /* 用户性别 */
+//        public CurrentUserDetailsBuilder sex(String sex) {
+//            this.sex = sex;
+//            return this;
+//        }
+//
+//        /* 部门ID */
+//        public CurrentUserDetailsBuilder deptId(String deptId) {
+//            this.deptId = deptId;
+//            return this;
+//        }
+//
+//        /* 部门名称 */
+//        public CurrentUserDetailsBuilder deptTitle(String deptTitle) {
+//            this.deptTitle = deptTitle;
+//            return this;
+//        }
+//
+//        /* 岗位ID */
+//        public CurrentUserDetailsBuilder postId(String postId) {
+//            this.postId = postId;
+//            return this;
+//        }
+//
+//        /* 岗位名称 */
+//        public CurrentUserDetailsBuilder postTitle(String postTitle) {
+//            this.postTitle = postTitle;
+//            return this;
+//        }
+//
+//        /* 等级/级次 */
+//        public CurrentUserDetailsBuilder grade(String grade) {
+//            this.grade = grade;
+//            return this;
+//        }
+//
+//        /* 是否超级管理员 */
+//        public CurrentUserDetailsBuilder isSuperAdmin(String isSuperAdmin) {
+//            this.isSuperAdmin = isSuperAdmin;
+//            return this;
+//        }
+//
+//        /* 其他信息 */
+//        public CurrentUserDetailsBuilder other(Map<String, String> other) {
+//            this.other = other;
+//            return this;
+//        }
+//
+//        public CurrentUserDetails build() {
+//            return new CurrentUserDetails(id,
+//                    tenantId,
+//                    nickName,
+//                    avatar,
+//                    telephone,
+//                    email,
+//                    account,
+//                    appId,
+//                    openId,
+//                    userType,
+//                    sex,
+//                    deptId,
+//                    deptTitle,
+//                    postId,
+//                    postTitle,
+//                    grade,
+//                    isSuperAdmin,
+//                    other
+//            );
+//        }
+//    }
 
     public void setId(String id) {
         this.id = id;

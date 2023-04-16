@@ -3,6 +3,8 @@ package com.github.itdachen.framework.context;
 import com.github.itdachen.framework.context.constants.UserInfoConstant;
 import com.github.itdachen.framework.context.handler.GlobalContextThreadLocalHandler;
 
+import java.util.Map;
+
 /**
  * Description: 当前线程中全局获取用户信息
  * Created by 王大宸 on 2022-06-28 15:34
@@ -154,6 +156,17 @@ public class BizContextHandler {
 
     public static void setEmail(String telephone) {
         GlobalContextThreadLocalHandler.set(UserInfoConstant.E_MAIL, telephone);
+    }
+
+    /**
+     * 获取用户邮箱
+     */
+    public static String getOther() {
+        return GlobalContextThreadLocalHandler.returnObjectValue(GlobalContextThreadLocalHandler.get(UserInfoConstant.OTHER));
+    }
+
+    public static void setOther(Map<String, String > other) {
+        GlobalContextThreadLocalHandler.set(UserInfoConstant.OTHER, other);
     }
 
     /**
