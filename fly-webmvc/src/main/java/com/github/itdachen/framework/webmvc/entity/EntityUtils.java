@@ -59,7 +59,7 @@ public class EntityUtils {
             value = new Object[]{
                     id,
                     BizContextHandler.getTenantId(),
-                    BizContextHandler.getUserName(),
+                    BizContextHandler.getNickName(),
                     BizContextHandler.getUserId(),
                     LocalDateTime.now(),
                     hostIp
@@ -69,7 +69,7 @@ public class EntityUtils {
             value = new Object[]{
                     id,
                     BizContextHandler.getTenantId(),
-                    BizContextHandler.getUserName(),
+                    BizContextHandler.getNickName(),
                     BizContextHandler.getUserId(),
                     LocalDateTime.now().format(DateTimeFormatter.ofPattern("yyyy-MM-dd HH:mm:ss")),
                     hostIp
@@ -79,7 +79,7 @@ public class EntityUtils {
             value = new Object[]{
                     id,
                     BizContextHandler.getTenantId(),
-                    BizContextHandler.getUserName(),
+                    BizContextHandler.getNickName(),
                     BizContextHandler.getUserId(), new Date(),
                     hostIp
             };
@@ -106,7 +106,7 @@ public class EntityUtils {
         if (updateTime != null && updateTime.getType().equals(LocalDateTime.class)) {
             value = new Object[]{
                     LocalDateTime.now(),
-                    BizContextHandler.getUserName(),
+                    BizContextHandler.getNickName(),
                     BizContextHandler.getUserId(),
                     hostIp
             };
@@ -114,7 +114,7 @@ public class EntityUtils {
         if (updateTime != null && updateTime.getType().equals(String.class)) {
             value = new Object[]{
                     LocalDateTime.now().format(DateTimeFormatter.ofPattern("yyyy-MM-dd HH:mm:ss")),
-                    BizContextHandler.getUserName(),
+                    BizContextHandler.getNickName(),
                     BizContextHandler.getUserId(),
                     hostIp
             };
@@ -122,7 +122,7 @@ public class EntityUtils {
         if (updateTime != null && updateTime.getType().equals(Date.class)) {
             value = new Object[]{
                     new Date(),
-                    BizContextHandler.getUserName(),
+                    BizContextHandler.getNickName(),
                     BizContextHandler.getUserId(),
                     hostIp
             };

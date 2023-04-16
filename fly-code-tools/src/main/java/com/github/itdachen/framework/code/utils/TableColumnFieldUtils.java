@@ -36,16 +36,16 @@ public class TableColumnFieldUtils {
             tableInfo.setCreateUser(BizContextHandler.getUserId());
             tableInfo.setUpdateTime(LocalDateTime.now());
             tableInfo.setUpdateUserId(BizContextHandler.getUserId());
-            tableInfo.setUpdateUser(BizContextHandler.getUserName());
+            tableInfo.setUpdateUser(BizContextHandler.getNickName());
             tableInfo.setUiStyle(uiStyle);
             tableInfo.setTableName(protoTable.getTableName());
-            tableInfo.setFunctionAuthor(BizContextHandler.getUserName());
+            tableInfo.setFunctionAuthor(BizContextHandler.getNickName());
             tableInfo.setTableComment(protoTable.getTableComment());
             tableInfo.setClassName(GeneratorUtils.tableToJava(protoTable.getTableName(), ""));
             tableInfo.setPackageName(GenConstants.PACKAGE_NAME);
             tableInfo.setModuleName(GenConstants.MODULE_NAME);
             tableInfo.setFunctionName(protoTable.getTableComment());
-            tableInfo.setFunctionAuthor(BizContextHandler.getUserName());
+            tableInfo.setFunctionAuthor(BizContextHandler.getNickName());
             tableInfo.setGenType("0");
             tableInfo.setTplCategory(GenConstants.TPL_BIZ);
             tableInfo.setContextPath(ContextPathHandler.contextPath());
@@ -66,7 +66,7 @@ public class TableColumnFieldUtils {
                 column.setCreateUser(BizContextHandler.getUserId());
                 column.setUpdateTime(LocalDateTime.now());
                 column.setUpdateUserId(BizContextHandler.getUserId());
-                column.setUpdateUser(BizContextHandler.getUserName());
+                column.setUpdateUser(BizContextHandler.getNickName());
                 column.setTableId(tableInfo.getId());
                 column.setColumnName(protoColumn.getColumnName());
                 column.setColumnComment(protoColumn.getColumnComment());

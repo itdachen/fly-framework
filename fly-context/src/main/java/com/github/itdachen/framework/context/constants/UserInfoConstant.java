@@ -10,7 +10,7 @@ public class UserInfoConstant {
     /**
      * 登录账号
      */
-    public static final String USER_ACCOUNT = "account";
+    public static final String ACCOUNT = "account";
 
     /**
      * 用户id
@@ -25,7 +25,7 @@ public class UserInfoConstant {
     /**
      * 用户姓名
      */
-    public static final String USER_NAME = "userName";
+    public static final String NICK_NAME = "nickName";
 
     /**
      * 头像
@@ -33,14 +33,34 @@ public class UserInfoConstant {
     public static final String AVATAR = "avatar";
 
     /**
+     * 服务提供商ID
+     */
+    public static final String APP_ID = "appId";
+
+    /**
+     * 服务商提供的用户ID
+     */
+    public static final String OPEN_ID = "openId";
+
+    /**
+     * 登录账号类型
+     */
+    public static final String USER_TYPE = "userType";
+
+    /**
+     * 性别
+     */
+    public static final String SEX = "sex";
+
+    /**
      * 部门id
      */
-    public static final String DEPART_ID = "departId";
+    public static final String DEPT_ID = "deptId";
 
     /**
      * 部门名称
      */
-    public static final String DEPART_TITLE = "departTitle";
+    public static final String DEPT_TITLE = "deptTitle";
 
     /**
      * 岗位id
@@ -53,19 +73,14 @@ public class UserInfoConstant {
     public static final String POST_TITLE = "postTitle";
 
     /**
-     * 登录账号类型
-     */
-    public static final String USER_TYPE = "userType";
-
-    /**
      * 电话号码
      */
     public static final String TELEPHONE = "telephone";
 
     /**
-     * 性别
+     * 用户账号等级/账号级次等
      */
-    public static final String SEX = "sex";
+    public static final String GRADE = "grade";
 
     /**
      * 电子邮箱
@@ -87,10 +102,13 @@ public class UserInfoConstant {
      */
     public static final String LOG_ID = "logId";
 
-    public static final String JWT_KEY_EXPIRE = "expire";
+    /**
+     * 过期时间
+     */
+    public static final String EXPIRES_IN = "expire_in";
 
     public final static String HEADER_AUTHORIZATION = "Authorization";
 
-    public static final String JWT_TOKEN_TYPE = "Bearer ";
+    public static final String TOKEN_TYPE = "Bearer ";
 
 }

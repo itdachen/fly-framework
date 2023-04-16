@@ -38,8 +38,8 @@ public class HmacJwtTokenHandler extends JwtTokenHandler {
 
         Map<String, String> claimsMap = jwtInfo.getOtherInfo();
         claimsMap.put(UserInfoConstant.USER_ID ,jwtInfo.getId());
-        claimsMap.put(UserInfoConstant.USER_NAME ,jwtInfo.getName());
-        claimsMap.put(UserInfoConstant.USER_ACCOUNT ,jwtInfo.getUniqueName());
+        claimsMap.put(UserInfoConstant.NICK_NAME ,jwtInfo.getName());
+        claimsMap.put(UserInfoConstant.ACCOUNT ,jwtInfo.getUniqueName());
         claimsMap.put(UserInfoConstant.TENANT_ID ,jwtInfo.getUniqueName());
 
         //签发时间

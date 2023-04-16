@@ -22,25 +22,14 @@ public class BizContextHandler {
     }
 
     /**
-     * 获取登录账号
-     */
-    public static String getAccount() {
-        return GlobalContextThreadLocalHandler.returnObjectValue(GlobalContextThreadLocalHandler.get(UserInfoConstant.USER_ACCOUNT));
-    }
-
-    public static void setAccount(String username) {
-        GlobalContextThreadLocalHandler.set(UserInfoConstant.USER_ACCOUNT, username);
-    }
-
-    /**
      * 获取用户姓名
      */
-    public static String getUserName() {
-        return GlobalContextThreadLocalHandler.returnObjectValue(GlobalContextThreadLocalHandler.get(UserInfoConstant.USER_NAME));
+    public static String getNickName() {
+        return GlobalContextThreadLocalHandler.returnObjectValue(GlobalContextThreadLocalHandler.get(UserInfoConstant.NICK_NAME));
     }
 
-    public static void setUserName(String name) {
-        GlobalContextThreadLocalHandler.set(UserInfoConstant.USER_NAME, name);
+    public static void setNickName(String name) {
+        GlobalContextThreadLocalHandler.set(UserInfoConstant.NICK_NAME, name);
     }
 
     /**
@@ -55,14 +44,49 @@ public class BizContextHandler {
     }
 
     /**
-     * 获取部门id
+     * 租户id
      */
-    public static String getDepartId() {
-        return GlobalContextThreadLocalHandler.returnObjectValue(GlobalContextThreadLocalHandler.get(UserInfoConstant.DEPART_ID));
+    public static String getTenantId() {
+        return GlobalContextThreadLocalHandler.returnObjectValue(GlobalContextThreadLocalHandler.get(UserInfoConstant.TENANT_ID));
     }
 
-    public static void setDepartId(String depart) {
-        GlobalContextThreadLocalHandler.set(UserInfoConstant.DEPART_ID, depart);
+    public static void setTenantId(String tenantId) {
+        GlobalContextThreadLocalHandler.set(UserInfoConstant.TENANT_ID, tenantId);
+    }
+
+
+
+    /**
+     * 获取登录账号
+     */
+    public static String getAccount() {
+        return GlobalContextThreadLocalHandler.returnObjectValue(GlobalContextThreadLocalHandler.get(UserInfoConstant.ACCOUNT));
+    }
+
+    public static void setAccount(String username) {
+        GlobalContextThreadLocalHandler.set(UserInfoConstant.ACCOUNT, username);
+    }
+
+    /**
+     * 服务提供商ID
+     */
+    public static String getAppId() {
+        return GlobalContextThreadLocalHandler.returnObjectValue(GlobalContextThreadLocalHandler.get(UserInfoConstant.APP_ID));
+    }
+
+    public static void setAppId(String avatar) {
+        GlobalContextThreadLocalHandler.set(UserInfoConstant.APP_ID, avatar);
+    }
+
+    /**
+     * 服务提供商ID
+     */
+    public static String getOpenId() {
+        return GlobalContextThreadLocalHandler.returnObjectValue(GlobalContextThreadLocalHandler.get(UserInfoConstant.OPEN_ID));
+    }
+
+    public static void setOpenId(String avatar) {
+        GlobalContextThreadLocalHandler.set(UserInfoConstant.OPEN_ID, avatar);
     }
 
     /**
@@ -76,15 +100,38 @@ public class BizContextHandler {
         GlobalContextThreadLocalHandler.set(UserInfoConstant.USER_TYPE, type);
     }
 
+
     /**
-     * 租户id
+     * 获取用户性别
      */
-    public static String getTenantId() {
-        return GlobalContextThreadLocalHandler.returnObjectValue(GlobalContextThreadLocalHandler.get(UserInfoConstant.TENANT_ID));
+    public static String getSex() {
+        return GlobalContextThreadLocalHandler.returnObjectValue(GlobalContextThreadLocalHandler.get(UserInfoConstant.SEX));
     }
 
-    public static void setTenantId(String tenantId) {
-        GlobalContextThreadLocalHandler.set(UserInfoConstant.TENANT_ID, tenantId);
+    public static void setSex(String sex) {
+        GlobalContextThreadLocalHandler.set(UserInfoConstant.SEX, sex);
+    }
+
+    /**
+     * 获取部门id
+     */
+    public static String getDeptId() {
+        return GlobalContextThreadLocalHandler.returnObjectValue(GlobalContextThreadLocalHandler.get(UserInfoConstant.DEPT_ID));
+    }
+
+    public static void setDeptId(String depart) {
+        GlobalContextThreadLocalHandler.set(UserInfoConstant.DEPT_ID, depart);
+    }
+
+    /**
+     * 获取部门名称
+     */
+    public static String getDeptTitle() {
+        return GlobalContextThreadLocalHandler.returnObjectValue(GlobalContextThreadLocalHandler.get(UserInfoConstant.DEPT_TITLE));
+    }
+
+    public static void setDeptTitle(String depart) {
+        GlobalContextThreadLocalHandler.set(UserInfoConstant.DEPT_TITLE, depart);
     }
 
     /**
@@ -99,14 +146,14 @@ public class BizContextHandler {
     }
 
     /**
-     * 获取用户性别
+     * 获取用户邮箱
      */
-    public static String getSex() {
-        return GlobalContextThreadLocalHandler.returnObjectValue(GlobalContextThreadLocalHandler.get(UserInfoConstant.SEX));
+    public static String getEmail() {
+        return GlobalContextThreadLocalHandler.returnObjectValue(GlobalContextThreadLocalHandler.get(UserInfoConstant.E_MAIL));
     }
 
-    public static void setSex(String sex) {
-        GlobalContextThreadLocalHandler.set(UserInfoConstant.SEX, sex);
+    public static void setEmail(String telephone) {
+        GlobalContextThreadLocalHandler.set(UserInfoConstant.E_MAIL, telephone);
     }
 
     /**

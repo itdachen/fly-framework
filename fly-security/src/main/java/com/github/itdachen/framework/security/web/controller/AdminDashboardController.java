@@ -113,7 +113,7 @@ public class AdminDashboardController {
      */
     private void clientInfo(ModelMap modelMap) {
         /* 登录用户头像和姓名 */
-        modelMap.put("userName", BizContextHandler.getUserName());
+        modelMap.put("userName", BizContextHandler.getNickName());
         modelMap.put("avatar", BizContextHandler.getAvatar());
 
         /* 系统信息 */

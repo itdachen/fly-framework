@@ -94,7 +94,7 @@ public class LogAspectj {
             // 获取当前的用户
             apiLog.setId(IdUtils.getId());
             apiLog.setCreateTime(LocalDateTime.now());
-            apiLog.setCreateUser(BizContextHandler.getUserName());
+            apiLog.setCreateUser(BizContextHandler.getNickName());
             apiLog.setCreateUserId(BizContextHandler.getUserId());
 
             CheckApiClient apiClient = joinPoint.getTarget().getClass().getAnnotation(CheckApiClient.class);

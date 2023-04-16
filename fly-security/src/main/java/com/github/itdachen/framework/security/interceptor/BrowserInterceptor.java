@@ -32,12 +32,12 @@ public class BrowserInterceptor implements HandlerInterceptor {
         CurrentUserInfo userInfo = SecurityContextHandler.getUserInfo();
 
         BizContextHandler.setAccount(userInfo.getUsername());
-        BizContextHandler.setUserName(userInfo.getName());
+        BizContextHandler.setNickName(userInfo.getName());
         BizContextHandler.setUserId(userInfo.getId());
         BizContextHandler.setAvatar(userInfo.getAvatar());
         BizContextHandler.setUserType(userInfo.getType());
         BizContextHandler.setTenantId(userInfo.getTenantId());
-        BizContextHandler.setDepartId(userInfo.getDepartId());
+        BizContextHandler.setDeptId(userInfo.getDepartId());
 
         /* 防止重复提交拦截 */
         return true;

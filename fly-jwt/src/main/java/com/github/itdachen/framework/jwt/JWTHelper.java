@@ -36,8 +36,8 @@ public class JWTHelper {
         JwtBuilder builder = Jwts.builder()
                 .setSubject(jwtInfo.getUniqueName())
                 .claim(UserInfoConstant.USER_ID, jwtInfo.getId())
-                .claim(UserInfoConstant.USER_NAME, jwtInfo.getName())
-                .claim(UserInfoConstant.JWT_KEY_EXPIRE, expire.getTime());
+                .claim(UserInfoConstant.NICK_NAME, jwtInfo.getName())
+                .claim(UserInfoConstant.EXPIRES_IN, expire.getTime());
         if (null != otherInfo) {
             for (Map.Entry<String, String> entry : otherInfo.entrySet()) {
                 builder.claim(entry.getKey(), entry.getValue());
@@ -56,8 +56,8 @@ public class JWTHelper {
      * @throws Exception
      */
     public static IJWTInfo getInfoFromToken(String token, byte[] pubKey) throws Exception {
-        if (token.startsWith(UserInfoConstant.JWT_TOKEN_TYPE)) {
-            token = token.replace(UserInfoConstant.JWT_TOKEN_TYPE, "");
+        if (token.startsWith(UserInfoConstant.TOKEN_TYPE)) {
+            token = token.replace(UserInfoConstant.TOKEN_TYPE, "");
         }
         Jws<Claims> claimsJws = parserToken(token, pubKey);
         Claims body = claimsJws.getBody();
@@ -65,8 +65,8 @@ public class JWTHelper {
         for (Map.Entry entry : body.entrySet()) {
             if (Claims.SUBJECT.equals(entry.getKey())
                     || UserInfoConstant.USER_ID.equals(entry.getKey())
-                    || UserInfoConstant.USER_NAME.equals(entry.getKey())
-                    || UserInfoConstant.JWT_KEY_EXPIRE.equals(entry.getKey())) {
+                    || UserInfoConstant.NICK_NAME.equals(entry.getKey())
+                    || UserInfoConstant.EXPIRES_IN.equals(entry.getKey())) {
                 continue;
             }
             otherInfo.put(String.valueOf(entry.getKey()), String.valueOf(entry.getValue()));
@@ -74,8 +74,8 @@ public class JWTHelper {
         return new JWTInfo(
                 body.getSubject(),
                 getObjectValue(body.get(UserInfoConstant.USER_ID)),
-                getObjectValue(body.get(UserInfoConstant.USER_NAME)),
-                new DateTime(body.get(UserInfoConstant.JWT_KEY_EXPIRE)).toDate(),
+                getObjectValue(body.get(UserInfoConstant.NICK_NAME)),
+                new DateTime(body.get(UserInfoConstant.EXPIRES_IN)).toDate(),
                 otherInfo
         );
 
