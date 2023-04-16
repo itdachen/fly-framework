@@ -97,7 +97,7 @@ public class CurrentUserDetails implements Serializable {
     /**
      * 是否超级管理员
      */
-    private String isSuperAdmin;
+    private Boolean isSuperAdmin;
 
     /**
      * 其他信息
@@ -124,7 +124,7 @@ public class CurrentUserDetails implements Serializable {
                               String sex, String deptId,
                               String deptTitle, String postId,
                               String postTitle, String grade,
-                              String isSuperAdmin, Map<String, String> other) {
+                              Boolean isSuperAdmin, Map<String, String> other) {
         this.id = id;
         this.tenantId = tenantId;
         this.nickName = nickName;
@@ -166,7 +166,7 @@ public class CurrentUserDetails implements Serializable {
 //        private String postId;
 //        private String postTitle;
 //        private String grade;
-//        private String isSuperAdmin;
+//        private Boolean isSuperAdmin;
 //        private Map<String, String> other;
 //
 //        public CurrentUserDetailsBuilder() {
@@ -269,7 +269,7 @@ public class CurrentUserDetails implements Serializable {
 //        }
 //
 //        /* 是否超级管理员 */
-//        public CurrentUserDetailsBuilder isSuperAdmin(String isSuperAdmin) {
+//        public CurrentUserDetailsBuilder isSuperAdmin(Boolean isSuperAdmin) {
 //            this.isSuperAdmin = isSuperAdmin;
 //            return this;
 //        }
@@ -431,11 +431,11 @@ public class CurrentUserDetails implements Serializable {
         return grade;
     }
 
-    public void setIsSuperAdmin(String isSuperAdmin) {
+    public void setIsSuperAdmin(Boolean isSuperAdmin) {
         this.isSuperAdmin = isSuperAdmin;
     }
 
-    public String getIsSuperAdmin() {
+    public Boolean getIsSuperAdmin() {
         return isSuperAdmin;
     }
 

@@ -3,6 +3,7 @@ package com.github.itdachen.framework.context;
 import com.github.itdachen.framework.context.constants.UserInfoConstant;
 import com.github.itdachen.framework.context.handler.GlobalContextThreadLocalHandler;
 
+import java.util.HashMap;
 import java.util.Map;
 
 /**
@@ -55,7 +56,6 @@ public class BizContextHandler {
     public static void setTenantId(String tenantId) {
         GlobalContextThreadLocalHandler.set(UserInfoConstant.TENANT_ID, tenantId);
     }
-
 
 
     /**
@@ -161,11 +161,11 @@ public class BizContextHandler {
     /**
      * 获取用户邮箱
      */
-    public static String getOther() {
-        return GlobalContextThreadLocalHandler.returnObjectValue(GlobalContextThreadLocalHandler.get(UserInfoConstant.OTHER));
+    public static Map<String, String> getOther() {
+        return (Map<String, String>) GlobalContextThreadLocalHandler.get(UserInfoConstant.OTHER);
     }
 
-    public static void setOther(Map<String, String > other) {
+    public static void setOther(Map<String, String> other) {
         GlobalContextThreadLocalHandler.set(UserInfoConstant.OTHER, other);
     }
 
