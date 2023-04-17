@@ -1,5 +1,7 @@
 package com.github.itdachen.framework.datasource.constants;
 
+import com.github.itdachen.framework.datasource.enums.EncoderTypeKeyEnum;
+
 /**
  * Description:
  * Created by 王大宸 on 2023/03/28 16:39
@@ -7,25 +9,19 @@ package com.github.itdachen.framework.datasource.constants;
  */
 public class DataSourceKeyConstant {
 
-
-    /**
-     * 密码秘钥
-     */
-    public static final String SECRET_KEY = "#!SAGA2020*&@";
-
     /* {bcrypt} */
-    private static final String DEFAULT_ID_PREFIX = "{";
+    public static final String PREFIX = "{";
 
-    private static final String DEFAULT_ID_SUFFIX = "}";
+    public static final String SUFFIX = "}";
 
     /**
      * AES 加密
      */
-    public static final String AES = "{aes}";
+    public static final String AES = EncoderTypeKeyEnum.AES.toString();
 
     /**
      * 不加密
      */
-    public static final String NOOP = "{noop}";
+    public static final String NOOP = EncoderTypeKeyEnum.NOOP.toString();
 
 }

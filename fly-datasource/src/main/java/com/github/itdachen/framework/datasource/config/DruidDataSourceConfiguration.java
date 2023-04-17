@@ -1,11 +1,12 @@
 package com.github.itdachen.framework.datasource.config;
 
 import com.alibaba.druid.pool.DruidDataSource;
-import com.github.itdachen.framework.datasource.DataSourceEncoder;
+import com.github.itdachen.framework.datasource.encoder.DataSourceEncoder;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.InitializingBean;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Value;
 import org.springframework.boot.autoconfigure.condition.ConditionalOnProperty;
 import org.springframework.boot.autoconfigure.jdbc.DataSourceProperties;
 import org.springframework.context.annotation.Configuration;
@@ -25,8 +26,17 @@ public class DruidDataSourceConfiguration extends DruidDataSource implements Ini
 
     @Autowired
     private DataSourceEncoder dataSourceEncoder;
-    @Autowired
-    private DataSourceProperties basicProperties;
+//    @Autowired
+//    private DataSourceProperties basicProperties;
+
+    @Value("${spring.datasource.driver-class-name}")
+    private String driverClassName;
+    @Value("${spring.datasource.url}")
+    private String url;
+    @Value("${spring.datasource.username}")
+    private String username;
+    @Value("${spring.datasource.password}")
+    private String password;
 
     public DruidDataSourceConfiguration() {
     }
@@ -35,19 +45,23 @@ public class DruidDataSourceConfiguration extends DruidDataSource implements Ini
     @Override
     public void afterPropertiesSet() throws Exception {
         if (super.getUsername() == null) {
-            super.setUsername(dataSourceEncoder.decrypt(this.basicProperties.determineUsername()));
+            final String str = dataSourceEncoder.decrypt(username);
+            super.setUsername(str);
         }
 
         if (super.getPassword() == null) {
-            super.setPassword(dataSourceEncoder.decrypt(this.basicProperties.determinePassword()));
+            final String str = dataSourceEncoder.decrypt(password);
+            super.setPassword(str);
         }
 
         if (super.getUrl() == null) {
-            super.setUrl(dataSourceEncoder.decrypt(this.basicProperties.determineUrl()));
+            final String str = dataSourceEncoder.decrypt(url);
+            super.setUrl(str);
         }
 
         if (super.getDriverClassName() == null) {
-            super.setDriverClassName(this.basicProperties.getDriverClassName());
+            final String str = dataSourceEncoder.decrypt(driverClassName);
+            super.setDriverClassName(str);
         }
     }
 

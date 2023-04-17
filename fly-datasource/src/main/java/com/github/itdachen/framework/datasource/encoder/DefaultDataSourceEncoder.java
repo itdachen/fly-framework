@@ -1,6 +1,5 @@
 package com.github.itdachen.framework.datasource.encoder;
 
-import com.github.itdachen.framework.datasource.DataSourceEncoder;
 import com.github.itdachen.framework.datasource.encoder.processor.DataSourceEncoderProcessor;
 import com.github.itdachen.framework.datasource.enums.EncoderTypeKeyEnum;
 import org.slf4j.Logger;
@@ -15,7 +14,7 @@ import java.util.Map;
  * Created with IntelliJ IDEA.
  */
 @Service
-public class DefaultDataSourceEncoder implements DataSourceEncoder {
+public class DefaultDataSourceEncoder {
     private static final Logger logger = LoggerFactory.getLogger(DefaultDataSourceEncoder.class);
 
     /**
@@ -36,8 +35,8 @@ public class DefaultDataSourceEncoder implements DataSourceEncoder {
      * @param str 需要加密的 url/username/password
      * @return java.lang.String
      */
-    public String encrypt(String str) {
-        DataSourceEncoderProcessor processor = findDataSourceEncoderProcessor(str);
+    public String encrypt(String str, String type) {
+        DataSourceEncoderProcessor processor = findDataSourceEncoderProcessor(type);
         if (null == processor) {
             logger.error("数据库连接加密: 加密处理器不存在");
             return str;
@@ -53,7 +52,7 @@ public class DefaultDataSourceEncoder implements DataSourceEncoder {
      * @param str 需要解密的 url/username/password
      * @return java.lang.String
      */
-    public String decrypt(String str) {
+    public String decrypt(final String str) {
         DataSourceEncoderProcessor processor = findDataSourceEncoderProcessor(str);
         if (null == processor) {
             logger.error("数据库连接解密: 解密处理器不存在");
@@ -71,14 +70,13 @@ public class DefaultDataSourceEncoder implements DataSourceEncoder {
      * @return com.github.itdachen.framework.datasource.encoder.processor.DataSourceEncoderProcessor
      */
     private DataSourceEncoderProcessor findDataSourceEncoderProcessor(String str) {
-        str = str.toLowerCase();
         EncoderTypeKeyEnum[] values = EncoderTypeKeyEnum.values();
         String prefix = "";
         for (EncoderTypeKeyEnum value : values) {
-            if (!str.startsWith(value.getEncoder())) {
+            if (!str.startsWith(String.valueOf(value))) {
                 continue;
             }
-            prefix = value.getPrefix();
+            prefix = String.valueOf(value).toLowerCase();
             break;
         }
 

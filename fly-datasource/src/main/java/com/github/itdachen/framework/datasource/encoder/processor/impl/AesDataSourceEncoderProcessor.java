@@ -2,6 +2,7 @@ package com.github.itdachen.framework.datasource.encoder.processor.impl;
 
 import com.github.itdachen.framework.crypto.aes.AesEncryptEncoder;
 import com.github.itdachen.framework.datasource.constants.DataSourceKeyConstant;
+import com.github.itdachen.framework.datasource.constants.DataSourceSecretKeyConstant;
 import com.github.itdachen.framework.datasource.encoder.processor.DataSourceEncoderProcessor;
 import org.springframework.stereotype.Service;
 
@@ -12,21 +13,24 @@ import org.springframework.stereotype.Service;
  */
 @Service
 public class AesDataSourceEncoderProcessor implements DataSourceEncoderProcessor {
-
-    private final String secretKey;
-
-    public AesDataSourceEncoderProcessor() {
-        this.secretKey = DataSourceKeyConstant.SECRET_KEY;
-    }
-
+    private static final String AES_PREFIX = DataSourceKeyConstant.AES + DataSourceKeyConstant.PREFIX;
+    private static final String AES_SUFFIX = DataSourceKeyConstant.SUFFIX;
+    private static final String AES_ENCODER = AES_PREFIX + "%S" + AES_SUFFIX;
 
     @Override
     public String encrypt(String str) {
-        return AesEncryptEncoder.encryptStr(str, secretKey);
+        final String encryptStr = AesEncryptEncoder.encryptStr(str, DataSourceSecretKeyConstant.SECRET_KEY);
+        return String.format(AES_ENCODER, encryptStr);
     }
 
     @Override
     public String decrypt(String str) {
-        return AesEncryptEncoder.decryptStr(str, secretKey);
+        str = str.replace(AES_PREFIX, "");
+        if (!str.endsWith(AES_SUFFIX)) {
+            return str;
+        }
+        str = str.replace(AES_SUFFIX, "");
+        return AesEncryptEncoder.decryptStr(str, DataSourceSecretKeyConstant.SECRET_KEY);
     }
+
 }

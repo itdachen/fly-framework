@@ -1,6 +1,6 @@
 package com.github.itdachen.framework.datasource.config;
 
-import com.github.itdachen.framework.datasource.DataSourceEncoder;
+import com.github.itdachen.framework.datasource.encoder.DataSourceEncoder;
 import com.github.itdachen.framework.datasource.encoder.processor.DataSourceEncoderProcessor;
 import com.github.itdachen.framework.datasource.encoder.DefaultDataSourceEncoder;
 import org.slf4j.Logger;
@@ -50,13 +50,13 @@ public class DataSourceBeanConfig {
      * 如果需要自己实现加解密方式, 实现 DataSourceEncoder 接口即可
      * @author 王大宸
      * @date 2023/3/28 17:24
-     * @return com.github.itdachen.framework.datasource.DataSourceEncoder
+     * @return com.github.itdachen.framework.datasource.encoder.DataSourceEncoder
      */
-    @Bean
-    @ConditionalOnMissingBean(DataSourceEncoder.class)
-    public DataSourceEncoder defaultDataSourceEncoder() {
-        return new DefaultDataSourceEncoder(encoderProcessor);
-    }
+//    @Bean
+//    @ConditionalOnMissingBean(DataSourceEncoder.class)
+//    public DataSourceEncoder defaultDataSourceEncoder() {
+//        return new DefaultDataSourceEncoder(encoderProcessor);
+//    }
 
 
 }

@@ -93,19 +93,19 @@ public class AesEncryptEncoder {
     }
 
     //测试
-//    public static void main(String[] args) {
-//        //明文密钥
-//        final String secretKey = "www.tpyyes.com";
-//        //需要加密的字符串
-//        String str = "Hello world!";
-//        //加密
-//        String encryptedStr = encryptStr(str, secretKey);
-//        //解密
-//        String decryptedStr = decryptStr(encryptedStr, secretKey);
-//        //输出加密后字符串
-//        System.out.println(encryptedStr);
-//        //输出解密后字符串
-//        System.out.println(decryptedStr);
-//    }
+    public static void main(String[] args) {
+        //明文密钥
+        final String secretKey = "com.github.itdachen";
+        //需要加密的字符串
+        String str = "HelloWorld!";
+        //加密
+        String encryptedStr = encryptStr(str, secretKey);
+        //解密
+        String decryptedStr = decryptStr(encryptedStr, secretKey);
+        //输出加密后字符串
+        System.out.println(encryptedStr);
+        //输出解密后字符串
+        System.out.println(decryptedStr);
+    }
 
 }

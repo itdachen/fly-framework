@@ -1,11 +1,12 @@
 package com.github.itdachen.framework.datasource.config;
 
-import com.github.itdachen.framework.datasource.DataSourceEncoder;
+import com.github.itdachen.framework.datasource.encoder.DataSourceEncoder;
 import com.zaxxer.hikari.HikariDataSource;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.InitializingBean;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Value;
 import org.springframework.boot.autoconfigure.condition.ConditionalOnProperty;
 import org.springframework.boot.autoconfigure.jdbc.DataSourceProperties;
 import org.springframework.context.annotation.Configuration;
@@ -25,19 +26,31 @@ public class HikariDataSourceConfiguration extends HikariDataSource implements I
 
     @Autowired
     private DataSourceEncoder dataSourceEncoder;
-    @Autowired
-    private DataSourceProperties basicProperties;
+
+
+    @Value("${spring.datasource.driver-class-name}")
+    private String driverClassName;
+    @Value("${spring.datasource.url}")
+    private String url;
+    @Value("${spring.datasource.username}")
+    private String username;
+    @Value("${spring.datasource.password}")
+    private String password;
+
 
     @Override
     public void afterPropertiesSet() throws Exception {
         if (super.getPassword() == null) {
-            this.setPassword(dataSourceEncoder.decrypt(basicProperties.getPassword()));
+            final String str = dataSourceEncoder.decrypt(password);
+            this.setPassword(str);
         }
         if (super.getUsername() == null) {
-            this.setUsername(dataSourceEncoder.decrypt(basicProperties.getUsername()));
+            final String str = dataSourceEncoder.decrypt(username);
+            this.setUsername(str);
         }
         if (super.getJdbcUrl() == null) {
-            this.setJdbcUrl(dataSourceEncoder.decrypt(basicProperties.getUrl()));
+            final String str = dataSourceEncoder.decrypt(url);
+            this.setJdbcUrl(str);
         }
 
     }
