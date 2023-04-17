@@ -15,12 +15,13 @@ import org.springframework.stereotype.Service;
 public class AesDataSourceEncoderProcessor implements DataSourceEncoderProcessor {
     private static final String AES_PREFIX = DataSourceKeyConstant.AES + DataSourceKeyConstant.PREFIX;
     private static final String AES_SUFFIX = DataSourceKeyConstant.SUFFIX;
-    private static final String AES_ENCODER = AES_PREFIX + "%S" + AES_SUFFIX;
+
+    private static final String SECRET_KEY = "#!SAGA2023*&@";
 
     @Override
     public String encrypt(String str) {
-        final String encryptStr = AesEncryptEncoder.encryptStr(str, DataSourceSecretKeyConstant.SECRET_KEY);
-        return String.format(AES_ENCODER, encryptStr);
+        final String encryptStr = AesEncryptEncoder.encryptStr(str, SECRET_KEY);
+        return AES_PREFIX + encryptStr + AES_SUFFIX;
     }
 
     @Override
@@ -30,7 +31,7 @@ public class AesDataSourceEncoderProcessor implements DataSourceEncoderProcessor
             return str;
         }
         str = str.replace(AES_SUFFIX, "");
-        return AesEncryptEncoder.decryptStr(str, DataSourceSecretKeyConstant.SECRET_KEY);
+        return AesEncryptEncoder.decryptStr(str, SECRET_KEY);
     }
 
 }
