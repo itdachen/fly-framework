@@ -36,14 +36,14 @@
         </dependency>
 
         <!-- SpringBoot 3.x 引入下面版本, 从Java EE APIs 到 Jakarta EE -->
-        <dependency>
-            <groupId>jakarta.annotation</groupId>
-            <artifactId>jakarta.annotation-api</artifactId>
-        </dependency>
-        <dependency>
-            <groupId>jakarta.servlet</groupId>
-            <artifactId>jakarta.servlet-api</artifactId>
-        </dependency>
+<!--        <dependency>-->
+<!--            <groupId>jakarta.annotation</groupId>-->
+<!--            <artifactId>jakarta.annotation-api</artifactId>-->
+<!--        </dependency>-->
+<!--        <dependency>-->
+<!--            <groupId>jakarta.servlet</groupId>-->
+<!--            <artifactId>jakarta.servlet-api</artifactId>-->
+<!--        </dependency>-->
     </dependencies>
 
 </project>
