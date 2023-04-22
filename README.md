@@ -8,7 +8,7 @@
   </h1>
   <h4 align="center">
    <a href="https://gitee.com/itdachen/fly-next-platform">fly-next</a> 和 
-   <a href="https://gitee.com/itdachen/fly-cloud">fly-cloud</a>  通用依赖, 单体项目和微服务项目下避免重复造轮子
+   <a href="https://gitee.com/itdachen/fly-cloud">fly-cloud</a>  通用依赖, 多项目下避免重复造轮子
   </h4>
 </div>
 
