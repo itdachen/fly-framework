@@ -1,6 +1,36 @@
-### 📚 简介
+<div align="center">
 
-个人项目开发框架独立项目, 后续开发都基于本项目, 避免重复造轮子
+<br/>
+<br/>
+
+  <h1 align="center">
+    FLY-FRAMEWORK
+  </h1>
+  <h4 align="center">
+   <a href="https://gitee.com/itdachen/fly-next-platform">fly-next</a> 和 
+   <a href="https://gitee.com/itdachen/fly-cloud">fly-cloud</a>  通用依赖, 单体项目和微服务项目下避免重复造轮子
+  </h4>
+</div>
+
+
+
+<p align="center">
+    <a href="#">
+        <img src="https://img.shields.io/badge/JDK-17+-green.svg" alt="Pear Admin Layui Version">
+    </a>
+    <a href="#">
+        <img src="https://img.shields.io/badge/SpringBoot-2.7.10-green.svg" alt="Pear Admin Layui Version">
+    </a>
+    <a href="#">
+        <img src="https://img.shields.io/badge/Spring Cloud-2021.0.5-green.svg" alt="Jquery Version">
+    </a>
+    <a href="#">
+        <img src="https://img.shields.io/badge/Spring Cloud Alibaba-2021.0.4.0-green.svg" alt="Layui Version">
+    </a>
+</p>
+
+<br>
+
 
 ### 🌱 核心依赖
 
