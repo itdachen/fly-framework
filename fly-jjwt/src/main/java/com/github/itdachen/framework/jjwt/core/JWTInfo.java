@@ -16,6 +16,7 @@ public class JWTInfo implements Serializable, IJWTInfo {
     private String username;
     private String userId;
     private String name;
+    private String subject;
     private String tenantId;
     private String token;
     private String tokenId;
@@ -32,11 +33,13 @@ public class JWTInfo implements Serializable, IJWTInfo {
     public JWTInfo(String username,
                    String userId,
                    String name,
+                   String subject,
                    Date expireTime,
                    Map<String, String> otherInfo) {
         this.username = username;
         this.userId = userId;
         this.name = name;
+        this.subject = subject;
         this.expireTime = expireTime;
         this.otherInfo = otherInfo;
         this.tokenId = UUID.randomUUID().toString().replaceAll("-", "");
@@ -46,6 +49,7 @@ public class JWTInfo implements Serializable, IJWTInfo {
         this.username = builder.username;
         this.userId = builder.userId;
         this.name = builder.name;
+        this.subject = builder.subject;
         this.tenantId = builder.tenantId;
         this.tokenId = builder.tokenId;
         this.token = builder.token;
@@ -57,6 +61,7 @@ public class JWTInfo implements Serializable, IJWTInfo {
         private String username;
         private String userId;
         private String name;
+        private String subject;
         private String tenantId;
         private String tokenId = UUID.randomUUID().toString().replaceAll("-", "");
         private String token;
@@ -75,6 +80,11 @@ public class JWTInfo implements Serializable, IJWTInfo {
 
         public Builder name(String name) {
             this.name = name;
+            return this;
+        }
+
+        public Builder subject(String subject) {
+            this.subject = subject;
             return this;
         }
 
@@ -114,17 +124,9 @@ public class JWTInfo implements Serializable, IJWTInfo {
         return username;
     }
 
-    public void setUsername(String username) {
-        this.username = username;
-    }
-
     @Override
     public String getId() {
         return userId;
-    }
-
-    public void setUserId(String userId) {
-        this.userId = userId;
     }
 
     @Override
@@ -133,8 +135,13 @@ public class JWTInfo implements Serializable, IJWTInfo {
     }
 
     @Override
-    public String tenantId() {
+    public String getTenantId() {
         return tenantId;
+    }
+
+    @Override
+    public String getSubject() {
+        return subject;
     }
 
     @Override
@@ -155,6 +162,14 @@ public class JWTInfo implements Serializable, IJWTInfo {
     @Override
     public Map<String, String> getOtherInfo() {
         return otherInfo;
+    }
+
+    public void setUsername(String username) {
+        this.username = username;
+    }
+
+    public void setUserId(String userId) {
+        this.userId = userId;
     }
 
     public void setToken(String token) {
@@ -185,12 +200,12 @@ public class JWTInfo implements Serializable, IJWTInfo {
         return userId;
     }
 
-    public String getTenantId() {
-        return tenantId;
-    }
-
     public void setTenantId(String tenantId) {
         this.tenantId = tenantId;
+    }
+
+    public void setSubject(String subject) {
+        this.subject = subject;
     }
 
     @Override

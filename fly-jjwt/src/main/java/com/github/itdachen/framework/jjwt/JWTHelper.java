@@ -2,16 +2,14 @@ package com.github.itdachen.framework.jjwt;
 
 import com.github.itdachen.framework.jjwt.core.IJWTInfo;
 import com.github.itdachen.framework.jjwt.factory.JwtTokenFactory;
-import org.springframework.stereotype.Service;
-
-import java.util.Map;
+import org.springframework.stereotype.Component;
 
 /**
  * Description: 生成 token / 解析 token
  * Created by 王大宸 on 2023/04/12 22:43
  * Created with IntelliJ IDEA.
  */
-@Service
+@Component
 public class JWTHelper {
 
     private final JwtTokenFactory tokenFactory;
@@ -45,7 +43,7 @@ public class JWTHelper {
      * @param signingKey signingKey
      * @return com.github.itdachen.framework.jjwt.core.IJWTInfo
      */
-    public IJWTInfo parseToken(String token, String signingKey) {
+    public IJWTInfo parseToken(String token, String signingKey) throws Exception {
         return tokenFactory.build().parseToken(token, signingKey);
     }
 

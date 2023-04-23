@@ -25,7 +25,9 @@ public interface IJWTInfo {
      */
     String getName();
 
-    String tenantId();
+    String getTenantId();
+
+    String getSubject();
 
     /**
      * tokenId

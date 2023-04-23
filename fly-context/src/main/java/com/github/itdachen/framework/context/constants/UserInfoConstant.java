@@ -98,6 +98,11 @@ public class UserInfoConstant {
     public static final String TOKEN = "token";
 
     /**
+     * 用户 token
+     */
+    public static final String TOKEN_ID = "tokenId";
+
+    /**
      * 登录ip
      */
     public static final String IP = "ip";

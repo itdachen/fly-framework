@@ -1,8 +1,10 @@
 package com.github.itdachen.framework.jjwt.factory;
 
 import com.github.itdachen.framework.jjwt.enums.JwtTokenEnumType;
-import com.github.itdachen.framework.jjwt.handler.JwtTokenHandler;
-import com.github.itdachen.framework.jjwt.handler.processor.HmacJwtTokenHandler;
+import com.github.itdachen.framework.jjwt.factory.ecdsa.EcdsaJwtTokenHandler;
+import com.github.itdachen.framework.jjwt.factory.handler.JwtTokenHandler;
+import com.github.itdachen.framework.jjwt.factory.hmac.HmacJwtTokenHandler;
+import com.github.itdachen.framework.jjwt.factory.rsa.RsaJwtTokenHandler;
 import com.github.itdachen.framework.jjwt.properties.JJwtProperties;
 import org.springframework.stereotype.Component;
 
@@ -23,11 +25,13 @@ public class JwtTokenFactory {
 
     public JwtTokenHandler build() {
         if (JwtTokenEnumType.ECDSA.equals(jwtProperties.getType())) {
-            return new HmacJwtTokenHandler(jwtProperties);
+            return new EcdsaJwtTokenHandler(jwtProperties);
         } else if (JwtTokenEnumType.HMAC.equals(jwtProperties.getType())) {
             return new HmacJwtTokenHandler(jwtProperties);
+        } else if (JwtTokenEnumType.RSA.equals(jwtProperties.getType())) {
+            return new RsaJwtTokenHandler(jwtProperties);
         }
-        return null;
+        return new HmacJwtTokenHandler(jwtProperties);
     }
 
 }

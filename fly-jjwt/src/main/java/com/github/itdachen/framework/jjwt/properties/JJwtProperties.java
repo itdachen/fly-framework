@@ -29,7 +29,7 @@ public class JJwtProperties {
     /**
      * 加解密秘钥
      */
-    private String secretKey = "tNTaMC1B0Kzdl1q0LKJy7MooRbuwaebz+wSb498OoxoUKL8Yib1P2psiudzuL3S/rGGzfcS3nGOsPAoSvt3w==";
+    private String secretKey = "tNTaMC1B0Kzdl1q0LKJy7MooRbuwaebzfcS3nGOsPAoSvt3w==";
 
     public JwtTokenEnumType getType() {
         return type;
