@@ -119,7 +119,7 @@ public class ${ClassName}Controller {
     @PreAuthorize("hasAuthority('${permsPrefix}:save')")
     @ResponseBody
     @Log(title = "新增", operationType = LogType.SAVE)
-    public ServerResponse< ${ClassName}Dto > save${ClassName}(@Validated @RequestBody ${ClassName}Dto ${className}Dto) throws Exception {
+    public ServerResponse< ${ClassName}Vo > save${ClassName}(@Validated @RequestBody ${ClassName}Dto ${className}Dto) throws Exception {
         return ServerResponse.okData(${className}Service.save${ClassName}(${className}Dto));
     }
 
@@ -135,7 +135,7 @@ public class ${ClassName}Controller {
     @PreAuthorize("hasAuthority('${permsPrefix}:update')")
     @ResponseBody
     @Log(title = "修改", operationType = LogType.UPDATE)
-    public ServerResponse< ${ClassName}Dto > update${ClassName}(@Validated @RequestBody ${ClassName}Dto ${className}Dto) throws Exception {
+    public ServerResponse< ${ClassName}Vo > update${ClassName}(@Validated @RequestBody ${ClassName}Dto ${className}Dto) throws Exception {
         return ServerResponse.okData(${className}Service.update${ClassName}(${className}Dto));
     }
 

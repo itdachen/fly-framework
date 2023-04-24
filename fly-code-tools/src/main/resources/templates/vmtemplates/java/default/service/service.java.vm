@@ -29,9 +29,9 @@ public interface I${ClassName}Service {
      * @author ${author}
      * @date ${datetime}
      * @param ${className}Dto ${className}Dto
-     * @return ${package}.sdk.dto.${className}
+     * @return ${package}.sdk.vo.${className}Vo
      */
-     ${ClassName}Dto save${ClassName}(${ClassName}Dto ${className}Dto) throws Exception;
+     ${ClassName}Vo save${ClassName}(${ClassName}Dto ${className}Dto) throws Exception;
 
     /***
      * 根据id查询
@@ -49,7 +49,7 @@ public interface I${ClassName}Service {
      * @author ${author}
      * @date ${datetime}
      * @param ${className}Dto ${className}Dto
-     * @return ${package}.sdk.dto.${className}
+     * @return ${package}.sdk.vo.${className}Vo
      */
         ${ClassName}Dto update${ClassName}(${ClassName}Dto ${className}Dto) throws Exception;
 

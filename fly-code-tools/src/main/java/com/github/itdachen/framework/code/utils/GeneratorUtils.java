@@ -3,9 +3,9 @@ package com.github.itdachen.framework.code.utils;
 import com.github.itdachen.framework.code.constants.PackageNameConstant;
 import com.github.itdachen.framework.code.sdk.vo.TableInfoVo;
 import com.github.itdachen.framework.core.constants.Constants;
+import com.github.itdachen.framework.core.utils.StringUtils;
 import org.apache.commons.io.IOUtils;
 import org.apache.commons.lang.WordUtils;
-import org.apache.commons.lang3.StringUtils;
 import org.apache.velocity.Template;
 import org.apache.velocity.VelocityContext;
 import org.apache.velocity.app.Velocity;
@@ -167,54 +167,56 @@ public class GeneratorUtils {
         String className = genTable.getClassName();
         String menuUri = VelocityUtils.menuUri(genTable);
 
-        String javaPath = zipName + "/" + PROJECT_PATH + "/" + com.github.itdachen.framework.core.utils.StringUtils.replace(packageName, ".", "/");
+        String javaPath = zipName + "/" + PROJECT_PATH + "/" + StringUtils.replace(packageName, ".", "/");
         String mybatisPath = zipName + "/" + MYBATIS_PATH + "/" + packageName.substring(packageName.lastIndexOf(".") + 1);
         String vuePath = zipName + "/" + "vue";
 
         if (template.contains("entity.java.vm")) {
-            fileName = com.github.itdachen.framework.core.utils.StringUtils.format("{}/entity/{}.java", javaPath, className);
+            fileName = StringUtils.format("{}/entity/{}.java", javaPath, className);
         } else if (template.contains("dto.java.vm")) {
-            fileName = com.github.itdachen.framework.core.utils.StringUtils.format("{}/sdk/dto/{}Dto.java", javaPath, className);
+            fileName = StringUtils.format("{}/sdk/dto/{}Dto.java", javaPath, className);
         } else if (template.contains("vo.java.vm")) {
-            fileName = com.github.itdachen.framework.core.utils.StringUtils.format("{}/sdk/vo/{}Vo.java", javaPath, className);
+            fileName = StringUtils.format("{}/sdk/vo/{}Vo.java", javaPath, className);
         } else if (template.contains("query.java.vm")) {
-            fileName = com.github.itdachen.framework.core.utils.StringUtils.format("{}/sdk/query/{}Query.java", javaPath, className);
-        } else if (template.contains("mapper.java.vm")) {
-            fileName = com.github.itdachen.framework.core.utils.StringUtils.format("{}/mapper/I{}Mapper.java", javaPath, className);
+            fileName = StringUtils.format("{}/sdk/query/{}Query.java", javaPath, className);
+        } else if (template.contains("convert.java.vm")) {
+            fileName = StringUtils.format("{}/convert/{}Convert.java", javaPath, className);
+        }  else if (template.contains("mapper.java.vm")) {
+            fileName = StringUtils.format("{}/mapper/I{}Mapper.java", javaPath, className);
         } else if (template.contains("service.java.vm")) {
-            fileName = com.github.itdachen.framework.core.utils.StringUtils.format("{}/service/I{}Service.java", javaPath, className);
+            fileName = StringUtils.format("{}/service/I{}Service.java", javaPath, className);
         } else if (template.contains("serviceImpl.java.vm")) {
-            fileName = com.github.itdachen.framework.core.utils.StringUtils.format("{}/service/impl/{}ServiceImpl.java", javaPath, className);
+            fileName = StringUtils.format("{}/service/impl/{}ServiceImpl.java", javaPath, className);
         } else if (template.contains("controller.java.vm")) {
-            fileName = com.github.itdachen.framework.core.utils.StringUtils.format("{}/controller/{}Controller.java", javaPath, className);
+            fileName = StringUtils.format("{}/controller/{}Controller.java", javaPath, className);
         } else if (template.contains("mapper.xml.vm")) {
-            fileName = com.github.itdachen.framework.core.utils.StringUtils.format("{}/{}Mapper.xml", mybatisPath, className);
+            fileName = StringUtils.format("{}/{}Mapper.xml", mybatisPath, className);
         } else if (template.contains("menu.sql.vm")) {
-            fileName = com.github.itdachen.framework.core.utils.StringUtils.format("{}/sql/{}Menu.sql", zipName + "/" + RESOURCES, className);
+            fileName = StringUtils.format("{}/sql/{}Menu.sql", zipName + "/" + RESOURCES, className);
         } else if (template.contains("add.html.vm")) {
-            fileName = com.github.itdachen.framework.core.utils.StringUtils.format("{}/templates/{}/add.html", zipName + "/" + RESOURCES, menuUri);
+            fileName = StringUtils.format("{}/templates/{}/add.html", zipName + "/" + RESOURCES, menuUri);
         } else if (template.contains("edit.html.vm")) {
-            fileName = com.github.itdachen.framework.core.utils.StringUtils.format("{}/templates/{}/edit.html", zipName + "/" + RESOURCES, menuUri);
+            fileName = StringUtils.format("{}/templates/{}/edit.html", zipName + "/" + RESOURCES, menuUri);
         } else if (template.contains("index.html.vm")) {
-            fileName = com.github.itdachen.framework.core.utils.StringUtils.format("{}/templates/{}/index.html", zipName + "/" + RESOURCES, menuUri);
+            fileName = StringUtils.format("{}/templates/{}/index.html", zipName + "/" + RESOURCES, menuUri);
         } else if (template.contains("view.html.vm")) {
-            fileName = com.github.itdachen.framework.core.utils.StringUtils.format("{}/templates/{}/view.html", zipName + "/" + RESOURCES, menuUri);
+            fileName = StringUtils.format("{}/templates/{}/view.html", zipName + "/" + RESOURCES, menuUri);
         } else if (template.contains("add.js.vm")) {
-            fileName = com.github.itdachen.framework.core.utils.StringUtils.format("{}/static/{}/add.js", zipName + "/" + RESOURCES, menuUri);
+            fileName = StringUtils.format("{}/static/{}/add.js", zipName + "/" + RESOURCES, menuUri);
         } else if (template.contains("edit.js.vm")) {
-            fileName = com.github.itdachen.framework.core.utils.StringUtils.format("{}/static/{}/edit.js", zipName + "/" + RESOURCES, menuUri);
+            fileName = StringUtils.format("{}/static/{}/edit.js", zipName + "/" + RESOURCES, menuUri);
         } else if (template.contains("index.js.vm")) {
-            fileName = com.github.itdachen.framework.core.utils.StringUtils.format("{}/static/{}/index.js", zipName + "/" + RESOURCES, menuUri);
+            fileName = StringUtils.format("{}/static/{}/index.js", zipName + "/" + RESOURCES, menuUri);
         } else if (template.contains("model.ts.vm")) {
-            fileName = com.github.itdachen.framework.core.utils.StringUtils.format("{}/api/{}/model/{}.ts", vuePath, moduleName, className + "Model");
+            fileName = StringUtils.format("{}/api/{}/model/{}.ts", vuePath, moduleName, className + "Model");
         } else if (template.contains("api.ts.vm")) {
-            fileName = com.github.itdachen.framework.core.utils.StringUtils.format("{}/api/{}/{}.ts", vuePath, moduleName, className + "Api");
+            fileName = StringUtils.format("{}/api/{}/{}.ts", vuePath, moduleName, className + "Api");
         } else if (template.contains("composables.ts.vm")) {
-            fileName = com.github.itdachen.framework.core.utils.StringUtils.format("{}/composables/{}/{}.ts", vuePath, moduleName, className + "Composable");
+            fileName = StringUtils.format("{}/composables/{}/{}.ts", vuePath, moduleName, className + "Composable");
         } else if (template.contains("index.vue.vm")) {
-            fileName = com.github.itdachen.framework.core.utils.StringUtils.format("{}/views/{}/{}/index.vue", vuePath, moduleName, className.toLowerCase());
+            fileName = StringUtils.format("{}/views/{}/{}/index.vue", vuePath, moduleName, className.toLowerCase());
         } else if (template.contains("ref.vue.vm")) {
-            fileName = com.github.itdachen.framework.core.utils.StringUtils.format("{}/views/{}/{}/{}.vue", vuePath, moduleName, className, "Ref" + className);
+            fileName = StringUtils.format("{}/views/{}/{}/{}.vue", vuePath, moduleName, className, "Ref" + className);
         }
         return fileName;
     }

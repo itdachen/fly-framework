@@ -2,6 +2,7 @@ package ${package}.service.impl;
 
 import com.github.pagehelper.Page;
 import com.github.pagehelper.PageHelper;
+import ${package}.convert.${ClassName}Convert;
 import ${package}.entity.${ClassName};
 import ${package}.mapper.I${ClassName}Mapper;
 import ${package}.service.I${ClassName}Service;
@@ -55,17 +56,17 @@ public class ${ClassName}ServiceImpl implements I${ClassName}Service {
      * @author ${author}
      * @date ${datetime}
      * @param ${className}Dto ${className}Dto
-     * @return ${package}.sdk.dto.${className}
+     * @return ${package}.sdk.vo.${className}Vo
      */
     @Override
     @Transactional(rollbackFor = Exception.class)
-    public ${ClassName}Dto save${ClassName}(${ClassName}Dto ${className}Dto) throws Exception {
+    public ${ClassName}Vo save${ClassName}(${ClassName}Dto ${className}Dto) throws Exception {
         ${ClassName} ${className} = new ${ClassName}();
         BeanUtils.copyProperties(${className}Dto, ${className});
         EntityUtils.setCreatAndUpdateInfo(${className});
         ${className}Mapper.save${ClassName}(${className});
         ${className}Dto.setId(${className}.getId());
-        return ${className}Dto;
+        return ${ClassName}Convert.to${ClassName}Vo(${className});
     }
 
     /***
@@ -91,12 +92,12 @@ public class ${ClassName}ServiceImpl implements I${ClassName}Service {
      */
     @Override
     @Transactional(rollbackFor = Exception.class)
-    public ${ClassName}Dto update${ClassName}(${ClassName}Dto ${className}Dto) throws Exception {
+    public ${ClassName}Vo update${ClassName}(${ClassName}Dto ${className}Dto) throws Exception {
         ${ClassName} ${className} = new ${ClassName}();
         BeanUtils.copyProperties(${className}Dto, ${className});
         EntityUtils.setUpdatedInfo(${className});
         ${className}Mapper.update${ClassName}(${className});
-        return ${className}Dto;
+        return ${ClassName}Convert.to${ClassName}Vo(${className});
     }
 
     /***
