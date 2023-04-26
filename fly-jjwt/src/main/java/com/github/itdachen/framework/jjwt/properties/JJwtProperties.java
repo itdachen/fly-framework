@@ -22,9 +22,9 @@ public class JJwtProperties {
     private String issuer = "com.github.itdachen";
 
     /**
-     * 有效时间, 定义默认有效期为 300 分钟 单位：毫秒
+     * 有效时间, 定义默认有效期为 300 分钟 单位：分钟
      */
-    private long expires = 300 * 60 * 1000L;
+    private long expires = 18000;
 
     /**
      * 加解密秘钥
@@ -48,7 +48,7 @@ public class JJwtProperties {
     }
 
     public long getExpires() {
-        return expires;
+        return expires * 1000;
     }
 
     public void setExpires(long expires) {
