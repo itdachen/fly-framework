@@ -1,0 +1,92 @@
+package ${package}.convert;
+
+import ${package}.entity.${ClassName};
+import ${package}.sdk.dto.${ClassName}Dto;
+import ${package}.sdk.vo.${ClassName}Vo;
+import com.github.itdachen.framework.webmvc.convert.BizConvert;
+
+/**
+ * ${functionName} 类型转换
+ *
+ * @author ${author}
+ * @date ${datetime}
+ */
+public class ${ClassName}Convert extends BizConvert< ${ClassName}, ${ClassName}Dto, ${ClassName}Vo > {
+
+    @Override
+    public ${ClassName} toJavaObject(${ClassName}Dto ${className}Dto) {
+        if (null == ${className}Dto){
+            return null;
+        }
+       ${ClassName} ${className} = new ${ClassName}();
+        #foreach ($column in $dtoVoColumns)
+            #if(!$table.isSuperColumn($column.javaField))
+                #if($column.javaField.length() > 2 && $column.javaField.substring(1,2).matches("[A-Z]"))
+                    #set($AttrName=$column.javaField)
+                #else
+                    #set($AttrName=$column.javaField.substring(0,1).toUpperCase() + ${column.javaField.substring(1)})
+                #end
+                    ${className}.set${AttrName}(${className}Dto.get${AttrName}());
+            #end
+        #end
+        return ${className};
+    }
+
+
+    @Override
+    public ${ClassName}Vo toJavaObjectVo(${ClassName} ${className}) {
+        if (null == ${className}){
+            return null;
+        }
+        ${ClassName}Vo ${className}Vo = new ${ClassName}Vo();
+        #foreach ($column in $dtoVoColumns)
+            #if(!$table.isSuperColumn($column.javaField))
+                #if($column.javaField.length() > 2 && $column.javaField.substring(1,2).matches("[A-Z]"))
+                    #set($AttrName=$column.javaField)
+                #else
+                    #set($AttrName=$column.javaField.substring(0,1).toUpperCase() + ${column.javaField.substring(1)})
+                #end
+                    ${className}Vo.set${AttrName}(${className}.get${AttrName}());
+            #end
+        #end
+        return ${className}Vo;
+    }
+
+    public static ${ClassName} toJavaObject(${ClassName}Vo ${className}Vo) {
+        if (null == ${className}Vo){
+            return null;
+        }
+        ${ClassName} ${className} = new ${ClassName}();
+        #foreach ($column in $dtoVoColumns)
+            #if(!$table.isSuperColumn($column.javaField))
+                #if($column.javaField.length() > 2 && $column.javaField.substring(1,2).matches("[A-Z]"))
+                    #set($AttrName=$column.javaField)
+                #else
+                    #set($AttrName=$column.javaField.substring(0,1).toUpperCase() + ${column.javaField.substring(1)})
+                #end
+                    ${className}.set${AttrName}(${className}Vo.get${AttrName}());
+            #end
+        #end
+        return ${className};
+    }
+
+    public static ${ClassName}Vo toJavaObjectVo(${ClassName}Dto ${className}Dto) {
+        if (null == ${className}Dto){
+            return null;
+        }
+        ${ClassName}Vo ${className}Vo = new ${ClassName}Vo();
+        #foreach ($column in $dtoVoColumns)
+            #if(!$table.isSuperColumn($column.javaField))
+                #if($column.javaField.length() > 2 && $column.javaField.substring(1,2).matches("[A-Z]"))
+                    #set($AttrName=$column.javaField)
+                #else
+                    #set($AttrName=$column.javaField.substring(0,1).toUpperCase() + ${column.javaField.substring(1)})
+                #end
+                ${className}Vo.set${AttrName}(${className}Dto.get${AttrName}());
+            #end
+        #end
+        return ${className}Vo;
+    }
+
+
+}

@@ -2,7 +2,9 @@ package ${package}.service.impl;
 
 import com.github.pagehelper.Page;
 import com.github.pagehelper.PageHelper;
+import ${package}.convert.${ClassName}Convert;
 import ${package}.entity.${ClassName};
+import ${package}.sdk.dto.${ClassName}Dto;
 import ${package}.sdk.query.${ClassName}Query;
 import ${package}.sdk.vo.${ClassName}Vo;
 import com.github.itdachen.framework.core.response.TableData;
@@ -22,8 +24,15 @@ import java.util.List;
  * @date ${datetime}
  */
 @Service
-public class ${ClassName}ServiceImpl extends BizServiceImpl< I${ClassName}Mapper, ${ClassName},  ${ClassName}Vo, ${ClassName}Query, ${primaryKey} > implements I${ClassName}Service {
+public class ${ClassName}ServiceImpl extends BizServiceImpl< ${ClassName}, ${ClassName}Dto,  ${ClassName}Vo, ${ClassName}Query, ${primaryKey} > implements I${ClassName}Service {
     private static final Logger logger = LoggerFactory.getLogger(${ClassName}ServiceImpl.class);
+    private static final ${ClassName}Convert bizConvert = new ${ClassName}Convert();
+    private final I${ClassName}Mapper bizMapper;
+
+    public ${ClassName}ServiceImpl(I${ClassName}Mapper ${className}Mapper) {
+        super(${className}Mapper, bizConvert);
+        this.bizMapper = ${className}Mapper;
+    }
 
     /***
     * 分页
@@ -34,10 +43,10 @@ public class ${ClassName}ServiceImpl extends BizServiceImpl< I${ClassName}Mapper
     * @return com.github.itdachen.framework.core.response.TableData<${package}.sdk.vo.${className}Vo>
     */
     @Override
-    public TableData<${ClassName}Vo> page(${ClassName}Query params) throws Exception {
-        Page<${ClassName}Vo> page = PageHelper.startPage(params.getPage(), params.getLimit());
-        List<${ClassName}Vo> list = bizMapper.page(params);
-        return new TableData<${ClassName}Vo>(page.getTotal(), list);
+    public TableData< ${ClassName}Vo > page(${ClassName}Query params) throws Exception {
+        Page< ${ClassName}Vo > page = PageHelper.startPage(params.getPage(), params.getLimit());
+        List< ${ClassName}Vo > list = bizMapper.page(params);
+        return new TableData< ${ClassName}Vo >(page.getTotal(), list);
     }
 
 

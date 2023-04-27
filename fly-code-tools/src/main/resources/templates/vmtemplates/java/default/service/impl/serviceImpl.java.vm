@@ -61,12 +61,11 @@ public class ${ClassName}ServiceImpl implements I${ClassName}Service {
     @Override
     @Transactional(rollbackFor = Exception.class)
     public ${ClassName}Vo save${ClassName}(${ClassName}Dto ${className}Dto) throws Exception {
-        ${ClassName} ${className} = new ${ClassName}();
-        BeanUtils.copyProperties(${className}Dto, ${className});
+        ${ClassName} ${className} = ${ClassName}Convert.toJavaObject(${className}Dto);
         EntityUtils.setCreatAndUpdateInfo(${className});
         ${className}Mapper.save${ClassName}(${className});
         ${className}Dto.setId(${className}.getId());
-        return ${ClassName}Convert.to${ClassName}Vo(${className});
+        return ${ClassName}Convert.toJavaObjectVo(${className});
     }
 
     /***
@@ -93,11 +92,10 @@ public class ${ClassName}ServiceImpl implements I${ClassName}Service {
     @Override
     @Transactional(rollbackFor = Exception.class)
     public ${ClassName}Vo update${ClassName}(${ClassName}Dto ${className}Dto) throws Exception {
-        ${ClassName} ${className} = new ${ClassName}();
-        BeanUtils.copyProperties(${className}Dto, ${className});
+        ${ClassName} ${className} = ${ClassName}Convert.toJavaObject(${className}Dto);
         EntityUtils.setUpdatedInfo(${className});
         ${className}Mapper.update${ClassName}(${className});
-        return ${ClassName}Convert.to${ClassName}Vo(${className});
+        return ${ClassName}Convert.toJavaObjectVo(${className});
     }
 
     /***

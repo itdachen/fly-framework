@@ -1,5 +1,6 @@
 package com.github.itdachen.framework.webmvc.service.impl;
 
+import com.github.itdachen.framework.webmvc.convert.BizConvert;
 import com.github.pagehelper.Page;
 import com.github.pagehelper.PageHelper;
 import com.github.itdachen.framework.core.biz.BizQuery;
@@ -27,12 +28,18 @@ import java.util.Map;
  * Created by 王大宸 on 2022-06-30 9:47
  * Created with IntelliJ IDEA.
  */
-public class BizServiceImpl<BizMapper extends Mapper, T, V, Q extends BizQuery, PK> implements IBizService<T, V, Q, PK> {
+public class BizServiceImpl<T, D, V, Q extends BizQuery, PK> implements IBizService<D, V, Q, PK> {
     private static final Logger logger = LoggerFactory.getLogger(BizServiceImpl.class);
     @Autowired
-    protected BizMapper bizMapper;
-    @Autowired
     protected JdbcTemplate jdbcTemplate;
+    private final BizConvert<T, D, V> bizConvert;
+    private final Mapper<T> bizMapper;
+
+    public BizServiceImpl(Mapper<T> bizMapper,
+                          BizConvert<T, D, V> bizConvert) {
+        this.bizMapper = bizMapper;
+        this.bizConvert = bizConvert;
+    }
 
     /**
      * 分页查询
@@ -63,16 +70,17 @@ public class BizServiceImpl<BizMapper extends Mapper, T, V, Q extends BizQuery, 
     /**
      * 新增
      *
-     * @param entity 需要新增的数据
+     * @param d 需要新增的数据
      * @return T
      * @throws BizException
      */
     @Override
     @Transactional(rollbackFor = Exception.class)
-    public T save(T entity) throws Exception {
-        EntityUtils.setCreatAndUpdateInfo(entity);
-        bizMapper.insertSelective(entity);
-        return entity;
+    public V save(D d) throws Exception {
+        T t = bizConvert.toJavaObject(d);
+        EntityUtils.setCreatAndUpdateInfo(t);
+        bizMapper.insertSelective(t);
+        return bizConvert.toJavaObjectVo(t);
     }
 
     /**
@@ -84,22 +92,24 @@ public class BizServiceImpl<BizMapper extends Mapper, T, V, Q extends BizQuery, 
      */
     @Override
     public V getById(PK id) throws Exception {
-        return (V)bizMapper.selectByPrimaryKey(id);
+        T t = bizMapper.selectByPrimaryKey(id);
+        return bizConvert.toJavaObjectVo(t);
     }
 
     /**
      * 修改数据
      *
-     * @param entity 需要更新的数据
+     * @param d 需要更新的数据
      * @return T
      * @throws BizException
      */
     @Override
     @Transactional(rollbackFor = Exception.class)
-    public T update(T entity) throws Exception {
-        EntityUtils.setUpdatedInfo(entity);
-        bizMapper.updateByPrimaryKeySelective(entity);
-        return entity;
+    public V update(D d) throws Exception {
+        T t = bizConvert.toJavaObject(d);
+        EntityUtils.setUpdatedInfo(t);
+        bizMapper.updateByPrimaryKeySelective(t);
+        return bizConvert.toJavaObjectVo(t);
     }
 
     /**

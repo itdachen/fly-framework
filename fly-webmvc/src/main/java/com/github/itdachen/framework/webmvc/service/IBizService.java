@@ -13,7 +13,7 @@ import com.github.itdachen.framework.core.response.TableData;
  * Created by 王大宸 on 2022-06-30 9:25
  * Created with IntelliJ IDEA.
  */
-public interface IBizService<T, V, Q extends BizQuery, PK> {
+public interface IBizService<D, V, Q extends BizQuery, PK> {
 
     /**
      * 分页查询
@@ -26,10 +26,10 @@ public interface IBizService<T, V, Q extends BizQuery, PK> {
     /**
      * 新增
      *
-     * @param entity 需要新增的数据
+     * @param d 需要新增的数据
      * @return T
      */
-    T save(T entity) throws Exception;
+    V save(D d) throws Exception;
 
     /**
      * 根据id查询数据
@@ -42,10 +42,10 @@ public interface IBizService<T, V, Q extends BizQuery, PK> {
     /**
      * 更新数据
      *
-     * @param entity 需要更新的数据
+     * @param d 需要更新的数据
      * @return T
      */
-    T update(T entity) throws Exception;
+    V update(D d) throws Exception;
 
     /**
      * 删除

@@ -23,11 +23,13 @@ import javax.servlet.http.HttpServletRequest;
  * Created by 王大宸 on 2022-06-30 10:32
  * Created with IntelliJ IDEA.
  */
-public class BizController<BizService extends IBizService<T, V, Q, PK>, T, V, Q extends BizQuery, PK> {
-    @Autowired
-    protected HttpServletRequest request;
-    @Autowired
-    protected BizService bizService;
+public class BizController<D, V, Q extends BizQuery, PK> {
+
+    private final IBizService<D, V, Q, PK> bizService;
+
+    public BizController(IBizService<D, V, Q, PK> bizService) {
+        this.bizService = bizService;
+    }
 
     @InitBinder
     public void initBinder(WebDataBinder binder) {
@@ -52,29 +54,29 @@ public class BizController<BizService extends IBizService<T, V, Q, PK>, T, V, Q 
     /**
      * 新增
      *
-     * @param entity 需要新增的数据
+     * @param d 需要新增的数据
      * @return com.github.itdachen.framework.core.response.ServerResponse<T>
      * @throws BizException
      */
     @PostMapping(value = "")
     @ResponseBody
     @Log(title = "新增", type = LogType.SAVE)
-    public ServerResponse<T> save(@RequestBody T entity) throws Exception {
-        return ServerResponse.okData(bizService.save(entity));
+    public ServerResponse<V> save(@RequestBody D d) throws Exception {
+        return ServerResponse.okData(bizService.save(d));
     }
 
     /**
      * 更新
      *
-     * @param entity 需要更新的数据
+     * @param d 需要更新的数据
      * @return com.github.itdachen.framework.core.response.ServerResponse<T>
      * @throws BizException
      */
     @PutMapping(value = "/{id}")
     @ResponseBody
     @Log(title = "修改/编辑", type = LogType.UPDATE)
-    public ServerResponse<T> update(@RequestBody T entity) throws Exception {
-        return ServerResponse.okData(bizService.update(entity));
+    public ServerResponse<V> update(@RequestBody D d) throws Exception {
+        return ServerResponse.okData(bizService.update(d));
     }
 
     /**

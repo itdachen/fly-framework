@@ -1,6 +1,5 @@
 package com.github.itdachen.framework.code.utils;
 
-import com.github.itdachen.framework.code.constants.PackageNameConstant;
 import com.github.itdachen.framework.code.constants.UiStyleConstant;
 import com.github.itdachen.framework.code.sdk.vo.TableColumnVo;
 import com.github.itdachen.framework.code.sdk.vo.TableInfoVo;
@@ -101,7 +100,7 @@ public class VelocityUtils {
         templates.add("templates/vmtemplates/java/sdk/dto/dto.java.vm");
         templates.add("templates/vmtemplates/java/sdk/vo/vo.java.vm");
         templates.add("templates/vmtemplates/java/sdk/query/query.java.vm");
-        templates.add("templates/vmtemplates/java/convert/convert.java.vm");
+        templates.add("templates/vmtemplates/java/" + mvcType + "/convert/convert.java.vm");
 
         /* 后端 java */
         templates.add("templates/vmtemplates/java/" + mvcType + "/entity/entity.java.vm");
@@ -109,6 +108,7 @@ public class VelocityUtils {
         templates.add("templates/vmtemplates/java/" + mvcType + "/service/service.java.vm");
         templates.add("templates/vmtemplates/java/" + mvcType + "/service/impl/serviceImpl.java.vm");
         templates.add("templates/vmtemplates/java/" + mvcType + "/mapper/mapper.java.vm");
+
         /* mybatis xml */
         templates.add("templates/vmtemplates/java/" + mvcType + "/xml/mapper.xml.vm");
 

@@ -12,11 +12,11 @@ import ${package}.sdk.vo.${ClassName}Vo;
  */
 public class ${ClassName}Convert {
 
-    public static ${ClassName}Vo to${ClassName}Vo (${ClassName}Dto ${className}Dto) {
-       ${ClassName}Vo ${className}Vo = new ${ClassName}Vo();
+    public static ${ClassName}Vo toJavaObjectVo(${ClassName}Dto ${className}Dto) {
         if (null == ${className}Dto){
-            return ${className}Vo;
+            return null;
         }
+       ${ClassName}Vo ${className}Vo = new ${ClassName}Vo();
         #foreach ($column in $dtoVoColumns)
             #if(!$table.isSuperColumn($column.javaField))
                 #if($column.javaField.length() > 2 && $column.javaField.substring(1,2).matches("[A-Z]"))
@@ -31,11 +31,11 @@ public class ${ClassName}Convert {
     }
 
 
-    public static ${ClassName}Vo to${ClassName}Vo (${ClassName} ${className}) {
-        ${ClassName}Vo ${className}Vo = new ${ClassName}Vo();
+    public static ${ClassName}Vo toJavaObjectVo (${ClassName} ${className}) {
         if (null == ${className}){
-            return ${className}Vo;
+            return null;
         }
+        ${ClassName}Vo ${className}Vo = new ${ClassName}Vo();
         #foreach ($column in $dtoVoColumns)
             #if(!$table.isSuperColumn($column.javaField))
                 #if($column.javaField.length() > 2 && $column.javaField.substring(1,2).matches("[A-Z]"))
@@ -49,11 +49,11 @@ public class ${ClassName}Convert {
         return ${className}Vo;
     }
 
-    public static ${ClassName} to${ClassName} (${ClassName}Dto ${className}Dto) {
-        ${ClassName} ${className} = new ${ClassName}();
+    public static ${ClassName} toJavaObject (${ClassName}Dto ${className}Dto) {
         if (null == ${className}Dto){
-            return ${className};
+            return null;
         }
+        ${ClassName} ${className} = new ${ClassName}();
         #foreach ($column in $dtoVoColumns)
             #if(!$table.isSuperColumn($column.javaField))
                 #if($column.javaField.length() > 2 && $column.javaField.substring(1,2).matches("[A-Z]"))
@@ -67,11 +67,11 @@ public class ${ClassName}Convert {
         return ${className};
     }
 
-    public static ${ClassName} to${ClassName}(${ClassName}Vo ${className}Vo) {
-        ${ClassName} ${className} = new ${ClassName}();
+    public static ${ClassName} toJavaObject(${ClassName}Vo ${className}Vo) {
         if (null == ${className}Vo){
-            return ${className};
+            return null;
         }
+        ${ClassName} ${className} = new ${ClassName}();
         #foreach ($column in $dtoVoColumns)
             #if(!$table.isSuperColumn($column.javaField))
                 #if($column.javaField.length() > 2 && $column.javaField.substring(1,2).matches("[A-Z]"))
@@ -84,6 +84,5 @@ public class ${ClassName}Convert {
         #end
         return ${className};
     }
-
 
 }
