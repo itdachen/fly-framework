@@ -52,7 +52,7 @@ public class ${ClassName}Convert extends BizConvert< ${ClassName}, ${ClassName}D
         return ${className}Vo;
     }
 
-    public static ${ClassName} toJavaObject(${ClassName}Vo ${className}Vo) {
+    public ${ClassName} toJavaObject(${ClassName}Vo ${className}Vo) {
         if (null == ${className}Vo){
             return null;
         }
@@ -70,7 +70,7 @@ public class ${ClassName}Convert extends BizConvert< ${ClassName}, ${ClassName}D
         return ${className};
     }
 
-    public static ${ClassName}Vo toJavaObjectVo(${ClassName}Dto ${className}Dto) {
+    public ${ClassName}Vo toJavaObjectVo(${ClassName}Dto ${className}Dto) {
         if (null == ${className}Dto){
             return null;
         }
