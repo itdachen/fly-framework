@@ -3,10 +3,9 @@ package com.github.itdachen.framework.file.cloud.download;
 import com.github.itdachen.framework.file.cloud.DownloadService;
 import com.github.itdachen.framework.file.properties.LocalCloudStorageProperties;
 import com.github.itdachen.framework.file.utils.MapPathUtils;
+import jakarta.servlet.http.HttpServletResponse;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
-
-import javax.servlet.http.HttpServletResponse;
 
 /**
  * Description: 本地服务器文件下载

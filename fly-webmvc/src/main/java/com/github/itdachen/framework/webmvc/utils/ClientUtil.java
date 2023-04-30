@@ -1,6 +1,6 @@
 package com.github.itdachen.framework.webmvc.utils;
 
-import javax.servlet.http.HttpServletRequest;
+import jakarta.servlet.http.HttpServletRequest;
 
 /**
  * Description:

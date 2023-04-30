@@ -2,11 +2,11 @@ package com.github.itdachen.framework.file.cloud.download;
 
 import com.github.itdachen.framework.file.cloud.DownloadService;
 import com.github.itdachen.framework.file.properties.LocalCloudStorageProperties;
+import jakarta.servlet.http.HttpServletResponse;
 import org.apache.commons.lang3.StringUtils;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
-import javax.servlet.http.HttpServletResponse;
 import java.io.*;
 import java.net.HttpURLConnection;
 import java.net.URL;

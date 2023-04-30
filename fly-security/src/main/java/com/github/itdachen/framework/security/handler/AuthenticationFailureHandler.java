@@ -5,15 +5,15 @@ import com.github.itdachen.framework.security.constants.LoginModeConstant;
 import com.github.itdachen.framework.security.constants.SecurityBrowserConstants;
 import com.github.itdachen.framework.security.exception.BizSecurityException;
 import com.github.itdachen.framework.security.properties.SecurityBrowserProperties;
+import jakarta.servlet.ServletException;
+import jakarta.servlet.http.HttpServletRequest;
+import jakarta.servlet.http.HttpServletResponse;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.security.core.AuthenticationException;
 import org.springframework.security.web.authentication.SimpleUrlAuthenticationFailureHandler;
 import org.springframework.stereotype.Component;
 
-import javax.servlet.ServletException;
-import javax.servlet.http.HttpServletRequest;
-import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
 import java.util.List;
 

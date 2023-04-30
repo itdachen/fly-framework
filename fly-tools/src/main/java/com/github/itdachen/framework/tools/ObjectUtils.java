@@ -10,47 +10,26 @@ import java.lang.reflect.Field;
 import java.util.*;
 
 /**
- * Description: 对象转换工具类
+ * Description: 对象转换工具类  implements ApplicationContextAware
  * Created by 王大宸 on 2021-12-01 17:12
  * Created with IntelliJ IDEA.
  */
-public class ObjectUtils implements ApplicationContextAware {
+public class ObjectUtils {
 
     private final static Mapper MAPPER = DozerBeanMapperBuilder.buildDefault();
 
-    private static ApplicationContext applicationContext;
-
-    @Override
-    public void setApplicationContext(ApplicationContext applicationContext) throws BeansException {
-        if (null == ObjectUtils.applicationContext) {
-            ObjectUtils.applicationContext = applicationContext;
-        }
-    }
-
-    public static ApplicationContext getApplicationContext() {
-        return applicationContext;
-    }
-
-    /**
-     * 通过name获取Bean
-     */
-    public static Object getBean(String name) {
-        return getApplicationContext().getBean(name);
-    }
-
-    /**
-     * 通过class获取Bean
-     */
-    public static <T> T getBean(Class<T> clazz) {
-        return getApplicationContext().getBean(clazz);
-    }
-
-    /**
-     * 通过name,以及Clazz返回指定的Bean
-     */
-    public static <T> T getBean(String name, Class<T> clazz) {
-        return getApplicationContext().getBean(name, clazz);
-    }
+//    private static ApplicationContext applicationContext;
+//
+//    @Override
+//    public void setApplicationContext(ApplicationContext applicationContext) throws BeansException {
+//        if (null == ObjectUtils.applicationContext) {
+//            ObjectUtils.applicationContext = applicationContext;
+//        }
+//    }
+//
+//    public static ApplicationContext getApplicationContext() {
+//        return applicationContext;
+//    }
 
     /***
      * Description：obj 转 Object
@@ -153,4 +132,5 @@ public class ObjectUtils implements ApplicationContextAware {
         }
         return result;
     }
+
 }

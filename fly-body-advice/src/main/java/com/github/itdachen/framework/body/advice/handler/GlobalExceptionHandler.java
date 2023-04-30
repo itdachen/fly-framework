@@ -2,14 +2,13 @@ package com.github.itdachen.framework.body.advice.handler;
 
 import com.github.itdachen.framework.context.exception.BizException;
 import com.github.itdachen.framework.core.response.ServerResponse;
+import jakarta.servlet.http.HttpServletResponse;
 import org.apache.commons.lang3.StringUtils;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.http.HttpStatus;
 import org.springframework.web.bind.annotation.ExceptionHandler;
 import org.springframework.web.bind.annotation.RestControllerAdvice;
-
-import javax.servlet.http.HttpServletResponse;
 
 /**
  * Description: 全局异常处理
@@ -40,6 +39,26 @@ public class GlobalExceptionHandler {
     }
 
     /***
+     * 断言异常
+     *
+     * @author 王大宸
+     * @date 2023/4/29 18:50
+     * @param response response
+     * @param ex ex
+     * @return com.github.itdachen.framework.core.response.ServerResponse<java.lang.String>
+     */
+    @ExceptionHandler(IllegalArgumentException.class)
+    public ServerResponse<String> illegalArgumentExceptionHandler(HttpServletResponse response, IllegalArgumentException ex) {
+        logger.error(ex.getMessage());
+        response.setStatus(HttpStatus.OK.value());
+        if (StringUtils.isEmpty(ex.getMessage())) {
+            return ServerResponse.errMsg("出现未知错误,请联系技术人员!");
+        }
+        return ServerResponse.errMsg(ex.getMessage());
+    }
+
+
+    /***
      * 其他异常
      *
      * @author 王大宸
@@ -49,7 +68,7 @@ public class GlobalExceptionHandler {
      * @return com.github.itdachen.framework.core.response.ServerResponse<java.lang.String>
      */
     @ExceptionHandler(Exception.class)
-    public ServerResponse<String> baseExceptionHandler(HttpServletResponse response, Exception ex) {
+    public ServerResponse<String> exceptionHandler(HttpServletResponse response, Exception ex) {
         logger.error("未知错误: ", ex);
         response.setStatus(HttpStatus.OK.value());
         if (StringUtils.isEmpty(ex.getMessage())) {

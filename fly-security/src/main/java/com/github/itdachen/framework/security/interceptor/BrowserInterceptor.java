@@ -3,14 +3,13 @@ package com.github.itdachen.framework.security.interceptor;
 import com.github.itdachen.framework.context.BizContextHandler;
 import com.github.itdachen.framework.security.context.SecurityContextHandler;
 import com.github.itdachen.framework.security.user.CurrentUserInfo;
+import jakarta.servlet.http.HttpServletRequest;
+import jakarta.servlet.http.HttpServletResponse;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.http.HttpMethod;
 import org.springframework.web.servlet.HandlerInterceptor;
 import org.springframework.web.servlet.ModelAndView;
-
-import javax.servlet.http.HttpServletRequest;
-import javax.servlet.http.HttpServletResponse;
 
 /**
  * Description:

@@ -6,6 +6,10 @@ import com.github.itdachen.framework.security.validate.code.enums.ValidateCodeTy
 import com.github.itdachen.framework.security.constants.SecurityConstants;
 import com.github.itdachen.framework.security.properties.SecurityBrowserProperties;
 import com.github.itdachen.framework.security.validate.code.processor.ValidateCodeProcessorHolder;
+import jakarta.servlet.FilterChain;
+import jakarta.servlet.ServletException;
+import jakarta.servlet.http.HttpServletRequest;
+import jakarta.servlet.http.HttpServletResponse;
 import org.springframework.beans.factory.InitializingBean;
 import org.springframework.core.env.Environment;
 import org.springframework.security.web.authentication.AuthenticationFailureHandler;
@@ -14,10 +18,6 @@ import org.springframework.util.AntPathMatcher;
 import org.springframework.web.context.request.ServletWebRequest;
 import org.springframework.web.filter.OncePerRequestFilter;
 
-import javax.servlet.FilterChain;
-import javax.servlet.ServletException;
-import javax.servlet.http.HttpServletRequest;
-import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
 import java.util.HashMap;
 import java.util.Map;

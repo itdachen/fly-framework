@@ -4,6 +4,7 @@ import com.alibaba.druid.spring.boot.autoconfigure.properties.DruidStatPropertie
 import com.alibaba.druid.support.http.StatViewServlet;
 import com.alibaba.druid.support.http.WebStatFilter;
 import com.alibaba.druid.util.Utils;
+import jakarta.servlet.*;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.boot.autoconfigure.condition.ConditionalOnProperty;
@@ -12,7 +13,6 @@ import org.springframework.boot.web.servlet.ServletRegistrationBean;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 
-import javax.servlet.*;
 import java.io.IOException;
 
 /**
@@ -31,15 +31,15 @@ public class DruidDataSourceStatViewServletView {
      * @date 2020/10/11 15:32
      * @return org.springframework.boot.web.servlet.ServletRegistrationBean<com.alibaba.druid.support.http.StatViewServlet>
      */
-    @Bean
-    public ServletRegistrationBean<StatViewServlet> druidServlet() {
-        logger.info("正在注册Servlet信息，配置数据库监控视图...");
-        ServletRegistrationBean<StatViewServlet> servletRegistrationBean = new ServletRegistrationBean<StatViewServlet>();
-        servletRegistrationBean.setServlet(new StatViewServlet());
-        servletRegistrationBean.addUrlMappings("/druid/*");
-        logger.info("数据库数据库监控视图配置完成");
-        return servletRegistrationBean;
-    }
+//    @Bean
+//    public ServletRegistrationBean<StatViewServlet> druidServlet() {
+//        logger.info("正在注册Servlet信息，配置数据库监控视图...");
+//        ServletRegistrationBean<StatViewServlet> servletRegistrationBean = new ServletRegistrationBean<StatViewServlet>();
+//        servletRegistrationBean.setServlet(new StatViewServlet());
+//        servletRegistrationBean.addUrlMappings("/druid/*");
+//        logger.info("数据库数据库监控视图配置完成");
+//        return servletRegistrationBean;
+//    }
 
     /***
      * 注册Filter信息, 数据库监控拦截器
@@ -48,20 +48,20 @@ public class DruidDataSourceStatViewServletView {
      * @date 2020/10/11 15:32
      * @return org.springframework.boot.web.servlet.FilterRegistrationBean<com.alibaba.druid.support.http.WebStatFilter>
      */
-    @Bean
-    public FilterRegistrationBean<WebStatFilter> filterRegistrationBean() {
-        logger.info("正在注册Filter信息, 数据库监控拦截器...");
-        FilterRegistrationBean<WebStatFilter> filterRegistrationBean = new FilterRegistrationBean<WebStatFilter>();
-        filterRegistrationBean.setFilter(new WebStatFilter());
-        filterRegistrationBean.addUrlPatterns("/*");
-        filterRegistrationBean.addInitParameter("exclusions", "*.js,*.gif,*.jpg,*.png,*.css,*.ico,/druid/*");
-        filterRegistrationBean.addInitParameter("profileEnable", "true");
-        filterRegistrationBean.addInitParameter("principalCookieName", "USER_COOKIE");
-        filterRegistrationBean.addInitParameter("principalSessionName", "USER_SESSION");
-        filterRegistrationBean.addInitParameter("DruidWebStatFilter", "/*");
-        logger.info("数据库监控拦截器配置完成");
-        return filterRegistrationBean;
-    }
+//    @Bean
+//    public FilterRegistrationBean<WebStatFilter> filterRegistrationBean() {
+//        logger.info("正在注册Filter信息, 数据库监控拦截器...");
+//        FilterRegistrationBean<WebStatFilter> filterRegistrationBean = new FilterRegistrationBean<WebStatFilter>();
+//        filterRegistrationBean.setFilter(new WebStatFilter());
+//        filterRegistrationBean.addUrlPatterns("/*");
+//        filterRegistrationBean.addInitParameter("exclusions", "*.js,*.gif,*.jpg,*.png,*.css,*.ico,/druid/*");
+//        filterRegistrationBean.addInitParameter("profileEnable", "true");
+//        filterRegistrationBean.addInitParameter("principalCookieName", "USER_COOKIE");
+//        filterRegistrationBean.addInitParameter("principalSessionName", "USER_SESSION");
+//        filterRegistrationBean.addInitParameter("DruidWebStatFilter", "/*");
+//        logger.info("数据库监控拦截器配置完成");
+//        return filterRegistrationBean;
+//    }
 
     /**
      * 去除广告

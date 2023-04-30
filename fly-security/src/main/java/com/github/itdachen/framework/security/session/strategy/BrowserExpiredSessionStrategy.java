@@ -1,9 +1,9 @@
 package com.github.itdachen.framework.security.session.strategy;
 
+import jakarta.servlet.ServletException;
 import org.springframework.security.web.session.SessionInformationExpiredEvent;
 import org.springframework.security.web.session.SessionInformationExpiredStrategy;
 
-import javax.servlet.ServletException;
 import java.io.IOException;
 
 /**

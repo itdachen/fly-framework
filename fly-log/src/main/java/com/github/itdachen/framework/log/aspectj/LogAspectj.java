@@ -1,5 +1,6 @@
 package com.github.itdachen.framework.log.aspectj;
 
+import com.alibaba.fastjson.JSON;
 import com.alibaba.fastjson.JSONObject;
 import com.github.itdachen.framework.context.BizContextHandler;
 import com.github.itdachen.framework.context.annotation.CheckApiClient;
@@ -103,12 +104,14 @@ public class LogAspectj {
                 apiLog.setClientId(apiClient.clientId());
             }
 
+            JSONObject res = (JSONObject)JSON.toJSON(resultJson);
+
             // 业务操作
-            ServerResponse res = ObjectUtils.objToClass(resultJson, ServerResponse.class);
+         //   ServerResponse res = ObjectUtils.objToClass(resultJson, ServerResponse.class);
             if (null != res) {
                 apiLog.setMakeUseStatus(ApiLogConstant.IS_OK);
-                apiLog.setMsg(res.getMsg());
-                if (!res.getSuccess()) {
+                apiLog.setMsg(res.getString("msg"));
+                if (!res.getBooleanValue("success")) {
                     apiLog.setMakeUseStatus(ApiLogConstant.IS_ERR);
                 }
             }

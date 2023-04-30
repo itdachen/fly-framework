@@ -2,6 +2,8 @@ package com.github.itdachen.framework.security.session.strategy;
 
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.github.itdachen.framework.core.response.ServerResponse;
+import jakarta.servlet.http.HttpServletRequest;
+import jakarta.servlet.http.HttpServletResponse;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.security.web.DefaultRedirectStrategy;
@@ -9,8 +11,6 @@ import org.springframework.security.web.RedirectStrategy;
 import org.springframework.security.web.util.UrlUtils;
 import org.springframework.util.Assert;
 
-import javax.servlet.http.HttpServletRequest;
-import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
 
 /**

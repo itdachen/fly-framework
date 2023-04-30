@@ -4,12 +4,12 @@ import cn.hutool.core.util.XmlUtil;
 import com.github.itdachen.framework.weixin.common.mp.aes.WXBizMsgCrypt;
 import com.github.itdachen.framework.weixin.oplatform.contents.VerifyTicketInfoType;
 import com.github.itdachen.framework.weixin.oplatform.entity.VerifyTicketInfo;
+import jakarta.servlet.http.HttpServletRequest;
 import org.apache.commons.lang3.StringUtils;
 import org.apache.commons.io.IOUtils;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
-import javax.servlet.http.HttpServletRequest;
 import java.io.InputStream;
 import java.util.Map;
 

@@ -6,7 +6,7 @@
     <parent>
         <groupId>com.github.itdachen.framework</groupId>
         <artifactId>fly-framework</artifactId>
-        <version>0.0.1</version>
+        <version>1.0.0</version>
     </parent>
 
     <artifactId>fly-context</artifactId>
@@ -25,25 +25,25 @@
             <artifactId>commons-lang3</artifactId>
         </dependency>
 
-        <!-- SpringBoot 2.x 引入下面版本 -->
-        <dependency>
-            <groupId>javax.annotation</groupId>
-            <artifactId>javax.annotation-api</artifactId>
-        </dependency>
-        <dependency>
-            <groupId>javax.servlet</groupId>
-            <artifactId>javax.servlet-api</artifactId>
-        </dependency>
+        <!--     SpringBoot 2.x 引入下面版本-->
+        <!--            <dependency>-->
+        <!--                <groupId>javax.annotation</groupId>-->
+        <!--                <artifactId>javax.annotation-api</artifactId>-->
+        <!--            </dependency>-->
+        <!--            <dependency>-->
+        <!--                <groupId>javax.servlet</groupId>-->
+        <!--                <artifactId>javax.servlet-api</artifactId>-->
+        <!--            </dependency>-->
 
-        <!-- SpringBoot 3.x 引入下面版本, 从Java EE APIs 到 Jakarta EE -->
-<!--        <dependency>-->
-<!--            <groupId>jakarta.annotation</groupId>-->
-<!--            <artifactId>jakarta.annotation-api</artifactId>-->
-<!--        </dependency>-->
-<!--        <dependency>-->
-<!--            <groupId>jakarta.servlet</groupId>-->
-<!--            <artifactId>jakarta.servlet-api</artifactId>-->
-<!--        </dependency>-->
+        <!--     SpringBoot 3.x 引入下面版本, 从Java EE APIs 到 Jakarta EE-->
+        <dependency>
+            <groupId>jakarta.annotation</groupId>
+            <artifactId>jakarta.annotation-api</artifactId>
+        </dependency>
+        <dependency>
+            <groupId>jakarta.servlet</groupId>
+            <artifactId>jakarta.servlet-api</artifactId>
+        </dependency>
     </dependencies>
 
 </project>

@@ -1,15 +1,13 @@
 package com.github.itdachen.framework.code;
 
-import javax.servlet.http.HttpServletResponse;
-
 import com.github.itdachen.framework.code.constants.PackageNameConstant;
-import com.github.itdachen.framework.code.sdk.vo.TableColumnVo;
 import com.github.itdachen.framework.code.sdk.vo.TableInfoVo;
 import com.github.itdachen.framework.code.utils.GeneratorUtils;
 import com.github.itdachen.framework.code.utils.PkColumnUtils;
 import com.github.itdachen.framework.code.utils.VelocityInitializer;
 import com.github.itdachen.framework.code.utils.VelocityUtils;
 import com.github.itdachen.framework.core.constants.Constants;
+import jakarta.servlet.http.HttpServletResponse;
 import org.apache.commons.io.IOUtils;
 import org.apache.velocity.Template;
 import org.apache.velocity.VelocityContext;
@@ -18,12 +16,10 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
 import java.io.ByteArrayOutputStream;
-import java.io.IOException;
 import java.io.StringWriter;
 import java.util.LinkedHashMap;
 import java.util.List;
 import java.util.Map;
-import java.util.zip.ZipEntry;
 import java.util.zip.ZipOutputStream;
 
 /**

@@ -3,10 +3,10 @@ package com.github.itdachen.framework.file;
 import com.github.itdachen.framework.file.entity.FileInfo;
 import com.github.itdachen.framework.file.factory.FileFactory;
 import com.github.itdachen.framework.file.utils.FileMd5HexUtils;
+import jakarta.servlet.http.HttpServletResponse;
 import org.springframework.stereotype.Service;
 import org.springframework.web.multipart.MultipartFile;
 
-import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
 
 /**

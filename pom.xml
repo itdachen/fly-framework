@@ -5,7 +5,7 @@
     <modelVersion>4.0.0</modelVersion>
     <groupId>com.github.itdachen.framework</groupId>
     <artifactId>fly-framework</artifactId>
-    <version>0.0.1</version>
+    <version>1.0.0</version>
     <packaging>pom</packaging>
 
     <modules>
@@ -40,8 +40,9 @@
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
         <project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
 
-        <fly.dependencies.version>0.0.1</fly.dependencies.version>
-        <fly.framework.version>0.0.1</fly.framework.version>
+        <fly.dependencies.version>1.0.0</fly.dependencies.version>
+        <fly.framework.version>1.0.0</fly.framework.version>
+        <env.project.version>1.0.0</env.project.version>
     </properties>
 
     <dependencyManagement>

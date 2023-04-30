@@ -1,6 +1,7 @@
 package com.github.itdachen.framework.weixin.wxpay.utils;
 
 import com.google.gson.Gson;
+import jakarta.servlet.http.HttpServletRequest;
 import org.apache.commons.lang3.StringUtils;
 import org.apache.http.client.methods.CloseableHttpResponse;
 import org.apache.http.client.methods.HttpPost;
@@ -9,8 +10,6 @@ import org.apache.http.util.EntityUtils;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
-import javax.servlet.http.HttpServletRequest;
-import javax.servlet.http.HttpUtils;
 import java.io.BufferedReader;
 import java.io.IOException;
 import java.util.HashMap;
@@ -22,7 +21,7 @@ import java.util.Map;
  * Created with IntelliJ IDEA.
  */
 public class HttpPayUtils {
-    private static final Logger logger = LoggerFactory.getLogger(HttpUtils.class);
+    private static final Logger logger = LoggerFactory.getLogger(HttpPayUtils.class);
 
     /**
      * 解析响应数据
