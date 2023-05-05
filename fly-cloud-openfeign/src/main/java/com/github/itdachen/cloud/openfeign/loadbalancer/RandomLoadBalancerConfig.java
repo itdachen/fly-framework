@@ -1,0 +1,25 @@
+package com.github.itdachen.cloud.openfeign.loadbalancer;
+
+import org.springframework.cloud.client.ServiceInstance;
+import org.springframework.cloud.loadbalancer.core.RandomLoadBalancer;
+import org.springframework.cloud.loadbalancer.core.ReactorLoadBalancer;
+import org.springframework.cloud.loadbalancer.core.ServiceInstanceListSupplier;
+import org.springframework.cloud.loadbalancer.support.LoadBalancerClientFactory;
+import org.springframework.context.annotation.Bean;
+import org.springframework.core.env.Environment;
+
+/**
+ * Description: 随机负载均衡策略配置类
+ * Created by 王大宸 on 2023/05/05 21:05
+ * Created with IntelliJ IDEA.
+ */
+public class RandomLoadBalancerConfig {
+
+    @Bean
+    ReactorLoadBalancer<ServiceInstance> randomLoadBalancer(Environment environment, LoadBalancerClientFactory loadBalancerClientFactory) {
+        String name = environment.getProperty(LoadBalancerClientFactory.PROPERTY_NAME);
+        return new RandomLoadBalancer(loadBalancerClientFactory
+                .getLazyProvider(name, ServiceInstanceListSupplier.class), name);
+    }
+
+}

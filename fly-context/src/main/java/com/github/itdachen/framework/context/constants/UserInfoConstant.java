@@ -105,7 +105,7 @@ public class UserInfoConstant {
     /**
      * 登录ip
      */
-    public static final String IP = "ip";
+    public static final String HOST_IP = "ip";
 
     /**
      * 操作日志id
@@ -117,8 +117,34 @@ public class UserInfoConstant {
      */
     public static final String EXPIRES_IN = "expire_in";
 
+    /**
+     * token 请求头
+     */
     public final static String HEADER_AUTHORIZATION = "Authorization";
 
+    /**
+     * token 类型
+     */
     public static final String TOKEN_TYPE = "Bearer ";
+
+    /**
+     * 内部调用
+     */
+    public static final String NAL_FEIGN = "Nal-Feign";
+
+    /**
+     * 内部调用
+     */
+    public static final String NAL_FEIGN_VALUE = "nalFeign";
+
+    /**
+     * 校验票据
+     */
+    public static final String VERIFIED_TICKET = "Verified-Ticket";
+
+    /**
+     * 校验票据
+     */
+    public static final String VERIFIED_TICKET_VALUE = "verifiedTicket";
 
 }

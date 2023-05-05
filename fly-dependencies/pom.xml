@@ -22,8 +22,8 @@
 
         <!-- Spring Cloud/Spring Boot 组件依赖 -->
         <spring.boot.version>3.0.6</spring.boot.version>
-        <spring-cloud-dependencies.version>2021.0.5</spring-cloud-dependencies.version>
-        <spring-cloud-alibaba-dependencies.version>2021.0.4.0</spring-cloud-alibaba-dependencies.version>
+        <spring-cloud-dependencies.version>2022.0.2</spring-cloud-dependencies.version>
+        <spring-cloud-alibaba-dependencies.version>2022.0.0.0-RC2</spring-cloud-alibaba-dependencies.version>
         <feign.httpclient>12.1</feign.httpclient>
         <spring.boot.admin.server.version>2.6.6</spring.boot.admin.server.version>
 
@@ -185,17 +185,22 @@
             </dependency>
             <dependency>
                 <groupId>com.github.itdachen.framework</groupId>
-                <artifactId>fly-cloud-gateway-dynamic-routes</artifactId>
-                <version>${fly.framework.dependencies.version}</version>
-            </dependency>
-            <dependency>
-                <groupId>com.github.itdachen.framework</groupId>
                 <artifactId>fly-druid-view</artifactId>
                 <version>${fly.framework.dependencies.version}</version>
             </dependency>
             <dependency>
                 <groupId>com.github.itdachen.framework</groupId>
                 <artifactId>fly-code-tools</artifactId>
+                <version>${fly.framework.dependencies.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>com.github.itdachen.framework.cloud</groupId>
+                <artifactId>fly-cloud-gateway-dynamic-routes</artifactId>
+                <version>${fly.framework.dependencies.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>com.github.itdachen.framework.cloud</groupId>
+                <artifactId>fly-cloud-openfeign</artifactId>
                 <version>${fly.framework.dependencies.version}</version>
             </dependency>
 
@@ -237,6 +242,11 @@
                 <groupId>org.mybatis</groupId>
                 <artifactId>mybatis</artifactId>
                 <version>${org.mybatis}</version>
+            </dependency>
+            <dependency>
+                <groupId>org.mybatis.spring.boot</groupId>
+                <artifactId>mybatis-spring-boot-starter</artifactId>
+                <version>${org.mybatis.boot}</version>
             </dependency>
             <!-- 连接池 -->
             <dependency>
