@@ -46,6 +46,11 @@ public class TableColumn implements Serializable {
     private String javaType;
 
     /**
+     * 前端TS类型
+     */
+    private String tsType;
+
+    /**
      * JAVA字段名
      */
     private String javaField;
@@ -315,6 +320,13 @@ public class TableColumn implements Serializable {
         return updateUserId;
     }
 
+    public String getTsType() {
+        return tsType;
+    }
+
+    public void setTsType(String tsType) {
+        this.tsType = tsType;
+    }
 
     @Override
     public String toString() {

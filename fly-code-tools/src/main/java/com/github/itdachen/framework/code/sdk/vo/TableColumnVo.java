@@ -52,6 +52,11 @@ public class TableColumnVo implements Serializable {
     private String javaField;
 
     /**
+     * 前端TS类型
+     */
+    private String tsType;
+
+    /**
      * 是否主键（1是）
      */
     private String isPk;
@@ -263,6 +268,14 @@ public class TableColumnVo implements Serializable {
 
     public boolean isPk(String isPk) {
         return isPk != null && StringUtils.equals("1", isPk);
+    }
+
+    public String getTsType() {
+        return tsType;
+    }
+
+    public void setTsType(String tsType) {
+        this.tsType = tsType;
     }
 
     public String toString() {

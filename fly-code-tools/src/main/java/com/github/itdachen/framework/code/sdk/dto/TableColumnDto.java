@@ -50,6 +50,12 @@ public class TableColumnDto implements Serializable {
     private String javaField;
 
     /**
+     * 前端TS类型
+     */
+    private String tsType;
+
+
+    /**
      * 是否主键（1是）
      */
     private String isPk;
@@ -236,6 +242,13 @@ public class TableColumnDto implements Serializable {
         return sort;
     }
 
+    public String getTsType() {
+        return tsType;
+    }
+
+    public void setTsType(String tsType) {
+        this.tsType = tsType;
+    }
 
     @Override
     public String toString() {

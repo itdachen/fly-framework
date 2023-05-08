@@ -114,6 +114,7 @@ public class TableColumnFieldUtils {
         column.setJavaType(GenConstants.TYPE_STRING);
         column.setQueryType(GenConstants.QUERY_EQ);
         column.setHtmlType(GenConstants.HTML_INPUT);
+        column.setTsType("string");
 
         if (arraysContains(GenConstants.COLUMNTYPE_STR, dataType) || arraysContains(GenConstants.COLUMNTYPE_TEXT, dataType) || arraysContains(GenConstants.REMARKS_FILED, columnName)) {
             // 字符串长度超过500设置为文本域
