@@ -53,7 +53,7 @@ export default function use${ClassName}Builder() {
         limit: 10,
         #foreach ($column in $queryColumns)
             /** $column.columnComment */
-           $column.javaField?: '' #if($foreach.count != $queryColumns.size()), #end
+           $column.javaField: '' #if($foreach.count != $queryColumns.size()), #end
         #end
     });
 
@@ -71,7 +71,7 @@ export default function use${ClassName}Builder() {
     const ${className} = reactive< ${ClassName} >({
         #foreach ($column in $dtoVoColumns)
             /** $column.columnComment */
-            $column.javaField?: '' #if($foreach.count != $dtoVoColumns.size()), #end
+            $column.javaField: '' #if($foreach.count != $dtoVoColumns.size()), #end
         #end
     });
 
