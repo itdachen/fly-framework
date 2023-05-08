@@ -1,0 +1,140 @@
+import useStringComposable from '/@/utils/string';
+import useTable from '/@/components/ProTable/TableComposables';
+import {DialogTypeEnum} from '/@/components/dialog/Dialog';
+import use${ClassName}Builder, {${ClassName}, ${ClassName}Query} from "/@/api/${moduleName}/model/${ClassName}Model";
+import ${ClassName}Api from '/@/api/${moduleName}/${ClassName}Api'
+
+const ${className}Api = new ${ClassName}Api();
+const {isEmpty} = useStringComposable();
+const {successMsg, confirmMsgBox} = useTable();
+const {
+    ${className},
+    columns,
+    queryParams,
+    tableData,
+    ref${ClassName}
+} = use${ClassName}Builder();
+
+
+/**
+ * ${functionName} 处理
+ *
+ * @author ${author}
+ * @date ${datetime}
+ */
+export default function use${ClassName}Composable() {
+
+    /**
+     * 加载分页数据
+     * @author 王大宸
+     * @param params
+     */
+    const loadTableData = (params: ${ClassName}Query) => {
+            ${className}Api.page(params).then(res => {
+            tableData.total = res.data.total;
+            tableData.rows = res.data.rows;
+        });
+    };
+
+    /**
+     * 重新加载数据
+     * @author 王大宸
+     * @param page
+     * @param limit
+     */
+    const reloadDate = (page: number = 1, limit: number = 10) => {
+        queryParams.page = page;
+        queryParams.limit = limit;
+        loadTableData(queryParams);
+    };
+
+    /**
+     * 搜索处理
+     * @author 王大宸
+     * @param params
+     */
+    const tapSearchHandler = (params: ${ClassName}Query) => {
+        params.page = 1;
+        loadTableData(params);
+    };
+
+    /**
+     * 表单提交
+     * @author 王大宸
+     * @param data 需要提交的参数
+     */
+    const tapSubmitHandler = (data: ${ClassName}) => {
+        let id: string | undefined = data.id;
+        if (isEmpty(id)) {
+           ${className}Api.saveInfo(data).then(res => {
+                successMsg(res.msg);
+                ref${ClassName}.value?.onClose();
+                loadTableData(queryParams);
+            });
+        } else {
+            ${className}Api.updateInfo(data, data.id).then(res => {
+                successMsg(res.msg);
+                ref${ClassName}.value?.onClose();
+                loadTableData(queryParams);
+            });
+        }
+    };
+
+    /**
+     * 删除
+     * @author 王大宸
+     * @param id 需要删除的时间id
+     * @param title 标题
+     */
+    const tapRemoveHandler = (id: string, title: string) => {
+        confirmMsgBox('数据删除后将无法恢复，确定要删除 ' + title + ' 吗?').then(res => {
+           ${className}Api.remove(id).then(res => {
+                successMsg(res.msg);
+                loadTableData(queryParams);
+            });
+        });
+    };
+
+
+    /**
+     * 新增按钮处理
+     * @author 王大宸
+     */
+    const tapSaveHandler = () => {
+        ref${ClassName}.value?.show(DialogTypeEnum.SAVE, null);
+    };
+
+    /**
+     * 编辑按钮
+     * @author 王大宸
+     * @param data
+     */
+    const tapUpdateHandler = (data: ${ClassName}) => {
+        ref${ClassName}.value?.show(DialogTypeEnum.UPDATE, data);
+    };
+
+    /**
+     * 查看按钮处理
+     * @author 王大宸
+     * @param data
+     */
+    const tapViewHandler = (data: ${ClassName}) => {
+        ref${ClassName}.value?.show(DialogTypeEnum.VIEW, data);
+    };
+
+    return {
+        ref${ClassName},
+        ${className},
+        tableData,
+        columns,
+        queryParams,
+        tapSearchHandler,
+        tapSaveHandler,
+        tapUpdateHandler,
+        tapViewHandler,
+        tapRemoveHandler,
+        tapSubmitHandler,
+        reloadDate,
+        loadTableData
+    };
+}

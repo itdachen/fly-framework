@@ -1,0 +1,116 @@
+/*
+ * Description: ${comments}
+ * Created by ${author} on ${datetime}
+ * Created with IntelliJ Webstorm.
+ */
+
+import {BizQuery} from "/@/hooks/biz/BizModel";
+import {reactive, ref} from "vue";
+import {ColumnProps} from '/@/components/table/interface';
+import {DialogTypeEnum} from "/@/components/dialog/Dialog";
+import {TableData} from "/@/hooks/biz/BizModel";
+
+/**
+ * ${functionName} 查询参数
+ *
+ * @author ${author}
+ * @date ${datetime}
+ */
+export interface ${ClassName}Query extends BizQuery {
+    #foreach ($column in $columns)
+        #if($column.isQuery == '1')
+            /** $column.columnComment */
+           $column.javaField?: string,
+        #end
+    #end
+}
+
+
+/**
+ * ${functionName} 向后端传值对象
+ *
+ * @author ${author}
+ * @date ${datetime}
+ */
+export interface ${ClassName} {
+    #foreach ($column in $dtoVoColumns)
+        /** $column.columnComment */
+        $column.javaField?: string #if($foreach.count != $dtoVoColumns.size()), #end
+    #end
+}
+
+
+/**
+ * 初始化方法
+ */
+export default function use${ClassName}Builder() {
+
+    /**
+     * 实例化查询数据对象
+     */
+    const queryParams = reactive<${ClassName}Query>({
+        page: 1,
+        limit: 10,
+        #foreach ($column in $queryColumns)
+            /** $column.columnComment */
+           $column.javaField?: '' #if($foreach.count != $queryColumns.size()), #end
+        #end
+    });
+
+    /**
+     * 分页数据
+     */
+    const tableData = reactive< TableData < ${ClassName} > > ({
+        total: 0,
+        rows: [],
+    });
+
+    /**
+     * 实例化对象
+     */
+    const ${className} = reactive< ${ClassName} >({
+        #foreach ($column in $dtoVoColumns)
+            /** $column.columnComment */
+            $column.javaField?: '' #if($foreach.count != $dtoVoColumns.size()), #end
+        #end
+    });
+
+    /**
+     * 分页列表展示项
+     */
+    const columns: Partial<ColumnProps>[] = [
+        #foreach ($column in $columns)
+            #if($column.isList == '1')
+                {
+                    prop: "${column.javaField}",
+                    label: "$column.columnComment",
+                    align: "center"
+                },
+            #end
+        #end
+        {
+            prop: "operation",
+            label: "操作",
+            width: 250,
+            align: "center",
+            fixed: "right"
+        }
+    ];
+
+    /**
+     *  新增/修改/查看 弹窗
+     */
+    const ref${ClassName} = ref<{
+        show: (type: DialogTypeEnum, data?: ${ClassName} | null) => void,
+        onClose: () => void
+    }>();
+
+    return {
+        queryParams,
+        tableData,
+        ${className},
+        columns,
+        ref${ClassName}
+    }
+
+}

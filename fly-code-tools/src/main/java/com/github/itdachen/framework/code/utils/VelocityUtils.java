@@ -132,12 +132,12 @@ public class VelocityUtils {
             templates.add("templates/vmtemplates/js/edit.js.vm");
             templates.add("templates/vmtemplates/js/index.js.vm");
         } else if (UiStyleConstant.VUE_ELEMENT.equals(uiStyle)) {
-            /* 前后端分离 vue */
-            templates.add("templates/vmtemplates/vue/api.ts.vm");
-            templates.add("templates/vmtemplates/vue/model.ts.vm");
-            templates.add("templates/vmtemplates/vue/composables.ts.vm");
-            templates.add("templates/vmtemplates/vue/index.vue.vm");
-            templates.add("templates/vmtemplates/vue/ref.vue.vm");
+            /* 前后端分离 vue ElementUI */
+            templates.add("templates/vmtemplates/vue/element/api.ts.vm");
+            templates.add("templates/vmtemplates/vue/element/model.ts.vm");
+            templates.add("templates/vmtemplates/vue/element/composables.ts.vm");
+            templates.add("templates/vmtemplates/vue/element/index.vue.vm");
+            templates.add("templates/vmtemplates/vue/element/ref.vue.vm");
         } else if (UiStyleConstant.VUE_LAY_UI.equals(uiStyle)) {
             /* 前后端分离 vue */
             templates.add("templates/vmtemplates/vue/api.ts.vm");

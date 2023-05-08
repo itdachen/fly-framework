@@ -21,7 +21,11 @@ import java.util.List;
  */
 public class TableColumnFieldUtils {
 
-    public static ProtoTableInfo pottingTableInfo(List<ProtoTable> list, String uiStyle) {
+    public static ProtoTableInfo pottingTableInfo(List<ProtoTable> list, String clientId, String uiStyle) {
+        return pottingTableInfo(list, clientId, uiStyle, GenConstants.PARENT_MENU_ID);
+    }
+
+    public static ProtoTableInfo pottingTableInfo(List<ProtoTable> list, String clientId, String uiStyle, String menuId) {
         TableColumn column;
         TableInfo tableInfo;
         List<ProtoColumns> protoColumns;
@@ -31,6 +35,7 @@ public class TableColumnFieldUtils {
         for (ProtoTable protoTable : list) {
             tableInfo = new TableInfo();
             tableInfo.setId(VelocityUtils.getId());
+            tableInfo.setClientId(clientId);
             tableInfo.setCreateTime(LocalDateTime.now());
             tableInfo.setCreateUserId(BizContextHandler.getUserId());
             tableInfo.setCreateUser(BizContextHandler.getUserId());
@@ -50,9 +55,8 @@ public class TableColumnFieldUtils {
             tableInfo.setTplCategory(GenConstants.TPL_BIZ);
             tableInfo.setContextPath(ContextPathHandler.contextPath());
             tableInfo.setBusinessName("/" + protoTable.getTableName().toLowerCase().replaceAll("_", "/"));
-            tableInfo.setMenuId(GenConstants.PARENT_MENU_ID);
+            tableInfo.setMenuId(menuId);
             tableInfo.setIframe("iframe");
-            tableInfo.setClientId("web_app");
             tableInfos.add(tableInfo);
 
             /* 字段信息 */

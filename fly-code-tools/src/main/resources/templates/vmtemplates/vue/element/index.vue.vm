@@ -1,0 +1,82 @@
+<template>
+  <div class="template-container layout-padding">
+    <div class="template-container-padding layout-padding-auto layout-padding-view">
+            <!-- 表格展示 -->
+            <pro-table :data="tableDataVo" :columns="columns" @reloadDate="reloadDate">
+                <template #tableHeader="scope">
+                  <div class="system-user-search mb15">
+                      #foreach ($column in $queryColumns)
+                        <el-input size="default" placeholder="$column.columnComment" style="max-width: 180px"
+                                  v-model='queryParams.$column.javaField'></el-input>
+                      #end
+                      <el-input size="default" placeholder="请输入应用名称" style="max-width: 180px"
+                                v-model='queryParams.appTitle'
+                                @keyup.enter='handlerSearch(queryParams)'></el-input>
+                    <el-button size="default" type="primary" :icon="Search" class="ml10"
+                               v-permission="['${permsPrefix}:query']"
+                               @click='tapSearchHandler(queryParams)'> 搜索
+                    </el-button>
+                    <el-button size="default" type="success" :icon="Plus" class="ml10"
+                               v-permission="['${permsPrefix}:save']"
+                               @click='tapSaveHandler()'> 新增
+                    </el-button>
+                  </div>
+                </template>
+                <!-- 表格操作 -->
+                <template #operation="scope">
+                    <el-button v-permission="['${permsPrefix}:view']" type="primary" plain :icon="View"
+                               @click="tapViewHandler(scope.row)">查看
+                    </el-button>
+                    <el-button v-permission="['${permsPrefix}:update']" type="primary" plain :icon="Edit"
+                               color="#626aef"
+                               @click="tapUpdateHandler(scope.row)">编辑
+                    </el-button>
+                    <el-button v-permission="['${permsPrefix}:delete']" type="warning" plain :icon="Delete"
+                               @click="tapRemoveHandler(scope.row.id, scope.row.name)">删除
+                    </el-button>
+                </template>
+            </pro-table>
+
+        </div>
+
+        <!-- 新增/修改/查看 弹窗 -->
+        <Ref${ClassName} ref="ref${ClassName}" @bindtap="tapSubmitHandler"></Ref${ClassName}>
+
+  </div>
+</template>
+
+<script setup lang="ts" name="${ClassName}Component">
+  import {defineAsyncComponent, onMounted} from 'vue';
+  import {Search, Edit, View, Delete, Plus} from '@element-plus/icons-vue';
+  import ProTable from '/@/components/table/index.vue';
+  import use${ClassName}Composable from "/@/composables/${moduleName}/${ClassName}Composable";
+  const Ref${ClassName} = defineAsyncComponent(() => import('./Ref${ClassName}.vue'));
+
+    const {
+      ref${ClassName},
+      ${className},
+      tableData,
+      columns,
+      queryParams,
+      tapSearchHandler,
+      tapSaveHandler,
+      tapUpdateHandler,
+      tapViewHandler,
+      tapRemoveHandler,
+      tapSubmitHandler,
+      reloadDate,
+      loadTableData
+    } = use${ClassName}Composable();
+
+    /**
+     * 初始化页面时加载
+     */
+    onMounted(() => {
+        loadTableData(queryParams);
+    })
+
+</script>
+
+<style lang="scss" scoped>
+
+</style>
