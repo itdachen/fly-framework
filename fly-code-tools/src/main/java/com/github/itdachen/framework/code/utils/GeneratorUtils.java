@@ -26,7 +26,9 @@ import java.util.zip.ZipOutputStream;
 public class GeneratorUtils {
     private static final Logger logger = LoggerFactory.getLogger(GeneratorUtils.class);
     private static final Snowflake snowflake = new Snowflake(1, 1, 0L);
-    /** 下划线 */
+    /**
+     * 下划线
+     */
     private static final char SEPARATOR = '_';
 
     /**
@@ -163,6 +165,10 @@ public class GeneratorUtils {
         String packageName = genTable.getPackageName();
         // 模块名
         String moduleName = genTable.getModuleName();
+        String vueModuleName = genTable.getModuleName();
+        if ("admin".equals(vueModuleName)) {
+            vueModuleName = packageName.substring(packageName.lastIndexOf(".") + 1);
+        }
         // 大写类名
         String className = genTable.getClassName();
         String menuUri = VelocityUtils.menuUri(genTable);
@@ -181,7 +187,7 @@ public class GeneratorUtils {
             fileName = StringUtils.format("{}/sdk/query/{}Query.java", javaPath, className);
         } else if (template.contains("convert.java.vm")) {
             fileName = StringUtils.format("{}/convert/{}Convert.java", javaPath, className);
-        }  else if (template.contains("mapper.java.vm")) {
+        } else if (template.contains("mapper.java.vm")) {
             fileName = StringUtils.format("{}/mapper/I{}Mapper.java", javaPath, className);
         } else if (template.contains("service.java.vm")) {
             fileName = StringUtils.format("{}/service/I{}Service.java", javaPath, className);
@@ -208,15 +214,15 @@ public class GeneratorUtils {
         } else if (template.contains("index.js.vm")) {
             fileName = StringUtils.format("{}/static/{}/index.js", zipName + "/" + RESOURCES, menuUri);
         } else if (template.contains("model.ts.vm")) {
-            fileName = StringUtils.format("{}/api/{}/model/{}.ts", vuePath, moduleName, className + "Model");
+            fileName = StringUtils.format("{}/api/{}/model/{}.ts", vuePath, vueModuleName, className + "Model");
         } else if (template.contains("api.ts.vm")) {
-            fileName = StringUtils.format("{}/api/{}/{}.ts", vuePath, moduleName, className + "Api");
+            fileName = StringUtils.format("{}/api/{}/{}.ts", vuePath, vueModuleName, className + "Api");
         } else if (template.contains("composables.ts.vm")) {
-            fileName = StringUtils.format("{}/composables/{}/{}.ts", vuePath, moduleName, className + "Composable");
+            fileName = StringUtils.format("{}/composables/{}/{}.ts", vuePath, vueModuleName, className + "Composable");
         } else if (template.contains("index.vue.vm")) {
-            fileName = StringUtils.format("{}/views/{}/{}/index.vue", vuePath, moduleName, className.toLowerCase());
+            fileName = StringUtils.format("{}/views/{}/{}/index.vue", vuePath, vueModuleName, className.toLowerCase());
         } else if (template.contains("ref.vue.vm")) {
-            fileName = StringUtils.format("{}/views/{}/{}/{}.vue", vuePath, moduleName, className, "Ref" + className);
+            fileName = StringUtils.format("{}/views/{}/{}/{}.vue", vuePath, vueModuleName, className, "Ref" + className);
         }
         return fileName;
     }
