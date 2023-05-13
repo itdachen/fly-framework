@@ -5,10 +5,10 @@ const routes: Array<RouteRecordRaw> = [
 
     {
         path: '/${menuUrl}',
-        component: () => import('@/views/${moduleName}/${lowercaseName}/${className}.vue'),
-        name: '${className}Management',
+        component: () => import('@/views/${menuUrl}/index.vue'),
+        name: '${ClassName}Component',
         meta: {
-            title: '${comments}'
+            title: '${functionName}'
         }
     },
 

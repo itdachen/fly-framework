@@ -1,6 +1,6 @@
-import useStringComposable from '/@/utils/string';
-import useTable from '/@/components/ProTable/TableComposables';
-import {DialogTypeEnum} from '/@/components/dialog/Dialog';
+import useStringComposable from '/@/fly/utils/string';
+import useTable from '/@/fly/components/table/TableComposables';
+import {DialogTypeEnum} from '/@/fly/components/dialog/Dialog';
 import use${ClassName}Builder, {${ClassName}, ${ClassName}Query} from "/@/api/${moduleName}/model/${ClassName}Model";
 import ${ClassName}Api from '/@/api/${moduleName}/${ClassName}Api'
 

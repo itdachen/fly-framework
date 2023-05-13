@@ -1,19 +1,19 @@
 -- 菜单 SQL
-    INSERT INTO sys_menu_info (id, code, title, client_id, parent_id, path, redirect, icon, type, order_num, visible, name, component, link, affix, iframe,  remarks,  create_user)
-    VALUES ('${menuId}', '${permsPrefix}:index', '${functionName}', '${clientId}', '${pMenuId}', '${contextPath}${menuUrl}/index', NULL, 'Umbrella', 'menu', 99, '1', '${ClassName}Component', '${menuUrl}/index', NULL, NULL, '${iframe}', '${comments}', '${author}');
+INSERT INTO sys_menu_info (id, code, title, client_id, parent_id, path, redirect, icon, element_icon, layui_icon, type, order_num, visible, name, component, link, affix, iframe, keep_alive, remarks, create_time, create_user,  update_time, update_user)
+VALUES  ('${menuId}', '${permsPrefix}:index', '${functionName}', '${clientId}', '${pMenuId}', '${contextPath}${menuUrl}/index', '', 'layui-icon-tree', 'iconfont icon-shouye_dongtaihui', 'layui-icon-tree', 'menu', 99, '1', '${ClassName}Component', '${menuUrl}/index', '', '0', '${iframe}', '1', '${comments}', '2023-05-13 14:11:07', '${author}', '2023-05-13 14:11:07', '${author}');
 
 -- 按钮(资源) SQL
-    INSERT INTO sys_element_info (id, code, type, title, href, path, menu_id, method, order_num, visible, remarks,  create_user)
-    VALUES ('${pageId}', '${permsPrefix}:query', 'button', '查询', '${contextPath}${menuUrl}/page', '/','${menuId}', 'GET', '1', '1', '查询${comments}', '${author}');
+INSERT INTO sys_element_info (id, code, type, title, href, path, menu_id, method, order_num, visible, remarks,  create_user)
+VALUES ('${pageId}', '${permsPrefix}:query', 'button', '查询', '${contextPath}${menuUrl}/page', '/','${menuId}', 'GET', '1', '1', '查询${comments}', '${author}');
 
-    INSERT INTO sys_element_info (id, code, type, title, href, path, menu_id, method, order_num, visible, remarks,  create_user)
-    VALUES ('${addId}', '${permsPrefix}:save', 'button', '新增', '${contextPath}${menuUrl}', '${menuUrl}/add', '${menuId}', 'POST', '2', '1', '新增${comments}', '${author}');
+INSERT INTO sys_element_info (id, code, type, title, href, path, menu_id, method, order_num, visible, remarks,  create_user)
+VALUES ('${addId}', '${permsPrefix}:save', 'button', '新增', '${contextPath}${menuUrl}', '${menuUrl}/add', '${menuId}', 'POST', '2', '1', '新增${comments}', '${author}');
 
-    INSERT INTO sys_element_info (id, code, type, title, href, path, menu_id, method, order_num, visible, remarks,  create_user)
-    VALUES ('${editId}', '${permsPrefix}:update', 'button', '修改', '${contextPath}${menuUrl}/{*}', '${menuUrl}/edit/{*}', '${menuId}', 'PUT', '3', '1', '修改${comments}', '${author}');
+INSERT INTO sys_element_info (id, code, type, title, href, path, menu_id, method, order_num, visible, remarks,  create_user)
+VALUES ('${editId}', '${permsPrefix}:update', 'button', '修改', '${contextPath}${menuUrl}/{*}', '${menuUrl}/edit/{*}', '${menuId}', 'PUT', '3', '1', '修改${comments}', '${author}');
 
-    INSERT INTO sys_element_info (id, code, type, title, href, path, menu_id, method, order_num, visible, remarks,  create_user)
-    VALUES ('${seeId}', '${permsPrefix}:view', 'button', '查看', '${contextPath}${menuUrl}/{*}', '${menuUrl}/view/{*}', '${menuId}', 'GET', '4', '1', '查看${comments}', '${author}');
+INSERT INTO sys_element_info (id, code, type, title, href, path, menu_id, method, order_num, visible, remarks,  create_user)
+VALUES ('${seeId}', '${permsPrefix}:view', 'button', '查看', '${contextPath}${menuUrl}/{*}', '${menuUrl}/view/{*}', '${menuId}', 'GET', '4', '1', '查看${comments}', '${author}');
 
-    INSERT INTO sys_element_info (id, code, type, title, href, path, menu_id, method, order_num, visible, remarks,  create_user)
-    VALUES ('${delId}', '${permsPrefix}:delete', 'button', '删除', '${contextPath}${menuUrl}/{*}', '/', '${menuId}', 'DELETE', '5', '1', '删除${comments}', '${author}');
+INSERT INTO sys_element_info (id, code, type, title, href, path, menu_id, method, order_num, visible, remarks,  create_user)
+VALUES ('${delId}', '${permsPrefix}:delete', 'button', '删除', '${contextPath}${menuUrl}/{*}', '/', '${menuId}', 'DELETE', '5', '1', '删除${comments}', '${author}');

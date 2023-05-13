@@ -1,10 +1,10 @@
-import {HttpRequest} from "/@/axios/rest/HttpRequest";
+import {HttpRequest} from "/@/fly/axios/rest/HttpRequest";
 import {${ClassName}, ${ClassName}Query} from "/@/api/${moduleName}/model/${ClassName}Model";
 
 /**
  * 请求路径
  */
-const path = '${httpUri}';
+const path = '${menuUrl}';
 
 /**
  * ${functionName} 接口

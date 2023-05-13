@@ -140,7 +140,7 @@ public class VelocityUtils {
             templates.add("templates/vmtemplates/vue/element/ref.vue.vm");
         } else if (UiStyleConstant.VUE_LAY_UI.equals(uiStyle)) {
             /* 前后端分离 vue */
-            templates.add("templates/vmtemplates/vue/api.ts.vm");
+            templates.add("templates/vmtemplates/vue/layui/api.ts.vm");
             templates.add("templates/vmtemplates/vue/model.ts.vm");
             templates.add("templates/vmtemplates/vue/composables.ts.vm");
             templates.add("templates/vmtemplates/vue/index.vue.vm");

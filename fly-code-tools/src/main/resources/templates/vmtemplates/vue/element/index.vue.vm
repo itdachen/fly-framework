@@ -1,4 +1,5 @@
 <template>
+  <div>
   <div class="template-container layout-padding">
     <div class="template-container-padding layout-padding-auto layout-padding-view">
             <!-- 表格展示 -->
@@ -43,12 +44,13 @@
         <Ref${ClassName} ref="ref${ClassName}" @bindtap="tapSubmitHandler"></Ref${ClassName}>
 
   </div>
+  </div>
 </template>
 
 <script setup lang="ts" name="${ClassName}Component">
   import {defineAsyncComponent, onMounted} from 'vue';
   import {Search, Edit, View, Delete, Plus} from '@element-plus/icons-vue';
-  import ProTable from '/@/components/table/index.vue';
+  import ProTable from '/@/fly/components/table/index.vue';
   import use${ClassName}Composable from "/@/composables/${moduleName}/${ClassName}Composable";
   const Ref${ClassName} = defineAsyncComponent(() => import('./Ref${ClassName}.vue'));
 
