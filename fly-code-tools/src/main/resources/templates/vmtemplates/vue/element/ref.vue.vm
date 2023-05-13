@@ -116,10 +116,10 @@
 
 <script setup lang="ts" name="Ref${ClassName}">
   import {reactive} from 'vue';
-  import DialogPopup from '/@/components/dialog/DialogPopup.vue';
-  import useDialog from '/@/components/dialog/DialogPopup';
-  import {DialogTypeEnum} from '/@/components/dialog/Dialog';
-  import useElementFromComposable from '/@/composables/element/ElementFromComposable';
+  import DialogPopup from '/@/fly/components/dialog/DialogPopup.vue';
+  import useDialog from '/@/fly/components/dialog/DialogPopup';
+  import {DialogTypeEnum} from '/@/fly/components/dialog/Dialog';
+  import useElementFromComposable from '/@/fly/composables/ElementFromComposable';
   import use${ClassName}Builder, {${ClassName}} from '/@/api/${moduleName}/model/${ClassName}Model';
 
   /**

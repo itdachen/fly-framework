@@ -3,16 +3,13 @@
   <div class="template-container layout-padding">
     <div class="template-container-padding layout-padding-auto layout-padding-view">
             <!-- 表格展示 -->
-            <pro-table :data="tableDataVo" :columns="columns" @reloadDate="reloadDate">
+            <pro-table :data="tableData" :columns="columns" @reloadDate="reloadDate">
                 <template #tableHeader="scope">
                   <div class="system-user-search mb15">
                       #foreach ($column in $queryColumns)
                         <el-input size="default" placeholder="$column.columnComment" style="max-width: 180px"
                                   v-model='queryParams.$column.javaField'></el-input>
                       #end
-                      <el-input size="default" placeholder="请输入应用名称" style="max-width: 180px"
-                                v-model='queryParams.appTitle'
-                                @keyup.enter='handlerSearch(queryParams)'></el-input>
                     <el-button size="default" type="primary" :icon="Search" class="ml10"
                                v-permission="['${permsPrefix}:query']"
                                @click='tapSearchHandler(queryParams)'> 搜索
@@ -56,7 +53,6 @@
 
     const {
       ref${ClassName},
-      ${className},
       tableData,
       columns,
       queryParams,
