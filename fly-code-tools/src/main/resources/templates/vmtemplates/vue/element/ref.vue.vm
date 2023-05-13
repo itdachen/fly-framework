@@ -8,11 +8,9 @@
                   @onClose="onClose()"
                   @onConfirm="confirm()">
         <template v-slot:content>
-            <el-form :model="${className}"
-                     ref="formRef"
-                     :rules="rules"
-                     :disabled="isDisabled"
-                     label-width="120px">
+            <el-form :model="${className}"  ref="formRef"
+                     size="small"  :rules="rules"
+                     :disabled="isDisabled"   label-width="120px">
 
                 #foreach($column in $columns)
                     #set($field=$column.javaField)

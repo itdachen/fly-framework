@@ -91,7 +91,7 @@ export default function use${ClassName}Builder() {
         {
             prop: "operation",
             label: "操作",
-            width: 250,
+            width: 350,
             align: "center",
             fixed: "right"
         }

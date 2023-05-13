@@ -7,7 +7,7 @@
                 <template #tableHeader="scope">
                   <div class="system-user-search mb15">
                       #foreach ($column in $queryColumns)
-                        <el-input size="default" placeholder="$column.columnComment" style="max-width: 180px"
+                        <el-input size="default" placeholder="$column.columnComment" class="ml10" style="max-width: 180px"
                                   v-model='queryParams.$column.javaField'></el-input>
                       #end
                     <el-button size="default" type="primary" :icon="Search" class="ml10"
@@ -23,14 +23,14 @@
                 <!-- 表格操作 -->
                 <template #operation="scope">
                     <el-button v-permission="['${permsPrefix}:view']" type="primary" plain :icon="View"
-                               @click="tapViewHandler(scope.row)">查看
+                               size="small" @click="tapViewHandler(scope.row)">查看
                     </el-button>
                     <el-button v-permission="['${permsPrefix}:update']" type="primary" plain :icon="Edit"
-                               color="#626aef"
+                               color="#626aef" size="small"
                                @click="tapUpdateHandler(scope.row)">编辑
                     </el-button>
                     <el-button v-permission="['${permsPrefix}:delete']" type="warning" plain :icon="Delete"
-                               @click="tapRemoveHandler(scope.row.id, scope.row.name)">删除
+                               size="small" @click="tapRemoveHandler(scope.row.id, scope.row.name)">删除
                     </el-button>
                 </template>
             </pro-table>
