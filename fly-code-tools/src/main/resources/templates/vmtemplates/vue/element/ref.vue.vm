@@ -7,10 +7,11 @@
                   :showSubmit="dialog.showSubmit"
                   @onClose="onClose()"
                   @onConfirm="confirm()">
+
         <template v-slot:content>
-            <el-form :model="${className}"  ref="formRef"
-                     size="small"  :rules="rules"
-                     :disabled="isDisabled"   label-width="120px">
+            <el-form :model="${className}" ref="formRef"
+                     :rules="rules" :disabled="isDisabled"
+                     size="small" label-width="120px">
 
                 #foreach($column in $columns)
                     #set($field=$column.javaField)
@@ -115,15 +116,14 @@
 <script setup lang="ts" name="Ref${ClassName}">
   import {reactive} from 'vue';
   import DialogPopup from '/@/fly/components/dialog/DialogPopup.vue';
-  import useDialog from '/@/fly/components/dialog/DialogPopup';
-  import {DialogTypeEnum} from '/@/fly/components/dialog/Dialog';
+  import useDialogPopup, {DialogTypeEnum} from '/@/fly/components/dialog/Dialog';
   import useElementFromComposable from '/@/fly/composables/ElementFromComposable';
   import use${ClassName}Builder, {${ClassName}} from '/@/api/${moduleName}/model/${ClassName}Model';
 
   /**
    * 弹框属性
    */
-  const {dialog, onShow, onClose} = useDialog();
+  const {dialog, onShow, onClose} = useDialogPopup();
 
   const {${className}} = use${ClassName}Builder();
 
@@ -139,9 +139,9 @@
 
 
     /**
-     * 弹框展示(当成组件使用)
-     * @param type
-     * @param data
+     * 弹框
+     * @param type 弹窗类型
+     * @param data 展示的数据
      */
     const show = (type: DialogTypeEnum, data?: ${ClassName}) => {
         //设置弹框的属性
@@ -166,23 +166,6 @@
         onShow();
     }
 
-    //定义事件
-    const emits = defineEmits(['bindtap'])
-
-    const confirm = () => {
-        formRef.value?.validate(valid => {
-            if (valid) {
-                emits('bindtap', ${className})
-            }
-        })
-    }
-
-    defineExpose({
-        show,
-        onClose
-    })
-
-
     /**
      * 表单验证
      */
@@ -193,6 +176,23 @@
             #end
         #end
     });
+
+  //定义事件
+  const emits = defineEmits(['bindtap'])
+
+  const confirm = () => {
+    formRef.value?.validate(valid => {
+      if (valid) {
+        emits('bindtap', ${className})
+      }
+    })
+  }
+
+  defineExpose({
+    show,
+    onClose
+  })
+
 </script>
 
 <style scoped lang="scss">
