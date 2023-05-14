@@ -36,11 +36,11 @@
             </pro-table>
 
         </div>
-
-        <!-- 新增/修改/查看 弹窗 -->
-        <Ref${ClassName} ref="ref${ClassName}" @bindtap="tapSubmitHandler"></Ref${ClassName}>
-
   </div>
+
+    <!-- 新增/修改/查看 弹窗 -->
+    <Ref${ClassName} ref="ref${ClassName}" @bindtap="tapSubmitHandler"></Ref${ClassName}>
+
   </div>
 </template>
 
