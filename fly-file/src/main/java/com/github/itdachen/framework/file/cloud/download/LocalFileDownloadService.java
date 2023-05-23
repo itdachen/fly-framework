@@ -23,11 +23,15 @@ public class LocalFileDownloadService extends DownloadService {
     public void download(HttpServletResponse response, String uri, String filename) {
         try {
             // 将文件路径转换成本地文件路径
-            uri = uri.replace(properties.getLocalHttp(), properties.getDiskFolder());
+            String mapPath;
+            if (properties.getLocalHttp().endsWith("/")) {
+                mapPath = properties.getLocalHttp() + properties.getMapPath() + "/";
+            } else {
+                mapPath = properties.getLocalHttp() + "/" + properties.getMapPath() + "/";
+            }
 
-            uri = uri.replaceAll("//", "/");
-            String mapPath = MapPathUtils.mapPath(properties.getMapPath()) + MapPathUtils.mapPath(properties.getMapPath());
-            uri = uri.replaceAll(mapPath.replaceAll("//", "/"), "/upload");
+            // 将文件路径转换成本地文件路径
+            uri = uri.replace(mapPath, properties.getDiskFolder());
 
             // if (StringUtils.isEmpty(filename)){
             filename = findFileName(uri, filename);
