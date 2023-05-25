@@ -25,16 +25,9 @@ import org.springframework.web.bind.annotation.RequestMapping;
 @Controller
 @RequestMapping("${menuUrl}")
 @CheckApiClient(title = "${functionName}", clientId = ClientConstant.CLIENT_WEB)
-public class ${ClassName}Controller extends BizController< ${ClassName}Dto, ${ClassName}Vo, ${ClassName}Query, ${primaryKey} > {
+public class ${ClassName}Controller extends BizController< I${ClassName}Service, ${ClassName}Dto, ${ClassName}Vo, ${ClassName}Query, ${primaryKey} > {
     private static final Logger logger = LoggerFactory.getLogger(${ClassName}Controller.class);
-    private final I${ClassName}Service bizService;
     private static final String PATH_PREFIX = "${pathPrefix}";
-
-    public ${ClassName}Controller(I${ClassName}Service bizService) {
-        super(bizService);
-        this.bizService = bizService;
-    }
-
 
     /***
      * 跳转到信息管理界面

@@ -24,14 +24,12 @@ import java.util.List;
  * @date ${datetime}
  */
 @Service
-public class ${ClassName}ServiceImpl extends BizServiceImpl< ${ClassName}, ${ClassName}Dto,  ${ClassName}Vo, ${ClassName}Query, ${primaryKey} > implements I${ClassName}Service {
+public class ${ClassName}ServiceImpl extends BizServiceImpl< I${ClassName}Mapper, ${ClassName}, ${ClassName}Dto,  ${ClassName}Vo, ${ClassName}Query, ${primaryKey} > implements I${ClassName}Service {
     private static final Logger logger = LoggerFactory.getLogger(${ClassName}ServiceImpl.class);
     private static final ${ClassName}Convert bizConvert = new ${ClassName}Convert();
-    private final I${ClassName}Mapper bizMapper;
 
-    public ${ClassName}ServiceImpl(I${ClassName}Mapper ${className}Mapper) {
-        super(${className}Mapper, bizConvert);
-        this.bizMapper = ${className}Mapper;
+    public ${ClassName}ServiceImpl() {
+        super(bizConvert);
     }
 
     /***
