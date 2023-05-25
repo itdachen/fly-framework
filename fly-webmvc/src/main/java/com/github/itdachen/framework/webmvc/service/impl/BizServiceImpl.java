@@ -28,16 +28,15 @@ import java.util.Map;
  * Created by 王大宸 on 2022-06-30 9:47
  * Created with IntelliJ IDEA.
  */
-public class BizServiceImpl<T, D, V, Q extends BizQuery, PK> implements IBizService<D, V, Q, PK> {
+public class BizServiceImpl<IBizMapper extends Mapper<T>, T, D, V, Q extends BizQuery, PK> implements IBizService<D, V, Q, PK> {
     private static final Logger logger = LoggerFactory.getLogger(BizServiceImpl.class);
+    @Autowired
+    protected IBizMapper bizMapper;
     @Autowired
     protected JdbcTemplate jdbcTemplate;
     private final BizConvert<T, D, V> bizConvert;
-    private final Mapper<T> bizMapper;
 
-    public BizServiceImpl(Mapper<T> bizMapper,
-                          BizConvert<T, D, V> bizConvert) {
-        this.bizMapper = bizMapper;
+    public BizServiceImpl(BizConvert<T, D, V> bizConvert) {
         this.bizConvert = bizConvert;
     }
 

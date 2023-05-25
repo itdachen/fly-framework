@@ -8,6 +8,7 @@ import com.github.itdachen.framework.core.response.ServerResponse;
 import com.github.itdachen.framework.core.response.TableData;
 import com.github.itdachen.framework.webmvc.service.IBizService;
 import com.github.itdachen.framework.webmvc.utils.StringEscapeEditor;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.WebDataBinder;
 import org.springframework.web.bind.annotation.*;
 
@@ -20,13 +21,10 @@ import org.springframework.web.bind.annotation.*;
  * Created by 王大宸 on 2022-06-30 10:32
  * Created with IntelliJ IDEA.
  */
-public class BizController<D, V, Q extends BizQuery, PK> {
+public class BizController<BizService extends IBizService<D, V, Q, PK>, D, V, Q extends BizQuery, PK> {
 
-    private final IBizService<D, V, Q, PK> bizService;
-
-    public BizController(IBizService<D, V, Q, PK> bizService) {
-        this.bizService = bizService;
-    }
+    @Autowired
+    protected BizService bizService;
 
     @InitBinder
     public void initBinder(WebDataBinder binder) {
