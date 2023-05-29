@@ -32,9 +32,13 @@ public class AppletCode2SessionApi extends WeChatBizHttp {
         String url = String.format(USER_OPEN_ID_API, appId, appSecret, code);
         JSONObject json = createGet(url);
 
-        if (json.get(ReturnStatusCode.ERR_CODE_FILED).equals(ReturnStatusCode.OK)) {
+        if (httpSuccess(json)) {
             return json.toJavaObject(AppletCode2SessionInfo.class);
         }
+
+//        if (json.get(ReturnStatusCode.ERR_CODE_FILED).equals(ReturnStatusCode.OK)) {
+//            return json.toJavaObject(AppletCode2SessionInfo.class);
+//        }
 
         String msg = getErrorCodeValue(json);
         if (null == msg) {

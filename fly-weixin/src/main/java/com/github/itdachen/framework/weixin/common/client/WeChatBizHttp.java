@@ -153,4 +153,20 @@ public class WeChatBizHttp {
         return ReturnStatusCode.errorCodeValue(errorCode);
     }
 
+    /***
+     * 是否请求成功
+     *
+     * @author 王大宸
+     * @date 2023/5/29 10:09
+     * @param json json
+     * @return java.lang.Boolean
+     */
+    public static Boolean httpSuccess(JSONObject json) {
+        return ReturnStatusCode.OK.equals(json.get(ReturnStatusCode.ERR_CODE_FILED));
+    }
+
+    public static Boolean httpSuccess(Integer status) {
+        return ReturnStatusCode.OK.equals(status);
+    }
+
 }
