@@ -1,4 +1,4 @@
-package com.github.itdachen.framework.log.entity;
+package com.github.itdachen.framework.context.entity;
 
 import org.apache.commons.lang3.builder.ToStringBuilder;
 import org.apache.commons.lang3.builder.ToStringStyle;

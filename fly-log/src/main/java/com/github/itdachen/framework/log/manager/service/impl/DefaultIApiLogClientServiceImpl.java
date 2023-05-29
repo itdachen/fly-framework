@@ -1,6 +1,6 @@
 package com.github.itdachen.framework.log.manager.service.impl;
 
-import com.github.itdachen.framework.log.entity.ApiLogClient;
+import com.github.itdachen.framework.context.entity.ApiLogClient;
 import com.github.itdachen.framework.log.manager.service.IApiLogClientService;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;

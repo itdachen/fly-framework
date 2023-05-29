@@ -1,6 +1,6 @@
 package com.github.itdachen.framework.log.manager.service;
 
-import com.github.itdachen.framework.log.entity.ApiLogClient;
+import com.github.itdachen.framework.context.entity.ApiLogClient;
 
 /**
  * Description:

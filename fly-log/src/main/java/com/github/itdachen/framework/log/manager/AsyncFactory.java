@@ -1,7 +1,7 @@
 package com.github.itdachen.framework.log.manager;
 
 import com.github.itdachen.framework.context.exception.BizException;
-import com.github.itdachen.framework.log.entity.ApiLogClient;
+import com.github.itdachen.framework.context.entity.ApiLogClient;
 import com.github.itdachen.framework.log.manager.service.IApiLogClientService;
 import com.github.itdachen.framework.spring.SpringBeanUtils;
 import com.github.itdachen.framework.tools.ip.AddressUtils;

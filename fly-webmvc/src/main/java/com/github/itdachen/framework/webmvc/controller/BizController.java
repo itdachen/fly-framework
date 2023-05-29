@@ -13,10 +13,10 @@ import org.springframework.web.bind.WebDataBinder;
 import org.springframework.web.bind.annotation.*;
 
 /**
- * Description: 通用前端控制器
- * T: 实体类对象
- * V: 查询数据返回对象
- * Q: 查询对象, 禁止使用 Map 传输查询参数
+ * 通用控制器
+ * D (Dto): 数据传输对象，主要用于外部接口参数传递封装，接口与接口进行传递使用。
+ * V (Vo): 视图对象，主要用于给前端返回页面参数使用
+ * Q (Query): 查询对象, 禁止使用 Map 传输查询参数
  * PK: 实体类对象主键类型
  * Created by 王大宸 on 2022-06-30 10:32
  * Created with IntelliJ IDEA.

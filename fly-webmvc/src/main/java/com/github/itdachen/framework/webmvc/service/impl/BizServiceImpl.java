@@ -24,7 +24,17 @@ import java.util.List;
 import java.util.Map;
 
 /**
- * Description: 通用服务接口实现
+ * 通用服务接口实现
+ * T (Entity): 数据对象，主要用于数据库层传递。
+ * D (Dto): 数据传输对象，主要用于外部接口参数传递封装，接口与接口进行传递使用。
+ * V (Vo): 视图对象，主要用于给前端返回页面参数使用
+ * Q (Query): 查询对象, 禁止使用 Map 传输查询参数
+ * DTO 转 T：接口接收参数将参数转化为数据库实体操作数据库使用。
+ * T 转 Vo：将数据库层实体转化为Vo返回给客户端。
+ * 注意: ***********************************
+ * * 1、entity 里的每一个字段，与数据库相对应;
+ * * 2、vo 里的每一个字段，是和你前台 html 页面相对应;
+ * * 3、dto 这是用来转换从 entity 到 vo，或者从 vo 到 entity 的中间的东西。（DTO中拥有的字段应该是entity中或者是vo中的一个子集）
  * Created by 王大宸 on 2022-06-30 9:47
  * Created with IntelliJ IDEA.
  */
