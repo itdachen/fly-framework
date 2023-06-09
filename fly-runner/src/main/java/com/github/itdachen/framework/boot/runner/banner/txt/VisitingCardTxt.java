@@ -19,7 +19,7 @@ public class VisitingCardTxt {
                 "\twelcome use [ " + environment.getProperty("spring.application.name") + " ] os\n" +
                 "\tapplication [ " + environment.getProperty("spring.application.name") + " ] is starting\n" +
                 "\tstarting time " + LocalDateTime.now().format(DateTimeFormatter.ofPattern("yyyy-MM-dd HH:mm:ss")) + "\n" +
-                "\ttechnical support by https://github.com/itdachen \n" +
+                "\tframework from https://github.com/itdachen \n" +
                 SeparatorLine.SEPARATOR_LINE;
     }
 

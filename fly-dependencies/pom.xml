@@ -135,11 +135,6 @@
             </dependency>
             <dependency>
                 <groupId>com.github.itdachen.framework</groupId>
-                <artifactId>fly-response</artifactId>
-                <version>${fly.framework.dependencies.version}</version>
-            </dependency>
-            <dependency>
-                <groupId>com.github.itdachen.framework</groupId>
                 <artifactId>fly-spring</artifactId>
                 <version>${fly.framework.dependencies.version}</version>
             </dependency>
