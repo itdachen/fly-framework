@@ -2,12 +2,15 @@ package com.github.itdachen.framework.core.utils;
 
 import com.github.itdachen.framework.context.constants.DateFormatConstants;
 import org.apache.commons.lang3.RandomUtils;
+import org.apache.commons.lang3.time.DateUtils;
 
 import java.time.*;
 import java.time.format.DateTimeFormatter;
 import java.time.temporal.ChronoUnit;
 import java.time.temporal.TemporalAdjusters;
+import java.util.Calendar;
 import java.util.Date;
+import java.util.GregorianCalendar;
 
 /**
  * Description:
@@ -303,6 +306,47 @@ public class LocalDateUtils {
         LocalTime time = LocalTime.of(hour, minute, second);
         return LocalDateTime.of(day, time);
     }
+    
+    /***
+     * 将数字时间, 转成 Date 类型, 例如: 42156
+     *
+     * @author 王大宸
+     * @date 2023/6/9 10:30
+     * @param numDays numDays
+     * @return java.util.Date
+     */
+    public static Date numDaysToDate(Integer numDays) {
+        if (null == numDays) {
+            return null;
+        }
+        Calendar calendar = new GregorianCalendar(1900, Calendar.JANUARY, -1);
+        return DateUtils.addDays(calendar.getTime(), numDays);
+    }
+    
+    /***
+     * 将数字时间, 转成 LocalDate 类型, 例如: 42156
+     *
+     * @author 王大宸
+     * @date 2023/6/9 10:30
+     * @param numDays numDays
+     * @return java.time.LocalDate
+     */
+    public static LocalDate numDaysToLocalDate(Integer numDays) {
+        if (null == numDays) {
+            return null;
+        }
+        Date date = numDaysToDate(numDays);
+        if (null == date) {
+            return null;
+        }
+        // 将Date转为Instant对象
+        Instant instant = date.toInstant();
+        // 默认时区
+        ZoneId zoneId = ZoneId.systemDefault();
+        // 获取LocalDate对象
+        return instant.atZone(zoneId).toLocalDate();
+    }
+
 
     public static void main(String[] args) {
         DateTimeFormatter df = DateTimeFormatter.ofPattern("yyyy-MM-dd HH:mm:ss");
