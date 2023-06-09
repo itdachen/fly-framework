@@ -6,6 +6,7 @@ import org.apache.commons.lang3.time.DateUtils;
 
 import java.time.*;
 import java.time.format.DateTimeFormatter;
+import java.time.format.DateTimeFormatterBuilder;
 import java.time.temporal.ChronoUnit;
 import java.time.temporal.TemporalAdjusters;
 import java.util.Calendar;
@@ -18,6 +19,10 @@ import java.util.GregorianCalendar;
  * Created with IntelliJ IDEA.
  */
 public class LocalDateUtils {
+    /**
+     * 系统默认时区
+     */
+    public final static ZoneId DEFAULT_ZONE_ID = ZoneId.systemDefault();
 
     /***
      * 获取今天日期
@@ -39,6 +44,18 @@ public class LocalDateUtils {
      */
     public static LocalDateTime toDay() {
         return LocalDateTime.now();
+    }
+
+    /***
+     * 获取今天日期
+     *
+     * @author 王大宸
+     * @date 2023/2/12 23:24
+     * @param localDateTime localDateTime
+     * @return java.lang.String
+     */
+    public static String today(LocalDateTime localDateTime) {
+        return DateFormatConstants.S_DATE_TIME_FORMATTER.format(today());
     }
 
     /***
@@ -119,7 +136,7 @@ public class LocalDateUtils {
      * @param dayOfMonth 指定天
      * @return java.time.MonthDay
      */
-    public static MonthDay setMonthDat(int month, int dayOfMonth) {
+    public static MonthDay setMonthDay(int month, int dayOfMonth) {
         return MonthDay.of(month, dayOfMonth);
     }
 
@@ -180,18 +197,6 @@ public class LocalDateUtils {
     }
 
     /***
-     * 获取今天日期
-     *
-     * @author 王大宸
-     * @date 2023/2/12 23:24
-     * @param localDateTime localDateTime
-     * @return java.lang.String
-     */
-    public static String today(LocalDateTime localDateTime) {
-        return DateFormatConstants.S_DATE_TIME_FORMATTER.format(today());
-    }
-
-    /***
      * 字符串时间转 LocalDateTime
      *
      * @author 王大宸
@@ -211,7 +216,7 @@ public class LocalDateUtils {
      * @param date date
      * @return java.time.LocalDateTime
      */
-    public static LocalDateTime dateToLocalDateTime(Date date) {
+    public static LocalDateTime toLocalDateTime(Date date) {
         Instant instant = date.toInstant();
         ZoneId zone = ZoneId.systemDefault();
         return LocalDateTime.ofInstant(instant, zone);
@@ -225,7 +230,7 @@ public class LocalDateUtils {
      * @param localDateTime localDateTime
      * @return java.util.Date
      */
-    public static Date localDateTimeToDate(LocalDateTime localDateTime) {
+    public static Date toDate(LocalDateTime localDateTime) {
         ZoneId zone = ZoneId.systemDefault();
         Instant instant = localDateTime.atZone(zone).toInstant();
         return Date.from(instant);
@@ -239,21 +244,49 @@ public class LocalDateUtils {
      * @param localDate localDate
      * @return java.util.Date
      */
-    public static Date localDateToDate(LocalDate localDate) {
+    public static Date toDate(LocalDate localDate) {
         ZoneId zone = ZoneId.systemDefault();
         Instant instant = localDate.atStartOfDay().atZone(zone).toInstant();
         return Date.from(instant);
     }
 
     /***
-     * 获取本月第一天
+     * 将数字时间, 转成 Date 类型, 例如: 42156
+     *
+     * @author 王大宸
+     * @date 2023/6/9 10:30
+     * @param numDays numDays
+     * @return java.util.Date
+     */
+    public static Date toDate(Integer numDays) {
+        if (null == numDays) {
+            return null;
+        }
+        Calendar calendar = new GregorianCalendar(1900, Calendar.JANUARY, -1);
+        return DateUtils.addDays(calendar.getTime(), numDays);
+    }
+
+    /***
+     * 本月第一天
+     *
+     * @author 王大宸
+     * @date 2023/6/9 10:59
+
+     * @return java.lang.String
+     */
+    public static String firstDayOfMonth() {
+        return firstDayOfMonth(LocalDate.now());
+    }
+
+    /***
+     * 根据年月, 获取第一天
      *
      * @author 王大宸
      * @date 2023/2/12 23:43
      * @param localDate localDate
      * @return java.lang.String
      */
-    public static String monthStart(LocalDate localDate) {
+    public static String firstDayOfMonth(LocalDate localDate) {
         return DateFormatConstants.S_DATE_TIME_FORMATTER.format(LocalDate.of(localDate.getYear(), localDate.getMonth(), 1));
     }
 
@@ -261,11 +294,22 @@ public class LocalDateUtils {
      * 获取本月最后一天
      *
      * @author 王大宸
+     * @date 2023/6/9 11:01
+     * @return java.lang.String
+     */
+    public static String lastDayOfMonth() {
+        return lastDayOfMonth(LocalDate.now());
+    }
+
+    /***
+     * 根据年月, 获取最后一天
+     *
+     * @author 王大宸
      * @date 2023/2/12 23:43
      * @param localDate localDate
      * @return java.lang.String
      */
-    public static String monthEnd(LocalDate localDate) {
+    public static String lastDayOfMonth(LocalDate localDate) {
         return DateFormatConstants.S_DATE_TIME_FORMATTER.format(localDate.with(TemporalAdjusters.lastDayOfMonth()));
     }
 
@@ -306,23 +350,26 @@ public class LocalDateUtils {
         LocalTime time = LocalTime.of(hour, minute, second);
         return LocalDateTime.of(day, time);
     }
-    
+
+
     /***
-     * 将数字时间, 转成 Date 类型, 例如: 42156
+     * 将 Date 转成 LocalDate 类型
      *
      * @author 王大宸
-     * @date 2023/6/9 10:30
-     * @param numDays numDays
-     * @return java.util.Date
+     * @date 2023/6/9 10:37
+     * @param date date
+     * @return java.time.LocalDate
      */
-    public static Date numDaysToDate(Integer numDays) {
-        if (null == numDays) {
+    public static LocalDate toLocalDate(Date date) {
+        if (null == date) {
             return null;
         }
-        Calendar calendar = new GregorianCalendar(1900, Calendar.JANUARY, -1);
-        return DateUtils.addDays(calendar.getTime(), numDays);
+        // 将Date转为Instant对象
+        final Instant instant = date.toInstant();
+        // 获取LocalDate对象
+        return instant.atZone(DEFAULT_ZONE_ID).toLocalDate();
     }
-    
+
     /***
      * 将数字时间, 转成 LocalDate 类型, 例如: 42156
      *
@@ -331,20 +378,51 @@ public class LocalDateUtils {
      * @param numDays numDays
      * @return java.time.LocalDate
      */
-    public static LocalDate numDaysToLocalDate(Integer numDays) {
+    public static LocalDate toLocalDate(Integer numDays) {
         if (null == numDays) {
             return null;
         }
-        Date date = numDaysToDate(numDays);
-        if (null == date) {
+        Date date = toDate(numDays);
+        return toLocalDate(date);
+    }
+
+    /***
+     * 将字符串类型转成 LocalDate 类型
+     *
+     * @author 王大宸
+     * @date 2023/6/9 10:51
+     * @param value value
+     * @return java.time.LocalDate
+     */
+    public static LocalDate toLocalDate(String value) {
+        return toLocalDate(value, "yyyy-MM-dd");
+    }
+
+    /***
+     * 将字符串类型转成 LocalDate 类型
+     *
+     * @author 王大宸
+     * @date 2023/6/9 10:51
+     * @param value  字符串数据
+     * @param format 时间格式类型
+     * @return java.time.LocalDate
+     */
+    public static LocalDate toLocalDate(String value, String format) {
+        if (StringUtils.isEmpty(value)) {
             return null;
         }
-        // 将Date转为Instant对象
-        Instant instant = date.toInstant();
-        // 默认时区
-        ZoneId zoneId = ZoneId.systemDefault();
-        // 获取LocalDate对象
-        return instant.atZone(zoneId).toLocalDate();
+        value = value.replace("/", "-");
+        String[] split = value.split("-");
+        if (3 != split.length) {
+            return null;
+        }
+        value = String.format("%04d", Integer.parseInt(split[0])) + "-"
+                + String.format("%02d", Integer.parseInt(split[1])) + "-"
+                + String.format("%02d", Integer.parseInt(split[2]));
+
+        DateTimeFormatter df = new DateTimeFormatterBuilder().appendPattern(format).toFormatter();
+        return LocalDate.parse(value, df);
+
     }
 
 
