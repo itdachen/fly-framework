@@ -1,11 +1,12 @@
 package com.github.itdachen.framework.file.cloud;
 
 import com.github.itdachen.framework.file.entity.FileInfo;
-import com.github.itdachen.framework.file.properties.LocalCloudStorageProperties;
+import com.github.itdachen.framework.file.properties.OssCloudProperties;
 import com.github.itdachen.framework.file.service.IVerifyFileHeaderService;
 import org.springframework.web.multipart.MultipartFile;
 
-import java.time.LocalDate;
+import java.time.LocalDateTime;
+import java.time.format.DateTimeFormatter;
 import java.util.UUID;
 
 /**
@@ -14,7 +15,7 @@ import java.util.UUID;
  * Created with IntelliJ IDEA.
  */
 public abstract class FileUploadService {
-    protected LocalCloudStorageProperties properties;
+    protected OssCloudProperties properties;
     protected IVerifyFileHeaderService verifyFileHeaderService;
 
     /***
@@ -36,7 +37,12 @@ public abstract class FileUploadService {
      * @date 2022/8/19 15:39
      */
     protected String filePath() {
-        return LocalDate.now().getYear() + "/" + LocalDate.now().getMonthValue() + "/";
+        // return LocalDate.now().getYear() + "/" + LocalDate.now().getMonthValue() + "/";
+
+        /* 2023/06/12/ */
+        LocalDateTime ldt = LocalDateTime.now();
+        DateTimeFormatter pattern = DateTimeFormatter.ofPattern("yyyy/MM/dd");
+        return pattern.format(ldt);
     }
 
     /**

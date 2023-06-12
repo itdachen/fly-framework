@@ -1,7 +1,8 @@
 package com.github.itdachen.framework.file.cloud.download;
 
 import com.github.itdachen.framework.file.cloud.DownloadService;
-import com.github.itdachen.framework.file.properties.LocalCloudStorageProperties;
+import com.github.itdachen.framework.file.properties.LocalOssProperties;
+import com.github.itdachen.framework.file.properties.OssCloudProperties;
 import jakarta.servlet.http.HttpServletResponse;
 import org.apache.commons.lang3.StringUtils;
 import org.slf4j.Logger;
@@ -19,7 +20,7 @@ import java.net.URL;
 public class InternetFileDownloadService extends DownloadService {
     private static final Logger logger = LoggerFactory.getLogger(InternetFileDownloadService.class);
 
-    public InternetFileDownloadService(LocalCloudStorageProperties properties) {
+    public InternetFileDownloadService(OssCloudProperties properties) {
         this.properties = properties;
     }
 
@@ -40,7 +41,7 @@ public class InternetFileDownloadService extends DownloadService {
             byte[] data = readInputStream(is);
 
             // 创建下载临时文件夹
-            String uploadPath = properties.getDiskFolder();
+            String uploadPath = properties.getLocal().getDiskFolder();
             if (StringUtils.isEmpty(uploadPath)) {
                 uploadPath = "/home/download";
             } else {

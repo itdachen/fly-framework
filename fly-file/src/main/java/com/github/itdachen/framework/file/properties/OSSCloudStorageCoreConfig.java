@@ -9,7 +9,7 @@ import org.springframework.context.annotation.Configuration;
  * Created with IntelliJ IDEA.
  */
 @Configuration
-@EnableConfigurationProperties(LocalCloudStorageProperties.class)
+@EnableConfigurationProperties(OssCloudProperties.class)
 public class OSSCloudStorageCoreConfig {
 
 }

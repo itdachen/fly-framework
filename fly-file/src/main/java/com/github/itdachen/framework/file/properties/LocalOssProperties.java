@@ -1,25 +1,31 @@
 package com.github.itdachen.framework.file.properties;
 
-import org.springframework.boot.context.properties.ConfigurationProperties;
-
 /**
  * Description: 文件上传配置
  * Created by 王大宸 on 2023/02/10 15:26
  * Created with IntelliJ IDEA.
  */
-@ConfigurationProperties(prefix = "oss")
-public class LocalCloudStorageProperties {
 
-    // 访问地址,线上配置域名,测试环境配置 ip
+public class LocalOssProperties {
+
+    /**
+     * 访问地址,线上配置域名,测试环境配置 ip
+     */
     private String localHttp = "http://127.0.0.1:8080";
 
-    // 本地硬盘存储位置
+    /**
+     * 服务器存储位置
+     */
     private String diskFolder = "/home/oss/";
 
-    /* 映射路径 */
+    /**
+     * 映射路径
+     */
     private String mapPath = "upload";
 
-    /* 是否校验文件头 */
+    /**
+     * 是否校验文件头
+     */
     private Boolean verifyFileHeader = false;
 
 
@@ -54,4 +60,5 @@ public class LocalCloudStorageProperties {
     public void setVerifyFileHeader(Boolean verifyFileHeader) {
         this.verifyFileHeader = verifyFileHeader;
     }
+
 }

@@ -1,7 +1,6 @@
 package com.github.itdachen.framework.file.config;
 
-
-import com.github.itdachen.framework.file.properties.LocalCloudStorageProperties;
+import com.github.itdachen.framework.file.properties.OssCloudProperties;
 import com.github.itdachen.framework.file.utils.MapPathUtils;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -18,15 +17,16 @@ import org.springframework.web.servlet.config.annotation.WebMvcConfigurer;
 public class FlyFileBootstrapWebMvcConfigurer implements WebMvcConfigurer {
     private static final Logger logger = LoggerFactory.getLogger(FlyFileBootstrapWebMvcConfigurer.class);
 
-    private final LocalCloudStorageProperties properties;
+    private final OssCloudProperties properties;
 
-    public FlyFileBootstrapWebMvcConfigurer(LocalCloudStorageProperties properties) {
+    public FlyFileBootstrapWebMvcConfigurer(OssCloudProperties properties) {
         this.properties = properties;
     }
 
     @Override
     public void addResourceHandlers(ResourceHandlerRegistry registry) {
-        registry.addResourceHandler(MapPathUtils.filterPath(properties.getMapPath())).addResourceLocations("file:" + properties.getDiskFolder());
+        registry.addResourceHandler(MapPathUtils.filterPath(properties.getLocal().getMapPath()))
+                .addResourceLocations("file:" + properties.getLocal().getDiskFolder());
     }
 
 }
