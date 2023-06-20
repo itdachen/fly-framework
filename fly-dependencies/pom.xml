@@ -21,8 +21,8 @@
         <project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
 
         <!-- Spring Cloud/Spring Boot 组件依赖 -->
-        <spring.boot.version>3.0.6</spring.boot.version>
-        <spring-cloud-dependencies.version>2022.0.2</spring-cloud-dependencies.version>
+        <spring.boot.version>3.1.0</spring.boot.version>
+        <spring-cloud-dependencies.version>2022.0.3</spring-cloud-dependencies.version>
         <spring-cloud-alibaba-dependencies.version>2022.0.0.0-RC2</spring-cloud-alibaba-dependencies.version>
         <feign.httpclient>12.1</feign.httpclient>
         <spring.boot.admin.server.version>2.6.6</spring.boot.admin.server.version>
@@ -30,20 +30,20 @@
         <!-- alibaba.fastjson -->
         <com.alibaba.fastjson2>2.0.21</com.alibaba.fastjson2>
         <com.alibaba.fastjson>2.0.21</com.alibaba.fastjson>
-        <com.alibaba.druid>1.2.15</com.alibaba.druid>
+        <com.alibaba.druid>1.2.18</com.alibaba.druid>
 
         <!-- 持久层依赖 -->
-        <pagehelper>5.3.2</pagehelper>
-        <pagehelper.boot>1.4.6</pagehelper.boot>
-        <tk.mybatis>4.2.2</tk.mybatis>
-        <tk.mybatis.boot>4.2.2</tk.mybatis.boot>
-        <org.mybatis>3.5.11</org.mybatis>
-        <org.mybatis.boot>3.0.1</org.mybatis.boot>
+        <pagehelper>5.3.3</pagehelper>
+        <pagehelper.boot>1.4.7</pagehelper.boot>
+        <tk.mybatis>4.2.3</tk.mybatis>
+        <tk.mybatis.boot>4.2.3</tk.mybatis.boot>
+        <org.mybatis>3.5.13</org.mybatis>
+        <org.mybatis.boot>3.0.2</org.mybatis.boot>
         <mysql.version>8.0.32</mysql.version>
 
         <!-- 工具集 -->
         <cn.hutool>5.8.15</cn.hutool>
-        <commons.io.version>2.11.0</commons.io.version>
+        <commons.io.version>2.13.0</commons.io.version>
         <commons-lang.version>2.6</commons-lang.version>
         <io.jsonwebtoken.jjwt.version>0.11.5</io.jsonwebtoken.jjwt.version>
         <joda-time.version>2.12.2</joda-time.version>
