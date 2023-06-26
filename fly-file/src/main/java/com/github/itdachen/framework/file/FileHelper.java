@@ -4,7 +4,7 @@ import com.github.itdachen.framework.file.entity.FileInfo;
 import com.github.itdachen.framework.file.factory.FileFactory;
 import com.github.itdachen.framework.file.utils.FileMd5HexUtils;
 import jakarta.servlet.http.HttpServletResponse;
-import org.springframework.stereotype.Service;
+import org.springframework.stereotype.Component;
 import org.springframework.web.multipart.MultipartFile;
 
 import java.io.IOException;
@@ -14,7 +14,7 @@ import java.io.IOException;
  * Created by 王大宸 on 2023/02/13 9:49
  * Created with IntelliJ IDEA.
  */
-@Service
+@Component
 public class FileHelper {
 
     public final FileFactory factory;

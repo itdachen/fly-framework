@@ -5,6 +5,7 @@ import ${package}.sdk.dto.${ClassName}DTO;
 import ${package}.sdk.vo.${ClassName}VO;
 import ${package}.convert.I${ClassName}Convert;
 import com.github.itdachen.framework.webmvc.convert.IBizConvertMapper;
+import org.springframework.stereotype.Component;
 
 /**
  * ${functionName} 类型转换
@@ -12,6 +13,7 @@ import com.github.itdachen.framework.webmvc.convert.IBizConvertMapper;
  * @author ${author}
  * @date ${datetime}
  */
+@Component
 public class ${ClassName}ConvertImpl implements I${ClassName}Convert {
 
     /***
