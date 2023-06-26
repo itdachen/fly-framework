@@ -1,8 +1,9 @@
 package ${package}.convert;
 
 import ${package}.entity.${ClassName};
-import ${package}.sdk.dto.${ClassName}Dto;
-import ${package}.sdk.vo.${ClassName}Vo;
+import ${package}.sdk.dto.${ClassName}DTO;
+import ${package}.sdk.vo.${ClassName}VO;
+import ${package}.convert.I${ClassName}Convert;
 import com.github.itdachen.framework.webmvc.convert.IBizConvertMapper;
 
 /**
@@ -11,11 +12,19 @@ import com.github.itdachen.framework.webmvc.convert.IBizConvertMapper;
  * @author ${author}
  * @date ${datetime}
  */
-public class ${ClassName}Convert extends BizConvert< ${ClassName}, ${ClassName}Dto, ${ClassName}Vo > {
+public class ${ClassName}ConvertImpl implements I${ClassName}Convert {
 
+    /***
+     * DTO 转 Entity
+     *
+     * @author ${author}
+     * @date ${datetime}
+     * @return ${className}DTO ${className}DTO
+     * @return ${package}.entity.${ClassName};
+     */
     @Override
-    public ${ClassName} toJavaObject(${ClassName}Dto ${className}Dto) {
-        if (null == ${className}Dto){
+    public ${ClassName} toJavaObject(${ClassName}DTO ${className}DTO) {
+        if (null == ${className}DTO){
             return null;
         }
        ${ClassName} ${className} = new ${ClassName}();
@@ -26,19 +35,26 @@ public class ${ClassName}Convert extends BizConvert< ${ClassName}, ${ClassName}D
                 #else
                     #set($AttrName=$column.javaField.substring(0,1).toUpperCase() + ${column.javaField.substring(1)})
                 #end
-                    ${className}.set${AttrName}(${className}Dto.get${AttrName}());
+                    ${className}.set${AttrName}(${className}DTO.get${AttrName}());
             #end
         #end
         return ${className};
     }
 
-
+    /***
+     * Entity 转 VO
+     *
+     * @author ${author}
+     * @date ${datetime}
+     * @return ${className}Vo ${className}Vo
+     * @return ${package}.entity.${ClassName};
+     */
     @Override
-    public ${ClassName}Vo toJavaObjectVo(${ClassName} ${className}) {
+    public ${ClassName}VO toJavaObjectVo(${ClassName} ${className}) {
         if (null == ${className}){
             return null;
         }
-        ${ClassName}Vo ${className}Vo = new ${ClassName}Vo();
+        ${ClassName}VO ${className}VO = new ${ClassName}VO();
         #foreach ($column in $dtoVoColumns)
             #if(!$table.isSuperColumn($column.javaField))
                 #if($column.javaField.length() > 2 && $column.javaField.substring(1,2).matches("[A-Z]"))
@@ -46,14 +62,23 @@ public class ${ClassName}Convert extends BizConvert< ${ClassName}, ${ClassName}D
                 #else
                     #set($AttrName=$column.javaField.substring(0,1).toUpperCase() + ${column.javaField.substring(1)})
                 #end
-                    ${className}Vo.set${AttrName}(${className}.get${AttrName}());
+                    ${className}VO.set${AttrName}(${className}.get${AttrName}());
             #end
         #end
-        return ${className}Vo;
+        return ${className}VO;
     }
 
-    public ${ClassName} toJavaObject(${ClassName}Vo ${className}Vo) {
-        if (null == ${className}Vo){
+    /***
+     *  VO 转 Entity
+     *
+     * @author ${author}
+     * @date ${datetime}
+     * @return ${className}Vo ${className}Vo
+     * @return ${package}.entity.${ClassName};
+     */
+    @Override
+    public ${ClassName} toJavaObject(${ClassName}VO ${className}VO) {
+        if (null == ${className}VO){
             return null;
         }
         ${ClassName} ${className} = new ${ClassName}();
@@ -64,17 +89,26 @@ public class ${ClassName}Convert extends BizConvert< ${ClassName}, ${ClassName}D
                 #else
                     #set($AttrName=$column.javaField.substring(0,1).toUpperCase() + ${column.javaField.substring(1)})
                 #end
-                    ${className}.set${AttrName}(${className}Vo.get${AttrName}());
+                    ${className}.set${AttrName}(${className}VO.get${AttrName}());
             #end
         #end
         return ${className};
     }
 
-    public ${ClassName}Vo toJavaObjectVo(${ClassName}Dto ${className}Dto) {
+    /***
+     * DTO 转 VO
+     *
+     * @author ${author}
+     * @date ${datetime}
+     * @return ${className}Dto ${className}Dto
+     * @return ${package}.sdk.vo.${ClassName}Vo;
+     */
+    @Override
+    public ${ClassName}VO toJavaObjectVo(${ClassName}DTO ${className}DTO) {
         if (null == ${className}Dto){
             return null;
         }
-        ${ClassName}Vo ${className}Vo = new ${ClassName}Vo();
+        ${ClassName}VO ${className}VO = new ${ClassName}VO();
         #foreach ($column in $dtoVoColumns)
             #if(!$table.isSuperColumn($column.javaField))
                 #if($column.javaField.length() > 2 && $column.javaField.substring(1,2).matches("[A-Z]"))
@@ -82,7 +116,7 @@ public class ${ClassName}Convert extends BizConvert< ${ClassName}, ${ClassName}D
                 #else
                     #set($AttrName=$column.javaField.substring(0,1).toUpperCase() + ${column.javaField.substring(1)})
                 #end
-                ${className}Vo.set${AttrName}(${className}Dto.get${AttrName}());
+                ${className}VO.set${AttrName}(${className}DTO.get${AttrName}());
             #end
         #end
         return ${className}Vo;

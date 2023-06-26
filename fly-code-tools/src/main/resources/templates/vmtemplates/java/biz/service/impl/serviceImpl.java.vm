@@ -1,16 +1,16 @@
 package ${package}.service.impl;
 
-import com.github.pagehelper.Page;
-import com.github.pagehelper.PageHelper;
-import ${package}.convert.${ClassName}Convert;
-import ${package}.entity.${ClassName};
-import ${package}.sdk.dto.${ClassName}Dto;
-import ${package}.sdk.query.${ClassName}Query;
-import ${package}.sdk.vo.${ClassName}Vo;
 import com.github.itdachen.framework.core.response.TableData;
 import com.github.itdachen.framework.webmvc.service.impl.BizServiceImpl;
+import com.github.pagehelper.Page;
+import com.github.pagehelper.PageHelper;
+import ${package}.entity.${ClassName};
+import ${package}.sdk.dto.${ClassName}DTO;
+import ${package}.sdk.query.${ClassName}Query;
+import ${package}.sdk.vo.${ClassName}VO;
 import ${package}.mapper.I${ClassName}Mapper;
 import ${package}.service.I${ClassName}Service;
+import ${package}.convert.I${ClassName}Convert;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.stereotype.Service;
@@ -24,13 +24,8 @@ import java.util.List;
  * @date ${datetime}
  */
 @Service
-public class ${ClassName}ServiceImpl extends BizServiceImpl< I${ClassName}Mapper, ${ClassName}, ${ClassName}Dto,  ${ClassName}Vo, ${ClassName}Query, ${primaryKey} > implements I${ClassName}Service {
+public class ${ClassName}ServiceImpl extends BizServiceImpl< I${ClassName}Mapper, I${ClassName}Convert, ${ClassName}, ${ClassName}DTO,  ${ClassName}VO, ${ClassName}Query, ${primaryKey} > implements I${ClassName}Service {
     private static final Logger logger = LoggerFactory.getLogger(${ClassName}ServiceImpl.class);
-    private static final ${ClassName}Convert bizConvert = new ${ClassName}Convert();
-
-    public ${ClassName}ServiceImpl() {
-        super(bizConvert);
-    }
 
     /***
     * 分页
@@ -41,10 +36,10 @@ public class ${ClassName}ServiceImpl extends BizServiceImpl< I${ClassName}Mapper
     * @return com.github.itdachen.framework.core.response.TableData<${package}.sdk.vo.${className}Vo>
     */
     @Override
-    public TableData< ${ClassName}Vo > page(${ClassName}Query params) throws Exception {
-        Page< ${ClassName}Vo > page = PageHelper.startPage(params.getPage(), params.getLimit());
-        List< ${ClassName}Vo > list = bizMapper.page(params);
-        return new TableData< ${ClassName}Vo >(page.getTotal(), list);
+    public TableData< ${ClassName}VO > page(${ClassName}Query params) throws Exception {
+        Page< ${ClassName}VO > page = PageHelper.startPage(params.getPage(), params.getLimit());
+        List< ${ClassName}VO > list = bizMapper.page(params);
+        return new TableData< ${ClassName}VO >(page.getTotal(), list);
     }
 
 

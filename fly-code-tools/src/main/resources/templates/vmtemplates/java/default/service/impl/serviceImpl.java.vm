@@ -6,9 +6,9 @@ import ${package}.convert.${ClassName}Convert;
 import ${package}.entity.${ClassName};
 import ${package}.mapper.I${ClassName}Mapper;
 import ${package}.service.I${ClassName}Service;
-import ${package}.sdk.dto.${ClassName}Dto;
+import ${package}.sdk.dto.${ClassName}DTO;
 import ${package}.sdk.query.${ClassName}Query;
-import ${package}.sdk.vo.${ClassName}Vo;
+import ${package}.sdk.vo.${ClassName}VO;
 import com.github.itdachen.framework.core.response.TableData;
 import com.github.itdachen.framework.webmvc.entity.EntityUtils;
 import org.slf4j.Logger;
@@ -40,14 +40,14 @@ public class ${ClassName}ServiceImpl implements I${ClassName}Service {
      *
      * @author ${author}
      * @date ${datetime}
-     * @param params ${package}.sdk.query.${ClassName}Query
+     * @param params 查询参数
      * @return com.github.itdachen.framework.core.response.TableData<${package}.sdk.vo.${ClassName}Vo>
      */
     @Override
-    public TableData< ${ClassName}Vo > find${ClassName}Page(${ClassName}Query params) throws Exception {
-        Page< ${ClassName}Vo > page = PageHelper.startPage(params.getPage(), params.getLimit());
-        List< ${ClassName}Vo > list = ${className}Mapper.find${ClassName}Page(params);
-        return new TableData< ${ClassName}Vo >(page.getTotal(), list);
+    public TableData< ${ClassName}VO > find${ClassName}Page(${ClassName}Query params) throws Exception {
+        Page< ${ClassName}VO > page = PageHelper.startPage(params.getPage(), params.getLimit());
+        List< ${ClassName}VO > list = ${className}Mapper.find${ClassName}Page(params);
+        return new TableData< ${ClassName}VO >(page.getTotal(), list);
     }
 
     /***
@@ -55,16 +55,15 @@ public class ${ClassName}ServiceImpl implements I${ClassName}Service {
      *
      * @author ${author}
      * @date ${datetime}
-     * @param ${className}Dto ${className}Dto
-     * @return ${package}.sdk.vo.${className}Vo
+     * @param ${className}DTO 新增数据
+     * @return ${package}.sdk.vo.${className}VO
      */
     @Override
     @Transactional(rollbackFor = Exception.class)
-    public ${ClassName}Vo save${ClassName}(${ClassName}Dto ${className}Dto) throws Exception {
-        ${ClassName} ${className} = ${ClassName}Convert.toJavaObject(${className}Dto);
+    public ${ClassName}VO save${ClassName}(${ClassName}DTO ${className}DTO) throws Exception {
+        ${ClassName} ${className} = ${ClassName}Convert.toJavaObject(${className}DTO);
         EntityUtils.setCreatAndUpdateInfo(${className});
         ${className}Mapper.save${ClassName}(${className});
-        ${className}Dto.setId(${className}.getId());
         return ${ClassName}Convert.toJavaObjectVo(${className});
     }
 
@@ -74,10 +73,10 @@ public class ${ClassName}ServiceImpl implements I${ClassName}Service {
      * @author ${author}
      * @date ${datetime}
      * @param id 需要查询数据的id
-     * @return ${package}.sdk.vo.${ClassName}Vo
+     * @return ${package}.sdk.vo.${ClassName}VO
      */
     @Override
-    public ${ClassName}Vo get${ClassName}ById(${primaryKey} id) throws Exception {
+    public ${ClassName}VO get${ClassName}ById(${primaryKey} id) throws Exception {
         return ${className}Mapper.getById(id);
     }
 
@@ -86,13 +85,13 @@ public class ${ClassName}ServiceImpl implements I${ClassName}Service {
      *
      * @author ${author}
      * @date ${datetime}
-     * @param ${className}Dto ${className}Dto
-     * @return ${package}.sdk.dto.${className}
+     * @param ${className}DTO 更新数据
+     * @return ${package}.sdk.vo.${className}VO
      */
     @Override
     @Transactional(rollbackFor = Exception.class)
-    public ${ClassName}Vo update${ClassName}(${ClassName}Dto ${className}Dto) throws Exception {
-        ${ClassName} ${className} = ${ClassName}Convert.toJavaObject(${className}Dto);
+    public ${ClassName}VO update${ClassName}(${ClassName}DTO ${className}DTO) throws Exception {
+        ${ClassName} ${className} = ${ClassName}Convert.toJavaObject(${className}DTO);
         EntityUtils.setUpdatedInfo(${className});
         ${className}Mapper.update${ClassName}(${className});
         return ${ClassName}Convert.toJavaObjectVo(${className});

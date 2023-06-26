@@ -2,7 +2,7 @@ package ${package}.mapper;
 
 import ${package}.entity.${ClassName};
 import ${package}.sdk.query.${ClassName}Query;
-import ${package}.sdk.vo.${ClassName}Vo;
+import ${package}.sdk.vo.${ClassName}VO;
 
 import java.util.List;
 
@@ -20,9 +20,9 @@ public interface I${ClassName}Mapper {
      * @author ${author}
      * @date ${datetime}
      * @param params ${package}.sdk.query.${ClassName}Query
-     * @return java.util.List<${package}.sdk.vo.${ClassName}Vo>
+     * @return java.util.List<${package}.sdk.vo.${ClassName}VO>
      */
-    List< ${ClassName}Vo > find${ClassName}Page(${ClassName}Query params);
+    List< ${ClassName}VO > find${ClassName}Page(${ClassName}Query params);
 
     /***
      * 新增
@@ -40,9 +40,9 @@ public interface I${ClassName}Mapper {
      * @author ${author}
      * @date ${datetime}
      * @param id 需要查询数据的id
-     * @return ${package}.sdk.vo.${className}Vo
+     * @return ${package}.sdk.vo.${className}VO
      */
-     ${ClassName}Vo getById(${primaryKey} id);
+     ${ClassName}VO getById(${primaryKey} id);
 
     /***
      * 更新

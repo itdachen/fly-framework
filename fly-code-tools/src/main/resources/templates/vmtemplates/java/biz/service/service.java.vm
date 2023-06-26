@@ -1,9 +1,9 @@
 package ${package}.service;
 
 import ${package}.entity.${ClassName};
-import ${package}.sdk.dto.${ClassName}Dto;
+import ${package}.sdk.dto.${ClassName}DTO;
 import ${package}.sdk.query.${ClassName}Query;
-import ${package}.sdk.vo.${ClassName}Vo;
+import ${package}.sdk.vo.${ClassName}VO;
 import com.github.itdachen.framework.webmvc.service.IBizService;
 
 /**
@@ -12,6 +12,6 @@ import com.github.itdachen.framework.webmvc.service.IBizService;
  * @author ${author}
  * @date ${datetime}
  */
-public interface I${ClassName}Service extends IBizService< ${ClassName}Dto, ${ClassName}Vo, ${ClassName}Query, ${primaryKey} > {
+public interface I${ClassName}Service extends IBizService< ${ClassName}DTO, ${ClassName}VO, ${ClassName}Query, ${primaryKey} > {
 
 }

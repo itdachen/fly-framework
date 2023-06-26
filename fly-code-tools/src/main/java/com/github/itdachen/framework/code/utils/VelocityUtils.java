@@ -23,7 +23,7 @@ public class VelocityUtils {
     /**
      * 默认上级菜单，系统工具
      */
-    private static final String DEFAULT_PARENT_MENU_ID = "1539506077102641152";
+    private static final String DEFAULT_PARENT_MENU_ID = "1539506077102641152" ;
 
     public static String getId() {
         return String.valueOf(snowflake.nextId());
@@ -40,47 +40,47 @@ public class VelocityUtils {
         String menuUri = menuUri(tableInfo);
 
         VelocityContext velocityContext = new VelocityContext();
-        velocityContext.put("clientId", StringUtils.isEmpty(tableInfo.getClientId()) ? "admin" : tableInfo.getClientId());
-        velocityContext.put("iframe", StringUtils.isEmpty(tableInfo.getIframe()) ? "iframe" : tableInfo.getIframe());
-        velocityContext.put("tplCategory", tableInfo.getTplCategory());
-        velocityContext.put("tableName", tableInfo.getTableName());
-        velocityContext.put("functionName", StringUtils.isNotEmpty(functionName) ? functionName : "【请填写功能名称】");
+        velocityContext.put("clientId" , StringUtils.isEmpty(tableInfo.getClientId()) ? "admin" : tableInfo.getClientId());
+        velocityContext.put("iframe" , StringUtils.isEmpty(tableInfo.getIframe()) ? "iframe" : tableInfo.getIframe());
+        velocityContext.put("tplCategory" , tableInfo.getTplCategory());
+        velocityContext.put("tableName" , tableInfo.getTableName());
+        velocityContext.put("functionName" , StringUtils.isNotEmpty(functionName) ? functionName : "【请填写功能名称】");
 
-        velocityContext.put("moduleName", tableInfo.getModuleName());
-        velocityContext.put("BusinessName", StringUtils.capitalize(tableInfo.getBusinessName()));
-        velocityContext.put("businessName", tableInfo.getBusinessName());
-        velocityContext.put("basePackage", getPackagePrefix(packageName));
-        velocityContext.put("packageName", packageName);
-        velocityContext.put("datetime", DateUtils.format(new Date(), DateUtils.DATE_TIME_PATTERN));
-        velocityContext.put("pkColumn", tableInfo.getPkColumn());
-        velocityContext.put("importList", getImportList(tableInfo));
+        velocityContext.put("moduleName" , tableInfo.getModuleName());
+        velocityContext.put("BusinessName" , StringUtils.capitalize(tableInfo.getBusinessName()));
+        velocityContext.put("businessName" , tableInfo.getBusinessName());
+        velocityContext.put("basePackage" , getPackagePrefix(packageName));
+        velocityContext.put("packageName" , packageName);
+        velocityContext.put("datetime" , DateUtils.format(new Date(), DateUtils.DATE_TIME_PATTERN));
+        velocityContext.put("pkColumn" , tableInfo.getPkColumn());
+        velocityContext.put("importList" , getImportList(tableInfo));
 
-        velocityContext.put("table", tableInfo);
-        velocityContext.put("package", tableInfo.getPackageName());
-        velocityContext.put("contextPath", contextPathHandler(tableInfo.getContextPath()));
-        velocityContext.put("menuUrl", menuUri);
-        velocityContext.put("pathPrefix", null == menuUri || "".equals(menuUri) ? "admin" : menuUri.substring(1));
-        velocityContext.put("author", tableInfo.getFunctionAuthor() == null || "".equals(tableInfo.getFunctionAuthor()) ? "<请填写作者名称>" : tableInfo.getFunctionAuthor());
-        velocityContext.put("comments", tableInfo.getTableComment());
-        velocityContext.put("functionName", tableInfo.getFunctionName());
-        velocityContext.put("ClassName", tableInfo.getClassName());
-        velocityContext.put("className", StringUtils.uncapitalize(tableInfo.getClassName()));
-        velocityContext.put("primaryKey", tableInfo.getPkColumn().getJavaType());
-        velocityContext.put("permsPrefix", permsPrefix(tableInfo));
+        velocityContext.put("table" , tableInfo);
+        velocityContext.put("package" , tableInfo.getPackageName());
+        velocityContext.put("contextPath" , contextPathHandler(tableInfo.getContextPath()));
+        velocityContext.put("menuUrl" , menuUri);
+        velocityContext.put("pathPrefix" , null == menuUri || "".equals(menuUri) ? "admin" : menuUri.substring(1));
+        velocityContext.put("author" , tableInfo.getFunctionAuthor() == null || "".equals(tableInfo.getFunctionAuthor()) ? "<请填写作者名称>" : tableInfo.getFunctionAuthor());
+        velocityContext.put("comments" , tableInfo.getTableComment());
+        velocityContext.put("functionName" , tableInfo.getFunctionName());
+        velocityContext.put("ClassName" , tableInfo.getClassName());
+        velocityContext.put("className" , StringUtils.uncapitalize(tableInfo.getClassName()));
+        velocityContext.put("primaryKey" , tableInfo.getPkColumn().getJavaType());
+        velocityContext.put("permsPrefix" , permsPrefix(tableInfo));
 
         /* 实体类字段 */
-        velocityContext.put("columns", tableInfo.getColumns());
-        velocityContext.put("queryColumns", queryColumnName(tableInfo.getColumns()));
-        velocityContext.put("dtoVoColumns", dtoVoColumnName(tableInfo.getColumns()));
+        velocityContext.put("columns" , tableInfo.getColumns());
+        velocityContext.put("queryColumns" , queryColumnName(tableInfo.getColumns()));
+        velocityContext.put("dtoVoColumns" , dtoVoColumnName(tableInfo.getColumns()));
 
         /* 菜单 */
-        velocityContext.put("pMenuId", tableInfo.getMenuId() == null || "".equals(tableInfo.getMenuId()) ? DEFAULT_PARENT_MENU_ID : tableInfo.getMenuId());
-        velocityContext.put("menuId", getId());
-        velocityContext.put("pageId", getId());
-        velocityContext.put("addId", getId());
-        velocityContext.put("editId", getId());
-        velocityContext.put("seeId", getId());
-        velocityContext.put("delId", getId());
+        velocityContext.put("pMenuId" , tableInfo.getMenuId() == null || "".equals(tableInfo.getMenuId()) ? DEFAULT_PARENT_MENU_ID : tableInfo.getMenuId());
+        velocityContext.put("menuId" , getId());
+        velocityContext.put("pageId" , getId());
+        velocityContext.put("addId" , getId());
+        velocityContext.put("editId" , getId());
+        velocityContext.put("seeId" , getId());
+        velocityContext.put("delId" , getId());
 
         return velocityContext;
     }
@@ -100,7 +100,14 @@ public class VelocityUtils {
         templates.add("templates/vmtemplates/java/sdk/dto/dto.java.vm");
         templates.add("templates/vmtemplates/java/sdk/vo/vo.java.vm");
         templates.add("templates/vmtemplates/java/sdk/query/query.java.vm");
-        templates.add("templates/vmtemplates/java/" + mvcType + "/convert/convert.java.vm");
+
+        /* 对象转换映射 */
+        if (GenConstants.TPL_BIZ.equals(mvcType)) {
+            templates.add("templates/vmtemplates/java/biz/convert/IConvert.java.vm");
+            templates.add("templates/vmtemplates/java/biz/convert/impl/convertImpl.java.vm");
+        } else {
+            templates.add("templates/vmtemplates/java/default/convert/convert.java.vm");
+        }
 
         /* 后端 java */
         templates.add("templates/vmtemplates/java/" + mvcType + "/entity/entity.java.vm");
@@ -141,10 +148,10 @@ public class VelocityUtils {
         } else if (UiStyleConstant.VUE_LAY_UI.equals(uiStyle)) {
             /* 前后端分离 vue */
             templates.add("templates/vmtemplates/vue/layui/api.ts.vm");
-            templates.add("templates/vmtemplates/vue/model.ts.vm");
-            templates.add("templates/vmtemplates/vue/composables.ts.vm");
-            templates.add("templates/vmtemplates/vue/index.vue.vm");
-            templates.add("templates/vmtemplates/vue/ref.vue.vm");
+            templates.add("templates/vmtemplates/vue/layui/model.ts.vm");
+            templates.add("templates/vmtemplates/vue/layui/composables.ts.vm");
+            templates.add("templates/vmtemplates/vue/layui/index.vue.vm");
+            templates.add("templates/vmtemplates/vue/layui/ref.vue.vm");
         }
 
         return templates;
@@ -189,8 +196,8 @@ public class VelocityUtils {
      * @return
      */
     private static String httpUri(TableInfoVo tableInfo) {
-        String uri = "";
-        if (StringUtils.isNotEmpty(tableInfo.getModuleName().replaceAll(" ", "").replaceAll("/", ""))) {
+        String uri = "" ;
+        if (StringUtils.isNotEmpty(tableInfo.getModuleName().replaceAll(" " , "").replaceAll("/" , ""))) {
             uri += tableInfo.getModuleName();
         }
         if (StringUtils.isNotEmpty(tableInfo.getBusinessName())) {
@@ -208,7 +215,7 @@ public class VelocityUtils {
      * @return java.lang.String
      */
     public static String menuUri(TableInfoVo tableInfo) {
-        String uri = "";
+        String uri = "" ;
         if (StringUtils.isNotEmpty(tableInfo.getBusinessName())) {
             uri += tableInfo.getBusinessName();
         }
@@ -224,18 +231,18 @@ public class VelocityUtils {
      * @return java.lang.String
      */
     private static String permsPrefix(TableInfoVo tableInfo) {
-        String permsPrefix = "";
+        String permsPrefix = "" ;
         if (tableInfo.getModuleName().equals(tableInfo.getBusinessName())) {
             tableInfo.setModuleName(null);
         }
         if (StringUtils.isNotEmpty(tableInfo.getModuleName()) && !"/".equals(tableInfo.getModuleName()) && !":".equals(tableInfo.getModuleName())) {
-            permsPrefix += trimStr(tableInfo.getModuleName()) + ":";
+            permsPrefix += trimStr(tableInfo.getModuleName()) + ":" ;
         }
         if (StringUtils.isNotEmpty(tableInfo.getBusinessName()) && !"/".equals(tableInfo.getBusinessName()) && !":".equals(tableInfo.getBusinessName())) {
-            permsPrefix += trimStr(tableInfo.getBusinessName()) + ":";
+            permsPrefix += trimStr(tableInfo.getBusinessName()) + ":" ;
         }
-        permsPrefix = permsPrefix.substring(0, permsPrefix.length() - 1).replaceAll("/", ":");
-        return permsPrefix.replaceAll("::", ":").replaceAll(" ", "");
+        permsPrefix = permsPrefix.substring(0, permsPrefix.length() - 1).replaceAll("/" , ":");
+        return permsPrefix.replaceAll("::" , ":").replaceAll(" " , "");
     }
 
     /***
@@ -275,12 +282,12 @@ public class VelocityUtils {
     }
 
     private static String trimStr(String str) {
-        return str.replaceAll("/", ":").replaceAll("\"", "").replaceAll(" ", "").trim();
+        return str.replaceAll("/" , ":").replaceAll("\"" , "").replaceAll(" " , "").trim();
     }
 
     private static String contextPathHandler(String contextPath) {
         if (null == contextPath || "".equals(contextPath)) {
-            return "";
+            return "" ;
         }
         if (contextPath.startsWith("/")) {
             return contextPath;

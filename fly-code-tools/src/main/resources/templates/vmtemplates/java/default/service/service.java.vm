@@ -1,8 +1,8 @@
 package ${package}.service;
 
-import ${package}.sdk.dto.${ClassName}Dto;
+import ${package}.sdk.dto.${ClassName}DTO;
 import ${package}.sdk.query.${ClassName}Query;
-import ${package}.sdk.vo.${ClassName}Vo;
+import ${package}.sdk.vo.${ClassName}VO;
 import com.github.itdachen.framework.core.response.TableData;
 
 /**
@@ -18,7 +18,7 @@ public interface I${ClassName}Service {
      *
      * @author ${author}
      * @date ${datetime}
-     * @param params ${package}.query.${ClassName}Query
+     * @param params 查询参数
      * @return com.github.itdachen.framework.core.response.TableData<${package}.sdk.vo.${ClassName}Vo>
      */
     TableData< ${ClassName}Vo > find${ClassName}Page(${ClassName}Query params) throws Exception;
@@ -28,10 +28,10 @@ public interface I${ClassName}Service {
      *
      * @author ${author}
      * @date ${datetime}
-     * @param ${className}Dto ${className}Dto
-     * @return ${package}.sdk.vo.${className}Vo
+     * @param ${className}DTO 新增数据
+     * @return ${package}.sdk.vo.${className}VO
      */
-     ${ClassName}Vo save${ClassName}(${ClassName}Dto ${className}Dto) throws Exception;
+     ${ClassName}VO save${ClassName}(${ClassName}DTO ${className}DTO) throws Exception;
 
     /***
      * 根据id查询
@@ -39,19 +39,19 @@ public interface I${ClassName}Service {
      * @author ${author}
      * @date ${datetime}
      * @param id 需要查询数据的id
-     * @return ${package}.sdk.vo.${ClassName}Vo
+     * @return ${package}.sdk.vo.${ClassName}VO
      */
-        ${ClassName}Vo get${ClassName}ById(${primaryKey} id) throws Exception;
+        ${ClassName}VO get${ClassName}ById(${primaryKey} id) throws Exception;
 
     /***
      * 修改
      *
      * @author ${author}
      * @date ${datetime}
-     * @param ${className}Dto ${className}Dto
+     * @param ${className}DTO 修改数据
      * @return ${package}.sdk.vo.${className}Vo
      */
-        ${ClassName}Dto update${ClassName}(${ClassName}Dto ${className}Dto) throws Exception;
+        ${ClassName}VO update${ClassName}(${ClassName}DTO ${className}DTO) throws Exception;
 
     /***
      * 根据id删除

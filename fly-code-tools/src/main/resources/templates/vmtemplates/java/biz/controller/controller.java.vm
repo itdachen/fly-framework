@@ -2,8 +2,9 @@ package ${package}.controller;
 
 import ${package}.service.I${ClassName}Service;
 import ${package}.entity.${ClassName};
+import ${package}.sdk.dto.${ClassName}DTO;
 import ${package}.sdk.query.${ClassName}Query;
-import ${package}.sdk.vo.${ClassName}Vo;
+import ${package}.sdk.vo.${ClassName}VO;
 import com.github.itdachen.framework.context.annotation.CheckApiClient;
 import com.github.itdachen.framework.core.constants.ClientConstant;
 import com.github.itdachen.framework.webmvc.controller.BizController;
@@ -25,7 +26,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 @Controller
 @RequestMapping("${menuUrl}")
 @CheckApiClient(title = "${functionName}", clientId = ClientConstant.CLIENT_WEB)
-public class ${ClassName}Controller extends BizController< I${ClassName}Service, ${ClassName}Dto, ${ClassName}Vo, ${ClassName}Query, ${primaryKey} > {
+public class ${ClassName}Controller extends BizController< I${ClassName}Service, ${ClassName}DTO, ${ClassName}VO, ${ClassName}Query, ${primaryKey} > {
     private static final Logger logger = LoggerFactory.getLogger(${ClassName}Controller.class);
     private static final String PATH_PREFIX = "${pathPrefix}";
 

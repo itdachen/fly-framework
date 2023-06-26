@@ -21,7 +21,7 @@ import java.io.Serializable;
  * @author ${author}
  * @date ${datetime}
  */
-public class ${ClassName}Dto implements Serializable {
+public class ${ClassName}DTO implements Serializable {
     private static final long serialVersionUID = 1L;
 
     #foreach ($column in $dtoVoColumns)
@@ -31,37 +31,37 @@ public class ${ClassName}Dto implements Serializable {
 
     #end
 
-    public ${ClassName}Dto() {}
+    public ${ClassName}DTO() {}
 
-    public ${ClassName}Dto(#foreach ($column in $dtoVoColumns)$column.javaType $column.javaField#if($foreach.count != $dtoVoColumns.size()), #end#end) {
+    public ${ClassName}DTO(#foreach ($column in $dtoVoColumns)$column.javaType $column.javaField#if($foreach.count != $dtoVoColumns.size()), #end#end) {
         #foreach ($column in $dtoVoColumns)
             this.$column.javaField = $column.javaField;
         #end
     }
 
-    public static ${ClassName}DtoBuilder builder() {
-        return new ${ClassName}DtoBuilder();
+    public static ${ClassName}DTOBuilder builder() {
+        return new ${ClassName}DTOBuilder();
     }
 
-    public static class ${ClassName}DtoBuilder {
+    public static class ${ClassName}DTOBuilder {
         #foreach ($column in $dtoVoColumns)
             private $column.javaType $column.javaField;
         #end
 
-        public ${ClassName}DtoBuilder() {}
+        public ${ClassName}DTOBuilder() {}
 
         #foreach ($column in $dtoVoColumns)
             #set($field=$column.javaField)
             #set($javaType=$column.javaType)
             /* $column.columnComment */
-            public ${ClassName}DtoBuilder ${field}($javaType ${field}) {
+            public ${ClassName}DTOBuilder ${field}($javaType ${field}) {
                 this.$column.javaField = $column.javaField;
                 return this;
             }
         #end
 
-        public ${ClassName}Dto build() {
-            return new ${ClassName}Dto(#foreach ($column in $dtoVoColumns)$column.javaField#if($foreach.count != $dtoVoColumns.size()), #end#end);
+        public ${ClassName}DTO build() {
+            return new ${ClassName}DTO(#foreach ($column in $dtoVoColumns)$column.javaField#if($foreach.count != $dtoVoColumns.size()), #end#end);
         }
 
     }

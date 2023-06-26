@@ -1,0 +1,37 @@
+package ${package}.convert;
+
+import ${package}.entity.${ClassName};
+import ${package}.sdk.dto.${ClassName}DTO;
+import ${package}.sdk.vo.${ClassName}VO;
+import com.github.itdachen.framework.webmvc.convert.IBizConvertMapper;
+
+/**
+ * ${functionName} 类型转换
+ *
+ * @author ${author}
+ * @date ${datetime}
+ */
+public class I${ClassName}Convert extends IBizConvertMapper< ${ClassName}, ${ClassName}DTO, ${ClassName}VO > {
+
+    /***
+     *  VO 转 Entity
+     *
+     * @author ${author}
+     * @date ${datetime}
+     * @return ${className}Vo ${className}Vo
+     * @return ${package}.entity.${ClassName};
+     */
+    ${ClassName} toJavaObject(${ClassName}Vo ${className}Vo);
+
+    /***
+     * DTO 转 VO
+     *
+     * @author ${author}
+     * @date ${datetime}
+     * @return ${className}Dto ${className}Dto
+     * @return ${package}.sdk.vo.${ClassName}Vo;
+     */
+    ${ClassName}Vo toJavaObjectVo(${ClassName}Dto ${className}Dto);
+
+
+}

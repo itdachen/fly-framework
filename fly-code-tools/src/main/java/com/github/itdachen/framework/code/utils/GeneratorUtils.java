@@ -187,6 +187,10 @@ public class GeneratorUtils {
             fileName = StringUtils.format("{}/sdk/query/{}Query.java", javaPath, className);
         } else if (template.contains("convert.java.vm")) {
             fileName = StringUtils.format("{}/convert/{}Convert.java", javaPath, className);
+        } else if (template.contains("IConvert.java.vm")) {
+            fileName = StringUtils.format("{}/convert/I{}Convert.java" , javaPath, className);
+        }    else if (template.contains("convertImpl.java.vm")) {
+            fileName = StringUtils.format("{}/convert/impl/{}ConvertImpl.java" , javaPath, className);
         } else if (template.contains("mapper.java.vm")) {
             fileName = StringUtils.format("{}/mapper/I{}Mapper.java", javaPath, className);
         } else if (template.contains("service.java.vm")) {

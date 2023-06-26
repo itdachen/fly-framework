@@ -22,7 +22,7 @@ import java.io.Serializable;
  * @author ${author}
  * @date ${datetime}
  */
-public class ${ClassName}Vo implements Serializable {
+public class ${ClassName}VO implements Serializable {
     private static final long serialVersionUID = 1L;
 
     #foreach ($column in $dtoVoColumns)
@@ -31,25 +31,25 @@ public class ${ClassName}Vo implements Serializable {
 
     #end
 
-    public ${ClassName}Vo() {
+    public ${ClassName}VO() {
     }
 
-    public ${ClassName}Vo(#foreach ($column in $dtoVoColumns)$column.javaType $column.javaField#if($foreach.count != $dtoVoColumns.size()), #end#end) {
+    public ${ClassName}VO(#foreach ($column in $dtoVoColumns)$column.javaType $column.javaField#if($foreach.count != $dtoVoColumns.size()), #end#end) {
         #foreach ($column in $dtoVoColumns)
             this.$column.javaField = $column.javaField;
         #end
     }
 
-    public static ${ClassName}VoBuilder builder() {
-        return new ${ClassName}VoBuilder();
+    public static ${ClassName}VOBuilder builder() {
+        return new ${ClassName}VOBuilder();
     }
 
-    public static class ${ClassName}VoBuilder {
+    public static class ${ClassName}VOBuilder {
         #foreach ($column in $dtoVoColumns)
             private $column.javaType $column.javaField;
         #end
 
-        public   ${ClassName}VoBuilder() {
+        public   ${ClassName}VOBuilder() {
         }
 
         #foreach ($column in $dtoVoColumns)
@@ -62,8 +62,8 @@ public class ${ClassName}Vo implements Serializable {
             }
         #end
 
-        public ${ClassName}Vo build() {
-            return new ${ClassName}Vo(#foreach ($column in $dtoVoColumns)
+        public ${ClassName}VO build() {
+            return new ${ClassName}VO(#foreach ($column in $dtoVoColumns)
                 $column.javaField#if($foreach.count != $dtoVoColumns.size()), #end
             #end);
         }
