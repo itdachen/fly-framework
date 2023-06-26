@@ -14,7 +14,7 @@ import java.util.Date;
 import java.util.GregorianCalendar;
 
 /**
- * Description:
+ * Description: 时间工具类
  * Created by 王大宸 on 2023/02/12 23:00
  * Created with IntelliJ IDEA.
  */
@@ -23,6 +23,10 @@ public class LocalDateUtils {
      * 系统默认时区
      */
     public final static ZoneId DEFAULT_ZONE_ID = ZoneId.systemDefault();
+    /**
+     * 默认日期格式
+     */
+    // private static final DateTimeFormatter DEFAULT_DATE_TIME_FORMATTER = DateTimeFormatter.ofPattern(DateFormatConstants.DATE_TIME_FORMATTER_PATTERN);
 
     /***
      * 获取今天日期
@@ -51,11 +55,10 @@ public class LocalDateUtils {
      *
      * @author 王大宸
      * @date 2023/2/12 23:24
-     * @param localDateTime localDateTime
      * @return java.lang.String
      */
-    public static String today(LocalDateTime localDateTime) {
-        return DateFormatConstants.S_DATE_TIME_FORMATTER.format(today());
+    public static String todayDateTime() {
+        return DateFormatConstants.S_DATE_TIME_FORMATTER.format(toDay());
     }
 
     /***
@@ -425,14 +428,69 @@ public class LocalDateUtils {
 
     }
 
+    /***
+     * timestamp 转 字符串，默认日期格式
+     *
+     * @author 王大宸
+     * @date 2023/6/26 20:42
+     * @param timestamp timestamp
+     * @return java.lang.String
+     */
+    public static String format(long timestamp) {
+        return DateFormatConstants.DATE_TIME_FORMATTER.format(new Date(timestamp).toInstant().atZone(DEFAULT_ZONE_ID));
+    }
+
+    /***
+     * 获取当天剩余的秒数
+     *
+     * @author 王大宸
+     * @date 2023/6/26 20:43
+     * @param currentDate 年月日时间
+     * @return java.lang.Integer
+     */
+    public static Integer getRemainSecondsOneDay(Date currentDate) {
+        LocalDateTime midnight = LocalDateTime.ofInstant(currentDate.toInstant(), ZoneId.systemDefault())
+                .plusDays(1).withHour(0).withMinute(0)
+                .withSecond(0).withNano(0);
+        LocalDateTime currentDateTime = LocalDateTime.ofInstant(currentDate.toInstant(), ZoneId.systemDefault());
+        long seconds = ChronoUnit.SECONDS.between(currentDateTime, midnight);
+        return (int) seconds;
+    }
+
+    /***
+     * 获取当天剩余的秒数
+     *
+     * @author 王大宸
+     * @date 2023/6/26 20:46
+     * @param currentDate 年月日时间
+     * @return java.lang.Integer
+     */
+    public static Integer getRemainSecondsOneDay(LocalDate currentDate) {
+        return getRemainSecondsOneDay(toDate(currentDate));
+    }
+
+    /***
+     * 今天剩余多少秒
+     *
+     * @author 王大宸
+     * @date 2023/6/26 20:46
+     * @return java.lang.Integer
+     */
+    public static Integer getRemainSecondsInToDay() {
+        return getRemainSecondsOneDay(LocalDate.now());
+    }
+
 
     public static void main(String[] args) {
-        DateTimeFormatter df = DateTimeFormatter.ofPattern("yyyy-MM-dd HH:mm:ss");
-        LocalDateTime time = LocalDateTime.now();
-        String localTime = df.format(time);
-        LocalDateTime ldt = LocalDateTime.parse("2022-12-30 10:12:05", df);
-        System.out.println("LocalDateTime转成String类型的时间：" + localTime);
-        System.out.println("String类型的时间转成LocalDateTime：" + ldt);
+//        DateTimeFormatter df = DateTimeFormatter.ofPattern("yyyy-MM-dd HH:mm:ss");
+//        LocalDateTime time = LocalDateTime.now();
+//        String localTime = df.format(time);
+//        LocalDateTime ldt = LocalDateTime.parse("2022-12-30 10:12:05", df);
+//        System.out.println("LocalDateTime转成String类型的时间：" + localTime);
+//        System.out.println("String类型的时间转成LocalDateTime：" + ldt);
+
+        System.err.println(getRemainSecondsInToDay());
+
     }
 
 

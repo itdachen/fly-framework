@@ -459,7 +459,7 @@ public class StringUtils extends org.apache.commons.lang3.StringUtils {
     }
 
     /***
-     * 字符串判断
+     * 字符串排序
      * 例如: ACBD ==> ABCD
      * @author 王大宸
      * @date 2021/1/4 11:36
@@ -497,6 +497,19 @@ public class StringUtils extends org.apache.commons.lang3.StringUtils {
         }
         str = extractLetter(str);
         return charSort(str);
+    }
+
+    /***
+     * 是否仅包括数字和字母
+     *
+     * @author 王大宸
+     * @date 2023/6/26 19:48
+     * @param str 需要判断的字符串
+     * @return boolean
+     */
+    public static boolean isLetterDigit(String str) {
+        String regex = "^[a-z0-9A-Z]+$";
+        return str.matches(regex);
     }
 
 }

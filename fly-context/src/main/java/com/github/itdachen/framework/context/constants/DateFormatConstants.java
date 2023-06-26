@@ -13,12 +13,16 @@ public class DateFormatConstants {
     public static final String DATE_TIME_FORMATTER_PATTERN = "yyyy-MM-dd HH:mm:ss";
     public static final String DATE_FORMATTER_PATTERN = "yyyy-MM-dd";
     public static final String TIME_FORMATTER_PATTERN = "HH:mm:ss";
-    public static final SimpleDateFormat S_DATE_TIME_FORMATTER = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
-    public static final SimpleDateFormat S_DATE_FORMATTER = new SimpleDateFormat("yyyy-MM-dd");
-    public static final SimpleDateFormat S_TIME_FORMATTER = new SimpleDateFormat("HH:mm:ss");
-    public static final DateTimeFormatter DATE_TIME_FORMATTER = DateTimeFormatter.ofPattern("yyyy-MM-dd HH:mm:ss");
-    public static final DateTimeFormatter DATE_FORMATTER = DateTimeFormatter.ofPattern("yyyy-MM-dd");
-    public static final DateTimeFormatter TIME_FORMATTER = DateTimeFormatter.ofPattern("HH:mm:ss");
+
+
+    public static final SimpleDateFormat S_DATE_TIME_FORMATTER = new SimpleDateFormat(DATE_TIME_FORMATTER_PATTERN);
+    public static final SimpleDateFormat S_DATE_FORMATTER = new SimpleDateFormat(DATE_FORMATTER_PATTERN);
+    public static final SimpleDateFormat S_TIME_FORMATTER = new SimpleDateFormat(TIME_FORMATTER_PATTERN);
+
+
+    public static final DateTimeFormatter DATE_TIME_FORMATTER = DateTimeFormatter.ofPattern(DATE_TIME_FORMATTER_PATTERN);
+    public static final DateTimeFormatter DATE_FORMATTER = DateTimeFormatter.ofPattern(DATE_FORMATTER_PATTERN);
+    public static final DateTimeFormatter TIME_FORMATTER = DateTimeFormatter.ofPattern(TIME_FORMATTER_PATTERN);
 
 
 }
