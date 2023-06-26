@@ -8,6 +8,7 @@ import com.github.itdachen.framework.core.response.ServerResponse;
 import com.github.itdachen.framework.core.response.TableData;
 import com.github.itdachen.framework.webmvc.service.IBizService;
 import com.github.itdachen.framework.webmvc.utils.StringEscapeEditor;
+import jakarta.validation.Valid;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.WebDataBinder;
 import org.springframework.web.bind.annotation.*;
@@ -56,7 +57,7 @@ public class BizController<BizService extends IBizService<D, V, Q, PK>, D, V, Q 
     @PostMapping(value = "")
     @ResponseBody
     @Log(title = "新增", type = LogType.SAVE)
-    public ServerResponse<V> save(@RequestBody D d) throws Exception {
+    public ServerResponse<V> save(@Valid @RequestBody D d) throws Exception {
         return ServerResponse.okData(bizService.save(d));
     }
 
@@ -70,7 +71,7 @@ public class BizController<BizService extends IBizService<D, V, Q, PK>, D, V, Q 
     @PutMapping(value = "/{id}")
     @ResponseBody
     @Log(title = "修改/编辑", type = LogType.UPDATE)
-    public ServerResponse<V> update(@RequestBody D d) throws Exception {
+    public ServerResponse<V> update(@Valid @RequestBody D d) throws Exception {
         return ServerResponse.okData(bizService.update(d));
     }
 
