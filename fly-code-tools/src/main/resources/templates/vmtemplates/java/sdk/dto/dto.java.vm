@@ -1,5 +1,7 @@
 package ${package}.sdk.dto;
 
+import jakarta.validation.constraints.NotBlank;
+import jakarta.validation.constraints.NotNull;
 import org.apache.commons.lang3.builder.ToStringBuilder;
 import org.apache.commons.lang3.builder.ToStringStyle;
 
@@ -16,7 +18,7 @@ import org.apache.commons.lang3.builder.ToStringStyle;
 import java.io.Serializable;
 
 /**
- * ${functionName} 请求参数数据
+ * ${functionName} DTO
  *
  * @author ${author}
  * @date ${datetime}
@@ -25,8 +27,14 @@ public class ${ClassName}DTO implements Serializable {
     private static final long serialVersionUID = 1L;
 
     #foreach ($column in $dtoVoColumns)
-
         /** $column.columnComment */
+        #if($column.isForm == '1')
+            #if($column.isRequired == '1')
+                #if($column.javaType == 'String') @NotBlank(message = "${column.columnComment}不能为空")
+                #else @NotNull(message = "${column.columnComment}不能为空")
+                #end
+            #end
+        #end
         private $column.javaType $column.javaField;
 
     #end
