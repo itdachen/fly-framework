@@ -3,7 +3,7 @@ package ${package}.convert;
 import ${package}.entity.${ClassName};
 import ${package}.sdk.dto.${ClassName}Dto;
 import ${package}.sdk.vo.${ClassName}Vo;
-import com.github.itdachen.framework.webmvc.convert.BizConvert;
+import com.github.itdachen.framework.webmvc.convert.IBizConvertMapper;
 
 /**
  * ${functionName} 类型转换

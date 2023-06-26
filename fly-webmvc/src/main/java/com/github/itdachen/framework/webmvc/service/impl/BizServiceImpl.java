@@ -1,6 +1,6 @@
 package com.github.itdachen.framework.webmvc.service.impl;
 
-import com.github.itdachen.framework.webmvc.convert.BizConvert;
+import com.github.itdachen.framework.webmvc.convert.IBizConvertMapper;
 import com.github.pagehelper.Page;
 import com.github.pagehelper.PageHelper;
 import com.github.itdachen.framework.core.biz.BizQuery;
@@ -38,17 +38,14 @@ import java.util.Map;
  * Created by 王大宸 on 2022-06-30 9:47
  * Created with IntelliJ IDEA.
  */
-public class BizServiceImpl<IBizMapper extends Mapper<T>, T, D, V, Q extends BizQuery, PK> implements IBizService<D, V, Q, PK> {
+public class BizServiceImpl<IBizMapper extends Mapper<T>, IBizConvert extends IBizConvertMapper<T, D, V>, T, D, V, Q extends BizQuery, PK> implements IBizService<D, V, Q, PK> {
     private static final Logger logger = LoggerFactory.getLogger(BizServiceImpl.class);
     @Autowired
     protected IBizMapper bizMapper;
     @Autowired
     protected JdbcTemplate jdbcTemplate;
-    private final BizConvert<T, D, V> bizConvert;
-
-    public BizServiceImpl(BizConvert<T, D, V> bizConvert) {
-        this.bizConvert = bizConvert;
-    }
+    @Autowired
+    protected IBizConvert bizConvert;
 
     /**
      * 分页查询
