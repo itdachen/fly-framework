@@ -25,7 +25,6 @@
 <!--            <artifactId>javax.persistence-api</artifactId>-->
 <!--        </dependency>-->
 
-
         <dependency>
             <groupId>commons-io</groupId>
             <artifactId>commons-io</artifactId>
@@ -52,6 +51,22 @@
             <artifactId>fly-runner</artifactId>
             <scope>provided</scope>
         </dependency>
+
+
+        <!-- 生成数据库表设计 -->
+        <dependency>
+            <groupId>cn.smallbun.screw</groupId>
+            <artifactId>screw-core</artifactId>
+            <version>1.0.5</version>
+            <!-- 排除自带日志打印, 与系统框架冲突 -->
+            <exclusions>
+                <exclusion>
+                    <groupId>ch.qos.logback</groupId>
+                    <artifactId>logback-classic</artifactId>
+                </exclusion>
+            </exclusions>
+        </dependency>
+
     </dependencies>
 
 </project>
