@@ -35,6 +35,11 @@ public class TableDocsInfo implements Serializable {
     private String fileOutputDir = "C:\\Downloads";
 
     /**
+     * 文档标题名称
+     */
+    private String title = "数据库表设计文档";
+
+    /**
      * 版本
      */
     private String version = "V1.0";
@@ -60,12 +65,14 @@ public class TableDocsInfo implements Serializable {
     private List<String> ignoreSuffixTables = new ArrayList<>();
 
 
-    public TableDocsInfo() {}
+    public TableDocsInfo() {
+    }
 
     public TableDocsInfo(String fileName,
                          EngineFileType fileType,
                          Boolean openOutputDir,
                          String fileOutputDir,
+                         String title,
                          String version,
                          String description,
                          List<String> ignoreTables,
@@ -75,6 +82,7 @@ public class TableDocsInfo implements Serializable {
         this.fileType = fileType;
         this.openOutputDir = openOutputDir;
         this.fileOutputDir = fileOutputDir;
+        this.title = title;
         this.version = version;
         this.description = description;
         this.ignoreTables = ignoreTables;
@@ -91,6 +99,7 @@ public class TableDocsInfo implements Serializable {
         private EngineFileType fileType = EngineFileType.HTML;
         private Boolean openOutputDir = false;
         private String fileOutputDir = "C:\\Downloads";
+        private String title = "数据库表设计文档";
         private String version = "V1.0";
         private String description = "";
         private List<String> ignoreTables = new ArrayList<>();
@@ -99,46 +108,61 @@ public class TableDocsInfo implements Serializable {
 
         public TableDocsInfoBuilder() {
         }
+
         /* 文件名 */
         public TableDocsInfoBuilder fileName(String fileName) {
             this.fileName = fileName;
             return this;
         }
+
         /* 文件类型 */
         public TableDocsInfoBuilder fileType(EngineFileType fileType) {
             this.fileType = fileType;
             return this;
         }
+
         /* 是否打开文件夹 */
         public TableDocsInfoBuilder openOutputDir(Boolean openOutputDir) {
             this.openOutputDir = openOutputDir;
             return this;
         }
+
         /* 文件输出目录 */
         public TableDocsInfoBuilder fileOutputDir(String fileOutputDir) {
             this.fileOutputDir = fileOutputDir;
             return this;
         }
+
+        /* 文档标题名称 */
+        public TableDocsInfoBuilder title(String title) {
+            this.title = title;
+            return this;
+        }
+
         /* 版本 */
         public TableDocsInfoBuilder version(String version) {
             this.version = version;
             return this;
         }
+
         /* 描述 */
         public TableDocsInfoBuilder description(String description) {
             this.description = description;
             return this;
         }
+
         /* 忽略的表 */
         public TableDocsInfoBuilder ignoreTables(List<String> ignoreTables) {
             this.ignoreTables = ignoreTables;
             return this;
         }
+
         /* 忽略表前缀 */
         public TableDocsInfoBuilder ignorePrefixTables(List<String> ignorePrefixTables) {
             this.ignorePrefixTables = ignorePrefixTables;
             return this;
         }
+
         /*  忽略表后缀 */
         public TableDocsInfoBuilder ignoreSuffixTables(List<String> ignoreSuffixTables) {
             this.ignoreSuffixTables = ignoreSuffixTables;
@@ -151,6 +175,7 @@ public class TableDocsInfo implements Serializable {
                     fileType,
                     openOutputDir,
                     fileOutputDir,
+                    title,
                     version,
                     description,
                     ignoreTables,
@@ -232,5 +257,13 @@ public class TableDocsInfo implements Serializable {
 
     public void setIgnoreSuffixTables(List<String> ignoreSuffixTables) {
         this.ignoreSuffixTables = ignoreSuffixTables;
+    }
+
+    public String getTitle() {
+        return title;
+    }
+
+    public void setTitle(String title) {
+        this.title = title;
     }
 }

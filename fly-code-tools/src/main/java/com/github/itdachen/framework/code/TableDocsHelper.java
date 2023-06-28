@@ -45,6 +45,7 @@ public class TableDocsHelper {
 
         // 生成文档配置（包含以下自定义版本号、描述等配置连接）
         Configuration config = Configuration.builder()
+                .title(docsInfo.getTitle())
                 .version(docsInfo.getVersion())
                 .description(docsInfo.getDescription())
                 .dataSource(dataSource)

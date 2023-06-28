@@ -51,6 +51,8 @@ public class DataSourceDocumentUtils {
 
         //创建screw的配置:生成文档配置（包含以下自定义版本号、描述等配置连接）
         Configuration config = Configuration.builder()
+                // 文档标题
+                .title("数据库文档")
                 //版本
                 .version("V1.0")
                 //描述
