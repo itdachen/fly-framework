@@ -56,7 +56,7 @@ public class ${ClassName}VO implements Serializable {
             #set($field=$column.javaField)
             #set($javaType=$column.javaType)
             /* $column.columnComment */
-            public ${ClassName}VoBuilder ${field}($javaType ${field}) {
+            public ${ClassName}VOBuilder ${field}($javaType ${field}) {
                 this.$column.javaField = $column.javaField;
                 return this;
             }
