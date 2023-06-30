@@ -5,20 +5,20 @@
 <mapper namespace="${package}.mapper.I${ClassName}Mapper">
 
     <!-- 可根据自己的需求，是否要使用 -->
-    <resultMap type="${package}.sdk.vo.${ClassName}Vo" id="${className}Map">
+    <resultMap type="${package}.sdk.vo.${ClassName}VO" id="${className}Map">
         #foreach($column in $dtoVoColumns)
             <result property="$column.javaField" column="${column.columnName}"/>
         #end
     </resultMap>
 
-    <sql id="select${ClassName}Vo">
+    <sql id="select${ClassName}VO">
         SELECT #foreach($column in $dtoVoColumns)${column.columnName}#if($foreach.count != $dtoVoColumns.size()), #end
               #end        FROM ${tableName}
     </sql>
 
     <!-- 集合查询 -->
     <select id="page" parameterType="${package}.sdk.query.${ClassName}Query" resultMap="${className}Map">
-        <include refid="select${ClassName}Vo"/>
+        <include refid="select${ClassName}VO"/>
         <where>
             #foreach($column in $queryColumns)
             #set($queryType=$column.queryType)
