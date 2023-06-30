@@ -55,7 +55,7 @@ public class DefaultDataSourceEncoder {
     public String decrypt(final String str) {
         DataSourceEncoderProcessor processor = findDataSourceEncoderProcessor(str);
         if (null == processor) {
-            logger.error("数据库连接解密: 解密处理器不存在");
+           // logger.error("数据库连接解密: 解密处理器不存在");
             return str;
         }
         return processor.decrypt(str);
