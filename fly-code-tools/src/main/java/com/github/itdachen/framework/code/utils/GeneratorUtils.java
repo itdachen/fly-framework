@@ -180,9 +180,9 @@ public class GeneratorUtils {
         if (template.contains("entity.java.vm")) {
             fileName = StringUtils.format("{}/entity/{}.java", javaPath, className);
         } else if (template.contains("dto.java.vm")) {
-            fileName = StringUtils.format("{}/sdk/dto/{}Dto.java", javaPath, className);
+            fileName = StringUtils.format("{}/sdk/dto/{}DTO.java", javaPath, className);
         } else if (template.contains("vo.java.vm")) {
-            fileName = StringUtils.format("{}/sdk/vo/{}Vo.java", javaPath, className);
+            fileName = StringUtils.format("{}/sdk/vo/{}VO.java", javaPath, className);
         } else if (template.contains("query.java.vm")) {
             fileName = StringUtils.format("{}/sdk/query/{}Query.java", javaPath, className);
         } else if (template.contains("convert.java.vm")) {

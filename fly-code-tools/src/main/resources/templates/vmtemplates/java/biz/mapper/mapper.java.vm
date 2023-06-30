@@ -2,7 +2,7 @@ package ${package}.mapper;
 
 import ${package}.entity.${ClassName};
 import ${package}.sdk.query.${ClassName}Query;
-import ${package}.sdk.vo.${ClassName}Vo;
+import ${package}.sdk.vo.${ClassName}VO;
 import tk.mybatis.mapper.common.Mapper;
 
 import java.util.List;
@@ -21,9 +21,9 @@ public interface I${ClassName}Mapper extends Mapper< ${ClassName} > {
      * @author ${author}
      * @date ${datetime}
      * @param params params
-     * @return ${package}.sdk.vo.${className}Vo
+     * @return ${package}.sdk.vo.${className}VO
      */
-    List< ${ClassName}Vo > page(${ClassName}Query params);
+    List< ${ClassName}VO > page(${ClassName}Query params);
 
 
 
