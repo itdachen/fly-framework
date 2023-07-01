@@ -48,7 +48,7 @@ public class ${ClassName}ConvertImpl implements I${ClassName}Convert {
      *
      * @author ${author}
      * @date ${datetime}
-     * @return ${className}Vo ${className}Vo
+     * @return ${className} ${className}
      * @return ${package}.entity.${ClassName};
      */
     @Override
@@ -75,7 +75,7 @@ public class ${ClassName}ConvertImpl implements I${ClassName}Convert {
      *
      * @author ${author}
      * @date ${datetime}
-     * @return ${className}Vo ${className}Vo
+     * @return ${className}VO ${className}VO
      * @return ${package}.entity.${ClassName};
      */
     @Override
@@ -102,8 +102,8 @@ public class ${ClassName}ConvertImpl implements I${ClassName}Convert {
      *
      * @author ${author}
      * @date ${datetime}
-     * @return ${className}Dto ${className}Dto
-     * @return ${package}.sdk.vo.${ClassName}Vo;
+     * @return ${className}DTO ${className}DTO
+     * @return ${package}.sdk.vo.${ClassName}VO;
      */
     @Override
     public ${ClassName}VO toJavaObjectVo(${ClassName}DTO ${className}DTO) {
