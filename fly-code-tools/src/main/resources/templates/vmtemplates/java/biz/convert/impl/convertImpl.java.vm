@@ -107,7 +107,7 @@ public class ${ClassName}ConvertImpl implements I${ClassName}Convert {
      */
     @Override
     public ${ClassName}VO toJavaObjectVo(${ClassName}DTO ${className}DTO) {
-        if (null == ${className}Dto){
+        if (null == ${className}DTO){
             return null;
         }
         ${ClassName}VO ${className}VO = new ${ClassName}VO();
@@ -121,7 +121,7 @@ public class ${ClassName}ConvertImpl implements I${ClassName}Convert {
                 ${className}VO.set${AttrName}(${className}DTO.get${AttrName}());
             #end
         #end
-        return ${className}Vo;
+        return ${className}VO;
     }
 
 

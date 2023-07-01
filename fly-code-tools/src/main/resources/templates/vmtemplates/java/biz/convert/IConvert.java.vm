@@ -11,7 +11,7 @@ import com.github.itdachen.framework.webmvc.convert.IBizConvertMapper;
  * @author ${author}
  * @date ${datetime}
  */
-public class I${ClassName}Convert extends IBizConvertMapper< ${ClassName}, ${ClassName}DTO, ${ClassName}VO > {
+public interface I${ClassName}Convert extends IBizConvertMapper< ${ClassName}, ${ClassName}DTO, ${ClassName}VO > {
 
     /***
      *  VO 转 Entity
@@ -21,7 +21,7 @@ public class I${ClassName}Convert extends IBizConvertMapper< ${ClassName}, ${Cla
      * @return ${className}Vo ${className}Vo
      * @return ${package}.entity.${ClassName};
      */
-    ${ClassName} toJavaObject(${ClassName}Vo ${className}Vo);
+    ${ClassName} toJavaObject(${ClassName}VO ${className}VO);
 
     /***
      * DTO 转 VO
@@ -31,7 +31,7 @@ public class I${ClassName}Convert extends IBizConvertMapper< ${ClassName}, ${Cla
      * @return ${className}Dto ${className}Dto
      * @return ${package}.sdk.vo.${ClassName}Vo;
      */
-    ${ClassName}Vo toJavaObjectVo(${ClassName}Dto ${className}Dto);
+    ${ClassName}Vo toJavaObjectVo(${ClassName}DTO ${className}DTO);
 
 
 }
