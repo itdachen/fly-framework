@@ -26,6 +26,16 @@ public class CurrentUserDetails implements Serializable {
     private String tenantId;
 
     /**
+     * 登录客户端
+     */
+    private String clientId;
+
+    /**
+     * 登录方式
+     */
+    private String signMethod;
+
+    /**
      * 昵称
      */
     private String nickName;
@@ -144,6 +154,7 @@ public class CurrentUserDetails implements Serializable {
     }
 
     public CurrentUserDetails(String id, String tenantId,
+                              String clientId, String signMethod,
                               String nickName, String avatar,
                               String telephone, String email,
                               String account, String accountSecret,
@@ -157,6 +168,8 @@ public class CurrentUserDetails implements Serializable {
                               Boolean isSuperAdmin, Map<String, String> other) {
         this.id = id;
         this.tenantId = tenantId;
+        this.clientId = clientId;
+        this.signMethod = signMethod;
         this.nickName = nickName;
         this.avatar = avatar;
         this.telephone = telephone;
@@ -194,6 +207,22 @@ public class CurrentUserDetails implements Serializable {
 
     public String getTenantId() {
         return tenantId;
+    }
+
+    public String getClientId() {
+        return clientId;
+    }
+
+    public void setClientId(String clientId) {
+        this.clientId = clientId;
+    }
+
+    public String getSignMethod() {
+        return signMethod;
+    }
+
+    public void setSignMethod(String signMethod) {
+        this.signMethod = signMethod;
     }
 
     public void setNickName(String nickName) {
@@ -369,6 +398,8 @@ public class CurrentUserDetails implements Serializable {
         return new ToStringBuilder(this, ToStringStyle.MULTI_LINE_STYLE)
                 .append("id", getId())
                 .append("tenantId", getTenantId())
+                .append("clientId", getClientId())
+                .append("signMethod", getSignMethod())
                 .append("nickName", getNickName())
                 .append("avatar", getAvatar())
                 .append("telephone", getTelephone())
