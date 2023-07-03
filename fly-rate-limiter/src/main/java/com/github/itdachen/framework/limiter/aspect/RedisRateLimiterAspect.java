@@ -1,36 +1,41 @@
 package com.github.itdachen.framework.limiter.aspect;
 
+import com.github.itdachen.framework.context.annotation.Log;
 import com.github.itdachen.framework.context.exception.RateLimiterException;
 import com.github.itdachen.framework.limiter.annotation.RedisRateLimiter;
 import com.github.itdachen.framework.limiter.enums.LimiterType;
 import com.google.common.collect.ImmutableList;
+import com.google.common.util.concurrent.RateLimiter;
 import jakarta.servlet.http.HttpServletRequest;
 import org.apache.commons.lang3.StringUtils;
+import org.aspectj.lang.JoinPoint;
 import org.aspectj.lang.ProceedingJoinPoint;
+import org.aspectj.lang.Signature;
 import org.aspectj.lang.annotation.Around;
 import org.aspectj.lang.annotation.Aspect;
+import org.aspectj.lang.annotation.Before;
 import org.aspectj.lang.reflect.MethodSignature;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
-import org.springframework.context.annotation.Configuration;
 import org.springframework.data.redis.core.RedisTemplate;
 import org.springframework.data.redis.core.script.DefaultRedisScript;
+import org.springframework.stereotype.Component;
 import org.springframework.web.context.request.RequestContextHolder;
 import org.springframework.web.context.request.ServletRequestAttributes;
 
 import java.lang.reflect.Method;
+import java.lang.reflect.UndeclaredThrowableException;
 import java.util.Objects;
 
 /**
- * Description: 分布式限流切面
+ * Description: 分布式限流切面 RedisConfig
  * Created by 王大宸 on 2023-07-03 11:20
  * Created with IntelliJ IDEA.
  */
 @Aspect
-@Configuration
+@Component
 public class RedisRateLimiterAspect {
     private static final Logger logger = LoggerFactory.getLogger(RedisRateLimiterAspect.class);
-
 
     private final RedisTemplate<String, Object> redisTemplate;
 
@@ -39,45 +44,43 @@ public class RedisRateLimiterAspect {
     }
 
     @Around("@annotation(com.github.itdachen.framework.limiter.annotation.RedisRateLimiter)")
-    public Object around(ProceedingJoinPoint pjp) throws RateLimiterException {
-        final MethodSignature methodSignature = (MethodSignature) pjp.getSignature();
-        final Method method = methodSignature.getMethod();
-        RedisRateLimiter annotation = method.getAnnotation(RedisRateLimiter.class);
-        LimiterType limitType = annotation.limitType();
-
-        String name = annotation.name();
-        String key;
-
-        int period = annotation.period();
-        int count = annotation.count();
-
-        switch (limitType) {
-            case IP:
-                key = getIpAddress();
-                break;
-            case CUSTOMER:
-                key = annotation.key();
-                break;
-            default:
-                key = StringUtils.upperCase(method.getName());
-        }
-        ImmutableList<String> keys = ImmutableList.of(StringUtils.join(annotation.prefix(), key));
+    public Object around(ProceedingJoinPoint joinPoint) throws RateLimiterException {
+        String key = null;
         try {
-            String luaScript = buildLuaScript();
-            DefaultRedisScript<Number> redisScript = new DefaultRedisScript<>(luaScript, Number.class);
-            Number number = redisTemplate.execute(redisScript, keys, count, period);
-            logger.info("Access try count is {} for name = {} and key = {}", number, name, key);
-            if (number != null && number.intValue() == 1) {
-                return pjp.proceed();
+            MethodSignature signature = (MethodSignature) joinPoint.getSignature();
+            Method method = signature.getMethod();
+            RedisRateLimiter rateLimiter = method.getAnnotation(RedisRateLimiter.class);
+
+            switch (rateLimiter.limitType()) {
+                case IP:
+                    key = getIpAddress();
+                    break;
+                case DEFAULT:
+                    key = rateLimiter.key();
+                    break;
+                default:
+                    key = StringUtils.upperCase(method.getName());
             }
-            throw new RateLimiterException(annotation.msg());
+            ImmutableList<String> keys = ImmutableList.of(StringUtils.join(rateLimiter.prefix(), key));
+
+            String luaScript = buildLuaScript();
+            DefaultRedisScript<Long> redisScript = new DefaultRedisScript<>(luaScript, Long.class);
+
+            Number number = redisTemplate.execute(redisScript, keys, rateLimiter.total(), rateLimiter.timeout());
+            logger.info("Access try total is {} for key = {}", number, key);
+            if (number != null && number.intValue() == 1) {
+                return joinPoint.proceed();
+            }
+            throw new RateLimiterException(rateLimiter.msg());
+        } catch (UndeclaredThrowableException e) {
+            throw new RateLimiterException("系统繁忙, 请稍后重试！");
         } catch (Throwable e) {
             if (e instanceof RateLimiterException) {
                 logger.debug("令牌桶={}，获取令牌失败", key);
                 throw new RateLimiterException(e.getLocalizedMessage());
             }
-            e.printStackTrace();
-            throw new RuntimeException("服务器异常");
+            logger.debug("Redis 限流失败: {}", e.getMessage());
+            throw new RateLimiterException("系统繁忙，请稍后重试！");
         }
     }
 

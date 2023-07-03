@@ -1,5 +1,6 @@
 package com.github.itdachen.framework.limiter.annotation;
 
+import java.lang.annotation.*;
 import java.util.concurrent.TimeUnit;
 
 /**
@@ -7,16 +8,19 @@ import java.util.concurrent.TimeUnit;
  * Created by 王大宸 on 2023-07-03 9:56
  * Created with IntelliJ IDEA.
  */
+@Retention(RetentionPolicy.RUNTIME)
+@Target({ElementType.METHOD})
+@Documented
 public @interface RequestRateLimiter {
 
     // 资源key
     String key() default "";
 
     // 最多访问次数
-    double permitsPerSecond();
+    double total();
 
     // 时间
-    long timeout();
+    long timeout() default 60;
 
     // 时间类型
     TimeUnit timeunit() default TimeUnit.MILLISECONDS;

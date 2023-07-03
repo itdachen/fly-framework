@@ -7,8 +7,14 @@ package com.github.itdachen.framework.limiter.enums;
  */
 public enum LimiterType {
 
+    /**
+     * 根据IP限流
+     */
     IP,
 
-    CUSTOMER,
+    /**
+     * 默认策略全局限流
+     */
+    DEFAULT,
 
 }

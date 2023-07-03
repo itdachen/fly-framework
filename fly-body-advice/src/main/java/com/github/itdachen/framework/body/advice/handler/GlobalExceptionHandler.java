@@ -34,7 +34,7 @@ public class GlobalExceptionHandler {
         logger.error(ex.getMessage());
         response.setStatus(HttpStatus.OK.value());
         if (StringUtils.isEmpty(ex.getMessage())) {
-            return ServerResponse.errMsg("出现未知错误,请联系技术人员!");
+            return ServerResponse.errMsg("出现未知错误, 请联系技术人员!");
         }
         return ServerResponse.errMsg(ex.getMessage());
     }
@@ -49,13 +49,13 @@ public class GlobalExceptionHandler {
      * @return com.github.itdachen.framework.core.response.ServerResponse<java.lang.String>
      */
     @ExceptionHandler(RateLimiterException.class)
-    public ServerResponse<String> limiterException(HttpServletResponse response, RateLimiterException ex) {
-        logger.error(ex.getMessage());
+    public ServerResponse<String> rateLimiterException(HttpServletResponse response, RateLimiterException ex) {
+        logger.error("RateLimiterException: ", ex.getMessage());
         response.setStatus(HttpStatus.OK.value());
         if (StringUtils.isEmpty(ex.getMessage())) {
-            return ServerResponse.errMsg("系统繁忙, 请稍后再试!");
+            return ServerResponse.errStatusMsg(429, "系统繁忙, 请稍后再试!");
         }
-        return ServerResponse.errStatusMsg(ex.getStatus(), ex.getMessage());
+        return ServerResponse.errStatusMsg(429, ex.getMessage());
     }
 
     /***
@@ -69,10 +69,10 @@ public class GlobalExceptionHandler {
      */
     @ExceptionHandler(IllegalArgumentException.class)
     public ServerResponse<String> illegalArgumentExceptionHandler(HttpServletResponse response, IllegalArgumentException ex) {
-        logger.error(ex.getMessage());
+        logger.error("IllegalArgumentException: ", ex.getMessage());
         response.setStatus(HttpStatus.OK.value());
         if (StringUtils.isEmpty(ex.getMessage())) {
-            return ServerResponse.errMsg("出现未知错误,请联系技术人员!");
+            return ServerResponse.errMsg("出现未知错误, 请联系技术人员!");
         }
         return ServerResponse.errMsg(ex.getMessage());
     }

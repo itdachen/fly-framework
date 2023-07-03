@@ -28,6 +28,7 @@ public class RateLimiterException extends Exception {
 
     public RateLimiterException(String message) {
         super(message);
+        this.status = 429;
     }
 
     public RateLimiterException(String message, Throwable cause) {
