@@ -2,10 +2,12 @@ package com.github.itdachen.framework.context.exception;
 
 /**
  * Description: 限流异常
+ * 使用 AOP 处理限流, 这里只能继承 RuntimeException 异常
+ * 如果继承的是 Exception, 将会抛出 UndeclaredThrowableException 且无法捕捉
  * Created by 王大宸 on 2023-07-03 11:06
  * Created with IntelliJ IDEA.
  */
-public class RateLimiterException extends Exception {
+public class RateLimiterException extends RuntimeException {
 
     private Integer status = 429;
 

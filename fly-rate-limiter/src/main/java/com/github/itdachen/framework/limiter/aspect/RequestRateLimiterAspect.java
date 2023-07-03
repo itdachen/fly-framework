@@ -13,7 +13,6 @@ import org.slf4j.LoggerFactory;
 import org.springframework.stereotype.Component;
 
 import java.lang.reflect.Method;
-import java.lang.reflect.UndeclaredThrowableException;
 import java.util.Map;
 
 /**
@@ -30,36 +29,41 @@ public class RequestRateLimiterAspect {
 
     @Around("@annotation(com.github.itdachen.framework.limiter.annotation.RequestRateLimiter)")
     public Object around(ProceedingJoinPoint joinPoint) throws Throwable {
+        String key = null;
         try {
             MethodSignature signature = (MethodSignature) joinPoint.getSignature();
             Method method = signature.getMethod();
 
             //拿 RequestRateLimiter 注解
             RequestRateLimiter requestRateLimiter = method.getAnnotation(RequestRateLimiter.class);
-            if (requestRateLimiter != null) {
-                //key作用：不同的接口，不同的流量控制
-                String key = requestRateLimiter.key();
-                RateLimiter rateLimiter;
-                //验证缓存是否有命中key
-                if (!limitMap.containsKey(key)) {
-                    // 创建令牌桶
-                    rateLimiter = RateLimiter.create(requestRateLimiter.total());
-                    limitMap.put(key, rateLimiter);
-                    logger.info("新建了令牌桶={}，容量={}", key, requestRateLimiter.total());
-                }
-                rateLimiter = limitMap.get(key);
-                // 拿令牌
-                boolean acquire = rateLimiter.tryAcquire(requestRateLimiter.timeout(), requestRateLimiter.timeunit());
-                // 拿不到命令，直接返回异常提示
-                if (!acquire) {
-                    logger.debug("令牌桶={}，获取令牌失败", key);
-                    throw new RateLimiterException(requestRateLimiter.msg());
-                }
+            if (null == requestRateLimiter) {
+                return joinPoint.proceed();
+            }
+
+            //key作用：不同的接口，不同的流量控制
+            key = requestRateLimiter.key();
+            RateLimiter rateLimiter;
+            //验证缓存是否有命中key
+            if (!limitMap.containsKey(key)) {
+                // 创建令牌桶
+                rateLimiter = RateLimiter.create(requestRateLimiter.total());
+                limitMap.put(key, rateLimiter);
+                logger.info("新建了令牌桶={}，容量={}", key, requestRateLimiter.total());
+            }
+            rateLimiter = limitMap.get(key);
+            // 拿令牌
+            boolean acquire = rateLimiter.tryAcquire(requestRateLimiter.timeout(), requestRateLimiter.timeunit());
+            // 拿不到命令，直接返回异常提示
+            if (!acquire) {
+                logger.debug("令牌桶={}，获取令牌失败", key);
+                throw new RateLimiterException(requestRateLimiter.msg());
             }
             return joinPoint.proceed();
-        } catch (UndeclaredThrowableException e) {
-            throw new RateLimiterException("系统繁忙, 请稍后重试！");
         } catch (Exception e) {
+            if (e instanceof RateLimiterException) {
+                logger.debug("令牌桶: {}，获取令牌失败", key);
+                throw new RateLimiterException(e.getMessage());
+            }
             throw new RateLimiterException("系统繁忙, 请稍后重试！");
         }
     }

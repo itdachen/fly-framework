@@ -1,19 +1,13 @@
 package com.github.itdachen.framework.limiter.aspect;
 
-import com.github.itdachen.framework.context.annotation.Log;
 import com.github.itdachen.framework.context.exception.RateLimiterException;
 import com.github.itdachen.framework.limiter.annotation.RedisRateLimiter;
-import com.github.itdachen.framework.limiter.enums.LimiterType;
 import com.google.common.collect.ImmutableList;
-import com.google.common.util.concurrent.RateLimiter;
 import jakarta.servlet.http.HttpServletRequest;
 import org.apache.commons.lang3.StringUtils;
-import org.aspectj.lang.JoinPoint;
 import org.aspectj.lang.ProceedingJoinPoint;
-import org.aspectj.lang.Signature;
 import org.aspectj.lang.annotation.Around;
 import org.aspectj.lang.annotation.Aspect;
-import org.aspectj.lang.annotation.Before;
 import org.aspectj.lang.reflect.MethodSignature;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -24,11 +18,10 @@ import org.springframework.web.context.request.RequestContextHolder;
 import org.springframework.web.context.request.ServletRequestAttributes;
 
 import java.lang.reflect.Method;
-import java.lang.reflect.UndeclaredThrowableException;
 import java.util.Objects;
 
 /**
- * Description: 分布式限流切面 RedisConfig
+ * Description: 分布式限流
  * Created by 王大宸 on 2023-07-03 11:20
  * Created with IntelliJ IDEA.
  */
@@ -44,25 +37,25 @@ public class RedisRateLimiterAspect {
     }
 
     @Around("@annotation(com.github.itdachen.framework.limiter.annotation.RedisRateLimiter)")
-    public Object around(ProceedingJoinPoint joinPoint) throws RateLimiterException {
-        String key = null;
+    public Object around(ProceedingJoinPoint joinPoint) throws Throwable {
+
+
+        MethodSignature signature = (MethodSignature) joinPoint.getSignature();
+        Method method = signature.getMethod();
+        RedisRateLimiter rateLimiter = method.getAnnotation(RedisRateLimiter.class);
+
+        if (null == rateLimiter) {
+            return joinPoint.proceed();
+        }
+
+        String key = switch (rateLimiter.limitType()) {
+            case IP -> getIpAddress();
+            case DEFAULT -> rateLimiter.key();
+            default -> StringUtils.upperCase(method.getName());
+        };
+        ImmutableList<String> keys = ImmutableList.of(StringUtils.join(rateLimiter.prefix(), key));
+
         try {
-            MethodSignature signature = (MethodSignature) joinPoint.getSignature();
-            Method method = signature.getMethod();
-            RedisRateLimiter rateLimiter = method.getAnnotation(RedisRateLimiter.class);
-
-            switch (rateLimiter.limitType()) {
-                case IP:
-                    key = getIpAddress();
-                    break;
-                case DEFAULT:
-                    key = rateLimiter.key();
-                    break;
-                default:
-                    key = StringUtils.upperCase(method.getName());
-            }
-            ImmutableList<String> keys = ImmutableList.of(StringUtils.join(rateLimiter.prefix(), key));
-
             String luaScript = buildLuaScript();
             DefaultRedisScript<Long> redisScript = new DefaultRedisScript<>(luaScript, Long.class);
 
@@ -72,12 +65,10 @@ public class RedisRateLimiterAspect {
                 return joinPoint.proceed();
             }
             throw new RateLimiterException(rateLimiter.msg());
-        } catch (UndeclaredThrowableException e) {
-            throw new RateLimiterException("系统繁忙, 请稍后重试！");
         } catch (Throwable e) {
             if (e instanceof RateLimiterException) {
-                logger.debug("令牌桶={}，获取令牌失败", key);
-                throw new RateLimiterException(e.getLocalizedMessage());
+                logger.debug("令牌桶: {}，获取令牌失败", key);
+                throw new RateLimiterException(e.getMessage());
             }
             logger.debug("Redis 限流失败: {}", e.getMessage());
             throw new RateLimiterException("系统繁忙，请稍后重试！");
