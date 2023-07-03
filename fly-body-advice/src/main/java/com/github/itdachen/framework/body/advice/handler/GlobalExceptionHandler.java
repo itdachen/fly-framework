@@ -1,6 +1,7 @@
 package com.github.itdachen.framework.body.advice.handler;
 
 import com.github.itdachen.framework.context.exception.BizException;
+import com.github.itdachen.framework.context.exception.RateLimiterException;
 import com.github.itdachen.framework.core.response.ServerResponse;
 import jakarta.servlet.http.HttpServletResponse;
 import org.apache.commons.lang3.StringUtils;
@@ -36,6 +37,25 @@ public class GlobalExceptionHandler {
             return ServerResponse.errMsg("出现未知错误,请联系技术人员!");
         }
         return ServerResponse.errMsg(ex.getMessage());
+    }
+
+    /***
+     * 限流异常
+     *
+     * @author 王大宸
+     * @date 2023/7/3 11:25
+     * @param response response
+     * @param ex ex
+     * @return com.github.itdachen.framework.core.response.ServerResponse<java.lang.String>
+     */
+    @ExceptionHandler(RateLimiterException.class)
+    public ServerResponse<String> limiterException(HttpServletResponse response, RateLimiterException ex) {
+        logger.error(ex.getMessage());
+        response.setStatus(HttpStatus.OK.value());
+        if (StringUtils.isEmpty(ex.getMessage())) {
+            return ServerResponse.errMsg("系统繁忙, 请稍后再试!");
+        }
+        return ServerResponse.errStatusMsg(ex.getStatus(), ex.getMessage());
     }
 
     /***

@@ -48,6 +48,7 @@
         <io.jsonwebtoken.jjwt.version>0.11.5</io.jsonwebtoken.jjwt.version>
         <joda-time.version>2.12.2</joda-time.version>
         <dozer-core.version>6.5.2</dozer-core.version>
+        <com.google.guava>32.1.1-jre</com.google.guava>
     </properties>
 
     <dependencyManagement>
@@ -287,6 +288,11 @@
                 <groupId>com.github.dozermapper</groupId>
                 <artifactId>dozer-core</artifactId>
                 <version>${dozer-core.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>com.google.guava</groupId>
+                <artifactId>guava</artifactId>
+                <version>${com.google.guava}</version>
             </dependency>
 
             <!-- jjwt -->

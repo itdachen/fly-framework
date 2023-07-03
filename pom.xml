@@ -32,6 +32,7 @@
         <module>fly-code-tools</module>
         <module>fly-jjwt</module>
         <module>fly-cloud-openfeign</module>
+        <module>fly-rate-limiter</module>
     </modules>
 
     <properties>
