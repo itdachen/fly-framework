@@ -20,9 +20,9 @@ public @interface RequestRateLimiter {
     double total();
 
     // 时间
-    long timeout() default 60;
+    long timeout() default 1000;
 
-    // 时间类型
+    // 时间类型, 默认: 毫秒
     TimeUnit timeunit() default TimeUnit.MILLISECONDS;
 
     // 提示信息

@@ -50,7 +50,7 @@ public class GlobalExceptionHandler {
      */
     @ExceptionHandler(RateLimiterException.class)
     public ServerResponse<String> rateLimiterException(HttpServletResponse response, RateLimiterException ex) {
-        logger.error("RateLimiterException: ", ex.getMessage());
+        logger.error("RateLimiterException: {}", ex.getMessage());
         response.setStatus(HttpStatus.OK.value());
         if (StringUtils.isEmpty(ex.getMessage())) {
             return ServerResponse.errStatusMsg(429, "系统繁忙, 请稍后再试!");

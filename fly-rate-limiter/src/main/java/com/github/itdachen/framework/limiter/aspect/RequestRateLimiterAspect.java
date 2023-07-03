@@ -48,14 +48,14 @@ public class RequestRateLimiterAspect {
                 // 创建令牌桶
                 rateLimiter = RateLimiter.create(requestRateLimiter.total());
                 limitMap.put(key, rateLimiter);
-                logger.info("新建了令牌桶={}，容量={}", key, requestRateLimiter.total());
+                logger.info("新建了令牌桶: {}，容量: {}", key, requestRateLimiter.total());
             }
             rateLimiter = limitMap.get(key);
             // 拿令牌
             boolean acquire = rateLimiter.tryAcquire(requestRateLimiter.timeout(), requestRateLimiter.timeunit());
             // 拿不到命令，直接返回异常提示
             if (!acquire) {
-                logger.debug("令牌桶={}，获取令牌失败", key);
+                logger.debug("令牌桶: {}，获取令牌失败", key);
                 throw new RateLimiterException(requestRateLimiter.msg());
             }
             return joinPoint.proceed();
