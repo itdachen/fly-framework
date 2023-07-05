@@ -33,6 +33,7 @@
         <module>fly-jjwt</module>
         <module>fly-cloud-openfeign</module>
         <module>fly-rate-limiter</module>
+        <module>fly-sensitive</module>
     </modules>
 
     <properties>
