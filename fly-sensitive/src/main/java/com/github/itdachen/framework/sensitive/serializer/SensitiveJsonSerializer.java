@@ -60,12 +60,12 @@ public class SensitiveJsonSerializer extends JsonSerializer<String> implements C
      * @return com.fasterxml.jackson.databind.JsonSerializer<?>
      */
     private JsonSerializer<?> setDesensitization(JsonSerializer<?> jsonSerializer, BeanProperty beanProperty) {
-        Sensitive desensitization = beanProperty.getAnnotation(Sensitive.class);
-        if (desensitization == null) desensitization = beanProperty.getContextAnnotation(Sensitive.class);
-        if (desensitization != null) {
+        Sensitive sensitive = beanProperty.getAnnotation(Sensitive.class);
+        if (sensitive == null) sensitive = beanProperty.getContextAnnotation(Sensitive.class);
+        if (sensitive != null) {
             //设置脱敏实例
             try {
-                jsonSerializer = new SensitiveJsonSerializer(desensitization.value().newInstance());
+                jsonSerializer = new SensitiveJsonSerializer(sensitive.value().newInstance());
             } catch (InstantiationException e) {
                 e.printStackTrace();
             } catch (IllegalAccessException e) {
