@@ -1,4 +1,4 @@
-package com.github.itdachen.framework.file.properties;
+package com.github.itdachen.framework.autoconfigure.properties.oss.properties;
 
 /**
  * Description:

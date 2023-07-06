@@ -1,4 +1,4 @@
-package com.github.itdachen.framework.file.enums;
+package com.github.itdachen.framework.autoconfigure.properties.oss.enums;
 
 /**
  * Description: 文件上传类型
