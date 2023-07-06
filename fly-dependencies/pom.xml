@@ -93,6 +93,11 @@
             <!-- fly 依赖 -->
             <dependency>
                 <groupId>com.github.itdachen.framework</groupId>
+                <artifactId>fly-autoconfigure-processor</artifactId>
+                <version>${fly.framework.dependencies.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>com.github.itdachen.framework</groupId>
                 <artifactId>fly-context</artifactId>
                 <version>${fly.framework.dependencies.version}</version>
             </dependency>
