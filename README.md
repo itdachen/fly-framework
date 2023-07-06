@@ -49,6 +49,7 @@
 | 模块                               | 介绍                        |
 |----------------------------------|---------------------------|
 | fly-dependencies                 | 项目依赖全局管理 pom              |
+| fly-autoconfigure-processor      | 项目配置模块(所有模块配置文件统一管理)      |
 | fly-cloud-gateway-dynamic-routes | Gateway Nacos 动态网关        |
 | fly-context                      | 当前上下文模块                   |
 | fly-core                         | 项目核心模块                    |
