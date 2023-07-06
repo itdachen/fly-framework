@@ -6,10 +6,8 @@ import com.fasterxml.jackson.databind.JsonMappingException;
 import com.fasterxml.jackson.databind.JsonSerializer;
 import com.fasterxml.jackson.databind.SerializerProvider;
 import com.fasterxml.jackson.databind.ser.ContextualSerializer;
-import com.github.itdachen.framework.sensitive.ISensitiveHandler;
 import com.github.itdachen.framework.sensitive.annotation.CustomSensitive;
 import com.github.itdachen.framework.sensitive.utils.MaskUtils;
-import org.apache.commons.lang3.StringUtils;
 
 import java.io.IOException;
 import java.util.Objects;

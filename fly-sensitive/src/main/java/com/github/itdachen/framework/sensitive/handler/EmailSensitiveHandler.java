@@ -16,10 +16,10 @@ public class EmailSensitiveHandler implements ISensitiveHandler {
             return "";
         }
         int index = StringUtils.indexOf(value, "@");
-        if (index <= 1) {
+        if (index <= 3) {
             return value;
         }
-        return StringUtils.rightPad(StringUtils.left(value, 1), index, "*")
+        return StringUtils.rightPad(StringUtils.left(value, 3), index, "*")
                 .concat(StringUtils.mid(value, index, StringUtils.length(value)));
     }
 
