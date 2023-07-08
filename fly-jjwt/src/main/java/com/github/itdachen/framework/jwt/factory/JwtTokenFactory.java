@@ -1,6 +1,6 @@
 package com.github.itdachen.framework.jwt.factory;
 
-import com.github.itdachen.framework.autoconfigure.jwt.FlyJwtAutoconfigureProperties;
+import com.github.itdachen.framework.autoconfigure.jwt.properties.FlyJwtProperties;
 import com.github.itdachen.framework.autoconfigure.jwt.enums.JwtTokenEnumType;
 import com.github.itdachen.framework.jwt.factory.ecdsa.EcdsaJwtTokenHandler;
 import com.github.itdachen.framework.jwt.factory.handler.JwtTokenHandler;
@@ -16,9 +16,9 @@ import org.springframework.stereotype.Component;
 @Component
 public class JwtTokenFactory {
 
-    private final FlyJwtAutoconfigureProperties autoconfigureProperties;
+    private final FlyJwtProperties autoconfigureProperties;
 
-    public JwtTokenFactory(FlyJwtAutoconfigureProperties autoconfigureProperties) {
+    public JwtTokenFactory(FlyJwtProperties autoconfigureProperties) {
         this.autoconfigureProperties = autoconfigureProperties;
     }
 

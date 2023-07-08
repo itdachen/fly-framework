@@ -1,4 +1,4 @@
-package com.github.itdachen.framework.autoconfigure.gateway;
+package com.github.itdachen.framework.autoconfigure.gateway.ignore;
 
 import org.springframework.boot.context.properties.ConfigurationProperties;
 
@@ -11,7 +11,7 @@ import java.util.List;
  * Created with IntelliJ IDEA.
  */
 @ConfigurationProperties(prefix = "fly.gateway.ignore")
-public class FlyGatewayIgnoreAutoconfigureProperties {
+public class FlyGatewayIgnoreProperties {
 
     /**
      * 忽略的路径

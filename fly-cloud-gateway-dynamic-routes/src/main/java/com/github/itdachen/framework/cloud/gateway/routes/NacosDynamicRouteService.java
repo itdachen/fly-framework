@@ -6,7 +6,7 @@ import com.alibaba.nacos.api.config.ConfigService;
 import com.alibaba.nacos.api.config.listener.Listener;
 import com.alibaba.nacos.api.exception.NacosException;
 import com.alibaba.nacos.common.utils.CollectionUtils;
-import com.github.itdachen.framework.autoconfigure.gateway.FlyGatewayRoutesAutoconfigureProperties;
+import com.github.itdachen.framework.autoconfigure.gateway.routes.FlyGatewayRoutesProperties;
 import jakarta.annotation.PostConstruct;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -32,10 +32,10 @@ public class NacosDynamicRouteService {
     private ConfigService configService;
 
     private final DynamicRouteService dynamicRouteService;
-    private final FlyGatewayRoutesAutoconfigureProperties autoconfigureProperties;
+    private final FlyGatewayRoutesProperties autoconfigureProperties;
 
     public NacosDynamicRouteService(DynamicRouteService dynamicRouteService,
-                                    FlyGatewayRoutesAutoconfigureProperties autoconfigureProperties) {
+                                    FlyGatewayRoutesProperties autoconfigureProperties) {
         this.dynamicRouteService = dynamicRouteService;
         this.autoconfigureProperties = autoconfigureProperties;
     }

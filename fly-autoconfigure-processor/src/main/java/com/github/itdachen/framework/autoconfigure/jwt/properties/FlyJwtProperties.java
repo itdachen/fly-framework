@@ -1,4 +1,4 @@
-package com.github.itdachen.framework.autoconfigure.jwt;
+package com.github.itdachen.framework.autoconfigure.jwt.properties;
 
 import com.github.itdachen.framework.autoconfigure.jwt.enums.JwtTokenEnumType;
 import org.springframework.boot.context.properties.ConfigurationProperties;
@@ -9,7 +9,7 @@ import org.springframework.boot.context.properties.ConfigurationProperties;
  * Created with IntelliJ IDEA.
  */
 @ConfigurationProperties(prefix = "fly.jwt")
-public class FlyJwtAutoconfigureProperties {
+public class FlyJwtProperties {
 
     /**
      * 生成 token 方式, 默认使用 RSA, 私钥加密, 公钥解密

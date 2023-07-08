@@ -1,9 +1,7 @@
-package com.github.itdachen.framework.autoconfigure.security;
+package com.github.itdachen.framework.autoconfigure.security.properties;
 
-import com.github.itdachen.framework.autoconfigure.security.code.ValidateCodeProperties;
-import com.github.itdachen.framework.autoconfigure.security.constants.SecurityBrowserConstants;
-import com.github.itdachen.framework.autoconfigure.security.rememberme.RememberMeProperties;
-import com.github.itdachen.framework.autoconfigure.security.session.SessionProperties;
+import com.github.itdachen.framework.autoconfigure.security.properties.constants.SecurityBrowserConstants;
+import org.springframework.boot.context.properties.ConfigurationProperties;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -13,22 +11,8 @@ import java.util.List;
  * Created by 王大宸 on 2023-07-06 15:30
  * Created with IntelliJ IDEA.
  */
+@ConfigurationProperties(prefix = "fly.security")
 public class FlySecurityProperties {
-
-    /**
-     * 验证码
-     */
-    ValidateCodeProperties code = new ValidateCodeProperties();
-
-    /**
-     * 关于session配置
-     */
-    private SessionProperties session = new SessionProperties();
-
-    /**
-     * 记住我
-     */
-    private RememberMeProperties rememberMe = new RememberMeProperties();
 
     /* 登录页面，当引发登录行为的url以html结尾时，会跳到这里配置的url上 */
     private String signInPage = SecurityBrowserConstants.DEFAULT_LOGIN_PAGE_URL;
@@ -39,7 +23,7 @@ public class FlySecurityProperties {
     /*
      * 默认注册页配置
      * 第一次使用第三方登录跳转到注册页面
-     * 两种情况: 一是一个全新的用户;二是有自己的用户名和密码,需要绑定
+     * 两种情况: 一是一个全新的用户; 二是有自己的用户名和密码,需要绑定
      */
     private String signUpUrl = "/signUp.html";
 
@@ -57,31 +41,6 @@ public class FlySecurityProperties {
      * 不拦截路径, 多个之间用逗号(',')隔开
      */
     private List<String> matchers = new ArrayList<>();
-
-
-    public ValidateCodeProperties getCode() {
-        return code;
-    }
-
-    public void setCode(ValidateCodeProperties code) {
-        this.code = code;
-    }
-
-    public SessionProperties getSession() {
-        return session;
-    }
-
-    public void setSession(SessionProperties session) {
-        this.session = session;
-    }
-
-    public RememberMeProperties getRememberMe() {
-        return rememberMe;
-    }
-
-    public void setRememberMe(RememberMeProperties rememberMe) {
-        this.rememberMe = rememberMe;
-    }
 
     public String getSignInPage() {
         return signInPage;

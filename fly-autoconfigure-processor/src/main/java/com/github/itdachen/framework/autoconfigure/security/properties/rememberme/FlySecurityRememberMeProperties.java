@@ -1,11 +1,14 @@
-package com.github.itdachen.framework.autoconfigure.security.rememberme;
+package com.github.itdachen.framework.autoconfigure.security.properties.rememberme;
+
+import org.springframework.boot.context.properties.ConfigurationProperties;
 
 /**
  * Description: 记住我
  * Created by 王大宸 on 2022-09-29 16:25
  * Created with IntelliJ IDEA.
  */
-public class RememberMeProperties {
+@ConfigurationProperties(prefix = "fly.security.rememberme")
+public class FlySecurityRememberMeProperties {
 
     /* '记住我' 加密 key */
     private String rememberMeKey = "some_secret";

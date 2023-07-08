@@ -1,6 +1,6 @@
 package com.github.itdachen.framework.jwt.factory.hmac;
 
-import com.github.itdachen.framework.autoconfigure.jwt.FlyJwtAutoconfigureProperties;
+import com.github.itdachen.framework.autoconfigure.jwt.properties.FlyJwtProperties;
 import com.github.itdachen.framework.jwt.constants.JWTHeader;
 import com.github.itdachen.framework.jwt.core.IJWTInfo;
 import com.github.itdachen.framework.jwt.core.JwtSecretKey;
@@ -22,7 +22,7 @@ public class HmacJwtTokenHandler extends JwtTokenHandler {
     // 签名算法
     public static final SignatureAlgorithm signatureAlgorithm = SignatureAlgorithm.HS512;
 
-    public HmacJwtTokenHandler(FlyJwtAutoconfigureProperties properties) {
+    public HmacJwtTokenHandler(FlyJwtProperties properties) {
         this.properties = properties;
     }
 

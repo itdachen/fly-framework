@@ -1,14 +1,17 @@
-package com.github.itdachen.framework.autoconfigure.security.code;
+package com.github.itdachen.framework.autoconfigure.security.properties.code;
+
+import org.springframework.boot.context.properties.ConfigurationProperties;
 
 /**
  * Description: 图形验证码
  * Created by 王大宸 on 2022-09-23 9:57
  * Created with IntelliJ IDEA.
  */
-public class ImageCodeProperties extends SmsCodeProperties {
+@ConfigurationProperties(prefix = "fly.security.code.image")
+public class FlySecurityImageCodeProperties extends FlySecuritySmsCodeProperties {
 
     // 默认为 4 位数
-    public ImageCodeProperties() {
+    public FlySecurityImageCodeProperties() {
         setLength(4);
     }
 

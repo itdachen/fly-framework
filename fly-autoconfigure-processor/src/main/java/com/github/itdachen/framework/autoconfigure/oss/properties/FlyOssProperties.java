@@ -1,4 +1,4 @@
-package com.github.itdachen.framework.autoconfigure.oss;
+package com.github.itdachen.framework.autoconfigure.oss.properties;
 
 import com.github.itdachen.framework.autoconfigure.oss.enums.OssTypeEnum;
 import org.springframework.boot.context.properties.ConfigurationProperties;
@@ -9,7 +9,7 @@ import org.springframework.boot.context.properties.ConfigurationProperties;
  * Created with IntelliJ IDEA.
  */
 @ConfigurationProperties(prefix = "fly.oss")
-public class FlyOssAutoconfigureProperties {
+public class FlyOssProperties {
 
     /**
      * 文件上传类型

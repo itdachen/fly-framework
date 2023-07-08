@@ -1,4 +1,4 @@
-package com.github.itdachen.framework.autoconfigure.security.constants;
+package com.github.itdachen.framework.autoconfigure.security.properties.constants;
 
 /**
  * Description: 安全认证常量

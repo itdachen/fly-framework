@@ -1,4 +1,4 @@
-package com.github.itdachen.framework.autoconfigure.gateway;
+package com.github.itdachen.framework.autoconfigure.gateway.routes;
 
 import org.springframework.boot.context.properties.ConfigurationProperties;
 
@@ -8,7 +8,7 @@ import org.springframework.boot.context.properties.ConfigurationProperties;
  * Created with IntelliJ IDEA.
  */
 @ConfigurationProperties(prefix = "fly.gateway.routes")
-public class FlyGatewayRoutesAutoconfigureProperties {
+public class FlyGatewayRoutesProperties {
 
     private long timeout = 30000;
 

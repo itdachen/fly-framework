@@ -1,6 +1,6 @@
 package com.github.itdachen.framework.file.factory;
 
-import com.github.itdachen.framework.autoconfigure.oss.FlyOssAutoconfigureProperties;
+import com.github.itdachen.framework.autoconfigure.oss.properties.FlyOssProperties;
 import com.github.itdachen.framework.autoconfigure.oss.enums.OssTypeEnum;
 import com.github.itdachen.framework.autoconfigure.oss.properties.FlyOssAliYunAutoconfigureProperties;
 import com.github.itdachen.framework.autoconfigure.oss.properties.FlyOssLocalAutoconfigureProperties;
@@ -20,12 +20,12 @@ import org.springframework.stereotype.Component;
  */
 @Component
 public class FileFactory {
-    private final FlyOssAutoconfigureProperties autoconfigureProperties;
+    private final FlyOssProperties autoconfigureProperties;
     private final FlyOssAliYunAutoconfigureProperties aliYunOssAutoconfigureProperties;
     private final FlyOssLocalAutoconfigureProperties localOssAutoconfigureProperties;
     private final IVerifyFileHeaderService verifyFileHeaderService;
 
-    public FileFactory(FlyOssAutoconfigureProperties autoconfigureProperties,
+    public FileFactory(FlyOssProperties autoconfigureProperties,
                        FlyOssAliYunAutoconfigureProperties aliYunOssAutoconfigureProperties,
                        FlyOssLocalAutoconfigureProperties localOssAutoconfigureProperties,
                        IVerifyFileHeaderService verifyFileHeaderService) {

@@ -1,6 +1,6 @@
 package com.github.itdachen.framework.jwt.factory.handler;
 
-import com.github.itdachen.framework.autoconfigure.jwt.FlyJwtAutoconfigureProperties;
+import com.github.itdachen.framework.autoconfigure.jwt.properties.FlyJwtProperties;
 import com.github.itdachen.framework.context.constants.UserInfoConstant;
 import com.github.itdachen.framework.jwt.constants.JWTHeader;
 import com.github.itdachen.framework.jwt.core.IJWTInfo;
@@ -31,7 +31,7 @@ public abstract class JwtTokenHandler {
     //定义默认有效期为10分钟 单位：毫秒
     protected static final Long JWT_Default_Expires = 10 * 60 * 1000L;
 
-    protected FlyJwtAutoconfigureProperties properties;
+    protected FlyJwtProperties properties;
 
     /***
      * 创建 token

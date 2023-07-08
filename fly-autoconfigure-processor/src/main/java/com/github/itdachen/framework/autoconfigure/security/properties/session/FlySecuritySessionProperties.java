@@ -1,13 +1,15 @@
-package com.github.itdachen.framework.autoconfigure.security.session;
+package com.github.itdachen.framework.autoconfigure.security.properties.session;
 
-import com.github.itdachen.framework.autoconfigure.security.constants.SecurityBrowserConstants;
+import com.github.itdachen.framework.autoconfigure.security.properties.constants.SecurityBrowserConstants;
+import org.springframework.boot.context.properties.ConfigurationProperties;
 
 /**
- * Description:
+ * Description: Spring Security Session 配置
  * Created by 王大宸 on 2022-09-23 10:03
  * Created with IntelliJ IDEA.
  */
-public class SessionProperties {
+@ConfigurationProperties(prefix = "fly.security.session")
+public class FlySecuritySessionProperties {
 
     /**
      * 同一个用户在系统中的最大session数，默认1
