@@ -1,6 +1,7 @@
 package com.github.itdachen.framework.autoconfigure;
 
 import com.github.itdachen.framework.autoconfigure.properties.FlyAutoconfigureProperties;
+import org.springframework.beans.factory.InitializingBean;
 import org.springframework.boot.context.properties.EnableConfigurationProperties;
 import org.springframework.context.annotation.Configuration;
 
@@ -11,5 +12,5 @@ import org.springframework.context.annotation.Configuration;
  */
 @Configuration
 @EnableConfigurationProperties(FlyAutoconfigureProperties.class)
-public class AutoconfigureCoreProperties {
+public class FlyAutoConfiguration {
 }
