@@ -1,11 +1,11 @@
 package com.github.itdachen.framework.autoconfigure;
 
-import com.github.itdachen.framework.autoconfigure.properties.gateway.FlyGatewayIgnoreAutoconfigureProperties;
-import com.github.itdachen.framework.autoconfigure.properties.gateway.FlyGatewayRoutesAutoconfigureProperties;
-import com.github.itdachen.framework.autoconfigure.properties.jjwt.FlyJwtAutoconfigureProperties;
-import com.github.itdachen.framework.autoconfigure.properties.oss.FlyOssAutoconfigureProperties;
-import com.github.itdachen.framework.autoconfigure.properties.oss.properties.AliYunOssAutoconfigureProperties;
-import com.github.itdachen.framework.autoconfigure.properties.oss.properties.FlyLocalOssAutoconfigureProperties;
+import com.github.itdachen.framework.autoconfigure.gateway.FlyGatewayIgnoreAutoconfigureProperties;
+import com.github.itdachen.framework.autoconfigure.gateway.FlyGatewayRoutesAutoconfigureProperties;
+import com.github.itdachen.framework.autoconfigure.jwt.FlyJwtAutoconfigureProperties;
+import com.github.itdachen.framework.autoconfigure.oss.FlyOssAutoconfigureProperties;
+import com.github.itdachen.framework.autoconfigure.oss.properties.FlyOssAliYunAutoconfigureProperties;
+import com.github.itdachen.framework.autoconfigure.oss.properties.FlyOssLocalAutoconfigureProperties;
 import org.springframework.boot.context.properties.EnableConfigurationProperties;
 import org.springframework.context.annotation.Configuration;
 
@@ -17,8 +17,8 @@ import org.springframework.context.annotation.Configuration;
 @Configuration
 @EnableConfigurationProperties({
         FlyOssAutoconfigureProperties.class,
-        FlyLocalOssAutoconfigureProperties.class,
-        AliYunOssAutoconfigureProperties.class,
+        FlyOssLocalAutoconfigureProperties.class,
+        FlyOssAliYunAutoconfigureProperties.class,
         FlyJwtAutoconfigureProperties.class,
         FlyGatewayRoutesAutoconfigureProperties.class,
         FlyGatewayIgnoreAutoconfigureProperties.class

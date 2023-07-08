@@ -1,9 +1,9 @@
 package com.github.itdachen.framework.file.factory;
 
-import com.github.itdachen.framework.autoconfigure.properties.oss.FlyOssAutoconfigureProperties;
-import com.github.itdachen.framework.autoconfigure.properties.oss.enums.OssTypeEnum;
-import com.github.itdachen.framework.autoconfigure.properties.oss.properties.AliYunOssAutoconfigureProperties;
-import com.github.itdachen.framework.autoconfigure.properties.oss.properties.FlyLocalOssAutoconfigureProperties;
+import com.github.itdachen.framework.autoconfigure.oss.FlyOssAutoconfigureProperties;
+import com.github.itdachen.framework.autoconfigure.oss.enums.OssTypeEnum;
+import com.github.itdachen.framework.autoconfigure.oss.properties.FlyOssAliYunAutoconfigureProperties;
+import com.github.itdachen.framework.autoconfigure.oss.properties.FlyOssLocalAutoconfigureProperties;
 import com.github.itdachen.framework.file.cloud.download.InternetFileDownloadService;
 import com.github.itdachen.framework.file.cloud.upload.AliYunUploadHandler;
 import com.github.itdachen.framework.file.cloud.upload.LocalFileUploadHandler;
@@ -21,13 +21,13 @@ import org.springframework.stereotype.Component;
 @Component
 public class FileFactory {
     private final FlyOssAutoconfigureProperties autoconfigureProperties;
-    private final AliYunOssAutoconfigureProperties aliYunOssAutoconfigureProperties;
-    private final FlyLocalOssAutoconfigureProperties localOssAutoconfigureProperties;
+    private final FlyOssAliYunAutoconfigureProperties aliYunOssAutoconfigureProperties;
+    private final FlyOssLocalAutoconfigureProperties localOssAutoconfigureProperties;
     private final IVerifyFileHeaderService verifyFileHeaderService;
 
     public FileFactory(FlyOssAutoconfigureProperties autoconfigureProperties,
-                       AliYunOssAutoconfigureProperties aliYunOssAutoconfigureProperties,
-                       FlyLocalOssAutoconfigureProperties localOssAutoconfigureProperties,
+                       FlyOssAliYunAutoconfigureProperties aliYunOssAutoconfigureProperties,
+                       FlyOssLocalAutoconfigureProperties localOssAutoconfigureProperties,
                        IVerifyFileHeaderService verifyFileHeaderService) {
         this.autoconfigureProperties = autoconfigureProperties;
         this.aliYunOssAutoconfigureProperties=aliYunOssAutoconfigureProperties;

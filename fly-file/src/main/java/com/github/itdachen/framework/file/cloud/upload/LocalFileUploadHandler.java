@@ -1,6 +1,6 @@
 package com.github.itdachen.framework.file.cloud.upload;
 
-import com.github.itdachen.framework.autoconfigure.properties.oss.properties.FlyLocalOssAutoconfigureProperties;
+import com.github.itdachen.framework.autoconfigure.oss.properties.FlyOssLocalAutoconfigureProperties;
 import com.github.itdachen.framework.file.cloud.FileUploadService;
 import com.github.itdachen.framework.file.entity.FileInfo;
 import com.github.itdachen.framework.file.service.IVerifyFileHeaderService;
@@ -22,9 +22,9 @@ import java.util.Objects;
 public class LocalFileUploadHandler extends FileUploadService {
     private static final Logger logger = LoggerFactory.getLogger(LocalFileUploadHandler.class);
 
-    private final FlyLocalOssAutoconfigureProperties properties;
+    private final FlyOssLocalAutoconfigureProperties properties;
 
-    public LocalFileUploadHandler(FlyLocalOssAutoconfigureProperties properties,
+    public LocalFileUploadHandler(FlyOssLocalAutoconfigureProperties properties,
                                   IVerifyFileHeaderService verifyFileHeaderService) {
         this.properties = properties;
         this.verifyFileHeaderService = verifyFileHeaderService;

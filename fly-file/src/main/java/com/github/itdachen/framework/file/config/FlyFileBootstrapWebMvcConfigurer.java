@@ -1,6 +1,6 @@
 package com.github.itdachen.framework.file.config;
 
-import com.github.itdachen.framework.autoconfigure.properties.oss.properties.FlyLocalOssAutoconfigureProperties;
+import com.github.itdachen.framework.autoconfigure.oss.properties.FlyOssLocalAutoconfigureProperties;
 import com.github.itdachen.framework.file.utils.MapPathUtils;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -17,9 +17,9 @@ import org.springframework.web.servlet.config.annotation.WebMvcConfigurer;
 public class FlyFileBootstrapWebMvcConfigurer implements WebMvcConfigurer {
     private static final Logger logger = LoggerFactory.getLogger(FlyFileBootstrapWebMvcConfigurer.class);
 
-    private final FlyLocalOssAutoconfigureProperties autoconfigureProperties;
+    private final FlyOssLocalAutoconfigureProperties autoconfigureProperties;
 
-    public FlyFileBootstrapWebMvcConfigurer(FlyLocalOssAutoconfigureProperties autoconfigureProperties) {
+    public FlyFileBootstrapWebMvcConfigurer(FlyOssLocalAutoconfigureProperties autoconfigureProperties) {
         this.autoconfigureProperties = autoconfigureProperties;
     }
 

@@ -3,7 +3,7 @@ package com.github.itdachen.framework.file.cloud.upload;
 import com.aliyun.oss.OSS;
 import com.aliyun.oss.OSSClientBuilder;
 import com.aliyun.oss.model.PutObjectResult;
-import com.github.itdachen.framework.autoconfigure.properties.oss.properties.AliYunOssAutoconfigureProperties;
+import com.github.itdachen.framework.autoconfigure.oss.properties.FlyOssAliYunAutoconfigureProperties;
 import com.github.itdachen.framework.file.cloud.FileUploadService;
 import com.github.itdachen.framework.file.entity.FileInfo;
 import org.slf4j.Logger;
@@ -21,9 +21,9 @@ import java.util.Objects;
 public class AliYunUploadHandler extends FileUploadService {
     private static final Logger logger = LoggerFactory.getLogger(AliYunUploadHandler.class);
 
-    private final AliYunOssAutoconfigureProperties properties;
+    private final FlyOssAliYunAutoconfigureProperties properties;
 
-    public AliYunUploadHandler(AliYunOssAutoconfigureProperties properties) {
+    public AliYunUploadHandler(FlyOssAliYunAutoconfigureProperties properties) {
         this.properties = properties;
     }
 

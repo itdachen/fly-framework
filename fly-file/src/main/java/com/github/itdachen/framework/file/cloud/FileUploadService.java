@@ -1,6 +1,5 @@
 package com.github.itdachen.framework.file.cloud;
 
-import com.github.itdachen.framework.autoconfigure.properties.oss.FlyOssAutoconfigureProperties;
 import com.github.itdachen.framework.file.entity.FileInfo;
 import com.github.itdachen.framework.file.service.IVerifyFileHeaderService;
 import org.springframework.web.multipart.MultipartFile;

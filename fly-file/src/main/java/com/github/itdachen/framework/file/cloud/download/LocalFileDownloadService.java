@@ -1,6 +1,6 @@
 package com.github.itdachen.framework.file.cloud.download;
 
-import com.github.itdachen.framework.autoconfigure.properties.oss.properties.FlyLocalOssAutoconfigureProperties;
+import com.github.itdachen.framework.autoconfigure.oss.properties.FlyOssLocalAutoconfigureProperties;
 import com.github.itdachen.framework.file.cloud.DownloadService;
 import jakarta.servlet.http.HttpServletResponse;
 import org.slf4j.Logger;
@@ -14,9 +14,9 @@ import org.slf4j.LoggerFactory;
 public class LocalFileDownloadService extends DownloadService {
     private static final Logger logger = LoggerFactory.getLogger(LocalFileDownloadService.class);
 
-    private final FlyLocalOssAutoconfigureProperties properties;
+    private final FlyOssLocalAutoconfigureProperties properties;
 
-    public LocalFileDownloadService(FlyLocalOssAutoconfigureProperties properties) {
+    public LocalFileDownloadService(FlyOssLocalAutoconfigureProperties properties) {
         this.properties = properties;
     }
 
