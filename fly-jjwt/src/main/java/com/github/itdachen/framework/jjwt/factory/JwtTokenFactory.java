@@ -1,11 +1,11 @@
 package com.github.itdachen.framework.jjwt.factory;
 
-import com.github.itdachen.framework.jjwt.enums.JwtTokenEnumType;
+import com.github.itdachen.framework.autoconfigure.properties.FlyAutoconfigureProperties;
+import com.github.itdachen.framework.autoconfigure.properties.jjwt.enums.JwtTokenEnumType;
 import com.github.itdachen.framework.jjwt.factory.ecdsa.EcdsaJwtTokenHandler;
 import com.github.itdachen.framework.jjwt.factory.handler.JwtTokenHandler;
 import com.github.itdachen.framework.jjwt.factory.hmac.HmacJwtTokenHandler;
 import com.github.itdachen.framework.jjwt.factory.rsa.RsaJwtTokenHandler;
-import com.github.itdachen.framework.jjwt.properties.JJwtProperties;
 import org.springframework.stereotype.Component;
 
 /**
@@ -16,22 +16,22 @@ import org.springframework.stereotype.Component;
 @Component
 public class JwtTokenFactory {
 
-    private final JJwtProperties jwtProperties;
+    private final FlyAutoconfigureProperties autoconfigureProperties;
 
-    public JwtTokenFactory(JJwtProperties jwtProperties) {
-        this.jwtProperties = jwtProperties;
+    public JwtTokenFactory(FlyAutoconfigureProperties autoconfigureProperties) {
+        this.autoconfigureProperties = autoconfigureProperties;
     }
 
 
     public JwtTokenHandler build() {
-        if (JwtTokenEnumType.ECDSA.equals(jwtProperties.getType())) {
-            return new EcdsaJwtTokenHandler(jwtProperties);
-        } else if (JwtTokenEnumType.HMAC.equals(jwtProperties.getType())) {
-            return new HmacJwtTokenHandler(jwtProperties);
-        } else if (JwtTokenEnumType.RSA.equals(jwtProperties.getType())) {
-            return new RsaJwtTokenHandler(jwtProperties);
+        if (JwtTokenEnumType.ECDSA.equals(autoconfigureProperties.getJjwt().getType())) {
+            return new EcdsaJwtTokenHandler(autoconfigureProperties);
+        } else if (JwtTokenEnumType.HMAC.equals(autoconfigureProperties.getJjwt().getType())) {
+            return new HmacJwtTokenHandler(autoconfigureProperties);
+        } else if (JwtTokenEnumType.RSA.equals(autoconfigureProperties.getJjwt().getType())) {
+            return new RsaJwtTokenHandler(autoconfigureProperties);
         }
-        return new HmacJwtTokenHandler(jwtProperties);
+        return new HmacJwtTokenHandler(autoconfigureProperties);
     }
 
 }

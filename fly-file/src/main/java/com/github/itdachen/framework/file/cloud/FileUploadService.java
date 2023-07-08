@@ -1,7 +1,7 @@
 package com.github.itdachen.framework.file.cloud;
 
+import com.github.itdachen.framework.autoconfigure.properties.FlyAutoconfigureProperties;
 import com.github.itdachen.framework.file.entity.FileInfo;
-import com.github.itdachen.framework.file.properties.OssCloudProperties;
 import com.github.itdachen.framework.file.service.IVerifyFileHeaderService;
 import org.springframework.web.multipart.MultipartFile;
 
@@ -15,7 +15,7 @@ import java.util.UUID;
  * Created with IntelliJ IDEA.
  */
 public abstract class FileUploadService {
-    protected OssCloudProperties properties;
+    protected FlyAutoconfigureProperties properties;
     protected IVerifyFileHeaderService verifyFileHeaderService;
 
     /***

@@ -1,9 +1,8 @@
 package com.github.itdachen.framework.file.cloud.upload;
 
+import com.github.itdachen.framework.autoconfigure.properties.FlyAutoconfigureProperties;
 import com.github.itdachen.framework.file.cloud.FileUploadService;
 import com.github.itdachen.framework.file.entity.FileInfo;
-import com.github.itdachen.framework.file.properties.LocalOssProperties;
-import com.github.itdachen.framework.file.properties.OssCloudProperties;
 import com.github.itdachen.framework.file.service.IVerifyFileHeaderService;
 import com.github.itdachen.framework.file.utils.MapPathUtils;
 import org.apache.commons.lang3.StringUtils;
@@ -23,7 +22,7 @@ import java.util.Objects;
 public class LocalFileUploadHandler extends FileUploadService {
     private static final Logger logger = LoggerFactory.getLogger(LocalFileUploadHandler.class);
 
-    public LocalFileUploadHandler(OssCloudProperties properties,
+    public LocalFileUploadHandler(FlyAutoconfigureProperties properties,
                                   IVerifyFileHeaderService verifyFileHeaderService) {
         this.properties = properties;
         this.verifyFileHeaderService = verifyFileHeaderService;
@@ -37,7 +36,7 @@ public class LocalFileUploadHandler extends FileUploadService {
                 throw new Exception("请选择需要上传的文件");
             }
             /* 校验文件头 */
-            if (properties.getLocal().getVerifyFileHeader()) {
+            if (properties.getOss().getLocal().getVerifyFileHeader()) {
                 verifyFileHeaderService.verifyFileHeader(file);
             }
 
@@ -47,12 +46,12 @@ public class LocalFileUploadHandler extends FileUploadService {
             // 文件上传
             String src = fileUpload(file, filePath() + "/");
             // 文件网络地址处理
-            String url = MapPathUtils.mapPath(properties.getLocal().getMapPath()) + src.replace(properties.getLocal().getDiskFolder(), "");
+            String url = MapPathUtils.mapPath(properties.getOss().getLocal().getMapPath()) + src.replace(properties.getOss().getLocal().getDiskFolder(), "");
             url = url.replaceAll("//", "/");
-            if (properties.getLocal().getLocalHttp().endsWith("/")) {
-                url = properties.getLocal().getLocalHttp().substring(0, properties.getLocal().getLocalHttp().length() - 1) + url;
+            if (properties.getOss().getLocal().getLocalHttp().endsWith("/")) {
+                url = properties.getOss().getLocal().getLocalHttp().substring(0, properties.getOss().getLocal().getLocalHttp().length() - 1) + url;
             } else {
-                url = properties.getLocal().getLocalHttp() + url;
+                url = properties.getOss().getLocal().getLocalHttp() + url;
             }
             return new FileInfo.Builder()
                     .url(url)
@@ -76,7 +75,7 @@ public class LocalFileUploadHandler extends FileUploadService {
      * @return java.lang.String
      */
     public String fileUpload(MultipartFile file, String filePath) throws IOException {
-        filePath = properties.getLocal().getDiskFolder() + filePath;
+        filePath = properties.getOss().getLocal().getDiskFolder() + filePath;
         //如果文件路径不存在 创建路径
         File fileDir = new File(filePath.replaceAll("//", "/"));
         if (!fileDir.exists()) {

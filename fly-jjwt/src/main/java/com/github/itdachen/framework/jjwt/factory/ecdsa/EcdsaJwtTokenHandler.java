@@ -1,9 +1,9 @@
 package com.github.itdachen.framework.jjwt.factory.ecdsa;
 
+import com.github.itdachen.framework.autoconfigure.properties.FlyAutoconfigureProperties;
 import com.github.itdachen.framework.jjwt.core.IJWTInfo;
 import com.github.itdachen.framework.jjwt.core.JwtSecretKey;
 import com.github.itdachen.framework.jjwt.factory.handler.JwtTokenHandler;
-import com.github.itdachen.framework.jjwt.properties.JJwtProperties;
 import io.jsonwebtoken.SignatureAlgorithm;
 
 import java.security.PrivateKey;
@@ -19,7 +19,7 @@ public class EcdsaJwtTokenHandler extends JwtTokenHandler {
     public static final SignatureAlgorithm signatureAlgorithm = SignatureAlgorithm.ES512;
     public static final String ALGORITHM = "EC";
 
-    public EcdsaJwtTokenHandler(JJwtProperties properties) {
+    public EcdsaJwtTokenHandler(FlyAutoconfigureProperties properties) {
         this.properties = properties;
     }
 

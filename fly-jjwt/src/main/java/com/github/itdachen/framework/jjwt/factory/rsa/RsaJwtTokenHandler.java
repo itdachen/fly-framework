@@ -1,27 +1,13 @@
 package com.github.itdachen.framework.jjwt.factory.rsa;
 
-import com.github.itdachen.framework.context.constants.UserInfoConstant;
-import com.github.itdachen.framework.jjwt.constants.JWTHeader;
+import com.github.itdachen.framework.autoconfigure.properties.FlyAutoconfigureProperties;
 import com.github.itdachen.framework.jjwt.core.IJWTInfo;
-import com.github.itdachen.framework.jjwt.core.JWTInfo;
 import com.github.itdachen.framework.jjwt.core.JwtSecretKey;
 import com.github.itdachen.framework.jjwt.factory.handler.JwtTokenHandler;
-import com.github.itdachen.framework.jjwt.properties.JJwtProperties;
-import io.jsonwebtoken.Claims;
-import io.jsonwebtoken.JwtBuilder;
-import io.jsonwebtoken.Jwts;
 import io.jsonwebtoken.SignatureAlgorithm;
 
-import java.security.KeyFactory;
-import java.security.KeyPair;
 import java.security.PrivateKey;
 import java.security.PublicKey;
-import java.security.spec.PKCS8EncodedKeySpec;
-import java.security.spec.X509EncodedKeySpec;
-import java.util.Base64;
-import java.util.Date;
-import java.util.HashMap;
-import java.util.Map;
 
 /**
  * Description:
@@ -32,7 +18,7 @@ public class RsaJwtTokenHandler extends JwtTokenHandler {
     public static final SignatureAlgorithm signatureAlgorithm = SignatureAlgorithm.PS512;
     public static final String ALGORITHM = "RSA";
 
-    public RsaJwtTokenHandler(JJwtProperties properties) {
+    public RsaJwtTokenHandler(FlyAutoconfigureProperties properties) {
         this.properties = properties;
     }
 

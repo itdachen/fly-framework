@@ -1,7 +1,6 @@
 package com.github.itdachen.framework.file.cloud;
 
-import com.github.itdachen.framework.file.properties.LocalOssProperties;
-import com.github.itdachen.framework.file.properties.OssCloudProperties;
+import com.github.itdachen.framework.autoconfigure.properties.FlyAutoconfigureProperties;
 import jakarta.servlet.http.HttpServletResponse;
 import org.apache.commons.lang3.StringUtils;
 import org.slf4j.Logger;
@@ -17,7 +16,7 @@ import java.io.*;
 public abstract class DownloadService {
     private static final Logger logger = LoggerFactory.getLogger(DownloadService.class);
 
-    protected OssCloudProperties properties;
+    protected FlyAutoconfigureProperties properties;
 
     /***
      * 文件下载抽象方法, 交给具体的实现类去实现

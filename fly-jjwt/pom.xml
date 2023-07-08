@@ -20,6 +20,12 @@
             <groupId>org.slf4j</groupId>
             <artifactId>slf4j-api</artifactId>
         </dependency>
+
+        <dependency>
+            <groupId>com.github.itdachen.framework</groupId>
+            <artifactId>fly-autoconfigure-processor</artifactId>
+        </dependency>
+
         <dependency>
             <groupId>com.github.itdachen.framework</groupId>
             <artifactId>fly-context</artifactId>

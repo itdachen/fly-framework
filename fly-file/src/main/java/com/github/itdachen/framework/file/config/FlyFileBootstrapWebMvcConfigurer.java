@@ -1,6 +1,6 @@
 package com.github.itdachen.framework.file.config;
 
-import com.github.itdachen.framework.file.properties.OssCloudProperties;
+import com.github.itdachen.framework.autoconfigure.properties.FlyAutoconfigureProperties;
 import com.github.itdachen.framework.file.utils.MapPathUtils;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -17,16 +17,20 @@ import org.springframework.web.servlet.config.annotation.WebMvcConfigurer;
 public class FlyFileBootstrapWebMvcConfigurer implements WebMvcConfigurer {
     private static final Logger logger = LoggerFactory.getLogger(FlyFileBootstrapWebMvcConfigurer.class);
 
-    private final OssCloudProperties properties;
+    private final FlyAutoconfigureProperties autoconfigureProperties;
 
-    public FlyFileBootstrapWebMvcConfigurer(OssCloudProperties properties) {
-        this.properties = properties;
+    public FlyFileBootstrapWebMvcConfigurer(FlyAutoconfigureProperties autoconfigureProperties) {
+        this.autoconfigureProperties = autoconfigureProperties;
     }
 
+    /**
+     * 本地文件上传映射
+     * @param registry
+     */
     @Override
     public void addResourceHandlers(ResourceHandlerRegistry registry) {
-        registry.addResourceHandler(MapPathUtils.filterPath(properties.getLocal().getMapPath()))
-                .addResourceLocations("file:" + properties.getLocal().getDiskFolder());
+        registry.addResourceHandler(MapPathUtils.filterPath(autoconfigureProperties.getOss().getLocal().getMapPath()))
+                .addResourceLocations("file:" + autoconfigureProperties.getOss().getLocal().getDiskFolder());
     }
 
 }

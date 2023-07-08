@@ -1,15 +1,14 @@
 package com.github.itdachen.framework.file.factory;
 
 
+import com.github.itdachen.framework.autoconfigure.properties.FlyAutoconfigureProperties;
+import com.github.itdachen.framework.autoconfigure.properties.oss.enums.OssTypeEnum;
 import com.github.itdachen.framework.file.cloud.download.InternetFileDownloadService;
 import com.github.itdachen.framework.file.cloud.upload.AliYunUploadHandler;
 import com.github.itdachen.framework.file.cloud.upload.LocalFileUploadHandler;
-import com.github.itdachen.framework.file.enums.OssTypeEnum;
-import com.github.itdachen.framework.file.properties.LocalOssProperties;
 import com.github.itdachen.framework.file.cloud.DownloadService;
 import com.github.itdachen.framework.file.cloud.FileUploadService;
 import com.github.itdachen.framework.file.cloud.download.LocalFileDownloadService;
-import com.github.itdachen.framework.file.properties.OssCloudProperties;
 import com.github.itdachen.framework.file.service.IVerifyFileHeaderService;
 import org.springframework.stereotype.Component;
 
@@ -20,12 +19,12 @@ import org.springframework.stereotype.Component;
  */
 @Component
 public class FileFactory {
-    private final OssCloudProperties ossCloudProperties;
+    private final FlyAutoconfigureProperties autoconfigureProperties;
     private final IVerifyFileHeaderService verifyFileHeaderService;
 
-    public FileFactory(OssCloudProperties ossCloudProperties,
+    public FileFactory(FlyAutoconfigureProperties autoconfigureProperties,
                        IVerifyFileHeaderService verifyFileHeaderService) {
-        this.ossCloudProperties = ossCloudProperties;
+        this.autoconfigureProperties = autoconfigureProperties;
         this.verifyFileHeaderService = verifyFileHeaderService;
     }
 
@@ -37,10 +36,10 @@ public class FileFactory {
      * @return com.github.itdachen.framework.file.cloud.FileUploadService
      */
     public FileUploadService build() {
-        if (OssTypeEnum.ALI == ossCloudProperties.getType()) {
-            return new AliYunUploadHandler(ossCloudProperties);
+        if (OssTypeEnum.ALI == autoconfigureProperties.getOss().getType()) {
+            return new AliYunUploadHandler(autoconfigureProperties);
         }
-        return new LocalFileUploadHandler(ossCloudProperties, verifyFileHeaderService);
+        return new LocalFileUploadHandler(autoconfigureProperties, verifyFileHeaderService);
     }
 
 
@@ -53,10 +52,10 @@ public class FileFactory {
      * @return com.github.itdachen.framework.file.cloud.DownloadService
      */
     public DownloadService build(String uri) {
-        if (uri.startsWith(ossCloudProperties.getLocal().getLocalHttp())) {
-            return new LocalFileDownloadService(ossCloudProperties);
+        if (uri.startsWith(autoconfigureProperties.getOss().getLocal().getLocalHttp())) {
+            return new LocalFileDownloadService(autoconfigureProperties);
         }
-        return new InternetFileDownloadService(ossCloudProperties);
+        return new InternetFileDownloadService(autoconfigureProperties);
     }
 
 }
