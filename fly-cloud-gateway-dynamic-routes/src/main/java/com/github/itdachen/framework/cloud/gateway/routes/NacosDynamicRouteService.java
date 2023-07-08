@@ -6,7 +6,7 @@ import com.alibaba.nacos.api.config.ConfigService;
 import com.alibaba.nacos.api.config.listener.Listener;
 import com.alibaba.nacos.api.exception.NacosException;
 import com.alibaba.nacos.common.utils.CollectionUtils;
-import com.github.itdachen.framework.autoconfigure.properties.FlyAutoconfigureProperties;
+import com.github.itdachen.framework.autoconfigure.properties.gateway.FlyGatewayRoutesAutoconfigureProperties;
 import jakarta.annotation.PostConstruct;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -32,10 +32,10 @@ public class NacosDynamicRouteService {
     private ConfigService configService;
 
     private final DynamicRouteService dynamicRouteService;
-    private final FlyAutoconfigureProperties autoconfigureProperties;
+    private final FlyGatewayRoutesAutoconfigureProperties autoconfigureProperties;
 
     public NacosDynamicRouteService(DynamicRouteService dynamicRouteService,
-                                    FlyAutoconfigureProperties autoconfigureProperties) {
+                                    FlyGatewayRoutesAutoconfigureProperties autoconfigureProperties) {
         this.dynamicRouteService = dynamicRouteService;
         this.autoconfigureProperties = autoconfigureProperties;
     }
@@ -60,9 +60,9 @@ public class NacosDynamicRouteService {
             }
             // 通过 Nacos Config 并指定路由配置路径去获取路由配置
             String configInfo = configService.getConfig(
-                    autoconfigureProperties.getGateway().getRoutes().getDataId(),
-                    autoconfigureProperties.getGateway().getRoutes().getGroup(),
-                    autoconfigureProperties.getGateway().getRoutes().getTimeout()
+                    autoconfigureProperties.getDataId(),
+                    autoconfigureProperties.getGroup(),
+                    autoconfigureProperties.getTimeout()
             );
             logger.info("get current gateway config: [{}]", configInfo);
             List<RouteDefinition> definitionList = JSON.parseArray(configInfo, RouteDefinition.class);
@@ -77,8 +77,8 @@ public class NacosDynamicRouteService {
         }
         // 设置监听器
         dynamicRouteByNacosListener(
-                autoconfigureProperties.getGateway().getRoutes().getDataId(),
-                autoconfigureProperties.getGateway().getRoutes().getGroup()
+                autoconfigureProperties.getDataId(),
+                autoconfigureProperties.getGroup()
         );
     }
 
@@ -93,8 +93,8 @@ public class NacosDynamicRouteService {
     private ConfigService initConfigService() {
         try {
             Properties properties = new Properties();
-            properties.setProperty("serverAddr", autoconfigureProperties.getGateway().getRoutes().getServerAddr());
-            properties.setProperty("namespace", autoconfigureProperties.getGateway().getRoutes().getNamespace());
+            properties.setProperty("serverAddr", autoconfigureProperties.getServerAddr());
+            properties.setProperty("namespace", autoconfigureProperties.getNamespace());
             return configService = NacosFactory.createConfigService(properties);
         } catch (Exception ex) {
             logger.error("init gateway nacos config error: [{}]", ex.getMessage(), ex);

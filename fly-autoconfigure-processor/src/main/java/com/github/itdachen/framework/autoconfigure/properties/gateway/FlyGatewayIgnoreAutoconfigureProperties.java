@@ -1,4 +1,6 @@
-package com.github.itdachen.framework.autoconfigure.properties.gateway.routes;
+package com.github.itdachen.framework.autoconfigure.properties.gateway;
+
+import org.springframework.boot.context.properties.ConfigurationProperties;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -8,10 +10,11 @@ import java.util.List;
  * Created by 王大宸 on 2023-07-06 16:12
  * Created with IntelliJ IDEA.
  */
-public class GatewayIgnoreProperties {
+@ConfigurationProperties(prefix = "fly.gateway.ignore")
+public class FlyGatewayIgnoreAutoconfigureProperties {
 
     /**
-     *
+     * 忽略的路径
      */
     private List<String> matchers = new ArrayList<>();
 

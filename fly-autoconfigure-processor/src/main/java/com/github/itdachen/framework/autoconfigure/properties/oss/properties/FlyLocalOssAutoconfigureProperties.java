@@ -1,12 +1,14 @@
 package com.github.itdachen.framework.autoconfigure.properties.oss.properties;
 
+import org.springframework.boot.context.properties.ConfigurationProperties;
+
 /**
- * Description: 文件上传配置
+ * Description: 文件上传配置(本地服务器)
  * Created by 王大宸 on 2023/02/10 15:26
  * Created with IntelliJ IDEA.
  */
-
-public class LocalOssProperties {
+@ConfigurationProperties(prefix = "fly.oss.local")
+public class FlyLocalOssAutoconfigureProperties {
 
     /**
      * 访问地址,线上配置域名,测试环境配置 ip

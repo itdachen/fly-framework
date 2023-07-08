@@ -2,13 +2,15 @@ package com.github.itdachen.framework.autoconfigure.properties.jjwt;
 
 import com.github.itdachen.framework.autoconfigure.constants.DefaultEncryptKey;
 import com.github.itdachen.framework.autoconfigure.properties.jjwt.enums.JwtTokenEnumType;
+import org.springframework.boot.context.properties.ConfigurationProperties;
 
 /**
  * Description: Jwt 配置
  * Created by 王大宸 on 2023-07-06 15:27
  * Created with IntelliJ IDEA.
  */
-public class FlyJJwtProperties {
+@ConfigurationProperties(prefix = "fly.jwt")
+public class FlyJwtAutoconfigureProperties {
 
     /**
      * 是否加密

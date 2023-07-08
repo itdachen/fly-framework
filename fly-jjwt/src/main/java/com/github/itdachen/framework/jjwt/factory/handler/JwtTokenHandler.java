@@ -1,6 +1,6 @@
 package com.github.itdachen.framework.jjwt.factory.handler;
 
-import com.github.itdachen.framework.autoconfigure.properties.FlyAutoconfigureProperties;
+import com.github.itdachen.framework.autoconfigure.properties.jjwt.FlyJwtAutoconfigureProperties;
 import com.github.itdachen.framework.context.constants.UserInfoConstant;
 import com.github.itdachen.framework.jjwt.constants.JWTHeader;
 import com.github.itdachen.framework.jjwt.core.IJWTInfo;
@@ -31,7 +31,7 @@ public abstract class JwtTokenHandler {
     //定义默认有效期为10分钟 单位：毫秒
     protected static final Long JWT_Default_Expires = 10 * 60 * 1000L;
 
-    protected FlyAutoconfigureProperties properties;
+    protected FlyJwtAutoconfigureProperties properties;
 
     /***
      * 创建 token
@@ -175,7 +175,7 @@ public abstract class JwtTokenHandler {
         Date date = new Date(expiresTime);
 
         JwtBuilder builder = Jwts.builder().setHeaderParam(JWTHeader.TYPE, "JWT")    //一下两行就是Header
-                .setHeaderParam(JWTHeader.ALGORITHM, signatureAlgorithm.getValue()).setClaims(createClaimsMap(jwtInfo)).setIssuer(properties.getJjwt().getIssuer())   //签发者
+                .setHeaderParam(JWTHeader.ALGORITHM, signatureAlgorithm.getValue()).setClaims(createClaimsMap(jwtInfo)).setIssuer(properties.getIssuer())   //签发者
                 .setIssuedAt(now)   //签发时间
                 .signWith(privateKey, signatureAlgorithm) //使用ES256对称加密算法签名
                 .setExpiration(date);   //设置过期时间

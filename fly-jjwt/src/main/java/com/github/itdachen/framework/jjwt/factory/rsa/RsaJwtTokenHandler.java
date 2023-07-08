@@ -1,6 +1,6 @@
 package com.github.itdachen.framework.jjwt.factory.rsa;
 
-import com.github.itdachen.framework.autoconfigure.properties.FlyAutoconfigureProperties;
+import com.github.itdachen.framework.autoconfigure.properties.jjwt.FlyJwtAutoconfigureProperties;
 import com.github.itdachen.framework.jjwt.core.IJWTInfo;
 import com.github.itdachen.framework.jjwt.core.JwtSecretKey;
 import com.github.itdachen.framework.jjwt.factory.handler.JwtTokenHandler;
@@ -18,7 +18,7 @@ public class RsaJwtTokenHandler extends JwtTokenHandler {
     public static final SignatureAlgorithm signatureAlgorithm = SignatureAlgorithm.PS512;
     public static final String ALGORITHM = "RSA";
 
-    public RsaJwtTokenHandler(FlyAutoconfigureProperties properties) {
+    public RsaJwtTokenHandler(FlyJwtAutoconfigureProperties properties) {
         this.properties = properties;
     }
 

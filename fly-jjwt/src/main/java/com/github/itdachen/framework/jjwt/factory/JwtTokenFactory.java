@@ -1,6 +1,6 @@
 package com.github.itdachen.framework.jjwt.factory;
 
-import com.github.itdachen.framework.autoconfigure.properties.FlyAutoconfigureProperties;
+import com.github.itdachen.framework.autoconfigure.properties.jjwt.FlyJwtAutoconfigureProperties;
 import com.github.itdachen.framework.autoconfigure.properties.jjwt.enums.JwtTokenEnumType;
 import com.github.itdachen.framework.jjwt.factory.ecdsa.EcdsaJwtTokenHandler;
 import com.github.itdachen.framework.jjwt.factory.handler.JwtTokenHandler;
@@ -16,19 +16,19 @@ import org.springframework.stereotype.Component;
 @Component
 public class JwtTokenFactory {
 
-    private final FlyAutoconfigureProperties autoconfigureProperties;
+    private final FlyJwtAutoconfigureProperties autoconfigureProperties;
 
-    public JwtTokenFactory(FlyAutoconfigureProperties autoconfigureProperties) {
+    public JwtTokenFactory(FlyJwtAutoconfigureProperties autoconfigureProperties) {
         this.autoconfigureProperties = autoconfigureProperties;
     }
 
 
     public JwtTokenHandler build() {
-        if (JwtTokenEnumType.ECDSA.equals(autoconfigureProperties.getJjwt().getType())) {
+        if (JwtTokenEnumType.ECDSA.equals(autoconfigureProperties.getType())) {
             return new EcdsaJwtTokenHandler(autoconfigureProperties);
-        } else if (JwtTokenEnumType.HMAC.equals(autoconfigureProperties.getJjwt().getType())) {
+        } else if (JwtTokenEnumType.HMAC.equals(autoconfigureProperties.getType())) {
             return new HmacJwtTokenHandler(autoconfigureProperties);
-        } else if (JwtTokenEnumType.RSA.equals(autoconfigureProperties.getJjwt().getType())) {
+        } else if (JwtTokenEnumType.RSA.equals(autoconfigureProperties.getType())) {
             return new RsaJwtTokenHandler(autoconfigureProperties);
         }
         return new HmacJwtTokenHandler(autoconfigureProperties);

@@ -1,7 +1,6 @@
 package com.github.itdachen.framework.file.factory;
 
-
-import com.github.itdachen.framework.autoconfigure.properties.FlyAutoconfigureProperties;
+import com.github.itdachen.framework.autoconfigure.properties.oss.FlyOssAutoconfigureProperties;
 import com.github.itdachen.framework.autoconfigure.properties.oss.enums.OssTypeEnum;
 import com.github.itdachen.framework.file.cloud.download.InternetFileDownloadService;
 import com.github.itdachen.framework.file.cloud.upload.AliYunUploadHandler;
@@ -19,10 +18,10 @@ import org.springframework.stereotype.Component;
  */
 @Component
 public class FileFactory {
-    private final FlyAutoconfigureProperties autoconfigureProperties;
+    private final FlyOssAutoconfigureProperties autoconfigureProperties;
     private final IVerifyFileHeaderService verifyFileHeaderService;
 
-    public FileFactory(FlyAutoconfigureProperties autoconfigureProperties,
+    public FileFactory(FlyOssAutoconfigureProperties autoconfigureProperties,
                        IVerifyFileHeaderService verifyFileHeaderService) {
         this.autoconfigureProperties = autoconfigureProperties;
         this.verifyFileHeaderService = verifyFileHeaderService;
@@ -36,7 +35,7 @@ public class FileFactory {
      * @return com.github.itdachen.framework.file.cloud.FileUploadService
      */
     public FileUploadService build() {
-        if (OssTypeEnum.ALI == autoconfigureProperties.getOss().getType()) {
+        if (OssTypeEnum.ALI == autoconfigureProperties.getType()) {
             return new AliYunUploadHandler(autoconfigureProperties);
         }
         return new LocalFileUploadHandler(autoconfigureProperties, verifyFileHeaderService);
@@ -52,7 +51,7 @@ public class FileFactory {
      * @return com.github.itdachen.framework.file.cloud.DownloadService
      */
     public DownloadService build(String uri) {
-        if (uri.startsWith(autoconfigureProperties.getOss().getLocal().getLocalHttp())) {
+        if (uri.startsWith(autoconfigureProperties.getLocal().getLocalHttp())) {
             return new LocalFileDownloadService(autoconfigureProperties);
         }
         return new InternetFileDownloadService(autoconfigureProperties);

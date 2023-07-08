@@ -1,11 +1,14 @@
 package com.github.itdachen.framework.autoconfigure.properties.oss.properties;
 
+import org.springframework.boot.context.properties.ConfigurationProperties;
+
 /**
- * Description:
+ * Description: 阿里云存储配置
  * Created by 王大宸 on 2023-06-12 22:07
  * Created with IntelliJ IDEA.
  */
-public class AliYunOssProperties {
+@ConfigurationProperties(prefix = "fly.oss.ali")
+public class AliYunOssAutoconfigureProperties {
 
     /**
      * 地域节点

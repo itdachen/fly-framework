@@ -1,6 +1,6 @@
 package com.github.itdachen.framework.jjwt.factory.hmac;
 
-import com.github.itdachen.framework.autoconfigure.properties.FlyAutoconfigureProperties;
+import com.github.itdachen.framework.autoconfigure.properties.jjwt.FlyJwtAutoconfigureProperties;
 import com.github.itdachen.framework.jjwt.constants.JWTHeader;
 import com.github.itdachen.framework.jjwt.core.IJWTInfo;
 import com.github.itdachen.framework.jjwt.core.JwtSecretKey;
@@ -22,7 +22,7 @@ public class HmacJwtTokenHandler extends JwtTokenHandler {
     // 签名算法
     public static final SignatureAlgorithm signatureAlgorithm = SignatureAlgorithm.HS512;
 
-    public HmacJwtTokenHandler(FlyAutoconfigureProperties properties) {
+    public HmacJwtTokenHandler(FlyJwtAutoconfigureProperties properties) {
         this.properties = properties;
     }
 
@@ -47,7 +47,7 @@ public class HmacJwtTokenHandler extends JwtTokenHandler {
                 .setClaims(claimsMap)
                 .setId(UUID.randomUUID().toString())
                 .setSubject(jwtInfo.getSubject()) //主题，可以是json数据
-                .setIssuer(properties.getJjwt().getIssuer())   //签发者
+                .setIssuer(properties.getIssuer())   //签发者
                 .setIssuedAt(now)   //签发时间
                 .signWith(secretKey, signatureAlgorithm) //使用ES256对称加密算法签名
                 .setExpiration(date);   //设置过期时间

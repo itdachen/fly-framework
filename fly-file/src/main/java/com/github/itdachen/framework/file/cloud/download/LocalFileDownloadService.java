@@ -1,6 +1,6 @@
 package com.github.itdachen.framework.file.cloud.download;
 
-import com.github.itdachen.framework.autoconfigure.properties.FlyAutoconfigureProperties;
+import com.github.itdachen.framework.autoconfigure.properties.oss.FlyOssAutoconfigureProperties;
 import com.github.itdachen.framework.file.cloud.DownloadService;
 import jakarta.servlet.http.HttpServletResponse;
 import org.slf4j.Logger;
@@ -14,7 +14,7 @@ import org.slf4j.LoggerFactory;
 public class LocalFileDownloadService extends DownloadService {
     private static final Logger logger = LoggerFactory.getLogger(LocalFileDownloadService.class);
 
-    public LocalFileDownloadService(FlyAutoconfigureProperties properties) {
+    public LocalFileDownloadService(FlyOssAutoconfigureProperties properties) {
         this.properties = properties;
     }
 
@@ -23,14 +23,14 @@ public class LocalFileDownloadService extends DownloadService {
         try {
             // 将文件路径转换成本地文件路径
             String mapPath;
-            if (properties.getOss().getLocal().getLocalHttp().endsWith("/")) {
-                mapPath = properties.getOss().getLocal().getLocalHttp() + properties.getOss().getLocal().getMapPath() + "/";
+            if (properties.getLocal().getLocalHttp().endsWith("/")) {
+                mapPath = properties.getLocal().getLocalHttp() + properties.getLocal().getMapPath() + "/";
             } else {
-                mapPath = properties.getOss().getLocal().getLocalHttp() + "/" + properties.getOss().getLocal().getMapPath() + "/";
+                mapPath = properties.getLocal().getLocalHttp() + "/" + properties.getLocal().getMapPath() + "/";
             }
 
             // 将文件路径转换成本地文件路径
-            uri = uri.replace(mapPath, properties.getOss().getLocal().getDiskFolder());
+            uri = uri.replace(mapPath, properties.getLocal().getDiskFolder());
 
             // if (StringUtils.isEmpty(filename)){
             filename = findFileName(uri, filename);

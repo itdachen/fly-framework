@@ -1,11 +1,14 @@
-package com.github.itdachen.framework.autoconfigure.properties.gateway.routes;
+package com.github.itdachen.framework.autoconfigure.properties.gateway;
+
+import org.springframework.boot.context.properties.ConfigurationProperties;
 
 /**
  * Description: 基于 Nacos 动态网关路由配置
  * Created by 王大宸 on 2023-07-06 15:53
  * Created with IntelliJ IDEA.
  */
-public class GatewayRoutesProperties {
+@ConfigurationProperties(prefix = "fly.gateway.routes")
+public class FlyGatewayRoutesAutoconfigureProperties {
 
     private long timeout = 30000;
 
