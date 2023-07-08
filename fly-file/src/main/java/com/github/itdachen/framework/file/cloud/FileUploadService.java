@@ -15,7 +15,7 @@ import java.util.UUID;
  * Created with IntelliJ IDEA.
  */
 public abstract class FileUploadService {
-    protected FlyOssAutoconfigureProperties properties;
+//    protected FlyOssAutoconfigureProperties properties;
     protected IVerifyFileHeaderService verifyFileHeaderService;
 
     /***

@@ -16,8 +16,6 @@ import java.io.*;
 public abstract class DownloadService {
     private static final Logger logger = LoggerFactory.getLogger(DownloadService.class);
 
-    protected FlyOssAutoconfigureProperties properties;
-
     /***
      * 文件下载抽象方法, 交给具体的实现类去实现
      *

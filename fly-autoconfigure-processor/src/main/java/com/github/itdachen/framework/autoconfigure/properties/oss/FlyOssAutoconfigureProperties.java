@@ -1,8 +1,6 @@
 package com.github.itdachen.framework.autoconfigure.properties.oss;
 
 import com.github.itdachen.framework.autoconfigure.properties.oss.enums.OssTypeEnum;
-import com.github.itdachen.framework.autoconfigure.properties.oss.properties.AliYunOssAutoconfigureProperties;
-import com.github.itdachen.framework.autoconfigure.properties.oss.properties.FlyLocalOssAutoconfigureProperties;
 import org.springframework.boot.context.properties.ConfigurationProperties;
 
 /**
@@ -18,16 +16,6 @@ public class FlyOssAutoconfigureProperties {
      */
     private OssTypeEnum type = OssTypeEnum.LOCAL;
 
-    /**
-     * 本地文件上传
-     */
-    private FlyLocalOssAutoconfigureProperties local = new FlyLocalOssAutoconfigureProperties();
-
-    /**
-     * 阿里云
-     */
-    private AliYunOssAutoconfigureProperties ali = new AliYunOssAutoconfigureProperties();
-
 
     public OssTypeEnum getType() {
         return type;
@@ -37,19 +25,4 @@ public class FlyOssAutoconfigureProperties {
         this.type = type;
     }
 
-    public FlyLocalOssAutoconfigureProperties getLocal() {
-        return local;
-    }
-
-    public void setLocal(FlyLocalOssAutoconfigureProperties local) {
-        this.local = local;
-    }
-
-    public AliYunOssAutoconfigureProperties getAli() {
-        return ali;
-    }
-
-    public void setAli(AliYunOssAutoconfigureProperties ali) {
-        this.ali = ali;
-    }
 }

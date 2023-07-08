@@ -1,6 +1,6 @@
 package com.github.itdachen.framework.file.config;
 
-import com.github.itdachen.framework.autoconfigure.properties.oss.FlyOssAutoconfigureProperties;
+import com.github.itdachen.framework.autoconfigure.properties.oss.properties.FlyLocalOssAutoconfigureProperties;
 import com.github.itdachen.framework.file.utils.MapPathUtils;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -17,9 +17,9 @@ import org.springframework.web.servlet.config.annotation.WebMvcConfigurer;
 public class FlyFileBootstrapWebMvcConfigurer implements WebMvcConfigurer {
     private static final Logger logger = LoggerFactory.getLogger(FlyFileBootstrapWebMvcConfigurer.class);
 
-    private final FlyOssAutoconfigureProperties autoconfigureProperties;
+    private final FlyLocalOssAutoconfigureProperties autoconfigureProperties;
 
-    public FlyFileBootstrapWebMvcConfigurer(FlyOssAutoconfigureProperties autoconfigureProperties) {
+    public FlyFileBootstrapWebMvcConfigurer(FlyLocalOssAutoconfigureProperties autoconfigureProperties) {
         this.autoconfigureProperties = autoconfigureProperties;
     }
 
@@ -29,8 +29,8 @@ public class FlyFileBootstrapWebMvcConfigurer implements WebMvcConfigurer {
      */
     @Override
     public void addResourceHandlers(ResourceHandlerRegistry registry) {
-        registry.addResourceHandler(MapPathUtils.filterPath(autoconfigureProperties.getLocal().getMapPath()))
-                .addResourceLocations("file:" + autoconfigureProperties.getLocal().getDiskFolder());
+        registry.addResourceHandler(MapPathUtils.filterPath(autoconfigureProperties.getMapPath()))
+                .addResourceLocations("file:" + autoconfigureProperties.getDiskFolder());
     }
 
 }

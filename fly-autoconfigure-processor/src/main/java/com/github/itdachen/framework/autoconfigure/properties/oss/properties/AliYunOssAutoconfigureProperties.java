@@ -16,7 +16,7 @@ public class AliYunOssAutoconfigureProperties {
     private String endpoint = "oss-cn-chengdu.aliyuncs.com";
 
     /**
-     * 用户 Key id
+     * 用户 KeyId
      */
     private String accessKeyId = "";
 
@@ -28,7 +28,7 @@ public class AliYunOssAutoconfigureProperties {
     /**
      * 存储空间名称
      */
-    private String bucket = "itdachen";
+    private String bucket = "fly";
 
 
     public String getEndpoint() {
