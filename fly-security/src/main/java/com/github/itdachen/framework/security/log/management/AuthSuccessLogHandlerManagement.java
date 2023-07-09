@@ -35,7 +35,7 @@ public class AuthSuccessLogHandlerManagement implements IAuthSuccessCredentialsL
             return;
         }
 
-        logger.info(userDetails.getAccount() + "登录成功, 登录方式: " + userDetails.getSignMethod() + ", 登录IP: " + request.getRemoteAddr());
+        logger.info(userDetails.getAccount() + " 登录成功, 登录方式: " + userDetails.getSignMethod() + ", 登录IP: " + request.getRemoteAddr());
     }
 
     /***

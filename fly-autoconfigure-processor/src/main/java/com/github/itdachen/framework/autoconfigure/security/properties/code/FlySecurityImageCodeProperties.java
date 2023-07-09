@@ -8,7 +8,7 @@ import org.springframework.boot.context.properties.ConfigurationProperties;
  * Created with IntelliJ IDEA.
  */
 @ConfigurationProperties(prefix = "fly.security.code.image")
-public class FlySecurityImageCodeProperties extends FlySecuritySmsCodeProperties {
+public class FlySecurityImageCodeProperties extends ValidateCode {
 
     // 默认为 4 位数
     public FlySecurityImageCodeProperties() {

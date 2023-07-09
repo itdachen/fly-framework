@@ -6,12 +6,10 @@ import com.github.itdachen.framework.security.exception.BizSecurityException;
 import com.github.itdachen.framework.security.user.CurrentUserInfo;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.core.GrantedAuthority;
 import org.springframework.security.core.authority.AuthorityUtils;
 import org.springframework.security.core.userdetails.UserDetailsService;
 import org.springframework.security.core.userdetails.UsernameNotFoundException;
-import org.springframework.security.crypto.password.PasswordEncoder;
 
 import java.util.ArrayList;
 import java.util.HashSet;
@@ -25,13 +23,6 @@ import java.util.Set;
  */
 public abstract class AbstractSecurityUserDetailsService implements UserDetailsService {
     private static final Logger logger = LoggerFactory.getLogger(AbstractSecurityUserDetailsService.class);
-
-    protected final PasswordEncoder passwordEncoder;
-
-    public AbstractSecurityUserDetailsService(PasswordEncoder passwordEncoder) {
-        this.passwordEncoder = passwordEncoder;
-    }
-
 
     /***
      * 根据登录账号查询用户信息
