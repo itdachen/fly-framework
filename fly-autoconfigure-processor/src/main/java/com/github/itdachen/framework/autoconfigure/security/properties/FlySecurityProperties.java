@@ -1,6 +1,6 @@
 package com.github.itdachen.framework.autoconfigure.security.properties;
 
-import com.github.itdachen.framework.autoconfigure.security.properties.constants.SecurityBrowserConstants;
+import com.github.itdachen.framework.autoconfigure.security.constants.SecurityConstants;
 import org.springframework.boot.context.properties.ConfigurationProperties;
 
 import java.util.ArrayList;
@@ -15,7 +15,7 @@ import java.util.List;
 public class FlySecurityProperties {
 
     /* 登录页面，当引发登录行为的url以html结尾时，会跳到这里配置的url上 */
-    private String signInPage = SecurityBrowserConstants.DEFAULT_LOGIN_PAGE_URL;
+    private String signInPage = SecurityConstants.DEFAULT_LOGIN_PAGE_URL;
 
     /* 退出登录地址 */
     private String logout = "/logout";

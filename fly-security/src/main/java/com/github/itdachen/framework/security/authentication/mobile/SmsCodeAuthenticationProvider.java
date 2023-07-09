@@ -24,14 +24,14 @@ public class SmsCodeAuthenticationProvider implements AuthenticationProvider {
      */
     @Override
     public Authentication authenticate(Authentication authentication) throws AuthenticationException {
-        SmsCodeAuthenticationToken authenticationToken = (SmsCodeAuthenticationToken) authentication;
+       SmsCodeAuthenticationToken authenticationToken = (SmsCodeAuthenticationToken) authentication;
         UserDetails user = userDetailsService.loadUserByMobile((String) authenticationToken.getPrincipal());
 
         if (user == null) {
             throw new InternalAuthenticationServiceException("无法获取用户信息");
         }
 
-        SmsCodeAuthenticationToken authenticationResult = new SmsCodeAuthenticationToken(user, user.getAuthorities());
+       SmsCodeAuthenticationToken authenticationResult = new SmsCodeAuthenticationToken(user, user.getAuthorities());
 
         authenticationResult.setDetails(authenticationToken.getDetails());
 

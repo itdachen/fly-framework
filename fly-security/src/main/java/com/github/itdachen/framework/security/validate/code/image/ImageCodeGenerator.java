@@ -1,7 +1,7 @@
 package com.github.itdachen.framework.security.validate.code.image;
 
+import com.github.itdachen.framework.autoconfigure.security.properties.code.FlySecurityImageCodeProperties;
 import com.github.itdachen.framework.security.validate.code.ValidateCodeGenerator;
-import com.github.itdachen.framework.security.properties.SecurityBrowserProperties;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.ServletRequestUtils;
 import org.springframework.web.context.request.ServletWebRequest;
@@ -21,19 +21,19 @@ public class ImageCodeGenerator implements ValidateCodeGenerator {
      * 系统配置
      */
     @Autowired
-    private SecurityBrowserProperties securityProperties;
+    private FlySecurityImageCodeProperties securityProperties;
 
     @Override
     public ImageCode generate(ServletWebRequest request) {
         int width = ServletRequestUtils.getIntParameter(
                 request.getRequest(),
                 "width",
-                securityProperties.getCode().getImage().getWidth()
+                securityProperties.getWidth()
         );
         int height = ServletRequestUtils.getIntParameter(
                 request.getRequest(),
                 "height",
-                securityProperties.getCode().getImage().getHeight()
+                securityProperties.getHeight()
         );
         BufferedImage image = new BufferedImage(width, height, BufferedImage.TYPE_INT_RGB);
         Graphics g = image.getGraphics();
@@ -51,7 +51,7 @@ public class ImageCodeGenerator implements ValidateCodeGenerator {
         }
 
         String sRand = "";
-        for (int i = 0; i < securityProperties.getCode().getImage().getLength(); i++) {
+        for (int i = 0; i < securityProperties.getLength(); i++) {
             String rand = String.valueOf(random.nextInt(10));
             sRand += rand;
             g.setColor(new Color(20 + random.nextInt(110), 20 + random.nextInt(110), 20 + random.nextInt(110)));
@@ -60,7 +60,7 @@ public class ImageCodeGenerator implements ValidateCodeGenerator {
 
         g.dispose();
 
-        return new ImageCode(image, sRand, securityProperties.getCode().getImage().getExpireIn());
+        return new ImageCode(image, sRand, securityProperties.getExpireIn());
     }
 
     /**
@@ -84,11 +84,11 @@ public class ImageCodeGenerator implements ValidateCodeGenerator {
         return new Color(r, g, b);
     }
 
-    public SecurityBrowserProperties getSecurityProperties() {
+    public FlySecurityImageCodeProperties getSecurityProperties() {
         return securityProperties;
     }
 
-    public void setSecurityProperties(SecurityBrowserProperties securityProperties) {
+    public void setSecurityProperties(FlySecurityImageCodeProperties securityProperties) {
         this.securityProperties = securityProperties;
     }
 }

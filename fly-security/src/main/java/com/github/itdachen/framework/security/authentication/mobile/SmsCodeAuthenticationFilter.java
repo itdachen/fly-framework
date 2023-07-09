@@ -1,6 +1,6 @@
 package com.github.itdachen.framework.security.authentication.mobile;
 
-import com.github.itdachen.framework.security.constants.SecurityConstants;
+import com.github.itdachen.framework.autoconfigure.security.constants.SecurityConstants;
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
 import org.springframework.security.authentication.AuthenticationServiceException;
@@ -40,11 +40,7 @@ public class SmsCodeAuthenticationFilter extends AbstractAuthenticationProcessin
 
         String mobile = obtainMobile(request);
 
-        if (mobile == null) {
-            mobile = "";
-        }
-
-        mobile = mobile.trim();
+        mobile = (mobile != null) ? mobile.trim() : "";
 
         SmsCodeAuthenticationToken authRequest = new SmsCodeAuthenticationToken(mobile);
 

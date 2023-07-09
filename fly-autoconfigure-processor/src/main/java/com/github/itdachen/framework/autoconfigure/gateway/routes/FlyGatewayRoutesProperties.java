@@ -23,7 +23,7 @@ public class FlyGatewayRoutesProperties {
     private String namespace = "b6783835-a27f-4ec3-b9ee-05bfa917e812";
 
     /**
-     * dataId
+     * 配置中心 dataId
      */
     private String dataId = "GATE_WAY_ROUTERS";
 

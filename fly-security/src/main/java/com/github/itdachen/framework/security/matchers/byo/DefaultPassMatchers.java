@@ -1,7 +1,8 @@
 package com.github.itdachen.framework.security.matchers.byo;
 
+import com.github.itdachen.framework.autoconfigure.security.properties.FlySecurityProperties;
+import com.github.itdachen.framework.autoconfigure.security.properties.session.FlySecuritySessionProperties;
 import com.github.itdachen.framework.security.matchers.pass.IPassMatchers;
-import com.github.itdachen.framework.security.properties.SecurityBrowserProperties;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -12,10 +13,13 @@ import java.util.List;
  * Created with IntelliJ IDEA.
  */
 public class DefaultPassMatchers implements IPassMatchers {
-    private final SecurityBrowserProperties securityProperties;
+    private final FlySecurityProperties securityProperties;
+    private final FlySecuritySessionProperties sessionProperties;
 
-    public DefaultPassMatchers(SecurityBrowserProperties securityProperties) {
+    public DefaultPassMatchers(FlySecurityProperties securityProperties,
+                               FlySecuritySessionProperties sessionProperties) {
         this.securityProperties = securityProperties;
+        this.sessionProperties=sessionProperties;
     }
 
     @Override
@@ -26,7 +30,7 @@ public class DefaultPassMatchers implements IPassMatchers {
         }
         matchers.add(securityProperties.getSignInPage());
         matchers.add(securityProperties.getSignUpUrl());
-        matchers.add(securityProperties.getSession().getSessionInvalidUrl());
+        matchers.add(sessionProperties.getSessionInvalidUrl());
         return matchers;
     }
 

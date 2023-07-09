@@ -1,12 +1,12 @@
 package com.github.itdachen.framework.security.details;
 
-import com.github.itdachen.framework.context.permission.PermissionInfo;
+import com.github.itdachen.framework.context.userdetails.CurrentUserDetails;
 import com.github.itdachen.framework.core.constants.UserStatusConstant;
-import com.github.itdachen.framework.core.permission.LoginUserModel;
-import com.github.itdachen.framework.security.user.CurrentUserInfo;
 import com.github.itdachen.framework.security.exception.BizSecurityException;
+import com.github.itdachen.framework.security.user.CurrentUserInfo;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.core.GrantedAuthority;
 import org.springframework.security.core.authority.AuthorityUtils;
 import org.springframework.security.core.userdetails.UserDetailsService;
@@ -26,7 +26,12 @@ import java.util.Set;
 public abstract class AbstractSecurityUserDetailsService implements UserDetailsService {
     private static final Logger logger = LoggerFactory.getLogger(AbstractSecurityUserDetailsService.class);
 
-    protected PasswordEncoder passwordEncoder;
+    protected final PasswordEncoder passwordEncoder;
+
+    public AbstractSecurityUserDetailsService(PasswordEncoder passwordEncoder) {
+        this.passwordEncoder = passwordEncoder;
+    }
+
 
     /***
      * 根据登录账号查询用户信息
@@ -111,33 +116,30 @@ public abstract class AbstractSecurityUserDetailsService implements UserDetailsS
      * @author 王大宸
      * @date 2021/11/27 11:39
      * @param user                  SysUserModel
-     * @param userPermission        用户权限
+     * @param authorities           用户权限
      * @return com.itdachen.security.core.model.CurrentUser
      */
-    protected CurrentUserInfo setUserPermission(LoginUserModel user,
-                                                Set<PermissionInfo> userPermission) {
+    protected CurrentUserInfo setUserPermission(CurrentUserDetails user,
+                                                Set<String> authorities) {
         boolean enabled = isEnabled();
         boolean accountNonExpired = accountNonExpired();
         boolean credentialsNonExpired = credentialsNonExpired();
         boolean accountNonLocked = accountNonLocked(user.getStatus());
 
         List<GrantedAuthority> grantedAuthorities = new ArrayList<>();
-        // 后端校验权限
-        Set<String> perms = new HashSet<>();
 
         /* 如果账户被冻结或者不可用 */
         if (!enabled || !accountNonExpired
                 || !credentialsNonExpired || !accountNonLocked) {
             return currentUser(user, enabled, accountNonExpired,
-                    credentialsNonExpired, accountNonLocked, userPermission, perms, grantedAuthorities);
+                    credentialsNonExpired, accountNonLocked, grantedAuthorities);
         }
 
         // 前端标签权限
         StringBuffer sb = new StringBuffer();
         sb.append("ROLE_USER").append(",");
-        for (PermissionInfo permission : userPermission) {
-            perms.add(permission.getPermission());
-            sb.append(permission.getPermission()).append(",");
+        for (String permission : authorities) {
+            sb.append(permission).append(",");
         }
         grantedAuthorities = AuthorityUtils.commaSeparatedStringToAuthorityList(sb.toString());
 
@@ -146,10 +148,12 @@ public abstract class AbstractSecurityUserDetailsService implements UserDetailsS
                 accountNonExpired,
                 credentialsNonExpired,
                 accountNonLocked,
-                userPermission,
-                perms,
                 grantedAuthorities
         );
+    }
+
+    protected CurrentUserInfo setUserPermission(CurrentUserDetails user) {
+        return setUserPermission(user, new HashSet<>());
     }
 
     /***
@@ -158,8 +162,6 @@ public abstract class AbstractSecurityUserDetailsService implements UserDetailsS
      * @author 王大宸
      * @date 2021/11/27 11:39
      * @param user                    用户信息
-     * @param userPermission          用户前线
-     * @param perms                   权限
      * @param enabled                 账号是否可用
      * @param accountNonExpired       账户没有过期
      * @param credentialsNonExpired   密码没过期
@@ -167,38 +169,48 @@ public abstract class AbstractSecurityUserDetailsService implements UserDetailsS
      * @param grantedAuthorities      权限
      * @return com.itdachen.security.core.model.CurrentUser
      */
-    protected CurrentUserInfo currentUser(LoginUserModel user,
+    protected CurrentUserInfo currentUser(CurrentUserDetails user,
                                           boolean enabled,
                                           boolean accountNonExpired,
                                           boolean credentialsNonExpired,
                                           boolean accountNonLocked,
-                                          Set<PermissionInfo> userPermission,
-                                          Set<String> perms,
                                           List<GrantedAuthority> grantedAuthorities) {
-        return new CurrentUserInfo.Builder()
-                .accountNonExpired(accountNonExpired)
-                .accountNonLocked(accountNonLocked)
-                .credentialsNonExpired(credentialsNonExpired)
-                .enabled(enabled)
-                .id(user.getId())
-                .username(user.getUsername())
-                .password(user.getPassword())
-                .name(user.getName())
-                .sex(user.getSex())
-                .providerId(user.getProviderId())
-                .openId(user.getOpenId())
-                .avatar(user.getAvatar())
-                .departId(user.getDepartId())
-                .type(user.getType())
-                .isSuperAdmin(user.getType())
-                .tenantId(user.getTenantId())
-                .grade(user.getGrade())
-                .phone(user.getTelephone())
-                .tenantId(user.getTenantId())
-                .authorities(grantedAuthorities)
-                .urls(userPermission)
-                .perms(perms)
-                .build();
+        CurrentUserInfo info = new CurrentUserInfo(
+                user.getAccount(),
+                user.getAccountSecret(),
+                enabled,
+                accountNonExpired,
+                credentialsNonExpired,
+                accountNonLocked,
+                grantedAuthorities);
+
+        info.setId(user.getId());
+        info.setTenantId(user.getTenantId());
+        info.setClientId(user.getClientId());
+        info.setSignMethod(user.getSignMethod());
+        info.setNickName(user.getNickName());
+        info.setAvatar(user.getAvatar());
+        info.setTelephone(user.getTelephone());
+        info.setEmail(user.getEmail());
+        info.setAccount(user.getAccount());
+        info.setAccountSecret(user.getAccountSecret());
+        info.setStatus(user.getStatus());
+        info.setAppId(user.getAppId());
+        info.setOpenId(user.getOpenId());
+        info.setUserType(user.getUserType());
+        info.setSex(user.getSex());
+        info.setDeptId(user.getDeptId());
+        info.setDeptTitle(user.getDeptTitle());
+        info.setPostId(user.getPostId());
+        info.setPostTitle(user.getPostTitle());
+        info.setGrade(user.getGrade());
+        info.setIsSuperAdmin(user.getIsSuperAdmin());
+        info.setStatus(user.getStatus());
+        info.setDelFlag(user.getDelFlag());
+        info.setCanDel(user.getCanDel());
+        info.setExpireTime(user.getExpireTime());
+        info.setOther(user.getOther());
+        return info;
     }
 
     /**

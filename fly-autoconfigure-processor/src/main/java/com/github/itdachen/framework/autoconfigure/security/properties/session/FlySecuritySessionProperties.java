@@ -1,6 +1,6 @@
 package com.github.itdachen.framework.autoconfigure.security.properties.session;
 
-import com.github.itdachen.framework.autoconfigure.security.properties.constants.SecurityBrowserConstants;
+import com.github.itdachen.framework.autoconfigure.security.constants.SecurityConstants;
 import org.springframework.boot.context.properties.ConfigurationProperties;
 
 /**
@@ -24,7 +24,7 @@ public class FlySecuritySessionProperties {
     /**
      * session失效时跳转的地址
      */
-    private String sessionInvalidUrl = SecurityBrowserConstants.DEFAULT_SESSION_INVALID_URL;
+    private String sessionInvalidUrl = SecurityConstants.DEFAULT_SESSION_INVALID_URL;
 
     public int getMaximumSessions() {
         return maximumSessions;

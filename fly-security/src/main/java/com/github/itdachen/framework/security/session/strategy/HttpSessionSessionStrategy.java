@@ -10,16 +10,18 @@ import org.springframework.web.context.request.RequestAttributes;
  */
 public class HttpSessionSessionStrategy {
 
+    private static final int SCOPE = 1;
+
     public void setAttribute(RequestAttributes request, String name, Object value) {
-        request.setAttribute(name, value, 1);
+        request.setAttribute(name, value, SCOPE);
     }
 
     public Object getAttribute(RequestAttributes request, String name) {
-        return request.getAttribute(name, 1);
+        return request.getAttribute(name, SCOPE);
     }
 
     public void removeAttribute(RequestAttributes request, String name) {
-        request.removeAttribute(name, 1);
+        request.removeAttribute(name, SCOPE);
     }
 
 }

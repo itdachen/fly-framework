@@ -14,7 +14,7 @@ import java.util.List;
 public class FlyGatewayIgnoreProperties {
 
     /**
-     * 忽略的路径
+     * 网关忽略的路径
      */
     private List<String> matchers = new ArrayList<>();
 

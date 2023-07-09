@@ -1,17 +1,17 @@
 package com.github.itdachen.framework.security.authentication;
 
-import com.github.itdachen.framework.security.constants.SecurityConstants;
+import com.github.itdachen.framework.autoconfigure.security.constants.SecurityConstants;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.config.annotation.web.builders.HttpSecurity;
 import org.springframework.security.web.authentication.AuthenticationFailureHandler;
 import org.springframework.security.web.authentication.AuthenticationSuccessHandler;
 
 /**
- * Description: extends WebSecurityConfigurerAdapter
+ * Description:  extends WebSecurityConfigurerAdapter
  * Created by 王大宸 on 2023/02/14 17:05
  * Created with IntelliJ IDEA.
  */
-public class AbstractChannelSecurityConfig  {
+public class AbstractChannelSecurityConfig {
 
     @Autowired
     protected AuthenticationSuccessHandler authenticationSuccessHandler;

@@ -1,9 +1,9 @@
 package com.github.itdachen.framework.security.validate.code.repository.impl;
 
+import com.github.itdachen.framework.security.session.strategy.HttpSessionSessionStrategy;
 import com.github.itdachen.framework.security.validate.code.ValidateCode;
 import com.github.itdachen.framework.security.validate.code.enums.ValidateCodeType;
 import com.github.itdachen.framework.security.validate.code.repository.ValidateCodeRepository;
-import com.github.itdachen.framework.security.session.strategy.HttpSessionSessionStrategy;
 import org.springframework.stereotype.Component;
 import org.springframework.web.context.request.ServletWebRequest;
 

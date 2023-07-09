@@ -1,6 +1,6 @@
 package com.github.itdachen.framework.security.validate.code.enums;
 
-import com.github.itdachen.framework.security.constants.SecurityConstants;
+import com.github.itdachen.framework.autoconfigure.security.constants.SecurityConstants;
 
 /**
  * Description: 验证码类型

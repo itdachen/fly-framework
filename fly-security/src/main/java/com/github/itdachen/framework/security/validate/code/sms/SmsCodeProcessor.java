@@ -1,7 +1,7 @@
 package com.github.itdachen.framework.security.validate.code.sms;
 
+import com.github.itdachen.framework.autoconfigure.security.constants.SecurityConstants;
 import com.github.itdachen.framework.security.validate.code.ValidateCode;
-import com.github.itdachen.framework.security.constants.SecurityConstants;
 import com.github.itdachen.framework.security.validate.code.processor.impl.AbstractValidateCodeProcessor;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
@@ -28,4 +28,5 @@ public class SmsCodeProcessor extends AbstractValidateCodeProcessor<ValidateCode
         String mobile = ServletRequestUtils.getRequiredStringParameter(request.getRequest(), paramName);
         smsCodeSender.send(mobile, validateCode.getCode());
     }
+
 }

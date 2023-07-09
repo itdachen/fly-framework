@@ -1,10 +1,11 @@
 package com.github.itdachen.framework.security.matchers;
 
+import com.github.itdachen.framework.autoconfigure.security.properties.FlySecurityProperties;
+import com.github.itdachen.framework.autoconfigure.security.properties.session.FlySecuritySessionProperties;
 import com.github.itdachen.framework.security.matchers.byo.DefaultPassMatchers;
 import com.github.itdachen.framework.security.matchers.byo.DefaultSecurityPassMatchers;
 import com.github.itdachen.framework.security.matchers.pass.IPassMatchers;
 import com.github.itdachen.framework.security.matchers.pass.ISecurityPassMatchers;
-import com.github.itdachen.framework.security.properties.SecurityBrowserProperties;
 import org.springframework.boot.autoconfigure.condition.ConditionalOnMissingBean;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
@@ -18,25 +19,28 @@ import org.springframework.core.env.Environment;
 @Configuration
 public class BrowserPassMatchersBeanConfig {
 
-    private final SecurityBrowserProperties securityProperties;
+    private final FlySecurityProperties securityProperties;
+    private final FlySecuritySessionProperties sessionProperties;
     private final Environment env;
 
-    public BrowserPassMatchersBeanConfig(SecurityBrowserProperties securityProperties,
+    public BrowserPassMatchersBeanConfig(FlySecurityProperties securityProperties,
+                                         FlySecuritySessionProperties sessionProperties,
                                          Environment env) {
         this.securityProperties = securityProperties;
+        this.sessionProperties = sessionProperties;
         this.env = env;
     }
 
     @Bean
     @ConditionalOnMissingBean(IPassMatchers.class)
     public IPassMatchers defaultPassMatchers() {
-        return new DefaultPassMatchers(securityProperties);
+        return new DefaultPassMatchers(securityProperties, sessionProperties);
     }
 
     @Bean
     @ConditionalOnMissingBean(ISecurityPassMatchers.class)
     public ISecurityPassMatchers defaultSecurityPassMatchers() {
-        return new DefaultSecurityPassMatchers(securityProperties, env);
+        return new DefaultSecurityPassMatchers(securityProperties, sessionProperties, env);
     }
 
 }

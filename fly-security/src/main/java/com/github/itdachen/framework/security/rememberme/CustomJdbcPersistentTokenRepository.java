@@ -14,19 +14,23 @@ import java.util.Date;
 
 /**
  * Description: 自定义 记住我 实现
+ * 数据库结构在 db 文件下
  * Created by 王大宸 on 2022-11-04 9:31
  * Created with IntelliJ IDEA.
  */
 public class CustomJdbcPersistentTokenRepository extends JdbcDaoSupport implements PersistentTokenRepository {
-    public static final String CREATE_TABLE_SQL = "create table sys_persistent_logins (username varchar(64) not null, series varchar(64) primary key, token varchar(64) not null, last_used timestamp not null)";
-    public static final String DEF_TOKEN_BY_SERIES_SQL = "select username,series,token,last_used from sys_persistent_logins where series = ?";
-    public static final String DEF_INSERT_TOKEN_SQL = "insert into sys_persistent_logins (username, series, token, last_used) values(?,?,?,?)";
-    public static final String DEF_UPDATE_TOKEN_SQL = "update sys_persistent_logins set token = ?, last_used = ? where series = ?";
-    public static final String DEF_REMOVE_USER_TOKENS_SQL = "delete from sys_persistent_logins where username = ?";
-    private String tokensBySeriesSql = "select username,series,token,last_used from sys_persistent_logins where series = ?";
-    private String insertTokenSql = "insert into sys_persistent_logins (username, series, token, last_used) values(?,?,?,?)";
-    private String updateTokenSql = "update sys_persistent_logins set token = ?, last_used = ? where series = ?";
-    private String removeUserTokensSql = "delete from sys_persistent_logins where username = ?";
+    /* 记住我数据库表名 */
+    private static final String REMEMBER_ME_TABLE_NAME = "sys_persistent_logins";
+    private static final String tokensBySeriesSql = "select username,series,token,last_used from " + REMEMBER_ME_TABLE_NAME + " where series = ?";
+    private static final String insertTokenSql = "insert into " + REMEMBER_ME_TABLE_NAME + " (username, series, token, last_used) values(?,?,?,?)";
+    private static final String updateTokenSql = "update " + REMEMBER_ME_TABLE_NAME + " set token = ?, last_used = ? where series = ?";
+    private static final String removeUserTokensSql = "delete from " + REMEMBER_ME_TABLE_NAME + " where username = ?";
+    public static final String CREATE_TABLE_SQL = "create table " + REMEMBER_ME_TABLE_NAME + " (username varchar(64) not null, series varchar(64) primary key, token varchar(64) not null, last_used timestamp not null)";
+    public static final String DEF_TOKEN_BY_SERIES_SQL = "select username,series,token,last_used from " + REMEMBER_ME_TABLE_NAME + " where series = ?";
+    public static final String DEF_INSERT_TOKEN_SQL = "insert into " + REMEMBER_ME_TABLE_NAME + " (username, series, token, last_used) values(?,?,?,?)";
+    public static final String DEF_UPDATE_TOKEN_SQL = "update " + REMEMBER_ME_TABLE_NAME + " set token = ?, last_used = ? where series = ?";
+    public static final String DEF_REMOVE_USER_TOKENS_SQL = "delete from " + REMEMBER_ME_TABLE_NAME + " where username = ?";
+
     private boolean createTableOnStartup;
 
     public CustomJdbcPersistentTokenRepository() {
@@ -34,7 +38,7 @@ public class CustomJdbcPersistentTokenRepository extends JdbcDaoSupport implemen
 
     protected void initDao() {
         if (this.createTableOnStartup) {
-            this.getJdbcTemplate().execute("create table sys_persistent_logins (username varchar(64) not null, series varchar(64) primary key, token varchar(64) not null, last_used timestamp not null)");
+            this.getJdbcTemplate().execute("create table " + REMEMBER_ME_TABLE_NAME + " (username varchar(64) not null, series varchar(64) primary key, token varchar(64) not null, last_used timestamp not null)");
         }
 
     }

@@ -1,12 +1,13 @@
 package com.github.itdachen.framework.security.session;
 
+import com.github.itdachen.framework.autoconfigure.security.properties.FlySecurityProperties;
+import com.github.itdachen.framework.autoconfigure.security.properties.session.FlySecuritySessionProperties;
 import com.github.itdachen.framework.boot.runner.handler.ContextPathHandler;
-import com.github.itdachen.framework.security.handler.BrowserClientSessionExceptionHandler;
-import com.github.itdachen.framework.security.handler.BrowserLogoutSuccessHandler;
+import com.github.itdachen.framework.security.handler.FlyClientSessionExceptionHandler;
+import com.github.itdachen.framework.security.handler.FlyLogoutSuccessHandler;
 import com.github.itdachen.framework.security.session.strategy.BrowserExpiredSessionStrategy;
 import com.github.itdachen.framework.security.session.strategy.BrowserInvalidSessionStrategy;
 import com.github.itdachen.framework.security.utils.AuthorizeHttpRequestsHandler;
-import com.github.itdachen.framework.security.properties.SecurityBrowserProperties;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.boot.autoconfigure.condition.ConditionalOnMissingBean;
@@ -26,13 +27,13 @@ import org.springframework.security.web.session.SessionInformationExpiredStrateg
 public class BrowserSecurityBeanConfig {
     private static final Logger logger = LoggerFactory.getLogger(BrowserSecurityBeanConfig.class);
 
-    private final SecurityBrowserProperties securityProperties;
-    private final Environment environment;
+    private final FlySecurityProperties securityProperties;
+    private final FlySecuritySessionProperties sessionProperties;
 
-    public BrowserSecurityBeanConfig(SecurityBrowserProperties securityProperties,
-                                     Environment environment) {
+    public BrowserSecurityBeanConfig(FlySecurityProperties securityProperties,
+                                     FlySecuritySessionProperties sessionProperties) {
         this.securityProperties = securityProperties;
-        this.environment = environment;
+        this.sessionProperties=sessionProperties;
     }
 
     /***
@@ -46,7 +47,7 @@ public class BrowserSecurityBeanConfig {
     @Bean
     @ConditionalOnMissingBean(InvalidSessionStrategy.class)
     public InvalidSessionStrategy invalidSessionStrategy() {
-        return new BrowserInvalidSessionStrategy(securityProperties.getSession().getSessionInvalidUrl());
+        return new BrowserInvalidSessionStrategy(sessionProperties.getSessionInvalidUrl());
     }
 
     /***
@@ -60,7 +61,7 @@ public class BrowserSecurityBeanConfig {
     @Bean
     @ConditionalOnMissingBean(SessionInformationExpiredStrategy.class)
     public SessionInformationExpiredStrategy sessionInformationExpiredStrategy() {
-        return new BrowserExpiredSessionStrategy(securityProperties.getSession().getSessionInvalidUrl());
+        return new BrowserExpiredSessionStrategy(sessionProperties.getSessionInvalidUrl());
     }
 
     /***
@@ -78,7 +79,7 @@ public class BrowserSecurityBeanConfig {
         String signOutUrl = securityProperties.getSignOutUrl();
         final String contextPath = ContextPathHandler.contextPath();
         signOutUrl = AuthorizeHttpRequestsHandler.anyRequestUriHandler(contextPath, signOutUrl);
-        return new BrowserLogoutSuccessHandler(signOutUrl);
+        return new FlyLogoutSuccessHandler(signOutUrl);
     }
 
     /***
@@ -86,13 +87,12 @@ public class BrowserSecurityBeanConfig {
      *
      * @author 王大宸
      * @date 2021/11/27 11:26
-     * @param
-     * @return com.github.itdachen.framework.handler.BrowserClientSessionExceptionHandler
+     * @return BrowserClientSessionExceptionHandler
      */
     @Bean
-    public BrowserClientSessionExceptionHandler clientSessionStrategy() {
+    public FlyClientSessionExceptionHandler clientSessionStrategy() {
         logger.info("正在配置全局客户端 session 处理 ...");
-        return new BrowserClientSessionExceptionHandler(securityProperties);
+        return new FlyClientSessionExceptionHandler(sessionProperties);
     }
 
 

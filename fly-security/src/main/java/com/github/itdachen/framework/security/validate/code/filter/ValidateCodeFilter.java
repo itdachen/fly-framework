@@ -1,15 +1,16 @@
 package com.github.itdachen.framework.security.validate.code.filter;
 
-import com.github.itdachen.framework.core.utils.StringUtils;
+import com.github.itdachen.framework.autoconfigure.security.properties.code.FlySecurityImageCodeProperties;
+import com.github.itdachen.framework.autoconfigure.security.properties.code.FlySecuritySmsCodeProperties;
+import com.github.itdachen.framework.autoconfigure.security.constants.SecurityConstants;
 import com.github.itdachen.framework.security.exception.ValidateCodeException;
 import com.github.itdachen.framework.security.validate.code.enums.ValidateCodeType;
-import com.github.itdachen.framework.security.constants.SecurityConstants;
-import com.github.itdachen.framework.security.properties.SecurityBrowserProperties;
 import com.github.itdachen.framework.security.validate.code.processor.ValidateCodeProcessorHolder;
 import jakarta.servlet.FilterChain;
 import jakarta.servlet.ServletException;
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
+import org.apache.commons.lang3.StringUtils;
 import org.springframework.beans.factory.InitializingBean;
 import org.springframework.core.env.Environment;
 import org.springframework.security.web.authentication.AuthenticationFailureHandler;
@@ -40,10 +41,17 @@ public class ValidateCodeFilter extends OncePerRequestFilter implements Initiali
      * 验证码校验失败处理器
      */
     private final AuthenticationFailureHandler authenticationFailureHandler;
+
     /**
-     * 系统配置信息
+     * 图形验证码认证配置
      */
-    private final SecurityBrowserProperties securityProperties;
+    private final FlySecurityImageCodeProperties imageCodeProperties;
+
+    /**
+     * 短信验证码认证配置
+     */
+    private final FlySecuritySmsCodeProperties smsCodeProperties;
+
     /**
      * 系统中的校验码处理器
      */
@@ -58,11 +66,13 @@ public class ValidateCodeFilter extends OncePerRequestFilter implements Initiali
     private AntPathMatcher pathMatcher = new AntPathMatcher();
 
     public ValidateCodeFilter(AuthenticationFailureHandler authenticationFailureHandler,
-                              SecurityBrowserProperties securityProperties,
+                              FlySecurityImageCodeProperties imageCodeProperties,
+                              FlySecuritySmsCodeProperties smsCodeProperties,
                               ValidateCodeProcessorHolder validateCodeProcessorHolder,
                               Environment env) {
         this.authenticationFailureHandler = authenticationFailureHandler;
-        this.securityProperties = securityProperties;
+        this.imageCodeProperties = imageCodeProperties;
+        this.smsCodeProperties = smsCodeProperties;
         this.validateCodeProcessorHolder = validateCodeProcessorHolder;
         this.env = env;
     }
@@ -77,37 +87,17 @@ public class ValidateCodeFilter extends OncePerRequestFilter implements Initiali
 
         /* 图形验证码 */
         urlMap.put(contextPath + SecurityConstants.DEFAULT_LOGIN_PROCESSING_URL_FORM, ValidateCodeType.IMAGE);
-        addUrlToMap(contextPath, securityProperties.getCode().getImage().getUrl(), ValidateCodeType.IMAGE);
+        addUrlToMap(contextPath, imageCodeProperties.getUrl(), ValidateCodeType.IMAGE);
 
         /* 短信验证码 */
         urlMap.put(contextPath + SecurityConstants.DEFAULT_LOGIN_PROCESSING_URL_MOBILE, ValidateCodeType.SMS);
-        addUrlToMap(contextPath, securityProperties.getCode().getSms().getUrl(), ValidateCodeType.SMS);
-    }
-
-    /***
-     * 讲系统中配置的需要校验验证码的URL根据校验的类型放入map
-     *
-     * @author 王大宸
-     * @date 2021/11/27 10:25
-     * @param urlString
-     * @param type
-     * @return void
-     */
-    protected void addUrlToMap(final String contextPath, String urlString, ValidateCodeType type) {
-        if (StringUtils.isNotBlank(urlString)) {
-            /* 加载当前项目上下文 */
-            String[] urls = StringUtils.splitByWholeSeparatorPreserveAllTokens(urlString, ",");
-            for (String url : urls) {
-                if (StringUtils.isNotEmpty(url) && !url.startsWith(contextPath)) {
-                    url = contextPath + url;
-                }
-                urlMap.put(url, type);
-            }
-        }
+        addUrlToMap(contextPath, smsCodeProperties.getUrl(), ValidateCodeType.SMS);
     }
 
     @Override
-    protected void doFilterInternal(HttpServletRequest request, HttpServletResponse response, FilterChain chain) throws ServletException, IOException {
+    protected void doFilterInternal(HttpServletRequest request,
+                                    HttpServletResponse response,
+                                    FilterChain chain) throws ServletException, IOException {
 
         ValidateCodeType type = getValidateCodeType(request);
         if (type != null) {
@@ -133,12 +123,13 @@ public class ValidateCodeFilter extends OncePerRequestFilter implements Initiali
      */
     private ValidateCodeType getValidateCodeType(HttpServletRequest request) {
         ValidateCodeType result = null;
-        if (!StringUtils.equalsIgnoreCase(request.getMethod(), "get")) {
-            Set<String> urls = urlMap.keySet();
-            for (String url : urls) {
-                if (pathMatcher.match(url, request.getRequestURI())) {
-                    result = urlMap.get(url);
-                }
+        if ("get".equals(request.getMethod()) || "GET".equals(request.getMethod())) {
+            return null;
+        }
+        Set<String> urls = urlMap.keySet();
+        for (String url : urls) {
+            if (pathMatcher.match(url, request.getRequestURI())) {
+                result = urlMap.get(url);
             }
         }
         return result;
@@ -157,6 +148,29 @@ public class ValidateCodeFilter extends OncePerRequestFilter implements Initiali
             return "";
         }
         return contextPath;
+    }
+
+
+    /***
+     * 讲系统中配置的需要校验验证码的URL根据校验的类型放入map
+     *
+     * @author 王大宸
+     * @date 2021/11/27 10:25
+     * @param urlString
+     * @param type
+     * @return void
+     */
+    protected void addUrlToMap(final String contextPath, String urlString, ValidateCodeType type) {
+        if (StringUtils.isNotBlank(urlString)) {
+            /* 加载当前项目上下文 */
+            String[] urls = StringUtils.splitByWholeSeparatorPreserveAllTokens(urlString, ",");
+            for (String url : urls) {
+                if (StringUtils.isNotEmpty(url) && !url.startsWith(contextPath)) {
+                    url = contextPath + url;
+                }
+                urlMap.put(url, type);
+            }
+        }
     }
 
 

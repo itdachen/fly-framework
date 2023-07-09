@@ -1,5 +1,6 @@
 package com.github.itdachen.framework.security.validate.code.image;
 
+
 import com.github.itdachen.framework.security.validate.code.ValidateCode;
 
 import java.awt.image.BufferedImage;

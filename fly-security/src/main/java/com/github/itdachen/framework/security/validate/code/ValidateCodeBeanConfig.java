@@ -1,8 +1,8 @@
 package com.github.itdachen.framework.security.validate.code;
 
-import com.github.itdachen.framework.security.validate.code.sms.DefaultSmsCodeSender;
-import com.github.itdachen.framework.security.properties.SecurityBrowserProperties;
+import com.github.itdachen.framework.autoconfigure.security.properties.code.FlySecurityImageCodeProperties;
 import com.github.itdachen.framework.security.validate.code.image.ImageCodeGenerator;
+import com.github.itdachen.framework.security.validate.code.sms.DefaultSmsCodeSender;
 import com.github.itdachen.framework.security.validate.code.sms.SmsCodeSender;
 import org.springframework.boot.autoconfigure.condition.ConditionalOnMissingBean;
 import org.springframework.context.annotation.Bean;
@@ -16,9 +16,9 @@ import org.springframework.context.annotation.Configuration;
 @Configuration
 public class ValidateCodeBeanConfig {
 
-    private final SecurityBrowserProperties securityProperties;
+    private final FlySecurityImageCodeProperties securityProperties;
 
-    public ValidateCodeBeanConfig(SecurityBrowserProperties securityProperties) {
+    public ValidateCodeBeanConfig(FlySecurityImageCodeProperties securityProperties) {
         this.securityProperties = securityProperties;
     }
 

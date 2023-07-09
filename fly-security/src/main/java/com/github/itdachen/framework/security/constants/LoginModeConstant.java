@@ -17,4 +17,15 @@ public class LoginModeConstant {
      */
     public static final String NOT_HAVE_USER = "NOT_HAVE_USER";
 
+    /**
+     * 短信模式
+     */
+    public static final String SMS = "SMS";
+
+    /**
+     * 密码模式
+     */
+    public static final String PASSWORD = "PASSWORD";
+
+
 }

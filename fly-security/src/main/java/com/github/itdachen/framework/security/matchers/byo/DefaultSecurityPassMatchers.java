@@ -1,24 +1,29 @@
 package com.github.itdachen.framework.security.matchers.byo;
 
-import com.github.itdachen.framework.core.utils.StringUtils;
+import com.github.itdachen.framework.autoconfigure.security.properties.FlySecurityProperties;
+import com.github.itdachen.framework.autoconfigure.security.constants.SecurityConstants;
+import com.github.itdachen.framework.autoconfigure.security.properties.session.FlySecuritySessionProperties;
 import com.github.itdachen.framework.security.matchers.pass.ISecurityPassMatchers;
-import com.github.itdachen.framework.security.constants.SecurityConstants;
-import com.github.itdachen.framework.security.properties.SecurityBrowserProperties;
+import org.apache.commons.lang3.StringUtils;
 import org.springframework.core.env.Environment;
 
 /**
  * Description: 系统安全认证方法不需要拦截的
+ * * 静态资源文件和登录接口等
  * Created by 王大宸 on 2022-09-23 14:45
  * Created with IntelliJ IDEA.
  */
 public class DefaultSecurityPassMatchers implements ISecurityPassMatchers {
 
-    private final SecurityBrowserProperties securityProperties;
+    private final FlySecurityProperties securityProperties;
+    private final FlySecuritySessionProperties sessionProperties;
     private final Environment env;
 
-    public DefaultSecurityPassMatchers(SecurityBrowserProperties securityProperties,
+    public DefaultSecurityPassMatchers(FlySecurityProperties securityProperties,
+                                       FlySecuritySessionProperties sessionProperties,
                                        Environment env) {
         this.securityProperties = securityProperties;
+        this.sessionProperties = sessionProperties;
         this.env = env;
     }
 
@@ -34,7 +39,7 @@ public class DefaultSecurityPassMatchers implements ISecurityPassMatchers {
                 contextPath + SecurityConstants.DEFAULT_LOGIN_PROCESSING_URL_OPENID,
                 contextPath + SecurityConstants.DEFAULT_UN_AUTHENTICATION_URL,
                 contextPath + SecurityConstants.DEFAULT_LOGIN_PROCESSING_URL_FORM,
-                contextPath + SecurityConstants.DEFAULT_VALIDATE_CODE_URL_PREFIX + "/*",
+                contextPath + SecurityConstants.DEFAULT_VALIDATE_CODE_URL_PREFIX + "/**",
                 contextPath + "/login", contextPath + "/admin/login",
                 /* 开放 api 接口 */
                 contextPath + "/open/**", contextPath + "/api/open/**",
@@ -49,18 +54,8 @@ public class DefaultSecurityPassMatchers implements ISecurityPassMatchers {
                 contextPath + "/assets/**", contextPath + "/static/**", contextPath + "/heartbeat",
                 contextPath + "/forget", contextPath + "/upload/**",
                 contextPath + "/webjars/**",
-                "**.js", "**/**.css", "**/**.png", "**/**.jpg",
 
-                //=== 登录 ===//
-                securityProperties.getSignInPage(),
-                securityProperties.getSignOutUrl(),
-                securityProperties.getSignUpUrl(),
-                SecurityConstants.DEFAULT_LOGIN_PROCESSING_URL_MOBILE,
-                SecurityConstants.DEFAULT_LOGIN_PROCESSING_URL_OPENID,
-                SecurityConstants.DEFAULT_UN_AUTHENTICATION_URL,
-                SecurityConstants.DEFAULT_LOGIN_PROCESSING_URL_FORM,
-                SecurityConstants.DEFAULT_VALIDATE_CODE_URL_PREFIX + "/*",
-                "/login", "/admin/login",
+                "/login",
                 /* 开放 api 接口 */
                 "/open/**", "/api/open/**",
                 /* SpringBootAdmin 系统检测 */
@@ -72,7 +67,17 @@ public class DefaultSecurityPassMatchers implements ISecurityPassMatchers {
                 "/favicon.ico", "/favicon", "favicon",
                 "/assets/**", "/static/**", "/heartbeat", "/forget", "/upload/**",
                 "/webjars/**",
-                "**.js", "**/**.css", "**/**.png", "**/**.jpg", "/favicon", "favicon"
+
+                //=== 登录 ===//
+                securityProperties.getSignInPage(),
+                securityProperties.getSignOutUrl(),
+                securityProperties.getSignUpUrl(),
+                sessionProperties.getSessionInvalidUrl(),
+                SecurityConstants.DEFAULT_LOGIN_PROCESSING_URL_MOBILE,
+                SecurityConstants.DEFAULT_LOGIN_PROCESSING_URL_OPENID,
+                SecurityConstants.DEFAULT_UN_AUTHENTICATION_URL,
+                SecurityConstants.DEFAULT_LOGIN_PROCESSING_URL_FORM,
+                SecurityConstants.DEFAULT_VALIDATE_CODE_URL_PREFIX + "/**",
         };
     }
 
