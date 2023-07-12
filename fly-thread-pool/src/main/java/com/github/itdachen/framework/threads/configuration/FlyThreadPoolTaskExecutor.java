@@ -14,7 +14,7 @@ import java.util.concurrent.ThreadPoolExecutor;
  */
 @Configuration
 @EnableAsync
-public class ThreadPoolTaskExecutor {
+public class FlyThreadPoolTaskExecutor {
 
     @Bean(ThreadPoolTaskConstant.THREAD_POOL_NAME)
     public org.springframework.scheduling.concurrent.ThreadPoolTaskExecutor threadPoolTaskExecutor(){
