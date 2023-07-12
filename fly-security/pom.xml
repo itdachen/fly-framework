@@ -63,7 +63,10 @@
             <groupId>com.github.itdachen.framework</groupId>
             <artifactId>fly-tools</artifactId>
         </dependency>
-
+        <dependency>
+            <groupId>com.github.itdachen.framework</groupId>
+            <artifactId>fly-thread-pool</artifactId>
+        </dependency>
     </dependencies>
 
 </project>

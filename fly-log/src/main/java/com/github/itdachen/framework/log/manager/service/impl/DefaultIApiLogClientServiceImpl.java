@@ -14,8 +14,8 @@ public class DefaultIApiLogClientServiceImpl implements IApiLogClientService {
     private static final Logger logger = LoggerFactory.getLogger(DefaultIApiLogClientServiceImpl.class);
 
     @Override
-    public void save(ApiLogClient apiLog){
-        logger.info("操作日志: ");
-        logger.info(apiLog.toString());
+    public void save(ApiLogClient apiLog) {
+        logger.info("操作日志: {}", apiLog.toString());
     }
+
 }

@@ -39,6 +39,10 @@
             <groupId>com.github.itdachen.framework</groupId>
             <artifactId>fly-spring</artifactId>
         </dependency>
+        <dependency>
+            <groupId>com.github.itdachen.framework</groupId>
+            <artifactId>fly-thread-pool</artifactId>
+        </dependency>
 
         <dependency>
             <groupId>com.alibaba</groupId>

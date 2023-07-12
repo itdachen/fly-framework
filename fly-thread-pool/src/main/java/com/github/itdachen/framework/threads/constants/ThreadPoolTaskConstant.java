@@ -9,4 +9,6 @@ public class ThreadPoolTaskConstant {
 
     public static final String THREAD_POOL_NAME = "threadPoolTaskExecutor";
 
+    public static final String THREAD_POOL_SERVICE =  "scheduledExecutorService";
+
 }

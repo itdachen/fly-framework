@@ -9,7 +9,7 @@ import com.github.itdachen.framework.context.snowflake.IdUtils;
 import com.github.itdachen.framework.log.constants.ApiLogConstant;
 import com.github.itdachen.framework.context.entity.ApiLogClient;
 import com.github.itdachen.framework.log.manager.AsyncFactory;
-import com.github.itdachen.framework.log.manager.AsyncManager;
+import com.github.itdachen.framework.threads.manager.AsyncThreadsManager;
 import com.github.itdachen.framework.tools.ServletUtils;
 import org.apache.commons.lang3.StringUtils;
 import org.aspectj.lang.JoinPoint;
@@ -114,7 +114,7 @@ public class LogAspectj {
                 }
             }
             // 保存数据库
-            AsyncManager.me().execute(AsyncFactory.recordOper(apiLog));
+            AsyncThreadsManager.me().execute(AsyncFactory.recordOper(apiLog));
         } catch (Exception exp) {
             // 记录本地异常日志
             logger.error("==前置通知异常==异常信息: {}", exp.getMessage(), exp);

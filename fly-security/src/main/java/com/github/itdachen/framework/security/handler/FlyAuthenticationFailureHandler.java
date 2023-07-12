@@ -6,6 +6,8 @@ import com.github.itdachen.framework.core.utils.StringUtils;
 import com.github.itdachen.framework.security.constants.LoginModeConstant;
 import com.github.itdachen.framework.security.exception.BizSecurityException;
 import com.github.itdachen.framework.security.log.IAuthFailureCredentialsLogHandler;
+import com.github.itdachen.framework.security.log.LogAsyncFactory;
+import com.github.itdachen.framework.threads.manager.AsyncThreadsManager;
 import jakarta.servlet.ServletException;
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
@@ -28,12 +30,9 @@ public class FlyAuthenticationFailureHandler extends SimpleUrlAuthenticationFail
     private static final Logger logger = LoggerFactory.getLogger(FlyAuthenticationFailureHandler.class);
 
     private final FlySecurityProperties securityProperties;
-    private final IAuthFailureCredentialsLogHandler authFailureBadCredentialsService;
 
-    public FlyAuthenticationFailureHandler(FlySecurityProperties securityProperties,
-                                           IAuthFailureCredentialsLogHandler authFailureBadCredentialsService) {
+    public FlyAuthenticationFailureHandler(FlySecurityProperties securityProperties) {
         this.securityProperties = securityProperties;
-        this.authFailureBadCredentialsService = authFailureBadCredentialsService;
     }
 
 
@@ -71,7 +70,9 @@ public class FlyAuthenticationFailureHandler extends SimpleUrlAuthenticationFail
 
         final String message = exception.getMessage();
 
-        authFailureBadCredentialsService.handler(request, response, exception, request.getSession().getId());
+        /* 登录失败数据入库 */
+        AsyncThreadsManager.me().execute(LogAsyncFactory.failureTimerTask(request, response, exception, request.getSession().getId()));
+
 
         String type = LoginModeConstant.PASSWORD;
         // 手机号码登录失败

@@ -1,10 +1,15 @@
 package com.github.itdachen.framework.threads.configuration;
 
 import com.github.itdachen.framework.threads.constants.ThreadPoolTaskConstant;
+import com.github.itdachen.framework.threads.manager.Threads;
+import org.apache.commons.lang3.concurrent.BasicThreadFactory;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.scheduling.annotation.EnableAsync;
+import org.springframework.scheduling.concurrent.ThreadPoolTaskExecutor;
 
+import java.util.concurrent.ScheduledExecutorService;
+import java.util.concurrent.ScheduledThreadPoolExecutor;
 import java.util.concurrent.ThreadPoolExecutor;
 
 /**
@@ -14,29 +19,41 @@ import java.util.concurrent.ThreadPoolExecutor;
  */
 @Configuration
 @EnableAsync
-public class FlyThreadPoolTaskExecutor {
+public class FlyThreadPoolTaskExecutorConfiguration {
+
+    // 核心线程池大小
+    private static final int corePoolSize = 16;
+
+    // 最大可创建的线程数
+    private static final int maxPoolSize = 64;
+
+    // 队列最大长度
+    private static final int queueCapacity = 1024;
+
+    // 线程池维护线程所允许的空闲时间
+    private static final int keepAliveSeconds = 30;
 
     @Bean(ThreadPoolTaskConstant.THREAD_POOL_NAME)
-    public org.springframework.scheduling.concurrent.ThreadPoolTaskExecutor threadPoolTaskExecutor(){
+    public ThreadPoolTaskExecutor threadPoolTaskExecutor() {
 
-        org.springframework.scheduling.concurrent.ThreadPoolTaskExecutor executor = new org.springframework.scheduling.concurrent.ThreadPoolTaskExecutor();
+        ThreadPoolTaskExecutor executor = new ThreadPoolTaskExecutor();
 
         //线程池创建的核心线程数，线程池维护线程的最少数量，即使没有任务需要执行，也会一直存活
         //如果设置allowCoreThreadTimeout=true（默认false）时，核心线程会超时关闭
-        executor.setCorePoolSize(16);
+        executor.setCorePoolSize(corePoolSize);
         //executor.setAllowCoreThreadTimeOut();
 
         //阻塞队列 当核心线程数达到最大时，新任务会放在队列中排队等待执行
-        executor.setQueueCapacity(1024);
+        executor.setQueueCapacity(queueCapacity);
 
         //最大线程池数量，当线程数>=corePoolSize，且任务队列已满时。线程池会创建新线程来处理任务
         //任务队列已满时, 且当线程数=maxPoolSize，，线程池会拒绝处理任务而抛出异常
-        executor.setMaxPoolSize(64);
+        executor.setMaxPoolSize(maxPoolSize);
 
         //当线程空闲时间达到keepAliveTime时，线程会退出，直到线程数量=corePoolSize
         //允许线程空闲时间30秒，当maxPoolSize的线程在空闲时间到达的时候销毁
         //如果allowCoreThreadTimeout=true，则会直到线程数量=0
-        executor.setKeepAliveSeconds(30);
+        executor.setKeepAliveSeconds(keepAliveSeconds);
 
         //spring 提供的 ThreadPoolTaskExecutor 线程池，是有setThreadNamePrefix() 方法的。
         //jdk 提供的ThreadPoolExecutor 线程池是没有 setThreadNamePrefix() 方法的
@@ -52,6 +69,22 @@ public class FlyThreadPoolTaskExecutor {
 
         executor.initialize();
         return executor;
+    }
+
+
+    /**
+     * 执行周期性或定时任务
+     */
+    @Bean(name = ThreadPoolTaskConstant.THREAD_POOL_SERVICE)
+    protected ScheduledExecutorService scheduledExecutorService() {
+        return new ScheduledThreadPoolExecutor(corePoolSize,
+                new BasicThreadFactory.Builder().namingPattern("schedule-pool-%d").daemon(true).build()) {
+            @Override
+            protected void afterExecute(Runnable r, Throwable t) {
+                super.afterExecute(r, t);
+                Threads.printException(r, t);
+            }
+        };
     }
 
 

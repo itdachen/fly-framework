@@ -3,6 +3,8 @@ package com.github.itdachen.framework.security.handler;
 import com.github.itdachen.framework.autoconfigure.security.properties.FlySecurityProperties;
 import com.github.itdachen.framework.autoconfigure.security.constants.SecurityConstants;
 import com.github.itdachen.framework.security.log.IAuthSuccessCredentialsLogHandler;
+import com.github.itdachen.framework.security.log.LogAsyncFactory;
+import com.github.itdachen.framework.threads.manager.AsyncThreadsManager;
 import jakarta.servlet.ServletException;
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
@@ -25,12 +27,9 @@ public class FlyAuthenticationSuccessHandler extends SavedRequestAwareAuthentica
     private static final Logger logger = LoggerFactory.getLogger(FlyAuthenticationSuccessHandler.class);
 
     private final FlySecurityProperties securityProperties;
-    private final IAuthSuccessCredentialsLogHandler authSuccessService;
 
-    public FlyAuthenticationSuccessHandler(FlySecurityProperties securityProperties,
-                                           IAuthSuccessCredentialsLogHandler authSuccessService) {
+    public FlyAuthenticationSuccessHandler(FlySecurityProperties securityProperties) {
         this.securityProperties = securityProperties;
-        this.authSuccessService = authSuccessService;
     }
 
     @Override
@@ -42,10 +41,9 @@ public class FlyAuthenticationSuccessHandler extends SavedRequestAwareAuthentica
 //        CurrentUser user = (CurrentUser) authentication.getPrincipal();
 //        user.setType(netType);
 
-        /**
-         * 登录记录入库
-         */
-        authSuccessService.handler(request, response, authentication, request.getSession().getId());
+        /* 登录成功数据入库 */
+        AsyncThreadsManager.me().execute(LogAsyncFactory.successTimerTask(request, response, authentication, request.getSession().getId()));
+
 
         String redirect_uri = request.getParameter(SecurityConstants.REDIRECT_URI);
         String targetUrl = StringUtils.isEmpty(redirect_uri) ? securityProperties.getSuccessForwardUrl() : redirect_uri;

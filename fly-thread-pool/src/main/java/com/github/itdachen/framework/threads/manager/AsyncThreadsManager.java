@@ -26,7 +26,7 @@ public class AsyncThreadsManager {
     /**
      * 异步操作任务调度线程池
      */
-    private static final ScheduledExecutorService executor = SpringBeanUtils.getBean(ThreadPoolTaskConstant.THREAD_POOL_NAME);
+    private static final ScheduledExecutorService executor = SpringBeanUtils.getBean(ThreadPoolTaskConstant.THREAD_POOL_SERVICE);
 
     /**
      * 单例模式
