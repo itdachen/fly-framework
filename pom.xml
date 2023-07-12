@@ -35,6 +35,7 @@
         <module>fly-rate-limiter</module>
         <module>fly-sensitive</module>
         <module>fly-autoconfigure-processor</module>
+        <module>fly-thread-pool</module>
     </modules>
 
     <properties>
