@@ -42,7 +42,7 @@
         <mysql.version>8.0.32</mysql.version>
 
         <!-- 工具集 -->
-        <cn.hutool>5.8.15</cn.hutool>
+        <cn.hutool.version>5.8.15</cn.hutool.version>
         <commons.io.version>2.13.0</commons.io.version>
         <commons-lang.version>2.6</commons-lang.version>
         <io.jsonwebtoken.jjwt.version>0.11.5</io.jsonwebtoken.jjwt.version>
@@ -300,12 +300,12 @@
             <dependency>
                 <groupId>cn.hutool</groupId>
                 <artifactId>hutool-all</artifactId>
-                <version>${cn.hutool}</version>
+                <version>${cn.hutool.version}</version>
             </dependency>
             <dependency>
                 <groupId>cn.hutool</groupId>
                 <artifactId>hutool-http</artifactId>
-                <version>${cn.hutool}</version>
+                <version>${cn.hutool.version}</version>
             </dependency>
             <dependency>
                 <groupId>commons-io</groupId>
