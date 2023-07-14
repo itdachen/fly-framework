@@ -10,7 +10,7 @@ import java.util.List;
  * Created by 王大宸 on 2023-07-06 16:12
  * Created with IntelliJ IDEA.
  */
-@ConfigurationProperties(prefix = "fly.gateway.ignore")
+@ConfigurationProperties(prefix = "fly.cloud.gateway.ignore")
 public class FlyGatewayIgnoreProperties {
 
     /**

@@ -7,7 +7,7 @@ import org.springframework.boot.context.properties.ConfigurationProperties;
  * Created by 王大宸 on 2023-07-06 15:53
  * Created with IntelliJ IDEA.
  */
-@ConfigurationProperties(prefix = "fly.gateway.routes")
+@ConfigurationProperties(prefix = "fly.cloud.gateway.routes")
 public class FlyGatewayRoutesProperties {
 
     private long timeout = 30000;
@@ -25,12 +25,12 @@ public class FlyGatewayRoutesProperties {
     /**
      * 配置中心 dataId
      */
-    private String dataId = "GATE_WAY_ROUTERS";
+    private String dataId = "GATEWAY_ROUTERS";
 
     /**
      * 分组
      */
-    private String group = "GATE_WAY_ROUTERS";
+    private String group = "GATEWAY_ROUTERS";
 
     public long getTimeout() {
         return timeout;
