@@ -1,7 +1,7 @@
 package com.github.itdachen.framework.cloud.jwt.parse.factory;
 
 import com.github.itdachen.framework.autoconfigure.cloud.jwt.enums.JwtTokenEnumType;
-import com.github.itdachen.framework.autoconfigure.cloud.jwt.properties.FlyJwtTokenProperties;
+import com.github.itdachen.framework.autoconfigure.cloud.jwt.properties.FlyCloudTokenProperties;
 import com.github.itdachen.framework.cloud.jwt.parse.factory.handler.AbstractParseJwtsTokenHandler;
 import com.github.itdachen.framework.cloud.jwt.parse.factory.handler.EcdsaParseJwtsTokenHandler;
 import com.github.itdachen.framework.cloud.jwt.parse.factory.handler.HmacParseJwtsTokenHandler;
@@ -16,9 +16,9 @@ import org.springframework.stereotype.Component;
 @Component
 public class ParseTokenFactory {
 
-    private final FlyJwtTokenProperties properties;
+    private final FlyCloudTokenProperties properties;
 
-    public ParseTokenFactory(FlyJwtTokenProperties properties) {
+    public ParseTokenFactory(FlyCloudTokenProperties properties) {
         this.properties = properties;
     }
 

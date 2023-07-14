@@ -9,7 +9,7 @@ import org.springframework.boot.context.properties.ConfigurationProperties;
  * Created with IntelliJ IDEA.
  */
 @ConfigurationProperties(prefix = "fly.cloud.auth.token")
-public class FlyJwtTokenProperties {
+public class FlyCloudTokenProperties {
 
     /**
      * 生成 token 方式, 默认使用 RSA, 私钥加密, 公钥解密

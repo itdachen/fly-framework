@@ -1,6 +1,6 @@
 package com.github.itdachen.framework.cloud.jwt.crypto;
 
-import com.github.itdachen.framework.autoconfigure.cloud.jwt.properties.FlyJwtTokenProperties;
+import com.github.itdachen.framework.autoconfigure.cloud.jwt.properties.FlyCloudTokenProperties;
 import com.github.itdachen.framework.cloud.jwt.core.IJwtInfo;
 import com.github.itdachen.framework.cloud.jwt.core.SecretKeyConfiguration;
 import com.github.itdachen.framework.cloud.jwt.crypto.factory.JwtsTokenFactory;
@@ -16,10 +16,10 @@ import org.springframework.stereotype.Component;
 public class JwtsTokenHelper {
 
     private final JwtsTokenFactory tokenFactory;
-    private final FlyJwtTokenProperties properties;
+    private final FlyCloudTokenProperties properties;
 
     public JwtsTokenHelper(JwtsTokenFactory tokenFactory,
-                           FlyJwtTokenProperties properties) {
+                           FlyCloudTokenProperties properties) {
         this.tokenFactory = tokenFactory;
         this.properties = properties;
     }

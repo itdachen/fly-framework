@@ -10,7 +10,7 @@ import java.util.List;
  * Created with IntelliJ IDEA.
  */
 @ConfigurationProperties(prefix = "fly.cloud.auth.app")
-public class FlyJwtAppClientProperties {
+public class FlyCloudAppClientProperties {
 
     /**
      * 认证中心

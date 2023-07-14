@@ -1,6 +1,5 @@
 package com.github.itdachen.framework.cloud.jwt.crypto.factory.handler;
 
-import com.github.itdachen.framework.autoconfigure.cloud.jwt.properties.FlyJwtTokenProperties;
 import com.github.itdachen.framework.cloud.jwt.core.IJwtInfo;
 import com.github.itdachen.framework.cloud.jwt.crypto.constants.JWTHeader;
 import com.github.itdachen.framework.cloud.jwt.crypto.key.JwtSecretKey;

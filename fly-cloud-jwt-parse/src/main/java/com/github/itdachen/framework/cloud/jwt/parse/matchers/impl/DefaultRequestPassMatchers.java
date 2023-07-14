@@ -1,6 +1,6 @@
 package com.github.itdachen.framework.cloud.jwt.parse.matchers.impl;
 
-import com.github.itdachen.framework.autoconfigure.cloud.jwt.properties.FlyJwtAppClientProperties;
+import com.github.itdachen.framework.autoconfigure.cloud.jwt.properties.FlyCloudAppClientProperties;
 import com.github.itdachen.framework.cloud.jwt.parse.matchers.IRequestPassMatchers;
 
 import java.util.List;
@@ -12,9 +12,9 @@ import java.util.List;
  */
 public class DefaultRequestPassMatchers implements IRequestPassMatchers {
 
-    private final FlyJwtAppClientProperties jwtsProperties;
+    private final FlyCloudAppClientProperties jwtsProperties;
 
-    public DefaultRequestPassMatchers(FlyJwtAppClientProperties jwtsProperties) {
+    public DefaultRequestPassMatchers(FlyCloudAppClientProperties jwtsProperties) {
         this.jwtsProperties = jwtsProperties;
     }
 

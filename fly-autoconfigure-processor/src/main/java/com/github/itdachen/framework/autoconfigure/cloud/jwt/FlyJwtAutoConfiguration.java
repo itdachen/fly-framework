@@ -1,7 +1,7 @@
 package com.github.itdachen.framework.autoconfigure.cloud.jwt;
 
-import com.github.itdachen.framework.autoconfigure.cloud.jwt.properties.FlyJwtAppClientProperties;
-import com.github.itdachen.framework.autoconfigure.cloud.jwt.properties.FlyJwtTokenProperties;
+import com.github.itdachen.framework.autoconfigure.cloud.jwt.properties.FlyCloudAppClientProperties;
+import com.github.itdachen.framework.autoconfigure.cloud.jwt.properties.FlyCloudTokenProperties;
 import org.springframework.boot.context.properties.EnableConfigurationProperties;
 import org.springframework.context.annotation.Configuration;
 
@@ -12,8 +12,8 @@ import org.springframework.context.annotation.Configuration;
  */
 @Configuration
 @EnableConfigurationProperties({
-        FlyJwtTokenProperties.class,
-        FlyJwtAppClientProperties.class
+        FlyCloudTokenProperties.class,
+        FlyCloudAppClientProperties.class
 })
 public class FlyJwtAutoConfiguration {
 }
