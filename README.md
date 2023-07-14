@@ -56,7 +56,6 @@
 | fly-hardware                     | 系统参数调用封装（CUP,内存,JVM信息等）   |
 | fly-datasource                   | 数据库加密模块                   |
 | fly-file                         | 文件上传模块                    |
-| fly-jjwt                         | JSON Web Token (JWT)封装实现  |
 | fly-jwt                          | JSON Web Token (JWT)封装实现  |
 | fly-webmvc                       | 通用 MVC 封装模块               |
 | fly-runner                       | SpringBoot 启动 runner 日志模块 |
@@ -71,6 +70,9 @@
 | fly-rate-limiter                 | 自定义限流模块                   |
 | fly-sensitive                    | 数据脱敏模块                    |
 | fly-thread-pool                  | 自定义线程池模块                  |
+| fly-cloud-jwt-core               | jwt 认证 token 认证核心模块       |
+| fly-cloud-jwt-crypto             | jwt 认证 token 加密模块         |
+| fly-cloud-jwt-parse              | jwt 认证 token 解析模块         |
 
 ### 💒 代码仓库
 
@@ -82,15 +84,15 @@
 进入 fly-dependencies 目录
 
 ```lua
-mvn clean
-mvn install
+cd fly-dependencies
+mvn clean install
 ```
 
 退回根目录(fly-framework)
 
 ```lua
-mvn clean
-mvn install
+cd ..
+mvn clean install
 ```
 
 

@@ -207,6 +207,21 @@
                 <version>${fly.framework.dependencies.version}</version>
             </dependency>
             <dependency>
+                <groupId>com.github.itdachen.framework.cloud</groupId>
+                <artifactId>fly-cloud-jwt-core</artifactId>
+                <version>${fly.framework.dependencies.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>com.github.itdachen.framework.cloud</groupId>
+                <artifactId>fly-cloud-jwt-crypto</artifactId>
+                <version>${fly.framework.dependencies.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>com.github.itdachen.framework.cloud</groupId>
+                <artifactId>fly-cloud-jwt-parse</artifactId>
+                <version>${fly.framework.dependencies.version}</version>
+            </dependency>
+            <dependency>
                 <groupId>com.github.itdachen.framework</groupId>
                 <artifactId>fly-rate-limiter</artifactId>
                 <version>${fly.framework.dependencies.version}</version>

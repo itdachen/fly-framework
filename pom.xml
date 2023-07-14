@@ -30,12 +30,14 @@
         <module>fly-cloud-gateway-dynamic-routes</module>
         <module>fly-druid-view</module>
         <module>fly-code-tools</module>
-        <module>fly-jjwt</module>
         <module>fly-cloud-openfeign</module>
         <module>fly-rate-limiter</module>
         <module>fly-sensitive</module>
         <module>fly-autoconfigure-processor</module>
         <module>fly-thread-pool</module>
+        <module>fly-cloud-jwt-core</module>
+        <module>fly-cloud-jwt-crypto</module>
+        <module>fly-cloud-jwt-parse</module>
     </modules>
 
     <properties>
