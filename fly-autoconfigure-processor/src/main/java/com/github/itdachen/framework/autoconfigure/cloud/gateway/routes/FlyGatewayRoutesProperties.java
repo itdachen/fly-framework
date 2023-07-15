@@ -13,6 +13,16 @@ public class FlyGatewayRoutesProperties {
     private long timeout = 30000;
 
     /**
+     * nacos 账号
+     */
+    private String username = "nacos";
+
+    /**
+     * nacos 密码
+     */
+    private String password = "nacos";
+
+    /**
      * Nacos 地址
      */
     private String serverAddr = "127.0.0.1:8848";
@@ -38,6 +48,22 @@ public class FlyGatewayRoutesProperties {
 
     public void setTimeout(long timeout) {
         this.timeout = timeout;
+    }
+
+    public String getUsername() {
+        return username;
+    }
+
+    public void setUsername(String username) {
+        this.username = username;
+    }
+
+    public String getPassword() {
+        return password;
+    }
+
+    public void setPassword(String password) {
+        this.password = password;
     }
 
     public String getServerAddr() {

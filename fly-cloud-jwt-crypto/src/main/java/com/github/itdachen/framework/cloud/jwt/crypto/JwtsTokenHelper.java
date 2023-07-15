@@ -2,7 +2,6 @@ package com.github.itdachen.framework.cloud.jwt.crypto;
 
 import com.github.itdachen.framework.autoconfigure.cloud.jwt.properties.FlyCloudTokenProperties;
 import com.github.itdachen.framework.cloud.jwt.core.IJwtInfo;
-import com.github.itdachen.framework.cloud.jwt.core.SecretKeyConfiguration;
 import com.github.itdachen.framework.cloud.jwt.crypto.factory.JwtsTokenFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
@@ -25,7 +24,7 @@ public class JwtsTokenHelper {
     }
 
     @Autowired
-    private SecretKeyConfiguration secretKeyConfiguration;
+    private AuthTokenSecretKey secretKeyConfiguration;
 
     /***
      * 加密返回 token

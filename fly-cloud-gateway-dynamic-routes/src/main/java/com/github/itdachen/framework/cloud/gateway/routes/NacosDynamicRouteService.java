@@ -32,12 +32,12 @@ public class NacosDynamicRouteService {
     private ConfigService configService;
 
     private final DynamicRouteService dynamicRouteService;
-    private final FlyGatewayRoutesProperties autoconfigureProperties;
+    private final FlyGatewayRoutesProperties routesProperties;
 
     public NacosDynamicRouteService(DynamicRouteService dynamicRouteService,
-                                    FlyGatewayRoutesProperties autoconfigureProperties) {
+                                    FlyGatewayRoutesProperties routesProperties) {
         this.dynamicRouteService = dynamicRouteService;
-        this.autoconfigureProperties = autoconfigureProperties;
+        this.routesProperties = routesProperties;
     }
 
     /***
@@ -60,9 +60,9 @@ public class NacosDynamicRouteService {
             }
             // 通过 Nacos Config 并指定路由配置路径去获取路由配置
             String configInfo = configService.getConfig(
-                    autoconfigureProperties.getDataId(),
-                    autoconfigureProperties.getGroup(),
-                    autoconfigureProperties.getTimeout()
+                    routesProperties.getDataId(),
+                    routesProperties.getGroup(),
+                    routesProperties.getTimeout()
             );
             logger.info("get current gateway config: [{}]", configInfo);
             List<RouteDefinition> definitionList = JSON.parseArray(configInfo, RouteDefinition.class);
@@ -77,8 +77,8 @@ public class NacosDynamicRouteService {
         }
         // 设置监听器
         dynamicRouteByNacosListener(
-                autoconfigureProperties.getDataId(),
-                autoconfigureProperties.getGroup()
+                routesProperties.getDataId(),
+                routesProperties.getGroup()
         );
     }
 
@@ -93,9 +93,12 @@ public class NacosDynamicRouteService {
     private ConfigService initConfigService() {
         try {
             Properties properties = new Properties();
-            properties.setProperty("serverAddr", autoconfigureProperties.getServerAddr());
-            properties.setProperty("namespace", autoconfigureProperties.getNamespace());
-            return configService = NacosFactory.createConfigService(properties);
+            properties.setProperty("username", routesProperties.getUsername());
+            properties.setProperty("password", routesProperties.getPassword());
+            properties.setProperty("serverAddr", routesProperties.getServerAddr());
+            properties.setProperty("namespace", routesProperties.getNamespace());
+            //  return configService = NacosFactory.createConfigService(properties);
+            return NacosFactory.createConfigService(properties);
         } catch (Exception ex) {
             logger.error("init gateway nacos config error: [{}]", ex.getMessage(), ex);
             return null;
@@ -139,8 +142,7 @@ public class NacosDynamicRouteService {
                 @Override
                 public void receiveConfigInfo(String configInfo) {
                     logger.info("start to update config: [{}]", configInfo);
-                    List<RouteDefinition> definitionList =
-                            JSON.parseArray(configInfo, RouteDefinition.class);
+                    List<RouteDefinition> definitionList = JSON.parseArray(configInfo, RouteDefinition.class);
                     logger.info("update route: [{}]", definitionList.toString());
                     dynamicRouteService.updateList(definitionList);
                 }
