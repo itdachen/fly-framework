@@ -25,7 +25,7 @@
         <spring-cloud-dependencies.version>2022.0.3</spring-cloud-dependencies.version>
         <spring-cloud-alibaba-dependencies.version>2022.0.0.0-RC2</spring-cloud-alibaba-dependencies.version>
         <feign.httpclient>12.1</feign.httpclient>
-        <spring.boot.admin.server.version>2.6.6</spring.boot.admin.server.version>
+        <spring.boot.admin.server.version>3.1.2</spring.boot.admin.server.version>
 
         <!-- alibaba.fastjson -->
         <com.alibaba.fastjson2>2.0.21</com.alibaba.fastjson2>
