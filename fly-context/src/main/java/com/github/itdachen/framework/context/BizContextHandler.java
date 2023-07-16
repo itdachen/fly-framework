@@ -14,6 +14,28 @@ import java.util.Map;
 public class BizContextHandler {
 
     /**
+     * 登录客户端
+     */
+    public static String getClientId() {
+        return GlobalContextThreadLocalHandler.returnObjectValue(GlobalContextThreadLocalHandler.get(UserInfoConstant.CLIENT_ID));
+    }
+
+    public static void setClientId(String clientId) {
+        GlobalContextThreadLocalHandler.set(UserInfoConstant.CLIENT_ID, clientId);
+    }
+
+    /**
+     * 登录方式
+     */
+    public static String getSignMethod() {
+        return GlobalContextThreadLocalHandler.returnObjectValue(GlobalContextThreadLocalHandler.get(UserInfoConstant.SIGN_METHOD));
+    }
+
+    public static void setSignMethod(String signMethod) {
+        GlobalContextThreadLocalHandler.set(UserInfoConstant.SIGN_METHOD, signMethod);
+    }
+
+    /**
      * 获取用户id
      */
     public static String getUserId() {

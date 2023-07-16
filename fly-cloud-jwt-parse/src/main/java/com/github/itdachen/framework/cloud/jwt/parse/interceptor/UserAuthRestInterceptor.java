@@ -95,7 +95,8 @@ public class UserAuthRestInterceptor implements HandlerInterceptor {
             BizContextHandler.setTenantId(ijwtInfo.getTenantId());
 
             final Map<String, String> otherInfo = ijwtInfo.getOtherInfo();
-
+            BizContextHandler.setClientId(otherInfo.get(UserInfoConstant.CLIENT_ID));
+            BizContextHandler.setSignMethod(otherInfo.get(UserInfoConstant.SIGN_METHOD));
             BizContextHandler.setAvatar(otherInfo.get(UserInfoConstant.AVATAR));
             BizContextHandler.setAppId(otherInfo.get(UserInfoConstant.APP_ID));
             BizContextHandler.setOpenId(otherInfo.get(UserInfoConstant.OPEN_ID));

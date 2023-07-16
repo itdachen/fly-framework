@@ -18,6 +18,17 @@ public class UserInfoConstant {
     public static final String USER_ID = "userId";
 
     /**
+     * 登录客户端
+     */
+    public static final String CLIENT_ID = "CLIENT_ID";
+
+
+    /**
+     * 登录方式
+     */
+    public static final String SIGN_METHOD = "SIGN_METHOD";
+
+    /**
      * 租户id
      */
     public static final String TENANT_ID = "tenantId";

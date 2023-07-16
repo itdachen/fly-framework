@@ -34,6 +34,8 @@ public class UserAuthRestMethodArgumentResolver implements HandlerMethodArgument
         CurrentUserDetails userDetails = new CurrentUserDetails();
         userDetails.setAccount(BizContextHandler.getAccount());
         userDetails.setId(BizContextHandler.getUserId());
+        userDetails.setClientId(BizContextHandler.getClientId());
+        userDetails.setSignMethod(BizContextHandler.getSignMethod());
         userDetails.setNickName(BizContextHandler.getNickName());
         userDetails.setTenantId(BizContextHandler.getTenantId());
 
