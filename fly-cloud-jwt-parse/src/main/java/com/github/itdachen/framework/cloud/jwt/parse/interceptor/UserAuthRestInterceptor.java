@@ -98,6 +98,8 @@ public class UserAuthRestInterceptor implements HandlerInterceptor {
             BizContextHandler.setClientId(otherInfo.get(UserInfoConstant.CLIENT_ID));
             BizContextHandler.setSignMethod(otherInfo.get(UserInfoConstant.SIGN_METHOD));
             BizContextHandler.setAvatar(otherInfo.get(UserInfoConstant.AVATAR));
+            BizContextHandler.setAnId(otherInfo.get(UserInfoConstant.AN_ID));
+            BizContextHandler.setAnTitle(otherInfo.get(UserInfoConstant.AN_TITLE));
             BizContextHandler.setAppId(otherInfo.get(UserInfoConstant.APP_ID));
             BizContextHandler.setOpenId(otherInfo.get(UserInfoConstant.OPEN_ID));
             BizContextHandler.setUserType(otherInfo.get(UserInfoConstant.USER_TYPE));

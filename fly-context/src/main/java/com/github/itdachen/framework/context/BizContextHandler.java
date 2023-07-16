@@ -14,6 +14,28 @@ import java.util.Map;
 public class BizContextHandler {
 
     /**
+     * 获取登录账号 / 登录代码
+     */
+    public static String getAccount() {
+        return GlobalContextThreadLocalHandler.returnObjectValue(GlobalContextThreadLocalHandler.get(UserInfoConstant.ACCOUNT));
+    }
+
+    public static void setAccount(String username) {
+        GlobalContextThreadLocalHandler.set(UserInfoConstant.ACCOUNT, username);
+    }
+
+    /**
+     * 获取用户姓名
+     */
+    public static String getNickName() {
+        return GlobalContextThreadLocalHandler.returnObjectValue(GlobalContextThreadLocalHandler.get(UserInfoConstant.NICK_NAME));
+    }
+
+    public static void setNickName(String name) {
+        GlobalContextThreadLocalHandler.set(UserInfoConstant.NICK_NAME, name);
+    }
+
+    /**
      * 登录客户端
      */
     public static String getClientId() {
@@ -47,14 +69,25 @@ public class BizContextHandler {
     }
 
     /**
-     * 获取用户姓名
+     * 身份ID
      */
-    public static String getNickName() {
-        return GlobalContextThreadLocalHandler.returnObjectValue(GlobalContextThreadLocalHandler.get(UserInfoConstant.NICK_NAME));
+    public static String getAnId() {
+        return GlobalContextThreadLocalHandler.returnObjectValue(GlobalContextThreadLocalHandler.get(UserInfoConstant.AN_ID));
     }
 
-    public static void setNickName(String name) {
-        GlobalContextThreadLocalHandler.set(UserInfoConstant.NICK_NAME, name);
+    public static void setAnId(String anId) {
+        GlobalContextThreadLocalHandler.set(UserInfoConstant.AN_ID, anId);
+    }
+
+    /**
+     * 身份名称
+     */
+    public static String getAnTitle() {
+        return GlobalContextThreadLocalHandler.returnObjectValue(GlobalContextThreadLocalHandler.get(UserInfoConstant.AN_TITLE));
+    }
+
+    public static void setAnTitle(String anTitle) {
+        GlobalContextThreadLocalHandler.set(UserInfoConstant.AN_TITLE, anTitle);
     }
 
     /**
@@ -77,18 +110,6 @@ public class BizContextHandler {
 
     public static void setTenantId(String tenantId) {
         GlobalContextThreadLocalHandler.set(UserInfoConstant.TENANT_ID, tenantId);
-    }
-
-
-    /**
-     * 获取登录账号
-     */
-    public static String getAccount() {
-        return GlobalContextThreadLocalHandler.returnObjectValue(GlobalContextThreadLocalHandler.get(UserInfoConstant.ACCOUNT));
-    }
-
-    public static void setAccount(String username) {
-        GlobalContextThreadLocalHandler.set(UserInfoConstant.ACCOUNT, username);
     }
 
     /**

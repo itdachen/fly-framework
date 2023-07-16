@@ -46,6 +46,16 @@ public class CurrentUserDetails implements Serializable {
     private String avatar;
 
     /**
+     * 身份ID
+     */
+    private String anId;
+
+    /**
+     * 身份名称
+     */
+    private String anTitle;
+
+    /**
      * 联系电话
      */
     private String telephone;
@@ -156,6 +166,7 @@ public class CurrentUserDetails implements Serializable {
     public CurrentUserDetails(String id, String tenantId,
                               String clientId, String signMethod,
                               String nickName, String avatar,
+                              String anId, String anTitle,
                               String telephone, String email,
                               String account, String accountSecret,
                               String status, String appId,
@@ -171,6 +182,8 @@ public class CurrentUserDetails implements Serializable {
         this.clientId = clientId;
         this.signMethod = signMethod;
         this.nickName = nickName;
+        this.anId = anId;
+        this.anTitle = anTitle;
         this.avatar = avatar;
         this.telephone = telephone;
         this.email = email;
@@ -393,6 +406,22 @@ public class CurrentUserDetails implements Serializable {
         this.expireTime = expireTime;
     }
 
+    public String getAnId() {
+        return anId;
+    }
+
+    public void setAnId(String anId) {
+        this.anId = anId;
+    }
+
+    public String getAnTitle() {
+        return anTitle;
+    }
+
+    public void setAnTitle(String anTitle) {
+        this.anTitle = anTitle;
+    }
+
     @Override
     public String toString() {
         return new ToStringBuilder(this, ToStringStyle.MULTI_LINE_STYLE)
@@ -402,6 +431,8 @@ public class CurrentUserDetails implements Serializable {
                 .append("signMethod", getSignMethod())
                 .append("nickName", getNickName())
                 .append("avatar", getAvatar())
+                .append("anId", getAnId())
+                .append("anTitle", getAnTitle())
                 .append("telephone", getTelephone())
                 .append("email", getEmail())
                 .append("account", getAccount())

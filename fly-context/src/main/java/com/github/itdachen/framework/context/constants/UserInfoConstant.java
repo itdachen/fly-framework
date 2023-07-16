@@ -29,6 +29,16 @@ public class UserInfoConstant {
     public static final String SIGN_METHOD = "SIGN_METHOD";
 
     /**
+     * 身份ID
+     */
+    public static final String AN_ID = "anId";
+
+    /**
+     * 身份名称
+     */
+    public static final String AN_TITLE = "anTitle";
+
+    /**
      * 租户id
      */
     public static final String TENANT_ID = "tenantId";
