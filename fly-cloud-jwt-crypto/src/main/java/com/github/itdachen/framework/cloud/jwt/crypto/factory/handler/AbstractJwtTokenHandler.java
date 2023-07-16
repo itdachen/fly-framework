@@ -138,7 +138,8 @@ public abstract class AbstractJwtTokenHandler {
         long expiresTime = nowMillis + expires;
         Date date = new Date(expiresTime);
 
-        JwtBuilder builder = Jwts.builder().setHeaderParam(JWTHeader.TYPE, "JWT")    //一下两行就是Header
+        JwtBuilder builder = Jwts.builder()
+                .setHeaderParam(JWTHeader.TYPE, "JWT")    //一下两行就是Header
                 .setHeaderParam(JWTHeader.ALGORITHM, signatureAlgorithm.getValue())
                 .setClaims(createClaimsMap(jwtInfo))
                 .setIssuer(issuer)   //签发者
@@ -160,7 +161,7 @@ public abstract class AbstractJwtTokenHandler {
      */
     protected Map<String, Object> createClaimsMap(IJwtInfo jwtInfo) {
         Map<String, Object> claimsMap = new HashMap<>();
-        claimsMap.put(UserInfoConstant.USER_ID, jwtInfo.getId());
+        claimsMap.put(UserInfoConstant.USER_ID, jwtInfo.getUserId());
         claimsMap.put(UserInfoConstant.NICK_NAME, jwtInfo.getNickName());
         claimsMap.put(UserInfoConstant.ACCOUNT, jwtInfo.getUniqueName());
         claimsMap.put(UserInfoConstant.TENANT_ID, jwtInfo.getTenantId());

@@ -32,16 +32,17 @@ public class JwtTokenInfo implements IJwtInfo {
     public JwtTokenInfo(String username,
                         String userId,
                         String nickName,
+                        String tokenId,
                         String subject,
                         Date expireTime,
                         Map<String, String> otherInfo) {
         this.username = username;
         this.userId = userId;
         this.nickName = nickName;
+        this.tokenId = tokenId;
         this.subject = subject;
         this.expireTime = expireTime;
         this.otherInfo = otherInfo;
-        this.tokenId = UUID.randomUUID().toString().replaceAll("-", "");
     }
 
     public JwtTokenInfo(Builder builder) {
@@ -123,7 +124,7 @@ public class JwtTokenInfo implements IJwtInfo {
     }
 
     @Override
-    public String getId() {
+    public String getUserId() {
         return userId;
     }
 

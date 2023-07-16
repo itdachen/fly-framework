@@ -102,12 +102,15 @@ public abstract class AbstractParseJwtsTokenHandler {
 
         otherInfo.put(UserInfoConstant.TOKEN_ID, body.getId());
 
-        return new JwtTokenInfo(getObjectValue(body.get(UserInfoConstant.ACCOUNT)),
+        return new JwtTokenInfo(
+                getObjectValue(body.get(UserInfoConstant.ACCOUNT)),
                 getObjectValue(body.get(UserInfoConstant.USER_ID)),
                 getObjectValue(body.get(UserInfoConstant.NICK_NAME)),
+                body.getId(),
                 body.getSubject(),
                 body.getExpiration(),
-                otherInfo);
+                otherInfo
+        );
     }
 
 

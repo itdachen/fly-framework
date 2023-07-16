@@ -88,9 +88,9 @@ public class UserAuthRestInterceptor implements HandlerInterceptor {
         try {
 
             final IJwtInfo ijwtInfo = verifyTicketTokenService.verifyTicketToken(token);
-
+            BizContextHandler.setTokenId(ijwtInfo.getTokenId());
             BizContextHandler.setAccount(ijwtInfo.getUniqueName());
-            BizContextHandler.setUserId(ijwtInfo.getId());
+            BizContextHandler.setUserId(ijwtInfo.getUserId());
             BizContextHandler.setNickName(ijwtInfo.getNickName());
             BizContextHandler.setTenantId(ijwtInfo.getTenantId());
 

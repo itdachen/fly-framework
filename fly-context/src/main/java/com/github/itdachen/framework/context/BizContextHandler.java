@@ -203,6 +203,17 @@ public class BizContextHandler {
     }
 
     /**
+     * 用户 tokenId
+     */
+    public static String getTokenId() {
+        return GlobalContextThreadLocalHandler.returnObjectValue(GlobalContextThreadLocalHandler.get(UserInfoConstant.TOKEN_ID));
+    }
+
+    public static void setTokenId(String tokenId) {
+        GlobalContextThreadLocalHandler.set(UserInfoConstant.TOKEN_ID, tokenId);
+    }
+
+    /**
      * 日志id
      */
     public static String getLogId() {
