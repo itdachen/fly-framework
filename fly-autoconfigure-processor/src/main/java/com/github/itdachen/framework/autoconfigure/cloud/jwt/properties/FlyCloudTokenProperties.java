@@ -4,7 +4,7 @@ import com.github.itdachen.framework.autoconfigure.cloud.jwt.enums.JwtTokenEnumT
 import org.springframework.boot.context.properties.ConfigurationProperties;
 
 /**
- * Description: Jwt 配置
+ * Description: 微服务生产 Jwt Token 配置
  * Created by 王大宸 on 2023-07-06 15:27
  * Created with IntelliJ IDEA.
  */

@@ -133,11 +133,6 @@
             </dependency>
             <dependency>
                 <groupId>com.github.itdachen.framework</groupId>
-                <artifactId>fly-jjwt</artifactId>
-                <version>${fly.framework.dependencies.version}</version>
-            </dependency>
-            <dependency>
-                <groupId>com.github.itdachen.framework</groupId>
                 <artifactId>fly-webmvc</artifactId>
                 <version>${fly.framework.dependencies.version}</version>
             </dependency>

@@ -1,14 +1,14 @@
-package com.github.itdachen.framework.jwt.core;
+package com.github.itdachen.framework.cloud.jwt.core;
 
 import java.io.Serializable;
 import java.util.Map;
 
 /**
  * Description: 生成 token,返回数据类型
- * Created by 王大宸 on 2022-06-29 14:26
+ * Created by 王大宸 on 2023/04/30 14:55
  * Created with IntelliJ IDEA.
  */
-public class JwtToken implements Serializable {
+public class AccessTokenInfo implements Serializable {
     private static final long serialVersionUID = 4609010871941494233L;
 
     private String access_token;
@@ -24,11 +24,11 @@ public class JwtToken implements Serializable {
     /**
      * 登录成功之后, 跳转的路径
      */
-    private String path;
+    private Map<String, Object> path;
 
     private Map<String, Object> info;
 
-    public JwtToken(Builder builder) {
+    public AccessTokenInfo(Builder builder) {
         this.access_token = builder.access_token;
         this.token_type = builder.token_type;
         this.refresh_token = builder.refresh_token;
@@ -44,7 +44,7 @@ public class JwtToken implements Serializable {
         private String refresh_token;
         private Integer expires_in;
         private String scope;
-        private String path;
+        private Map<String, Object> path;
         private Map<String, Object> info;
 
         public Builder access_token(String access_token) {
@@ -72,7 +72,7 @@ public class JwtToken implements Serializable {
             return this;
         }
 
-        public Builder path(String path) {
+        public Builder path(Map<String, Object> path) {
             this.path = path;
             return this;
         }
@@ -82,21 +82,21 @@ public class JwtToken implements Serializable {
             return this;
         }
 
-        public JwtToken build() {
-            return new JwtToken(this);
+        public AccessTokenInfo build() {
+            return new AccessTokenInfo(this);
         }
     }
 
-    public JwtToken(String access_token) {
+    public AccessTokenInfo(String access_token) {
         this.access_token = access_token;
     }
 
-    public JwtToken(String access_token,
-                    String token_type,
-                    String refresh_token,
-                    Integer expires_in,
-                    String scope,
-                    Map<String, Object> info) {
+    public AccessTokenInfo(String access_token,
+                           String token_type,
+                           String refresh_token,
+                           Integer expires_in,
+                           String scope,
+                           Map<String, Object> info) {
         this.access_token = access_token;
         this.refresh_token = refresh_token;
         this.token_type = token_type;
@@ -105,11 +105,11 @@ public class JwtToken implements Serializable {
         this.info = info;
     }
 
-    public JwtToken(String access_token,
-                    String token_type,
-                    String refresh_token,
-                    Integer expires_in,
-                    String scope) {
+    public AccessTokenInfo(String access_token,
+                           String token_type,
+                           String refresh_token,
+                           Integer expires_in,
+                           String scope) {
         this.access_token = access_token;
         this.refresh_token = refresh_token;
         this.token_type = token_type;
@@ -166,11 +166,13 @@ public class JwtToken implements Serializable {
         this.info = info;
     }
 
-    public String getPath() {
+    public Map<String, Object> getPath() {
         return path;
     }
 
-    public void setPath(String path) {
+    public void setPath(Map<String, Object> path) {
         this.path = path;
     }
+
+
 }

@@ -15,5 +15,5 @@ import org.springframework.context.annotation.Configuration;
         FlyCloudTokenProperties.class,
         FlyCloudAppClientProperties.class
 })
-public class FlyJwtAutoConfiguration {
+public class FlyCloudJwtAutoConfiguration {
 }

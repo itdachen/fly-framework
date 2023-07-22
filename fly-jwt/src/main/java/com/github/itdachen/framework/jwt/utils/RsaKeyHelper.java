@@ -1,7 +1,8 @@
-package com.github.itdachen.framework.jwt.core;
+package com.github.itdachen.framework.jwt.utils;
 
 import com.github.itdachen.framework.jwt.constants.EncryptionType;
 import com.github.itdachen.framework.jwt.constants.RsaKeyConstant;
+
 import java.io.DataInputStream;
 import java.io.FileOutputStream;
 import java.io.IOException;
@@ -82,7 +83,7 @@ public class RsaKeyHelper {
     }
 
     /**
-     * 生存rsa公钥和密钥
+     * 生存 rsa 公钥和密钥
      *
      * @param publicKeyFilename
      * @param privateKeyFilename
@@ -90,7 +91,7 @@ public class RsaKeyHelper {
      * @throws IOException
      * @throws NoSuchAlgorithmException
      */
-    public void generateKey(String publicKeyFilename, String privateKeyFilename, String password) throws IOException, NoSuchAlgorithmException {
+    public void generateKey(String publicKeyFilename, String privateKeyFilename, String password) throws Exception {
         KeyPairGenerator keyPairGenerator = KeyPairGenerator.getInstance(EncryptionType.RSA);
         SecureRandom secureRandom = new SecureRandom(password.getBytes());
         keyPairGenerator.initialize(1024, secureRandom);
@@ -106,13 +107,13 @@ public class RsaKeyHelper {
     }
 
     /**
-     * 生存rsa公钥
+     * 生存 rsa 公钥
      *
      * @param password
      * @throws IOException
      * @throws NoSuchAlgorithmException
      */
-    public static byte[] generatePublicKey(String password) throws IOException, NoSuchAlgorithmException {
+    public static byte[] generatePublicKey(String password) throws Exception {
         KeyPairGenerator keyPairGenerator = KeyPairGenerator.getInstance(EncryptionType.RSA);
         SecureRandom secureRandom = new SecureRandom(password.getBytes());
         keyPairGenerator.initialize(1024, secureRandom);
@@ -121,13 +122,13 @@ public class RsaKeyHelper {
     }
 
     /**
-     * 生存rsa公钥
+     * 生存 rsa 私钥
      *
      * @param password
      * @throws IOException
      * @throws NoSuchAlgorithmException
      */
-    public static byte[] generatePrivateKey(String password) throws IOException, NoSuchAlgorithmException {
+    public static byte[] generatePrivateKey(String password) throws Exception {
         KeyPairGenerator keyPairGenerator = KeyPairGenerator.getInstance(EncryptionType.RSA);
         SecureRandom secureRandom = new SecureRandom(password.getBytes());
         keyPairGenerator.initialize(1024, secureRandom);
@@ -135,7 +136,7 @@ public class RsaKeyHelper {
         return keyPair.getPrivate().getEncoded();
     }
 
-    public static Map<String, byte[]> generateKey(String password) throws IOException, NoSuchAlgorithmException {
+    public static Map<String, byte[]> generateKey(String password) throws Exception {
         KeyPairGenerator keyPairGenerator = KeyPairGenerator.getInstance(EncryptionType.RSA);
         SecureRandom secureRandom = new SecureRandom(password.getBytes());
         keyPairGenerator.initialize(1024, secureRandom);
@@ -152,7 +153,7 @@ public class RsaKeyHelper {
         return Base64.getEncoder().encodeToString(b);
     }
 
-    public static byte[] toBytes(String s) throws IOException {
+    public static byte[] toBytes(String s) {
         return Base64.getDecoder().decode(s);
     }
 

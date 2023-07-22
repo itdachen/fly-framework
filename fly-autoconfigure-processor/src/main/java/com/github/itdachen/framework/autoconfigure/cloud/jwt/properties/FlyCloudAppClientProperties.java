@@ -5,7 +5,7 @@ import org.springframework.boot.context.properties.ConfigurationProperties;
 import java.util.List;
 
 /**
- * Description:
+ * Description: 微服务客户端认证信息配置
  * Created by 王大宸 on 2023-07-15 0:57
  * Created with IntelliJ IDEA.
  */

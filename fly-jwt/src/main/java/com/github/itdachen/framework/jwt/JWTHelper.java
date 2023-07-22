@@ -1,98 +1,111 @@
 package com.github.itdachen.framework.jwt;
 
-import com.github.itdachen.framework.context.constants.UserInfoConstant;
-import com.github.itdachen.framework.jwt.core.IJWTInfo;
-import com.github.itdachen.framework.jwt.core.JWTInfo;
-import com.github.itdachen.framework.jwt.core.RsaKeyHelper;
-import io.jsonwebtoken.*;
+import com.github.itdachen.framework.autoconfigure.jwt.FlyJwtAutoconfigureProperties;
+import com.github.itdachen.framework.cloud.jwt.core.IJwtInfo;
+import com.github.itdachen.framework.jwt.core.AuthKeyConfiguration;
+import com.github.itdachen.framework.jwt.utils.JwtTokenHelper;
 import org.joda.time.DateTime;
+import org.springframework.stereotype.Component;
 
 import java.util.Date;
-import java.util.HashMap;
-import java.util.Map;
 
 /**
- * Description: 非对称性加密(私钥加密 token,公钥解析 token)
+ * Description: 加密 / 解密处理
  * Created by 王大宸 on 2022-06-29 10:56
  * Created with IntelliJ IDEA.
  */
+@Component
 public class JWTHelper {
 
+    private final AuthKeyConfiguration keyConfiguration;
+    private final FlyJwtAutoconfigureProperties properties;
+
+    public JWTHelper(AuthKeyConfiguration keyConfiguration,
+                     FlyJwtAutoconfigureProperties properties) {
+        this.keyConfiguration = keyConfiguration;
+        this.properties = properties;
+    }
+
     /***
-     * 密钥加密token
+     * 生成 token
      *
      * @author 王大宸
-     * @date 2022/6/29 11:01
+     * @date 2023/7/22 13:47
      * @param jwtInfo jwtInfo
-     * @param priKey priKey
-     * @param expire expire
-     * @param otherInfo otherInfo
      * @return java.lang.String
      */
-    public static String generateToken(IJWTInfo jwtInfo,
-                                       byte[] priKey,
-                                       Date expire,
-                                       Map<String, String> otherInfo) throws Exception {
-        JwtBuilder builder = Jwts.builder()
-                .setSubject(jwtInfo.getUniqueName())
-                .claim(UserInfoConstant.USER_ID, jwtInfo.getId())
-                .claim(UserInfoConstant.NICK_NAME, jwtInfo.getName())
-                .claim(UserInfoConstant.EXPIRES_IN, expire.getTime());
-        if (null != otherInfo) {
-            for (Map.Entry<String, String> entry : otherInfo.entrySet()) {
-                builder.claim(entry.getKey(), entry.getValue());
-            }
-        }
-        return builder.signWith(SignatureAlgorithm.RS256,
-                        RsaKeyHelper.getPrivateKey(priKey))
-                .compact();
-    }
-
-    /**
-     * 获取token中的用户信息
-     *
-     * @param token
-     * @param pubKey
-     * @throws Exception
-     */
-    public static IJWTInfo getInfoFromToken(String token, byte[] pubKey) throws Exception {
-        if (token.startsWith(UserInfoConstant.TOKEN_TYPE)) {
-            token = token.replace(UserInfoConstant.TOKEN_TYPE, "");
-        }
-        Jws<Claims> claimsJws = parserToken(token, pubKey);
-        Claims body = claimsJws.getBody();
-        Map<String, String> otherInfo = new HashMap<String, String>();
-        for (Map.Entry entry : body.entrySet()) {
-            if (Claims.SUBJECT.equals(entry.getKey())
-                    || UserInfoConstant.USER_ID.equals(entry.getKey())
-                    || UserInfoConstant.NICK_NAME.equals(entry.getKey())
-                    || UserInfoConstant.EXPIRES_IN.equals(entry.getKey())) {
-                continue;
-            }
-            otherInfo.put(String.valueOf(entry.getKey()), String.valueOf(entry.getValue()));
-        }
-        return new JWTInfo(
-                body.getSubject(),
-                getObjectValue(body.get(UserInfoConstant.USER_ID)),
-                getObjectValue(body.get(UserInfoConstant.NICK_NAME)),
-                new DateTime(body.get(UserInfoConstant.EXPIRES_IN)).toDate(),
-                otherInfo
+    public String createToken(IJwtInfo jwtInfo) throws Exception {
+        return JwtTokenHelper.createToken(
+                jwtInfo,
+                keyConfiguration.getUserPriKey(),
+                DateTime.now().plusSeconds(properties.getExpire()).toDate(),
+                properties.getIssuer(),
+                jwtInfo.getOtherInfo()
         );
-
     }
 
-    /**
-     * 公钥解析token
+    public String createToken(IJwtInfo jwtInfo, byte[] priKey) throws Exception {
+        return JwtTokenHelper.createToken(
+                jwtInfo,
+                priKey,
+                DateTime.now().plusSeconds(properties.getExpire()).toDate(),
+                properties.getIssuer(),
+                jwtInfo.getOtherInfo()
+        );
+    }
+
+    /***
+     * 生成 token
      *
-     * @param token
-     * @param pubKey
+     * @author 王大宸
+     * @date 2023/7/22 13:47
+     * @param jwtInfo jwtInfo
+     * @param date date
+     * @return java.lang.String
      */
-    public static Jws<Claims> parserToken(String token, byte[] pubKey) throws Exception {
-        return Jwts.parser().setSigningKey(RsaKeyHelper.getPublicKey(pubKey)).parseClaimsJws(token);
+    public String createToken(IJwtInfo jwtInfo, Date date) throws Exception {
+        return JwtTokenHelper.createToken(
+                jwtInfo,
+                keyConfiguration.getUserPriKey(),
+                date,
+                properties.getIssuer(),
+                jwtInfo.getOtherInfo()
+        );
     }
 
-    private static String getObjectValue(Object obj) {
-        return obj == null ? "" : obj.toString();
+    public String createToken(IJwtInfo jwtInfo, byte[] priKey, Date date) throws Exception {
+        return JwtTokenHelper.createToken(
+                jwtInfo,
+                priKey,
+                date,
+                properties.getIssuer(),
+                jwtInfo.getOtherInfo()
+        );
+    }
+
+    /***
+     * 解析 token
+     *
+     * @author 王大宸
+     * @date 2023/7/22 13:47
+     * @param token token
+     * @return com.github.itdachen.framework.cloud.jwt.core.IJwtInfo
+     */
+    public IJwtInfo parseToken(String token) throws Exception {
+        return JwtTokenHelper.parseToken(token, keyConfiguration.getUserPubKey());
+    }
+
+    /***
+     * 解析 token
+     *
+     * @author 王大宸
+     * @date 2023/7/22 15:14
+     * @param token token
+     * @param pubKey pubKey
+     * @return com.github.itdachen.framework.cloud.jwt.core.IJwtInfo
+     */
+    public IJwtInfo parseToken(String token, byte[] pubKey) throws Exception {
+        return JwtTokenHelper.parseToken(token, pubKey);
     }
 
 

@@ -139,6 +139,7 @@ public abstract class AbstractJwtTokenHandler {
         Date date = new Date(expiresTime);
 
         JwtBuilder builder = Jwts.builder()
+                .setId(jwtInfo.getTokenId())
                 .setHeaderParam(JWTHeader.TYPE, "JWT")    //一下两行就是Header
                 .setHeaderParam(JWTHeader.ALGORITHM, signatureAlgorithm.getValue())
                 .setClaims(createClaimsMap(jwtInfo))
@@ -146,7 +147,6 @@ public abstract class AbstractJwtTokenHandler {
                 .setIssuedAt(now)   //签发时间
                 .signWith(privateKey, signatureAlgorithm) //使用ES256对称加密算法签名
                 .setExpiration(date);   //设置过期时间
-
         //compact:规则构建JWT并将其序列化为紧凑的URL安全字符串
         return builder.compact();
     }
