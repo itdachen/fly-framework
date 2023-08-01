@@ -38,6 +38,7 @@
         <module>fly-cloud-jwt-core</module>
         <module>fly-cloud-jwt-crypto</module>
         <module>fly-cloud-jwt-parse</module>
+        <module>fly-msg-body</module>
     </modules>
 
     <properties>

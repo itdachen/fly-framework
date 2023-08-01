@@ -13,4 +13,7 @@ import java.lang.annotation.Target;
 @Retention(RetentionPolicy.RUNTIME)
 @Target({ElementType.TYPE, ElementType.METHOD})
 public @interface ApiDeprecated {
+
+    String msg() default "该接口已作废, 请使用最新的接口";
+
 }
