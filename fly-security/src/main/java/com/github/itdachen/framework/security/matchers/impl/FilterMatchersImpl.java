@@ -39,6 +39,19 @@ public class FilterMatchersImpl implements IFilterMatchers {
         return rejectSame(arr);
     }
 
+    @Override
+    public List<String> requestMatchers() {
+        String[] matchers = securityPassMatchers.matchers();
+        List<String> arr = passMatchers.matchers();
+        if (StringUtils.isEmpty(arr) || 0 == arr.size()) {
+            return Arrays.stream(matchers).toList();
+        }
+
+        List<String> list = new ArrayList<>(Arrays.stream(matchers).toList());
+        list.addAll(arr);
+        return list;
+    }
+
     /***
      * 去除重复的
      *

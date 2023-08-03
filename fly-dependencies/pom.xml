@@ -21,9 +21,9 @@
         <project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
 
         <!-- Spring Cloud/Spring Boot 组件依赖 -->
-        <spring.boot.version>3.1.0</spring.boot.version>
+        <spring.boot.version>3.1.2</spring.boot.version>
         <spring-cloud-dependencies.version>2022.0.3</spring-cloud-dependencies.version>
-        <spring-cloud-alibaba-dependencies.version>2022.0.0.0-RC2</spring-cloud-alibaba-dependencies.version>
+        <spring-cloud-alibaba-dependencies.version>2022.0.0.0</spring-cloud-alibaba-dependencies.version>
         <feign.httpclient>12.1</feign.httpclient>
         <spring.boot.admin.server.version>3.1.2</spring.boot.admin.server.version>
 

@@ -54,6 +54,7 @@ public class DefaultSecurityPassMatchers implements ISecurityPassMatchers {
                 contextPath + "/assets/**", contextPath + "/static/**", contextPath + "/heartbeat",
                 contextPath + "/forget", contextPath + "/upload/**",
                 contextPath + "/webjars/**",
+                contextPath + "/assets", contextPath + "/static",
 
                 "/login",
                 /* 开放 api 接口 */
@@ -67,6 +68,7 @@ public class DefaultSecurityPassMatchers implements ISecurityPassMatchers {
                 "/favicon.ico", "/favicon", "favicon",
                 "/assets/**", "/static/**", "/heartbeat", "/forget", "/upload/**",
                 "/webjars/**",
+                "/assets", "/static",
 
                 //=== 登录 ===//
                 securityProperties.getSignInPage(),
