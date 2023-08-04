@@ -10,7 +10,7 @@
     </parent>
 
     <artifactId>fly-crypto</artifactId>
-    <name>fly-crypto</name>
+    <name>${project.artifactId}</name>
     <packaging>jar</packaging>
     <version>${fly.framework.version}</version>
     <description>自定义加密方式模块</description>

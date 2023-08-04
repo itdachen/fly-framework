@@ -10,7 +10,7 @@
     </parent>
 
     <artifactId>fly-context</artifactId>
-    <name>fly-dependencies</name>
+    <name>${project.artifactId}</name>
     <packaging>jar</packaging>
     <version>${fly.framework.version}</version>
     <description>项目依赖统一管理</description>

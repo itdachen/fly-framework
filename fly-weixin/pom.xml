@@ -10,7 +10,7 @@
     </parent>
 
     <artifactId>fly-weixin</artifactId>
-    <name>fly-weixin</name>
+    <name>${project.artifactId}</name>
     <packaging>jar</packaging>
     <version>${fly.framework.version}</version>
     <description>微信开发模块</description>

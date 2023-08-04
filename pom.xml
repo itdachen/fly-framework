@@ -43,14 +43,16 @@
 
     <properties>
         <java.version>17</java.version>
+        <env.project.version>1.0.1</env.project.version>
         <maven.compiler.source>${java.version}</maven.compiler.source>
         <maven.compiler.target>${java.version}</maven.compiler.target>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
         <project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
 
-        <fly.dependencies.version>1.0.0</fly.dependencies.version>
-        <fly.framework.version>1.0.0</fly.framework.version>
-        <env.project.version>1.0.0</env.project.version>
+        <!-- 版本依赖添加 -->
+        <fly.dependencies.version>${env.project.version}</fly.dependencies.version>
+        <fly.framework.version>${env.project.version}</fly.framework.version>
+
     </properties>
 
     <dependencyManagement>

@@ -10,7 +10,7 @@
     </parent>
 
     <artifactId>fly-rbac</artifactId>
-    <name>fly-rbac</name>
+    <name>${project.artifactId}</name>
     <packaging>jar</packaging>
     <version>${fly.framework.version}</version>
     <description>基于请求路径和请求方法认证模块</description>

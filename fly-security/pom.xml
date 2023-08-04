@@ -10,7 +10,7 @@
     </parent>
 
     <artifactId>fly-security</artifactId>
-    <name>fly-security</name>
+    <name>${project.artifactId}</name>
     <packaging>jar</packaging>
     <version>${fly.framework.version}</version>
     <description>基于浏览器 session 认证模块</description>

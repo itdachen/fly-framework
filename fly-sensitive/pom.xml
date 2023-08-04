@@ -10,7 +10,7 @@
     </parent>
 
     <artifactId>fly-sensitive</artifactId>
-    <name>fly-sensitive</name>
+    <name>${project.artifactId}</name>
     <packaging>jar</packaging>
     <version>${fly.framework.version}</version>
     <description>数据脱敏模块</description>

@@ -10,7 +10,7 @@
     </parent>
 
     <artifactId>fly-hardware</artifactId>
-    <name>fly-hardware</name>
+    <name>${project.artifactId}</name>
     <packaging>jar</packaging>
     <version>${fly.framework.version}</version>
     <description>获取服务器环境情况</description>

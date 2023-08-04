@@ -10,7 +10,7 @@
     </parent>
 
     <artifactId>fly-spring</artifactId>
-    <name>fly-spring</name>
+    <name>${project.artifactId}</name>
     <packaging>jar</packaging>
     <version>${fly.framework.version}</version>
     <description>Spring 工具模块</description>

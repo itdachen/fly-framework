@@ -10,7 +10,7 @@
     </parent>
 
     <artifactId>fly-assets</artifactId>
-    <name>fly-assets</name>
+    <name>${project.artifactId}</name>
     <packaging>jar</packaging>
     <version>${fly.framework.version}</version>
     <description>前端需要的数据类型</description>

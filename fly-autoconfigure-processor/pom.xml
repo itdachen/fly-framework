@@ -10,7 +10,7 @@
     </parent>
 
     <artifactId>fly-autoconfigure-processor</artifactId>
-    <name>fly-autoconfigure-processor</name>
+    <name>${project.artifactId}</name>
     <packaging>jar</packaging>
     <version>${fly.framework.version}</version>
     <description>自动配置模块, 所有配置都在这个模块集中管理</description>

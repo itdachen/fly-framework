@@ -10,7 +10,7 @@
     </parent>
 
     <artifactId>fly-msg-body</artifactId>
-    <name>fly-msg-body</name>
+    <name>${project.artifactId}</name>
     <packaging>jar</packaging>
     <version>${fly.framework.version}</version>
     <description>返回消息体</description>

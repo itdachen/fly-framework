@@ -10,7 +10,7 @@
     </parent>
 
     <artifactId>fly-thread-pool</artifactId>
-    <name>fly-thread-pool</name>
+    <name>${project.artifactId}</name>
     <packaging>jar</packaging>
     <version>${fly.framework.version}</version>
     <description>自定义线程池模块</description>

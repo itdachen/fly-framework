@@ -10,7 +10,7 @@
     </parent>
 
     <artifactId>fly-core</artifactId>
-    <name>fly-core</name>
+    <name>${project.artifactId}</name>
     <packaging>jar</packaging>
     <version>${fly.framework.version}</version>
     <description>项目核心模块</description>

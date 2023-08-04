@@ -11,7 +11,7 @@
 
     <groupId>com.github.itdachen.framework.cloud</groupId>
     <artifactId>fly-cloud-gateway-dynamic-routes</artifactId>
-    <name>fly-cloud-gateway-dynamic-routes</name>
+    <name>${project.artifactId}</name>
     <packaging>jar</packaging>
     <version>${fly.framework.version}</version>
     <description>GateWay 动态路由</description>

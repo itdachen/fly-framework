@@ -10,7 +10,7 @@
     </parent>
 
     <artifactId>fly-druid-view</artifactId>
-    <name>fly-druid-view</name>
+    <name>${project.artifactId}</name>
     <packaging>jar</packaging>
     <version>${fly.framework.version}</version>
     <description>alibaba druid 连接池可视化监控</description>

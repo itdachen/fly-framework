@@ -5,20 +5,20 @@
     <modelVersion>4.0.0</modelVersion>
     <groupId>com.github.itdachen.framework</groupId>
     <artifactId>fly-dependencies</artifactId>
-    <name>fly-dependencies</name>
-    <version>1.0.0</version>
+    <name>${project.artifactId}</name>
+    <version>1.0.1</version>
     <packaging>pom</packaging>
     <description>项目依赖统一管理</description>
 
     <properties>
-        <!-- 内部模块依赖版本 -->
-        <fly.framework.dependencies.version>1.0.0</fly.framework.dependencies.version>
-
         <java.version>17</java.version>
         <maven.compiler.source>${java.version}</maven.compiler.source>
         <maven.compiler.target>${java.version}</maven.compiler.target>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
         <project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
+
+        <!-- 内部模块依赖版本 -->
+        <fly.framework.dependencies.version>${version}</fly.framework.dependencies.version>
 
         <!-- Spring Cloud/Spring Boot 组件依赖 -->
         <spring.boot.version>3.1.2</spring.boot.version>
@@ -42,14 +42,20 @@
         <mysql.version>8.0.32</mysql.version>
 
         <!-- 工具集 -->
-        <cn.hutool.version>5.8.15</cn.hutool.version>
+        <cn.hutool.version>5.8.21</cn.hutool.version>
         <commons.io.version>2.13.0</commons.io.version>
         <commons-lang.version>2.6</commons-lang.version>
-        <io.jsonwebtoken.jjwt.version>0.11.5</io.jsonwebtoken.jjwt.version>
-        <joda-time.version>2.12.2</joda-time.version>
         <dozer-core.version>6.5.2</dozer-core.version>
         <com.google.guava>32.1.1-jre</com.google.guava>
         <javax.servlet.version>4.0.1</javax.servlet.version>
+
+        <!-- JWT -->
+        <io.jsonwebtoken.jjwt.version>0.11.5</io.jsonwebtoken.jjwt.version>
+        <joda-time.version>2.12.2</joda-time.version>
+
+        <!-- 分布式调度 -->
+        <xxl-job.version>2.4.0</xxl-job.version>
+
     </properties>
 
     <dependencyManagement>
@@ -364,6 +370,14 @@
                 <artifactId>joda-time</artifactId>
                 <version>${joda-time.version}</version>
             </dependency>
+
+            <!-- 分布式调动 -->
+            <dependency>
+                <groupId>com.xuxueli</groupId>
+                <artifactId>xxl-job-core</artifactId>
+                <version>${xxl-job.version}</version>
+            </dependency>
+
         </dependencies>
     </dependencyManagement>
 
