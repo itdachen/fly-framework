@@ -11,7 +11,7 @@
 
     <groupId>com.github.itdachen.framework.cloud</groupId>
     <artifactId>fly-cloud-jwt-crypto</artifactId>
-    <name>fly-cloud-jwt-crypto</name>
+    <name>${project.artifactId}</name>
     <packaging>jar</packaging>
     <version>${fly.framework.version}</version>
     <description>jwt 认证 token 加密模块</description>

@@ -10,7 +10,7 @@
     </parent>
 
     <artifactId>fly-code-tools</artifactId>
-    <name>fly-code-tools</name>
+    <name>${project.artifactId}</name>
     <packaging>jar</packaging>
     <version>${fly.framework.version}</version>
     <description>代码生成工具</description>

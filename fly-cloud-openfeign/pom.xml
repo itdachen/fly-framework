@@ -11,7 +11,7 @@
 
     <groupId>com.github.itdachen.framework.cloud</groupId>
     <artifactId>fly-cloud-openfeign</artifactId>
-    <name>fly-cloud-openfeign</name>
+    <name>${project.artifactId}</name>
     <packaging>jar</packaging>
     <description>feign 调用</description>
 

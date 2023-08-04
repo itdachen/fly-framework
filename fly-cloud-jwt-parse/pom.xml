@@ -11,7 +11,7 @@
 
     <groupId>com.github.itdachen.framework.cloud</groupId>
     <artifactId>fly-cloud-jwt-parse</artifactId>
-    <name>fly-cloud-jwt-parse</name>
+    <name>${project.artifactId}</name>
     <packaging>jar</packaging>
     <version>${fly.framework.version}</version>
     <description>jwt 认证 token 解析模块</description>
