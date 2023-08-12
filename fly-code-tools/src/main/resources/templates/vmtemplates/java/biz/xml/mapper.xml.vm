@@ -11,6 +11,7 @@
         #end
     </resultMap>
 
+    <!-- 查询 SQL -->
     <sql id="select${ClassName}VO">
         SELECT #foreach($column in $dtoVoColumns)${column.columnName}#if($foreach.count != $dtoVoColumns.size()), #end
               #end        FROM ${tableName}
