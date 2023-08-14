@@ -1,8 +1,8 @@
 package ${package}.convert;
 
 import ${package}.entity.${ClassName};
-import ${package}.sdk.dto.${ClassName}Dto;
-import ${package}.sdk.vo.${ClassName}Vo;
+import ${package}.sdk.dto.${ClassName}DTO;
+import ${package}.sdk.vo.${ClassName}VO;
 
 /**
  * ${functionName} 类型转换
@@ -12,11 +12,11 @@ import ${package}.sdk.vo.${ClassName}Vo;
  */
 public class ${ClassName}Convert {
 
-    public static ${ClassName}Vo toJavaObjectVo(${ClassName}Dto ${className}Dto) {
-        if (null == ${className}Dto){
+    public static ${ClassName}Vo toJavaObjectVo(${ClassName}DTO ${className}DTO) {
+        if (null == ${className}DTO){
             return null;
         }
-       ${ClassName}Vo ${className}Vo = new ${ClassName}Vo();
+       ${ClassName}VO ${className}VO = new ${ClassName}VO();
         #foreach ($column in $dtoVoColumns)
             #if(!$table.isSuperColumn($column.javaField))
                 #if($column.javaField.length() > 2 && $column.javaField.substring(1,2).matches("[A-Z]"))
@@ -24,18 +24,18 @@ public class ${ClassName}Convert {
                 #else
                     #set($AttrName=$column.javaField.substring(0,1).toUpperCase() + ${column.javaField.substring(1)})
                 #end
-                    ${className}Vo.set${AttrName}(${className}Dto.get${AttrName}());
+                    ${className}VO.set${AttrName}(${className}DTO.get${AttrName}());
             #end
         #end
-        return ${className}Vo;
+        return ${className}VO;
     }
 
 
-    public static ${ClassName}Vo toJavaObjectVo (${ClassName} ${className}) {
+    public static ${ClassName}VO toJavaObjectVo (${ClassName} ${className}) {
         if (null == ${className}){
             return null;
         }
-        ${ClassName}Vo ${className}Vo = new ${ClassName}Vo();
+        ${ClassName}VO ${className}VO = new ${ClassName}VO();
         #foreach ($column in $dtoVoColumns)
             #if(!$table.isSuperColumn($column.javaField))
                 #if($column.javaField.length() > 2 && $column.javaField.substring(1,2).matches("[A-Z]"))
@@ -43,14 +43,14 @@ public class ${ClassName}Convert {
                 #else
                     #set($AttrName=$column.javaField.substring(0,1).toUpperCase() + ${column.javaField.substring(1)})
                 #end
-                    ${className}Vo.set${AttrName}(${className}.get${AttrName}());
+                    ${className}VO.set${AttrName}(${className}.get${AttrName}());
             #end
         #end
-        return ${className}Vo;
+        return ${className}VO;
     }
 
-    public static ${ClassName} toJavaObject (${ClassName}Dto ${className}Dto) {
-        if (null == ${className}Dto){
+    public static ${ClassName} toJavaObject (${ClassName}DTO ${className}DTO) {
+        if (null == ${className}DTO){
             return null;
         }
         ${ClassName} ${className} = new ${ClassName}();
@@ -61,13 +61,13 @@ public class ${ClassName}Convert {
                 #else
                     #set($AttrName=$column.javaField.substring(0,1).toUpperCase() + ${column.javaField.substring(1)})
                 #end
-                    ${className}.set${AttrName}(${className}Dto.get${AttrName}());
+                    ${className}.set${AttrName}(${className}DTO.get${AttrName}());
             #end
         #end
         return ${className};
     }
 
-    public static ${ClassName} toJavaObject(${ClassName}Vo ${className}Vo) {
+    public static ${ClassName} toJavaObject(${ClassName}VO ${className}VO) {
         if (null == ${className}Vo){
             return null;
         }
@@ -79,7 +79,7 @@ public class ${ClassName}Convert {
                 #else
                     #set($AttrName=$column.javaField.substring(0,1).toUpperCase() + ${column.javaField.substring(1)})
                 #end
-                ${className}.set${AttrName}(${className}Vo.get${AttrName}());
+                ${className}.set${AttrName}(${className}VO.get${AttrName}());
             #end
         #end
         return ${className};
