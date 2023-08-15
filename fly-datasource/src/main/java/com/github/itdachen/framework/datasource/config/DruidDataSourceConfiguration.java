@@ -3,7 +3,8 @@ package com.github.itdachen.framework.datasource.config;
 import com.alibaba.druid.pool.DruidDataSource;
 import com.alibaba.druid.support.jakarta.StatViewServlet;
 import com.alibaba.druid.support.jakarta.WebStatFilter;
-import com.github.itdachen.framework.datasource.encoder.DataSourceEncoder;
+import com.github.itdachen.framework.datasource.IDataSourceDecrypt;
+import com.github.itdachen.framework.datasource.factory.DataSourceDecryptFactory;
 import jakarta.servlet.*;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -11,15 +12,11 @@ import org.springframework.beans.factory.InitializingBean;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.boot.autoconfigure.condition.ConditionalOnProperty;
-import org.springframework.boot.autoconfigure.jdbc.DataSourceProperties;
 import org.springframework.boot.web.servlet.FilterRegistrationBean;
 import org.springframework.boot.web.servlet.ServletRegistrationBean;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.context.annotation.Primary;
-import org.springframework.stereotype.Component;
-
-import java.io.IOException;
 
 /**
  * Description: 阿里巴巴开源数据源自定义配置,连接地址可以加密
@@ -34,7 +31,7 @@ public class DruidDataSourceConfiguration extends DruidDataSource implements Ini
     private static final Logger logger = LoggerFactory.getLogger(DruidDataSourceConfiguration.class);
 
     @Autowired
-    private DataSourceEncoder dataSourceEncoder;
+    private IDataSourceDecrypt dataSourceDecrypt;
 
     @Value("${spring.datasource.driver-class-name}")
     private String driverClassName;
@@ -52,22 +49,22 @@ public class DruidDataSourceConfiguration extends DruidDataSource implements Ini
     @Override
     public void afterPropertiesSet() throws Exception {
         if (super.getUsername() == null) {
-            final String str = dataSourceEncoder.decrypt(username);
+            final String str = dataSourceDecrypt.decrypt(username);
             super.setUsername(str);
         }
 
         if (super.getPassword() == null) {
-            final String str = dataSourceEncoder.decrypt(password);
+            final String str = dataSourceDecrypt.decrypt(password);
             super.setPassword(str);
         }
 
         if (super.getUrl() == null) {
-            final String str = dataSourceEncoder.decrypt(url);
+            final String str = dataSourceDecrypt.decrypt(url);
             super.setUrl(str);
         }
 
         if (super.getDriverClassName() == null) {
-            final String str = dataSourceEncoder.decrypt(driverClassName);
+            final String str = dataSourceDecrypt.decrypt(driverClassName);
             super.setDriverClassName(str);
         }
     }

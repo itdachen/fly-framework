@@ -5,8 +5,8 @@ package com.github.itdachen.framework.datasource;
  * Created by 王大宸 on 2023/04/17 22:42
  * Created with IntelliJ IDEA.
  */
-public interface DataSourceEncrypt {
+public interface IDataSourceEncrypt {
 
-    String encrypt(String str, String type);
+    String encrypt(String str);
 
 }

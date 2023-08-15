@@ -69,6 +69,10 @@
             <groupId>com.alibaba</groupId>
             <artifactId>druid-spring-boot-3-starter</artifactId>
         </dependency>
+        <dependency>
+            <groupId>com.github.itdachen.framework</groupId>
+            <artifactId>fly-autoconfigure-processor</artifactId>
+        </dependency>
 
     </dependencies>
 

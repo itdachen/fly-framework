@@ -1,6 +1,7 @@
 package com.github.itdachen.framework.datasource.config;
 
-import com.github.itdachen.framework.datasource.encoder.DataSourceEncoder;
+import com.github.itdachen.framework.datasource.IDataSourceDecrypt;
+import com.github.itdachen.framework.datasource.factory.DataSourceDecryptFactory;
 import com.zaxxer.hikari.HikariDataSource;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -8,7 +9,6 @@ import org.springframework.beans.factory.InitializingBean;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.boot.autoconfigure.condition.ConditionalOnProperty;
-import org.springframework.boot.autoconfigure.jdbc.DataSourceProperties;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.context.annotation.Primary;
 
@@ -25,7 +25,7 @@ public class HikariDataSourceConfiguration extends HikariDataSource implements I
     private static final Logger logger = LoggerFactory.getLogger(HikariDataSourceConfiguration.class);
 
     @Autowired
-    private DataSourceEncoder dataSourceEncoder;
+    private IDataSourceDecrypt dataSourceDecrypt;
 
 
     @Value("${spring.datasource.driver-class-name}")
@@ -41,15 +41,15 @@ public class HikariDataSourceConfiguration extends HikariDataSource implements I
     @Override
     public void afterPropertiesSet() throws Exception {
         if (super.getPassword() == null) {
-            final String str = dataSourceEncoder.decrypt(password);
+            final String str = dataSourceDecrypt.decrypt(password);
             this.setPassword(str);
         }
         if (super.getUsername() == null) {
-            final String str = dataSourceEncoder.decrypt(username);
+            final String str = dataSourceDecrypt.decrypt(username);
             this.setUsername(str);
         }
         if (super.getJdbcUrl() == null) {
-            final String str = dataSourceEncoder.decrypt(url);
+            final String str = dataSourceDecrypt.decrypt(url);
             this.setJdbcUrl(str);
         }
 
