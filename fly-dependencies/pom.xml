@@ -18,7 +18,7 @@
         <project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
 
         <!-- 内部模块依赖版本 -->
-        <fly.framework.dependencies.version>${version}</fly.framework.dependencies.version>
+        <fly.framework.dependencies.version>${project.version}</fly.framework.dependencies.version>
 
         <!-- Spring Cloud/Spring Boot 组件依赖 -->
         <spring.boot.version>3.1.2</spring.boot.version>
