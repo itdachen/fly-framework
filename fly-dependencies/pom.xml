@@ -56,6 +56,9 @@
         <!-- 分布式调度 -->
         <xxl-job.version>2.4.0</xxl-job.version>
 
+        <!--  -->
+        <eu.bitwalker.version>1.21</eu.bitwalker.version>
+
     </properties>
 
     <dependencyManagement>
@@ -376,6 +379,14 @@
                 <groupId>com.xuxueli</groupId>
                 <artifactId>xxl-job-core</artifactId>
                 <version>${xxl-job.version}</version>
+            </dependency>
+
+
+            <!-- UserAgent提取工具, 获取客户端信息  -->
+            <dependency>
+                <groupId>eu.bitwalker</groupId>
+                <artifactId>UserAgentUtils</artifactId>
+                <version>${eu.bitwalker.version}</version>
             </dependency>
 
         </dependencies>
