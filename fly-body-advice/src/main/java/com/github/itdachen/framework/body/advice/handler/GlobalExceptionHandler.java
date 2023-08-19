@@ -36,7 +36,7 @@ public class GlobalExceptionHandler {
         if (StringUtils.isEmpty(ex.getMessage())) {
             return ServerResponse.errMsg("出现未知错误, 请联系技术人员!");
         }
-        return ServerResponse.errMsg(ex.getMessage());
+        return ServerResponse.errStatusMsg(ex.getStatus(), ex.getMessage());
     }
 
     /***
@@ -69,7 +69,7 @@ public class GlobalExceptionHandler {
      */
     @ExceptionHandler(IllegalArgumentException.class)
     public ServerResponse<String> illegalArgumentExceptionHandler(HttpServletResponse response, IllegalArgumentException ex) {
-        logger.error("IllegalArgumentException: ", ex.getMessage());
+        logger.error("IllegalArgumentException: {}", ex.getMessage());
         response.setStatus(HttpStatus.OK.value());
         if (StringUtils.isEmpty(ex.getMessage())) {
             return ServerResponse.errMsg("出现未知错误, 请联系技术人员!");

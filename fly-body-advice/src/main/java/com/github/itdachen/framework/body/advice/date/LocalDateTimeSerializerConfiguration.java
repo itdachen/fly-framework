@@ -18,7 +18,7 @@ import java.time.LocalTime;
 import java.time.format.DateTimeFormatter;
 
 /**
- * Description: java8 时间序列化
+ * Description: java8 + 时间序列化
  * Created by 王大宸 on 2023/02/26 23:30
  * Created with IntelliJ IDEA.
  */
