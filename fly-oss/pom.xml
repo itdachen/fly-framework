@@ -13,7 +13,7 @@
     <name>${project.artifactId}</name>
     <packaging>jar</packaging>
     <version>${fly.framework.version}</version>
-    <description>本地文件上传</description>
+    <description>文件上传模块</description>
 
     <properties>
         <maven.compiler.source>17</maven.compiler.source>

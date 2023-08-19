@@ -38,7 +38,7 @@ public class JdbcTemplateConfiguration {
     @Bean
     @Primary
     public JdbcTemplate getJdbcTemplate() {
-        logger.info("Data source adding jdbc support, Encryption type is {} ! ", dataSourceProperties.getEncoder());
+        logger.info("Data source adding jdbc support, Encryption type is {}", dataSourceProperties.getEncoder());
         return new JdbcTemplate(dataSource);
     }
 
