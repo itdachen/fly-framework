@@ -172,7 +172,7 @@
             </dependency>
             <dependency>
                 <groupId>com.github.itdachen.framework</groupId>
-                <artifactId>fly-log</artifactId>
+                <artifactId>fly-oplog</artifactId>
                 <version>${fly.framework.dependencies.version}</version>
             </dependency>
             <dependency>

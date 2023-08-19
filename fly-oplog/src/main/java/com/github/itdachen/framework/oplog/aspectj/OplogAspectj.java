@@ -1,4 +1,4 @@
-package com.github.itdachen.framework.log.aspectj;
+package com.github.itdachen.framework.oplog.aspectj;
 
 import com.alibaba.fastjson.JSON;
 import com.alibaba.fastjson.JSONObject;
@@ -6,9 +6,9 @@ import com.github.itdachen.framework.context.BizContextHandler;
 import com.github.itdachen.framework.context.annotation.CheckApiClient;
 import com.github.itdachen.framework.context.annotation.Log;
 import com.github.itdachen.framework.context.snowflake.IdUtils;
-import com.github.itdachen.framework.log.constants.ApiLogConstant;
-import com.github.itdachen.framework.context.entity.ApiLogClient;
-import com.github.itdachen.framework.log.manager.AsyncFactory;
+import com.github.itdachen.framework.oplog.constants.OplogConstant;
+import com.github.itdachen.framework.oplog.entity.OplogClient;
+import com.github.itdachen.framework.oplog.manager.OplogAsyncFactory;
 import com.github.itdachen.framework.threads.manager.AsyncThreadsManager;
 import com.github.itdachen.framework.tools.ServletUtils;
 import org.apache.commons.lang3.StringUtils;
@@ -25,14 +25,14 @@ import org.springframework.stereotype.Component;
 import java.time.LocalDateTime;
 
 /**
- * Description:
+ * Description: 操作日志 AOP
  * Created by 王大宸 on 2021-12-01 16:49
  * Created with IntelliJ IDEA.
  */
 @Aspect
 @Component
-public class LogAspectj {
-    private static final Logger logger = LoggerFactory.getLogger(LogAspectj.class);
+public class OplogAspectj {
+    private static final Logger logger = LoggerFactory.getLogger(OplogAspectj.class);
 
     @Pointcut("@annotation(log)")
     public void logPointCut(Log log) {
@@ -48,22 +48,22 @@ public class LogAspectj {
         if (null == log) {
             return;
         }
-        // *========数据库日志=========*//
-        ApiLogClient apiLog = new ApiLogClient();
-        setRequest(apiLog, joinPoint, log);
+
+        /* 操作日志基础信息 */
+        OplogClient apiLog = setRequest(joinPoint, log);
 
         JSONObject json = (JSONObject) JSON.toJSON(resJson);
-        apiLog.setMakeUseStatus(ApiLogConstant.IS_OK);
+        apiLog.setMakeUseStatus(OplogConstant.IS_OK);
         apiLog.setMsg(json.getString("msg"));
         apiLog.setJsonResult(JSONObject.toJSONString(resJson));
 
         if (!json.getBooleanValue("success")) {
-            apiLog.setMakeUseStatus(ApiLogConstant.IS_ERR);
+            apiLog.setMakeUseStatus(OplogConstant.IS_ERR);
         }
 
         try {
             // 保存数据库
-            AsyncThreadsManager.me().execute(AsyncFactory.recordOper(apiLog));
+            AsyncThreadsManager.me().execute(OplogAsyncFactory.recordOplog(apiLog));
         } catch (Exception exp) {
             // 记录本地异常日志
             logger.error("==前置通知异常==异常信息: {}", exp.getMessage(), exp);
@@ -81,21 +81,20 @@ public class LogAspectj {
         if (null == log) {
             return;
         }
-        // *========数据库日志=========*//
-        ApiLogClient apiLog = new ApiLogClient();
 
-        setRequest(apiLog, joinPoint, log);
+        /* 操作日志基础信息 */
+        OplogClient apiLog = setRequest(joinPoint, log);
 
         /* 响应数据 */
         JSONObject json = (JSONObject) JSON.toJSON(ex);
 
         apiLog.setJsonResult(getMessage(json.getIntValue("status"), ex.getMessage()));
-        apiLog.setMakeUseStatus(ApiLogConstant.IS_ERR);
+        apiLog.setMakeUseStatus(OplogConstant.IS_ERR);
         apiLog.setMsg(json.getString("msg"));
 
         try {
             // 保存数据库
-            AsyncThreadsManager.me().execute(AsyncFactory.recordOper(apiLog));
+            AsyncThreadsManager.me().execute(OplogAsyncFactory.recordOplog(apiLog));
         } catch (Exception exp) {
             // 记录本地异常日志
             logger.error("==前置通知异常==异常信息: {}", exp.getMessage(), exp);
@@ -104,7 +103,9 @@ public class LogAspectj {
     }
 
 
-    private void setRequest(ApiLogClient apiLog, JoinPoint joinPoint, Log log) {
+    private OplogClient setRequest(JoinPoint joinPoint, Log log) {
+        // *========数据库日志=========*//
+        OplogClient apiLog = new OplogClient();
         apiLog.setRequestMethod(ServletUtils.getRequest().getMethod());
         setRequestValue(apiLog, joinPoint);
         apiLog.setTenantId(BizContextHandler.getTenantId());
@@ -126,6 +127,8 @@ public class LogAspectj {
         apiLog.setCreateTime(LocalDateTime.now());
         apiLog.setCreateUser(BizContextHandler.getNickName());
         apiLog.setCreateUserId(BizContextHandler.getUserId());
+
+        return apiLog;
     }
 
     /**
@@ -133,7 +136,7 @@ public class LogAspectj {
      *
      * @param apiLog 操作日志
      */
-    private void setRequestValue(ApiLogClient apiLog, JoinPoint joinPoint) {
+    private void setRequestValue(OplogClient apiLog, JoinPoint joinPoint) {
         // 1、获取方法的参数的字符串数组
         Object[] args = joinPoint.getArgs();
         MethodSignature methodSignature = (MethodSignature) joinPoint.getSignature();

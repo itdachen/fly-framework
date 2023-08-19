@@ -1,4 +1,4 @@
-package com.github.itdachen.framework.context.entity;
+package com.github.itdachen.framework.oplog.entity;
 
 import org.apache.commons.lang3.builder.ToStringBuilder;
 import org.apache.commons.lang3.builder.ToStringStyle;
@@ -7,11 +7,11 @@ import java.io.Serializable;
 import java.time.LocalDateTime;
 
 /**
- * Description:
+ * Description: 操作日志
  * Created by 王大宸 on 2022/08/27 21:12
  * Created with IntelliJ IDEA.
  */
-public class ApiLogClient implements Serializable {
+public class OplogClient implements Serializable {
     private static final long serialVersionUID = 5196495926190816449L;
     /**
      * 主键唯一标识
@@ -173,10 +173,10 @@ public class ApiLogClient implements Serializable {
     private String updateUserId;
 
 
-    public ApiLogClient() {
+    public OplogClient() {
     }
 
-    public ApiLogClient(String id, String tenantId, String serviceId, String clientId, String requestId, String menuTitle, String makeUseType, String logType, String makeUseIp, String makeUseAddress, String makeUseStatus, String userAgent, String requestUri, String requestMethod, String params, String jsonResult, String delFlag, String exception, String remarks, String executeTime, String msg, LocalDateTime createTime, String createUser, String createUserId, LocalDateTime updateTime, String updateUser, String updateUserId) {
+    public OplogClient(String id, String tenantId, String serviceId, String clientId, String requestId, String menuTitle, String makeUseType, String logType, String makeUseIp, String makeUseAddress, String makeUseStatus, String userAgent, String requestUri, String requestMethod, String params, String jsonResult, String delFlag, String exception, String remarks, String executeTime, String msg, LocalDateTime createTime, String createUser, String createUserId, LocalDateTime updateTime, String updateUser, String updateUserId) {
         this.id = id;
         this.tenantId = tenantId;
         this.serviceId = serviceId;
@@ -404,8 +404,8 @@ public class ApiLogClient implements Serializable {
             return this;
         }
 
-        public ApiLogClient build() {
-            return new ApiLogClient(id, tenantId, serviceId, clientId, requestId, menuTitle, makeUseType, logType, makeUseIp, makeUseAddress, makeUseStatus, userAgent, requestUri, requestMethod, params, jsonResult, delFlag, exception, remarks, executeTime, msg, createTime, createUser, createUserId, updateTime, updateUser, updateUserId);
+        public OplogClient build() {
+            return new OplogClient(id, tenantId, serviceId, clientId, requestId, menuTitle, makeUseType, logType, makeUseIp, makeUseAddress, makeUseStatus, userAgent, requestUri, requestMethod, params, jsonResult, delFlag, exception, remarks, executeTime, msg, createTime, createUser, createUserId, updateTime, updateUser, updateUserId);
         }
 
     }

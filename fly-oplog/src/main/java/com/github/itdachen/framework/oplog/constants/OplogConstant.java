@@ -1,11 +1,11 @@
-package com.github.itdachen.framework.log.constants;
+package com.github.itdachen.framework.oplog.constants;
 
 /**
  * Description:
  * Created by 王大宸 on 2023/01/17 16:38
  * Created with IntelliJ IDEA.
  */
-public class ApiLogConstant {
+public class OplogConstant {
 
     /**
      * 操作失败

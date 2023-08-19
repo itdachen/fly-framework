@@ -63,7 +63,7 @@
 | fly-tools                        | 工具类模块                     |
 | fly-rbac                         | RBAC 鉴权模块                 |
 | fly-assets                       | 前端资源模块                    |
-| fly-log                          | 基于 AOP 日志记录模块             |
+| fly-oplog                        | 基于 AOP 日志记录模块             |
 | fly-security                     | SpringSecurity 安全认证模块     |
 | fly-body-advice                  | 统一返回数据格式模块                |
 | fly-weixin                       | 微信开发模块                    |

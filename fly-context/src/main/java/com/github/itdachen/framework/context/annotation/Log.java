@@ -13,12 +13,12 @@ import java.lang.annotation.*;
 public @interface Log {
 
     /***
-     * 操作标题: 菜单管理, 用户管理
+     * 操作标题: 新增,修改,删除
      */
     String title();
 
     /**
-     * 操作类型: 新增, 修改, 删除, 查询等
+     * 操作类型: SAVE, UPDATE, DELETE等
      */
     String type();
 

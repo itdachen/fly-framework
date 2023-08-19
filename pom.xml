@@ -23,7 +23,7 @@
         <module>fly-rbac</module>
         <module>fly-crypto</module>
         <module>fly-assets</module>
-        <module>fly-log</module>
+        <module>fly-oplog</module>
         <module>fly-security</module>
         <module>fly-body-advice</module>
         <module>fly-weixin</module>
