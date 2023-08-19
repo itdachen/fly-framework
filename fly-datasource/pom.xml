@@ -16,23 +16,25 @@
     <description>数据库加密方式</description>
 
     <dependencies>
-<!--        <dependency>-->
-<!--            <groupId>javax.servlet</groupId>-->
-<!--            <artifactId>javax.servlet-api</artifactId>-->
-<!--        </dependency>-->
+        <dependency>
+            <groupId>org.slf4j</groupId>
+            <artifactId>slf4j-api</artifactId>
+        </dependency>
+
+        <dependency>
+            <groupId>com.github.itdachen.framework</groupId>
+            <artifactId>fly-crypto</artifactId>
+        </dependency>
+        <dependency>
+            <groupId>com.github.itdachen.framework</groupId>
+            <artifactId>fly-autoconfigure-processor</artifactId>
+        </dependency>
+
         <dependency>
             <groupId>jakarta.servlet</groupId>
             <artifactId>jakarta.servlet-api</artifactId>
         </dependency>
 
-        <dependency>
-            <groupId>org.slf4j</groupId>
-            <artifactId>slf4j-api</artifactId>
-        </dependency>
-        <dependency>
-            <groupId>com.github.itdachen.framework</groupId>
-            <artifactId>fly-crypto</artifactId>
-        </dependency>
         <dependency>
             <groupId>org.springframework.boot</groupId>
             <artifactId>spring-boot-configuration-processor</artifactId>
@@ -68,10 +70,6 @@
         <dependency>
             <groupId>com.alibaba</groupId>
             <artifactId>druid-spring-boot-3-starter</artifactId>
-        </dependency>
-        <dependency>
-            <groupId>com.github.itdachen.framework</groupId>
-            <artifactId>fly-autoconfigure-processor</artifactId>
         </dependency>
 
     </dependencies>
