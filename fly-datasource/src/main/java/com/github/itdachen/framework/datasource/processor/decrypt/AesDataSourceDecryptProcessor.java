@@ -1,6 +1,6 @@
 package com.github.itdachen.framework.datasource.processor.decrypt;
 
-import com.github.itdachen.framework.autoconfigure.datasource.DataSourceCryptoConfiguration;
+import com.github.itdachen.framework.autoconfigure.datasource.DataSourceProperties;
 import com.github.itdachen.framework.crypto.aes.AesEncryptEncoder;
 import com.github.itdachen.framework.datasource.processor.AbstractDataSourceDecryptProcessor;
 
@@ -10,15 +10,15 @@ import com.github.itdachen.framework.datasource.processor.AbstractDataSourceDecr
  * Created with IntelliJ IDEA.
  */
 public class AesDataSourceDecryptProcessor extends AbstractDataSourceDecryptProcessor {
-    private final DataSourceCryptoConfiguration cryptoConfiguration;
+    private final DataSourceProperties dataSourceProperties;
 
-    public AesDataSourceDecryptProcessor(DataSourceCryptoConfiguration cryptoConfiguration) {
-        this.cryptoConfiguration = cryptoConfiguration;
+    public AesDataSourceDecryptProcessor(DataSourceProperties dataSourceProperties) {
+        this.dataSourceProperties = dataSourceProperties;
     }
 
     @Override
     public String decrypt(String str) {
-        return AesEncryptEncoder.decryptStr(str, cryptoConfiguration.getSecretKey());
+        return AesEncryptEncoder.decryptStr(str, dataSourceProperties.getSecretKey());
     }
 
 }

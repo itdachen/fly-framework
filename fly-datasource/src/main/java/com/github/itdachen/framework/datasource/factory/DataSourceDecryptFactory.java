@@ -1,6 +1,6 @@
 package com.github.itdachen.framework.datasource.factory;
 
-import com.github.itdachen.framework.autoconfigure.datasource.DataSourceCryptoConfiguration;
+import com.github.itdachen.framework.autoconfigure.datasource.DataSourceProperties;
 import com.github.itdachen.framework.autoconfigure.datasource.enums.DataSourceEncoderTypeEnum;
 import com.github.itdachen.framework.datasource.processor.AbstractDataSourceDecryptProcessor;
 import com.github.itdachen.framework.datasource.processor.decrypt.AesDataSourceDecryptProcessor;
@@ -15,16 +15,16 @@ import org.springframework.stereotype.Component;
 @Component
 public class DataSourceDecryptFactory {
 
-    private final DataSourceCryptoConfiguration cryptoConfiguration;
+    private final DataSourceProperties dataSourceProperties;
 
-    public DataSourceDecryptFactory(DataSourceCryptoConfiguration cryptoConfiguration) {
-        this.cryptoConfiguration = cryptoConfiguration;
+    public DataSourceDecryptFactory(DataSourceProperties dataSourceProperties) {
+        this.dataSourceProperties = dataSourceProperties;
     }
 
 
     public AbstractDataSourceDecryptProcessor build() {
-        if (DataSourceEncoderTypeEnum.AES == cryptoConfiguration.getEncoder()) {
-            return new AesDataSourceDecryptProcessor(cryptoConfiguration);
+        if (DataSourceEncoderTypeEnum.AES == dataSourceProperties.getEncoder()) {
+            return new AesDataSourceDecryptProcessor(dataSourceProperties);
         }
         return new NoopDataSourceDecryptProcessor();
     }

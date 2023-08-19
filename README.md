@@ -55,7 +55,7 @@
 | fly-core                         | 项目核心模块                    |
 | fly-hardware                     | 系统参数调用封装（CUP,内存,JVM信息等）   |
 | fly-datasource                   | 数据库加密模块                   |
-| fly-file                         | 文件上传模块                    |
+| fly-oss                          | 文件上传模块                    |
 | fly-jwt                          | JSON Web Token (JWT)封装实现  |
 | fly-webmvc                       | 通用 MVC 封装模块               |
 | fly-runner                       | SpringBoot 启动 runner 日志模块 |

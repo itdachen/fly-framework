@@ -132,7 +132,7 @@
             </dependency>
             <dependency>
                 <groupId>com.github.itdachen.framework</groupId>
-                <artifactId>fly-file</artifactId>
+                <artifactId>fly-oss</artifactId>
                 <version>${fly.framework.dependencies.version}</version>
             </dependency>
             <dependency>

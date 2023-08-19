@@ -1,6 +1,6 @@
 package com.github.itdachen.framework.datasource.processor.encrypt;
 
-import com.github.itdachen.framework.autoconfigure.datasource.DataSourceCryptoConfiguration;
+import com.github.itdachen.framework.autoconfigure.datasource.DataSourceProperties;
 import com.github.itdachen.framework.crypto.aes.AesEncryptEncoder;
 import com.github.itdachen.framework.datasource.processor.AbstractDataSourceEncryptProcessor;
 
@@ -11,16 +11,16 @@ import com.github.itdachen.framework.datasource.processor.AbstractDataSourceEncr
  */
 public class AesDataSourceEncryptProcessor extends AbstractDataSourceEncryptProcessor {
 
-    private final DataSourceCryptoConfiguration cryptoConfiguration;
+    private final DataSourceProperties dataSourceProperties;
 
-    public AesDataSourceEncryptProcessor(DataSourceCryptoConfiguration cryptoConfiguration) {
-        this.cryptoConfiguration = cryptoConfiguration;
+    public AesDataSourceEncryptProcessor(DataSourceProperties dataSourceProperties) {
+        this.dataSourceProperties = dataSourceProperties;
     }
 
 
     @Override
     public String encrypt(String str) {
-        return AesEncryptEncoder.encryptStr(str, cryptoConfiguration.getSecretKey());
+        return AesEncryptEncoder.encryptStr(str, dataSourceProperties.getSecretKey());
     }
 
 

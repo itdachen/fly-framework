@@ -14,7 +14,7 @@
         <module>fly-core</module>
         <module>fly-hardware</module>
         <module>fly-datasource</module>
-        <module>fly-file</module>
+        <module>fly-oss</module>
         <module>fly-jwt</module>
         <module>fly-webmvc</module>
         <module>fly-runner</module>

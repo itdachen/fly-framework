@@ -10,7 +10,7 @@ import org.springframework.context.annotation.Configuration;
  */
 @Configuration
 @EnableConfigurationProperties({
-        DataSourceCryptoConfiguration.class
+        DataSourceProperties.class
 })
 public class FlyDatasourceAutoConfiguration {
 }
