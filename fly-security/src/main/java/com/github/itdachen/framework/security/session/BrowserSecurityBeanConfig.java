@@ -91,7 +91,6 @@ public class BrowserSecurityBeanConfig {
      */
     @Bean
     public FlyClientSessionExceptionHandler clientSessionStrategy() {
-        logger.info("正在配置全局客户端 session 处理 ...");
         return new FlyClientSessionExceptionHandler(sessionProperties);
     }
 

@@ -28,11 +28,9 @@ public class DruidDataSourceStatViewServletView {
      */
     @Bean
     public ServletRegistrationBean<StatViewServlet> druidServlet() {
-        logger.info("正在注册Servlet信息，配置数据库监控视图...");
         ServletRegistrationBean<StatViewServlet> servletRegistrationBean = new ServletRegistrationBean<StatViewServlet>();
         servletRegistrationBean.setServlet(new StatViewServlet());
         servletRegistrationBean.addUrlMappings("/druid/*");
-        logger.info("数据库数据库监控视图配置完成");
         return servletRegistrationBean;
     }
 
@@ -45,7 +43,6 @@ public class DruidDataSourceStatViewServletView {
      */
     @Bean
     public FilterRegistrationBean<WebStatFilter> filterRegistrationBean() {
-        logger.info("正在注册Filter信息, 数据库监控拦截器...");
         FilterRegistrationBean<WebStatFilter> filterRegistrationBean = new FilterRegistrationBean<WebStatFilter>();
         filterRegistrationBean.setFilter(new WebStatFilter());
         filterRegistrationBean.addUrlPatterns("/*");
@@ -54,7 +51,6 @@ public class DruidDataSourceStatViewServletView {
         filterRegistrationBean.addInitParameter("principalCookieName", "USER_COOKIE");
         filterRegistrationBean.addInitParameter("principalSessionName", "USER_SESSION");
         filterRegistrationBean.addInitParameter("DruidWebStatFilter", "/*");
-        logger.info("数据库监控拦截器配置完成");
         return filterRegistrationBean;
     }
 

@@ -25,7 +25,7 @@ public class DataSourceBeanConfig {
     }
 
     /***
-     * 增加Jdbc模板支持
+     * 增加 Jdbc 模板支持
      *
      * @author 王大宸
      * @date 2023/3/28 17:24
@@ -34,7 +34,6 @@ public class DataSourceBeanConfig {
     @Bean
     @Primary
     public JdbcTemplate getJdbcTemplate() {
-        logger.error("数据库添加Jdbc模板支持...");
         return new JdbcTemplate(dataSource);
     }
 
