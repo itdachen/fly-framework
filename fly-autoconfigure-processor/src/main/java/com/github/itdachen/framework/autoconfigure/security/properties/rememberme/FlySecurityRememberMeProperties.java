@@ -10,55 +10,67 @@ import org.springframework.boot.context.properties.ConfigurationProperties;
 @ConfigurationProperties(prefix = "fly.security.rememberme")
 public class FlySecurityRememberMeProperties {
 
-    /* '记住我' 加密 key */
-    private String rememberMeKey = "some_secret";
+    /**
+     * '记住我' 加密 key
+     */
+    private String key = "remember-me";
 
-    /* 记住我 cookie key, 可以设置成需要配置跨域的域名 */
-    private String rememberMeCookieName = "remember-me";
+    /**
+     * 记住我 cookie key, 可以设置成需要配置跨域的域名
+     */
+    private String cookieName = "remember-me";
 
-    /* '记住我'功能的有效时间(秒数)，默认7天 */
-    private int rememberMeSeconds = 604800;
+    /**
+     * '记住我'功能的有效时间(秒数)，默认7天
+     */
+    private int seconds = 604800;
 
-    /* 记住我需要配置的域名 */
-    private String rememberMeCookieDomain;
+    /**
+     * 记住我需要配置的域名
+     */
+    private String cookieDomain;
 
-    /* 需要配置跨域的域名 */
+    /**
+     * 需要配置跨域的域名
+     */
     private String corsCookieDomain;
 
-    /* 是否永远记住 */
+    /**
+     * 是否永远记住
+     */
     private Boolean alwaysRemember = Boolean.TRUE;
 
 
-    public String getRememberMeKey() {
-        return rememberMeKey;
+    public String getKey() {
+        return key;
     }
 
-    public void setRememberMeKey(String rememberMeKey) {
-        this.rememberMeKey = rememberMeKey;
+    public void setKey(String key) {
+        this.key = key;
     }
 
-    public String getRememberMeCookieName() {
-        return rememberMeCookieName;
+    public String getCookieName() {
+        return cookieName;
     }
 
-    public void setRememberMeCookieName(String rememberMeCookieName) {
-        this.rememberMeCookieName = rememberMeCookieName;
+    public void setCookieName(String cookieName) {
+        this.cookieName = cookieName;
     }
 
-    public int getRememberMeSeconds() {
-        return rememberMeSeconds;
+    public int getSeconds() {
+        return seconds;
     }
 
-    public void setRememberMeSeconds(int rememberMeSeconds) {
-        this.rememberMeSeconds = rememberMeSeconds;
+    public void setSeconds(int seconds) {
+        this.seconds = seconds;
     }
 
-    public String getRememberMeCookieDomain() {
-        return rememberMeCookieDomain;
+    public String getCookieDomain() {
+        return cookieDomain;
     }
 
-    public void setRememberMeCookieDomain(String rememberMeCookieDomain) {
-        this.rememberMeCookieDomain = rememberMeCookieDomain;
+    public void setCookieDomain(String cookieDomain) {
+        this.cookieDomain = cookieDomain;
     }
 
     public String getCorsCookieDomain() {

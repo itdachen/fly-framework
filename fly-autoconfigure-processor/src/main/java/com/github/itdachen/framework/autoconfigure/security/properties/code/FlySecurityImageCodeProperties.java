@@ -15,8 +15,14 @@ public class FlySecurityImageCodeProperties extends ValidateCode {
         setLength(4);
     }
 
+    /**
+     * 宽度
+     */
     private int width = 67;
 
+    /**
+     * 高度
+     */
     private int height = 23;
 
     public int getWidth() {

@@ -40,7 +40,7 @@ public class FlySecurityLogout implements IFlySecurityLogout {
                         .logoutUrl(securityProperties.getLogout())
                         // 删除浏览器里面 cookie 里面的认证信息
                         .deleteCookies("JSESSIONID", "SESSION",
-                                rememberMeProperties.getRememberMeCookieName()
+                                rememberMeProperties.getCookieName()
                         )
                         // Handler 和 url 是互斥的,只能配置一个, 如果配置了 Handler 就会交给 Handler 来处理
                         .logoutSuccessHandler(logoutSuccessHandler)

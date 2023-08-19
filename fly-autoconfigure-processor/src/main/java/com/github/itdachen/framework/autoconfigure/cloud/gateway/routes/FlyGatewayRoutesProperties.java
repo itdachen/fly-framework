@@ -10,6 +10,9 @@ import org.springframework.boot.context.properties.ConfigurationProperties;
 @ConfigurationProperties(prefix = "fly.cloud.gateway.routes")
 public class FlyGatewayRoutesProperties {
 
+    /**
+     * 超时时间
+     */
     private long timeout = 30000;
 
     /**

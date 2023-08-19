@@ -20,11 +20,11 @@ public class AbstractChannelSecurityConfig {
     protected AuthenticationFailureHandler authenticationFailureHandler;
 
     protected void applyPasswordAuthenticationConfig(HttpSecurity http) throws Exception {
-        http.formLogin()
-                .loginPage(SecurityConstants.DEFAULT_UN_AUTHENTICATION_URL)
-                .loginProcessingUrl(SecurityConstants.DEFAULT_LOGIN_PROCESSING_URL_FORM)
-                .successHandler(authenticationSuccessHandler)
-                .failureHandler(authenticationFailureHandler);
+//        http.formLogin()
+//                .loginPage(SecurityConstants.DEFAULT_UN_AUTHENTICATION_URL)
+//                .loginProcessingUrl(SecurityConstants.DEFAULT_LOGIN_PROCESSING_URL_FORM)
+//                .successHandler(authenticationSuccessHandler)
+//                .failureHandler(authenticationFailureHandler);
     }
 
 }

@@ -41,10 +41,10 @@ public class FlySecurityRememberMe implements IFlySecurityRememberMe {
          */
         http.rememberMe(rememberMe -> rememberMe
                 .alwaysRemember(rememberMeProperties.getAlwaysRemember())
-                .key(rememberMeProperties.getRememberMeKey()) // 记住我加密 key
-                .rememberMeCookieName(rememberMeProperties.getRememberMeCookieName()) // cookie 记住我 key,
-                .rememberMeCookieDomain(rememberMeProperties.getRememberMeCookieDomain())
-                .tokenValiditySeconds(rememberMeProperties.getRememberMeSeconds()) // 过期时间, 单位, 秒
+                .key(rememberMeProperties.getKey()) // 记住我加密 key
+                .rememberMeCookieName(rememberMeProperties.getCookieName()) // cookie 记住我 key,
+                .rememberMeCookieDomain(rememberMeProperties.getCookieDomain())
+                .tokenValiditySeconds(rememberMeProperties.getSeconds()) // 过期时间, 单位, 秒
                 .tokenRepository(persistentTokenRepository)  // 指定token存储方式
                 .authenticationSuccessHandler(authenticationSuccessHandler)
                 .userDetailsService(userDetailsService) // 查询用户的接口
