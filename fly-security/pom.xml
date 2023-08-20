@@ -13,7 +13,7 @@
     <name>${project.artifactId}</name>
     <packaging>jar</packaging>
     <version>${fly.framework.version}</version>
-    <description>基于浏览器 session 认证模块</description>
+    <description>基于 Spring Security 认证模块</description>
 
     <dependencies>
 <!--        <dependency>-->
