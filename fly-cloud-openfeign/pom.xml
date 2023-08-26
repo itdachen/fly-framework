@@ -13,6 +13,7 @@
     <artifactId>fly-cloud-openfeign</artifactId>
     <name>${project.artifactId}</name>
     <packaging>jar</packaging>
+    <version>${fly.framework.version}</version>
     <description>feign 调用</description>
 
     <dependencies>
