@@ -130,13 +130,18 @@ public class SecurityContextHandler {
                                            String... authorities) {
         // 新的权限
         List<GrantedAuthority> authorityList = AuthorityUtils.createAuthorityList(authorities);
+
         SecurityContext securityContext = SecurityContextHolder.getContext();
         Authentication authentication = securityContext.getAuthentication();
+
         //  authentication.setAuthenticated(authorityList);
         // 重新new一个token，因为Authentication中的权限是不可变的.
         UsernamePasswordAuthenticationToken auth = new UsernamePasswordAuthenticationToken(principal,
                 authentication.getCredentials(), authorityList);
         auth.setDetails(authentication.getDetails());
+
+        securityContext.setAuthentication(auth);
+
         SecurityContextHolder.getContext().setAuthentication(auth);
     }
 
