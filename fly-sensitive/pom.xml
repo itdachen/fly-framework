@@ -12,7 +12,7 @@
     <artifactId>fly-sensitive</artifactId>
     <name>${project.artifactId}</name>
     <packaging>jar</packaging>
-    <version>${fly.framework.version}</version>
+    <version>${fly.dependencies.version}</version>
     <description>数据脱敏模块</description>
 
 

@@ -12,7 +12,7 @@
     <artifactId>fly-jwt</artifactId>
     <name>${project.artifactId}</name>
     <packaging>jar</packaging>
-    <version>${fly.framework.version}</version>
+    <version>${fly.dependencies.version}</version>
     <description>系统认证 token 生成及解析模块</description>
 
     <dependencies>

@@ -12,7 +12,7 @@
     <artifactId>fly-hardware</artifactId>
     <name>${project.artifactId}</name>
     <packaging>jar</packaging>
-    <version>${fly.framework.version}</version>
+    <version>${fly.dependencies.version}</version>
     <description>获取服务器环境情况</description>
 
     <properties>
@@ -24,7 +24,7 @@
         <dependency>
             <groupId>com.github.itdachen.framework</groupId>
             <artifactId>fly-context</artifactId>
-            <version>${fly.framework.version}</version>
+            <version>${fly.dependencies.version}</version>
             <scope>compile</scope>
         </dependency>
 

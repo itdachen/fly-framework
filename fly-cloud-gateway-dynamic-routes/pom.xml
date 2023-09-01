@@ -13,7 +13,7 @@
     <artifactId>fly-cloud-gateway-dynamic-routes</artifactId>
     <name>${project.artifactId}</name>
     <packaging>jar</packaging>
-    <version>${fly.framework.version}</version>
+    <version>${fly.dependencies.version}</version>
     <description>GateWay 动态路由</description>
 
     <dependencies>

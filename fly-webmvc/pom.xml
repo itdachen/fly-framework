@@ -12,7 +12,7 @@
     <artifactId>fly-webmvc</artifactId>
     <name>${project.artifactId}</name>
     <packaging>jar</packaging>
-    <version>${fly.framework.version}</version>
+    <version>${fly.dependencies.version}</version>
     <description>基础 MVC 模块</description>
 
     <dependencies>

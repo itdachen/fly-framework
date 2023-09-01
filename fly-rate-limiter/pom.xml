@@ -12,7 +12,7 @@
     <artifactId>fly-rate-limiter</artifactId>
     <name>${project.artifactId}</name>
     <packaging>jar</packaging>
-    <version>${fly.framework.version}</version>
+    <version>${fly.dependencies.version}</version>
     <description>自定义接口限流</description>
 
     <dependencies>

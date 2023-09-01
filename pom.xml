@@ -8,6 +8,31 @@
     <version>1.0.0</version>
     <packaging>pom</packaging>
 
+    <properties>
+        <java.version>17</java.version>
+        <maven.compiler.source>${java.version}</maven.compiler.source>
+        <maven.compiler.target>${java.version}</maven.compiler.target>
+        <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+        <project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
+
+        <!-- 统一版本号, 与 fly-dependencies 里保持一致 -->
+        <fly.dependencies.version>1.0.1</fly.dependencies.version>
+
+    </properties>
+
+    <dependencyManagement>
+        <dependencies>
+            <dependency>
+                <groupId>com.github.itdachen.framework</groupId>
+                <artifactId>fly-dependencies</artifactId>
+                <version>${fly.dependencies.version}</version>
+                <type>pom</type>
+                <scope>import</scope>
+            </dependency>
+        </dependencies>
+    </dependencyManagement>
+
+
     <modules>
         <module>fly-dependencies</module>
         <module>fly-context</module>
@@ -41,31 +66,7 @@
         <module>fly-msg-body</module>
     </modules>
 
-    <properties>
-        <java.version>17</java.version>
-        <env.project.version>1.0.1</env.project.version>
-        <maven.compiler.source>${java.version}</maven.compiler.source>
-        <maven.compiler.target>${java.version}</maven.compiler.target>
-        <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
-        <project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
 
-        <!-- 版本依赖添加 -->
-        <fly.dependencies.version>${env.project.version}</fly.dependencies.version>
-        <fly.framework.version>${env.project.version}</fly.framework.version>
-
-    </properties>
-
-    <dependencyManagement>
-        <dependencies>
-            <dependency>
-                <groupId>com.github.itdachen.framework</groupId>
-                <artifactId>fly-dependencies</artifactId>
-                <version>${fly.dependencies.version}</version>
-                <type>pom</type>
-                <scope>import</scope>
-            </dependency>
-        </dependencies>
-    </dependencyManagement>
 
     <build>
         <plugins>

@@ -12,7 +12,7 @@
     <artifactId>fly-context</artifactId>
     <name>${project.artifactId}</name>
     <packaging>jar</packaging>
-    <version>${fly.framework.version}</version>
+    <version>${fly.dependencies.version}</version>
     <description>项目依赖统一管理</description>
 
     <dependencies>

@@ -17,8 +17,8 @@
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
         <project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
 
-        <!-- 内部模块依赖版本 -->
-        <fly.framework.dependencies.version>${project.version}</fly.framework.dependencies.version>
+        <!-- 统一版本号 -->
+        <fly.dependencies.version>${project.version}</fly.dependencies.version>
 
         <!-- Spring Cloud/Spring Boot 组件依赖 -->
         <spring.boot.version>3.1.2</spring.boot.version>
@@ -27,7 +27,7 @@
         <feign.httpclient>12.1</feign.httpclient>
         <spring.boot.admin.server.version>3.1.2</spring.boot.admin.server.version>
 
-        <!-- alibaba.fastjson -->
+        <!-- alibaba -->
         <com.alibaba.fastjson2>2.0.21</com.alibaba.fastjson2>
         <com.alibaba.fastjson>2.0.21</com.alibaba.fastjson>
         <com.alibaba.druid>1.2.18</com.alibaba.druid>
@@ -58,6 +58,7 @@
 
         <!-- 解析请求信息中的用户信息 -->
         <eu.bitwalker.version>1.21</eu.bitwalker.version>
+
         <!-- redisson -->
         <org.redisson.version>3.23.3</org.redisson.version>
 
@@ -106,142 +107,142 @@
             <dependency>
                 <groupId>com.github.itdachen.framework</groupId>
                 <artifactId>fly-autoconfigure-processor</artifactId>
-                <version>${fly.framework.dependencies.version}</version>
+                <version>${fly.dependencies.version}</version>
             </dependency>
             <dependency>
                 <groupId>com.github.itdachen.framework</groupId>
                 <artifactId>fly-context</artifactId>
-                <version>${fly.framework.dependencies.version}</version>
+                <version>${fly.dependencies.version}</version>
             </dependency>
             <dependency>
                 <groupId>com.github.itdachen.framework</groupId>
                 <artifactId>fly-core</artifactId>
-                <version>${fly.framework.dependencies.version}</version>
+                <version>${fly.dependencies.version}</version>
             </dependency>
             <dependency>
                 <groupId>com.github.itdachen.framework</groupId>
                 <artifactId>fly-runner</artifactId>
-                <version>${fly.framework.dependencies.version}</version>
+                <version>${fly.dependencies.version}</version>
             </dependency>
             <dependency>
                 <groupId>com.github.itdachen.framework</groupId>
                 <artifactId>fly-hardware</artifactId>
-                <version>${fly.framework.dependencies.version}</version>
+                <version>${fly.dependencies.version}</version>
             </dependency>
             <dependency>
                 <groupId>com.github.itdachen.framework</groupId>
                 <artifactId>fly-datasource</artifactId>
-                <version>${fly.framework.dependencies.version}</version>
+                <version>${fly.dependencies.version}</version>
             </dependency>
             <dependency>
                 <groupId>com.github.itdachen.framework</groupId>
                 <artifactId>fly-oss</artifactId>
-                <version>${fly.framework.dependencies.version}</version>
+                <version>${fly.dependencies.version}</version>
             </dependency>
             <dependency>
                 <groupId>com.github.itdachen.framework</groupId>
                 <artifactId>fly-jwt</artifactId>
-                <version>${fly.framework.dependencies.version}</version>
+                <version>${fly.dependencies.version}</version>
             </dependency>
             <dependency>
                 <groupId>com.github.itdachen.framework</groupId>
                 <artifactId>fly-webmvc</artifactId>
-                <version>${fly.framework.dependencies.version}</version>
+                <version>${fly.dependencies.version}</version>
             </dependency>
             <dependency>
                 <groupId>com.github.itdachen.framework</groupId>
                 <artifactId>fly-spring</artifactId>
-                <version>${fly.framework.dependencies.version}</version>
+                <version>${fly.dependencies.version}</version>
             </dependency>
             <dependency>
                 <groupId>com.github.itdachen.framework</groupId>
                 <artifactId>fly-tools</artifactId>
-                <version>${fly.framework.dependencies.version}</version>
+                <version>${fly.dependencies.version}</version>
             </dependency>
             <dependency>
                 <groupId>com.github.itdachen.framework</groupId>
                 <artifactId>fly-rbac</artifactId>
-                <version>${fly.framework.dependencies.version}</version>
+                <version>${fly.dependencies.version}</version>
             </dependency>
             <dependency>
                 <groupId>com.github.itdachen.framework</groupId>
                 <artifactId>fly-crypto</artifactId>
-                <version>${fly.framework.dependencies.version}</version>
+                <version>${fly.dependencies.version}</version>
             </dependency>
             <dependency>
                 <groupId>com.github.itdachen.framework</groupId>
                 <artifactId>fly-assets</artifactId>
-                <version>${fly.framework.dependencies.version}</version>
+                <version>${fly.dependencies.version}</version>
             </dependency>
             <dependency>
                 <groupId>com.github.itdachen.framework</groupId>
                 <artifactId>fly-oplog</artifactId>
-                <version>${fly.framework.dependencies.version}</version>
+                <version>${fly.dependencies.version}</version>
             </dependency>
             <dependency>
                 <groupId>com.github.itdachen.framework</groupId>
                 <artifactId>fly-security</artifactId>
-                <version>${fly.framework.dependencies.version}</version>
+                <version>${fly.dependencies.version}</version>
             </dependency>
             <dependency>
                 <groupId>com.github.itdachen.framework</groupId>
                 <artifactId>fly-body-advice</artifactId>
-                <version>${fly.framework.dependencies.version}</version>
+                <version>${fly.dependencies.version}</version>
             </dependency>
             <dependency>
                 <groupId>com.github.itdachen.framework</groupId>
                 <artifactId>fly-weixin</artifactId>
-                <version>${fly.framework.dependencies.version}</version>
+                <version>${fly.dependencies.version}</version>
             </dependency>
             <dependency>
                 <groupId>com.github.itdachen.framework</groupId>
                 <artifactId>fly-druid-view</artifactId>
-                <version>${fly.framework.dependencies.version}</version>
+                <version>${fly.dependencies.version}</version>
             </dependency>
             <dependency>
                 <groupId>com.github.itdachen.framework</groupId>
                 <artifactId>fly-code-tools</artifactId>
-                <version>${fly.framework.dependencies.version}</version>
+                <version>${fly.dependencies.version}</version>
             </dependency>
             <dependency>
                 <groupId>com.github.itdachen.framework.cloud</groupId>
                 <artifactId>fly-cloud-gateway-dynamic-routes</artifactId>
-                <version>${fly.framework.dependencies.version}</version>
+                <version>${fly.dependencies.version}</version>
             </dependency>
             <dependency>
                 <groupId>com.github.itdachen.framework.cloud</groupId>
                 <artifactId>fly-cloud-openfeign</artifactId>
-                <version>${fly.framework.dependencies.version}</version>
+                <version>${fly.dependencies.version}</version>
             </dependency>
             <dependency>
                 <groupId>com.github.itdachen.framework.cloud</groupId>
                 <artifactId>fly-cloud-jwt-core</artifactId>
-                <version>${fly.framework.dependencies.version}</version>
+                <version>${fly.dependencies.version}</version>
             </dependency>
             <dependency>
                 <groupId>com.github.itdachen.framework.cloud</groupId>
                 <artifactId>fly-cloud-jwt-crypto</artifactId>
-                <version>${fly.framework.dependencies.version}</version>
+                <version>${fly.dependencies.version}</version>
             </dependency>
             <dependency>
                 <groupId>com.github.itdachen.framework.cloud</groupId>
                 <artifactId>fly-cloud-jwt-parse</artifactId>
-                <version>${fly.framework.dependencies.version}</version>
+                <version>${fly.dependencies.version}</version>
             </dependency>
             <dependency>
                 <groupId>com.github.itdachen.framework</groupId>
                 <artifactId>fly-rate-limiter</artifactId>
-                <version>${fly.framework.dependencies.version}</version>
+                <version>${fly.dependencies.version}</version>
             </dependency>
             <dependency>
                 <groupId>com.github.itdachen.framework</groupId>
                 <artifactId>fly-sensitive</artifactId>
-                <version>${fly.framework.dependencies.version}</version>
+                <version>${fly.dependencies.version}</version>
             </dependency>
             <dependency>
                 <groupId>com.github.itdachen.framework</groupId>
                 <artifactId>fly-thread-pool</artifactId>
-                <version>${fly.framework.dependencies.version}</version>
+                <version>${fly.dependencies.version}</version>
             </dependency>
 
 
@@ -383,7 +384,6 @@
                 <artifactId>xxl-job-core</artifactId>
                 <version>${xxl-job.version}</version>
             </dependency>
-
 
             <!-- UserAgent提取工具, 获取客户端信息  -->
             <dependency>

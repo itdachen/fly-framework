@@ -12,7 +12,7 @@
     <artifactId>fly-oplog</artifactId>
     <name>${project.artifactId}</name>
     <packaging>jar</packaging>
-    <version>${fly.framework.version}</version>
+    <version>${fly.dependencies.version}</version>
     <description>操作日志处理</description>
 
     <dependencies>
