@@ -5,7 +5,7 @@ import com.github.itdachen.framework.cloud.jwt.crypto.key.JwtSecretKey;
 import org.springframework.stereotype.Component;
 
 /**
- * Description:
+ * Description: 生成 token 私钥/公钥
  * Created by 王大宸 on 2023/04/30 15:12
  * Created with IntelliJ IDEA.
  */

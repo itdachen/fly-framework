@@ -7,7 +7,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 
 /**
- * Description:
+ * Description: 生成 token
  * Created by 王大宸 on 2023/04/30 15:14
  * Created with IntelliJ IDEA.
  */

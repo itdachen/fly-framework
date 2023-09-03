@@ -3,7 +3,7 @@ package com.github.itdachen.framework.cloud.jwt.crypto;
 import org.springframework.context.annotation.Configuration;
 
 /**
- * Description:
+ * Description: 服务端秘钥存储
  * Created by 王大宸 on 2023-07-15 23:06
  * Created with IntelliJ IDEA.
  */
