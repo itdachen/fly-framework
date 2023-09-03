@@ -39,7 +39,6 @@
         <tk.mybatis.boot>4.2.3</tk.mybatis.boot>
         <org.mybatis>3.5.13</org.mybatis>
         <org.mybatis.boot>3.0.2</org.mybatis.boot>
-        <mysql.version>8.0.32</mysql.version>
 
         <!-- 工具集 -->
         <cn.hutool.version>5.8.21</cn.hutool.version>
@@ -312,11 +311,6 @@
                 <groupId>com.alibaba</groupId>
                 <artifactId>druid-spring-boot-3-starter</artifactId>
                 <version>${com.alibaba.druid}</version>
-            </dependency>
-            <dependency>
-                <groupId>mysql</groupId>
-                <artifactId>mysql-connector-java</artifactId>
-                <version>${mysql.version}</version>
             </dependency>
 
             <!-- 通用工具类 -->
