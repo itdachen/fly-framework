@@ -15,12 +15,6 @@
     <version>${fly.dependencies.version}</version>
     <description>alibaba druid 连接池可视化监控</description>
 
-    <properties>
-        <maven.compiler.source>17</maven.compiler.source>
-        <maven.compiler.target>17</maven.compiler.target>
-        <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
-    </properties>
-
     <dependencies>
 <!--        <dependency>-->
 <!--            <groupId>javax.servlet</groupId>-->
