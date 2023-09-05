@@ -22,9 +22,9 @@ public class FlyCloudTokenProperties {
     private String issuer = "com.github.itdachen";
 
     /**
-     * 有效时间, 定义默认有效期为 300 分钟 单位：分钟
+     * 有效时间, 定义默认有效期为 2 小时, 单位：分钟
      */
-    private long expires = 18000;
+    private long expires = 7200;
 
     public JwtTokenEnumType getType() {
         return type;

@@ -2,7 +2,7 @@ package com.github.itdachen.framework.cloud.jwt.parse.helper;
 
 import com.github.itdachen.framework.cloud.jwt.core.IJwtInfo;
 import com.github.itdachen.framework.cloud.jwt.parse.IVerifyTicketTokenHelper;
-import com.github.itdachen.framework.cloud.jwt.parse.key.AuthClientTokenSecretKey;
+import com.github.itdachen.framework.cloud.jwt.parse.AuthClientTokenSecretKey;
 import com.github.itdachen.framework.context.exception.BizException;
 import io.jsonwebtoken.ExpiredJwtException;
 import org.slf4j.Logger;
