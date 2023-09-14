@@ -6,13 +6,12 @@
     <parent>
         <groupId>com.github.itdachen.framework</groupId>
         <artifactId>fly-framework</artifactId>
-        <version>1.0.0</version>
+        <version>1.0.1</version>
     </parent>
 
     <artifactId>fly-thread-pool</artifactId>
     <name>${project.artifactId}</name>
     <packaging>jar</packaging>
-    <version>${fly.dependencies.version}</version>
     <description>自定义线程池模块</description>
 
     <dependencies>

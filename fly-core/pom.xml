@@ -6,13 +6,12 @@
     <parent>
         <groupId>com.github.itdachen.framework</groupId>
         <artifactId>fly-framework</artifactId>
-        <version>1.0.0</version>
+        <version>1.0.1</version>
     </parent>
 
     <artifactId>fly-core</artifactId>
     <name>${project.artifactId}</name>
     <packaging>jar</packaging>
-    <version>${fly.dependencies.version}</version>
     <description>项目核心模块</description>
 
 
@@ -20,14 +19,12 @@
         <dependency>
             <groupId>com.github.itdachen.framework</groupId>
             <artifactId>fly-context</artifactId>
-            <version>${fly.dependencies.version}</version>
         </dependency>
         <dependency>
             <groupId>org.apache.commons</groupId>
             <artifactId>commons-lang3</artifactId>
         </dependency>
     </dependencies>
-
 
 
 </project>

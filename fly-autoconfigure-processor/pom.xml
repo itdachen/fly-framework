@@ -6,13 +6,12 @@
     <parent>
         <groupId>com.github.itdachen.framework</groupId>
         <artifactId>fly-framework</artifactId>
-        <version>1.0.0</version>
+        <version>1.0.1</version>
     </parent>
 
     <artifactId>fly-autoconfigure-processor</artifactId>
     <name>${project.artifactId}</name>
     <packaging>jar</packaging>
-    <version>${fly.dependencies.version}</version>
     <description>自动配置模块, 所有配置都在这个模块集中管理</description>
 
 

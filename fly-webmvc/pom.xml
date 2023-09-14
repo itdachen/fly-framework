@@ -5,14 +5,13 @@
     <parent>
         <artifactId>fly-framework</artifactId>
         <groupId>com.github.itdachen.framework</groupId>
-        <version>1.0.0</version>
+        <version>1.0.1</version>
     </parent>
     <modelVersion>4.0.0</modelVersion>
 
     <artifactId>fly-webmvc</artifactId>
     <name>${project.artifactId}</name>
     <packaging>jar</packaging>
-    <version>${fly.dependencies.version}</version>
     <description>基础 MVC 模块</description>
 
     <dependencies>

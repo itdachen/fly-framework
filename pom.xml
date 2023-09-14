@@ -5,7 +5,7 @@
     <modelVersion>4.0.0</modelVersion>
     <groupId>com.github.itdachen.framework</groupId>
     <artifactId>fly-framework</artifactId>
-    <version>1.0.0</version>
+    <version>1.0.1</version>
     <packaging>pom</packaging>
 
     <properties>
@@ -14,10 +14,6 @@
         <maven.compiler.target>${java.version}</maven.compiler.target>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
         <project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
-
-        <!-- 统一版本号, 与 fly-dependencies 里保持一致 -->
-        <fly.dependencies.version>1.0.1</fly.dependencies.version>
-
     </properties>
 
     <dependencyManagement>
@@ -25,7 +21,7 @@
             <dependency>
                 <groupId>com.github.itdachen.framework</groupId>
                 <artifactId>fly-dependencies</artifactId>
-                <version>${fly.dependencies.version}</version>
+                <version>${project.version}</version>
                 <type>pom</type>
                 <scope>import</scope>
             </dependency>

@@ -6,14 +6,13 @@
     <parent>
         <groupId>com.github.itdachen.framework</groupId>
         <artifactId>fly-framework</artifactId>
-        <version>1.0.0</version>
+        <version>1.0.1</version>
     </parent>
 
     <groupId>com.github.itdachen.framework.cloud</groupId>
     <artifactId>fly-cloud-gateway-dynamic-routes</artifactId>
     <name>${project.artifactId}</name>
     <packaging>jar</packaging>
-    <version>${fly.dependencies.version}</version>
     <description>GateWay 动态路由</description>
 
     <dependencies>
