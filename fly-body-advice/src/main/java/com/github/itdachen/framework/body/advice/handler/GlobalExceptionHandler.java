@@ -8,6 +8,7 @@ import org.apache.commons.lang3.StringUtils;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.http.HttpStatus;
+import org.springframework.web.HttpRequestMethodNotSupportedException;
 import org.springframework.web.bind.annotation.ExceptionHandler;
 import org.springframework.web.bind.annotation.RestControllerAdvice;
 
@@ -38,6 +39,25 @@ public class GlobalExceptionHandler {
         }
         return ServerResponse.errStatusMsg(ex.getStatus(), ex.getMessage());
     }
+
+    /**
+     * 请求方式不支持
+     */
+    @ExceptionHandler({HttpRequestMethodNotSupportedException.class})
+    public ServerResponse<String> handlerHttpRequestMethodNotSupportedException(HttpRequestMethodNotSupportedException e) {
+        logger.error(e.getCause().getMessage(), e);
+        return ServerResponse.errMsg("不支持' " + e.getMethod() + " '请求");
+    }
+
+    /**
+     * 拦截未知的运行时异常
+     */
+    @ExceptionHandler(RuntimeException.class)
+    public ServerResponse<String> handlerRuntimeException(RuntimeException e) {
+        logger.error("运行时异常: {}", e.getCause().getMessage());
+        return ServerResponse.errMsg("运行时异常: " + e.getCause().getMessage());
+    }
+
 
     /***
      * 限流异常
@@ -87,14 +107,14 @@ public class GlobalExceptionHandler {
      * @param ex ex
      * @return com.github.itdachen.framework.core.response.ServerResponse<java.lang.String>
      */
-    @ExceptionHandler(Exception.class)
-    public ServerResponse<String> exceptionHandler(HttpServletResponse response, Exception ex) {
-        logger.error("未知错误: ", ex);
+    @ExceptionHandler(Throwable.class)
+    public ServerResponse<String> throwableHandler(HttpServletResponse response, Exception ex) {
+        logger.error("未知错误: {}", ex.getCause().getMessage());
         response.setStatus(HttpStatus.OK.value());
-        if (StringUtils.isEmpty(ex.getMessage())) {
+        if (StringUtils.isEmpty(ex.getCause().getMessage())) {
             return ServerResponse.errMsg("未知错误,请联系管理员");
         }
-        return ServerResponse.errMsg(ex.getMessage());
+        return ServerResponse.errMsg("发生了一个错误: " + ex.getCause().getMessage());
     }
 
 
