@@ -38,6 +38,7 @@
         <org.mybatis.boot>3.0.2</org.mybatis.boot>
 
         <!-- 工具集 -->
+        <poi.version>5.2.3</poi.version>
         <cn.hutool.version>5.8.21</cn.hutool.version>
         <commons.io.version>2.13.0</commons.io.version>
         <commons-lang.version>2.6</commons-lang.version>
@@ -330,6 +331,28 @@
                 <artifactId>hutool-http</artifactId>
                 <version>${cn.hutool.version}</version>
             </dependency>
+
+            <dependency>
+                <groupId>org.apache.poi</groupId>
+                <artifactId>poi-ooxml</artifactId>
+                <version>${poi.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>org.apache.poi</groupId>
+                <artifactId>poi</artifactId>
+                <version>${poi.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>org.apache.poi</groupId>
+                <artifactId>poi-scratchpad</artifactId>
+                <version>${poi.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>org.apache.poi</groupId>
+                <artifactId>poi-ooxml-schemas</artifactId>
+                <version>4.1.2</version>
+            </dependency>
+
             <dependency>
                 <groupId>commons-io</groupId>
                 <artifactId>commons-io</artifactId>
