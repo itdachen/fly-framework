@@ -21,7 +21,7 @@ public interface I${ClassName}Service {
      * @param params 查询参数
      * @return com.github.itdachen.framework.core.response.TableData<${package}.sdk.vo.${ClassName}Vo>
      */
-    TableData< ${ClassName}Vo > find${ClassName}Page(${ClassName}Query params) throws Exception;
+    TableData< ${ClassName}VO > find${ClassName}Page(${ClassName}Query params) throws Exception;
 
     /***
      * 新增

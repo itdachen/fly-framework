@@ -1,5 +1,7 @@
 package ${package}.controller;
 
+import com.github.itdachen.framework.context.annotation.CheckApiClient;
+import com.github.itdachen.framework.core.constants.ClientConstant;
 import ${package}.service.I${ClassName}Service;
 import ${package}.sdk.dto.${ClassName}DTO;
 import ${package}.sdk.query.${ClassName}Query;
@@ -73,7 +75,7 @@ public class ${ClassName}Controller {
     @GetMapping(value = "/edit/{id}")
     @PreAuthorize("hasAuthority('${permsPrefix}:update')")
     public String edit(@PathVariable("id") String id, ModelMap modelMap) throws Exception {
-        modelMap.put("${className}", ${className}Service.getById(id));
+        modelMap.put("${className}", ${className}Service.get${ClassName}ById(id));
         return PATH_PREFIX + "/edit";
     }
 
@@ -89,7 +91,7 @@ public class ${ClassName}Controller {
     @GetMapping(value = "/view/{id}")
     @PreAuthorize("hasAuthority('${permsPrefix}:view')")
     public String see(@PathVariable("id") String id, ModelMap modelMap) throws Exception {
-        modelMap.put("${className}", ${className}Service.getById(id));
+        modelMap.put("${className}", ${className}Service.get${ClassName}ById(id));
         return PATH_PREFIX + "/see";
     }
 
@@ -103,7 +105,8 @@ public class ${ClassName}Controller {
      */
     @GetMapping(value = "/page")
     @PreAuthorize("hasAuthority('${permsPrefix}:query')")
-    public ServerResponse< TableData < ${ClassName}Vo > > find${ClassName}Page(${ClassName}Query params) throws Exception {
+    @ResponseBody
+    public ServerResponse< TableData < ${ClassName}VO > > find${ClassName}Page(${ClassName}Query params) throws Exception {
         return  ServerResponse.okData(${className}Service.find${ClassName}Page(params));
     }
 
@@ -118,7 +121,7 @@ public class ${ClassName}Controller {
     @PostMapping(value = "")
     @PreAuthorize("hasAuthority('${permsPrefix}:save')")
     @ResponseBody
-    @Log(title = "新增", operationType = LogType.SAVE)
+    @Log(title = "新增", type = LogType.SAVE)
     public ServerResponse< ${ClassName}VO > save${ClassName}(@Validated @RequestBody ${ClassName}DTO ${className}DTO) throws Exception {
         return ServerResponse.okData(${className}Service.save${ClassName}(${className}DTO));
     }
@@ -134,7 +137,7 @@ public class ${ClassName}Controller {
     @PutMapping(value = "/{id}")
     @PreAuthorize("hasAuthority('${permsPrefix}:update')")
     @ResponseBody
-    @Log(title = "修改", operationType = LogType.UPDATE)
+    @Log(title = "修改", type = LogType.UPDATE)
     public ServerResponse< ${ClassName}VO > update${ClassName}(@Validated @RequestBody ${ClassName}DTO ${className}DTO) throws Exception {
         return ServerResponse.okData(${className}Service.update${ClassName}(${className}DTO));
     }
@@ -164,7 +167,7 @@ public class ${ClassName}Controller {
     @DeleteMapping(value = "/{id}")
     @PreAuthorize("hasAuthority('${permsPrefix}:delete')")
     @ResponseBody
-    @Log(title = "删除", operationType = LogType.REMOVE)
+    @Log(title = "删除", type = LogType.REMOVE)
     public ServerResponse< ${ClassName}VO > remove${ClassName}(@PathVariable("id") ${primaryKey} id) throws Exception {
             ${className}Service.remove${ClassName}(id);
         return ServerResponse.ok();

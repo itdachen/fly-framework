@@ -12,7 +12,7 @@ import ${package}.sdk.vo.${ClassName}VO;
  */
 public class ${ClassName}Convert {
 
-    public static ${ClassName}Vo toJavaObjectVo(${ClassName}DTO ${className}DTO) {
+    public static ${ClassName}VO toJavaObjectVo(${ClassName}DTO ${className}DTO) {
         if (null == ${className}DTO){
             return null;
         }
@@ -68,7 +68,7 @@ public class ${ClassName}Convert {
     }
 
     public static ${ClassName} toJavaObject(${ClassName}VO ${className}VO) {
-        if (null == ${className}Vo){
+        if (null == ${className}VO){
             return null;
         }
         ${ClassName} ${className} = new ${ClassName}();
