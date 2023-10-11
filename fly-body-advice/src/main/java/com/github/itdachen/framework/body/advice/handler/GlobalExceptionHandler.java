@@ -109,15 +109,15 @@ public class GlobalExceptionHandler {
      */
     @ExceptionHandler(Throwable.class)
     public ServerResponse<String> throwableHandler(HttpServletResponse response, Exception ex) {
+        response.setStatus(HttpStatus.OK.value());
         Throwable cause = ex.getCause();
         if (null == cause) {
             logger.error("服务器发生了一个错误: {}", ex.getMessage());
             return ServerResponse.errMsg("服务器发生了一个错误");
         }
-        logger.error("未知错误: {}", ex.getCause().getMessage());
-        response.setStatus(HttpStatus.OK.value());
         if (StringUtils.isEmpty(ex.getCause().getMessage())) {
-            return ServerResponse.errMsg("未知错误,请联系管理员");
+            logger.error("未知错误: {}", ex.getCause().getMessage());
+            return ServerResponse.errMsg("服务器发生了一个错误");
         }
         return ServerResponse.errMsg("发生了一个错误: " + ex.getCause().getMessage());
     }
