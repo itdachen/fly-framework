@@ -53,9 +53,23 @@ public class GlobalExceptionHandler {
      * 拦截未知的运行时异常
      */
     @ExceptionHandler(RuntimeException.class)
-    public ServerResponse<String> handlerRuntimeException(RuntimeException e) {
-        logger.error("运行时异常: {}", e.getCause().getMessage());
-        return ServerResponse.errMsg("运行时异常: " + e.getCause().getMessage());
+    public ServerResponse<String> handlerRuntimeException(RuntimeException ex) {
+        if (null == ex) {
+            logger.error("运行时异常, Exception 为空 ...");
+            return ServerResponse.errMsg("发生了一个错误, 请联系管理员！");
+        }
+        Throwable cause = ex.getCause();
+        if (null == cause) {
+            logger.error("运行时异常: {}", ex.getMessage());
+            return ServerResponse.errMsg("发生了一个错误, 请联系管理员！");
+        }
+        if (null == ex.getCause().getMessage() || "".equals(ex.getCause().getMessage())
+                || "null".equals(ex.getCause().getMessage())) {
+            logger.error("运行时异常, 提示消息 [ ex.getCause().getMessage() ] 为空！");
+            return ServerResponse.errMsg("发生了一个错误, 请联系管理员！");
+        }
+        logger.error("运行时异常: {}", ex.getCause().getMessage());
+        return ServerResponse.errMsg("发生了一个错误, 请联系管理员！");
     }
 
 
@@ -107,19 +121,25 @@ public class GlobalExceptionHandler {
      * @param ex ex
      * @return com.github.itdachen.framework.core.response.ServerResponse<java.lang.String>
      */
-    @ExceptionHandler(Throwable.class)
+    @ExceptionHandler(Exception.class)
     public ServerResponse<String> throwableHandler(HttpServletResponse response, Exception ex) {
         response.setStatus(HttpStatus.OK.value());
+        if (null == ex) {
+            logger.error("发生了一个未知错误, Exception 为空 ...");
+            return ServerResponse.errMsg("发生了一个错误, 请联系管理员！");
+        }
         Throwable cause = ex.getCause();
         if (null == cause) {
             logger.error("服务器发生了一个错误: {}", ex.getMessage());
-            return ServerResponse.errMsg("服务器发生了一个错误");
+            return ServerResponse.errMsg("发生了一个错误, 请联系管理员！");
         }
-        if (StringUtils.isEmpty(ex.getCause().getMessage())) {
-            logger.error("未知错误: {}", ex.getCause().getMessage());
-            return ServerResponse.errMsg("服务器发生了一个错误");
+        if (null == ex.getCause().getMessage() || "".equals(ex.getCause().getMessage())
+                || "null".equals(ex.getCause().getMessage())) {
+            logger.error("服务器发生了一个错误, 提示消息 [ ex.getCause().getMessage() ] 为空！");
+            return ServerResponse.errMsg("发生了一个错误, 请联系管理员！");
         }
-        return ServerResponse.errMsg("发生了一个错误: " + ex.getCause().getMessage());
+        logger.error("服务器发生了一个错误: {}", ex.getCause().getMessage());
+        return ServerResponse.errMsg("发生了一个错误, 请联系管理员！");
     }
 
 
