@@ -15,44 +15,55 @@ import com.github.itdachen.framework.core.response.TableData;
  */
 public interface IBizService<D, V, Q extends BizQuery, PK> {
 
-    /**
+    /***
      * 分页查询
+     *
+     * @author 王大宸
+     * @date 2023/11/15 10:28
      * @param params 查询参数
      * @return com.github.itdachen.framework.core.response.TableData<V>
-     * @throws BizException
      */
     TableData<V> page(Q params) throws Exception;
 
-    /**
-     * 新增
-     *
-     * @param d 需要新增的数据
-     * @return T
-     */
-    V save(D d) throws Exception;
 
-    /**
-     * 根据id查询数据
+    /***
+     * 新增数据
      *
-     * @param id 根据id查询数据
+     * @author 王大宸
+     * @date 2023/11/15 10:28
+     * @param d 需要新增的数据
      * @return V
      */
-    V getById(PK id) throws Exception;
+    V saveInfo(D d) throws Exception;
 
-    /**
+    /***
+     * 根据主键查询数据
+     *
+     * @author 王大宸
+     * @date 2023/11/15 10:28
+     * @param id 需要查询的主键
+     * @return V
+     */
+    V selectByPrimaryKey(PK id) throws Exception;
+
+    /***
      * 更新数据
      *
+     * @author 王大宸
+     * @date 2023/11/15 10:27
      * @param d 需要更新的数据
-     * @return T
+     * @return V
      */
-    V update(D d) throws Exception;
+    V updateInfo(D d) throws Exception;
 
-    /**
-     * 删除
+    /***
+     * 根据主键删除数据
      *
-     * @param id 需要删除数据的id
+     * @author 王大宸
+     * @date 2023/11/15 10:27
+     * @param id 需要删除数据的主键
      * @return int
      */
-    int remove(PK id) throws Exception;
+    int deleteByPrimaryKey(PK id) throws Exception;
 
 }

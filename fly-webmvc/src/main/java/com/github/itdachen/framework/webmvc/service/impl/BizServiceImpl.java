@@ -47,12 +47,13 @@ public class BizServiceImpl<IBizMapper extends Mapper<T>, IBizConvert extends IB
     @Autowired
     protected IBizConvert bizConvert;
 
-    /**
+    /***
      * 分页查询
      *
+     * @author 王大宸
+     * @date 2023/11/15 10:28
      * @param params 查询参数
      * @return com.github.itdachen.framework.core.response.TableData<V>
-     * @throws BizException
      */
     @Override
     public TableData<V> page(Q params) throws Exception {
@@ -73,61 +74,65 @@ public class BizServiceImpl<IBizMapper extends Mapper<T>, IBizConvert extends IB
         return new TableData<V>(page.getTotal(), list);
     }
 
-    /**
-     * 新增
+    /***
+     * 新增数据
      *
+     * @author 王大宸
+     * @date 2023/11/15 10:28
      * @param d 需要新增的数据
-     * @return T
-     * @throws BizException
+     * @return V
      */
     @Override
     @Transactional(rollbackFor = Exception.class)
-    public V save(D d) throws Exception {
+    public V saveInfo(D d) throws Exception {
         T t = bizConvert.toJavaObject(d);
         EntityUtils.setCreatAndUpdateInfo(t);
         bizMapper.insertSelective(t);
         return bizConvert.toJavaObjectVo(t);
     }
 
-    /**
-     * 根据id查询
+    /***
+     * 根据主键查询数据
      *
-     * @param id 根据id查询数据
+     * @author 王大宸
+     * @date 2023/11/15 10:28
+     * @param id 需要查询的主键
      * @return V
-     * @throws BizException
      */
     @Override
-    public V getById(PK id) throws Exception {
+    public V selectByPrimaryKey(PK id) throws Exception {
         T t = bizMapper.selectByPrimaryKey(id);
         return bizConvert.toJavaObjectVo(t);
     }
 
-    /**
-     * 修改数据
+    /***
+     * 更新数据
      *
+     * @author 王大宸
+     * @date 2023/11/15 10:27
      * @param d 需要更新的数据
-     * @return T
-     * @throws BizException
+     * @return V
      */
     @Override
     @Transactional(rollbackFor = Exception.class)
-    public V update(D d) throws Exception {
+    public V updateInfo(D d) throws Exception {
         T t = bizConvert.toJavaObject(d);
         EntityUtils.setUpdatedInfo(t);
         bizMapper.updateByPrimaryKeySelective(t);
         return bizConvert.toJavaObjectVo(t);
     }
 
-    /**
-     * 根据id删除数据
+    /***
+     * 根据主键删除数据
      *
-     * @param id 需要删除数据的id
+     * @author 王大宸
+     * @date 2023/11/15 10:27
+     * @param id 需要删除数据的主键
      * @return int
-     * @throws BizException
      */
     @Override
     @Transactional(rollbackFor = Exception.class)
-    public int remove(PK id) throws Exception {
+    public int deleteByPrimaryKey(PK id) throws Exception {
         return bizMapper.deleteByPrimaryKey(id);
     }
 
@@ -140,7 +145,7 @@ public class BizServiceImpl<IBizMapper extends Mapper<T>, IBizConvert extends IB
      * @throws BizException
      */
     @Transactional(rollbackFor = Exception.class)
-    protected <E> int batchSave(List<E> list, Class<E> clazz) throws Exception {
+    public <E> int batchSave(List<E> list, Class<E> clazz) throws Exception {
         try {
             if (CollectionUtils.isEmpty(list)) {
                 return 0;
@@ -164,7 +169,7 @@ public class BizServiceImpl<IBizMapper extends Mapper<T>, IBizConvert extends IB
      * @throws Exception
      */
     @Transactional(rollbackFor = Exception.class)
-    protected <E> int batchUpdate(List<E> list, Class<E> clazz) throws Exception {
+    public <E> int batchUpdate(List<E> list, Class<E> clazz) throws Exception {
         try {
             if (CollectionUtils.isEmpty(list)) {
                 return 0;
