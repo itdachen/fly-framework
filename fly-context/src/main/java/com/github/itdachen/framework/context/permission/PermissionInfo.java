@@ -3,7 +3,7 @@ package com.github.itdachen.framework.context.permission;
 import java.io.Serializable;
 
 /**
- * Description:
+ * Description: 权限信息
  * Created by 王大宸 on 2022-10-16 13:48
  * Created with IntelliJ IDEA.
  */

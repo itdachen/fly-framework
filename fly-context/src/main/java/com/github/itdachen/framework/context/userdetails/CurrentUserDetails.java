@@ -1,10 +1,12 @@
 package com.github.itdachen.framework.context.userdetails;
 
+import com.github.itdachen.framework.context.permission.PermissionInfo;
 import org.apache.commons.lang3.builder.ToStringBuilder;
 import org.apache.commons.lang3.builder.ToStringStyle;
 
 import java.io.Serializable;
 import java.time.LocalDateTime;
+import java.util.List;
 import java.util.Map;
 
 /**
@@ -150,6 +152,12 @@ public class CurrentUserDetails implements Serializable {
      */
     private Map<String, String> other;
 
+    /**
+     * 权限信息
+     */
+    private List<PermissionInfo> permissions;
+
+
     public CurrentUserDetails() {
     }
 
@@ -176,7 +184,8 @@ public class CurrentUserDetails implements Serializable {
                               String postTitle, String grade,
                               String delFlag, String canDel,
                               LocalDateTime expireTime,
-                              Boolean isSuperAdmin, Map<String, String> other) {
+                              Boolean isSuperAdmin, Map<String, String> other,
+                              List<PermissionInfo> permissions) {
         this.id = id;
         this.tenantId = tenantId;
         this.clientId = clientId;
@@ -204,6 +213,7 @@ public class CurrentUserDetails implements Serializable {
         this.expireTime = expireTime;
         this.isSuperAdmin = isSuperAdmin;
         this.other = other;
+        this.permissions = permissions;
     }
 
     public void setId(String id) {
@@ -422,6 +432,14 @@ public class CurrentUserDetails implements Serializable {
         this.anTitle = anTitle;
     }
 
+    public List<PermissionInfo> getPermissions() {
+        return permissions;
+    }
+
+    public void setPermissions(List<PermissionInfo> permissions) {
+        this.permissions = permissions;
+    }
+
     @Override
     public String toString() {
         return new ToStringBuilder(this, ToStringStyle.MULTI_LINE_STYLE)
@@ -452,6 +470,7 @@ public class CurrentUserDetails implements Serializable {
                 .append("delFlag", getDelFlag())
                 .append("canDel", getCanDel())
                 .append("expireTime", getExpireTime())
+                .append("permissions", getPermissions())
                 .toString();
     }
 

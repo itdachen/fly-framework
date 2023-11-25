@@ -1,12 +1,17 @@
 package com.github.itdachen.framework.security.handler;
 
 import com.fasterxml.jackson.databind.ObjectMapper;
+import com.github.itdachen.framework.context.BizContextHandler;
+import com.github.itdachen.framework.security.user.CurrentUserInfo;
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.http.HttpStatus;
 import org.springframework.security.access.AccessDeniedException;
+import org.springframework.security.core.Authentication;
+import org.springframework.security.core.context.SecurityContext;
+import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.security.web.access.AccessDeniedHandler;
 import org.springframework.stereotype.Component;
 
@@ -30,9 +35,22 @@ public class FlyAccessDeniedExceptionHandler implements AccessDeniedHandler {
     public void handle(HttpServletRequest httpServletRequest,
                        HttpServletResponse httpServletResponse,
                        AccessDeniedException e) throws IOException {
-        httpServletResponse.setStatus(HttpStatus.INTERNAL_SERVER_ERROR.value());
-        httpServletResponse.setContentType("application/json;charset=UTF-8");
-        httpServletResponse.getWriter().write(objectMapper.writeValueAsString("没有权限，不允许访问"));
+        try {
+            SecurityContext context = SecurityContextHolder.getContext();
+            CurrentUserInfo userInfo = (CurrentUserInfo) context.getAuthentication().getPrincipal();
+            logger.error("权限不足, 请求人ID: {}, 请求人昵称: {}, 请求方式: {}, 请求地址: {}",
+                    userInfo.getId(),
+                    userInfo.getNickName(),
+                    httpServletRequest.getMethod(),
+                    httpServletRequest.getRequestURI());
+            httpServletResponse.setStatus(HttpStatus.INTERNAL_SERVER_ERROR.value());
+            httpServletResponse.setContentType("application/json;charset=UTF-8");
+            httpServletResponse.getWriter().write(objectMapper.writeValueAsString("没有权限，不允许访问"));
+        } catch (Exception ex) {
+            httpServletResponse.setStatus(HttpStatus.INTERNAL_SERVER_ERROR.value());
+            httpServletResponse.setContentType("application/json;charset=UTF-8");
+            httpServletResponse.getWriter().write(objectMapper.writeValueAsString("没有权限，不允许访问"));
+        }
     }
 
 }

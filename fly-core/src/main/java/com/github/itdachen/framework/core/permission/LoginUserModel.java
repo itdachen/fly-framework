@@ -7,6 +7,7 @@ import java.io.Serializable;
  * Created by 王大宸 on 2023/03/03 15:42
  * Created with IntelliJ IDEA.
  */
+@Deprecated
 public class LoginUserModel  implements Serializable {
     private static final long serialVersionUID = 2989313658535606417L;
 

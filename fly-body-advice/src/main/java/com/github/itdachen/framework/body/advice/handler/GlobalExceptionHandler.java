@@ -58,17 +58,7 @@ public class GlobalExceptionHandler {
             logger.error("运行时异常, Exception 为空 ...");
             return ServerResponse.errMsg("发生了一个错误, 请联系管理员！");
         }
-        Throwable cause = ex.getCause();
-        if (null == cause) {
-            logger.error("运行时异常: {}", ex.getMessage());
-            return ServerResponse.errMsg("发生了一个错误, 请联系管理员！");
-        }
-        if (null == ex.getCause().getMessage() || "".equals(ex.getCause().getMessage())
-                || "null".equals(ex.getCause().getMessage())) {
-            logger.error("运行时异常, 提示消息 [ ex.getCause().getMessage() ] 为空！");
-            return ServerResponse.errMsg("发生了一个错误, 请联系管理员！");
-        }
-        logger.error("运行时异常: {}", ex.getCause().getMessage());
+        logger.error("运行时异常: ", ex);
         return ServerResponse.errMsg("发生了一个错误, 请联系管理员！");
     }
 
@@ -130,15 +120,15 @@ public class GlobalExceptionHandler {
         }
         Throwable cause = ex.getCause();
         if (null == cause) {
-            logger.error("服务器发生了一个错误: {}", ex.getMessage());
+            logger.error("服务器发生了一个错误: {}", ex.getMessage(), ex);
             return ServerResponse.errMsg("发生了一个错误, 请联系管理员！");
         }
         if (null == ex.getCause().getMessage() || "".equals(ex.getCause().getMessage())
                 || "null".equals(ex.getCause().getMessage())) {
-            logger.error("服务器发生了一个错误, 提示消息 [ ex.getCause().getMessage() ] 为空！");
+            logger.error("服务器发生了一个错误, 提示消息 [ ex.getCause().getMessage() ] 为空！", ex);
             return ServerResponse.errMsg("发生了一个错误, 请联系管理员！");
         }
-        logger.error("服务器发生了一个错误: {}", ex.getCause().getMessage());
+        logger.error("服务器发生了一个错误: {}", ex.getCause().getMessage(), ex);
         return ServerResponse.errMsg("发生了一个错误, 请联系管理员！");
     }
 

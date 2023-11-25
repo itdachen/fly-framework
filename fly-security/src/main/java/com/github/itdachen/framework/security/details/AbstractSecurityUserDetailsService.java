@@ -201,6 +201,7 @@ public abstract class AbstractSecurityUserDetailsService implements UserDetailsS
         info.setCanDel(user.getCanDel());
         info.setExpireTime(user.getExpireTime());
         info.setOther(user.getOther());
+        info.setPermissions(user.getPermissions());
         return info;
     }
 
