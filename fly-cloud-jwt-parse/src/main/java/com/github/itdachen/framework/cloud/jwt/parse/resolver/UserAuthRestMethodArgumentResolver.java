@@ -1,7 +1,7 @@
 package com.github.itdachen.framework.cloud.jwt.parse.resolver;
 
-import com.github.itdachen.framework.context.BizContextHandler;
 import com.github.itdachen.framework.context.annotation.CurrentUser;
+import com.github.itdachen.framework.context.handler.GlobalContextUserDetailsHandler;
 import com.github.itdachen.framework.context.userdetails.CurrentUserDetails;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -30,25 +30,7 @@ public class UserAuthRestMethodArgumentResolver implements HandlerMethodArgument
                                               ModelAndViewContainer mavContainer,
                                               NativeWebRequest webRequest,
                                               WebDataBinderFactory binderFactory) throws Exception {
-
-        CurrentUserDetails userDetails = new CurrentUserDetails();
-        userDetails.setAccount(BizContextHandler.getAccount());
-        userDetails.setId(BizContextHandler.getUserId());
-        userDetails.setClientId(BizContextHandler.getClientId());
-        userDetails.setSignMethod(BizContextHandler.getSignMethod());
-        userDetails.setNickName(BizContextHandler.getNickName());
-        userDetails.setTenantId(BizContextHandler.getTenantId());
-
-        userDetails.setAvatar(BizContextHandler.getAvatar());
-        userDetails.setAppId(BizContextHandler.getAppId());
-        userDetails.setOpenId(BizContextHandler.getOpenId());
-        userDetails.setUserType(BizContextHandler.getUserType());
-        userDetails.setSex(BizContextHandler.getSex());
-        userDetails.setDeptId(BizContextHandler.getDeptId());
-        userDetails.setDeptTitle(BizContextHandler.getDeptTitle());
-        userDetails.setTelephone(BizContextHandler.getTelephone());
-        userDetails.setEmail(BizContextHandler.getEmail());
-        return userDetails;
+        return GlobalContextUserDetailsHandler.contextUserDetails();
     }
 
 }

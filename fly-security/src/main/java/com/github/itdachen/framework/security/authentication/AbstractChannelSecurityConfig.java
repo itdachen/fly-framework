@@ -11,6 +11,7 @@ import org.springframework.security.web.authentication.AuthenticationSuccessHand
  * Created by 王大宸 on 2023/02/14 17:05
  * Created with IntelliJ IDEA.
  */
+@Deprecated
 public class AbstractChannelSecurityConfig {
 
     @Autowired

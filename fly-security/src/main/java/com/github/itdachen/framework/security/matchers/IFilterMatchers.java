@@ -1,5 +1,7 @@
 package com.github.itdachen.framework.security.matchers;
 
+import org.springframework.security.web.util.matcher.AntPathRequestMatcher;
+
 import java.util.List;
 
 /**
@@ -9,8 +11,13 @@ import java.util.List;
  */
 public interface IFilterMatchers {
 
+    @Deprecated
     String[] matchers();
 
+    @Deprecated
     List<String> requestMatchers();
+
+
+    AntPathRequestMatcher[] requestMatcher();
 
 }

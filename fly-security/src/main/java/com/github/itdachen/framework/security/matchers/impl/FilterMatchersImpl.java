@@ -4,6 +4,7 @@ import com.github.itdachen.framework.core.utils.StringUtils;
 import com.github.itdachen.framework.security.matchers.IFilterMatchers;
 import com.github.itdachen.framework.security.matchers.pass.IPassMatchers;
 import com.github.itdachen.framework.security.matchers.pass.ISecurityPassMatchers;
+import org.springframework.security.web.util.matcher.AntPathRequestMatcher;
 import org.springframework.stereotype.Service;
 
 import java.util.ArrayList;
@@ -50,6 +51,22 @@ public class FilterMatchersImpl implements IFilterMatchers {
         List<String> list = new ArrayList<>(Arrays.stream(matchers).toList());
         list.addAll(arr);
         return list;
+    }
+
+    @Override
+    public AntPathRequestMatcher[] requestMatcher() {
+        String[] matchers = securityPassMatchers.matchers();
+        List<String> arr = passMatchers.matchers();
+        if (StringUtils.isEmpty(arr) || 0 == arr.size()) {
+            return new AntPathRequestMatcher[0];
+        }
+        List<String> list = new ArrayList<>(Arrays.stream(matchers).toList());
+        list.addAll(arr);
+        List<AntPathRequestMatcher> requestMatchers = new ArrayList<>();
+        for (String uri : list) {
+            requestMatchers.add(new AntPathRequestMatcher(uri));
+        }
+        return requestMatchers.toArray(new AntPathRequestMatcher[0]);
     }
 
     /***

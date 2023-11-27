@@ -1,7 +1,7 @@
 package com.github.itdachen.framework.security.interceptor;
 
 import com.github.itdachen.framework.context.BizContextHandler;
-import com.github.itdachen.framework.context.userdetails.CurrentUserDetails;
+import com.github.itdachen.framework.context.handler.GlobalContextUserDetailsHandler;
 import com.github.itdachen.framework.security.context.SecurityContextHandler;
 import com.github.itdachen.framework.security.user.CurrentUserInfo;
 import jakarta.servlet.http.HttpServletRequest;
@@ -13,7 +13,7 @@ import org.springframework.web.servlet.HandlerInterceptor;
 import org.springframework.web.servlet.ModelAndView;
 
 /**
- * Description:
+ * Description: 认证信息拦截器
  * Created by 王大宸 on 2022-09-23 17:21
  * Created with IntelliJ IDEA.
  */
@@ -31,21 +31,7 @@ public class BrowserInterceptor implements HandlerInterceptor {
 
         Object principal = SecurityContextHandler.getUserInfo();
         if (principal instanceof CurrentUserInfo userInfo) {
-            BizContextHandler.setUserId(userInfo.getId());
-            BizContextHandler.setNickName(userInfo.getNickName());
-            BizContextHandler.setAvatar(userInfo.getAvatar());
-            BizContextHandler.setAccount(userInfo.getAccount());
-            BizContextHandler.setTenantId(userInfo.getTenantId());
-            BizContextHandler.setAppId(userInfo.getAppId());
-            BizContextHandler.setOpenId(userInfo.getOpenId());
-            BizContextHandler.setUserType(userInfo.getUserType());
-            BizContextHandler.setSex(userInfo.getSex());
-            BizContextHandler.setDeptId(userInfo.getDeptId());
-            BizContextHandler.setDeptTitle(userInfo.getDeptTitle());
-            BizContextHandler.setTelephone(userInfo.getTelephone());
-            BizContextHandler.setEmail(userInfo.getEmail());
-            BizContextHandler.setOther(userInfo.getOther());
-
+            GlobalContextUserDetailsHandler.contextUserHandler(userInfo);
             return true;
         }
 

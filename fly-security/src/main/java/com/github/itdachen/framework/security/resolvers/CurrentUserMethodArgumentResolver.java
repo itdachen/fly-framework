@@ -3,6 +3,7 @@ package com.github.itdachen.framework.security.resolvers;
 import com.github.itdachen.framework.context.annotation.CurrentUser;
 import com.github.itdachen.framework.context.userdetails.CurrentUserDetails;
 import com.github.itdachen.framework.security.context.SecurityContextHandler;
+import com.github.itdachen.framework.security.user.CurrentUserInfo;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.core.MethodParameter;
@@ -27,10 +28,14 @@ public class CurrentUserMethodArgumentResolver implements HandlerMethodArgumentR
 
     @Override
     public CurrentUserDetails resolveArgument(MethodParameter parameter,
-                                  ModelAndViewContainer mavContainer,
-                                  NativeWebRequest webRequest,
-                                  WebDataBinderFactory binderFactory) throws Exception {
-        return (CurrentUserDetails) SecurityContextHandler.getUserInfo();
+                                              ModelAndViewContainer mavContainer,
+                                              NativeWebRequest webRequest,
+                                              WebDataBinderFactory binderFactory) throws Exception {
+        Object principal = SecurityContextHandler.getUserInfo();
+        if (principal instanceof CurrentUserInfo userInfo) {
+            return userInfo;
+        }
+        return null;
     }
 
 }
