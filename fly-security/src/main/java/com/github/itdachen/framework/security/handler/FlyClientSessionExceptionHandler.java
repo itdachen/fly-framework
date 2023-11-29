@@ -20,7 +20,7 @@ import java.io.IOException;
  * Created by 王大宸 on 2021-11-27 10:57
  * Created with IntelliJ IDEA.
  */
-@RestControllerAdvice(basePackages = {"com.itdachen"})
+@RestControllerAdvice(basePackages = {"com.github.itdachen"})
 public class FlyClientSessionExceptionHandler {
     private static final Logger logger = LoggerFactory.getLogger(FlyClientSessionExceptionHandler.class);
     /**

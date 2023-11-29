@@ -2,7 +2,6 @@ package com.github.itdachen.framework.security.handler;
 
 import com.github.itdachen.framework.autoconfigure.security.properties.FlySecurityProperties;
 import com.github.itdachen.framework.autoconfigure.security.constants.SecurityConstants;
-import com.github.itdachen.framework.security.log.IAuthSuccessCredentialsLogHandler;
 import com.github.itdachen.framework.security.log.LogAsyncFactory;
 import com.github.itdachen.framework.threads.manager.AsyncThreadsManager;
 import jakarta.servlet.ServletException;

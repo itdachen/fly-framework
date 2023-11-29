@@ -1,7 +1,6 @@
 package com.github.itdachen.framework.security.handler;
 
 import com.fasterxml.jackson.databind.ObjectMapper;
-import com.github.itdachen.framework.context.BizContextHandler;
 import com.github.itdachen.framework.security.user.CurrentUserInfo;
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
@@ -9,7 +8,6 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.http.HttpStatus;
 import org.springframework.security.access.AccessDeniedException;
-import org.springframework.security.core.Authentication;
 import org.springframework.security.core.context.SecurityContext;
 import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.security.web.access.AccessDeniedHandler;

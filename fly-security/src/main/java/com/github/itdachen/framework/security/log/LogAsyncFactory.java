@@ -1,6 +1,5 @@
 package com.github.itdachen.framework.security.log;
 
-import com.github.itdachen.framework.context.exception.BizException;
 import com.github.itdachen.framework.spring.SpringBeanUtils;
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;

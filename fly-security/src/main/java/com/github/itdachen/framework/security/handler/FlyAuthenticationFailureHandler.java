@@ -5,7 +5,6 @@ import com.github.itdachen.framework.autoconfigure.security.properties.FlySecuri
 import com.github.itdachen.framework.core.utils.StringUtils;
 import com.github.itdachen.framework.security.constants.LoginModeConstant;
 import com.github.itdachen.framework.security.exception.BizSecurityException;
-import com.github.itdachen.framework.security.log.IAuthFailureCredentialsLogHandler;
 import com.github.itdachen.framework.security.log.LogAsyncFactory;
 import com.github.itdachen.framework.threads.manager.AsyncThreadsManager;
 import jakarta.servlet.ServletException;
