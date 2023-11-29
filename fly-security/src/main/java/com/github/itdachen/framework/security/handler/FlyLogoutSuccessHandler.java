@@ -13,7 +13,7 @@ import org.springframework.security.web.authentication.logout.SecurityContextLog
 import java.io.IOException;
 
 /**
- * Description: 退出处理器
+ * Description: 退出成功处理器
  * Created by 王大宸 on 2022-09-23 16:43
  * Created with IntelliJ IDEA.
  */
@@ -39,10 +39,8 @@ public class FlyLogoutSuccessHandler implements LogoutSuccessHandler {
     public void onLogoutSuccess(HttpServletRequest request,
                                 HttpServletResponse response,
                                 Authentication authentication) throws IOException, ServletException {
-
-        Authentication auth = SecurityContextHolder.getContext().getAuthentication();
-        if (auth != null) { //清除认证
-            new SecurityContextLogoutHandler().logout(request, response, auth);
+        if (null != authentication) { //清除认证
+            new SecurityContextLogoutHandler().logout(request, response, authentication);
         }
         response.sendRedirect(signOutSuccessUrl);
     }

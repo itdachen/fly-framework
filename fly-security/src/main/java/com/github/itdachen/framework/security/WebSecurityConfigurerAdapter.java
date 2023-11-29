@@ -21,6 +21,8 @@ import org.springframework.security.web.authentication.logout.LogoutSuccessHandl
 import org.springframework.security.web.authentication.rememberme.PersistentTokenRepository;
 import org.springframework.security.web.session.InvalidSessionStrategy;
 import org.springframework.security.web.session.SessionInformationExpiredStrategy;
+import org.springframework.security.web.util.matcher.AntPathRequestMatcher;
+import org.springframework.security.web.util.matcher.OrRequestMatcher;
 
 /**
  * Description: 认证适配器
@@ -76,7 +78,7 @@ public class WebSecurityConfigurerAdapter {
     @Autowired
     protected RbacRequestAuthorizationManager requestAuthorizationManager;
 
-    
+
     /***
      * 配置
      *
@@ -174,12 +176,16 @@ public class WebSecurityConfigurerAdapter {
     public void logout(HttpSecurity http) throws Exception {
         /* 退出登录 */
         http.logout(logout -> logout
-                        // 退出登录访问地址
-                        .logoutUrl(securityProperties.getLogout())
-                        // 删除浏览器里面 cookie 里面的认证信息
-                        .deleteCookies("JSESSIONID", "SESSION",
-                                rememberMeProperties.getCookieName()
+                        .logoutRequestMatcher(
+                                new OrRequestMatcher(
+                                        new AntPathRequestMatcher(securityProperties.getLogout(), "GET"),
+                                        new AntPathRequestMatcher(securityProperties.getLogout(), "POST")
+                                )
                         )
+                        // 退出登录访问地址
+                        // .logoutUrl(securityProperties.getLogout())
+                        // 删除浏览器里面 cookie 里面的认证信息
+                        .deleteCookies("JSESSIONID", "SESSION", rememberMeProperties.getCookieName())
                         // Handler 和 url 是互斥的,只能配置一个, 如果配置了 Handler 就会交给 Handler 来处理
                         .logoutSuccessHandler(logoutSuccessHandler)
                         .invalidateHttpSession(true)
