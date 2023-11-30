@@ -20,6 +20,7 @@ import tk.mybatis.mapper.common.Mapper;
 import tk.mybatis.mapper.entity.Example;
 
 import java.lang.reflect.ParameterizedType;
+import java.util.Iterator;
 import java.util.List;
 import java.util.Map;
 
@@ -61,12 +62,20 @@ public class BizServiceImpl<IBizMapper extends Mapper<T>, IBizConvert extends IB
         Example example = new Example(clazz);
         String s = String.valueOf(params);
         Map<String, String> stringStringMap = StringUtils.strObjToHashMap(s);
-        if (stringStringMap.entrySet().size() > 0) {
+        if (!stringStringMap.entrySet().isEmpty()) {
             Example.Criteria criteria = example.createCriteria();
-            for (Map.Entry<String, String> entry : stringStringMap.entrySet()) {
-                criteria.orLike(entry.getKey(), entry.getValue() == null ? "" : "%" + entry.getValue() + "%")
-                        .orEqualTo(entry.getKey(), entry.getValue() == null ? "" : entry.getValue());
+
+            Iterator<Map.Entry<String, String>> iterator = stringStringMap.entrySet().iterator();
+            String key;
+            while (iterator.hasNext()) {
+                key = String.valueOf(iterator.next());
+                criteria.andLike(key, "%" + stringStringMap.get(key) + "%");
             }
+
+//            for (Map.Entry<String, String> entry : stringStringMap.entrySet()) {
+//                criteria.orLike(entry.getKey(), entry.getValue() == null ? "" : "%" + entry.getValue() + "%")
+//                        .orEqualTo(entry.getKey(), entry.getValue() == null ? "" : entry.getValue());
+//            }
         }
         example.setOrderByClause("id DESC");
         Page<V> page = PageHelper.startPage(params.getPage(), params.getLimit());

@@ -11,6 +11,7 @@ import tk.mybatis.mapper.common.Mapper;
 import tk.mybatis.mapper.entity.Example;
 
 import java.lang.reflect.ParameterizedType;
+import java.util.Iterator;
 import java.util.List;
 import java.util.Map;
 
@@ -42,8 +43,11 @@ public class BaseServiceImpl<IBizMapper extends Mapper<T>, T, PK> implements IBa
         Example example = new Example(clazz);
         if (query.entrySet().size() > 0) {
             Example.Criteria criteria = example.createCriteria();
-            for (Map.Entry<String, Object> entry : query.entrySet()) {
-                criteria.andLike(entry.getKey(), "%" + entry.getValue().toString() + "%");
+            Iterator<Map.Entry<String, Object>> iterator = query.entrySet().iterator();
+            String key;
+            while (iterator.hasNext()) {
+                key = String.valueOf(iterator.next());
+                criteria.andLike(key, "%" + params.get(key) + "%");
             }
         }
         Page<Object> result = PageHelper.startPage(query.getPage(), query.getLimit());
