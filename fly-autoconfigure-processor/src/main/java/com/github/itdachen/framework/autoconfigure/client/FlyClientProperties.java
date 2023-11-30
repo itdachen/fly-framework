@@ -14,42 +14,42 @@ public class FlyClientProperties {
     /**
      * 客户端id
      */
-    private String id = "web_app" ;
+    private String id = "web_app";
 
     /**
      * 版本号
      */
-    private String version = "1.0" ;
+    private String version = "1.0";
 
     /**
      * 版权所有
      */
-    private String copyright = "com.github.itdachen" ;
+    private String copyright = "com.github.itdachen";
 
     /**
      * 项目名称
      */
-    private String name = "FLY-NEXT" ;
+    private String title = "FLY-NEXT";
 
     /**
      * 简称
      */
-    private String referredToAs = "FLY-NEXT" ;
+    private String referredToAs = "FLY-NEXT";
 
     /**
      * 备注
      */
-    private String remarks = "" ;
+    private String remarks = "";
 
     /**
      * 版权年份
      */
-    private String copyrightYear = "2023" ;
+    private String copyrightYear = "2023";
 
     /**
      * 发行人
      */
-    private String issuer = "com.github.itdachen" ;
+    private String issuer = "com.github.itdachen";
 
     /**
      * 默认后台模板类型
@@ -59,7 +59,7 @@ public class FlyClientProperties {
     /**
      * 请求地址
      */
-    private String askUri = "http://127.0.0.1:8080" ;
+    private String askUri = "http://127.0.0.1:8080";
 
     public String getId() {
         return id;
@@ -93,15 +93,18 @@ public class FlyClientProperties {
         this.copyrightYear = copyrightYear;
     }
 
-    public String getName() {
-        return name;
+    public String getTitle() {
+        return title;
     }
 
-    public void setName(String name) {
-        this.name = name;
+    public void setTitle(String title) {
+        this.title = title;
     }
 
     public String getReferredToAs() {
+        if (null == referredToAs || referredToAs.isEmpty()) {
+            return title;
+        }
         return referredToAs;
     }
 
