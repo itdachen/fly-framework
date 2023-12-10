@@ -335,6 +335,12 @@
                 <version>${com.alibaba.druid}</version>
             </dependency>
 
+            <dependency>
+                <groupId>org.apache.dubbo</groupId>
+                <artifactId>dubbo-spring-boot-starter</artifactId>
+                <version>${dubbo.version}</version>
+            </dependency>
+
             <!-- 通用工具类 -->
             <dependency>
                 <groupId>cn.hutool</groupId>
