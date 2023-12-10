@@ -18,7 +18,7 @@
         <project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
 
         <!-- Spring Cloud/Spring Boot 组件依赖 -->
-        <spring-cloud-dependencies.version>2022.0.4</spring-cloud-dependencies.version>
+        <spring-cloud-dependencies.version>2023.0.0</spring-cloud-dependencies.version>
         <spring-cloud-alibaba-dependencies.version>2022.0.0.0</spring-cloud-alibaba-dependencies.version>
         <spring.boot.version>3.2.0</spring.boot.version>
         <spring.boot.admin.server.version>3.1.8</spring.boot.admin.server.version>
@@ -59,10 +59,11 @@
 
         <!-- JWT -->
         <io.jsonwebtoken.jjwt.version>0.11.5</io.jsonwebtoken.jjwt.version>
-<!--        <joda-time.version>2.12.2</joda-time.version>-->
+        <joda-time.version>2.12.2</joda-time.version>
 
-<!--        <io.jsonwebtoken.jjwt.version>0.12.3</io.jsonwebtoken.jjwt.version>-->
-        <joda-time.version>2.12.5</joda-time.version>
+        <!--        <io.jsonwebtoken.jjwt.version>0.12.3</io.jsonwebtoken.jjwt.version>-->
+        <!--        <io.jsonwebtoken.jjwt.version>0.12.3</io.jsonwebtoken.jjwt.version>-->
+        <!--        <joda-time.version>2.12.5</joda-time.version>-->
 
 
         <!-- 分布式调度 -->
