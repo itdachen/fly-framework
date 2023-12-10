@@ -2,7 +2,7 @@ package com.github.itdachen.framework.security.log.management;
 
 import com.github.itdachen.framework.context.userdetails.CurrentUserDetails;
 import com.github.itdachen.framework.core.utils.StringUtils;
-import com.github.itdachen.framework.security.authentication.mobile.SmsCodeAuthenticationToken;
+import com.github.itdachen.framework.security.authentication.mobile.MobileAuthenticationToken;
 import com.github.itdachen.framework.security.log.IAuthSuccessCredentialsLogHandler;
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
@@ -55,8 +55,8 @@ public class AuthSuccessLogHandlerManagement implements IAuthSuccessCredentialsL
             return (CurrentUserDetails) principal;
         }
         /* 短信验证码登录 */
-        if (authentication.getClass().equals(SmsCodeAuthenticationToken.class)) {
-            SmsCodeAuthenticationToken authenticationToken = (SmsCodeAuthenticationToken) authentication;
+        if (authentication.getClass().equals(MobileAuthenticationToken.class)) {
+            MobileAuthenticationToken authenticationToken = (MobileAuthenticationToken) authentication;
             Object principal = authenticationToken.getPrincipal();
             return (CurrentUserDetails) principal;
         }

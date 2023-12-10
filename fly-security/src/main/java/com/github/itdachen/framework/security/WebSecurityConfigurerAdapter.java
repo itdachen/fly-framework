@@ -4,7 +4,7 @@ import com.github.itdachen.framework.autoconfigure.security.constants.SecurityCo
 import com.github.itdachen.framework.autoconfigure.security.properties.FlySecurityProperties;
 import com.github.itdachen.framework.autoconfigure.security.properties.rememberme.FlySecurityRememberMeProperties;
 import com.github.itdachen.framework.autoconfigure.security.properties.session.FlySecuritySessionProperties;
-import com.github.itdachen.framework.security.authentication.mobile.SmsCodeAuthenticationSecurityConfig;
+import com.github.itdachen.framework.security.authentication.mobile.MobileAuthenticationSecurityConfigurer;
 import com.github.itdachen.framework.security.details.AbstractSecurityUserDetailsService;
 import com.github.itdachen.framework.security.handler.FlyAccessDeniedExceptionHandler;
 import com.github.itdachen.framework.security.matchers.IFilterMatchers;
@@ -35,7 +35,7 @@ public class WebSecurityConfigurerAdapter {
     protected ValidateCodeFilter validateCodeFilter;
     @Autowired
     /* 短信验证码登录 */
-    protected SmsCodeAuthenticationSecurityConfig smsCodeAuthenticationSecurityConfig;
+    protected MobileAuthenticationSecurityConfigurer smsCodeAuthenticationSecurityConfig;
     @Autowired
     /* 登录成功处理 */
     protected AuthenticationSuccessHandler authenticationSuccessHandler;
@@ -188,7 +188,7 @@ public class WebSecurityConfigurerAdapter {
                         .deleteCookies("JSESSIONID", "SESSION", rememberMeProperties.getCookieName())
                         // Handler 和 url 是互斥的,只能配置一个, 如果配置了 Handler 就会交给 Handler 来处理
                         .logoutSuccessHandler(logoutSuccessHandler)
-                        .invalidateHttpSession(true)
+                        .invalidateHttpSession(false)
                         .clearAuthentication(true)
                 // .logoutSuccessUrl(securityProperties.getSignInPage())   // 退出成功之后跳转地址
         );

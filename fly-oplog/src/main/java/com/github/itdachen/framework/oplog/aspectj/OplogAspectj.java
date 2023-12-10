@@ -140,8 +140,17 @@ public class OplogAspectj {
         // 1、获取方法的参数的字符串数组
         Object[] args = joinPoint.getArgs();
         MethodSignature methodSignature = (MethodSignature) joinPoint.getSignature();
+        if (null == methodSignature){
+            apiLog.setParams("{}");
+            return;
+        }
+
         //2.获取到方法的所有参数名称的字符串数组
         String[] parameterNames = methodSignature.getParameterNames();
+        if (null == parameterNames || 0 == parameterNames.length){
+            apiLog.setParams("{}");
+            return;
+        }
         JSONObject jObject = new JSONObject();
         for (int i = 0, len = parameterNames.length; i < len; i++) {
             jObject.put(parameterNames[i], args[i]);

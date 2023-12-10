@@ -43,14 +43,15 @@ public class FlyAuthenticationSuccessHandler extends SavedRequestAwareAuthentica
         /* 登录成功数据入库 */
         AsyncThreadsManager.me().execute(LogAsyncFactory.successTimerTask(request, response, authentication, request.getSession().getId()));
 
+        /* 登录成功之后的回调地址属性 */
+        setTargetUrlParameter(SecurityConstants.REDIRECT_URI);
 
-        String redirect_uri = request.getParameter(SecurityConstants.REDIRECT_URI);
-        String targetUrl = StringUtils.isEmpty(redirect_uri) ? securityProperties.getSuccessForwardUrl() : redirect_uri;
-
+        // 是不是总是跳转到默认配置地址
+        setAlwaysUseDefaultTargetUrl(false);
+        // setAlwaysUseDefaultTargetUrl(true);
 
         // 登录成功之后跳转地址
-        setAlwaysUseDefaultTargetUrl(true);
-        setDefaultTargetUrl(targetUrl);
+        setDefaultTargetUrl(securityProperties.getSuccessForwardUrl());
 
         super.onAuthenticationSuccess(request, response, authentication);
     }

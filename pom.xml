@@ -6,7 +6,7 @@
     <groupId>com.github.itdachen.framework</groupId>
     <artifactId>fly-framework</artifactId>
     <name>${project.artifactId}</name>
-    <version>1.0.1</version>
+    <version>1.0.2</version>
     <packaging>pom</packaging>
 
     <properties>
@@ -62,20 +62,6 @@
         <module>fly-cloud-jwt-parse</module>
         <module>fly-msg-body</module>
     </modules>
-
-    <!-- 推送到服务配置 -->
-    <distributionManagement>
-        <repository>
-            <id>nexus-release</id>
-            <name>nexus-release</name>
-            <url>http://admin@Hubu88661126@127.0.0.1:6581/repository/hubu-maven-hosted/</url>
-        </repository>
-        <snapshotRepository>
-            <id>nexus-snapshot</id>
-            <name>nexus-snapshot</name>
-            <url>http://admin@Hubu88661126@127.0.0.1:6581/repository/maven-snapshots/</url>
-        </snapshotRepository>
-    </distributionManagement>
 
     <build>
         <plugins>

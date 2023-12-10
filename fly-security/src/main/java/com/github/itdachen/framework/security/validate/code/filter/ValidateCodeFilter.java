@@ -107,6 +107,7 @@ public class ValidateCodeFilter extends OncePerRequestFilter implements Initiali
                 logger.info("验证码校验通过");
             } catch (ValidateCodeException exception) {
                 authenticationFailureHandler.onAuthenticationFailure(request, response, exception);
+                logger.error("验证码校验未通过");
                 return;
             }
         }

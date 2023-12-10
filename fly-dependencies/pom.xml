@@ -6,7 +6,7 @@
     <groupId>com.github.itdachen.framework</groupId>
     <artifactId>fly-dependencies</artifactId>
     <name>${project.artifactId}</name>
-    <version>1.0.1</version>
+    <version>1.0.2</version>
     <packaging>pom</packaging>
     <description>项目依赖统一管理</description>
 
@@ -18,24 +18,35 @@
         <project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
 
         <!-- Spring Cloud/Spring Boot 组件依赖 -->
-        <spring.boot.version>3.1.2</spring.boot.version>
-        <spring-cloud-dependencies.version>2022.0.3</spring-cloud-dependencies.version>
+        <spring-cloud-dependencies.version>2022.0.4</spring-cloud-dependencies.version>
         <spring-cloud-alibaba-dependencies.version>2022.0.0.0</spring-cloud-alibaba-dependencies.version>
+        <spring.boot.version>3.2.0</spring.boot.version>
+        <spring.boot.admin.server.version>3.1.8</spring.boot.admin.server.version>
+
+        <!-- 分布式 -->
+        <dubbo.version>3.2.9</dubbo.version>
+        <org.redisson.version>3.24.3</org.redisson.version>
+        <kryo-serializers.version>0.45</kryo-serializers.version>
+        <kryo.version>4.0.2</kryo.version>
+        <io.seata.version>2.0.0</io.seata.version>
+        <spring-cloud-zipkin.version>2.2.8.RELEASE</spring-cloud-zipkin.version>
         <feign.httpclient>12.1</feign.httpclient>
-        <spring.boot.admin.server.version>3.1.2</spring.boot.admin.server.version>
+        <netflix-hystrix.version>2.2.10.RELEASE</netflix-hystrix.version>
+
 
         <!-- alibaba -->
-        <com.alibaba.fastjson2>2.0.21</com.alibaba.fastjson2>
+        <com.alibaba.fastjson2>2.0.42</com.alibaba.fastjson2>
         <com.alibaba.fastjson>2.0.21</com.alibaba.fastjson>
-        <com.alibaba.druid>1.2.18</com.alibaba.druid>
+        <com.alibaba.druid>1.2.20</com.alibaba.druid>
+        <com.alibaba.easyexcel>3.2.1</com.alibaba.easyexcel>
 
         <!-- 持久层依赖 -->
-        <pagehelper>5.3.3</pagehelper>
-        <pagehelper.boot>1.4.7</pagehelper.boot>
+        <pagehelper>6.0.0</pagehelper>
+        <pagehelper.boot>2.0.0</pagehelper.boot>
         <tk.mybatis>4.2.3</tk.mybatis>
         <tk.mybatis.boot>4.2.3</tk.mybatis.boot>
-        <org.mybatis>3.5.13</org.mybatis>
-        <org.mybatis.boot>3.0.2</org.mybatis.boot>
+        <org.mybatis>3.5.14</org.mybatis>
+        <org.mybatis.boot>3.0.3</org.mybatis.boot>
 
         <!-- 工具集 -->
         <poi.version>5.2.3</poi.version>
@@ -48,7 +59,11 @@
 
         <!-- JWT -->
         <io.jsonwebtoken.jjwt.version>0.11.5</io.jsonwebtoken.jjwt.version>
-        <joda-time.version>2.12.2</joda-time.version>
+<!--        <joda-time.version>2.12.2</joda-time.version>-->
+
+<!--        <io.jsonwebtoken.jjwt.version>0.12.3</io.jsonwebtoken.jjwt.version>-->
+        <joda-time.version>2.12.5</joda-time.version>
+
 
         <!-- 分布式调度 -->
         <xxl-job.version>2.4.0</xxl-job.version>
@@ -430,21 +445,6 @@
 
         </dependencies>
     </dependencyManagement>
-
-
-    <!-- 推送到服务配置 -->
-<!--    <distributionManagement>-->
-<!--        <repository>-->
-<!--            <id>nexus-release</id>-->
-<!--            <name>nexus-release</name>-->
-<!--            <url>http://admin@Hubu88661126@127.0.0.1:6581/repository/hubu-maven-hosted/</url>-->
-<!--        </repository>-->
-<!--        <snapshotRepository>-->
-<!--            <id>nexus-snapshot</id>-->
-<!--            <name>nexus-snapshot</name>-->
-<!--            <url>http://admin@Hubu88661126@127.0.0.1:6581/repository/maven-snapshots/</url>-->
-<!--        </snapshotRepository>-->
-<!--    </distributionManagement>-->
 
     <!--    <dependencies>-->
     <!--        <dependency>-->

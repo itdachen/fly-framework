@@ -45,7 +45,6 @@ public class GlobalExceptionHandler {
      */
     @ExceptionHandler({HttpRequestMethodNotSupportedException.class})
     public ServerResponse<String> handlerHttpRequestMethodNotSupportedException(HttpRequestMethodNotSupportedException e) {
-        logger.error(e.getCause().getMessage(), e);
         return ServerResponse.errMsg("不支持' " + e.getMethod() + " '请求");
     }
 
@@ -54,10 +53,6 @@ public class GlobalExceptionHandler {
      */
     @ExceptionHandler(RuntimeException.class)
     public ServerResponse<String> handlerRuntimeException(RuntimeException ex) {
-        if (null == ex) {
-            logger.error("运行时异常, Exception 为空 ...");
-            return ServerResponse.errMsg("发生了一个错误, 请联系管理员！");
-        }
         logger.error("运行时异常: ", ex);
         return ServerResponse.errMsg("发生了一个错误, 请联系管理员！");
     }
@@ -91,15 +86,15 @@ public class GlobalExceptionHandler {
      * @param ex ex
      * @return com.github.itdachen.framework.core.response.ServerResponse<java.lang.String>
      */
-    @ExceptionHandler(IllegalArgumentException.class)
-    public ServerResponse<String> illegalArgumentExceptionHandler(HttpServletResponse response, IllegalArgumentException ex) {
-        logger.error("IllegalArgumentException: {}", ex.getMessage());
-        response.setStatus(HttpStatus.OK.value());
-        if (StringUtils.isEmpty(ex.getMessage())) {
-            return ServerResponse.errMsg("出现未知错误, 请联系技术人员!");
-        }
-        return ServerResponse.errMsg(ex.getMessage());
-    }
+//    @ExceptionHandler(IllegalArgumentException.class)
+//    public ServerResponse<String> illegalArgumentExceptionHandler(HttpServletResponse response, IllegalArgumentException ex) {
+//        logger.error("断言异常: ", ex);
+//        response.setStatus(HttpStatus.OK.value());
+//        if (StringUtils.isEmpty(ex.getMessage())) {
+//            return ServerResponse.errMsg("出现未知错误, 请联系技术人员!");
+//        }
+//        return ServerResponse.errMsg(ex.getMessage());
+//    }
 
 
     /***
