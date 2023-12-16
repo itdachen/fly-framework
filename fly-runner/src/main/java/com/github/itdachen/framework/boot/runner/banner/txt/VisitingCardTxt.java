@@ -16,8 +16,8 @@ public class VisitingCardTxt {
 
     public static String banner(Environment environment) {
         return SeparatorLine.SEPARATOR_LINE + "\n" +
-                "\twelcome use [ " + environment.getProperty("spring.application.name") + " ] os\n" +
-                "\tapplication [ " + environment.getProperty("spring.application.name") + " ] is starting\n" +
+                "\twelcome use [ " + environment.getProperty("spring.application.name") + " ] application\n" +
+                "\tapplication [ " + environment.getProperty("spring.application.name") + " ] starting\n" +
                 "\tstarting time " + LocalDateTime.now().format(DateTimeFormatter.ofPattern("yyyy-MM-dd HH:mm:ss")) + "\n" +
                 "\tframework from https://github.com/itdachen \n" +
                 SeparatorLine.SEPARATOR_LINE;
