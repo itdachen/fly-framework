@@ -12,7 +12,7 @@ import org.springframework.context.annotation.Configuration;
  * @date 2023/11/27 20:28
  */
 @Configuration
-public class RequestAuthorizationBeanConfig {
+public class RbacAuthorizationConfiguration {
 
     @Bean
     @ConditionalOnMissingBean(IRequestAuthorizationHandler.class)

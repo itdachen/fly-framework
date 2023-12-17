@@ -164,9 +164,21 @@ public class BizContextHandler {
         return GlobalContextThreadLocalHandler.returnObjectValue(GlobalContextThreadLocalHandler.get(UserInfoConstant.DEPT_ID));
     }
 
-    public static void setDeptId(String depart) {
-        GlobalContextThreadLocalHandler.set(UserInfoConstant.DEPT_ID, depart);
+    public static void setDeptId(String deptId) {
+        GlobalContextThreadLocalHandler.set(UserInfoConstant.DEPT_ID, deptId);
     }
+
+    /**
+     * 上级部门ID
+     */
+    public static String getParentDeptId() {
+        return GlobalContextThreadLocalHandler.returnObjectValue(GlobalContextThreadLocalHandler.get(UserInfoConstant.PARENT_DEPT_ID));
+    }
+
+    public static void setParentDeptId(String parentDeptId) {
+        GlobalContextThreadLocalHandler.set(UserInfoConstant.PARENT_DEPT_ID, parentDeptId);
+    }
+
 
     /**
      * 获取部门名称
@@ -175,8 +187,19 @@ public class BizContextHandler {
         return GlobalContextThreadLocalHandler.returnObjectValue(GlobalContextThreadLocalHandler.get(UserInfoConstant.DEPT_TITLE));
     }
 
-    public static void setDeptTitle(String depart) {
-        GlobalContextThreadLocalHandler.set(UserInfoConstant.DEPT_TITLE, depart);
+    public static void setDeptTitle(String deptTitle) {
+        GlobalContextThreadLocalHandler.set(UserInfoConstant.DEPT_TITLE, deptTitle);
+    }
+
+    /**
+     * 获取部门名称
+     */
+    public static String getDeptLevel() {
+        return GlobalContextThreadLocalHandler.returnObjectValue(GlobalContextThreadLocalHandler.get(UserInfoConstant.DEPT_LEVEL));
+    }
+
+    public static void setDeptLevel(String deptLevel) {
+        GlobalContextThreadLocalHandler.set(UserInfoConstant.DEPT_LEVEL, deptLevel);
     }
 
     /**
@@ -202,7 +225,7 @@ public class BizContextHandler {
     }
 
     /**
-     * 获取用户邮箱
+     * 获取用户其他信息
      */
     public static Map<String, String> getOther() {
         return (Map<String, String>) GlobalContextThreadLocalHandler.get(UserInfoConstant.OTHER);

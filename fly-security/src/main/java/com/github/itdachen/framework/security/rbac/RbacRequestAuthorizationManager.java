@@ -10,22 +10,27 @@ import org.slf4j.LoggerFactory;
 import org.springframework.security.authorization.AuthorizationDecision;
 import org.springframework.security.authorization.AuthorizationManager;
 import org.springframework.security.core.Authentication;
+import org.springframework.security.core.GrantedAuthority;
 import org.springframework.security.web.access.intercept.RequestAuthorizationContext;
 import org.springframework.stereotype.Component;
 import org.springframework.util.AntPathMatcher;
 
+import java.util.Collection;
 import java.util.List;
 import java.util.function.Supplier;
 
 /***
  * 自定义 Rbac 鉴权
- * SpringSecurity 6.x 默认的注解鉴权不生效了, 这里通过 Rbac 模式自定义鉴权
+ * SpringSecurity 6.x 默认的注解鉴权不生效, 这里通过 Rbac 模式自定义鉴权
  * @author 王大宸
  * @date 2023/11/27 20:18
  */
 @Component
 public class RbacRequestAuthorizationManager implements AuthorizationManager<RequestAuthorizationContext> {
     private static final Logger logger = LoggerFactory.getLogger(RbacRequestAuthorizationManager.class);
+
+    /* 检查是否需要鉴权 */
+    private static final AntPathMatcher antPathMatcher = new AntPathMatcher();
 
     /**
      * 需要认证的权限
@@ -81,14 +86,12 @@ public class RbacRequestAuthorizationManager implements AuthorizationManager<Req
                 return true;
             }
 
-            /* 检查是否需要鉴权 */
-            AntPathMatcher antPathMatcher = new AntPathMatcher();
+
             String uri;
             PermissionInfo hasPermissionInfo = null;
             for (PermissionInfo info : permissionsSet) {
                 uri = info.getUri().replaceAll("\\{\\*\\}", "*");
-                if (info.getMethod().equals(request.getMethod())
-                        && antPathMatcher.match(uri, request.getRequestURI())) {
+                if (info.getMethod().equals(request.getMethod()) && antPathMatcher.match(uri, request.getRequestURI())) {
                     hasPermissionInfo = info;
                     break;
                 }
@@ -101,15 +104,29 @@ public class RbacRequestAuthorizationManager implements AuthorizationManager<Req
 
             /* 用户鉴权 */
             if (principal instanceof CurrentUserInfo userInfo) {
-                List<PermissionInfo> userInfoPermissions = userInfo.getPermissions();
-                if (null == userInfoPermissions || userInfoPermissions.isEmpty()) {
+                Collection<GrantedAuthority> authorities = userInfo.getAuthorities();
+
+                if (null == authorities || authorities.isEmpty()) {
                     return false;
                 }
-                for (PermissionInfo info : userInfoPermissions) {
-                    if (hasPermissionInfo.getPermission().equals(info.getPermission())) {
+
+
+                for (GrantedAuthority info : authorities) {
+                    if (hasPermissionInfo.getPermission().equals(info.getAuthority())) {
                         return true;
                     }
                 }
+                return false;
+
+//                List<PermissionInfo> userInfoPermissions = userInfo.getPermissions();
+//                if (null == userInfoPermissions || userInfoPermissions.isEmpty()) {
+//                    return false;
+//                }
+//                for (PermissionInfo info : userInfoPermissions) {
+//                    if (hasPermissionInfo.getPermission().equals(info.getPermission())) {
+//                        return true;
+//                    }
+//                }
             }
             return false;
         } catch (Exception ex) {

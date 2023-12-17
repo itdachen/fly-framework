@@ -79,9 +79,19 @@ public class UserInfoConstant {
     public static final String DEPT_ID = "deptId";
 
     /**
+     * 上级部门id
+     */
+    public static final String PARENT_DEPT_ID = "parentDeptId";
+
+    /**
      * 部门名称
      */
     public static final String DEPT_TITLE = "deptTitle";
+
+    /**
+     * 部门级别
+     */
+    public static final String DEPT_LEVEL = "deptLevel";
 
     /**
      * 岗位id

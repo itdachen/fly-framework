@@ -27,11 +27,12 @@ public class CurrentUserInfo extends CurrentUserDetails implements UserDetails, 
     private static final Log logger = LogFactory.getLog(User.class);
     private String password;
     private final String username;
-    private final Set<GrantedAuthority> authorities;
     private final boolean accountNonExpired;
     private final boolean accountNonLocked;
     private final boolean credentialsNonExpired;
     private final boolean enabled;
+    // 这里取消 final, 方便动态更新权限信息
+    private Set<GrantedAuthority> authorities;
 
     public CurrentUserInfo(String username,
                            String password,
@@ -59,6 +60,11 @@ public class CurrentUserInfo extends CurrentUserDetails implements UserDetails, 
     public Collection<GrantedAuthority> getAuthorities() {
         return this.authorities;
     }
+
+    public void setAuthorities(Set<GrantedAuthority> authorities) {
+        this.authorities = authorities;
+    }
+
 
     public String getPassword() {
         return this.password;

@@ -23,7 +23,17 @@ public class CurrentUserDetails implements Serializable {
     private String id;
 
     /**
-     * 租户ID
+     * 登录账号
+     */
+    private String account;
+
+    /**
+     * 登录密码
+     */
+    private String accountSecret;
+
+    /**
+     * 租户ID/公司ID
      */
     private String tenantId;
 
@@ -68,27 +78,17 @@ public class CurrentUserDetails implements Serializable {
     private String email;
 
     /**
-     * 登录账号
-     */
-    private String account;
-
-    /**
-     * 登录密码
-     */
-    private String accountSecret;
-
-    /**
      * 用户状态
      */
     private String status;
 
     /**
-     * 服务提供商ID
+     * 服务提供商ID, 例如: 小程序 APPID
      */
     private String appId;
 
     /**
-     * 服务商提供的用户ID
+     * 服务商提供的用户ID, 例如: 小程序用户 openId
      */
     private String openId;
 
@@ -113,19 +113,14 @@ public class CurrentUserDetails implements Serializable {
     private String deptTitle;
 
     /**
-     * 岗位ID
+     * 上级部门ID
      */
-    private String postId;
+    private String parentDeptId;
 
     /**
-     * 岗位名称
+     * 部门层级
      */
-    private String postTitle;
-
-    /**
-     * 等级/级次
-     */
-    private String grade;
+    private String deptLevel;
 
     /**
      * 是否超级管理员
@@ -133,19 +128,9 @@ public class CurrentUserDetails implements Serializable {
     private Boolean isSuperAdmin;
 
     /**
-     * 删除标志(1-已删除;0-未删除)
-     */
-    private String delFlag;
-
-    /**
-     * 是否可删除(0-不可删除;1-可删除)
-     */
-    private String canDel;
-
-    /**
      * 过期时间(密码过期时间, 有些系统需要定期更新账号的密码)
      */
-    private LocalDateTime expireTime;
+    private LocalDateTime expTime;
 
     /**
      * 其他信息
@@ -171,20 +156,27 @@ public class CurrentUserDetails implements Serializable {
         this.avatar = avatar;
     }
 
-    public CurrentUserDetails(String id, String tenantId,
-                              String clientId, String signMethod,
-                              String nickName, String avatar,
-                              String anId, String anTitle,
-                              String telephone, String email,
-                              String account, String accountSecret,
-                              String status, String appId,
-                              String openId, String userType,
-                              String sex, String deptId,
-                              String deptTitle, String postId,
-                              String postTitle, String grade,
-                              String delFlag, String canDel,
-                              LocalDateTime expireTime,
-                              Boolean isSuperAdmin, Map<String, String> other,
+    public CurrentUserDetails(String id,
+                              String tenantId,
+                              String clientId,
+                              String signMethod,
+                              String nickName,
+                              String avatar,
+                              String anId,
+                              String anTitle,
+                              String telephone,
+                              String email,
+                              String account,
+                              String accountSecret,
+                              String status,
+                              String appId,
+                              String openId,
+                              String userType,
+                              String sex,
+                              String deptId,
+                              String deptTitle,
+                              Boolean isSuperAdmin,
+                              Map<String, String> other,
                               List<PermissionInfo> permissions) {
         this.id = id;
         this.tenantId = tenantId;
@@ -205,31 +197,41 @@ public class CurrentUserDetails implements Serializable {
         this.sex = sex;
         this.deptId = deptId;
         this.deptTitle = deptTitle;
-        this.postId = postId;
-        this.postTitle = postTitle;
-        this.grade = grade;
-        this.delFlag = delFlag;
-        this.canDel = canDel;
-        this.expireTime = expireTime;
         this.isSuperAdmin = isSuperAdmin;
         this.other = other;
         this.permissions = permissions;
-    }
-
-    public void setId(String id) {
-        this.id = id;
     }
 
     public String getId() {
         return id;
     }
 
-    public void setTenantId(String tenantId) {
-        this.tenantId = tenantId;
+    public void setId(String id) {
+        this.id = id;
+    }
+
+    public String getAccount() {
+        return account;
+    }
+
+    public void setAccount(String account) {
+        this.account = account;
+    }
+
+    public String getAccountSecret() {
+        return accountSecret;
+    }
+
+    public void setAccountSecret(String accountSecret) {
+        this.accountSecret = accountSecret;
     }
 
     public String getTenantId() {
         return tenantId;
+    }
+
+    public void setTenantId(String tenantId) {
+        this.tenantId = tenantId;
     }
 
     public String getClientId() {
@@ -248,172 +250,20 @@ public class CurrentUserDetails implements Serializable {
         this.signMethod = signMethod;
     }
 
-    public void setNickName(String nickName) {
-        this.nickName = nickName;
-    }
-
     public String getNickName() {
         return nickName;
     }
 
-    public void setAvatar(String avatar) {
-        this.avatar = avatar;
+    public void setNickName(String nickName) {
+        this.nickName = nickName;
     }
 
     public String getAvatar() {
         return avatar;
     }
 
-    public void setTelephone(String telephone) {
-        this.telephone = telephone;
-    }
-
-    public String getTelephone() {
-        return telephone;
-    }
-
-    public void setEmail(String email) {
-        this.email = email;
-    }
-
-    public String getEmail() {
-        return email;
-    }
-
-    public void setAccount(String account) {
-        this.account = account;
-    }
-
-    public String getAccount() {
-        return account;
-    }
-
-    public void setAppId(String appId) {
-        this.appId = appId;
-    }
-
-    public String getAppId() {
-        return appId;
-    }
-
-    public void setOpenId(String openId) {
-        this.openId = openId;
-    }
-
-    public String getOpenId() {
-        return openId;
-    }
-
-    public void setUserType(String userType) {
-        this.userType = userType;
-    }
-
-    public String getUserType() {
-        return userType;
-    }
-
-    public void setSex(String sex) {
-        this.sex = sex;
-    }
-
-    public String getSex() {
-        return sex;
-    }
-
-    public void setDeptId(String deptId) {
-        this.deptId = deptId;
-    }
-
-    public String getDeptId() {
-        return deptId;
-    }
-
-    public void setDeptTitle(String deptTitle) {
-        this.deptTitle = deptTitle;
-    }
-
-    public String getDeptTitle() {
-        return deptTitle;
-    }
-
-    public void setPostId(String postId) {
-        this.postId = postId;
-    }
-
-    public String getPostId() {
-        return postId;
-    }
-
-    public void setPostTitle(String postTitle) {
-        this.postTitle = postTitle;
-    }
-
-    public String getPostTitle() {
-        return postTitle;
-    }
-
-    public void setGrade(String grade) {
-        this.grade = grade;
-    }
-
-    public String getGrade() {
-        return grade;
-    }
-
-    public void setIsSuperAdmin(Boolean isSuperAdmin) {
-        this.isSuperAdmin = isSuperAdmin;
-    }
-
-    public Boolean getIsSuperAdmin() {
-        return isSuperAdmin;
-    }
-
-    public void setOther(Map<String, String> other) {
-        this.other = other;
-    }
-
-    public Map<String, String> getOther() {
-        return other;
-    }
-
-    public String getAccountSecret() {
-        return accountSecret;
-    }
-
-    public void setAccountSecret(String accountSecret) {
-        this.accountSecret = accountSecret;
-    }
-
-    public String getStatus() {
-        return status;
-    }
-
-    public void setStatus(String status) {
-        this.status = status;
-    }
-
-    public String getDelFlag() {
-        return delFlag;
-    }
-
-    public void setDelFlag(String delFlag) {
-        this.delFlag = delFlag;
-    }
-
-    public String getCanDel() {
-        return canDel;
-    }
-
-    public void setCanDel(String canDel) {
-        this.canDel = canDel;
-    }
-
-    public LocalDateTime getExpireTime() {
-        return expireTime;
-    }
-
-    public void setExpireTime(LocalDateTime expireTime) {
-        this.expireTime = expireTime;
+    public void setAvatar(String avatar) {
+        this.avatar = avatar;
     }
 
     public String getAnId() {
@@ -430,6 +280,118 @@ public class CurrentUserDetails implements Serializable {
 
     public void setAnTitle(String anTitle) {
         this.anTitle = anTitle;
+    }
+
+    public String getTelephone() {
+        return telephone;
+    }
+
+    public void setTelephone(String telephone) {
+        this.telephone = telephone;
+    }
+
+    public String getEmail() {
+        return email;
+    }
+
+    public void setEmail(String email) {
+        this.email = email;
+    }
+
+    public String getStatus() {
+        return status;
+    }
+
+    public void setStatus(String status) {
+        this.status = status;
+    }
+
+    public String getAppId() {
+        return appId;
+    }
+
+    public void setAppId(String appId) {
+        this.appId = appId;
+    }
+
+    public String getOpenId() {
+        return openId;
+    }
+
+    public void setOpenId(String openId) {
+        this.openId = openId;
+    }
+
+    public String getUserType() {
+        return userType;
+    }
+
+    public void setUserType(String userType) {
+        this.userType = userType;
+    }
+
+    public String getSex() {
+        return sex;
+    }
+
+    public void setSex(String sex) {
+        this.sex = sex;
+    }
+
+    public String getDeptId() {
+        return deptId;
+    }
+
+    public void setDeptId(String deptId) {
+        this.deptId = deptId;
+    }
+
+    public String getDeptTitle() {
+        return deptTitle;
+    }
+
+    public void setDeptTitle(String deptTitle) {
+        this.deptTitle = deptTitle;
+    }
+
+    public String getParentDeptId() {
+        return parentDeptId;
+    }
+
+    public void setParentDeptId(String parentDeptId) {
+        this.parentDeptId = parentDeptId;
+    }
+
+    public String getDeptLevel() {
+        return deptLevel;
+    }
+
+    public void setDeptLevel(String deptLevel) {
+        this.deptLevel = deptLevel;
+    }
+
+    public Boolean getIsSuperAdmin() {
+        return isSuperAdmin;
+    }
+
+    public void setIsSuperAdmin(Boolean superAdmin) {
+        isSuperAdmin = superAdmin;
+    }
+
+    public LocalDateTime getExpTime() {
+        return expTime;
+    }
+
+    public void setExpTime(LocalDateTime expTime) {
+        this.expTime = expTime;
+    }
+
+    public Map<String, String> getOther() {
+        return other;
+    }
+
+    public void setOther(Map<String, String> other) {
+        this.other = other;
     }
 
     public List<PermissionInfo> getPermissions() {
@@ -460,16 +422,12 @@ public class CurrentUserDetails implements Serializable {
                 .append("sex", getSex())
                 .append("deptId", getDeptId())
                 .append("deptTitle", getDeptTitle())
-                .append("postId", getPostId())
-                .append("postTitle", getPostTitle())
-                .append("grade", getGrade())
-                .append("isSuperAdmin", getIsSuperAdmin())
+                .append("parentDeptId", getParentDeptId())
+                .append("deptLevel", getDeptLevel())
                 .append("other", getOther())
-                .append("accountSecret", getAccountSecret())
+                .append("account", getAccount())
                 .append("status", getStatus())
-                .append("delFlag", getDelFlag())
-                .append("canDel", getCanDel())
-                .append("expireTime", getExpireTime())
+                .append("expireTime", getExpTime())
                 .append("permissions", getPermissions())
                 .toString();
     }

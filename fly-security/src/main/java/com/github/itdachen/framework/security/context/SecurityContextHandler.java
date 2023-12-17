@@ -38,29 +38,6 @@ public class SecurityContextHandler {
     }
 
     /***
-     * 动态加载权限
-     *
-     * @author 王大宸
-     * @date 2022/12/8 9:29
-     * @param list list
-     * @return void
-     */
-    public static void refreshAuthorities(List<String> list) {
-        final SecurityContext context = SecurityContextHolder.getContext();
-        // 得到当前的认证信息
-        final Authentication auth = context.getAuthentication();
-        //  生成当前的所有授权
-        List<GrantedAuthority> updatedAuthorities = new ArrayList<>();
-        for (String s : list) {
-            updatedAuthorities.add(new SimpleGrantedAuthority(s));
-        }
-        // 生成新的认证信息
-        UsernamePasswordAuthenticationToken newAuth = new UsernamePasswordAuthenticationToken(auth.getPrincipal(), auth.getCredentials(), updatedAuthorities);
-        // 重置认证信息
-        context.setAuthentication(newAuth);
-    }
-
-    /***
      * 获取当前登录用户
      *
      * @author 王大宸
@@ -88,6 +65,31 @@ public class SecurityContextHandler {
         return principal;
     }
 
+
+    /***
+     * 动态加载权限
+     *
+     * @author 王大宸
+     * @date 2022/12/8 9:29
+     * @param list list
+     * @return void
+     */
+    @Deprecated(since = "1.0.2")
+    public static void refreshAuthorities(List<String> list) {
+        final SecurityContext context = SecurityContextHolder.getContext();
+        // 得到当前的认证信息
+        final Authentication auth = context.getAuthentication();
+        //  生成当前的所有授权
+        List<GrantedAuthority> updatedAuthorities = new ArrayList<>();
+        for (String s : list) {
+            updatedAuthorities.add(new SimpleGrantedAuthority(s));
+        }
+        // 生成新的认证信息
+        UsernamePasswordAuthenticationToken newAuth = new UsernamePasswordAuthenticationToken(auth.getPrincipal(), auth.getCredentials(), updatedAuthorities);
+        // 重置认证信息
+        context.setAuthentication(newAuth);
+    }
+
     /***
      * 获取用户权限信息
      *
@@ -95,6 +97,7 @@ public class SecurityContextHandler {
      * @date 2023/4/17 21:08
      * @return java.util.List<java.lang.String>
      */
+    @Deprecated(since = "1.0.2")
     public static List<String> getUserAuthority() {
         Authentication authentication = SecurityContextHolder.getContext().getAuthentication();
         Collection<? extends GrantedAuthority> authorities = authentication.getAuthorities();
@@ -110,6 +113,7 @@ public class SecurityContextHandler {
      * @param authorities authorities
      * @return void
      */
+    @Deprecated(since = "1.0.2")
     public static void reloadUserAuthority(String... authorities) {
         SecurityContext securityContext = SecurityContextHolder.getContext();
         Authentication authentication = securityContext.getAuthentication();
@@ -126,6 +130,7 @@ public class SecurityContextHandler {
      * @param authorities 权限, 字符串数组
      * @return void
      */
+    @Deprecated(since = "1.0.2")
     public static void reloadUserAuthority(CurrentUserInfo principal,
                                            String... authorities) {
         // 新的权限
