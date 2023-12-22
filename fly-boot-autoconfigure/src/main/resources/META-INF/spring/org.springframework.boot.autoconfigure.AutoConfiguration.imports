@@ -1,0 +1,5 @@
+com.github.itdachen.boot.autoconfigure.client.ClientAutoConfiguration
+com.github.itdachen.boot.autoconfigure.security.SecurityAutoConfiguration
+com.github.itdachen.boot.autoconfigure.oss.OssAutoConfiguration
+com.github.itdachen.boot.autoconfigure.jwt.JwtAutoConfiguration
+com.github.itdachen.boot.autoconfigure.datasource.DatasourceAutoConfiguration

@@ -1,11 +1,11 @@
 package com.github.itdachen.framework.cloud.jwt.crypto.factory;
 
-import com.github.itdachen.framework.autoconfigure.cloud.jwt.enums.JwtTokenEnumType;
-import com.github.itdachen.framework.autoconfigure.cloud.jwt.properties.FlyCloudTokenProperties;
-import com.github.itdachen.framework.cloud.jwt.crypto.factory.handler.AbstractJwtTokenHandler;
-import com.github.itdachen.framework.cloud.jwt.crypto.factory.handler.EcdsaJwtTokenHandler;
-import com.github.itdachen.framework.cloud.jwt.crypto.factory.handler.HmacJwtTokenHandler;
-import com.github.itdachen.framework.cloud.jwt.crypto.factory.handler.RsaJwtTokenHandler;
+import com.github.itdachen.boot.autoconfigure.cloud.jwt.enums.JwtTokenEnumType;
+import com.github.itdachen.boot.autoconfigure.cloud.jwt.properties.CloudTokenProperties;
+import com.github.itdachen.framework.cloud.jwt.crypto.handler.AbstractJwtTokenHandler;
+import com.github.itdachen.framework.cloud.jwt.crypto.handler.EcdsaJwtTokenHandler;
+import com.github.itdachen.framework.cloud.jwt.crypto.handler.HmacJwtTokenHandler;
+import com.github.itdachen.framework.cloud.jwt.crypto.handler.RsaJwtTokenHandler;
 import org.springframework.stereotype.Component;
 
 /**
@@ -17,9 +17,9 @@ import org.springframework.stereotype.Component;
 public class JwtsTokenFactory {
 
 
-    private final FlyCloudTokenProperties properties;
+    private final CloudTokenProperties properties;
 
-    public JwtsTokenFactory(FlyCloudTokenProperties properties) {
+    public JwtsTokenFactory(CloudTokenProperties properties) {
         this.properties = properties;
     }
 

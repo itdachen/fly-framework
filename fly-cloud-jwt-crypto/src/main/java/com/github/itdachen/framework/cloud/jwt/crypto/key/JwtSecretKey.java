@@ -17,12 +17,23 @@ public class JwtSecretKey {
      */
     private String publicKey;
 
+    /**
+     * 算法
+     */
+    private String algorithm;
+
     public JwtSecretKey() {
     }
 
     public JwtSecretKey(String privateKey, String publicKey) {
         this.privateKey = privateKey;
         this.publicKey = publicKey;
+    }
+
+    public JwtSecretKey(String privateKey, String publicKey, String algorithm) {
+        this.privateKey = privateKey;
+        this.publicKey = publicKey;
+        this.algorithm = algorithm;
     }
 
 
@@ -42,4 +53,11 @@ public class JwtSecretKey {
         this.publicKey = publicKey;
     }
 
+    public String getAlgorithm() {
+        return algorithm;
+    }
+
+    public void setAlgorithm(String algorithm) {
+        this.algorithm = algorithm;
+    }
 }

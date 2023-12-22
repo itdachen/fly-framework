@@ -1,0 +1,6 @@
+com.github.itdachen.boot.security.AuthenticationHandlerAutoConfiguration
+com.github.itdachen.boot.security.SecurityConfigurerAdapterAutoConfiguration
+com.github.itdachen.boot.security.SecurityExceptionAutoConfiguration
+com.github.itdachen.boot.security.SecuritySessionAutoConfiguration
+com.github.itdachen.boot.security.ValidateCodeAutoConfiguration
+com.github.itdachen.boot.security.WebSecurityAutoConfiguration

@@ -1,6 +1,6 @@
 package com.github.itdachen.framework.jwt;
 
-import com.github.itdachen.framework.autoconfigure.jwt.FlyJwtAutoconfigureProperties;
+import com.github.itdachen.boot.autoconfigure.jwt.JwtAutoconfigureProperties;
 import com.github.itdachen.framework.cloud.jwt.core.IJwtInfo;
 import com.github.itdachen.framework.jwt.core.AuthKeyConfiguration;
 import com.github.itdachen.framework.jwt.utils.JwtTokenHelper;
@@ -18,10 +18,10 @@ import java.util.Date;
 public class JWTHelper {
 
     private final AuthKeyConfiguration keyConfiguration;
-    private final FlyJwtAutoconfigureProperties properties;
+    private final JwtAutoconfigureProperties properties;
 
     public JWTHelper(AuthKeyConfiguration keyConfiguration,
-                     FlyJwtAutoconfigureProperties properties) {
+                     JwtAutoconfigureProperties properties) {
         this.keyConfiguration = keyConfiguration;
         this.properties = properties;
     }

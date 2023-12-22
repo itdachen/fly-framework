@@ -7,7 +7,8 @@ import org.springframework.context.annotation.Configuration;
  * Created by 王大宸 on 2023-07-15 23:06
  * Created with IntelliJ IDEA.
  */
-@Configuration
+// @Configuration
+@Deprecated
 public class AuthServerSecretKey {
 
     private String servicePriKey;

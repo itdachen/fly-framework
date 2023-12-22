@@ -5,7 +5,7 @@
     <modelVersion>4.0.0</modelVersion>
     <parent>
         <artifactId>fly-framework</artifactId>
-        <groupId>com.github.itdachen.framework</groupId>
+        <groupId>com.github.itdachen</groupId>
         <version>1.0.2</version>
     </parent>
 
@@ -20,12 +20,12 @@
             <artifactId>slf4j-api</artifactId>
         </dependency>
         <dependency>
-            <groupId>com.github.itdachen.framework</groupId>
+            <groupId>com.github.itdachen</groupId>
             <artifactId>fly-context</artifactId>
         </dependency>
         <dependency>
-            <groupId>com.github.itdachen.framework</groupId>
-            <artifactId>fly-autoconfigure-processor</artifactId>
+            <groupId>com.github.itdachen</groupId>
+            <artifactId>fly-boot-autoconfigure</artifactId>
         </dependency>
         <dependency>
             <groupId>com.github.itdachen.framework.cloud</groupId>

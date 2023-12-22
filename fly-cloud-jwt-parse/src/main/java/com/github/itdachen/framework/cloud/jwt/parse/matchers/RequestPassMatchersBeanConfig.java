@@ -1,6 +1,6 @@
 package com.github.itdachen.framework.cloud.jwt.parse.matchers;
 
-import com.github.itdachen.framework.autoconfigure.cloud.jwt.properties.FlyCloudAppClientProperties;
+import com.github.itdachen.boot.autoconfigure.cloud.jwt.properties.CloudAppClientProperties;
 import com.github.itdachen.framework.cloud.jwt.parse.matchers.impl.DefaultRequestPassMatchers;
 import org.springframework.boot.autoconfigure.condition.ConditionalOnMissingBean;
 import org.springframework.context.annotation.Bean;
@@ -14,9 +14,9 @@ import org.springframework.context.annotation.Configuration;
 @Configuration
 public class RequestPassMatchersBeanConfig {
 
-    private final FlyCloudAppClientProperties properties;
+    private final CloudAppClientProperties properties;
 
-    public RequestPassMatchersBeanConfig(FlyCloudAppClientProperties properties) {
+    public RequestPassMatchersBeanConfig(CloudAppClientProperties properties) {
         this.properties = properties;
     }
 

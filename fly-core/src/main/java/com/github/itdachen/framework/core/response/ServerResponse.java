@@ -44,6 +44,14 @@ public class ServerResponse<T> implements Serializable {
         this.data = data;
     }
 
+
+    /***
+     * 错误消息
+     */
+    public static String resErrorJson(int status, String msg) {
+        return "{\"success\":\"false\",\"status\":\"" + status + "\", \"msg\":\"" + msg + "\",\"data\": null}";
+    }
+
     /**
      * 操作成功
      */

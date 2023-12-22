@@ -3,7 +3,7 @@
          xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
          xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
     <modelVersion>4.0.0</modelVersion>
-    <groupId>com.github.itdachen.framework</groupId>
+    <groupId>com.github.itdachen</groupId>
     <artifactId>fly-framework</artifactId>
     <name>${project.artifactId}</name>
     <version>1.0.2</version>
@@ -20,7 +20,7 @@
     <dependencyManagement>
         <dependencies>
             <dependency>
-                <groupId>com.github.itdachen.framework</groupId>
+                <groupId>com.github.itdachen</groupId>
                 <artifactId>fly-dependencies</artifactId>
                 <version>${project.version}</version>
                 <type>pom</type>
@@ -35,32 +35,38 @@
         <module>fly-context</module>
         <module>fly-core</module>
         <module>fly-hardware</module>
-        <module>fly-datasource</module>
-        <module>fly-oss</module>
         <module>fly-jwt</module>
         <module>fly-webmvc</module>
         <module>fly-runner</module>
         <module>fly-spring</module>
         <module>fly-tools</module>
-        <module>fly-rbac</module>
         <module>fly-crypto</module>
-        <module>fly-assets</module>
-        <module>fly-oplog</module>
-        <module>fly-security</module>
         <module>fly-body-advice</module>
         <module>fly-weixin</module>
-        <module>fly-cloud-gateway-dynamic-routes</module>
-        <module>fly-druid-view</module>
         <module>fly-code-tools</module>
         <module>fly-cloud-openfeign</module>
-        <module>fly-rate-limiter</module>
         <module>fly-sensitive</module>
-        <module>fly-autoconfigure-processor</module>
         <module>fly-thread-pool</module>
         <module>fly-cloud-jwt-core</module>
         <module>fly-cloud-jwt-crypto</module>
         <module>fly-cloud-jwt-parse</module>
         <module>fly-msg-body</module>
+        <module>fly-jjwt-crypto</module>
+        <module>fly-jjwt-parse</module>
+        <module>fly-jjwt-core</module>
+        <module>datasource-spring-boot-starter</module>
+        <module>fly-boot-autoconfigure</module>
+        <module>jwt-crypto-boot-start</module>
+        <module>jwt-parse-boot-starter</module>
+        <module>datasource-crypto-boot-starter</module>
+        <module>datasource-dynamic-boot-starter</module>
+        <module>security-spring-boot-starter</module>
+        <module>oplog-spring-boot-starter</module>
+        <module>oss-spring-boot-starter</module>
+        <module>rate-limiter-boot-starter</module>
+        <module>rbac-spring-boot-starter</module>
+        <module>spring-cloud-gateway-dynamic-routes</module>
+        <module>body-advice-boot-starter</module>
     </modules>
 
     <build>

@@ -18,12 +18,15 @@ public class HmacParseJwtsTokenHandler extends AbstractParseJwtsTokenHandler{
 
     @Override
     public IJwtInfo parseToken(String token, String signingKey) throws Exception {
-        Claims body = Jwts.parserBuilder()//获取jwts的解析器
-                .setSigningKey(generalKey(signingKey))    //设置加密后的密钥进行比对
-                .build()
-                .parseClaimsJws(token) //解析传入的jwt字符串
-                .getBody();  // 拿到claims对象返回
-        return parseJWTInfo(body);
+//        Claims body = Jwts.parserBuilder()//获取jwts的解析器
+//                .setSigningKey(generalKey(signingKey))    //设置加密后的密钥进行比对
+//                .build()
+//                .parseClaimsJws(token) //解析传入的jwt字符串
+//                .getBody();  // 拿到claims对象返回
+//        return parseJWTInfo(body);
+
+
+        return null;
     }
 
     @Override
