@@ -1,5 +1,6 @@
 package com.github.itdachen.boot.security.third.controller;
 
+import com.github.itdachen.boot.autoconfigure.security.constants.SecurityConstants;
 import com.github.itdachen.boot.security.authentication.VerifyTicketToken;
 import com.github.itdachen.boot.security.third.service.IThirdPlatformVerifyTicketTokenService;
 import com.github.itdachen.framework.core.response.ServerResponse;
@@ -10,7 +11,7 @@ import org.springframework.web.bind.annotation.RestController;
 
 /**
  * Description: 校验授权码
- * 测试: http://153.12.72.167:7080/verify/ticket/authorize?code=1643160334707593216
+ * 测试: http://153.12.72.167:7080/verify/ticket/token/authorize?code=1643160334707593216
  * Created by 王大宸 on 2023/04/03 17:07
  * Created with IntelliJ IDEA.
  */
@@ -33,7 +34,7 @@ public class VerifyTicketAuthorizationCodeController {
      * @param code code
      * @return cn.edu.hubu.framework.core.response.ServerResponse<java.lang.String>
      */
-    @RequestMapping("/verify/ticket/token/authorize")
+    @RequestMapping(SecurityConstants.VERIFY_TICKET_TOKEN)
     public ServerResponse<VerifyTicketToken> verifyTicket(String code) {
         try {
             VerifyTicketToken tokenVo = thirdVerifyTicketTokenService.findVerifyTicketToken(code);

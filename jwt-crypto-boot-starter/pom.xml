@@ -9,7 +9,11 @@
         <version>1.0.2</version>
     </parent>
 
-    <artifactId>jwt-crypto-boot-start</artifactId>
+    <artifactId>jwt-crypto-boot-starter</artifactId>
+    <name>${project.artifactId}</name>
+    <packaging>jar</packaging>
+    <description>JWT token 加密模块</description>
+
 
     <properties>
         <maven.compiler.source>17</maven.compiler.source>

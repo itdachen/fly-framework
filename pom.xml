@@ -56,7 +56,7 @@
         <module>fly-jjwt-core</module>
         <module>datasource-spring-boot-starter</module>
         <module>fly-boot-autoconfigure</module>
-        <module>jwt-crypto-boot-start</module>
+        <module>jwt-crypto-boot-starter</module>
         <module>jwt-parse-boot-starter</module>
         <module>datasource-crypto-boot-starter</module>
         <module>datasource-dynamic-boot-starter</module>

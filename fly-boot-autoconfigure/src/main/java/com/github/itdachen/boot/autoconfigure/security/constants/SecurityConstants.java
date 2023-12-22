@@ -105,6 +105,11 @@ public class SecurityConstants {
     public static final String THIRD_PLATFORM = "/authentication/third/platform";
 
     /**
+     * 跳转到第三方地址
+     */
+    public static final String VERIFY_TICKET_PLATFORM_FORWARD = "/platform/forward/verify/ticket";
+
+    /**
      * 校验回调地址
      */
     public static final String VERIFY_TICKET_TOKEN = "/verify/ticket/token/authorize";

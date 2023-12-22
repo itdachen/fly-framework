@@ -24,14 +24,13 @@ import java.util.Map;
 /***
  *  服务转发, 跳转到其他应用服务
  *  使用方法:
- *  如果有第三方应用信息, 可用填写平台信息, 以英文冒号隔开, 例如: /t/p/s?uri=TEST_P:/authentication/third/platform
- *  如果没有第三方应用信息, 可直接填写 http 请求地址, 例如: /t/p/s?uri=https://127.0.0.1:8080/authentication/third/platform
+ *  如果有第三方应用信息, 可用填写平台信息, 以英文冒号隔开, 例如: /platform/forward/verify/ticket?uri=TEST_P:/authentication/third/platform
+ *  如果没有第三方应用信息, 可直接填写 http 请求地址, 例如: /platform/forward/verify/ticket?uri=https://127.0.0.1:8080/authentication/third/platform
  *  推荐使用第一种
  * @author 王大宸
  * @date 2023/11/14 10:26
  */
 @Controller
-@RequestMapping("/t")
 public class ThirdPlatformForwardController {
     private final RedirectStrategy redirectStrategy = new DefaultRedirectStrategy();
 
@@ -60,7 +59,7 @@ public class ThirdPlatformForwardController {
      * @param params params
      * @return void
      */
-    @GetMapping("/p/s")
+    @GetMapping(SecurityConstants.VERIFY_TICKET_PLATFORM_FORWARD)
     public void serviceForward(HttpServletRequest request,
                                HttpServletResponse response,
                                @RequestParam Map<String, String> params) throws Exception {
@@ -108,6 +107,7 @@ public class ThirdPlatformForwardController {
 
         /* 信息入库 */
         final VerifyTicketToken token = new VerifyTicketToken();
+        token.setExpTime(LocalDateTime.now().plusMinutes(securityThirdProperties.getExpTime()));
         verifyTicketTokenService.saveVerifyTicketTokenInfo(token);
 
         response.sendRedirect(targetUri.toString());

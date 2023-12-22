@@ -95,6 +95,8 @@ public class FilterMatchersImpl implements IFilterMatchers {
                 contextPath + SecurityConstants.DEFAULT_UN_AUTHENTICATION_URL,
                 contextPath + SecurityConstants.DEFAULT_LOGIN_PROCESSING_URL_FORM,
                 contextPath + SecurityConstants.DEFAULT_VALIDATE_CODE_URL_PREFIX + "/*",
+                contextPath + SecurityConstants.VERIFY_TICKET_TOKEN,
+                contextPath + SecurityConstants.THIRD_PLATFORM,
                 contextPath + "/login", contextPath + "/admin/login",
                 /* 开放 api 接口 */
                 contextPath + "/open/**", contextPath + "/api/open/**",
@@ -120,6 +122,8 @@ public class FilterMatchersImpl implements IFilterMatchers {
                 SecurityConstants.DEFAULT_UN_AUTHENTICATION_URL,
                 SecurityConstants.DEFAULT_LOGIN_PROCESSING_URL_FORM,
                 SecurityConstants.DEFAULT_VALIDATE_CODE_URL_PREFIX + "/*",
+                SecurityConstants.VERIFY_TICKET_TOKEN,
+                SecurityConstants.THIRD_PLATFORM,
                 "/login", "/admin/login",
                 /* 开放 api 接口 */
                 "/open/**", "/api/open/**",
