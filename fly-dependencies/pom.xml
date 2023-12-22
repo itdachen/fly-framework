@@ -146,16 +146,6 @@
             </dependency>
             <dependency>
                 <groupId>com.github.itdachen</groupId>
-                <artifactId>fly-datasource</artifactId>
-                <version>${project.version}</version>
-            </dependency>
-            <dependency>
-                <groupId>com.github.itdachen</groupId>
-                <artifactId>fly-oss</artifactId>
-                <version>${project.version}</version>
-            </dependency>
-            <dependency>
-                <groupId>com.github.itdachen</groupId>
                 <artifactId>fly-jwt</artifactId>
                 <version>${project.version}</version>
             </dependency>
@@ -176,27 +166,7 @@
             </dependency>
             <dependency>
                 <groupId>com.github.itdachen</groupId>
-                <artifactId>fly-rbac</artifactId>
-                <version>${project.version}</version>
-            </dependency>
-            <dependency>
-                <groupId>com.github.itdachen</groupId>
                 <artifactId>fly-crypto</artifactId>
-                <version>${project.version}</version>
-            </dependency>
-            <dependency>
-                <groupId>com.github.itdachen</groupId>
-                <artifactId>fly-assets</artifactId>
-                <version>${project.version}</version>
-            </dependency>
-            <dependency>
-                <groupId>com.github.itdachen</groupId>
-                <artifactId>fly-oplog</artifactId>
-                <version>${project.version}</version>
-            </dependency>
-            <dependency>
-                <groupId>com.github.itdachen</groupId>
-                <artifactId>fly-security</artifactId>
                 <version>${project.version}</version>
             </dependency>
             <dependency>
@@ -207,11 +177,6 @@
             <dependency>
                 <groupId>com.github.itdachen</groupId>
                 <artifactId>fly-weixin</artifactId>
-                <version>${project.version}</version>
-            </dependency>
-            <dependency>
-                <groupId>com.github.itdachen</groupId>
-                <artifactId>fly-druid-view</artifactId>
                 <version>${project.version}</version>
             </dependency>
             <dependency>
@@ -246,11 +211,6 @@
             </dependency>
             <dependency>
                 <groupId>com.github.itdachen</groupId>
-                <artifactId>fly-rate-limiter</artifactId>
-                <version>${project.version}</version>
-            </dependency>
-            <dependency>
-                <groupId>com.github.itdachen</groupId>
                 <artifactId>fly-sensitive</artifactId>
                 <version>${project.version}</version>
             </dependency>
@@ -274,7 +234,7 @@
             </dependency>
             <dependency>
                 <groupId>com.github.itdachen</groupId>
-                <artifactId>jwt-crypto-boot-start</artifactId>
+                <artifactId>jwt-crypto-boot-starter</artifactId>
                 <version>${project.version}</version>
             </dependency>
             <dependency>
