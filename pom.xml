@@ -54,12 +54,12 @@
         <module>fly-jjwt-crypto</module>
         <module>fly-jjwt-parse</module>
         <module>fly-jjwt-core</module>
-        <module>datasource-spring-boot-starter</module>
         <module>fly-boot-autoconfigure</module>
         <module>jwt-crypto-boot-starter</module>
         <module>jwt-parse-boot-starter</module>
         <module>datasource-crypto-boot-starter</module>
         <module>datasource-dynamic-boot-starter</module>
+        <module>datasource-spring-boot-starter</module>
         <module>security-spring-boot-starter</module>
         <module>oplog-spring-boot-starter</module>
         <module>oss-spring-boot-starter</module>

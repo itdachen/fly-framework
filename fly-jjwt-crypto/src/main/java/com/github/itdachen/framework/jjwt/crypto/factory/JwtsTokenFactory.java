@@ -26,8 +26,6 @@ public class JwtsTokenFactory {
     public AbstractJwtTokenHandler build() throws Exception {
         if (JwtTokenEnumType.ECDSA.equals(properties.getType())) {
             return new EcdsaJwtTokenHandler();
-        } else if (JwtTokenEnumType.HMAC.equals(properties.getType())) {
-            return new HmacJwtTokenHandler();
         } else if (JwtTokenEnumType.RSA.equals(properties.getType())) {
             return new RsaJwtTokenHandler();
         } else {

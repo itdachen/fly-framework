@@ -9,11 +9,6 @@ public enum JwtTokenEnumType {
 
     ECDSA,
 
-    /**
-     * 适用于单体, 只需要一个 key
-     */
-    HMAC,
-
     RSA,
 
 }

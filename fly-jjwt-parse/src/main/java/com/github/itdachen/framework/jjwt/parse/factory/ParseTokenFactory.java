@@ -25,8 +25,6 @@ public class ParseTokenFactory {
     public AbstractParseJwtsTokenHandler build() {
         if (JwtTokenEnumType.ECDSA.equals(properties.getType())) {
             return new EcdsaParseJwtsTokenHandler();
-        } else if (JwtTokenEnumType.HMAC.equals(properties.getType())) {
-            return new HmacParseJwtsTokenHandler();
         } else if (JwtTokenEnumType.RSA.equals(properties.getType())) {
             return new RsaParseJwtsTokenHandler();
         }
