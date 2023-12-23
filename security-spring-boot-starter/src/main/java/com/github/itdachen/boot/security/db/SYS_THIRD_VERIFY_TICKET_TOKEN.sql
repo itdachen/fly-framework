@@ -1,35 +1,27 @@
-CREATE TABLE "SYS_THIRD_VERIFY_TICKET_TOKEN"
+CREATE TABLE `sys_third_verify_ticket_token_1`
 (
-    "ID"          NVARCHAR2(36) PRIMARY KEY,
-    "APP_CLIENT"  NVARCHAR2(36),
-    "APP_ASK_URI" NVARCHAR2(36),
-    "DLZH_DM"     NVARCHAR2(36),
-    "SWRY_DM"     NVARCHAR2(36),
-    "SWRY_NAME"   NVARCHAR2(100),
-    "SWRY_SF_DM"  NVARCHAR2(50),
-    "ZSF_BZ"      NVARCHAR2(3),
-    "SWJG_DM"     NVARCHAR2(50),
-    "SWJG_JC"     NVARCHAR2(3),
-    "SJ_SWJG_DM"  NVARCHAR2(50),
-    "THEME_CODE"  NVARCHAR2(50),
-    "ASK_URI"     NVARCHAR2(200),
-    "EXP_TIME"    DATE,
-    "CREATE_TIME" DATE
-);
-
-COMMENT ON TABLE "SYS_THIRD_VERIFY_TICKET_TOKEN" IS '第三方应用用户校验凭证';
-COMMENT ON COLUMN "SYS_THIRD_VERIFY_TICKET_TOKEN"."ID" IS '主键唯一标识';
-COMMENT ON COLUMN "SYS_THIRD_VERIFY_TICKET_TOKEN"."DLZH_DM" IS '登录账号';
-COMMENT ON COLUMN "SYS_THIRD_VERIFY_TICKET_TOKEN"."APP_CLIENT" IS '应用端标识';
-COMMENT ON COLUMN "SYS_THIRD_VERIFY_TICKET_TOKEN"."APP_ASK_URI" IS '应用端访问地址';
-COMMENT ON COLUMN "SYS_THIRD_VERIFY_TICKET_TOKEN"."SWRY_DM" IS '税务人员代码';
-COMMENT ON COLUMN "SYS_THIRD_VERIFY_TICKET_TOKEN"."SWRY_NAME" IS '税务人员名称';
-COMMENT ON COLUMN "SYS_THIRD_VERIFY_TICKET_TOKEN"."SWRY_SF_DM" IS '税务人员身份代码';
-COMMENT ON COLUMN "SYS_THIRD_VERIFY_TICKET_TOKEN"."ZSF_BZ" IS '主身份标志';
-COMMENT ON COLUMN "SYS_THIRD_VERIFY_TICKET_TOKEN"."SWJG_DM" IS '税务机构代码';
-COMMENT ON COLUMN "SYS_THIRD_VERIFY_TICKET_TOKEN"."SWJG_JC" IS '税务机构级次';
-COMMENT ON COLUMN "SYS_THIRD_VERIFY_TICKET_TOKEN"."SJ_SWJG_DM" IS '上级税务机构代码';
-COMMENT ON COLUMN "SYS_THIRD_VERIFY_TICKET_TOKEN"."THEME_CODE" IS '平台标识';
-COMMENT ON COLUMN "SYS_THIRD_VERIFY_TICKET_TOKEN"."ASK_URI" IS '访问地址';
-COMMENT ON COLUMN "SYS_THIRD_VERIFY_TICKET_TOKEN"."EXP_TIME" IS '过期时间';
-COMMENT ON COLUMN "SYS_THIRD_VERIFY_TICKET_TOKEN"."CREATE_TIME" IS '创建时间';
+    `id`             varchar(32) NOT NULL COMMENT '主键唯一标识',
+    `tenant_id`      varchar(32) COMMENT '租户ID',
+    `app_client`     varchar(255) COMMENT '应用客户端',
+    `app_ask_uri`    varchar(255) COMMENT '应用访问地址',
+    `theme_code`     varchar(255) COMMENT '平台标识',
+    `ask_uri`        varchar(255) COMMENT '目标访问地址',
+    `account`        varchar(255) COMMENT '登录账号',
+    `nick_name`      varchar(255) COMMENT '昵称',
+    `sex`            varchar(3) COMMENT '性别',
+    `avatar`         varchar(255) COMMENT '头像',
+    `user_type`      varchar(255) COMMENT '用户类型',
+    `job_id`         varchar(32) COMMENT '工作身份ID',
+    `job_title`      varchar(255) COMMENT '工作身份名称',
+    `job_main`       varchar(3) COMMENT '主身份标志',
+    `telephone`      varchar(255) COMMENT '联系电话',
+    `email`          varchar(255) COMMENT '电子邮箱',
+    `app_id`         varchar(32) COMMENT '服务提供商ID, 例如: 小程序 APPID',
+    `open_id`        varchar(50) COMMENT '服务商提供的用户ID, 例如: 小程序用户 openId',
+    `dept_id`        varchar(32) COMMENT '部门ID',
+    `dept_title`     varchar(255) COMMENT '部门名称',
+    `parent_dept_id` varchar(32) COMMENT '上级部门ID',
+    `dept_level`     varchar(5) COMMENT '部门层级',
+    `exp_time`       datetime NULL DEFAULT NULL COMMENT '过期时间',
+    PRIMARY KEY (`id`) USING BTREE
+) ENGINE = InnoDB   DEFAULT CHARSET=utf8  COMMENT = '跳转第三方校验凭证' COLLATE=utf8_bin;
