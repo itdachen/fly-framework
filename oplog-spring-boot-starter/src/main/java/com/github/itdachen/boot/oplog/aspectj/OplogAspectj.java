@@ -8,17 +8,15 @@ import com.github.itdachen.boot.oplog.manager.OplogAsyncFactory;
 import com.github.itdachen.framework.context.BizContextHandler;
 import com.github.itdachen.framework.context.annotation.CheckApiClient;
 import com.github.itdachen.framework.context.annotation.Log;
-import com.github.itdachen.framework.context.snowflake.IdUtils;
+import com.github.itdachen.framework.context.id.IdUtils;
 import com.github.itdachen.framework.threads.manager.AsyncThreadsManager;
 import com.github.itdachen.framework.tools.ServletUtils;
 import org.aspectj.lang.JoinPoint;
 import org.aspectj.lang.annotation.AfterReturning;
 import org.aspectj.lang.annotation.AfterThrowing;
-import org.aspectj.lang.annotation.Aspect;
 import org.aspectj.lang.annotation.Pointcut;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
-import org.springframework.stereotype.Component;
 import org.springframework.web.multipart.MultipartFile;
 
 import java.time.LocalDateTime;

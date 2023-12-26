@@ -3,6 +3,7 @@ package com.github.itdachen.boot.jwt.crypto.key;
 import com.github.itdachen.boot.autoconfigure.cloud.jwt.enums.JwtTokenEnumType;
 import com.github.itdachen.boot.autoconfigure.cloud.jwt.properties.CloudTokenProperties;
 import com.github.itdachen.boot.jwt.ITokenSecretKeyStrategy;
+import com.github.itdachen.boot.jwt.contents.SignatureAlgorithmContents;
 import com.github.itdachen.framework.context.jwt.key.JwtSecretKey;
 import io.jsonwebtoken.Jwts;
 import io.jsonwebtoken.security.SignatureAlgorithm;
@@ -28,9 +29,9 @@ public class PrivateKeyParseStrategy implements ITokenSecretKeyStrategy {
     public JwtSecretKey getJwtSecretKey() throws Exception {
         SignatureAlgorithm signatureAlgorithm;
         if (JwtTokenEnumType.ECDSA.equals(tokenProperties.getType())) {
-            signatureAlgorithm = Jwts.SIG.ES512;
+            signatureAlgorithm = SignatureAlgorithmContents.ES512;
         } else {
-            signatureAlgorithm = Jwts.SIG.RS512;
+            signatureAlgorithm = SignatureAlgorithmContents.RS512;
         }
 
         KeyPair keyPair = signatureAlgorithm.keyPair().build();

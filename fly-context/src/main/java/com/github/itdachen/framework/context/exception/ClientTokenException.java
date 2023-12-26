@@ -1,4 +1,4 @@
-package com.github.itdachen.boot.security.exception;
+package com.github.itdachen.framework.context.exception;
 
 /**
  * Description: 客户端异常

@@ -1,11 +1,11 @@
-package com.github.itdachen.framework.context.snowflake;
+package com.github.itdachen.framework.context.id.utils;
 
 /**
  * Description: 雪花算法生成分布式全局唯一id(有序)
  * Created by 王大宸 on 2023/01/05 9:31
  * Created with IntelliJ IDEA.
  */
-public class Snowflake {
+public class SnowflakeUtils {
 
 
     private long workerId;
@@ -27,7 +27,7 @@ public class Snowflake {
 
     private long lastTimestamp = -1L;
 
-    public Snowflake(long workerId, long datacenterId, long sequence) {
+    public SnowflakeUtils(long workerId, long datacenterId, long sequence) {
         // sanity check for workerId
         if (workerId > maxWorkerId || workerId < 0) {
             throw new IllegalArgumentException(String.format("worker Id can't be greater than %d or less than 0", maxWorkerId));

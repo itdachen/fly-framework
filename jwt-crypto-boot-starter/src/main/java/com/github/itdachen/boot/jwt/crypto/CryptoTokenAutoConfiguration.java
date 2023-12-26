@@ -65,5 +65,4 @@ public class CryptoTokenAutoConfiguration {
         return new PrivateKeyParseStrategy(tokenProperties);
     }
 
-
 }

@@ -21,8 +21,8 @@ public class CryptoTokenHandler implements ICryptoTokenHandler {
 
 
     @Override
-    public String createToken(IJwtInfo jwtInfo, PrivateKey privateKey, Long expires, String issuer) throws Exception {
-        return tokenFactory.build().createToken(
+    public String token(IJwtInfo jwtInfo, PrivateKey privateKey, Long expires, String issuer) throws Exception {
+        return tokenFactory.build().token(
                 jwtInfo,
                 privateKey,
                 expires,

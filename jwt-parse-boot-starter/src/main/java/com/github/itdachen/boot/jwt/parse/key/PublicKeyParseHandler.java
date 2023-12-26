@@ -18,10 +18,10 @@ public class PublicKeyParseHandler implements IVerifyTicketPublicKeyHelper {
 
     @Override
     public PublicKey publicKey(String key, String algorithm) throws Exception {
-        byte[] clear2 = Base64.getDecoder().decode(key);
-        X509EncodedKeySpec keySpec2 = new X509EncodedKeySpec(clear2);
-        KeyFactory fact2 = KeyFactory.getInstance(algorithm);
-        return fact2.generatePublic(keySpec2);
+        byte[] clear = Base64.getDecoder().decode(key);
+        X509EncodedKeySpec keySpec = new X509EncodedKeySpec(clear);
+        KeyFactory fact = KeyFactory.getInstance(algorithm);
+        return fact.generatePublic(keySpec);
     }
 
 

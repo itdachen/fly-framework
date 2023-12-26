@@ -2,8 +2,8 @@ package com.github.itdachen.boot.security.handler;
 
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.github.itdachen.boot.autoconfigure.security.properties.session.SecuritySessionProperties;
-import com.github.itdachen.boot.security.exception.ClientTokenException;
 import com.github.itdachen.boot.security.user.CurrentUserInfo;
+import com.github.itdachen.framework.context.exception.ClientTokenException;
 import com.github.itdachen.framework.core.response.ServerResponse;
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
@@ -16,7 +16,6 @@ import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.security.web.DefaultRedirectStrategy;
 import org.springframework.security.web.RedirectStrategy;
 import org.springframework.web.bind.annotation.ExceptionHandler;
-import org.springframework.web.bind.annotation.RestControllerAdvice;
 
 import java.io.IOException;
 
@@ -55,7 +54,7 @@ public class ClientSessionExceptionHandler {
     public void clientTokenException(HttpServletRequest request,
                                      HttpServletResponse response,
                                      ClientTokenException ex) throws IOException {
-        logger.error(ex.getMessage());
+        logger.error("当前登录用户异常: ", ex);
         request.getSession();
         redirectStrategy.sendRedirect(
                 request,

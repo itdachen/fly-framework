@@ -24,7 +24,7 @@ public interface ICryptoTokenHandler {
      * @param issuer     发行人
      * @return java.lang.String
      */
-    String createToken(IJwtInfo jwtInfo, PrivateKey privateKey, Long expires, String issuer) throws Exception;
+    String token(IJwtInfo jwtInfo, PrivateKey privateKey, Long expires, String issuer) throws Exception;
 
 
 }

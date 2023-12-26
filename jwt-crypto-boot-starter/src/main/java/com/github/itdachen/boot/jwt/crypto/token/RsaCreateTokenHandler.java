@@ -1,6 +1,8 @@
 package com.github.itdachen.boot.jwt.crypto.token;
 
+import com.github.itdachen.boot.jwt.contents.SignatureAlgorithmContents;
 import com.github.itdachen.framework.context.jwt.IJwtInfo;
+import io.jsonwebtoken.security.SignatureAlgorithm;
 
 import java.security.PrivateKey;
 
@@ -12,9 +14,13 @@ import java.security.PrivateKey;
  */
 public class RsaCreateTokenHandler extends AbstractCreateTokenHandler {
 
+    public RsaCreateTokenHandler() {
+        super(SignatureAlgorithmContents.RS512);
+    }
+
     @Override
-    public String createToken(IJwtInfo jwtInfo, PrivateKey privateKey, Long expires, String issuer) throws Exception {
-        return null;
+    public String token(IJwtInfo jwtInfo, PrivateKey privateKey, Long expires, String issuer) throws Exception {
+        return createToken(jwtInfo, privateKey, expires, issuer);
     }
 
 }

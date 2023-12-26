@@ -1,7 +1,7 @@
 package com.github.itdachen.boot.security.context;
 
-import com.github.itdachen.boot.security.exception.ClientTokenException;
 import com.github.itdachen.boot.security.user.CurrentUserInfo;
+import com.github.itdachen.framework.context.exception.ClientTokenException;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.security.authentication.UsernamePasswordAuthenticationToken;

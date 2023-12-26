@@ -1,4 +1,4 @@
-package com.github.itdachen.framework.context.snowflake.sharding;
+package com.github.itdachen.framework.context.id.sharding;
 
 import java.util.Calendar;
 import java.util.Properties;

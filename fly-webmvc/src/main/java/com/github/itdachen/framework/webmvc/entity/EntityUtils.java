@@ -1,7 +1,7 @@
 package com.github.itdachen.framework.webmvc.entity;
 
 import com.github.itdachen.framework.context.BizContextHandler;
-import com.github.itdachen.framework.context.snowflake.IdUtils;
+import com.github.itdachen.framework.context.id.IdUtils;
 import com.github.itdachen.framework.webmvc.utils.ClientUtil;
 import com.github.itdachen.framework.webmvc.utils.ReflectionUtils;
 import jakarta.servlet.http.HttpServletRequest;

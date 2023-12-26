@@ -1,5 +1,11 @@
 package com.github.itdachen.boot.jwt;
 
+import com.github.itdachen.framework.context.constants.UserInfoConstant;
+import com.github.itdachen.framework.context.jwt.IJwtInfo;
+import com.github.itdachen.framework.context.jwt.JwtTokenInfo;
+import io.jsonwebtoken.Claims;
+import io.jsonwebtoken.Jws;
+import io.jsonwebtoken.JwtParser;
 import io.jsonwebtoken.Jwts;
 import io.jsonwebtoken.security.Keys;
 import io.jsonwebtoken.security.MacAlgorithm;
@@ -11,7 +17,7 @@ import java.security.*;
 import java.security.spec.InvalidKeySpecException;
 import java.security.spec.PKCS8EncodedKeySpec;
 import java.security.spec.X509EncodedKeySpec;
-import java.util.Base64;
+import java.util.*;
 
 /**
  * TestJwtUtils
@@ -31,9 +37,9 @@ public class TestJwtUtils {
      */
     private final static MacAlgorithm ALGORITHM = Jwts.SIG.HS256;
 
-  private final static SignatureAlgorithm RSA_ALG = Jwts.SIG.RS512;//or PS512, RS256, etc...
+    private final static SignatureAlgorithm RSA_ALG = Jwts.SIG.RS512;//or PS512, RS256, etc...
 
-    //  private final static SignatureAlgorithm RSA_ALG =  Jwts.SIG.ES512;
+    private final static SignatureAlgorithm ES_ALG = Jwts.SIG.ES512;
 
 
     /**
@@ -59,6 +65,8 @@ public class TestJwtUtils {
         //创建秘钥
         KeyPair keyPair = RSA_ALG.keyPair().build();
 
+        //   KeyPair keyPair =   ES_ALG.keyPair().build();
+
         final PrivateKey privateKey = keyPair.getPrivate();
         final PublicKey publicKey = keyPair.getPublic();
         final String privateKeyStr = Base64.getEncoder().encodeToString(privateKey.getEncoded());
@@ -79,13 +87,21 @@ public class TestJwtUtils {
         KeyFactory fact2 = KeyFactory.getInstance(algorithm);
         PublicKey publicKey1 = fact2.generatePublic(keySpec2);
 
+        Map<String, String> claimsMap = new HashMap<>();
+        claimsMap.put("name", "张三");
+        claimsMap.put("age", "12");
+        claimsMap.put("id", "123456");
+
 
         // 使用私钥加密
-        String token = Jwts.builder().subject("Alice")
+        String token = Jwts.builder()
+                .subject("Alice")
+                .issuer("com.github.itdachen")
+                .claims(claimsMap)
                 .signWith(privateKey1, RSA_ALG) // <-- 私钥
                 .compact();
 
-        System.err.println("RSAjws: "+ token);
+        System.err.println("token: " + token);
 
         // 使用公钥解密
         String subject = Jwts.parser()
@@ -93,6 +109,73 @@ public class TestJwtUtils {
                 .build().parseSignedClaims(token).getPayload().getSubject();
         System.out.println("Alice".equals(subject));
 
+
+        Jws<Claims> claimsJws = Jwts.parser()
+                .verifyWith(publicKey1) // <-- 公钥
+                .build()
+                .parseSignedClaims(token);
+
+        Claims claims = claimsJws.getPayload();
+
+        parseJWTInfo(claims);
+
+
+//        String name = claims.get("name", String.class);
+//        String age = claims.get("age", String.class);
+//        String id = claims.get("id", String.class);
+//
+//
+//        System.err.println("name: " + name);
+//        System.err.println("age: " + age);
+//        System.err.println("id: " + id);
+
+
     }
+
+
+    protected static IJwtInfo parseJWTInfo(Claims claims) {
+        Set<Map.Entry<String, Object>> entries = claims.entrySet();
+        Map<String, String> otherInfo = new HashMap<String, String>();
+        for (Map.Entry<String, Object> entry : entries) {
+            if (Claims.SUBJECT.equals(entry.getKey())
+                    || Claims.ISSUER.equals(entry.getKey())
+                    || Claims.ISSUED_AT.equals(entry.getKey())
+                    || Claims.AUDIENCE.equals(entry.getKey())
+                    || Claims.EXPIRATION.equals(entry.getKey())
+                    || Claims.NOT_BEFORE.equals(entry.getKey())
+                    || Claims.ID.equals(entry.getKey())
+                    || UserInfoConstant.USER_ID.equals(entry.getKey())
+                    || UserInfoConstant.NICK_NAME.equals(entry.getKey())
+                    || UserInfoConstant.ACCOUNT.equals(entry.getKey())
+                    || UserInfoConstant.TOKEN_ID.equals(entry.getKey())) {
+                continue;
+            }
+            otherInfo.put(String.valueOf(entry.getKey()), String.valueOf(entry.getValue()));
+        }
+
+
+
+//        Date expTime = claims.getExpiration();
+//        String subject = claims.getSubject();
+//        String account = claims.get(UserInfoConstant.ACCOUNT, String.class);
+//        String userID = claims.get(UserInfoConstant.USER_ID, String.class);
+//        String nickName = claims.get(UserInfoConstant.NICK_NAME, String.class);
+//        String tokenId = claims.get(UserInfoConstant.TOKEN_ID, String.class);
+
+        return new JwtTokenInfo(
+                getObjectValue(claims.get(UserInfoConstant.ACCOUNT)),
+                getObjectValue(claims.get(UserInfoConstant.USER_ID)),
+                getObjectValue(claims.get(UserInfoConstant.NICK_NAME)),
+                claims.getId(),
+                claims.getSubject(),
+                claims.getExpiration(),
+                otherInfo
+        );
+    }
+
+    protected static String getObjectValue(Object obj) {
+        return obj == null ? "" : String.valueOf(obj);
+    }
+
 
 }
