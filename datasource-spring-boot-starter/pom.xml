@@ -21,13 +21,13 @@
             <artifactId>slf4j-api</artifactId>
         </dependency>
 
+<!--        <dependency>-->
+<!--            <groupId>com.github.itdachen</groupId>-->
+<!--            <artifactId>fly-crypto</artifactId>-->
+<!--        </dependency>-->
         <dependency>
             <groupId>com.github.itdachen</groupId>
-            <artifactId>fly-crypto</artifactId>
-        </dependency>
-        <dependency>
-            <groupId>com.github.itdachen</groupId>
-            <artifactId>fly-boot-autoconfigure</artifactId>
+            <artifactId>datasource-crypto-boot-starter</artifactId>
         </dependency>
 
         <dependency>
@@ -55,10 +55,10 @@
             <groupId>com.zaxxer</groupId>
             <artifactId>HikariCP</artifactId>
         </dependency>
-        <dependency>
-            <groupId>com.alibaba</groupId>
-            <artifactId>druid</artifactId>
-        </dependency>
+<!--        <dependency>-->
+<!--            <groupId>com.alibaba</groupId>-->
+<!--            <artifactId>druid</artifactId>-->
+<!--        </dependency>-->
 
         <!-- SpringBoot 2.x -->
         <!--        <dependency>-->

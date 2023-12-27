@@ -1,15 +1,14 @@
-package com.github.itdachen.boot.datasource.strategy;
+package com.github.itdachen.boot.datasource.crypto.strategy;
 
-import com.github.itdachen.boot.datasource.IDataSourceDecrypt;
-import com.github.itdachen.boot.datasource.factory.DataSourceDecryptFactory;
-import org.springframework.stereotype.Service;
+
+import com.github.itdachen.boot.datasource.crypto.IDataSourceDecrypt;
+import com.github.itdachen.boot.datasource.crypto.factory.DataSourceDecryptFactory;
 
 /**
  * Description: 解密处理
  * Created by 王大宸 on 2023-08-15 9:32
  * Created with IntelliJ IDEA.
  */
-@Service
 public class DataSourceDecryptStrategy implements IDataSourceDecrypt {
 
     private final DataSourceDecryptFactory dataSourceDecryptFactory;
@@ -22,4 +21,5 @@ public class DataSourceDecryptStrategy implements IDataSourceDecrypt {
     public String decrypt(String str) {
         return dataSourceDecryptFactory.build().decrypt(str);
     }
+
 }

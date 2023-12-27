@@ -1,4 +1,4 @@
-package com.github.itdachen.boot.datasource;
+package com.github.itdachen.boot.datasource.crypto;
 
 /**
  * Description: 对外加密接口

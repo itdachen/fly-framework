@@ -1,30 +1,28 @@
-package com.github.itdachen.boot.datasource.config;
+package com.github.itdachen.boot.datasource;
 
-import com.github.itdachen.boot.datasource.IDataSourceDecrypt;
+import com.github.itdachen.boot.datasource.crypto.IDataSourceDecrypt;
 import com.zaxxer.hikari.HikariDataSource;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.InitializingBean;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
-import org.springframework.boot.autoconfigure.condition.ConditionalOnProperty;
-import org.springframework.context.annotation.Configuration;
-import org.springframework.context.annotation.Primary;
 
 /**
  * Description: hikari 数据源自定义配置,连接地址可以加密
  * Created by 王大宸 on 2023/01/28 15:10
  * Created with IntelliJ IDEA.
  */
-@Configuration
-@SuppressWarnings("all")
-@Primary
-@ConditionalOnProperty(prefix = "spring.datasource", name = "type", havingValue = "com.zaxxer.hikari.HikariDataSource")
+//@Configuration
+//@SuppressWarnings("all")
+//@Primary
+//@ConditionalOnProperty(prefix = "spring.datasource", name = "type", havingValue = "com.zaxxer.hikari.HikariDataSource")
 public class HikariDataSourceConfiguration extends HikariDataSource implements InitializingBean {
     private static final Logger logger = LoggerFactory.getLogger(HikariDataSourceConfiguration.class);
+    private final IDataSourceDecrypt dataSourceDecrypt;
 
-    @Autowired
-    private IDataSourceDecrypt dataSourceDecrypt;
+    public HikariDataSourceConfiguration(IDataSourceDecrypt dataSourceDecrypt) {
+        this.dataSourceDecrypt = dataSourceDecrypt;
+    }
 
 
     @Value("${spring.datasource.driver-class-name}")

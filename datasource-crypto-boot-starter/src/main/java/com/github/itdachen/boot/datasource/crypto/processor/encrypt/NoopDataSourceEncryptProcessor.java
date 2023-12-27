@@ -1,6 +1,6 @@
-package com.github.itdachen.boot.datasource.processor.encrypt;
+package com.github.itdachen.boot.datasource.crypto.processor.encrypt;
 
-import com.github.itdachen.boot.datasource.processor.AbstractDataSourceEncryptProcessor;
+import com.github.itdachen.boot.datasource.crypto.processor.AbstractDataSourceEncryptProcessor;
 
 /**
  * Description: 不加密

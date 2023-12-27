@@ -1,7 +1,6 @@
-package com.github.itdachen.boot.datasource.processor.decrypt;
+package com.github.itdachen.boot.datasource.crypto.processor.decrypt;
 
-
-import com.github.itdachen.boot.datasource.processor.AbstractDataSourceDecryptProcessor;
+import com.github.itdachen.boot.datasource.crypto.processor.AbstractDataSourceDecryptProcessor;
 
 /**
  * Description: 不加密 --> 不解密

@@ -1,18 +1,16 @@
-package com.github.itdachen.boot.datasource.factory;
+package com.github.itdachen.boot.datasource.crypto.factory;
 
-import com.github.itdachen.boot.datasource.processor.AbstractDataSourceEncryptProcessor;
-import com.github.itdachen.boot.datasource.processor.encrypt.AesDataSourceEncryptProcessor;
-import com.github.itdachen.boot.datasource.processor.encrypt.NoopDataSourceEncryptProcessor;
 import com.github.itdachen.boot.autoconfigure.datasource.DataSourceProperties;
 import com.github.itdachen.boot.autoconfigure.datasource.enums.DataSourceEncoderTypeEnum;
-import org.springframework.stereotype.Component;
+import com.github.itdachen.boot.datasource.crypto.processor.AbstractDataSourceEncryptProcessor;
+import com.github.itdachen.boot.datasource.crypto.processor.encrypt.AesDataSourceEncryptProcessor;
+import com.github.itdachen.boot.datasource.crypto.processor.encrypt.NoopDataSourceEncryptProcessor;
 
 /**
  * Description: 数据库加密工厂
  * Created by 王大宸 on 2023-08-15 9:28
  * Created with IntelliJ IDEA.
  */
-@Component
 public class DataSourceEncryptFactory {
 
     private final DataSourceProperties dataSourceProperties;
@@ -28,9 +26,6 @@ public class DataSourceEncryptFactory {
         }
         return new NoopDataSourceEncryptProcessor();
     }
-
-
-
 
 
 }

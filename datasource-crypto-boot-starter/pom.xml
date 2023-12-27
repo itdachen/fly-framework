@@ -12,13 +12,21 @@
     <artifactId>datasource-crypto-boot-starter</artifactId>
     <name>${project.artifactId}</name>
     <packaging>jar</packaging>
-    <description>数据库加密工厂模块</description>
+    <description>数据源加密模块</description>
+
+    <dependencies>
+
+        <dependency>
+            <groupId>com.github.itdachen</groupId>
+            <artifactId>fly-boot-autoconfigure</artifactId>
+        </dependency>
+
+        <dependency>
+            <groupId>com.github.itdachen</groupId>
+            <artifactId>fly-crypto</artifactId>
+        </dependency>
 
 
-    <properties>
-        <maven.compiler.source>17</maven.compiler.source>
-        <maven.compiler.target>17</maven.compiler.target>
-        <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
-    </properties>
+    </dependencies>
 
 </project>
