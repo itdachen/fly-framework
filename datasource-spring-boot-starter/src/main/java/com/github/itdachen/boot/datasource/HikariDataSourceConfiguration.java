@@ -5,7 +5,9 @@ import com.zaxxer.hikari.HikariDataSource;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.InitializingBean;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
+import org.springframework.boot.autoconfigure.jdbc.DataSourceProperties;
 
 /**
  * Description: hikari 数据源自定义配置,连接地址可以加密
@@ -25,8 +27,9 @@ public class HikariDataSourceConfiguration extends HikariDataSource implements I
     }
 
 
-    @Value("${spring.datasource.driver-class-name}")
-    private String driverClassName;
+//    @Autowired
+//    private DataSourceProperties basicProperties;
+
     @Value("${spring.datasource.url}")
     private String url;
     @Value("${spring.datasource.username}")
@@ -37,15 +40,15 @@ public class HikariDataSourceConfiguration extends HikariDataSource implements I
 
     @Override
     public void afterPropertiesSet() throws Exception {
-        if (super.getPassword() == null) {
+        if (null == super.getPassword()) {
             final String str = dataSourceDecrypt.decrypt(password);
             this.setPassword(str);
         }
-        if (super.getUsername() == null) {
+        if (null == super.getUsername()) {
             final String str = dataSourceDecrypt.decrypt(username);
             this.setUsername(str);
         }
-        if (super.getJdbcUrl() == null) {
+        if (null == super.getJdbcUrl()) {
             final String str = dataSourceDecrypt.decrypt(url);
             this.setJdbcUrl(str);
         }

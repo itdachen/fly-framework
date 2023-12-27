@@ -42,24 +42,20 @@ public class DruidDataSourceConfiguration extends DruidDataSource implements Ini
 
     @Override
     public void afterPropertiesSet() throws Exception {
-        if (super.getUsername() == null) {
+        if (null == super.getUsername()) {
             final String str = dataSourceDecrypt.decrypt(username);
             super.setUsername(str);
         }
-
-        if (super.getPassword() == null) {
+        if (null == super.getPassword()) {
             final String str = dataSourceDecrypt.decrypt(password);
             super.setPassword(str);
         }
-
-        if (super.getUrl() == null) {
+        if (null == super.getUrl()) {
             final String str = dataSourceDecrypt.decrypt(url);
             super.setUrl(str);
         }
-
-        if (super.getDriverClassName() == null) {
-            final String str = dataSourceDecrypt.decrypt(driverClassName);
-            super.setDriverClassName(str);
+        if (null == super.getDriverClassName()) {
+            super.setDriverClassName(driverClassName);
         }
     }
 

@@ -3,11 +3,10 @@ package com.github.itdachen.boot.oplog;
 import com.github.itdachen.boot.oplog.aspectj.OplogAspectj;
 import com.github.itdachen.boot.oplog.manager.service.IOplogClientService;
 import com.github.itdachen.boot.oplog.manager.service.impl.DefaultOplogClientServiceImpl;
-import org.aspectj.lang.annotation.Aspect;
 import org.springframework.boot.autoconfigure.condition.ConditionalOnMissingBean;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
-import org.springframework.stereotype.Component;
+import org.springframework.context.annotation.EnableAspectJAutoProxy;
 
 /**
  * OplogAutoConfiguration
@@ -16,8 +15,7 @@ import org.springframework.stereotype.Component;
  * @date 2023-12-22 23:57
  */
 @Configuration
-@Aspect
-//@Component
+@EnableAspectJAutoProxy
 public class OplogAutoConfiguration {
 
 
@@ -29,7 +27,7 @@ public class OplogAutoConfiguration {
 
     @Bean
     @ConditionalOnMissingBean(IOplogClientService.class)
-    public IOplogClientService commonOperLogService() {
+    public IOplogClientService oplogClientService() {
         return new DefaultOplogClientServiceImpl();
     }
 

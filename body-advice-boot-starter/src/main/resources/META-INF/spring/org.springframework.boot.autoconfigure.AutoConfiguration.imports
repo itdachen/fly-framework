@@ -1,1 +1,3 @@
 com.github.itdachen.boot.body.advice.BodyAdviceAutoConfiguration
+com.github.itdachen.boot.body.advice.handler.GlobalExceptionHandler
+com.github.itdachen.boot.body.advice.handler.IgnoreResponseAdviceHandler

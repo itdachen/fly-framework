@@ -30,7 +30,6 @@ import java.time.format.DateTimeFormatter;
  * @date 2023-12-23 0:47
  */
 @Configuration
-@RestControllerAdvice(basePackages = {"${fly.client.listen-package:com.github.itdachen}"})
 public class BodyAdviceAutoConfiguration {
     private static final Logger logger = LoggerFactory.getLogger(BodyAdviceAutoConfiguration.class);
 
@@ -52,33 +51,5 @@ public class BodyAdviceAutoConfiguration {
                 .deserializerByType(LocalDate.class, new LocalDateDeserializer(DateTimeFormatter.ofPattern(DateFormatConstants.DATE_FORMATTER_PATTERN)))
                 .deserializerByType(LocalTime.class, new LocalTimeDeserializer(DateTimeFormatter.ofPattern(DateFormatConstants.TIME_FORMATTER_PATTERN)));
     }
-
-    /***
-     * 全局异常处理
-     *
-     * @author 王大宸
-     * @date 2023/12/23 0:49
-     * @return com.github.itdachen.boot.body.advice.handler.GlobalExceptionHandler
-     */
-    @Bean
-    public GlobalExceptionHandler globalExceptionHandler() {
-        logger.info("configuring global exception handler ...");
-        return new GlobalExceptionHandler();
-    }
-    
-    
-    /***
-    * 全局统一响应处理
-    *
-    * @author 王大宸
-    * @date 2023/12/23 0:51
-    * @return com.github.itdachen.boot.body.advice.handler.IgnoreResponseAdviceHandler
-    */
-    @Bean
-    public IgnoreResponseAdviceHandler ignoreResponseAdviceHandler(){
-        logger.info("configuring ignore response advice handler ...");
-        return new IgnoreResponseAdviceHandler();
-    }
-
 
 }

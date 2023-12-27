@@ -43,7 +43,7 @@ public class FilterMatchersImpl implements IFilterMatchers {
         arr.add(sessionProperties.getSessionInvalidUrl());
 
 
-        if (StringUtils.isEmpty(arr) || 0 == arr.size()) {
+        if (StringUtils.isEmpty(arr) || arr.isEmpty()) {
             return new AntPathRequestMatcher[0];
         }
         List<String> list = new ArrayList<>(Arrays.stream(matchers).toList());
@@ -54,6 +54,18 @@ public class FilterMatchersImpl implements IFilterMatchers {
         }
         return requestMatchers.toArray(new AntPathRequestMatcher[0]);
     }
+
+    @Override
+    public String[] requestMatchers() {
+        String[] matchers = securityMatchers();
+        List<String> arr = securityProperties.getMatchers();
+        if (StringUtils.isEmpty(arr) || arr.isEmpty()) {
+            return rejectSame(Arrays.asList(matchers));
+        }
+        arr.addAll(Arrays.asList(matchers));
+        return rejectSame(arr);
+    }
+
 
     /***
      * 去除重复的

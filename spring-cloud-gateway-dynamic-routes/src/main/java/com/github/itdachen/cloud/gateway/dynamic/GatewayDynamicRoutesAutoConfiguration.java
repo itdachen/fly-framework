@@ -1,10 +1,14 @@
-package com.github.itdachen.cloud.gateway.dynamic.routes;
+package com.github.itdachen.cloud.gateway.dynamic;
 
 import com.alibaba.nacos.api.NacosFactory;
 import com.alibaba.nacos.api.PropertyKeyConst;
 import com.alibaba.nacos.api.config.ConfigService;
 import com.alibaba.nacos.api.exception.NacosException;
 import com.github.itdachen.boot.autoconfigure.cloud.gateway.routes.GatewayRoutesProperties;
+import com.github.itdachen.cloud.gateway.dynamic.publisher.IRouteEventPublisherService;
+import com.github.itdachen.cloud.gateway.dynamic.routes.DynamicLoadNacosGatewayRoutes;
+import com.github.itdachen.cloud.gateway.dynamic.publisher.DynamicRoutesEventPublisherAware;
+import org.springframework.boot.autoconfigure.condition.ConditionalOnMissingBean;
 import org.springframework.cloud.context.config.annotation.RefreshScope;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
@@ -46,13 +50,13 @@ public class GatewayDynamicRoutesAutoConfiguration {
     *
     * @author 王大宸
     * @date 2023/12/23 0:38
-    * @return com.github.itdachen.cloud.gateway.dynamic.routes.DynamicRoutesEventPublisherAware
+    * @return com.github.itdachen.cloud.gateway.dynamic.publisher.DynamicRoutesEventPublisherAware
     */
     @Bean
-    public DynamicRoutesEventPublisherAware dynamicRoutesEventPublisherAware(){
+    @ConditionalOnMissingBean(IRouteEventPublisherService.class)
+    public IRouteEventPublisherService routeEventPublisherService() {
         return new DynamicRoutesEventPublisherAware();
     }
-
 
 
 

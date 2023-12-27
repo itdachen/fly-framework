@@ -1,4 +1,4 @@
-package com.github.itdachen.cloud.gateway.dynamic.routes;
+package com.github.itdachen.cloud.gateway.dynamic.publisher;
 
 import org.springframework.cloud.gateway.route.RouteDefinition;
 
@@ -7,7 +7,7 @@ import org.springframework.cloud.gateway.route.RouteDefinition;
  * Created by 王大宸 on 2023-08-26 21:30
  * Created with IntelliJ IDEA.
  */
-public interface IRouteService {
+public interface IRouteEventPublisherService {
 
 
     /***

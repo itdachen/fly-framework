@@ -52,6 +52,11 @@ public class ClientProperties {
     private String issuer = "com.github.itdachen";
 
     /**
+     * 监听包
+     */
+    private String listenPackage = "com.github.itdachen";
+
+    /**
      * 默认后台模板类型
      */
     private BackstageTemplateEnum template = BackstageTemplateEnum.PEAR;
@@ -144,4 +149,11 @@ public class ClientProperties {
         this.askUri = askUri;
     }
 
+    public String getListenPackage() {
+        return listenPackage;
+    }
+
+    public void setListenPackage(String listenPackage) {
+        this.listenPackage = listenPackage;
+    }
 }

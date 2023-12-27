@@ -5,7 +5,6 @@ import com.github.itdachen.boot.autoconfigure.cloud.jwt.properties.CloudTokenPro
 import com.github.itdachen.boot.jwt.ITokenSecretKeyStrategy;
 import com.github.itdachen.boot.jwt.contents.SignatureAlgorithmContents;
 import com.github.itdachen.framework.context.jwt.key.JwtSecretKey;
-import io.jsonwebtoken.Jwts;
 import io.jsonwebtoken.security.SignatureAlgorithm;
 
 import java.security.KeyPair;

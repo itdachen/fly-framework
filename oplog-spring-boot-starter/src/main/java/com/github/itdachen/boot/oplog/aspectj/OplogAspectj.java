@@ -14,6 +14,7 @@ import com.github.itdachen.framework.tools.ServletUtils;
 import org.aspectj.lang.JoinPoint;
 import org.aspectj.lang.annotation.AfterReturning;
 import org.aspectj.lang.annotation.AfterThrowing;
+import org.aspectj.lang.annotation.Aspect;
 import org.aspectj.lang.annotation.Pointcut;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -26,7 +27,7 @@ import java.time.LocalDateTime;
  * Created by 王大宸 on 2021-12-01 16:49
  * Created with IntelliJ IDEA.
  */
-//@Aspect
+@Aspect
 //@Component
 public class OplogAspectj {
     private static final Logger logger = LoggerFactory.getLogger(OplogAspectj.class);

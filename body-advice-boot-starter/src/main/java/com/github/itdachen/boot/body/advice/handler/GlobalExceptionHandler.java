@@ -17,7 +17,7 @@ import org.springframework.web.bind.annotation.RestControllerAdvice;
  * Created by 王大宸 on 2023/02/26 23:42
  * Created with IntelliJ IDEA.
  */
-//@RestControllerAdvice(basePackages = {"com.github.itdachen"})
+@RestControllerAdvice(basePackages = {"com.github.itdachen"})
 public class GlobalExceptionHandler {
     private static final Logger logger = LoggerFactory.getLogger(GlobalExceptionHandler.class);
 

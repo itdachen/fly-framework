@@ -18,20 +18,16 @@ import org.springframework.context.annotation.Configuration;
 @Configuration
 public class OssAutoConfiguration {
 
-
     private final OssProperties autoconfigureProperties;
     private final OssAliYunAutoconfigureProperties aliYunOssAutoconfigureProperties;
     private final OssLocalAutoconfigureProperties localOssAutoconfigureProperties;
-    private final IVerifyFileHeaderService verifyFileHeaderService;
 
     public OssAutoConfiguration(OssProperties autoconfigureProperties,
                                 OssAliYunAutoconfigureProperties aliYunOssAutoconfigureProperties,
-                                OssLocalAutoconfigureProperties localOssAutoconfigureProperties,
-                                IVerifyFileHeaderService verifyFileHeaderService) {
+                                OssLocalAutoconfigureProperties localOssAutoconfigureProperties) {
         this.autoconfigureProperties = autoconfigureProperties;
         this.aliYunOssAutoconfigureProperties = aliYunOssAutoconfigureProperties;
         this.localOssAutoconfigureProperties = localOssAutoconfigureProperties;
-        this.verifyFileHeaderService = verifyFileHeaderService;
     }
 
     @Bean
@@ -39,14 +35,19 @@ public class OssAutoConfiguration {
         return new FileFactory(autoconfigureProperties,
                 aliYunOssAutoconfigureProperties,
                 localOssAutoconfigureProperties,
-                verifyFileHeaderService);
+                verifyFileHeaderService());
     }
-
 
     @Bean
     @ConditionalOnMissingBean(IVerifyFileHeaderService.class)
     public IVerifyFileHeaderService verifyFileHeaderService() {
         return new VerifyFileHeaderServiceImpl();
+    }
+
+    @Bean
+    @ConditionalOnMissingBean(FileHelper.class)
+    public FileHelper fileHelper() {
+        return new FileUploadHelperImpl(fileFactory());
     }
 
 

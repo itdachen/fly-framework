@@ -6,14 +6,13 @@ import com.fasterxml.jackson.core.JsonProcessingException;
 import com.fasterxml.jackson.core.type.TypeReference;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.github.itdachen.boot.autoconfigure.cloud.gateway.routes.GatewayRoutesProperties;
+import com.github.itdachen.cloud.gateway.dynamic.publisher.IRouteEventPublisherService;
 import jakarta.annotation.PostConstruct;
 import org.apache.commons.lang3.StringUtils;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.cloud.context.config.annotation.RefreshScope;
 import org.springframework.cloud.gateway.route.RouteDefinition;
-import org.springframework.stereotype.Component;
 
 import java.util.List;
 import java.util.Objects;
@@ -33,7 +32,7 @@ public class DynamicLoadNacosGatewayRoutes {
     private GatewayRoutesProperties routesProperties;
 
     @Autowired
-    private IRouteService routeService;
+    private IRouteEventPublisherService routeService;
 
     /**
      * nacos 配置服务
@@ -86,8 +85,7 @@ public class DynamicLoadNacosGatewayRoutes {
                     });
             logger.info("获取网关当前动态路由配置:\r\n{}", initConfigInfo);
             if (StringUtils.isNotEmpty(initConfigInfo)) {
-                List<RouteDefinition> routeDefinitions
-                        = objectMapper.readValue(initConfigInfo,
+                List<RouteDefinition> routeDefinitions = objectMapper.readValue(initConfigInfo,
                         new TypeReference<List<RouteDefinition>>() {
                         }
                 );

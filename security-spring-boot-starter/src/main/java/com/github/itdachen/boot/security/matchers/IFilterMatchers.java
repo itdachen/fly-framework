@@ -13,4 +13,7 @@ public interface IFilterMatchers {
 
     AntPathRequestMatcher[] requestMatcher();
 
+    String[] requestMatchers();
+
+
 }

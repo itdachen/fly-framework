@@ -1,4 +1,4 @@
-package com.github.itdachen.cloud.gateway.dynamic.routes;
+package com.github.itdachen.cloud.gateway.dynamic.publisher;
 
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -8,7 +8,6 @@ import org.springframework.cloud.gateway.route.RouteDefinition;
 import org.springframework.cloud.gateway.route.RouteDefinitionWriter;
 import org.springframework.context.ApplicationEventPublisher;
 import org.springframework.context.ApplicationEventPublisherAware;
-import org.springframework.stereotype.Service;
 import reactor.core.publisher.Mono;
 
 /**
@@ -18,7 +17,7 @@ import reactor.core.publisher.Mono;
  */
 //@Service
 //@SuppressWarnings("all")
-public class DynamicRoutesEventPublisherAware implements IRouteService, ApplicationEventPublisherAware {
+public class DynamicRoutesEventPublisherAware implements IRouteEventPublisherService, ApplicationEventPublisherAware {
     private static final Logger logger = LoggerFactory.getLogger(DynamicRoutesEventPublisherAware.class);
 
     @Autowired

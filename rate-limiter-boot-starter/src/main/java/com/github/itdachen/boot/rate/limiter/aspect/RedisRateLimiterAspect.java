@@ -13,7 +13,6 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.data.redis.core.RedisTemplate;
 import org.springframework.data.redis.core.script.DefaultRedisScript;
-import org.springframework.stereotype.Component;
 import org.springframework.web.context.request.RequestContextHolder;
 import org.springframework.web.context.request.ServletRequestAttributes;
 
@@ -25,8 +24,7 @@ import java.util.Objects;
  * Created by 王大宸 on 2023-07-03 11:20
  * Created with IntelliJ IDEA.
  */
-//@Aspect
-//@Component
+@Aspect
 public class RedisRateLimiterAspect {
     private static final Logger logger = LoggerFactory.getLogger(RedisRateLimiterAspect.class);
 
