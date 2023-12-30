@@ -6,7 +6,7 @@
     <groupId>com.github.itdachen</groupId>
     <artifactId>fly-dependencies</artifactId>
     <name>${project.artifactId}</name>
-    <version>1.0.2</version>
+    <version>1.0.4</version>
     <packaging>pom</packaging>
     <description>项目依赖统一管理</description>
 
@@ -60,11 +60,6 @@
         <!-- JWT -->
         <io.jsonwebtoken.jjwt.version>0.12.3</io.jsonwebtoken.jjwt.version>
         <joda-time.version>2.12.2</joda-time.version>
-
-        <!--        <io.jsonwebtoken.jjwt.version>0.12.3</io.jsonwebtoken.jjwt.version>-->
-        <!--        <io.jsonwebtoken.jjwt.version>0.12.3</io.jsonwebtoken.jjwt.version>-->
-        <!--        <joda-time.version>2.12.5</joda-time.version>-->
-
 
         <!-- 分布式调度 -->
         <xxl-job.version>2.4.0</xxl-job.version>
@@ -136,22 +131,17 @@
             </dependency>
             <dependency>
                 <groupId>com.github.itdachen</groupId>
-                <artifactId>fly-runner</artifactId>
-                <version>${project.version}</version>
-            </dependency>
-            <dependency>
-                <groupId>com.github.itdachen</groupId>
                 <artifactId>fly-hardware</artifactId>
                 <version>${project.version}</version>
             </dependency>
             <dependency>
                 <groupId>com.github.itdachen</groupId>
-                <artifactId>fly-jwt</artifactId>
+                <artifactId>fly-webmvc</artifactId>
                 <version>${project.version}</version>
             </dependency>
             <dependency>
                 <groupId>com.github.itdachen</groupId>
-                <artifactId>fly-webmvc</artifactId>
+                <artifactId>fly-runner</artifactId>
                 <version>${project.version}</version>
             </dependency>
             <dependency>
@@ -185,31 +175,6 @@
                 <version>${project.version}</version>
             </dependency>
             <dependency>
-                <groupId>com.github.itdachen.framework.cloud</groupId>
-                <artifactId>fly-cloud-gateway-dynamic-routes</artifactId>
-                <version>${project.version}</version>
-            </dependency>
-            <dependency>
-                <groupId>com.github.itdachen.framework.cloud</groupId>
-                <artifactId>fly-cloud-openfeign</artifactId>
-                <version>${project.version}</version>
-            </dependency>
-            <dependency>
-                <groupId>com.github.itdachen.framework.cloud</groupId>
-                <artifactId>fly-cloud-jwt-core</artifactId>
-                <version>${project.version}</version>
-            </dependency>
-            <dependency>
-                <groupId>com.github.itdachen.framework.cloud</groupId>
-                <artifactId>fly-cloud-jwt-crypto</artifactId>
-                <version>${project.version}</version>
-            </dependency>
-            <dependency>
-                <groupId>com.github.itdachen.framework.cloud</groupId>
-                <artifactId>fly-cloud-jwt-parse</artifactId>
-                <version>${project.version}</version>
-            </dependency>
-            <dependency>
                 <groupId>com.github.itdachen</groupId>
                 <artifactId>fly-sensitive</artifactId>
                 <version>${project.version}</version>
@@ -219,27 +184,9 @@
                 <artifactId>fly-thread-pool</artifactId>
                 <version>${project.version}</version>
             </dependency>
-
-
-            <!--  新 -->
             <dependency>
                 <groupId>com.github.itdachen</groupId>
-                <artifactId>datasource-spring-boot-starter</artifactId>
-                <version>${project.version}</version>
-            </dependency>
-            <dependency>
-                <groupId>com.github.itdachen</groupId>
-                <artifactId>fly-boot-autoconfigure</artifactId>
-                <version>${project.version}</version>
-            </dependency>
-            <dependency>
-                <groupId>com.github.itdachen</groupId>
-                <artifactId>jwt-crypto-boot-starter</artifactId>
-                <version>${project.version}</version>
-            </dependency>
-            <dependency>
-                <groupId>com.github.itdachen</groupId>
-                <artifactId>jwt-parse-boot-starter</artifactId>
+                <artifactId>fly-msg-body</artifactId>
                 <version>${project.version}</version>
             </dependency>
             <dependency>
@@ -254,7 +201,62 @@
             </dependency>
             <dependency>
                 <groupId>com.github.itdachen</groupId>
+                <artifactId>datasource-spring-boot-starter</artifactId>
+                <version>${project.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>com.github.itdachen</groupId>
                 <artifactId>security-spring-boot-starter</artifactId>
+                <version>${project.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>com.github.itdachen</groupId>
+                <artifactId>oplog-spring-boot-starter</artifactId>
+                <version>${project.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>com.github.itdachen</groupId>
+                <artifactId>oss-spring-boot-starter</artifactId>
+                <version>${project.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>com.github.itdachen</groupId>
+                <artifactId>rate-limiter-boot-starter</artifactId>
+                <version>${project.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>com.github.itdachen</groupId>
+                <artifactId>rbac-spring-boot-starter</artifactId>
+                <version>${project.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>com.github.itdachen</groupId>
+                <artifactId>jwt-spring-boot-starter</artifactId>
+                <version>${project.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>com.github.itdachen</groupId>
+                <artifactId>body-advice-boot-starter</artifactId>
+                <version>${project.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>com.github.itdachen</groupId>
+                <artifactId>spring-cloud-starter-gateway-dynamic-routes</artifactId>
+                <version>${project.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>com.github.itdachen</groupId>
+                <artifactId>spring-cloud-starter-jwt-crypto</artifactId>
+                <version>${project.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>com.github.itdachen</groupId>
+                <artifactId>spring-cloud-starter-jwt-parse</artifactId>
+                <version>${project.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>com.github.itdachen</groupId>
+                <artifactId>spring-cloud-starter-openfeign</artifactId>
                 <version>${project.version}</version>
             </dependency>
 

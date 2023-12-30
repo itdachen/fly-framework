@@ -1,0 +1,2 @@
+com.github.itdachen.cloud.jwt.crypto.CryptoTokenAutoConfiguration
+com.github.itdachen.cloud.jwt.crypto.AuthTokenSecretKey

@@ -6,19 +6,51 @@
     <parent>
         <groupId>com.github.itdachen</groupId>
         <artifactId>fly-framework</artifactId>
-        <version>1.0.2</version>
+        <version>1.0.4</version>
     </parent>
 
     <artifactId>datasource-dynamic-boot-starter</artifactId>
     <name>${project.artifactId}</name>
     <packaging>jar</packaging>
-    <description>动态数据源</description>
+    <description>动态数据源模块</description>
 
 
-    <properties>
-        <maven.compiler.source>17</maven.compiler.source>
-        <maven.compiler.target>17</maven.compiler.target>
-        <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
-    </properties>
+    <dependencies>
+
+        <dependency>
+            <groupId>com.github.itdachen</groupId>
+            <artifactId>fly-context</artifactId>
+        </dependency>
+
+        <dependency>
+            <groupId>com.github.itdachen</groupId>
+            <artifactId>fly-boot-autoconfigure</artifactId>
+        </dependency>
+
+        <dependency>
+            <groupId>org.springframework</groupId>
+            <artifactId>spring-context</artifactId>
+        </dependency>
+
+
+        <dependency>
+            <groupId>com.alibaba</groupId>
+            <artifactId>druid-spring-boot-starter</artifactId>
+        </dependency>
+
+        <dependency>
+            <groupId>org.springframework</groupId>
+            <artifactId>spring-jdbc</artifactId>
+        </dependency>
+        <dependency>
+            <groupId>org.aspectj</groupId>
+            <artifactId>aspectjweaver</artifactId>
+        </dependency>
+        <dependency>
+            <groupId>com.github.itdachen</groupId>
+            <artifactId>datasource-crypto-boot-starter</artifactId>
+        </dependency>
+
+    </dependencies>
 
 </project>

@@ -10,7 +10,8 @@ import org.springframework.context.annotation.Configuration;
  */
 @Configuration
 @EnableConfigurationProperties({
-        DataSourceProperties.class
+        DataSourceProperties.class,
+        DynamicDataSourceProperties.class
 })
 public class DatasourceAutoConfiguration {
 }

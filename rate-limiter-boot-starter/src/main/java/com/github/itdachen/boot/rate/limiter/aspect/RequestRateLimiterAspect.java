@@ -10,7 +10,6 @@ import org.aspectj.lang.annotation.Aspect;
 import org.aspectj.lang.reflect.MethodSignature;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
-import org.springframework.stereotype.Component;
 
 import java.lang.reflect.Method;
 import java.util.Map;
@@ -20,8 +19,7 @@ import java.util.Map;
  * Created by 王大宸 on 2023-07-03 10:53
  * Created with IntelliJ IDEA.
  */
-//@Aspect
-//@Component
+@Aspect
 public class RequestRateLimiterAspect {
     private static final Logger logger = LoggerFactory.getLogger(RequestRateLimiterAspect.class);
 

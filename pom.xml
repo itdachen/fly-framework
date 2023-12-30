@@ -6,7 +6,7 @@
     <groupId>com.github.itdachen</groupId>
     <artifactId>fly-framework</artifactId>
     <name>${project.artifactId}</name>
-    <version>1.0.2</version>
+    <version>1.0.4</version>
     <packaging>pom</packaging>
 
     <properties>
@@ -35,7 +35,6 @@
         <module>fly-context</module>
         <module>fly-core</module>
         <module>fly-hardware</module>
-        <module>fly-jwt</module>
         <module>fly-webmvc</module>
         <module>fly-runner</module>
         <module>fly-spring</module>
@@ -44,19 +43,10 @@
         <module>fly-body-advice</module>
         <module>fly-weixin</module>
         <module>fly-code-tools</module>
-        <module>fly-cloud-openfeign</module>
         <module>fly-sensitive</module>
         <module>fly-thread-pool</module>
-        <module>fly-cloud-jwt-core</module>
-        <module>fly-cloud-jwt-crypto</module>
-        <module>fly-cloud-jwt-parse</module>
         <module>fly-msg-body</module>
-        <module>fly-jjwt-crypto</module>
-        <module>fly-jjwt-parse</module>
-        <module>fly-jjwt-core</module>
         <module>fly-boot-autoconfigure</module>
-        <module>jwt-crypto-boot-starter</module>
-        <module>jwt-parse-boot-starter</module>
         <module>datasource-crypto-boot-starter</module>
         <module>datasource-dynamic-boot-starter</module>
         <module>datasource-spring-boot-starter</module>
@@ -65,8 +55,12 @@
         <module>oss-spring-boot-starter</module>
         <module>rate-limiter-boot-starter</module>
         <module>rbac-spring-boot-starter</module>
-        <module>spring-cloud-gateway-dynamic-routes</module>
+        <module>jwt-spring-boot-starter</module>
         <module>body-advice-boot-starter</module>
+        <module>spring-cloud-starter-gateway-dynamic-routes</module>
+        <module>spring-cloud-starter-jwt-crypto</module>
+        <module>spring-cloud-starter-jwt-parse</module>
+        <module>spring-cloud-starter-openfeign</module>
     </modules>
 
     <build>

@@ -6,7 +6,7 @@
     <parent>
         <groupId>com.github.itdachen</groupId>
         <artifactId>fly-framework</artifactId>
-        <version>1.0.2</version>
+        <version>1.0.4</version>
     </parent>
 
     <artifactId>datasource-spring-boot-starter</artifactId>
@@ -21,10 +21,6 @@
             <artifactId>slf4j-api</artifactId>
         </dependency>
 
-<!--        <dependency>-->
-<!--            <groupId>com.github.itdachen</groupId>-->
-<!--            <artifactId>fly-crypto</artifactId>-->
-<!--        </dependency>-->
         <dependency>
             <groupId>com.github.itdachen</groupId>
             <artifactId>datasource-crypto-boot-starter</artifactId>
