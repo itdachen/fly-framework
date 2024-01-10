@@ -1,13 +1,11 @@
-package com.github.itdachen.boot.datasource;
+package com.github.itdachen.boot.datasource.hikari;
 
 import com.github.itdachen.boot.datasource.crypto.IDataSourceDecrypt;
 import com.zaxxer.hikari.HikariDataSource;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.InitializingBean;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
-import org.springframework.boot.autoconfigure.jdbc.DataSourceProperties;
 
 /**
  * Description: hikari 数据源自定义配置,连接地址可以加密
@@ -18,11 +16,11 @@ import org.springframework.boot.autoconfigure.jdbc.DataSourceProperties;
 //@SuppressWarnings("all")
 //@Primary
 //@ConditionalOnProperty(prefix = "spring.datasource", name = "type", havingValue = "com.zaxxer.hikari.HikariDataSource")
-public class HikariDataSourceConfiguration extends HikariDataSource implements InitializingBean {
-    private static final Logger logger = LoggerFactory.getLogger(HikariDataSourceConfiguration.class);
+public class FlyHikariDataSourceWrapper extends HikariDataSource implements InitializingBean {
+    private static final Logger logger = LoggerFactory.getLogger(FlyHikariDataSourceWrapper.class);
     private final IDataSourceDecrypt dataSourceDecrypt;
 
-    public HikariDataSourceConfiguration(IDataSourceDecrypt dataSourceDecrypt) {
+    public FlyHikariDataSourceWrapper(IDataSourceDecrypt dataSourceDecrypt) {
         this.dataSourceDecrypt = dataSourceDecrypt;
     }
 

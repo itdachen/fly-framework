@@ -1,1 +1,3 @@
-com.github.itdachen.boot.datasource.DataSourceAutoConfiguration
+com.github.itdachen.boot.datasource.FlyDataSourceAutoConfiguration
+com.github.itdachen.boot.datasource.FlyDruidDataSourceAutoConfiguration
+com.github.itdachen.boot.datasource.FlyHikariDataSourceAutoConfiguration

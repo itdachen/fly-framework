@@ -61,6 +61,7 @@
         <module>spring-cloud-starter-jwt-crypto</module>
         <module>spring-cloud-starter-jwt-parse</module>
         <module>spring-cloud-starter-openfeign</module>
+        <module>runner-spring-boot-starter</module>
     </modules>
 
     <build>

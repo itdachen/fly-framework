@@ -236,6 +236,11 @@
             </dependency>
             <dependency>
                 <groupId>com.github.itdachen</groupId>
+                <artifactId>runner-spring-boot-starter</artifactId>
+                <version>${project.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>com.github.itdachen</groupId>
                 <artifactId>body-advice-boot-starter</artifactId>
                 <version>${project.version}</version>
             </dependency>

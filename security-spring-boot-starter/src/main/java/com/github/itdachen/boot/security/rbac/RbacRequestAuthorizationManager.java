@@ -46,8 +46,7 @@ public class RbacRequestAuthorizationManager implements AuthorizationManager<Req
 
     @PostConstruct
     public void init() {
-        logger.info("Initializing application permissions ...");
-        // 从数据库加载
+        logger.info("Initializing application RBAC permissions");
         permissionsSet = authenticationAuthorityMapper.init();
     }
 
