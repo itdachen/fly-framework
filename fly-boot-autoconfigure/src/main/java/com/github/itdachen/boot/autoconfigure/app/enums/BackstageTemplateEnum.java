@@ -1,4 +1,4 @@
-package com.github.itdachen.boot.autoconfigure.client.enums;
+package com.github.itdachen.boot.autoconfigure.app.enums;
 
 /**
  * Description: 后台模板
@@ -7,11 +7,7 @@ package com.github.itdachen.boot.autoconfigure.client.enums;
  */
 public enum BackstageTemplateEnum {
 
-    LYEAR,
-
     LAYUI,
-
-    OKADMIN,
 
     PEAR,
 
