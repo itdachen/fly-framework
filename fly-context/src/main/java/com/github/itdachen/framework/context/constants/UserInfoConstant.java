@@ -8,9 +8,14 @@ package com.github.itdachen.framework.context.constants;
 public class UserInfoConstant {
 
     /**
+     * 用户id
+     */
+    public static final String ID = "id";
+
+    /**
      * 登录账号
      */
-    public static final String ACCOUNT = "account";
+    public static final String ACCOUNT = "username";
 
     /**
      * 用户id
@@ -18,30 +23,44 @@ public class UserInfoConstant {
     public static final String USER_ID = "userId";
 
     /**
-     * 登录客户端
+     * 租户id
      */
-    public static final String CLIENT_ID = "CLIENT_ID";
+    public static final String TENANT_ID = "tenantId";
 
+    /**
+     * 平台ID
+     */
+    public static final String PLAT_ID = "platId";
+
+    /**
+     * 平台ID
+     */
+    public static final String PLAT_NAME = "platName";
+
+    /**
+     * 登录应用ID
+     */
+    public static final String APP_ID = "appId";
+
+    /**
+     * 登录应用名称
+     */
+    public static final String APP_NAME = "appName";
+
+    /**
+     * 登录应用版本号
+     */
+    public static final String APP_VERSION = "appVersion";
+
+    /**
+     * 登录应用上下文
+     */
+    public static final String APP_CONTEXT_PATH = "appContextPath";
 
     /**
      * 登录方式
      */
     public static final String SIGN_METHOD = "SIGN_METHOD";
-
-    /**
-     * 身份ID
-     */
-    public static final String AN_ID = "anId";
-
-    /**
-     * 身份名称
-     */
-    public static final String AN_TITLE = "anTitle";
-
-    /**
-     * 租户id
-     */
-    public static final String TENANT_ID = "tenantId";
 
     /**
      * 用户姓名
@@ -54,19 +73,9 @@ public class UserInfoConstant {
     public static final String AVATAR = "avatar";
 
     /**
-     * 服务提供商ID
+     * 电子邮箱
      */
-    public static final String APP_ID = "appId";
-
-    /**
-     * 服务商提供的用户ID
-     */
-    public static final String OPEN_ID = "openId";
-
-    /**
-     * 登录账号类型
-     */
-    public static final String USER_TYPE = "userType";
+    public static final String E_MAIL = "email";
 
     /**
      * 性别
@@ -74,34 +83,24 @@ public class UserInfoConstant {
     public static final String SEX = "sex";
 
     /**
-     * 部门id
+     * 登录账号类型
      */
-    public static final String DEPT_ID = "deptId";
+    public static final String USER_TYPE = "userType";
 
     /**
-     * 上级部门id
+     * 身份ID
      */
-    public static final String PARENT_DEPT_ID = "parentDeptId";
+    public static final String ROLE_ID = "roleId";
 
     /**
-     * 部门名称
+     * 身份名称
      */
-    public static final String DEPT_TITLE = "deptTitle";
+    public static final String ROLE_NAME = "roleNmae";
 
     /**
-     * 部门级别
+     * 主身份标识: Y-主身份;N-非主身份标识
      */
-    public static final String DEPT_LEVEL = "deptLevel";
-
-    /**
-     * 岗位id
-     */
-    public static final String POST_ID = "postId";
-
-    /**
-     * 岗位名称
-     */
-    public static final String POST_TITLE = "postTitle";
+    public static final String ROLE_FLAG = "roleFlag";
 
     /**
      * 电话号码
@@ -109,14 +108,71 @@ public class UserInfoConstant {
     public static final String TELEPHONE = "telephone";
 
     /**
-     * 用户账号等级/账号级次等
+     * 部门id
      */
-    public static final String GRADE = "grade";
+    public static final String DEPT_ID = "deptId";
 
     /**
-     * 电子邮箱
+     * 部门名称
      */
-    public static final String E_MAIL = "email";
+    public static final String DEPT_TITLE = "deptTitle";
+
+    /**
+     * 上级部门id
+     */
+    public static final String PARENT_DEPT_ID = "parentDeptId";
+
+    /**
+     * 部门级别
+     */
+    public static final String DEPT_LEVEL = "deptLevel";
+
+
+    /**
+     * 身份所属省份代码, 例如: 贵州-52
+     */
+    public static final String PROV_ID = "provId";
+
+    /**
+     * 身份所属市州代码, 例如: 贵阳-5201
+     */
+    public static final String CITY_ID = "cityId";
+
+    /**
+     * 身份所属区县代码, 例如: 贵阳南明-520101
+     */
+    public static final String COUNTY_ID = "countyId";
+
+    /**
+     * 登录主机IP
+     */
+    public static final String HOST_IP = "hostIp";
+
+    /**
+     * 登录主机地址代码, 例如: 贵州-52
+     */
+    public static final String HOST_PROV = "hostProv";
+
+    /**
+     * 录主机地址代码, 例如: 贵阳-5201
+     */
+    public static final String HOST_CITY = "hostCity";
+
+
+    /**
+     * 登录主机IP
+     */
+    public static final String HOST_ADDR = "hostAddr";
+
+    /**
+     * 代理信息
+     */
+    public static final String USER_AGENT = "userAgent";
+
+    /**
+     * 过期时间(密码过期时间, 有些系统需要定期更新账号的密码)
+     */
+    public static final String EXP_TIME = "expTime";
 
     /**
      * 其他
@@ -133,10 +189,6 @@ public class UserInfoConstant {
      */
     public static final String TOKEN_ID = "tokenId";
 
-    /**
-     * 登录ip
-     */
-    public static final String HOST_IP = "ip";
 
     /**
      * 操作日志id
