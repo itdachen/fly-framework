@@ -2,7 +2,7 @@ package com.github.itdachen.cloud.jwt.parse.resolver;
 
 import com.github.itdachen.framework.context.annotation.CurrentUser;
 import com.github.itdachen.framework.context.handler.GlobalContextUserDetailsHandler;
-import com.github.itdachen.framework.context.userdetails.CurrentUserDetails;
+import com.github.itdachen.framework.context.userdetails.UserInfoDetails;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.core.MethodParameter;
@@ -21,16 +21,16 @@ public class UserAuthRestMethodArgumentResolver implements HandlerMethodArgument
 
     @Override
     public boolean supportsParameter(MethodParameter parameter) {
-        return parameter.getParameterType().isAssignableFrom(CurrentUserDetails.class)
+        return parameter.getParameterType().isAssignableFrom(UserInfoDetails.class)
                 && parameter.hasParameterAnnotation(CurrentUser.class);
     }
 
     @Override
-    public CurrentUserDetails resolveArgument(MethodParameter parameter,
-                                              ModelAndViewContainer mavContainer,
-                                              NativeWebRequest webRequest,
-                                              WebDataBinderFactory binderFactory) throws Exception {
-        return GlobalContextUserDetailsHandler.contextUserDetails();
+    public UserInfoDetails resolveArgument(MethodParameter parameter,
+                                           ModelAndViewContainer mavContainer,
+                                           NativeWebRequest webRequest,
+                                           WebDataBinderFactory binderFactory) throws Exception {
+        return GlobalContextUserDetailsHandler.getUserDetails();
     }
 
 }
