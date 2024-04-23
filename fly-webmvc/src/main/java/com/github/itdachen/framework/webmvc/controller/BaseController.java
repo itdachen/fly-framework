@@ -6,6 +6,8 @@ import com.github.itdachen.framework.core.response.ServerResponse;
 import com.github.itdachen.framework.core.response.TableData;
 import com.github.itdachen.framework.webmvc.service.IBaseService;
 import com.github.itdachen.framework.webmvc.utils.StringEscapeEditor;
+import jakarta.servlet.http.HttpServletRequest;
+import jakarta.servlet.http.HttpServletResponse;
 import jakarta.validation.Valid;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.WebDataBinder;
@@ -102,6 +104,22 @@ public class BaseController<BizService extends IBaseService<T, PK>, T, PK> {
     @Log(title = "删除", type = LogType.REMOVE)
     public ServerResponse<Integer> deleteByPrimaryKey(@PathVariable("id") PK id) throws Exception {
         return ServerResponse.okData(bizService.deleteByPrimaryKey(id));
+    }
+
+    /***
+     * 导出
+     *
+     * @author 王大宸
+     * @date 2024/4/16 21:52
+     * @param request request
+     * @param response response
+     * @return void
+     */
+    @DeleteMapping(value = "/exp" )
+    @ResponseBody
+    @Log(title = "导出" , type = LogType.EXPORT)
+    public void dataExpToExcel(HttpServletRequest request, HttpServletResponse response, Map<String,Object> params) throws Exception {
+        bizService.dataExpToExcel(request, response, params);
     }
 
 

@@ -2,6 +2,8 @@ package com.github.itdachen.framework.webmvc.service;
 
 
 import com.github.itdachen.framework.core.response.TableData;
+import jakarta.servlet.http.HttpServletRequest;
+import jakarta.servlet.http.HttpServletResponse;
 
 import java.util.Map;
 import java.util.Objects;
@@ -73,6 +75,18 @@ public interface IBaseService<T, PK> {
      * @return T
      */
     T selectOne(T t) throws Exception;
+
+    /***
+     * 导出
+     *
+     * @author 王大宸
+     * @date 2024/4/16 21:54
+     * @param request request
+     * @param response response
+     * @param params params
+     * @return void
+     */
+    void dataExpToExcel(HttpServletRequest request, HttpServletResponse response, Map<String, Object> params) throws Exception;
 
 
 }

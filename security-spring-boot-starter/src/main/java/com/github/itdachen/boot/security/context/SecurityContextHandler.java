@@ -2,6 +2,7 @@ package com.github.itdachen.boot.security.context;
 
 import com.github.itdachen.boot.security.user.CurrentUserInfo;
 import com.github.itdachen.framework.context.exception.ClientTokenException;
+import com.github.itdachen.framework.context.userdetails.UserInfoDetails;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.security.authentication.UsernamePasswordAuthenticationToken;
@@ -12,6 +13,7 @@ import org.springframework.security.core.authority.SimpleGrantedAuthority;
 import org.springframework.security.core.context.SecurityContext;
 import org.springframework.security.core.context.SecurityContextHolder;
 
+import java.time.LocalDateTime;
 import java.util.ArrayList;
 import java.util.Collection;
 import java.util.Collections;
@@ -65,89 +67,50 @@ public class SecurityContextHandler {
         return principal;
     }
 
-
     /***
-     * 动态加载权限
+     * 设置登录用户信息
      *
      * @author 王大宸
-     * @date 2022/12/8 9:29
-     * @param list list
+     * @date 2024/4/4 0:16
+     * @param currentUserInfo currentUserInfo
+     * @param userDetails userDetails
      * @return void
      */
-    @Deprecated(since = "1.0.2")
-    public static void refreshAuthorities(List<String> list) {
-        final SecurityContext context = SecurityContextHolder.getContext();
-        // 得到当前的认证信息
-        final Authentication auth = context.getAuthentication();
-        //  生成当前的所有授权
-        List<GrantedAuthority> updatedAuthorities = new ArrayList<>();
-        for (String s : list) {
-            updatedAuthorities.add(new SimpleGrantedAuthority(s));
-        }
-        // 生成新的认证信息
-        UsernamePasswordAuthenticationToken newAuth = new UsernamePasswordAuthenticationToken(auth.getPrincipal(), auth.getCredentials(), updatedAuthorities);
-        // 重置认证信息
-        context.setAuthentication(newAuth);
-    }
-
-    /***
-     * 获取用户权限信息
-     *
-     * @author 王大宸
-     * @date 2023/4/17 21:08
-     * @return java.util.List<java.lang.String>
-     */
-    @Deprecated(since = "1.0.2")
-    public static List<String> getUserAuthority() {
-        Authentication authentication = SecurityContextHolder.getContext().getAuthentication();
-        Collection<? extends GrantedAuthority> authorities = authentication.getAuthorities();
-        return Collections.singletonList(authorities.toString());
-    }
-
-
-    /***
-     * 重新加载用户权限
-     *
-     * @author 王大宸
-     * @date 2023/4/6 15:39
-     * @param authorities authorities
-     * @return void
-     */
-    @Deprecated(since = "1.0.2")
-    public static void reloadUserAuthority(String... authorities) {
-        SecurityContext securityContext = SecurityContextHolder.getContext();
-        Authentication authentication = securityContext.getAuthentication();
-        CurrentUserInfo principal = (CurrentUserInfo) authentication.getPrincipal();
-        reloadUserAuthority(principal, authorities);
-    }
-
-    /***
-     * 重新加载用户信息
-     *
-     * @author 王大宸
-     * @date 2023/4/6 14:39
-     * @param principal   新增的认证信息, 继承 SpringSecurity User 类
-     * @param authorities 权限, 字符串数组
-     * @return void
-     */
-    @Deprecated(since = "1.0.2")
-    public static void reloadUserAuthority(CurrentUserInfo principal,
-                                           String... authorities) {
-        // 新的权限
-        List<GrantedAuthority> authorityList = AuthorityUtils.createAuthorityList(authorities);
-
-        SecurityContext securityContext = SecurityContextHolder.getContext();
-        Authentication authentication = securityContext.getAuthentication();
-
-        //  authentication.setAuthenticated(authorityList);
-        // 重新new一个token，因为Authentication中的权限是不可变的.
-        UsernamePasswordAuthenticationToken auth = new UsernamePasswordAuthenticationToken(principal,
-                authentication.getCredentials(), authorityList);
-        auth.setDetails(authentication.getDetails());
-
-        securityContext.setAuthentication(auth);
-
-        SecurityContextHolder.getContext().setAuthentication(auth);
+    public static void setCurrentUserInfo(CurrentUserInfo currentUserInfo,
+                                          UserInfoDetails userDetails) {
+        currentUserInfo.setId(userDetails.getId());
+        currentUserInfo.setUsername(userDetails.getUsername());
+        currentUserInfo.setTenantId(userDetails.getTenantId());
+        currentUserInfo.setSignMethod(userDetails.getSignMethod());
+        currentUserInfo.setNickName(userDetails.getNickName());
+        currentUserInfo.setAvatar(userDetails.getAvatar());
+        currentUserInfo.setEmail(userDetails.getEmail());
+        currentUserInfo.setSex(userDetails.getSex());
+        currentUserInfo.setUserType(userDetails.getUserType());
+        currentUserInfo.setTelephone(userDetails.getTelephone());
+        currentUserInfo.setValidFlag(userDetails.getValidFlag());
+        currentUserInfo.setPlatId(userDetails.getPlatId());
+        currentUserInfo.setPlatName(userDetails.getPlatName());
+        currentUserInfo.setAppId(userDetails.getAppId());
+        currentUserInfo.setAppName(userDetails.getAppName());
+        currentUserInfo.setAppVersion(userDetails.getAppVersion());
+        currentUserInfo.setAppContextPath(userDetails.getAppContextPath());
+        currentUserInfo.setRoleId(userDetails.getRoleId());
+        currentUserInfo.setRoleFlag(userDetails.getRoleFlag());
+        currentUserInfo.setRoleName(userDetails.getRoleName());
+        currentUserInfo.setDeptId(userDetails.getDeptId());
+        currentUserInfo.setDeptTitle(userDetails.getDeptTitle());
+        currentUserInfo.setParentDeptId(userDetails.getParentDeptId());
+        currentUserInfo.setDeptLevel(userDetails.getDeptLevel());
+        currentUserInfo.setProvId(userDetails.getProvId());
+        currentUserInfo.setCityId(userDetails.getCityId());
+        currentUserInfo.setCountyId(userDetails.getCountyId());
+        currentUserInfo.setHostIp(userDetails.getHostIp());
+        currentUserInfo.setHostProv(userDetails.getHostProv());
+        currentUserInfo.setHostCity(userDetails.getHostCity());
+        currentUserInfo.setHostAddr(userDetails.getHostAddr());
+        currentUserInfo.setUserAgent(userDetails.getUserAgent());
+        currentUserInfo.setExpTime(userDetails.getExpTime());
     }
 
 }

@@ -3,7 +3,7 @@ package com.github.itdachen.boot.security.resolvers;
 import com.github.itdachen.boot.security.context.SecurityContextHandler;
 import com.github.itdachen.boot.security.user.CurrentUserInfo;
 import com.github.itdachen.framework.context.annotation.CurrentUser;
-import com.github.itdachen.framework.context.userdetails.CurrentUserDetails;
+import com.github.itdachen.framework.context.userdetails.UserInfoDetails;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.core.MethodParameter;
@@ -22,17 +22,17 @@ public class CurrentUserMethodArgumentResolver implements HandlerMethodArgumentR
 
     @Override
     public boolean supportsParameter(MethodParameter parameter) {
-        return parameter.getParameterType().isAssignableFrom(CurrentUserDetails.class)
+        return parameter.getParameterType().isAssignableFrom(UserInfoDetails.class)
                 && parameter.hasParameterAnnotation(CurrentUser.class);
     }
 
     @Override
-    public CurrentUserDetails resolveArgument(MethodParameter parameter,
+    public UserInfoDetails resolveArgument(MethodParameter parameter,
                                               ModelAndViewContainer mavContainer,
                                               NativeWebRequest webRequest,
                                               WebDataBinderFactory binderFactory) throws Exception {
         Object principal = SecurityContextHandler.getUserInfo();
-        if (principal instanceof CurrentUserInfo userInfo) {
+        if (principal instanceof UserInfoDetails userInfo) {
             return userInfo;
         }
         return null;

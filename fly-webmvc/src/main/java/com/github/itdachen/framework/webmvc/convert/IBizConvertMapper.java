@@ -25,6 +25,6 @@ public interface IBizConvertMapper<T, D, V> {
      * @param t t
      * @return V
      */
-    V toJavaObjectVo(T t);
+    V toJavaObjectVO(T t);
 
 }

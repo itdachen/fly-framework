@@ -1,12 +1,11 @@
 package com.github.itdachen.boot.security.third.controller;
 
-import com.github.itdachen.boot.autoconfigure.client.ClientProperties;
+import com.github.itdachen.boot.autoconfigure.app.AppInfoProperties;
 import com.github.itdachen.boot.autoconfigure.security.constants.SecurityConstants;
 import com.github.itdachen.boot.autoconfigure.security.properties.third.SecurityThirdProperties;
 import com.github.itdachen.boot.security.authentication.VerifyTicketToken;
 import com.github.itdachen.boot.security.constants.ServerForwardKey;
 import com.github.itdachen.boot.security.third.service.IThirdPlatformVerifyTicketTokenService;
-import com.github.itdachen.framework.context.BizContextHandler;
 import com.github.itdachen.framework.core.snowflake.SnowflakeUtils;
 import com.github.itdachen.framework.core.utils.StringUtils;
 import jakarta.servlet.http.HttpServletRequest;
@@ -15,7 +14,6 @@ import org.springframework.security.web.DefaultRedirectStrategy;
 import org.springframework.security.web.RedirectStrategy;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 
 import java.time.LocalDateTime;
@@ -35,14 +33,14 @@ public class ThirdPlatformForwardController {
     private final RedirectStrategy redirectStrategy = new DefaultRedirectStrategy();
 
     private final IThirdPlatformVerifyTicketTokenService verifyTicketTokenService;
-    private final ClientProperties clientProperties;
+    private final AppInfoProperties appInfoProperties;
     private final SecurityThirdProperties securityThirdProperties;
 
     public ThirdPlatformForwardController(IThirdPlatformVerifyTicketTokenService verifyTicketTokenService,
-                                          ClientProperties clientProperties,
+                                          AppInfoProperties appInfoProperties,
                                           SecurityThirdProperties securityThirdProperties) {
         this.verifyTicketTokenService = verifyTicketTokenService;
-        this.clientProperties = clientProperties;
+        this.appInfoProperties = appInfoProperties;
         this.securityThirdProperties = securityThirdProperties;
     }
 
@@ -102,7 +100,7 @@ public class ThirdPlatformForwardController {
         }
 
         /* 添加获取用户信息回调地址 */
-        String askUri = clientProperties.getAskUri() + SecurityConstants.VERIFY_TICKET_TOKEN;
+        String askUri = appInfoProperties.getAskUri() + SecurityConstants.VERIFY_TICKET_TOKEN;
         targetUri.append("&").append(ServerForwardKey.TICKET_URL).append("=").append(askUri);
 
         /* 信息入库 */

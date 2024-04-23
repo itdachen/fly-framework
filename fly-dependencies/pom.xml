@@ -6,7 +6,7 @@
     <groupId>com.github.itdachen</groupId>
     <artifactId>fly-dependencies</artifactId>
     <name>${project.artifactId}</name>
-    <version>1.0.4</version>
+    <version>1.0.5</version>
     <packaging>pom</packaging>
     <description>项目依赖统一管理</description>
 

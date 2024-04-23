@@ -57,7 +57,7 @@ public class RedisPermissionCacheService implements IPermissionCacheService {
         if (s == null || StringUtils.isBlank(s) || "[]".equals(s)) {
             List<PermissionInfo> list = null;
             if (UserTypeConstant.SUPER_ADMINISTRATOR.equals(BizContextHandler.getUserType())
-                    || UserTypeConstant.SUPER_ADMINISTRATOR_USERNAME.equals(BizContextHandler.getAccount())) {
+                    || UserTypeConstant.SUPER_ADMINISTRATOR_USERNAME.equals(BizContextHandler.getUsername())) {
                 list = permissionJdbcService.findAllPermission();
             } else {
                 list = permissionUserJdbcService.findUserJobPermission(userId, hostIp, jobId);
@@ -76,7 +76,7 @@ public class RedisPermissionCacheService implements IPermissionCacheService {
         if (s == null || StringUtils.isBlank(s) || "[]".equals(s)) {
             List<PermissionInfo> list = null;
             if (UserTypeConstant.SUPER_ADMINISTRATOR.equals(BizContextHandler.getUserType())
-                    || UserTypeConstant.SUPER_ADMINISTRATOR_USERNAME.equals(BizContextHandler.getAccount())) {
+                    || UserTypeConstant.SUPER_ADMINISTRATOR_USERNAME.equals(BizContextHandler.getUsername())) {
                 list = permissionJdbcService.findAllPermission();
             } else {
                 permissionUserJdbcService.findUserPermission(userId, hostIp);

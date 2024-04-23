@@ -20,6 +20,6 @@ public @interface Log {
     /**
      * 操作类型: SAVE, UPDATE, DELETE等
      */
-    String type();
+    String type() default "OTHER";
 
 }

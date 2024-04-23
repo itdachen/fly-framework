@@ -1,6 +1,6 @@
 package com.github.itdachen.boot.security.details;
 
-import com.github.itdachen.framework.context.userdetails.CurrentUserDetails;
+import com.github.itdachen.framework.context.userdetails.UserInfoDetails;
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
 
@@ -26,7 +26,7 @@ public interface IRefreshUserDetails {
      */
     void refreshUserDetails(HttpServletRequest request,
                             HttpServletResponse response,
-                            CurrentUserDetails userDetails) throws Exception;
+                            UserInfoDetails userDetails) throws Exception;
 
     /***
      * 刷新用户信息
@@ -41,7 +41,7 @@ public interface IRefreshUserDetails {
      */
     void refreshUserDetails(HttpServletRequest request,
                             HttpServletResponse response,
-                            CurrentUserDetails userDetails,
+                            UserInfoDetails userDetails,
                             List<String> authorities) throws Exception;
 
     /***

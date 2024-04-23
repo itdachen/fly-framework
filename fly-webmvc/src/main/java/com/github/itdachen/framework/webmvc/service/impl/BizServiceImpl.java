@@ -10,6 +10,8 @@ import com.github.itdachen.framework.core.utils.StringUtils;
 import com.github.itdachen.framework.webmvc.entity.EntityUtils;
 import com.github.itdachen.framework.webmvc.service.IBizService;
 import com.github.itdachen.framework.webmvc.utils.JdbcUtils;
+import jakarta.servlet.http.HttpServletRequest;
+import jakarta.servlet.http.HttpServletResponse;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -39,14 +41,18 @@ import java.util.Map;
  * Created by 王大宸 on 2022-06-30 9:47
  * Created with IntelliJ IDEA.
  */
-public class BizServiceImpl<IBizMapper extends Mapper<T>, IBizConvert extends IBizConvertMapper<T, D, V>, T, D, V, Q extends BizQuery, PK> implements IBizService<D, V, Q, PK> {
+public class BizServiceImpl<IBizMapper extends Mapper<T>, T, D, V, Q extends BizQuery, PK> implements IBizService<D, V, Q, PK> {
     private static final Logger logger = LoggerFactory.getLogger(BizServiceImpl.class);
     @Autowired
     protected IBizMapper bizMapper;
     @Autowired
     protected JdbcTemplate jdbcTemplate;
-    @Autowired
-    protected IBizConvert bizConvert;
+
+    private final IBizConvertMapper<T, D, V> bizConvertMapper;
+
+    public BizServiceImpl(IBizConvertMapper<T, D, V> bizConvertMapper) {
+        this.bizConvertMapper = bizConvertMapper;
+    }
 
     /***
      * 分页查询
@@ -94,10 +100,10 @@ public class BizServiceImpl<IBizMapper extends Mapper<T>, IBizConvert extends IB
     @Override
     @Transactional(rollbackFor = Exception.class)
     public V saveInfo(D d) throws Exception {
-        T t = bizConvert.toJavaObject(d);
+        T t = bizConvertMapper.toJavaObject(d);
         EntityUtils.setCreatAndUpdateInfo(t);
         bizMapper.insertSelective(t);
-        return bizConvert.toJavaObjectVo(t);
+        return bizConvertMapper.toJavaObjectVO(t);
     }
 
     /***
@@ -111,7 +117,7 @@ public class BizServiceImpl<IBizMapper extends Mapper<T>, IBizConvert extends IB
     @Override
     public V selectByPrimaryKey(PK id) throws Exception {
         T t = bizMapper.selectByPrimaryKey(id);
-        return bizConvert.toJavaObjectVo(t);
+        return bizConvertMapper.toJavaObjectVO(t);
     }
 
     /***
@@ -125,10 +131,10 @@ public class BizServiceImpl<IBizMapper extends Mapper<T>, IBizConvert extends IB
     @Override
     @Transactional(rollbackFor = Exception.class)
     public V updateInfo(D d) throws Exception {
-        T t = bizConvert.toJavaObject(d);
+        T t = bizConvertMapper.toJavaObject(d);
         EntityUtils.setUpdatedInfo(t);
         bizMapper.updateByPrimaryKeySelective(t);
-        return bizConvert.toJavaObjectVo(t);
+        return bizConvertMapper.toJavaObjectVO(t);
     }
 
     /***
@@ -143,6 +149,11 @@ public class BizServiceImpl<IBizMapper extends Mapper<T>, IBizConvert extends IB
     @Transactional(rollbackFor = Exception.class)
     public int deleteByPrimaryKey(PK id) throws Exception {
         return bizMapper.deleteByPrimaryKey(id);
+    }
+
+    @Override
+    public void dataExpToExcel(HttpServletRequest request, HttpServletResponse response, Q params) throws Exception {
+
     }
 
     /**

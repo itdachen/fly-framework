@@ -2,7 +2,7 @@ package com.github.itdachen.boot.security.log.management;
 
 import com.github.itdachen.boot.security.authentication.mobile.MobileAuthenticationToken;
 import com.github.itdachen.boot.security.log.IAuthSuccessCredentialsLogHandler;
-import com.github.itdachen.framework.context.userdetails.CurrentUserDetails;
+import com.github.itdachen.framework.context.userdetails.UserInfoDetails;
 import com.github.itdachen.framework.core.utils.StringUtils;
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
@@ -28,14 +28,14 @@ public class AuthSuccessLogHandlerManagement implements IAuthSuccessCredentialsL
                         String sessionId) {
 
         /* 获取登录用户信息 */
-        CurrentUserDetails userDetails = getUserDetails(request, authentication);
+        UserInfoDetails userDetails = getUserDetails(request, authentication);
 
-        if (null == userDetails || StringUtils.isEmpty(userDetails.getAccount()) || StringUtils.isEmpty(userDetails.getNickName())) {
+        if (null == userDetails || StringUtils.isEmpty(userDetails.getUsername()) || StringUtils.isEmpty(userDetails.getNickName())) {
             logger.info("登录成功, 但是未捕捉到登录方式!");
             return;
         }
 
-        logger.info(userDetails.getAccount() + " 登录成功, 登录方式: " + userDetails.getSignMethod() + ", 登录IP: " + request.getRemoteAddr());
+        logger.info(userDetails.getUsername() + " 登录成功, 登录方式: " + userDetails.getSignMethod() + ", 登录IP: " + request.getRemoteAddr());
     }
 
     /***
@@ -47,24 +47,24 @@ public class AuthSuccessLogHandlerManagement implements IAuthSuccessCredentialsL
      * @param authentication authentication
      * @return com.github.itdachen.framework.context.userdetails.CurrentUserDetails
      */
-    private CurrentUserDetails getUserDetails(HttpServletRequest request, Authentication authentication) {
+    private UserInfoDetails getUserDetails(HttpServletRequest request, Authentication authentication) {
         /* 账号密码登录 */
         if (authentication.getClass().equals(UsernamePasswordAuthenticationToken.class)) {
             UsernamePasswordAuthenticationToken authenticationToken = (UsernamePasswordAuthenticationToken) authentication;
             Object principal = authenticationToken.getPrincipal();
-            return (CurrentUserDetails) principal;
+            return (UserInfoDetails) principal;
         }
         /* 短信验证码登录 */
         if (authentication.getClass().equals(MobileAuthenticationToken.class)) {
             MobileAuthenticationToken authenticationToken = (MobileAuthenticationToken) authentication;
             Object principal = authenticationToken.getPrincipal();
-            return (CurrentUserDetails) principal;
+            return (UserInfoDetails) principal;
         }
         /* 记住我 */
         if (authentication.getClass().equals(RememberMeAuthenticationToken.class)) {
             RememberMeAuthenticationToken authenticationToken = (RememberMeAuthenticationToken) authentication;
             Object principal = authenticationToken.getPrincipal();
-            CurrentUserDetails userDetails = (CurrentUserDetails) principal;
+            UserInfoDetails userDetails = (UserInfoDetails) principal;
             userDetails.setSignMethod("RememberMe");
             return userDetails;
         }

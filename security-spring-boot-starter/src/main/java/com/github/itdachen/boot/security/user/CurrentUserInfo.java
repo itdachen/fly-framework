@@ -1,6 +1,6 @@
 package com.github.itdachen.boot.security.user;
 
-import com.github.itdachen.framework.context.userdetails.CurrentUserDetails;
+import com.github.itdachen.framework.context.userdetails.UserInfoDetails;
 import org.apache.commons.logging.Log;
 import org.apache.commons.logging.LogFactory;
 import org.springframework.security.core.CredentialsContainer;
@@ -22,11 +22,9 @@ import java.util.function.Function;
  * Created by 王大宸 on 2022-10-16 13:50
  * Created with IntelliJ IDEA.
  */
-public class CurrentUserInfo extends CurrentUserDetails implements UserDetails, CredentialsContainer {
+public class CurrentUserInfo extends UserInfoDetails implements UserDetails, CredentialsContainer {
     private static final long serialVersionUID = 570L;
     private static final Log logger = LogFactory.getLog(User.class);
-    private String password;
-    private final String username;
     private final boolean accountNonExpired;
     private final boolean accountNonLocked;
     private final boolean credentialsNonExpired;
@@ -48,8 +46,8 @@ public class CurrentUserInfo extends CurrentUserDetails implements UserDetails, 
                            boolean accountNonLocked,
                            Collection<? extends GrantedAuthority> authorities) {
         Assert.isTrue(username != null && !"".equals(username) && password != null, "Cannot pass null or empty values to constructor");
-        this.username = username;
-        this.password = password;
+        setUsername(username);
+        setPassword(password);
         this.enabled = enabled;
         this.accountNonExpired = accountNonExpired;
         this.credentialsNonExpired = credentialsNonExpired;
@@ -65,14 +63,6 @@ public class CurrentUserInfo extends CurrentUserDetails implements UserDetails, 
         this.authorities = authorities;
     }
 
-
-    public String getPassword() {
-        return this.password;
-    }
-
-    public String getUsername() {
-        return this.username;
-    }
 
     public boolean isEnabled() {
         return this.enabled;
@@ -91,7 +81,7 @@ public class CurrentUserInfo extends CurrentUserDetails implements UserDetails, 
     }
 
     public void eraseCredentials() {
-        this.password = null;
+        setPassword(null);
     }
 
     private static SortedSet<GrantedAuthority> sortAuthorities(Collection<? extends GrantedAuthority> authorities) {
@@ -109,17 +99,17 @@ public class CurrentUserInfo extends CurrentUserDetails implements UserDetails, 
     }
 
     public boolean equals(Object obj) {
-        return obj instanceof CurrentUserInfo ? this.username.equals(((CurrentUserInfo) obj).username) : false;
+        return obj instanceof CurrentUserInfo ? getUsername().equals(((CurrentUserInfo) obj).getUsername()) : false;
     }
 
     public int hashCode() {
-        return this.username.hashCode();
+        return this.getUsername().hashCode();
     }
 
     public String toString() {
         StringBuilder sb = new StringBuilder();
         sb.append(this.getClass().getName()).append(" [");
-        sb.append("Username=").append(this.username).append(", ");
+        sb.append("Username=").append(this.getUsername()).append(", ");
         sb.append("Password=[PROTECTED], ");
         sb.append("Enabled=").append(this.enabled).append(", ");
         sb.append("AccountNonExpired=").append(this.accountNonExpired).append(", ");
@@ -130,10 +120,10 @@ public class CurrentUserInfo extends CurrentUserDetails implements UserDetails, 
     }
 
     public static UserBuilder withUsername(String username) {
-        return builder().username(username);
+        return userBuilder().username(username);
     }
 
-    public static UserBuilder builder() {
+    public static UserBuilder userBuilder() {
         return new UserBuilder();
     }
 
@@ -144,7 +134,7 @@ public class CurrentUserInfo extends CurrentUserDetails implements UserDetails, 
     public static UserBuilder withDefaultPasswordEncoder() {
         logger.warn("User.withDefaultPasswordEncoder() is considered unsafe for production and is only intended for sample applications.");
         PasswordEncoder encoder = PasswordEncoderFactories.createDelegatingPasswordEncoder();
-        UserBuilder var10000 = builder();
+        UserBuilder var10000 = userBuilder();
         Objects.requireNonNull(encoder);
         return var10000.passwordEncoder(encoder::encode);
     }

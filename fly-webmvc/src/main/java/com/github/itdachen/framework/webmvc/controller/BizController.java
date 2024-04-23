@@ -8,6 +8,8 @@ import com.github.itdachen.framework.core.response.ServerResponse;
 import com.github.itdachen.framework.core.response.TableData;
 import com.github.itdachen.framework.webmvc.service.IBizService;
 import com.github.itdachen.framework.webmvc.utils.StringEscapeEditor;
+import jakarta.servlet.http.HttpServletRequest;
+import jakarta.servlet.http.HttpServletResponse;
 import jakarta.validation.Valid;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.WebDataBinder;
@@ -41,70 +43,86 @@ public class BizController<BizService extends IBizService<D, V, Q, PK>, D, V, Q 
      * @param params 分页查询参数
      * @return com.github.itdachen.framework.core.response.ServerResponse<com.github.itdachen.framework.core.response.TableData < V>>
      */
-    @GetMapping(value = "/page")
+    @GetMapping(value = "/page" )
     @ResponseBody
-    @Log(title = "分页查询", type = LogType.GET_PAGE_DATA)
+    @Log(title = "分页查询" , type = LogType.GET_PAGE_DATA)
     public ServerResponse<TableData<V>> page(Q params) throws Exception {
         return ServerResponse.okData(bizService.page(params));
     }
-    
+
     /***
-    * 新增
-    *
-    * @author 王大宸
-    * @date 2023/11/15 10:26
+     * 新增
+     *
+     * @author 王大宸
+     * @date 2023/11/15 10:26
      * @param d 需要新增的数据
-    * @return com.github.itdachen.framework.core.response.ServerResponse<V>
-    */
-    @PostMapping(value = "")
+     * @return com.github.itdachen.framework.core.response.ServerResponse<V>
+     */
+    @PostMapping(value = "" )
     @ResponseBody
-    @Log(title = "新增", type = LogType.SAVE)
+    @Log(title = "新增" , type = LogType.SAVE)
     public ServerResponse<V> saveInfo(@Valid @RequestBody D d) throws Exception {
         return ServerResponse.okData(bizService.saveInfo(d));
     }
-    
+
     /***
-    * 更新
-    *
-    * @author 王大宸
-    * @date 2023/11/15 10:26
+     * 更新
+     *
+     * @author 王大宸
+     * @date 2023/11/15 10:26
      * @param d 需要更新的数据
-    * @return com.github.itdachen.framework.core.response.ServerResponse<V>
-    */
-    @PutMapping(value = "/{id}")
+     * @return com.github.itdachen.framework.core.response.ServerResponse<V>
+     */
+    @PutMapping(value = "/{pk}" )
     @ResponseBody
-    @Log(title = "修改/编辑", type = LogType.UPDATE)
+    @Log(title = "修改/编辑" , type = LogType.UPDATE)
     public ServerResponse<V> updateInfo(@Valid @RequestBody D d) throws Exception {
         return ServerResponse.okData(bizService.updateInfo(d));
     }
-    
+
     /***
-    * 根据id查询
-    *
-    * @author 王大宸
-    * @date 2023/11/15 10:26
-     * @param id 需要查询数据的id
-    * @return com.github.itdachen.framework.core.response.ServerResponse<V>
-    */
-    @GetMapping(value = "/{id}")
+     * 根据id查询
+     *
+     * @author 王大宸
+     * @date 2023/11/15 10:26
+     * @param pk 需要查询数据的主键
+     * @return com.github.itdachen.framework.core.response.ServerResponse<V>
+     */
+    @GetMapping(value = "/{pk}" )
     @ResponseBody
-    public ServerResponse<V> selectByPrimaryKey(@PathVariable("id") PK id) throws Exception {
-        return ServerResponse.okData(bizService.selectByPrimaryKey(id));
+    public ServerResponse<V> selectByPrimaryKey(@PathVariable("pk" ) PK pk) throws Exception {
+        return ServerResponse.okData(bizService.selectByPrimaryKey(pk));
     }
 
     /***
-    * 删除数据
-    *
-    * @author 王大宸
-    * @date 2023/11/15 10:27
-     * @param id 需要删除数据的id
-    * @return com.github.itdachen.framework.core.response.ServerResponse<java.lang.Integer>
-    */
-    @DeleteMapping(value = "/{id}")
+     * 删除数据
+     *
+     * @author 王大宸
+     * @date 2023/11/15 10:27
+     * @param pk 需要删除数据的主键
+     * @return com.github.itdachen.framework.core.response.ServerResponse<java.lang.Integer>
+     */
+    @DeleteMapping(value = "/{pk}" )
     @ResponseBody
-    @Log(title = "删除", type = LogType.REMOVE)
-    public ServerResponse<Integer> deleteByPrimaryKey(@PathVariable("id") PK id) throws Exception {
-        return ServerResponse.okData(bizService.deleteByPrimaryKey(id));
+    @Log(title = "删除" , type = LogType.REMOVE)
+    public ServerResponse<Integer> deleteByPrimaryKey(@PathVariable("pk" ) PK pk) throws Exception {
+        return ServerResponse.okData(bizService.deleteByPrimaryKey(pk));
+    }
+
+    /***
+     * 导出
+     *
+     * @author 王大宸
+     * @date 2024/4/16 21:52
+     * @param request request
+     * @param response response
+     * @return void
+     */
+    @DeleteMapping(value = "/exp" )
+    @ResponseBody
+    @Log(title = "导出" , type = LogType.EXPORT)
+    public void dataExpToExcel(HttpServletRequest request, HttpServletResponse response, Q params) throws Exception {
+        bizService.dataExpToExcel(request, response, params);
     }
 
 }

@@ -35,10 +35,28 @@ public class IpLongUtils {
     }
 
     public static void main(String[] args) {
-        System.out.println(ip2Long("89.17.36.1"));
-        System.out.println(ip2Long("89.17.36.2"));
-        System.out.println(long2Ip(3232235521L));
-        System.out.println(ip2Long("10.0.0.1"));
+        String ip = "192.168.31.43";
+        String ip2 = "192.168.255.43";
+        String ip3 = "192.168.56.43";
+        long l = ip2Long(ip);
+        long l2 = ip2Long(ip2);
+        long l3 = ip2Long(ip3);
+
+        if (l < l3 && l3 < l2) {
+            System.err.println("l < l3 && l3 < l2");
+        }
+
+        System.err.println("IP1 ==> Long : " + ip);
+        System.err.println("IP2 ==> Long : " + l2);
+        String s = long2Ip(l);
+        String ss = long2Ip(l2);
+        System.out.println(s);
+
+
+            if (ip.equals(s)) {
+                System.err.println("========> OK");
+            }
+
     }
 
 

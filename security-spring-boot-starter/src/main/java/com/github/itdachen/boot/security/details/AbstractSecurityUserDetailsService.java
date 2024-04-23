@@ -1,9 +1,10 @@
 package com.github.itdachen.boot.security.details;
 
 import com.github.itdachen.boot.security.authentication.VerifyTicketToken;
+import com.github.itdachen.boot.security.context.SecurityContextHandler;
 import com.github.itdachen.boot.security.exception.BizSecurityException;
 import com.github.itdachen.boot.security.user.CurrentUserInfo;
-import com.github.itdachen.framework.context.userdetails.CurrentUserDetails;
+import com.github.itdachen.framework.context.userdetails.UserInfoDetails;
 import com.github.itdachen.framework.core.constants.UserStatusConstant;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -12,6 +13,7 @@ import org.springframework.security.core.authority.AuthorityUtils;
 import org.springframework.security.core.userdetails.UserDetailsService;
 import org.springframework.security.core.userdetails.UsernameNotFoundException;
 
+import java.time.LocalDateTime;
 import java.util.ArrayList;
 import java.util.HashSet;
 import java.util.List;
@@ -76,12 +78,12 @@ public abstract class AbstractSecurityUserDetailsService implements UserDetailsS
      * @param authorities           用户权限
      * @return com.github.itdachen.framework.security.user.CurrentUserInfo
      */
-    protected CurrentUserInfo setUserPermission(CurrentUserDetails user,
-                                                Set<String> authorities) {
+    protected CurrentUserInfo setUserPermission(UserInfoDetails user,
+                                             Set<String> authorities) {
         boolean enabled = isEnabled();
         boolean accountNonExpired = accountNonExpired();
         boolean credentialsNonExpired = credentialsNonExpired();
-        boolean accountNonLocked = accountNonLocked(user.getStatus());
+        boolean accountNonLocked = accountNonLocked(user.getValidFlag());
 
         List<GrantedAuthority> grantedAuthorities = new ArrayList<>();
 
@@ -109,7 +111,7 @@ public abstract class AbstractSecurityUserDetailsService implements UserDetailsS
         );
     }
 
-    protected CurrentUserInfo setUserPermission(CurrentUserDetails user) {
+    protected CurrentUserInfo setUserPermission(UserInfoDetails user) {
         return setUserPermission(user, new HashSet<>());
     }
 
@@ -126,46 +128,22 @@ public abstract class AbstractSecurityUserDetailsService implements UserDetailsS
      * @param grantedAuthorities      权限
      * @return com.github.itdachen.framework.security.user.CurrentUserInfo
      */
-    protected CurrentUserInfo currentUser(CurrentUserDetails user,
-                                          boolean enabled,
-                                          boolean accountNonExpired,
-                                          boolean credentialsNonExpired,
-                                          boolean accountNonLocked,
-                                          List<GrantedAuthority> grantedAuthorities) {
+    protected CurrentUserInfo currentUser(UserInfoDetails user,
+                                       boolean enabled,
+                                       boolean accountNonExpired,
+                                       boolean credentialsNonExpired,
+                                       boolean accountNonLocked,
+                                       List<GrantedAuthority> grantedAuthorities) {
         CurrentUserInfo info = new CurrentUserInfo(
-                user.getAccount(),
-                user.getAccountSecret(),
+                user.getUsername(),
+                user.getPassword(),
                 enabled,
                 accountNonExpired,
                 credentialsNonExpired,
                 accountNonLocked,
                 grantedAuthorities);
 
-        info.setId(user.getId());
-        info.setTenantId(user.getTenantId());
-        info.setClientId(user.getClientId());
-        info.setSignMethod(user.getSignMethod());
-        info.setNickName(user.getNickName());
-        info.setAvatar(user.getAvatar());
-        info.setTelephone(user.getTelephone());
-        info.setEmail(user.getEmail());
-        info.setAccount(user.getAccount());
-        info.setAccountSecret(user.getAccountSecret());
-        info.setAppId(user.getAppId());
-        info.setOpenId(user.getOpenId());
-        info.setUserType(user.getUserType());
-        info.setSex(user.getSex());
-        info.setDeptId(user.getDeptId());
-        info.setDeptTitle(user.getDeptTitle());
-        info.setParentDeptId(user.getParentDeptId());
-        info.setDeptLevel(user.getDeptLevel());
-        info.setAnId(user.getAnId());
-        info.setAnTitle(user.getAnTitle());
-        info.setIsSuperAdmin(user.getIsSuperAdmin());
-        info.setStatus(user.getStatus());
-        info.setExpTime(user.getExpTime());
-        info.setOther(user.getOther());
-        info.setPermissions(user.getPermissions());
+        SecurityContextHandler.setCurrentUserInfo(info, user);
         return info;
     }
 

@@ -1,12 +1,14 @@
 package com.github.itdachen.framework.webmvc.service.impl;
 
 import com.github.itdachen.framework.core.response.TableData;
+import com.github.itdachen.framework.webmvc.entity.EntityUtils;
 import com.github.itdachen.framework.webmvc.service.IBaseService;
 import com.github.itdachen.framework.webmvc.utils.Query;
 import com.github.pagehelper.Page;
 import com.github.pagehelper.PageHelper;
+import jakarta.servlet.http.HttpServletRequest;
+import jakarta.servlet.http.HttpServletResponse;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.jdbc.core.JdbcTemplate;
 import tk.mybatis.mapper.common.Mapper;
 import tk.mybatis.mapper.entity.Example;
 
@@ -25,8 +27,6 @@ public class BaseServiceImpl<IBizMapper extends Mapper<T>, T, PK> implements IBa
 
     @Autowired
     protected IBizMapper bizMapper;
-    @Autowired
-    protected JdbcTemplate jdbcTemplate;
 
     /***
      * 分页查询
@@ -65,6 +65,7 @@ public class BaseServiceImpl<IBizMapper extends Mapper<T>, T, PK> implements IBa
      */
     @Override
     public T saveInfo(T t) throws Exception {
+        EntityUtils.setCreatAndUpdateInfo(t);
         bizMapper.insertSelective(t);
         return t;
     }
@@ -92,6 +93,7 @@ public class BaseServiceImpl<IBizMapper extends Mapper<T>, T, PK> implements IBa
      */
     @Override
     public T updateInfo(T t) throws Exception {
+        EntityUtils.setUpdatedInfo(t);
         bizMapper.updateByPrimaryKeySelective(t);
         return t;
     }
@@ -121,4 +123,10 @@ public class BaseServiceImpl<IBizMapper extends Mapper<T>, T, PK> implements IBa
     public T selectOne(T t) throws Exception {
         return bizMapper.selectOne(t);
     }
+
+    @Override
+    public void dataExpToExcel(HttpServletRequest request, HttpServletResponse response, Map<String,Object> params) throws Exception {
+
+    }
+
 }

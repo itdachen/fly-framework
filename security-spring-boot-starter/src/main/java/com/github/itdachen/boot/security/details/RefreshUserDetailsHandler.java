@@ -1,7 +1,8 @@
 package com.github.itdachen.boot.security.details;
 
+import com.github.itdachen.boot.security.context.SecurityContextHandler;
 import com.github.itdachen.boot.security.user.CurrentUserInfo;
-import com.github.itdachen.framework.context.userdetails.CurrentUserDetails;
+import com.github.itdachen.framework.context.userdetails.UserInfoDetails;
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
 import org.springframework.security.core.Authentication;
@@ -41,7 +42,7 @@ public class RefreshUserDetailsHandler implements IRefreshUserDetails {
     @Override
     public void refreshUserDetails(HttpServletRequest request,
                                    HttpServletResponse response,
-                                   CurrentUserDetails userDetails) throws Exception {
+                                   UserInfoDetails userDetails) throws Exception {
         setUserDetails(request, response, userDetails, null);
     }
 
@@ -59,7 +60,7 @@ public class RefreshUserDetailsHandler implements IRefreshUserDetails {
     @Override
     public void refreshUserDetails(HttpServletRequest request,
                                    HttpServletResponse response,
-                                   CurrentUserDetails userDetails,
+                                   UserInfoDetails userDetails,
                                    List<String> authorities) throws Exception {
         setUserDetails(request, response, userDetails, authorities);
     }
@@ -107,31 +108,12 @@ public class RefreshUserDetailsHandler implements IRefreshUserDetails {
      */
     private void setUserDetails(HttpServletRequest request,
                                 HttpServletResponse response,
-                                CurrentUserDetails userDetails,
+                                UserInfoDetails userDetails,
                                 List<String> authorities) {
         /* 当前认证信息 */
         Authentication authentication = SecurityContextHolder.getContext().getAuthentication();
         CurrentUserInfo userInfo = (CurrentUserInfo) authentication.getPrincipal();
-
-        userInfo.setNickName(userDetails.getNickName());
-        userInfo.setAvatar(userDetails.getAvatar());
-        userInfo.setTelephone(userDetails.getTelephone());
-        userInfo.setEmail(userDetails.getEmail());
-        userInfo.setStatus(userDetails.getStatus());
-        userInfo.setAppId(userDetails.getAppId());
-        userInfo.setOpenId(userDetails.getOpenId());
-        userInfo.setUserType(userDetails.getUserType());
-        userInfo.setSex(userDetails.getSex());
-        userInfo.setDeptId(userDetails.getDeptId());
-        userInfo.setDeptTitle(userDetails.getDeptTitle());
-        userInfo.setParentDeptId(userDetails.getParentDeptId());
-        userInfo.setDeptLevel(userDetails.getDeptLevel());
-        userInfo.setAnId(userDetails.getAnId());
-        userInfo.setAnTitle(userDetails.getAnTitle());
-        userInfo.setIsSuperAdmin(userDetails.getIsSuperAdmin());
-        userInfo.setExpTime(userDetails.getExpTime());
-        userInfo.setOther(userDetails.getOther());
-        userInfo.setPermissions(userDetails.getPermissions());
+        SecurityContextHandler.setCurrentUserInfo(userInfo,userDetails );
 
         /* 更新权限 */
         if (null != authorities && !authorities.isEmpty()) {

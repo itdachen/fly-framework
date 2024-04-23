@@ -17,4 +17,14 @@ public class YesOrNotConstant {
      */
     public final static String NOT = "0";
 
+    /**
+     * 是/已删除/可删除
+     */
+    public final static String Y = "Y";
+
+    /**
+     * 否/未删除/不可删除
+     */
+    public final static String N = "N";
+
 }
