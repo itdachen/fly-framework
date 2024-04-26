@@ -23,11 +23,6 @@ public class UserInfoConstant {
     public static final String USER_ID = "userId";
 
     /**
-     * 租户id
-     */
-    public static final String TENANT_ID = "tenantId";
-
-    /**
      * 平台ID
      */
     public static final String PLAT_ID = "platId";
@@ -58,9 +53,19 @@ public class UserInfoConstant {
     public static final String APP_CONTEXT_PATH = "appContextPath";
 
     /**
+     * 租户ID/公司ID
+     */
+    public static final String TENANT_ID = "tenantId";
+
+    /**
+     * 租户ID/公司ID
+     */
+    public static final String TENANT_TITLE = "tenantTitle";
+
+    /**
      * 登录方式
      */
-    public static final String SIGN_METHOD = "SIGN_METHOD";
+    public static final String LOGIN_METHOD = "loginMethod";
 
     /**
      * 用户姓名
@@ -83,9 +88,19 @@ public class UserInfoConstant {
     public static final String SEX = "sex";
 
     /**
+     * 电话号码
+     */
+    public static final String TELEPHONE = "telephone";
+
+    /**
      * 登录账号类型
      */
     public static final String USER_TYPE = "userType";
+
+    /**
+     * 登录账号有效标志: Y-有效;N-无效
+     */
+    public static final String VALID_FLAG = "validFlag";
 
     /**
      * 身份ID
@@ -95,38 +110,12 @@ public class UserInfoConstant {
     /**
      * 身份名称
      */
-    public static final String ROLE_NAME = "roleNmae";
+    public static final String ROLE_NAME = "roleName";
 
     /**
      * 主身份标识: Y-主身份;N-非主身份标识
      */
     public static final String ROLE_FLAG = "roleFlag";
-
-    /**
-     * 电话号码
-     */
-    public static final String TELEPHONE = "telephone";
-
-    /**
-     * 部门id
-     */
-    public static final String DEPT_ID = "deptId";
-
-    /**
-     * 部门名称
-     */
-    public static final String DEPT_TITLE = "deptTitle";
-
-    /**
-     * 上级部门id
-     */
-    public static final String PARENT_DEPT_ID = "parentDeptId";
-
-    /**
-     * 部门级别
-     */
-    public static final String DEPT_LEVEL = "deptLevel";
-
 
     /**
      * 身份所属省份代码, 例如: 贵州-52
@@ -139,14 +128,61 @@ public class UserInfoConstant {
     public static final String CITY_ID = "cityId";
 
     /**
-     * 身份所属区县代码, 例如: 贵阳南明-520101
+     * 身份所属区县代码, 例如: 贵阳云岩-520101
      */
     public static final String COUNTY_ID = "countyId";
+
+    /**
+     * 身份所属部门ID
+     */
+    public static final String DEPT_ID = "deptId";
+
+    /**
+     * 身份所属部门名称
+     */
+    public static final String DEPT_TITLE = "deptTitle";
+
+    /**
+     * 身份所属部门级别
+     */
+    public static final String DEPT_LEVEL = "deptLevel";
+
+    /**
+     * 身份所属部门类型, 例如:10-董事会;11-总裁
+     */
+    public static final String DEPT_TYPE = "deptType";
+
+    /**
+     * 身份所属上级部门ID
+     */
+    public static final String DEPT_PARENT_ID = "deptParentId";
 
     /**
      * 登录主机IP
      */
     public static final String HOST_IP = "hostIp";
+
+    /**
+     * 登录主机操作系统
+     */
+    public static final String HOST_OS = "hostOs";
+
+    /**
+     * 登录主机操作浏览器
+     */
+    public static final String HOST_BROWSER = "hostBrowser";
+
+
+    /**
+     * 登录主机操作信息代理
+     */
+    public static final String HOST_USER_AGENT = "hostUserAgent";
+
+
+    /**
+     * 登录主机地址
+     */
+    public static final String HOST_ADDR = "hostAddr";
 
     /**
      * 登录主机地址代码, 例如: 贵州-52
@@ -157,17 +193,6 @@ public class UserInfoConstant {
      * 录主机地址代码, 例如: 贵阳-5201
      */
     public static final String HOST_CITY = "hostCity";
-
-
-    /**
-     * 登录主机IP
-     */
-    public static final String HOST_ADDR = "hostAddr";
-
-    /**
-     * 代理信息
-     */
-    public static final String USER_AGENT = "userAgent";
 
     /**
      * 过期时间(密码过期时间, 有些系统需要定期更新账号的密码)

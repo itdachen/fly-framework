@@ -113,7 +113,7 @@ public class RefreshUserDetailsHandler implements IRefreshUserDetails {
         /* 当前认证信息 */
         Authentication authentication = SecurityContextHolder.getContext().getAuthentication();
         CurrentUserInfo userInfo = (CurrentUserInfo) authentication.getPrincipal();
-        SecurityContextHandler.setCurrentUserInfo(userInfo,userDetails );
+        SecurityContextHandler.setCurrentUserInfo(userInfo, userDetails);
 
         /* 更新权限 */
         if (null != authorities && !authorities.isEmpty()) {

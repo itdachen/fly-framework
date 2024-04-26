@@ -26,9 +26,8 @@ public class GlobalContextUserDetailsHandler {
      */
     public static void contextUserHandler(UserInfoDetails userDetails) {
         BizContextHandler.setId(userDetails.getId());
-        BizContextHandler.setUserId(userDetails.getId());
         BizContextHandler.setUsername(userDetails.getUsername());
-        BizContextHandler.setTenantId(userDetails.getTenantId());
+        BizContextHandler.setLoginMethod(userDetails.getLoginMethod());
 
         /* 平台/应用信息 */
         BizContextHandler.setPlatId(userDetails.getPlatId());
@@ -38,43 +37,45 @@ public class GlobalContextUserDetailsHandler {
         BizContextHandler.setAppVersion(userDetails.getAppVersion());
         BizContextHandler.setAppContextPath(userDetails.getAppContextPath());
 
-        /* 登录方式 */
-        BizContextHandler.setSignMethod(userDetails.getSignMethod());
+        /* 租户信息 */
+        BizContextHandler.setTenantId(userDetails.getTenantId());
+        BizContextHandler.setTenantTitle(userDetails.getTenantTitle());
 
-        /* 基础信息 */
+        /* 用户信息 */
+        BizContextHandler.setUserId(userDetails.getId());
         BizContextHandler.setNickName(userDetails.getNickName());
         BizContextHandler.setAvatar(userDetails.getAvatar());
         BizContextHandler.setEmail(userDetails.getEmail());
         BizContextHandler.setSex(userDetails.getSex());
         BizContextHandler.setUserType(userDetails.getUserType());
         BizContextHandler.setTelephone(userDetails.getTelephone());
+        BizContextHandler.setValidFlag(userDetails.getValidFlag());
 
         /* 身份信息 */
         BizContextHandler.setRoleId(userDetails.getRoleId());
         BizContextHandler.setRoleName(userDetails.getRoleName());
         BizContextHandler.setRoleFlag(userDetails.getRoleFlag());
 
-        /* 部门信息 */
-        BizContextHandler.setDeptId(userDetails.getDeptId());
-        BizContextHandler.setDeptTitle(userDetails.getDeptTitle());
-        BizContextHandler.setParentDeptId(userDetails.getParentDeptId());
-        BizContextHandler.setDeptLevel(userDetails.getDeptLevel());
-
-        /* 账号行政区域信息 */
+        /* 区域信息 */
         BizContextHandler.setProvId(userDetails.getProvId());
         BizContextHandler.setCityId(userDetails.getCityId());
         BizContextHandler.setCountyId(userDetails.getCountyId());
 
-        /* 登录主机信息 */
+        /* 部门信息 */
+        BizContextHandler.setDeptId(userDetails.getDeptId());
+        BizContextHandler.setDeptTitle(userDetails.getDeptTitle());
+        BizContextHandler.setDeptType(userDetails.getDeptType());
+        BizContextHandler.setDeptLevel(userDetails.getDeptLevel());
+        BizContextHandler.setDeptParentId(userDetails.getDeptParentId());
+
+        /* 操作主机信息 */
         BizContextHandler.setHostIp(userDetails.getHostIp());
+        BizContextHandler.setHostOs(userDetails.getHostOs());
+        BizContextHandler.setHostBrowser(userDetails.getHostBrowser());
+        BizContextHandler.setHostAddr(userDetails.getHostAddr());
+        BizContextHandler.setHostUserAgent(userDetails.getHostUserAgent());
         BizContextHandler.setHostProv(userDetails.getHostProv());
         BizContextHandler.setHostCity(userDetails.getHostCity());
-        BizContextHandler.setHostAddr(userDetails.getHostAddr());
-        BizContextHandler.setUserAgent(userDetails.getUserAgent());
-
-        /* 其他 */
-        BizContextHandler.setExpTime(userDetails.getExpTime());
-
     }
 
     /***
@@ -87,14 +88,12 @@ public class GlobalContextUserDetailsHandler {
      */
     public static void contextUserHandler(IJwtInfo jwtInfo) {
         BizContextHandler.setTokenId(jwtInfo.getTokenId());
-        BizContextHandler.setUsername(jwtInfo.getUniqueName());
-        BizContextHandler.setUserId(jwtInfo.getUserId());
-        BizContextHandler.setId(jwtInfo.getUserId());
-        BizContextHandler.setNickName(jwtInfo.getNickName());
-        BizContextHandler.setTenantId(jwtInfo.getTenantId());
-
         final Map<String, String> otherInfo = jwtInfo.getOtherInfo();
 
+        /* 登录信息 */
+        BizContextHandler.setId(jwtInfo.getUserId());
+        BizContextHandler.setUsername(jwtInfo.getUniqueName());
+        BizContextHandler.setLoginMethod(otherInfo.get(UserInfoConstant.LOGIN_METHOD));
 
         /* 平台/应用信息 */
         BizContextHandler.setPlatId(otherInfo.get(UserInfoConstant.PLAT_ID));
@@ -104,15 +103,19 @@ public class GlobalContextUserDetailsHandler {
         BizContextHandler.setAppVersion(otherInfo.get(UserInfoConstant.APP_VERSION));
         BizContextHandler.setAppContextPath(otherInfo.get(UserInfoConstant.APP_CONTEXT_PATH));
 
-        /* 登录方式 */
-        BizContextHandler.setSignMethod(otherInfo.get(UserInfoConstant.SIGN_METHOD));
+        /* 租户信息 */
+        BizContextHandler.setTenantId(jwtInfo.getTenantId());
+        BizContextHandler.setTenantTitle(otherInfo.get(UserInfoConstant.TENANT_TITLE));
 
         /* 基础信息 */
+        BizContextHandler.setUserId(jwtInfo.getUserId());
+        BizContextHandler.setNickName(jwtInfo.getNickName());
         BizContextHandler.setAvatar(otherInfo.get(UserInfoConstant.AVATAR));
         BizContextHandler.setEmail(otherInfo.get(UserInfoConstant.E_MAIL));
         BizContextHandler.setSex(otherInfo.get(UserInfoConstant.SEX));
         BizContextHandler.setUserType(otherInfo.get(UserInfoConstant.USER_TYPE));
         BizContextHandler.setTelephone(otherInfo.get(UserInfoConstant.TELEPHONE));
+        BizContextHandler.setValidFlag(otherInfo.get(UserInfoConstant.VALID_FLAG));
 
         /* 身份信息 */
         BizContextHandler.setRoleId(otherInfo.get(UserInfoConstant.ROLE_ID));
@@ -122,8 +125,9 @@ public class GlobalContextUserDetailsHandler {
         /* 部门信息 */
         BizContextHandler.setDeptId(otherInfo.get(UserInfoConstant.DEPT_ID));
         BizContextHandler.setDeptTitle(otherInfo.get(UserInfoConstant.DEPT_TITLE));
-        BizContextHandler.setParentDeptId(otherInfo.get(UserInfoConstant.PARENT_DEPT_ID));
+        BizContextHandler.setDeptParentId(otherInfo.get(UserInfoConstant.DEPT_PARENT_ID));
         BizContextHandler.setDeptLevel(otherInfo.get(UserInfoConstant.DEPT_LEVEL));
+        BizContextHandler.setDeptType(otherInfo.get(UserInfoConstant.DEPT_TYPE));
 
         /* 账号行政区域信息 */
         BizContextHandler.setProvId(otherInfo.get(UserInfoConstant.PROV_ID));
@@ -135,7 +139,9 @@ public class GlobalContextUserDetailsHandler {
         BizContextHandler.setHostProv(otherInfo.get(UserInfoConstant.HOST_PROV));
         BizContextHandler.setHostCity(otherInfo.get(UserInfoConstant.HOST_CITY));
         BizContextHandler.setHostAddr(otherInfo.get(UserInfoConstant.HOST_ADDR));
-        BizContextHandler.setUserAgent(otherInfo.get(UserInfoConstant.USER_AGENT));
+        BizContextHandler.setHostUserAgent(otherInfo.get(UserInfoConstant.HOST_USER_AGENT));
+        BizContextHandler.setHostOs(otherInfo.get(UserInfoConstant.HOST_OS));
+        BizContextHandler.setHostBrowser(otherInfo.get(UserInfoConstant.HOST_BROWSER));
 
     }
 
@@ -148,44 +154,63 @@ public class GlobalContextUserDetailsHandler {
      * @return com.github.itdachen.framework.context.userdetails.UserInfoDetails
      */
     public static UserInfoDetails getUserDetails() {
-        return UserInfoDetails.builder()
-                .id(BizContextHandler.getId())
-                .username(BizContextHandler.getUsername())
-                .tenantId(BizContextHandler.getTenantId())
-                .platId(BizContextHandler.getPlatId())
-                .platName(BizContextHandler.getPlatName())
-                .appId(BizContextHandler.getAppId())
-                .appName(BizContextHandler.getAppName())
-                .appVersion(BizContextHandler.getAppVersion())
-                .appContextPath(BizContextHandler.getAppContextPath())
-                .signMethod(BizContextHandler.getSignMethod())
-                .nickName(BizContextHandler.getNickName())
-                .avatar(BizContextHandler.getAvatar())
-                .email(BizContextHandler.getEmail())
-                .sex(BizContextHandler.getSex())
-                .userType(BizContextHandler.getUserType())
-                .telephone(BizContextHandler.getTelephone())
-                .roleId(BizContextHandler.getRoleId())
-                .roleName(BizContextHandler.getRoleName())
-                .roleFlag(BizContextHandler.getRoleFlag())
-                .deptId(BizContextHandler.getDeptId())
-                .deptTitle(BizContextHandler.getDeptTitle())
-                .parentDeptId(BizContextHandler.getParentDeptId())
-                .deptLevel(BizContextHandler.getDeptLevel())
-                .provId(BizContextHandler.getProvId())
-                .cityId(BizContextHandler.getCityId())
-                .countyId(BizContextHandler.getCountyId())
-                .hostIp(BizContextHandler.getHostIp())
-                .hostProv(BizContextHandler.getHostProv())
-                .hostCity(BizContextHandler.getHostCity())
-                .hostAddr(BizContextHandler.getHostAddr())
-                .userAgent(BizContextHandler.getUserAgent())
-                .build();
+        UserInfoDetails userInfoDetails = new UserInfoDetails();
+        userInfoDetails.setId(BizContextHandler.getId());
+        userInfoDetails.setUsername(BizContextHandler.getUsername());
+        userInfoDetails.setLoginMethod(BizContextHandler.getLoginMethod());
+
+        /* 平台/应用信息 */
+        userInfoDetails.setPlatId(BizContextHandler.getPlatId());
+        userInfoDetails.setPlatName(BizContextHandler.getPlatName());
+        userInfoDetails.setAppId(BizContextHandler.getAppId());
+        userInfoDetails.setAppName(BizContextHandler.getAppName());
+        userInfoDetails.setAppVersion(BizContextHandler.getAppVersion());
+        userInfoDetails.setAppContextPath(BizContextHandler.getAppContextPath());
+
+        /* 租户信息 */
+        userInfoDetails.setTenantId(BizContextHandler.getTenantId());
+        userInfoDetails.setTenantTitle(BizContextHandler.getTenantTitle());
+
+        /* 用户信息 */
+        userInfoDetails.setNickName(BizContextHandler.getNickName());
+        userInfoDetails.setAvatar(BizContextHandler.getAvatar());
+        userInfoDetails.setEmail(BizContextHandler.getEmail());
+        userInfoDetails.setSex(BizContextHandler.getSex());
+        userInfoDetails.setUserType(BizContextHandler.getUserType());
+        userInfoDetails.setTelephone(BizContextHandler.getTelephone());
+        userInfoDetails.setValidFlag(BizContextHandler.getValidFlag());
+
+        /* 身份信息 */
+        userInfoDetails.setRoleId(BizContextHandler.getRoleId());
+        userInfoDetails.setRoleName(BizContextHandler.getRoleName());
+        userInfoDetails.setRoleFlag(BizContextHandler.getRoleFlag());
+
+        /* 区域信息 */
+        userInfoDetails.setProvId(BizContextHandler.getProvId());
+        userInfoDetails.setCityId(BizContextHandler.getCityId());
+        userInfoDetails.setCountyId(BizContextHandler.getCountyId());
+
+        /* 部门信息 */
+        userInfoDetails.setDeptId(BizContextHandler.getDeptId());
+        userInfoDetails.setDeptTitle(BizContextHandler.getDeptTitle());
+        userInfoDetails.setDeptType(BizContextHandler.getDeptType());
+        userInfoDetails.setDeptLevel(BizContextHandler.getDeptLevel());
+        userInfoDetails.setDeptParentId(BizContextHandler.getDeptParentId());
+
+        /* 操作主机信息 */
+        userInfoDetails.setHostIp(BizContextHandler.getHostIp());
+        userInfoDetails.setHostOs(BizContextHandler.getHostOs());
+        userInfoDetails.setHostBrowser(BizContextHandler.getHostBrowser());
+        userInfoDetails.setHostAddr(BizContextHandler.getHostAddr());
+        userInfoDetails.setHostUserAgent(BizContextHandler.getHostUserAgent());
+        userInfoDetails.setHostProv(BizContextHandler.getHostProv());
+        userInfoDetails.setHostCity(BizContextHandler.getHostCity());
+        return userInfoDetails;
 
     }
 
     /***
-     * 重新 set 值(用处不大, 怕其他地方被继承时, 无法序列化)
+     * 重新 set 值(用处不大, 解决在其他地方被继承时, 无法序列化, 需要重新 new 一个对象)
      *
      * @author 王大宸
      * @date 2024/4/13 23:36
@@ -193,41 +218,58 @@ public class GlobalContextUserDetailsHandler {
      * @return com.github.itdachen.framework.context.userdetails.UserInfoDetails
      */
     public static UserInfoDetails setUserDetails(UserInfoDetails userDetails) {
-        return UserInfoDetails.builder()
-                .id(userDetails.getId())
-                .username(userDetails.getUsername())
-                .tenantId(userDetails.getTenantId())
-                .platId(userDetails.getPlatId())
-                .platName(userDetails.getPlatName())
-                .appId(userDetails.getAppId())
-                .appName(userDetails.getAppName())
-                .appVersion(userDetails.getAppVersion())
-                .appContextPath(userDetails.getAppContextPath())
-                .signMethod(userDetails.getSignMethod())
-                .nickName(userDetails.getNickName())
-                .avatar(userDetails.getAvatar())
-                .email(userDetails.getEmail())
-                .sex(userDetails.getSex())
-                .userType(userDetails.getUserType())
-                .telephone(userDetails.getTelephone())
-                .roleId(userDetails.getRoleId())
-                .roleName(userDetails.getRoleName())
-                .roleFlag(userDetails.getRoleFlag())
-                .deptId(userDetails.getDeptId())
-                .deptTitle(userDetails.getDeptTitle())
-                .parentDeptId(userDetails.getParentDeptId())
-                .deptLevel(userDetails.getDeptLevel())
-                .provId(userDetails.getProvId())
-                .cityId(userDetails.getCityId())
-                .countyId(userDetails.getCountyId())
-                .hostIp(userDetails.getHostIp())
-                .hostProv(userDetails.getHostProv())
-                .hostCity(userDetails.getHostCity())
-                .hostAddr(userDetails.getHostAddr())
-                .userAgent(userDetails.getUserAgent())
-                .expTime(userDetails.getExpTime())
-                .build();
+        UserInfoDetails userInfoDetails = new UserInfoDetails();
+        userInfoDetails.setId(userDetails.getId());
+        userInfoDetails.setUsername(userDetails.getUsername());
+        userInfoDetails.setLoginMethod(userDetails.getLoginMethod());
 
+        /* 平台/应用信息 */
+        userInfoDetails.setPlatId(userDetails.getPlatId());
+        userInfoDetails.setPlatName(userDetails.getPlatName());
+        userInfoDetails.setAppId(userDetails.getAppId());
+        userInfoDetails.setAppName(userDetails.getAppName());
+        userInfoDetails.setAppVersion(userDetails.getAppVersion());
+        userInfoDetails.setAppContextPath(userDetails.getAppContextPath());
+
+        /* 租户信息 */
+        userInfoDetails.setTenantId(userDetails.getTenantId());
+        userInfoDetails.setTenantTitle(userDetails.getTenantTitle());
+
+        /* 用户信息 */
+        userInfoDetails.setNickName(userDetails.getNickName());
+        userInfoDetails.setAvatar(userDetails.getAvatar());
+        userInfoDetails.setEmail(userDetails.getEmail());
+        userInfoDetails.setSex(userDetails.getSex());
+        userInfoDetails.setUserType(userDetails.getUserType());
+        userInfoDetails.setTelephone(userDetails.getTelephone());
+        userInfoDetails.setValidFlag(userDetails.getValidFlag());
+
+        /* 身份信息 */
+        userInfoDetails.setRoleId(userDetails.getRoleId());
+        userInfoDetails.setRoleName(userDetails.getRoleName());
+        userInfoDetails.setRoleFlag(userDetails.getRoleFlag());
+
+        /* 区域信息 */
+        userInfoDetails.setProvId(userDetails.getProvId());
+        userInfoDetails.setCityId(userDetails.getCityId());
+        userInfoDetails.setCountyId(userDetails.getCountyId());
+
+        /* 部门信息 */
+        userInfoDetails.setDeptId(userDetails.getDeptId());
+        userInfoDetails.setDeptTitle(userDetails.getDeptTitle());
+        userInfoDetails.setDeptType(userDetails.getDeptType());
+        userInfoDetails.setDeptLevel(userDetails.getDeptLevel());
+        userInfoDetails.setDeptParentId(userDetails.getDeptParentId());
+
+        /* 操作主机信息 */
+        userInfoDetails.setHostIp(userDetails.getHostIp());
+        userInfoDetails.setHostOs(userDetails.getHostOs());
+        userInfoDetails.setHostBrowser(userDetails.getHostBrowser());
+        userInfoDetails.setHostAddr(userDetails.getHostAddr());
+        userInfoDetails.setHostUserAgent(userDetails.getHostUserAgent());
+        userInfoDetails.setHostProv(userDetails.getHostProv());
+        userInfoDetails.setHostCity(userDetails.getHostCity());
+        return userInfoDetails;
     }
 
 

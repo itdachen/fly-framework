@@ -72,45 +72,62 @@ public class SecurityContextHandler {
      *
      * @author 王大宸
      * @date 2024/4/4 0:16
-     * @param currentUserInfo currentUserInfo
+     * @param userInfoDetails userInfoDetails
      * @param userDetails userDetails
      * @return void
      */
-    public static void setCurrentUserInfo(CurrentUserInfo currentUserInfo,
+    public static void setCurrentUserInfo(CurrentUserInfo userInfoDetails,
                                           UserInfoDetails userDetails) {
-        currentUserInfo.setId(userDetails.getId());
-        currentUserInfo.setUsername(userDetails.getUsername());
-        currentUserInfo.setTenantId(userDetails.getTenantId());
-        currentUserInfo.setSignMethod(userDetails.getSignMethod());
-        currentUserInfo.setNickName(userDetails.getNickName());
-        currentUserInfo.setAvatar(userDetails.getAvatar());
-        currentUserInfo.setEmail(userDetails.getEmail());
-        currentUserInfo.setSex(userDetails.getSex());
-        currentUserInfo.setUserType(userDetails.getUserType());
-        currentUserInfo.setTelephone(userDetails.getTelephone());
-        currentUserInfo.setValidFlag(userDetails.getValidFlag());
-        currentUserInfo.setPlatId(userDetails.getPlatId());
-        currentUserInfo.setPlatName(userDetails.getPlatName());
-        currentUserInfo.setAppId(userDetails.getAppId());
-        currentUserInfo.setAppName(userDetails.getAppName());
-        currentUserInfo.setAppVersion(userDetails.getAppVersion());
-        currentUserInfo.setAppContextPath(userDetails.getAppContextPath());
-        currentUserInfo.setRoleId(userDetails.getRoleId());
-        currentUserInfo.setRoleFlag(userDetails.getRoleFlag());
-        currentUserInfo.setRoleName(userDetails.getRoleName());
-        currentUserInfo.setDeptId(userDetails.getDeptId());
-        currentUserInfo.setDeptTitle(userDetails.getDeptTitle());
-        currentUserInfo.setParentDeptId(userDetails.getParentDeptId());
-        currentUserInfo.setDeptLevel(userDetails.getDeptLevel());
-        currentUserInfo.setProvId(userDetails.getProvId());
-        currentUserInfo.setCityId(userDetails.getCityId());
-        currentUserInfo.setCountyId(userDetails.getCountyId());
-        currentUserInfo.setHostIp(userDetails.getHostIp());
-        currentUserInfo.setHostProv(userDetails.getHostProv());
-        currentUserInfo.setHostCity(userDetails.getHostCity());
-        currentUserInfo.setHostAddr(userDetails.getHostAddr());
-        currentUserInfo.setUserAgent(userDetails.getUserAgent());
-        currentUserInfo.setExpTime(userDetails.getExpTime());
+        userInfoDetails.setId(userDetails.getId());
+        userInfoDetails.setUsername(userDetails.getUsername());
+        userInfoDetails.setLoginMethod(userDetails.getLoginMethod());
+
+        /* 平台/应用信息 */
+        userInfoDetails.setPlatId(userDetails.getPlatId());
+        userInfoDetails.setPlatName(userDetails.getPlatName());
+        userInfoDetails.setAppId(userDetails.getAppId());
+        userInfoDetails.setAppName(userDetails.getAppName());
+        userInfoDetails.setAppVersion(userDetails.getAppVersion());
+        userInfoDetails.setAppContextPath(userDetails.getAppContextPath());
+
+        /* 租户信息 */
+        userInfoDetails.setTenantId(userDetails.getTenantId());
+        userInfoDetails.setTenantTitle(userDetails.getTenantTitle());
+
+        /* 用户信息 */
+        userInfoDetails.setNickName(userDetails.getNickName());
+        userInfoDetails.setAvatar(userDetails.getAvatar());
+        userInfoDetails.setEmail(userDetails.getEmail());
+        userInfoDetails.setSex(userDetails.getSex());
+        userInfoDetails.setUserType(userDetails.getUserType());
+        userInfoDetails.setTelephone(userDetails.getTelephone());
+        userInfoDetails.setValidFlag(userDetails.getValidFlag());
+
+        /* 身份信息 */
+        userInfoDetails.setRoleId(userDetails.getRoleId());
+        userInfoDetails.setRoleName(userDetails.getRoleName());
+        userInfoDetails.setRoleFlag(userDetails.getRoleFlag());
+
+        /* 区域信息 */
+        userInfoDetails.setProvId(userDetails.getProvId());
+        userInfoDetails.setCityId(userDetails.getCityId());
+        userInfoDetails.setCountyId(userDetails.getCountyId());
+
+        /* 部门信息 */
+        userInfoDetails.setDeptId(userDetails.getDeptId());
+        userInfoDetails.setDeptTitle(userDetails.getDeptTitle());
+        userInfoDetails.setDeptType(userDetails.getDeptType());
+        userInfoDetails.setDeptLevel(userDetails.getDeptLevel());
+        userInfoDetails.setDeptParentId(userDetails.getDeptParentId());
+
+        /* 操作主机信息 */
+        userInfoDetails.setHostIp(userDetails.getHostIp());
+        userInfoDetails.setHostOs(userDetails.getHostOs());
+        userInfoDetails.setHostBrowser(userDetails.getHostBrowser());
+        userInfoDetails.setHostAddr(userDetails.getHostAddr());
+        userInfoDetails.setHostUserAgent(userDetails.getHostUserAgent());
+        userInfoDetails.setHostProv(userDetails.getHostProv());
+        userInfoDetails.setHostCity(userDetails.getHostCity());
     }
 
 }

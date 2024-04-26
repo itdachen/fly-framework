@@ -1,5 +1,6 @@
 package com.github.itdachen.framework.context.userdetails;
 
+import com.github.itdachen.framework.context.constants.YesOrNotConstant;
 import org.apache.commons.lang3.builder.ToStringBuilder;
 import org.apache.commons.lang3.builder.ToStringStyle;
 
@@ -20,11 +21,6 @@ public class UserInfoDetails implements Serializable {
     private String id;
 
     /**
-     * 昵称/姓名
-     */
-    private String nickName;
-
-    /**
      * 登录账号
      */
     private String username;
@@ -35,14 +31,54 @@ public class UserInfoDetails implements Serializable {
     private String password;
 
     /**
+     * 登录平台ID
+     */
+    private String platId;
+
+    /**
+     * 登录平台名称
+     */
+    private String platName;
+
+    /**
+     * 应用ID
+     */
+    private String appId;
+
+    /**
+     * 应用名称
+     */
+    private String appName;
+
+    /**
+     * 应用版本号
+     */
+    private String appVersion;
+
+    /**
+     * 应用上下文
+     */
+    private String appContextPath;
+
+    /**
      * 租户ID/公司ID
      */
     private String tenantId;
 
     /**
+     * 租户名称
+     */
+    private String tenantTitle;
+
+    /**
      * 登录方式
      */
-    private String signMethod;
+    private String loginMethod;
+
+    /**
+     * 昵称/姓名
+     */
+    private String nickName;
 
     /**
      * 头像
@@ -60,9 +96,9 @@ public class UserInfoDetails implements Serializable {
     private String sex;
 
     /**
-     * 用户类型
+     * 用户类型: Y-超级管理员账号;N-普通账号
      */
-    private String userType;
+    private String userType = YesOrNotConstant.N;
 
     /**
      * 电话号码
@@ -70,49 +106,14 @@ public class UserInfoDetails implements Serializable {
     private String telephone;
 
     /**
-     * 有效标志: Y-是;N-否;
+     * 有效标志: Y-有效;N-无效
      */
     private String validFlag;
 
     /**
-     * 登录平台ID
-     */
-    private String platId;
-
-    /**
-     * 登录平台名称
-     */
-    private String platName;
-
-    /**
-     * 登录应用ID
-     */
-    private String appId;
-
-    /**
-     * 登录应用名称
-     */
-    private String appName;
-
-    /**
-     * 应用版本号
-     */
-    private String appVersion;
-
-    /**
-     * 应用上下文
-     */
-    private String appContextPath;
-
-    /**
-     * 身份ID/身份代码
+     * 身份ID
      */
     private String roleId;
-
-    /**
-     * 主身份标识: Y-主身份;N-非主身份标识
-     */
-    private String roleFlag;
 
     /**
      * 身份名称
@@ -120,80 +121,102 @@ public class UserInfoDetails implements Serializable {
     private String roleName;
 
     /**
-     * 部门代码(不同身份可能会不一样, 跟着不同身份信息绑定)
+     * 主身份标识: Y-主身份;N-非主身份标识
      */
-    private String deptId;
+    private String roleFlag;
 
     /**
-     * 部门名称
-     */
-    private String deptTitle;
-
-    /**
-     * 上级部门代码
-     */
-    private String parentDeptId;
-
-    /**
-     * 部门等级
-     */
-    private String deptLevel;
-
-    /**
-     * 身份所属省份代码, 例如: 贵州-52
+     * 身份所属省ID, 例如: 贵州-52
      */
     private String provId;
 
     /**
-     * 身份所属市州代码, 例如: 贵阳-5201
+     * 身份所属市/州ID,例如: 贵阳-5201
      */
     private String cityId;
 
     /**
-     * 身份所属区县代码, 例如: 贵阳南明-520101
+     * 身份所属区/县ID例如: 贵阳云岩-520101
      */
     private String countyId;
 
     /**
-     * 登录主机IP
+     * 身份所属部门ID
+     */
+    private String deptId;
+
+    /**
+     * 身份所属部门名称
+     */
+    private String deptTitle;
+
+    /**
+     * 身份所属部门类型, 例如:10-董事会;11-总裁
+     */
+    private String deptType;
+
+    /**
+     * 身份所属部门等级, 例如:00-总部;10-省级
+     */
+    private String deptLevel;
+
+    /**
+     * 身份所属上级部门代码
+     */
+    private String deptParentId;
+
+    /**
+     * 操作主机IP
      */
     private String hostIp;
 
     /**
-     * 登录主机地址代码, 例如: 贵州-52
+     * 操作主机系统
      */
-    private String hostProv;
+    private String hostOs;
 
     /**
-     * 登录主机地址代码, 例如: 贵阳-5201
+     * 操作主机浏览器
      */
-    private String hostCity;
+    private String hostBrowser;
 
     /**
-     * 登录主机详细地址
+     * 操作地址, 例如: 贵州省贵阳市观山湖区...
      */
     private String hostAddr;
 
     /**
-     * 代理信息
+     * 操作主机浏览器代理信息
      */
-    private String userAgent;
+    private String hostUserAgent;
 
     /**
-     * 过期时间(密码过期时间, 有些系统需要定期更新账号的密码)
+     * 操作主机所在省ID
      */
-    private LocalDateTime expTime;
+    private String hostProv;
+
+    /**
+     * 操作主机所在市/州ID
+     */
+    private String hostCity;
 
 
     public UserInfoDetails() {
     }
 
-    public UserInfoDetails(String id, String username, String password, String tenantId, String signMethod, String nickName, String avatar, String email, String sex, String userType, String telephone, String validFlag, String platId, String platName, String appId, String appName, String appVersion, String appContextPath, String roleId, String roleFlag, String roleName, String deptId, String deptTitle, String parentDeptId, String deptLevel, String provId, String cityId, String countyId, String hostIp, String hostProv, String hostCity, String hostAddr, String userAgent, LocalDateTime expTime) {
+    public UserInfoDetails(String id, String username, String password, String platId, String platName, String appId, String appName, String appVersion, String appContextPath, String tenantId, String tenantTitle, String loginMethod, String nickName, String avatar, String email, String sex, String userType, String telephone, String validFlag, String roleId, String roleName, String roleFlag, String provId, String cityId, String countyId, String deptId, String deptTitle, String deptType, String deptLevel, String deptParentId, String hostIp, String hostOs, String hostBrowser, String hostAddr, String hostUserAgent, String hostProv, String hostCity) {
         this.id = id;
         this.username = username;
         this.password = password;
+        this.platId = platId;
+        this.platName = platName;
+        this.appId = appId;
+        this.appName = appName;
+        this.appVersion = appVersion;
+        this.appContextPath = appContextPath;
         this.tenantId = tenantId;
-        this.signMethod = signMethod;
+        this.tenantTitle = tenantTitle;
+        this.loginMethod = loginMethod;
         this.nickName = nickName;
         this.avatar = avatar;
         this.email = email;
@@ -201,28 +224,24 @@ public class UserInfoDetails implements Serializable {
         this.userType = userType;
         this.telephone = telephone;
         this.validFlag = validFlag;
-        this.platId = platId;
-        this.platName = platName;
-        this.appId = appId;
-        this.appName = appName;
-        this.appVersion = appVersion;
-        this.appContextPath = appContextPath;
         this.roleId = roleId;
-        this.roleFlag = roleFlag;
         this.roleName = roleName;
-        this.deptId = deptId;
-        this.deptTitle = deptTitle;
-        this.parentDeptId = parentDeptId;
-        this.deptLevel = deptLevel;
+        this.roleFlag = roleFlag;
         this.provId = provId;
         this.cityId = cityId;
         this.countyId = countyId;
+        this.deptId = deptId;
+        this.deptTitle = deptTitle;
+        this.deptType = deptType;
+        this.deptLevel = deptLevel;
+        this.deptParentId = deptParentId;
         this.hostIp = hostIp;
+        this.hostOs = hostOs;
+        this.hostBrowser = hostBrowser;
+        this.hostAddr = hostAddr;
+        this.hostUserAgent = hostUserAgent;
         this.hostProv = hostProv;
         this.hostCity = hostCity;
-        this.hostAddr = hostAddr;
-        this.userAgent = userAgent;
-        this.expTime = expTime;
     }
 
     public static UserInfoDetailsBuilder builder() {
@@ -233,37 +252,40 @@ public class UserInfoDetails implements Serializable {
         private String id;
         private String username;
         private String password;
-        private String tenantId;
-        private String signMethod;
-        private String nickName;
-        private String avatar;
-        private String email;
-        private String sex;
-        private String userType;
-        private String telephone;
-        private String validFlag;
         private String platId;
         private String platName;
         private String appId;
         private String appName;
         private String appVersion;
         private String appContextPath;
+        private String tenantId;
+        private String tenantTitle;
+        private String loginMethod;
+        private String nickName;
+        private String avatar;
+        private String email;
+        private String sex;
+        private String userType = YesOrNotConstant.N;
+        private String telephone;
+        private String validFlag;
         private String roleId;
-        private String roleFlag;
         private String roleName;
-        private String deptId;
-        private String deptTitle;
-        private String parentDeptId;
-        private String deptLevel;
+        private String roleFlag;
         private String provId;
         private String cityId;
         private String countyId;
+        private String deptId;
+        private String deptTitle;
+        private String deptType;
+        private String deptLevel;
+        private String deptParentId;
         private String hostIp;
+        private String hostOs;
+        private String hostBrowser;
+        private String hostAddr;
+        private String hostUserAgent;
         private String hostProv;
         private String hostCity;
-        private String hostAddr;
-        private String userAgent;
-        private LocalDateTime expTime;
 
         public UserInfoDetailsBuilder() {
         }
@@ -286,15 +308,57 @@ public class UserInfoDetails implements Serializable {
             return this;
         }
 
+        /* 登录平台ID */
+        public UserInfoDetailsBuilder platId(String platId) {
+            this.platId = platId;
+            return this;
+        }
+
+        /* 登录平台名称 */
+        public UserInfoDetailsBuilder platName(String platName) {
+            this.platName = platName;
+            return this;
+        }
+
+        /* 应用ID */
+        public UserInfoDetailsBuilder appId(String appId) {
+            this.appId = appId;
+            return this;
+        }
+
+        /* 应用名称 */
+        public UserInfoDetailsBuilder appName(String appName) {
+            this.appName = appName;
+            return this;
+        }
+
+        /* 应用版本号 */
+        public UserInfoDetailsBuilder appVersion(String appVersion) {
+            this.appVersion = appVersion;
+            return this;
+        }
+
+        /* 应用上下文 */
+        public UserInfoDetailsBuilder appContextPath(String appContextPath) {
+            this.appContextPath = appContextPath;
+            return this;
+        }
+
         /* 租户ID/公司ID */
         public UserInfoDetailsBuilder tenantId(String tenantId) {
             this.tenantId = tenantId;
             return this;
         }
 
+        /* 租户名称 */
+        public UserInfoDetailsBuilder tenantTitle(String tenantTitle) {
+            this.tenantTitle = tenantTitle;
+            return this;
+        }
+
         /* 登录方式 */
-        public UserInfoDetailsBuilder signMethod(String signMethod) {
-            this.signMethod = signMethod;
+        public UserInfoDetailsBuilder loginMethod(String loginMethod) {
+            this.loginMethod = loginMethod;
             return this;
         }
 
@@ -322,7 +386,7 @@ public class UserInfoDetails implements Serializable {
             return this;
         }
 
-        /* 用户类型 */
+        /* 用户类型: Y-超级管理员账号;N-普通账号 */
         public UserInfoDetailsBuilder userType(String userType) {
             this.userType = userType;
             return this;
@@ -334,57 +398,15 @@ public class UserInfoDetails implements Serializable {
             return this;
         }
 
-        /* 有效标志: Y-是;N-否; */
+        /* 有效标志: Y-有效;N-无效 */
         public UserInfoDetailsBuilder validFlag(String validFlag) {
             this.validFlag = validFlag;
             return this;
         }
 
-        /* 登录平台ID */
-        public UserInfoDetailsBuilder platId(String platId) {
-            this.platId = platId;
-            return this;
-        }
-
-        /* 登录平台名称 */
-        public UserInfoDetailsBuilder platName(String platName) {
-            this.platName = platName;
-            return this;
-        }
-
-        /* 登录应用ID */
-        public UserInfoDetailsBuilder appId(String appId) {
-            this.appId = appId;
-            return this;
-        }
-
-        /* 登录应用名称 */
-        public UserInfoDetailsBuilder appName(String appName) {
-            this.appName = appName;
-            return this;
-        }
-
-        /* 应用版本号 */
-        public UserInfoDetailsBuilder appVersion(String appVersion) {
-            this.appVersion = appVersion;
-            return this;
-        }
-
-        /* 应用上下文 */
-        public UserInfoDetailsBuilder appContextPath(String appContextPath) {
-            this.appContextPath = appContextPath;
-            return this;
-        }
-
-        /* 身份ID/身份代码 */
+        /* 身份ID */
         public UserInfoDetailsBuilder roleId(String roleId) {
             this.roleId = roleId;
-            return this;
-        }
-
-        /* 主身份标识: Y-主身份;N-非主身份标识 */
-        public UserInfoDetailsBuilder roleFlag(String roleFlag) {
-            this.roleFlag = roleFlag;
             return this;
         }
 
@@ -394,81 +416,99 @@ public class UserInfoDetails implements Serializable {
             return this;
         }
 
-        /* 部门代码(不同身份可能会不一样, 跟着不同身份信息绑定) */
-        public UserInfoDetailsBuilder deptId(String deptId) {
-            this.deptId = deptId;
+        /* 主身份标识: Y-主身份;N-非主身份标识 */
+        public UserInfoDetailsBuilder roleFlag(String roleFlag) {
+            this.roleFlag = roleFlag;
             return this;
         }
 
-        /* 部门名称 */
-        public UserInfoDetailsBuilder deptTitle(String deptTitle) {
-            this.deptTitle = deptTitle;
-            return this;
-        }
-
-        /* 上级部门代码 */
-        public UserInfoDetailsBuilder parentDeptId(String parentDeptId) {
-            this.parentDeptId = parentDeptId;
-            return this;
-        }
-
-        /* 部门等级 */
-        public UserInfoDetailsBuilder deptLevel(String deptLevel) {
-            this.deptLevel = deptLevel;
-            return this;
-        }
-
-        /* 身份所属省份代码, 例如: 贵州-52 */
+        /* 身份所属省ID, 例如: 贵州-52 */
         public UserInfoDetailsBuilder provId(String provId) {
             this.provId = provId;
             return this;
         }
 
-        /* 身份所属市州代码, 例如: 贵阳-5201 */
+        /* 身份所属市/州ID,例如: 贵阳-5201 */
         public UserInfoDetailsBuilder cityId(String cityId) {
             this.cityId = cityId;
             return this;
         }
 
-        /* 身份所属区县代码, 例如: 贵阳南明-520101 */
+        /* 身份所属区/县ID例如: 贵阳云岩-520101 */
         public UserInfoDetailsBuilder countyId(String countyId) {
             this.countyId = countyId;
             return this;
         }
 
-        /* 登录主机IP */
+        /* 身份所属部门ID */
+        public UserInfoDetailsBuilder deptId(String deptId) {
+            this.deptId = deptId;
+            return this;
+        }
+
+        /* 身份所属部门名称 */
+        public UserInfoDetailsBuilder deptTitle(String deptTitle) {
+            this.deptTitle = deptTitle;
+            return this;
+        }
+
+        /* 身份所属部门类型, 例如:10-董事会;11-总裁 */
+        public UserInfoDetailsBuilder deptType(String deptType) {
+            this.deptType = deptType;
+            return this;
+        }
+
+        /* 身份所属部门等级, 例如:00-总部;10-省级 */
+        public UserInfoDetailsBuilder deptLevel(String deptLevel) {
+            this.deptLevel = deptLevel;
+            return this;
+        }
+
+        /* 身份所属上级部门代码 */
+        public UserInfoDetailsBuilder deptParentId(String deptParentId) {
+            this.deptParentId = deptParentId;
+            return this;
+        }
+
+        /* 操作主机IP */
         public UserInfoDetailsBuilder hostIp(String hostIp) {
             this.hostIp = hostIp;
             return this;
         }
 
-        /* 登录主机地址代码, 例如: 贵州-52 */
-        public UserInfoDetailsBuilder hostProv(String hostProv) {
-            this.hostProv = hostProv;
+        /* 操作主机系统 */
+        public UserInfoDetailsBuilder hostOs(String hostOs) {
+            this.hostOs = hostOs;
             return this;
         }
 
-        /* 登录主机地址代码, 例如: 贵阳-5201 */
-        public UserInfoDetailsBuilder hostCity(String hostCity) {
-            this.hostCity = hostCity;
+        /* 操作主机浏览器 */
+        public UserInfoDetailsBuilder hostBrowser(String hostBrowser) {
+            this.hostBrowser = hostBrowser;
             return this;
         }
 
-        /* 登录主机详细地址 */
+        /* 操作地址, 例如: 贵州省贵阳市观山湖区... */
         public UserInfoDetailsBuilder hostAddr(String hostAddr) {
             this.hostAddr = hostAddr;
             return this;
         }
 
-        /* 代理信息 */
-        public UserInfoDetailsBuilder userAgent(String userAgent) {
-            this.userAgent = userAgent;
+        /* 操作主机浏览器代理信息 */
+        public UserInfoDetailsBuilder hostUserAgent(String hostUserAgent) {
+            this.hostUserAgent = hostUserAgent;
             return this;
         }
 
-        /* 过期时间(密码过期时间, 有些系统需要定期更新账号的密码) */
-        public UserInfoDetailsBuilder expTime(LocalDateTime expTime) {
-            this.expTime = expTime;
+        /* 操作主机所在省ID */
+        public UserInfoDetailsBuilder hostProv(String hostProv) {
+            this.hostProv = hostProv;
+            return this;
+        }
+
+        /* 操作主机所在市/州ID */
+        public UserInfoDetailsBuilder hostCity(String hostCity) {
+            this.hostCity = hostCity;
             return this;
         }
 
@@ -476,8 +516,15 @@ public class UserInfoDetails implements Serializable {
             return new UserInfoDetails(id,
                     username,
                     password,
+                    platId,
+                    platName,
+                    appId,
+                    appName,
+                    appVersion,
+                    appContextPath,
                     tenantId,
-                    signMethod,
+                    tenantTitle,
+                    loginMethod,
                     nickName,
                     avatar,
                     email,
@@ -485,32 +532,29 @@ public class UserInfoDetails implements Serializable {
                     userType,
                     telephone,
                     validFlag,
-                    platId,
-                    platName,
-                    appId,
-                    appName,
-                    appVersion,
-                    appContextPath,
                     roleId,
-                    roleFlag,
                     roleName,
-                    deptId,
-                    deptTitle,
-                    parentDeptId,
-                    deptLevel,
+                    roleFlag,
                     provId,
                     cityId,
                     countyId,
+                    deptId,
+                    deptTitle,
+                    deptType,
+                    deptLevel,
+                    deptParentId,
                     hostIp,
-                    hostProv,
-                    hostCity,
+                    hostOs,
+                    hostBrowser,
                     hostAddr,
-                    userAgent,
-                    expTime
+                    hostUserAgent,
+                    hostProv,
+                    hostCity
             );
         }
 
     }
+
 
     public void setId(String id) {
         this.id = id;
@@ -536,6 +580,54 @@ public class UserInfoDetails implements Serializable {
         return password;
     }
 
+    public void setPlatId(String platId) {
+        this.platId = platId;
+    }
+
+    public String getPlatId() {
+        return platId;
+    }
+
+    public void setPlatName(String platName) {
+        this.platName = platName;
+    }
+
+    public String getPlatName() {
+        return platName;
+    }
+
+    public void setAppId(String appId) {
+        this.appId = appId;
+    }
+
+    public String getAppId() {
+        return appId;
+    }
+
+    public void setAppName(String appName) {
+        this.appName = appName;
+    }
+
+    public String getAppName() {
+        return appName;
+    }
+
+    public void setAppVersion(String appVersion) {
+        this.appVersion = appVersion;
+    }
+
+    public String getAppVersion() {
+        return appVersion;
+    }
+
+    public void setAppContextPath(String appContextPath) {
+        this.appContextPath = appContextPath;
+    }
+
+    public String getAppContextPath() {
+        return appContextPath;
+    }
+
     public void setTenantId(String tenantId) {
         this.tenantId = tenantId;
     }
@@ -544,12 +636,20 @@ public class UserInfoDetails implements Serializable {
         return tenantId;
     }
 
-    public void setSignMethod(String signMethod) {
-        this.signMethod = signMethod;
+    public void setTenantTitle(String tenantTitle) {
+        this.tenantTitle = tenantTitle;
     }
 
-    public String getSignMethod() {
-        return signMethod;
+    public String getTenantTitle() {
+        return tenantTitle;
+    }
+
+    public void setLoginMethod(String loginMethod) {
+        this.loginMethod = loginMethod;
+    }
+
+    public String getLoginMethod() {
+        return loginMethod;
     }
 
     public void setNickName(String nickName) {
@@ -608,68 +708,12 @@ public class UserInfoDetails implements Serializable {
         return validFlag;
     }
 
-    public void setPlatId(String platId) {
-        this.platId = platId;
-    }
-
-    public String getPlatId() {
-        return platId;
-    }
-
-    public void setPlatName(String platName) {
-        this.platName = platName;
-    }
-
-    public String getPlatName() {
-        return platName;
-    }
-
-    public void setAppId(String appId) {
-        this.appId = appId;
-    }
-
-    public String getAppId() {
-        return appId;
-    }
-
-    public void setAppName(String appName) {
-        this.appName = appName;
-    }
-
-    public String getAppName() {
-        return appName;
-    }
-
-    public void setAppVersion(String appVersion) {
-        this.appVersion = appVersion;
-    }
-
-    public String getAppVersion() {
-        return appVersion;
-    }
-
-    public void setAppContextPath(String appContextPath) {
-        this.appContextPath = appContextPath;
-    }
-
-    public String getAppContextPath() {
-        return appContextPath;
-    }
-
     public void setRoleId(String roleId) {
         this.roleId = roleId;
     }
 
     public String getRoleId() {
         return roleId;
-    }
-
-    public void setRoleFlag(String roleFlag) {
-        this.roleFlag = roleFlag;
-    }
-
-    public String getRoleFlag() {
-        return roleFlag;
     }
 
     public void setRoleName(String roleName) {
@@ -680,36 +724,12 @@ public class UserInfoDetails implements Serializable {
         return roleName;
     }
 
-    public void setDeptId(String deptId) {
-        this.deptId = deptId;
+    public void setRoleFlag(String roleFlag) {
+        this.roleFlag = roleFlag;
     }
 
-    public String getDeptId() {
-        return deptId;
-    }
-
-    public void setDeptTitle(String deptTitle) {
-        this.deptTitle = deptTitle;
-    }
-
-    public String getDeptTitle() {
-        return deptTitle;
-    }
-
-    public void setParentDeptId(String parentDeptId) {
-        this.parentDeptId = parentDeptId;
-    }
-
-    public String getParentDeptId() {
-        return parentDeptId;
-    }
-
-    public void setDeptLevel(String deptLevel) {
-        this.deptLevel = deptLevel;
-    }
-
-    public String getDeptLevel() {
-        return deptLevel;
+    public String getRoleFlag() {
+        return roleFlag;
     }
 
     public void setProvId(String provId) {
@@ -736,12 +756,84 @@ public class UserInfoDetails implements Serializable {
         return countyId;
     }
 
+    public void setDeptId(String deptId) {
+        this.deptId = deptId;
+    }
+
+    public String getDeptId() {
+        return deptId;
+    }
+
+    public void setDeptTitle(String deptTitle) {
+        this.deptTitle = deptTitle;
+    }
+
+    public String getDeptTitle() {
+        return deptTitle;
+    }
+
+    public void setDeptType(String deptType) {
+        this.deptType = deptType;
+    }
+
+    public String getDeptType() {
+        return deptType;
+    }
+
+    public void setDeptLevel(String deptLevel) {
+        this.deptLevel = deptLevel;
+    }
+
+    public String getDeptLevel() {
+        return deptLevel;
+    }
+
+    public void setDeptParentId(String deptParentId) {
+        this.deptParentId = deptParentId;
+    }
+
+    public String getDeptParentId() {
+        return deptParentId;
+    }
+
     public void setHostIp(String hostIp) {
         this.hostIp = hostIp;
     }
 
     public String getHostIp() {
         return hostIp;
+    }
+
+    public void setHostOs(String hostOs) {
+        this.hostOs = hostOs;
+    }
+
+    public String getHostOs() {
+        return hostOs;
+    }
+
+    public void setHostBrowser(String hostBrowser) {
+        this.hostBrowser = hostBrowser;
+    }
+
+    public String getHostBrowser() {
+        return hostBrowser;
+    }
+
+    public void setHostAddr(String hostAddr) {
+        this.hostAddr = hostAddr;
+    }
+
+    public String getHostAddr() {
+        return hostAddr;
+    }
+
+    public void setHostUserAgent(String hostUserAgent) {
+        this.hostUserAgent = hostUserAgent;
+    }
+
+    public String getHostUserAgent() {
+        return hostUserAgent;
     }
 
     public void setHostProv(String hostProv) {
@@ -760,30 +852,6 @@ public class UserInfoDetails implements Serializable {
         return hostCity;
     }
 
-    public void setHostAddr(String hostAddr) {
-        this.hostAddr = hostAddr;
-    }
-
-    public String getHostAddr() {
-        return hostAddr;
-    }
-
-    public void setUserAgent(String userAgent) {
-        this.userAgent = userAgent;
-    }
-
-    public String getUserAgent() {
-        return userAgent;
-    }
-
-    public void setExpTime(LocalDateTime expTime) {
-        this.expTime = expTime;
-    }
-
-    public LocalDateTime getExpTime() {
-        return expTime;
-    }
-
 
     @Override
     public String toString() {
@@ -791,8 +859,15 @@ public class UserInfoDetails implements Serializable {
                 .append("id", getId())
                 .append("username", getUsername())
                 .append("password", getPassword())
+                .append("platId", getPlatId())
+                .append("platName", getPlatName())
+                .append("appId", getAppId())
+                .append("appName", getAppName())
+                .append("appVersion", getAppVersion())
+                .append("appContextPath", getAppContextPath())
                 .append("tenantId", getTenantId())
-                .append("signMethod", getSignMethod())
+                .append("tenantTitle", getTenantTitle())
+                .append("loginMethod", getLoginMethod())
                 .append("nickName", getNickName())
                 .append("avatar", getAvatar())
                 .append("email", getEmail())
@@ -800,28 +875,24 @@ public class UserInfoDetails implements Serializable {
                 .append("userType", getUserType())
                 .append("telephone", getTelephone())
                 .append("validFlag", getValidFlag())
-                .append("platId", getPlatId())
-                .append("platName", getPlatName())
-                .append("appId", getAppId())
-                .append("appName", getAppName())
-                .append("appVersion", getAppVersion())
-                .append("appContextPath", getAppContextPath())
                 .append("roleId", getRoleId())
-                .append("roleFlag", getRoleFlag())
                 .append("roleName", getRoleName())
-                .append("deptId", getDeptId())
-                .append("deptTitle", getDeptTitle())
-                .append("parentDeptId", getParentDeptId())
-                .append("deptLevel", getDeptLevel())
+                .append("roleFlag", getRoleFlag())
                 .append("provId", getProvId())
                 .append("cityId", getCityId())
                 .append("countyId", getCountyId())
+                .append("deptId", getDeptId())
+                .append("deptTitle", getDeptTitle())
+                .append("deptType", getDeptType())
+                .append("deptLevel", getDeptLevel())
+                .append("deptParentId", getDeptParentId())
                 .append("hostIp", getHostIp())
+                .append("hostOs", getHostOs())
+                .append("hostBrowser", getHostBrowser())
+                .append("hostAddr", getHostAddr())
+                .append("hostUserAgent", getHostUserAgent())
                 .append("hostProv", getHostProv())
                 .append("hostCity", getHostCity())
-                .append("hostAddr", getHostAddr())
-                .append("userAgent", getUserAgent())
-                .append("expTime", getExpTime())
                 .toString();
     }
 

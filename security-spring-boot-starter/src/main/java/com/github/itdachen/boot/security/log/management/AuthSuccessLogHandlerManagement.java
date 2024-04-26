@@ -35,7 +35,7 @@ public class AuthSuccessLogHandlerManagement implements IAuthSuccessCredentialsL
             return;
         }
 
-        logger.info(userDetails.getUsername() + " 登录成功, 登录方式: " + userDetails.getSignMethod() + ", 登录IP: " + request.getRemoteAddr());
+        logger.info(userDetails.getUsername() + " 登录成功, 登录方式: " + userDetails.getLoginMethod() + ", 登录IP: " + request.getRemoteAddr());
     }
 
     /***
@@ -65,7 +65,7 @@ public class AuthSuccessLogHandlerManagement implements IAuthSuccessCredentialsL
             RememberMeAuthenticationToken authenticationToken = (RememberMeAuthenticationToken) authentication;
             Object principal = authenticationToken.getPrincipal();
             UserInfoDetails userDetails = (UserInfoDetails) principal;
-            userDetails.setSignMethod("RememberMe");
+            userDetails.setLoginMethod("RememberMe");
             return userDetails;
         }
         return null;

@@ -75,6 +75,18 @@ public class BizContextHandler {
 
 
     /**
+     * 租户名称/公司名称
+     */
+    public static String getTenantTitle() {
+        return GlobalContextThreadLocalHandler.returnObjectValue(GlobalContextThreadLocalHandler.get(UserInfoConstant.TENANT_TITLE));
+    }
+
+    public static void setTenantTitle(String value) {
+        GlobalContextThreadLocalHandler.set(UserInfoConstant.TENANT_TITLE, value);
+    }
+
+
+    /**
      * 登录平台ID
      */
     public static String getPlatId() {
@@ -144,12 +156,12 @@ public class BizContextHandler {
     /**
      * 登录方式
      */
-    public static String getSignMethod() {
-        return GlobalContextThreadLocalHandler.returnObjectValue(GlobalContextThreadLocalHandler.get(UserInfoConstant.SIGN_METHOD));
+    public static String getLoginMethod() {
+        return GlobalContextThreadLocalHandler.returnObjectValue(GlobalContextThreadLocalHandler.get(UserInfoConstant.LOGIN_METHOD));
     }
 
-    public static void setSignMethod(String value) {
-        GlobalContextThreadLocalHandler.set(UserInfoConstant.SIGN_METHOD, value);
+    public static void setLoginMethod(String value) {
+        GlobalContextThreadLocalHandler.set(UserInfoConstant.LOGIN_METHOD, value);
     }
 
     /**
@@ -187,7 +199,7 @@ public class BizContextHandler {
     }
 
     /**
-     * 性别
+     * 用户类型
      */
     public static String getUserType() {
         return GlobalContextThreadLocalHandler.returnObjectValue(GlobalContextThreadLocalHandler.get(UserInfoConstant.USER_TYPE));
@@ -195,6 +207,17 @@ public class BizContextHandler {
 
     public static void setUserType(String value) {
         GlobalContextThreadLocalHandler.set(UserInfoConstant.USER_TYPE, value);
+    }
+
+    /**
+     * 录账号有效标志: Y-有效;N-无效
+     */
+    public static String getValidFlag() {
+        return GlobalContextThreadLocalHandler.returnObjectValue(GlobalContextThreadLocalHandler.get(UserInfoConstant.VALID_FLAG));
+    }
+
+    public static void setValidFlag(String value) {
+        GlobalContextThreadLocalHandler.set(UserInfoConstant.VALID_FLAG, value);
     }
 
     /**
@@ -270,12 +293,12 @@ public class BizContextHandler {
     /**
      * 部门名称
      */
-    public static String getParentDeptId() {
-        return GlobalContextThreadLocalHandler.returnObjectValue(GlobalContextThreadLocalHandler.get(UserInfoConstant.PARENT_DEPT_ID));
+    public static String getDeptParentId() {
+        return GlobalContextThreadLocalHandler.returnObjectValue(GlobalContextThreadLocalHandler.get(UserInfoConstant.DEPT_PARENT_ID));
     }
 
-    public static void setParentDeptId(String value) {
-        GlobalContextThreadLocalHandler.set(UserInfoConstant.PARENT_DEPT_ID, value);
+    public static void setDeptParentId(String value) {
+        GlobalContextThreadLocalHandler.set(UserInfoConstant.DEPT_PARENT_ID, value);
     }
 
 
@@ -288,6 +311,17 @@ public class BizContextHandler {
 
     public static void setDeptLevel(String value) {
         GlobalContextThreadLocalHandler.set(UserInfoConstant.DEPT_LEVEL, value);
+    }
+
+    /**
+     * 身份所属部门类型, 例如:10-董事会;11-总裁
+     */
+    public static String getDeptType() {
+        return GlobalContextThreadLocalHandler.returnObjectValue(GlobalContextThreadLocalHandler.get(UserInfoConstant.DEPT_TYPE));
+    }
+
+    public static void setDeptType(String value) {
+        GlobalContextThreadLocalHandler.set(UserInfoConstant.DEPT_TYPE, value);
     }
 
 
@@ -337,6 +371,28 @@ public class BizContextHandler {
 
 
     /**
+     * 登录主机操作系统
+     */
+    public static String getHostOs() {
+        return GlobalContextThreadLocalHandler.returnObjectValue(GlobalContextThreadLocalHandler.get(UserInfoConstant.HOST_OS));
+    }
+
+    public static void setHostOs(String value) {
+        GlobalContextThreadLocalHandler.set(UserInfoConstant.HOST_OS, value);
+    }
+
+    /**
+     * 登录主机操作系统
+     */
+    public static String getHostBrowser() {
+        return GlobalContextThreadLocalHandler.returnObjectValue(GlobalContextThreadLocalHandler.get(UserInfoConstant.HOST_BROWSER));
+    }
+
+    public static void setHostBrowser(String value) {
+        GlobalContextThreadLocalHandler.set(UserInfoConstant.HOST_BROWSER, value);
+    }
+
+    /**
      * 登录主机地址代码, 例如: 贵州-52
      */
     public static String getHostProv() {
@@ -373,12 +429,12 @@ public class BizContextHandler {
     /**
      * 代理信息
      */
-    public static String getUserAgent() {
-        return GlobalContextThreadLocalHandler.returnObjectValue(GlobalContextThreadLocalHandler.get(UserInfoConstant.USER_AGENT));
+    public static String getHostUserAgent() {
+        return GlobalContextThreadLocalHandler.returnObjectValue(GlobalContextThreadLocalHandler.get(UserInfoConstant.HOST_USER_AGENT));
     }
 
-    public static void setUserAgent(String value) {
-        GlobalContextThreadLocalHandler.set(UserInfoConstant.USER_AGENT, value);
+    public static void setHostUserAgent(String value) {
+        GlobalContextThreadLocalHandler.set(UserInfoConstant.HOST_USER_AGENT, value);
     }
 
 
