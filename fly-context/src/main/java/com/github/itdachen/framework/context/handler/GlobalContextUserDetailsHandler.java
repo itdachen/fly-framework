@@ -1,10 +1,12 @@
 package com.github.itdachen.framework.context.handler;
 
 import com.github.itdachen.framework.context.BizContextHandler;
+import com.github.itdachen.framework.context.constants.DateFormatConstants;
 import com.github.itdachen.framework.context.constants.UserInfoConstant;
 import com.github.itdachen.framework.context.jwt.IJwtInfo;
 import com.github.itdachen.framework.context.userdetails.UserInfoDetails;
 
+import java.time.LocalDateTime;
 import java.util.Map;
 
 /***
@@ -76,6 +78,10 @@ public class GlobalContextUserDetailsHandler {
         BizContextHandler.setHostUserAgent(userDetails.getHostUserAgent());
         BizContextHandler.setHostProv(userDetails.getHostProv());
         BizContextHandler.setHostCity(userDetails.getHostCity());
+
+        /* 密码更新时间 */
+        BizContextHandler.setExpTime(userDetails.getExpTime());
+        BizContextHandler.setLastTime(userDetails.getLastTime());
     }
 
     /***
@@ -143,6 +149,9 @@ public class GlobalContextUserDetailsHandler {
         BizContextHandler.setHostOs(otherInfo.get(UserInfoConstant.HOST_OS));
         BizContextHandler.setHostBrowser(otherInfo.get(UserInfoConstant.HOST_BROWSER));
 
+        /* 密码更新时间 */
+        BizContextHandler.setExpTime(LocalDateTime.parse(otherInfo.get(UserInfoConstant.EXP_TIME), DateFormatConstants.DATE_TIME_FORMATTER));
+        BizContextHandler.setLastTime(LocalDateTime.parse(otherInfo.get(UserInfoConstant.LAST_TIME), DateFormatConstants.DATE_TIME_FORMATTER));
     }
 
 
@@ -205,6 +214,10 @@ public class GlobalContextUserDetailsHandler {
         userInfoDetails.setHostUserAgent(BizContextHandler.getHostUserAgent());
         userInfoDetails.setHostProv(BizContextHandler.getHostProv());
         userInfoDetails.setHostCity(BizContextHandler.getHostCity());
+
+        /* 密码更新时间 */
+        userInfoDetails.setExpTime(BizContextHandler.getExpTime());
+        userInfoDetails.setLastTime(BizContextHandler.getLastTime());
         return userInfoDetails;
 
     }
@@ -269,6 +282,10 @@ public class GlobalContextUserDetailsHandler {
         userInfoDetails.setHostUserAgent(userDetails.getHostUserAgent());
         userInfoDetails.setHostProv(userDetails.getHostProv());
         userInfoDetails.setHostCity(userDetails.getHostCity());
+
+        /* 密码更新时间 */
+        userInfoDetails.setExpTime(userDetails.getExpTime());
+        userInfoDetails.setLastTime(userDetails.getLastTime());
         return userInfoDetails;
     }
 

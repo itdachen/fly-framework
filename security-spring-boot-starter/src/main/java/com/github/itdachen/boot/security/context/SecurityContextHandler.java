@@ -128,6 +128,10 @@ public class SecurityContextHandler {
         userInfoDetails.setHostUserAgent(userDetails.getHostUserAgent());
         userInfoDetails.setHostProv(userDetails.getHostProv());
         userInfoDetails.setHostCity(userDetails.getHostCity());
+
+        /* 密码更新时间 */
+        userInfoDetails.setExpTime(userDetails.getExpTime());
+        userInfoDetails.setLastTime(userDetails.getLastTime());
     }
 
 }

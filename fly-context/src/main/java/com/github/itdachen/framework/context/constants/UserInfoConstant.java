@@ -200,6 +200,11 @@ public class UserInfoConstant {
     public static final String EXP_TIME = "expTime";
 
     /**
+     * 最后一次更新密码时间
+     */
+    public static final String LAST_TIME = "lastTime";
+
+    /**
      * 其他
      */
     public static final String OTHER = "other";

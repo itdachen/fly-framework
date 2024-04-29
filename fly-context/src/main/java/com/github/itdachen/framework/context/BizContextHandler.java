@@ -1,5 +1,6 @@
 package com.github.itdachen.framework.context;
 
+import com.github.itdachen.framework.context.constants.DateFormatConstants;
 import com.github.itdachen.framework.context.constants.UserInfoConstant;
 import com.github.itdachen.framework.context.handler.GlobalContextThreadLocalHandler;
 import com.github.itdachen.framework.context.handler.GlobalContextUserDetailsHandler;
@@ -441,12 +442,28 @@ public class BizContextHandler {
     /**
      * 过期时间(密码过期时间, 有些系统需要定期更新账号的密码)
      */
-    public static String getExpTime() {
-        return GlobalContextThreadLocalHandler.returnObjectValue(GlobalContextThreadLocalHandler.get(UserInfoConstant.EXP_TIME));
+    public static LocalDateTime getExpTime() {
+        String lastTime = GlobalContextThreadLocalHandler.returnObjectValue(GlobalContextThreadLocalHandler.get(UserInfoConstant.EXP_TIME));
+        return LocalDateTime.parse(lastTime, DateFormatConstants.DATE_TIME_FORMATTER);
     }
 
     public static void setExpTime(LocalDateTime value) {
-        GlobalContextThreadLocalHandler.set(UserInfoConstant.EXP_TIME, value);
+        String format = DateFormatConstants.S_DATE_TIME_FORMATTER.format(value);
+        GlobalContextThreadLocalHandler.set(UserInfoConstant.EXP_TIME, format);
+    }
+
+
+    /**
+     * 最后一次更新密码时间
+     */
+    public static LocalDateTime getLastTime() {
+        String lastTime = GlobalContextThreadLocalHandler.returnObjectValue(GlobalContextThreadLocalHandler.get(UserInfoConstant.LAST_TIME));
+        return LocalDateTime.parse(lastTime, DateFormatConstants.DATE_TIME_FORMATTER);
+    }
+
+    public static void setLastTime(LocalDateTime value) {
+        String format = DateFormatConstants.S_DATE_TIME_FORMATTER.format(value);
+        GlobalContextThreadLocalHandler.set(UserInfoConstant.LAST_TIME, format);
     }
 
     /**
