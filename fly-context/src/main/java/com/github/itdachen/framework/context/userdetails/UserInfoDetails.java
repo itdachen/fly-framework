@@ -15,6 +15,7 @@ import java.time.LocalDateTime;
 public class UserInfoDetails implements Serializable {
     private static final Long serialVersionUID = 6829345754240159691L;
 
+
     /**
      * 用户ID
      */
@@ -98,7 +99,7 @@ public class UserInfoDetails implements Serializable {
     /**
      * 用户类型: Y-超级管理员账号;N-普通账号
      */
-    private String userType = YesOrNotConstant.N;
+    private String userType;
 
     /**
      * 电话号码
@@ -200,11 +201,21 @@ public class UserInfoDetails implements Serializable {
      */
     private String hostCity;
 
+    /**
+     * 密码过期时间
+     */
+    private LocalDateTime expTime;
+
+    /**
+     * 密码上次更新时间
+     */
+    private LocalDateTime lastTime;
+
 
     public UserInfoDetails() {
     }
 
-    public UserInfoDetails(String id, String username, String password, String platId, String platName, String appId, String appName, String appVersion, String appContextPath, String tenantId, String tenantTitle, String loginMethod, String nickName, String avatar, String email, String sex, String userType, String telephone, String validFlag, String roleId, String roleName, String roleFlag, String provId, String cityId, String countyId, String deptId, String deptTitle, String deptType, String deptLevel, String deptParentId, String hostIp, String hostOs, String hostBrowser, String hostAddr, String hostUserAgent, String hostProv, String hostCity) {
+    public UserInfoDetails(String id, String username, String password, String platId, String platName, String appId, String appName, String appVersion, String appContextPath, String tenantId, String tenantTitle, String loginMethod, String nickName, String avatar, String email, String sex, String userType, String telephone, String validFlag, String roleId, String roleName, String roleFlag, String provId, String cityId, String countyId, String deptId, String deptTitle, String deptType, String deptLevel, String deptParentId, String hostIp, String hostOs, String hostBrowser, String hostAddr, String hostUserAgent, String hostProv, String hostCity, LocalDateTime expTime, LocalDateTime lastTime) {
         this.id = id;
         this.username = username;
         this.password = password;
@@ -242,13 +253,15 @@ public class UserInfoDetails implements Serializable {
         this.hostUserAgent = hostUserAgent;
         this.hostProv = hostProv;
         this.hostCity = hostCity;
+        this.expTime = expTime;
+        this.lastTime = lastTime;
     }
 
     public static UserInfoDetailsBuilder builder() {
         return new UserInfoDetailsBuilder();
     }
 
-    public static class UserInfoDetailsBuilder {
+    private static class UserInfoDetailsBuilder {
         private String id;
         private String username;
         private String password;
@@ -265,7 +278,7 @@ public class UserInfoDetails implements Serializable {
         private String avatar;
         private String email;
         private String sex;
-        private String userType = YesOrNotConstant.N;
+        private String userType;
         private String telephone;
         private String validFlag;
         private String roleId;
@@ -286,6 +299,8 @@ public class UserInfoDetails implements Serializable {
         private String hostUserAgent;
         private String hostProv;
         private String hostCity;
+        private LocalDateTime expTime;
+        private LocalDateTime lastTime;
 
         public UserInfoDetailsBuilder() {
         }
@@ -512,6 +527,18 @@ public class UserInfoDetails implements Serializable {
             return this;
         }
 
+        /* 密码过期时间 */
+        public UserInfoDetailsBuilder expTime(LocalDateTime expTime) {
+            this.expTime = expTime;
+            return this;
+        }
+
+        /* 密码上次更新时间 */
+        public UserInfoDetailsBuilder lastTime(LocalDateTime lastTime) {
+            this.lastTime = lastTime;
+            return this;
+        }
+
         public UserInfoDetails build() {
             return new UserInfoDetails(id,
                     username,
@@ -549,7 +576,9 @@ public class UserInfoDetails implements Serializable {
                     hostAddr,
                     hostUserAgent,
                     hostProv,
-                    hostCity
+                    hostCity,
+                    expTime,
+                    lastTime
             );
         }
 
@@ -852,6 +881,22 @@ public class UserInfoDetails implements Serializable {
         return hostCity;
     }
 
+    public void setExpTime(LocalDateTime expTime) {
+        this.expTime = expTime;
+    }
+
+    public LocalDateTime getExpTime() {
+        return expTime;
+    }
+
+    public void setLastTime(LocalDateTime lastTime) {
+        this.lastTime = lastTime;
+    }
+
+    public LocalDateTime getLastTime() {
+        return lastTime;
+    }
+
 
     @Override
     public String toString() {
@@ -893,6 +938,8 @@ public class UserInfoDetails implements Serializable {
                 .append("hostUserAgent", getHostUserAgent())
                 .append("hostProv", getHostProv())
                 .append("hostCity", getHostCity())
+                .append("expTime", getExpTime())
+                .append("lastTime", getLastTime())
                 .toString();
     }
 

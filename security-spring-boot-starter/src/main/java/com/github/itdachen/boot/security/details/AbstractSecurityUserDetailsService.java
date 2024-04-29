@@ -1,5 +1,7 @@
 package com.github.itdachen.boot.security.details;
 
+import com.github.itdachen.boot.autoconfigure.app.AppInfoProperties;
+import com.github.itdachen.boot.autoconfigure.app.PlatformInfoProperties;
 import com.github.itdachen.boot.security.authentication.VerifyTicketToken;
 import com.github.itdachen.boot.security.context.SecurityContextHandler;
 import com.github.itdachen.boot.security.exception.BizSecurityException;
@@ -27,19 +29,13 @@ import java.util.Set;
 public abstract class AbstractSecurityUserDetailsService implements UserDetailsService {
     private static final Logger logger = LoggerFactory.getLogger(AbstractSecurityUserDetailsService.class);
 
-    /***
-     * 根据登录账号查询用户信息
-     *
-     * @author 王大宸
-     * @date 2021/11/27 11:35
-     * @param username 登录账号
-     * @return com.github.itdachen.framework.security.user.CurrentUserInfo
-     */
-    @Override
-    public CurrentUserInfo loadUserByUsername(String username) throws UsernameNotFoundException {
-        logger.info("当前登录账号: " + username);
-        logger.info("请实现根据登录账号查询用户信息");
-        return null;
+    private final PlatformInfoProperties platformInfoProperties;
+    private final AppInfoProperties appInfoProperties;
+
+    public AbstractSecurityUserDetailsService(PlatformInfoProperties platformInfoProperties,
+                                              AppInfoProperties appInfoProperties) {
+        this.platformInfoProperties = platformInfoProperties;
+        this.appInfoProperties = appInfoProperties;
     }
 
     /***
@@ -57,7 +53,7 @@ public abstract class AbstractSecurityUserDetailsService implements UserDetailsS
     }
 
     /***
-     * 根据登录账号及税务人员身份查询金山用户信息
+     * 根据认证票据, 完成用户信息认证
      *
      * @author 王大宸
      * @date 2023/11/13 16:29
@@ -70,28 +66,31 @@ public abstract class AbstractSecurityUserDetailsService implements UserDetailsS
 
 
     /***
-     * 授权
+     * 校验用户信息
      *
      * @author 王大宸
-     * @date 2021/11/27 11:39
-     * @param user                  user
-     * @param authorities           用户权限
-     * @return com.github.itdachen.framework.security.user.CurrentUserInfo
+     * @date 2024/4/29 22:52
+     * @param userInfoDetails userInfoDetails
+     * @return com.github.itdachen.boot.security.user.CurrentUserInfo
      */
-    protected CurrentUserInfo setUserPermission(UserInfoDetails user,
-                                             Set<String> authorities) {
-        boolean enabled = isEnabled();
-        boolean accountNonExpired = accountNonExpired();
-        boolean credentialsNonExpired = credentialsNonExpired();
-        boolean accountNonLocked = accountNonLocked(user.getValidFlag());
+    protected CurrentUserInfo toVerifyUserDetails(UserInfoDetails userInfoDetails) {
+        /* 设置平台,应用信息 */
+        setAppInfo(userInfoDetails);
 
-        List<GrantedAuthority> grantedAuthorities = new ArrayList<>();
+        /* 获取权限 */
+        Set<String> authorities = getUserAuthority(userInfoDetails);
+        if (null == authorities) {
+            authorities = new HashSet<>();
+        }
+
+        final boolean enabled = isEnabled();
+        final boolean accountNonExpired = accountNonExpired();
+        final boolean credentialsNonExpired = credentialsNonExpired();
+        final boolean accountNonLocked = accountNonLocked(userInfoDetails.getValidFlag());
 
         /* 如果账户被冻结或者不可用 */
-        if (!enabled || !accountNonExpired
-                || !credentialsNonExpired || !accountNonLocked) {
-            return currentUser(user, enabled, accountNonExpired,
-                    credentialsNonExpired, accountNonLocked, grantedAuthorities);
+        if (!enabled || !accountNonExpired || !credentialsNonExpired || !accountNonLocked) {
+            return currentUser(userInfoDetails, enabled, accountNonExpired, credentialsNonExpired, accountNonLocked, new ArrayList<>());
         }
 
         // 前端标签权限
@@ -100,19 +99,38 @@ public abstract class AbstractSecurityUserDetailsService implements UserDetailsS
         for (String permission : authorities) {
             sb.append(permission).append(",");
         }
-        grantedAuthorities = AuthorityUtils.commaSeparatedStringToAuthorityList(sb.toString());
+        List<GrantedAuthority> grantedAuthorities = AuthorityUtils.commaSeparatedStringToAuthorityList(sb.toString());
 
-        return currentUser(user,
-                enabled,
-                accountNonExpired,
-                credentialsNonExpired,
-                accountNonLocked,
-                grantedAuthorities
-        );
+        return currentUser(userInfoDetails, enabled, accountNonExpired, credentialsNonExpired, accountNonLocked, grantedAuthorities);
     }
 
-    protected CurrentUserInfo setUserPermission(UserInfoDetails user) {
-        return setUserPermission(user, new HashSet<>());
+
+    /***
+     * 获取用户权限
+     *
+     * @author 王大宸
+     * @date 2024/4/29 22:50
+     * @param userInfoDetails userInfoDetails
+     * @return void
+     */
+    protected abstract Set<String> getUserAuthority(UserInfoDetails userInfoDetails);
+
+
+    /***
+     * 设置应用信息
+     *
+     * @author 王大宸
+     * @date 2024/4/29 23:10
+     * @param userInfoDetails userInfoDetails
+     * @return void
+     */
+    private void setAppInfo(UserInfoDetails userInfoDetails) {
+        userInfoDetails.setPlatId(platformInfoProperties.getId());
+        userInfoDetails.setPlatName(platformInfoProperties.getTitle());
+        userInfoDetails.setAppId(appInfoProperties.getAppId());
+        userInfoDetails.setAppName(appInfoProperties.getAppName());
+        userInfoDetails.setAppVersion(appInfoProperties.getVersion());
+        userInfoDetails.setAppContextPath(appInfoProperties.getContextPath());
     }
 
     /***
@@ -128,14 +146,13 @@ public abstract class AbstractSecurityUserDetailsService implements UserDetailsS
      * @param grantedAuthorities      权限
      * @return com.github.itdachen.framework.security.user.CurrentUserInfo
      */
-    protected CurrentUserInfo currentUser(UserInfoDetails user,
-                                       boolean enabled,
-                                       boolean accountNonExpired,
-                                       boolean credentialsNonExpired,
-                                       boolean accountNonLocked,
-                                       List<GrantedAuthority> grantedAuthorities) {
-        CurrentUserInfo info = new CurrentUserInfo(
-                user.getUsername(),
+    private CurrentUserInfo currentUser(UserInfoDetails user,
+                                        boolean enabled,
+                                        boolean accountNonExpired,
+                                        boolean credentialsNonExpired,
+                                        boolean accountNonLocked,
+                                        List<GrantedAuthority> grantedAuthorities) {
+        CurrentUserInfo info = new CurrentUserInfo(user.getUsername(),
                 user.getPassword(),
                 enabled,
                 accountNonExpired,
@@ -172,7 +189,7 @@ public abstract class AbstractSecurityUserDetailsService implements UserDetailsS
      * 账户没被冻结
      */
     protected boolean accountNonLocked(String locked) {
-        return UserStatusConstant.IS_OK.equals(locked);
+        return UserStatusConstant.Y.equals(locked);
     }
 
 }
