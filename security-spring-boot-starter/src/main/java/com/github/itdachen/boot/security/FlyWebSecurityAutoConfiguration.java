@@ -25,7 +25,7 @@ import javax.sql.DataSource;
  * @date 2023-12-23 0:57
  */
 @Configuration
-public class WebSecurityAutoConfiguration {
+public class FlyWebSecurityAutoConfiguration {
 
 
     private final DataSource dataSource;
@@ -35,11 +35,11 @@ public class WebSecurityAutoConfiguration {
     private final Environment env;
 
 
-    public WebSecurityAutoConfiguration(DataSource dataSource,
-                                        SecurityContextRepository securityContextRepository,
-                                        SecurityProperties securityProperties,
-                                        SecuritySessionProperties sessionProperties,
-                                        Environment env) {
+    public FlyWebSecurityAutoConfiguration(DataSource dataSource,
+                                           SecurityContextRepository securityContextRepository,
+                                           SecurityProperties securityProperties,
+                                           SecuritySessionProperties sessionProperties,
+                                           Environment env) {
         this.securityProperties = securityProperties;
         this.sessionProperties = sessionProperties;
         this.env = env;
