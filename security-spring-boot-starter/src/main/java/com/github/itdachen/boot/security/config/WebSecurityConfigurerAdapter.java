@@ -7,8 +7,7 @@ import com.github.itdachen.boot.autoconfigure.security.properties.session.Securi
 import com.github.itdachen.boot.security.authentication.mobile.MobileAuthenticationSecurityConfigurer;
 import com.github.itdachen.boot.security.authentication.platforms.PlatformAuthenticationSecurityConfigurerAdapter;
 import com.github.itdachen.boot.security.details.AbstractSecurityUserDetailsService;
-import com.github.itdachen.boot.security.matchers.IFilterMatchers;
-import com.github.itdachen.boot.security.rbac.RbacRequestAuthorizationManager;
+import com.github.itdachen.boot.security.matchers.IAuthorizeRequestMatchers;
 import com.github.itdachen.boot.security.validate.code.filter.ValidateCodeFilter;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.config.annotation.web.builders.HttpSecurity;
@@ -45,7 +44,7 @@ public class WebSecurityConfigurerAdapter {
 
     /* 不需要认证的路径 */
     @Autowired
-    protected IFilterMatchers filterMatchers;
+    protected IAuthorizeRequestMatchers filterMatchers;
 
 
     @Autowired

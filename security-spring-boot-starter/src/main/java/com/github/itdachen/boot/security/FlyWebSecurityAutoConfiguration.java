@@ -4,8 +4,8 @@ import com.github.itdachen.boot.autoconfigure.security.properties.SecurityProper
 import com.github.itdachen.boot.autoconfigure.security.properties.session.SecuritySessionProperties;
 import com.github.itdachen.boot.security.details.IRefreshUserDetails;
 import com.github.itdachen.boot.security.details.RefreshUserDetailsHandler;
-import com.github.itdachen.boot.security.matchers.IFilterMatchers;
-import com.github.itdachen.boot.security.matchers.impl.FilterMatchersImpl;
+import com.github.itdachen.boot.security.matchers.IAuthorizeRequestMatchers;
+import com.github.itdachen.boot.security.matchers.impl.AuthorizeRequestMatchersImpl;
 import com.github.itdachen.boot.security.rememberme.CustomJdbcPersistentTokenRepository;
 import com.github.itdachen.boot.security.third.service.IThirdPlatformVerifyTicketTokenService;
 import com.github.itdachen.boot.security.third.service.impl.DefaultThirdPlatformVerifyTicketToken;
@@ -83,9 +83,9 @@ public class FlyWebSecurityAutoConfiguration {
     * @return com.github.itdachen.boot.security.matchers.IFilterMatchers
     */
     @Bean
-    @ConditionalOnMissingBean(IFilterMatchers.class)
-    public IFilterMatchers filterMatchers() {
-        return new FilterMatchersImpl(securityProperties, sessionProperties, env);
+    @ConditionalOnMissingBean(IAuthorizeRequestMatchers.class)
+    public IAuthorizeRequestMatchers authorizeRequestMatchers() {
+        return new AuthorizeRequestMatchersImpl(securityProperties, sessionProperties, env);
     }
 
 

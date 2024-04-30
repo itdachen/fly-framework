@@ -3,7 +3,7 @@ package com.github.itdachen.boot.security.matchers.impl;
 import com.github.itdachen.boot.autoconfigure.security.constants.SecurityConstants;
 import com.github.itdachen.boot.autoconfigure.security.properties.SecurityProperties;
 import com.github.itdachen.boot.autoconfigure.security.properties.session.SecuritySessionProperties;
-import com.github.itdachen.boot.security.matchers.IFilterMatchers;
+import com.github.itdachen.boot.security.matchers.IAuthorizeRequestMatchers;
 import com.github.itdachen.framework.core.utils.StringUtils;
 import org.springframework.core.env.Environment;
 import org.springframework.security.web.util.matcher.AntPathRequestMatcher;
@@ -17,7 +17,7 @@ import java.util.List;
  * Created by 王大宸 on 2022-09-23 17:24
  * Created with IntelliJ IDEA.
  */
-public class FilterMatchersImpl implements IFilterMatchers {
+public class AuthorizeRequestMatchersImpl implements IAuthorizeRequestMatchers {
 
 
     /* 不需要认证的路径 */
@@ -25,9 +25,9 @@ public class FilterMatchersImpl implements IFilterMatchers {
     private final SecurityProperties securityProperties;
     private final Environment env;
 
-    public FilterMatchersImpl(SecurityProperties securityProperties,
-                              SecuritySessionProperties sessionProperties,
-                              Environment env) {
+    public AuthorizeRequestMatchersImpl(SecurityProperties securityProperties,
+                                        SecuritySessionProperties sessionProperties,
+                                        Environment env) {
         this.env = env;
         this.securityProperties = securityProperties;
         this.sessionProperties = sessionProperties;
