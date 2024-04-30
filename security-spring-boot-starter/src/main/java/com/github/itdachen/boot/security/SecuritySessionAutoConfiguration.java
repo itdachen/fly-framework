@@ -1,6 +1,7 @@
 package com.github.itdachen.boot.security;
 
 import com.github.itdachen.boot.autoconfigure.security.properties.session.SecuritySessionProperties;
+import com.github.itdachen.boot.security.handler.AuthenticationFailureListener;
 import com.github.itdachen.boot.security.handler.AuthenticationLogoutSuccessHandler;
 import com.github.itdachen.boot.security.session.BrowserExpiredSessionStrategy;
 import com.github.itdachen.boot.security.session.BrowserInvalidSessionStrategy;
@@ -31,7 +32,7 @@ public class SecuritySessionAutoConfiguration {
     public SecuritySessionAutoConfiguration(SecurityProperties securityProperties,
                                             SecuritySessionProperties sessionProperties) {
         this.securityProperties = securityProperties;
-        this.sessionProperties=sessionProperties;
+        this.sessionProperties = sessionProperties;
     }
 
     /***
