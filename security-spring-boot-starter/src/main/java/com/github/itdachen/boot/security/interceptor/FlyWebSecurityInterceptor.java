@@ -17,8 +17,8 @@ import org.springframework.web.servlet.ModelAndView;
  * Created by 王大宸 on 2022-09-23 17:21
  * Created with IntelliJ IDEA.
  */
-public class BrowserInterceptor implements HandlerInterceptor {
-    private static final Logger logger = LoggerFactory.getLogger(BrowserInterceptor.class);
+public class FlyWebSecurityInterceptor implements HandlerInterceptor {
+    private static final Logger logger = LoggerFactory.getLogger(FlyWebSecurityInterceptor.class);
 
     @Override
     public boolean preHandle(HttpServletRequest request,
