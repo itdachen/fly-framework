@@ -1,12 +1,11 @@
 package com.github.itdachen.boot.security;
 
 import com.github.itdachen.boot.autoconfigure.security.properties.session.SecuritySessionProperties;
-import com.github.itdachen.boot.security.handler.AuthenticationFailureListener;
 import com.github.itdachen.boot.security.handler.AuthenticationLogoutSuccessHandler;
 import com.github.itdachen.boot.security.session.BrowserExpiredSessionStrategy;
 import com.github.itdachen.boot.security.session.BrowserInvalidSessionStrategy;
 import com.github.itdachen.boot.security.utils.AuthorizeHttpRequestsHandler;
-import com.github.itdachen.boot.autoconfigure.security.properties.SecurityProperties;
+import com.github.itdachen.boot.autoconfigure.security.properties.FlySecurityProperties;
 import com.github.itdachen.framework.boot.runner.handler.ContextPathHandler;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -26,12 +25,12 @@ import org.springframework.security.web.session.SessionInformationExpiredStrateg
 public class SecuritySessionAutoConfiguration {
     private static final Logger logger = LoggerFactory.getLogger(SecuritySessionAutoConfiguration.class);
 
-    private final SecurityProperties securityProperties;
+    private final FlySecurityProperties flySecurityProperties;
     private final SecuritySessionProperties sessionProperties;
 
-    public SecuritySessionAutoConfiguration(SecurityProperties securityProperties,
+    public SecuritySessionAutoConfiguration(FlySecurityProperties flySecurityProperties,
                                             SecuritySessionProperties sessionProperties) {
-        this.securityProperties = securityProperties;
+        this.flySecurityProperties = flySecurityProperties;
         this.sessionProperties = sessionProperties;
     }
 
@@ -75,7 +74,7 @@ public class SecuritySessionAutoConfiguration {
     @Bean
     @ConditionalOnMissingBean(LogoutSuccessHandler.class)
     public LogoutSuccessHandler logoutSuccessHandler() {
-        String signOutUrl = securityProperties.getSignOutUrl();
+        String signOutUrl = flySecurityProperties.getSignOutUrl();
         final String contextPath = ContextPathHandler.contextPath();
         signOutUrl = AuthorizeHttpRequestsHandler.anyRequestUriHandler(contextPath, signOutUrl);
         return new AuthenticationLogoutSuccessHandler(signOutUrl);

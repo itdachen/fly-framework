@@ -1,9 +1,10 @@
 package com.github.itdachen.boot.security;
 
-import com.github.itdachen.boot.autoconfigure.security.properties.SecurityProperties;
+import com.github.itdachen.boot.autoconfigure.security.properties.FlySecurityProperties;
 import com.github.itdachen.boot.autoconfigure.security.properties.session.SecuritySessionProperties;
 import com.github.itdachen.boot.security.details.IRefreshUserDetails;
 import com.github.itdachen.boot.security.details.RefreshUserDetailsHandler;
+import com.github.itdachen.boot.security.interceptor.FlyWebSecurityInterceptor;
 import com.github.itdachen.boot.security.matchers.IAuthorizeRequestMatchers;
 import com.github.itdachen.boot.security.matchers.impl.AuthorizeRequestMatchersImpl;
 import com.github.itdachen.boot.security.rememberme.CustomJdbcPersistentTokenRepository;
@@ -13,8 +14,14 @@ import org.springframework.boot.autoconfigure.condition.ConditionalOnMissingBean
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.core.env.Environment;
+import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
+import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.security.web.authentication.rememberme.PersistentTokenRepository;
+import org.springframework.security.web.context.DelegatingSecurityContextRepository;
+import org.springframework.security.web.context.HttpSessionSecurityContextRepository;
+import org.springframework.security.web.context.RequestAttributeSecurityContextRepository;
 import org.springframework.security.web.context.SecurityContextRepository;
+import org.springframework.web.servlet.HandlerInterceptor;
 
 import javax.sql.DataSource;
 
@@ -30,17 +37,17 @@ public class FlyWebSecurityAutoConfiguration {
 
     private final DataSource dataSource;
     private final SecurityContextRepository securityContextRepository;
-    private final SecurityProperties securityProperties;
+    private final FlySecurityProperties flySecurityProperties;
     private final SecuritySessionProperties sessionProperties;
     private final Environment env;
 
 
     public FlyWebSecurityAutoConfiguration(DataSource dataSource,
                                            SecurityContextRepository securityContextRepository,
-                                           SecurityProperties securityProperties,
+                                           FlySecurityProperties flySecurityProperties,
                                            SecuritySessionProperties sessionProperties,
                                            Environment env) {
-        this.securityProperties = securityProperties;
+        this.flySecurityProperties = flySecurityProperties;
         this.sessionProperties = sessionProperties;
         this.env = env;
         this.securityContextRepository = securityContextRepository;
@@ -76,25 +83,51 @@ public class FlyWebSecurityAutoConfiguration {
     }
 
     /***
-    * 添加默认的不拦截接口, 从配置文件中读取出来
-    *
-    * @author 王大宸
-    * @date 2023/12/23 1:26
-    * @return com.github.itdachen.boot.security.matchers.IFilterMatchers
-    */
+     * 添加默认的不拦截接口, 从配置文件中读取出来
+     *
+     * @author 王大宸
+     * @date 2023/12/23 1:26
+     * @return com.github.itdachen.boot.security.matchers.IFilterMatchers
+     */
     @Bean
     @ConditionalOnMissingBean(IAuthorizeRequestMatchers.class)
     public IAuthorizeRequestMatchers authorizeRequestMatchers() {
-        return new AuthorizeRequestMatchersImpl(securityProperties, sessionProperties, env);
+        return new AuthorizeRequestMatchersImpl(flySecurityProperties, sessionProperties, env);
     }
 
 
     /***
-     * 记住我 持久化指定保存 session 的方法
+     * 默认密码加密方式
      *
      * @author 王大宸
-     * @date 2022/9/23 16:56
+     * @date 2023/7/9 15:01
+     * @return org.springframework.security.crypto.password.PasswordEncoder
+     */
+    @Bean
+    @ConditionalOnMissingBean(PasswordEncoder.class)
+    public PasswordEncoder passwordEncoder() {
+        return new BCryptPasswordEncoder();
+    }
+
+//    /***
+//     * 默认拦截器
+//     *
+//     * @author 王大宸
+//     * @date 2024/5/1 22:38
+//     * @return org.springframework.web.servlet.HandlerInterceptor
+//     */
+//    @Bean
+//    @ConditionalOnMissingBean(HandlerInterceptor.class)
+//    public HandlerInterceptor flyWebSecurityInterceptor() {
+//        return new FlyWebSecurityInterceptor();
+//    }
+
+    /**
+     * 记住我 持久化指定保存 session 的方法
+     *
      * @return org.springframework.security.web.authentication.rememberme.PersistentTokenRepository
+     * @author 王大宸
+     * @date 2022/9/23 16:56
      */
     @Bean
     public PersistentTokenRepository persistentTokenRepository() {
@@ -107,6 +140,15 @@ public class FlyWebSecurityAutoConfiguration {
 
         tokenRepository.setDataSource(dataSource);
         return tokenRepository;
+    }
+
+
+    @Bean
+    public SecurityContextRepository securityContextRepository() {
+        return new DelegatingSecurityContextRepository(
+                new RequestAttributeSecurityContextRepository(),
+                new HttpSessionSecurityContextRepository()
+        );
     }
 
 

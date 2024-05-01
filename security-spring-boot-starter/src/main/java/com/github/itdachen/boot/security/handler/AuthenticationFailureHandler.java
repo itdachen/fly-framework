@@ -1,7 +1,7 @@
 package com.github.itdachen.boot.security.handler;
 
 import com.github.itdachen.boot.autoconfigure.security.constants.SecurityConstants;
-import com.github.itdachen.boot.autoconfigure.security.properties.SecurityProperties;
+import com.github.itdachen.boot.autoconfigure.security.properties.FlySecurityProperties;
 import com.github.itdachen.boot.security.constants.LoginModeConstant;
 import com.github.itdachen.boot.security.exception.BizSecurityException;
 import com.github.itdachen.boot.security.log.LogAsyncFactory;
@@ -14,7 +14,6 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.security.core.AuthenticationException;
 import org.springframework.security.web.authentication.SimpleUrlAuthenticationFailureHandler;
-import org.springframework.stereotype.Component;
 
 import java.io.IOException;
 import java.util.List;
@@ -28,10 +27,10 @@ import java.util.List;
 public class AuthenticationFailureHandler extends SimpleUrlAuthenticationFailureHandler {
     private static final Logger logger = LoggerFactory.getLogger(AuthenticationFailureHandler.class);
 
-    private final SecurityProperties securityProperties;
+    private final FlySecurityProperties flySecurityProperties;
 
-    public AuthenticationFailureHandler(SecurityProperties securityProperties) {
-        this.securityProperties = securityProperties;
+    public AuthenticationFailureHandler(FlySecurityProperties flySecurityProperties) {
+        this.flySecurityProperties = flySecurityProperties;
     }
 
 
@@ -44,7 +43,7 @@ public class AuthenticationFailureHandler extends SimpleUrlAuthenticationFailure
                                         AuthenticationException exception) throws IOException, ServletException {
 
         // 登录错误，添加跳转路径，跳转到登陆页面，需要在路径后面添加 ?error=true 作为 thymeleaf 页面提示
-        String failureUrl = securityProperties.getSignInPage() + "?error=true";
+        String failureUrl = flySecurityProperties.getSignInPage() + "?error=true";
 
         /* 登录之后是否需要重定向到指定地址 */
         String queryString = request.getQueryString();

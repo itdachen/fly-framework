@@ -12,7 +12,7 @@ import java.util.List;
  * Created with IntelliJ IDEA.
  */
 @ConfigurationProperties(prefix = "fly.security")
-public class SecurityProperties {
+public class FlySecurityProperties {
 
     /* 登录页面，当引发登录行为的url以html结尾时，会跳到这里配置的url上 */
     private String signInPage = SecurityConstants.DEFAULT_LOGIN_PAGE_URL;

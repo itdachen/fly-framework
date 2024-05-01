@@ -1,7 +1,7 @@
 package com.github.itdachen.boot.security.matchers.impl;
 
 import com.github.itdachen.boot.autoconfigure.security.constants.SecurityConstants;
-import com.github.itdachen.boot.autoconfigure.security.properties.SecurityProperties;
+import com.github.itdachen.boot.autoconfigure.security.properties.FlySecurityProperties;
 import com.github.itdachen.boot.autoconfigure.security.properties.session.SecuritySessionProperties;
 import com.github.itdachen.boot.security.matchers.IAuthorizeRequestMatchers;
 import com.github.itdachen.framework.core.utils.StringUtils;
@@ -22,26 +22,22 @@ public class AuthorizeRequestMatchersImpl implements IAuthorizeRequestMatchers {
 
     /* 不需要认证的路径 */
     private final SecuritySessionProperties sessionProperties;
-    private final SecurityProperties securityProperties;
+    private final FlySecurityProperties flySecurityProperties;
     private final Environment env;
 
-    public AuthorizeRequestMatchersImpl(SecurityProperties securityProperties,
+    public AuthorizeRequestMatchersImpl(FlySecurityProperties flySecurityProperties,
                                         SecuritySessionProperties sessionProperties,
                                         Environment env) {
         this.env = env;
-        this.securityProperties = securityProperties;
+        this.flySecurityProperties = flySecurityProperties;
         this.sessionProperties = sessionProperties;
     }
 
     @Override
     public AntPathRequestMatcher[] requestMatcher() {
-
         String[] matchers = securityMatchers();
-        List<String> arr = securityProperties.getMatchers();
-
-
+        List<String> arr = flySecurityProperties.getMatchers();
         arr.add(sessionProperties.getSessionInvalidUrl());
-
 
         if (StringUtils.isEmpty(arr) || arr.isEmpty()) {
             return new AntPathRequestMatcher[0];
@@ -58,7 +54,7 @@ public class AuthorizeRequestMatchersImpl implements IAuthorizeRequestMatchers {
     @Override
     public String[] requestMatchers() {
         String[] matchers = securityMatchers();
-        List<String> arr = securityProperties.getMatchers();
+        List<String> arr = flySecurityProperties.getMatchers();
         if (StringUtils.isEmpty(arr) || arr.isEmpty()) {
             return rejectSame(Arrays.asList(matchers));
         }
@@ -98,9 +94,9 @@ public class AuthorizeRequestMatchersImpl implements IAuthorizeRequestMatchers {
         final String contextPath = contextPath();
         return new String[]{
                 //=== 登录 ===//
-                contextPath + securityProperties.getSignInPage(),
-                contextPath + securityProperties.getSignOutUrl(),
-                contextPath + securityProperties.getSignUpUrl(),
+                contextPath + flySecurityProperties.getSignInPage(),
+                contextPath + flySecurityProperties.getSignOutUrl(),
+                contextPath + flySecurityProperties.getSignUpUrl(),
                 contextPath + sessionProperties.getSessionInvalidUrl(),
                 contextPath + SecurityConstants.DEFAULT_LOGIN_PROCESSING_URL_MOBILE,
                 contextPath + SecurityConstants.DEFAULT_LOGIN_PROCESSING_URL_OPENID,
@@ -109,7 +105,7 @@ public class AuthorizeRequestMatchersImpl implements IAuthorizeRequestMatchers {
                 contextPath + SecurityConstants.DEFAULT_VALIDATE_CODE_URL_PREFIX + "/*",
                 contextPath + SecurityConstants.VERIFY_TICKET_TOKEN,
                 contextPath + SecurityConstants.THIRD_PLATFORM,
-                contextPath + "/login", contextPath + "/admin/login",
+                contextPath + "/login",
                 /* 开放 api 接口 */
                 contextPath + "/open/**", contextPath + "/api/open/**",
                 /* SpringBootAdmin 系统检测 */
@@ -125,9 +121,9 @@ public class AuthorizeRequestMatchersImpl implements IAuthorizeRequestMatchers {
                 contextPath + "/webjars/**",
 
                 //=== 登录 ===//
-                securityProperties.getSignInPage(),
-                securityProperties.getSignOutUrl(),
-                securityProperties.getSignUpUrl(),
+                flySecurityProperties.getSignInPage(),
+                flySecurityProperties.getSignOutUrl(),
+                flySecurityProperties.getSignUpUrl(),
                 sessionProperties.getSessionInvalidUrl(),
                 SecurityConstants.DEFAULT_LOGIN_PROCESSING_URL_MOBILE,
                 SecurityConstants.DEFAULT_LOGIN_PROCESSING_URL_OPENID,
@@ -136,7 +132,7 @@ public class AuthorizeRequestMatchersImpl implements IAuthorizeRequestMatchers {
                 SecurityConstants.DEFAULT_VALIDATE_CODE_URL_PREFIX + "/*",
                 SecurityConstants.VERIFY_TICKET_TOKEN,
                 SecurityConstants.THIRD_PLATFORM,
-                "/login", "/admin/login",
+                "/login",
                 /* 开放 api 接口 */
                 "/open/**", "/api/open/**",
                 /* SpringBootAdmin 系统检测 */

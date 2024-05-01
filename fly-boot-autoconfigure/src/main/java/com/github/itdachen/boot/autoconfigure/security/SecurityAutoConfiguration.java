@@ -1,6 +1,6 @@
 package com.github.itdachen.boot.autoconfigure.security;
 
-import com.github.itdachen.boot.autoconfigure.security.properties.SecurityProperties;
+import com.github.itdachen.boot.autoconfigure.security.properties.FlySecurityProperties;
 import com.github.itdachen.boot.autoconfigure.security.properties.code.SecurityImageCodeProperties;
 import com.github.itdachen.boot.autoconfigure.security.properties.code.SecuritySmsCodeProperties;
 import com.github.itdachen.boot.autoconfigure.security.properties.rememberme.SecurityRememberMeProperties;
@@ -16,7 +16,7 @@ import org.springframework.context.annotation.Configuration;
  */
 @Configuration
 @EnableConfigurationProperties({
-        SecurityProperties.class,
+        FlySecurityProperties.class,
         SecuritySessionProperties.class,
         SecurityRememberMeProperties.class,
         SecurityImageCodeProperties.class,

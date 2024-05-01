@@ -1,6 +1,6 @@
 package com.github.itdachen.boot.security.handler;
 
-import com.github.itdachen.boot.autoconfigure.security.properties.SecurityProperties;
+import com.github.itdachen.boot.autoconfigure.security.properties.FlySecurityProperties;
 import com.github.itdachen.boot.security.log.LogAsyncFactory;
 import com.github.itdachen.boot.autoconfigure.security.constants.SecurityConstants;
 import com.github.itdachen.framework.threads.manager.AsyncThreadsManager;
@@ -11,7 +11,6 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.security.core.Authentication;
 import org.springframework.security.web.authentication.SavedRequestAwareAuthenticationSuccessHandler;
-import org.springframework.stereotype.Component;
 
 import java.io.IOException;
 
@@ -24,10 +23,10 @@ import java.io.IOException;
 public class AuthenticationSuccessHandler extends SavedRequestAwareAuthenticationSuccessHandler {
     private static final Logger logger = LoggerFactory.getLogger(AuthenticationSuccessHandler.class);
 
-    private final SecurityProperties securityProperties;
+    private final FlySecurityProperties flySecurityProperties;
 
-    public AuthenticationSuccessHandler(SecurityProperties securityProperties) {
-        this.securityProperties = securityProperties;
+    public AuthenticationSuccessHandler(FlySecurityProperties flySecurityProperties) {
+        this.flySecurityProperties = flySecurityProperties;
     }
 
     @Override
@@ -50,7 +49,7 @@ public class AuthenticationSuccessHandler extends SavedRequestAwareAuthenticatio
         // setAlwaysUseDefaultTargetUrl(true);
 
         // 登录成功之后跳转地址
-        setDefaultTargetUrl(securityProperties.getSuccessForwardUrl());
+        setDefaultTargetUrl(flySecurityProperties.getSuccessForwardUrl());
 
         super.onAuthenticationSuccess(request, response, authentication);
     }

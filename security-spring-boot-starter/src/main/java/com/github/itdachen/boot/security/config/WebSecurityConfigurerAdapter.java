@@ -1,7 +1,7 @@
 package com.github.itdachen.boot.security.config;
 
 import com.github.itdachen.boot.autoconfigure.security.constants.SecurityConstants;
-import com.github.itdachen.boot.autoconfigure.security.properties.SecurityProperties;
+import com.github.itdachen.boot.autoconfigure.security.properties.FlySecurityProperties;
 import com.github.itdachen.boot.autoconfigure.security.properties.rememberme.SecurityRememberMeProperties;
 import com.github.itdachen.boot.autoconfigure.security.properties.session.SecuritySessionProperties;
 import com.github.itdachen.boot.security.authentication.mobile.MobileAuthenticationSecurityConfigurer;
@@ -10,6 +10,8 @@ import com.github.itdachen.boot.security.details.AbstractSecurityUserDetailsServ
 import com.github.itdachen.boot.security.matchers.IAuthorizeRequestMatchers;
 import com.github.itdachen.boot.security.validate.code.filter.ValidateCodeFilter;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.context.annotation.Bean;
+import org.springframework.context.annotation.Lazy;
 import org.springframework.security.config.annotation.web.builders.HttpSecurity;
 import org.springframework.security.config.annotation.web.configurers.AbstractHttpConfigurer;
 import org.springframework.security.config.annotation.web.configurers.HeadersConfigurer;
@@ -18,6 +20,10 @@ import org.springframework.security.web.authentication.AuthenticationSuccessHand
 import org.springframework.security.web.authentication.UsernamePasswordAuthenticationFilter;
 import org.springframework.security.web.authentication.logout.LogoutSuccessHandler;
 import org.springframework.security.web.authentication.rememberme.PersistentTokenRepository;
+import org.springframework.security.web.context.DelegatingSecurityContextRepository;
+import org.springframework.security.web.context.HttpSessionSecurityContextRepository;
+import org.springframework.security.web.context.RequestAttributeSecurityContextRepository;
+import org.springframework.security.web.context.SecurityContextRepository;
 import org.springframework.security.web.session.InvalidSessionStrategy;
 import org.springframework.security.web.session.SessionInformationExpiredStrategy;
 import org.springframework.security.web.util.matcher.AntPathRequestMatcher;
@@ -40,11 +46,13 @@ public class WebSecurityConfigurerAdapter {
     /* 登录失败处理 */
     protected AuthenticationFailureHandler authenticationFailureHandler;
     @Autowired
-    protected SecurityProperties securityProperties;
+    protected FlySecurityProperties flySecurityProperties;
 
     /* 不需要认证的路径 */
+//    @Autowired(required = false)
+//    @Lazy
     @Autowired
-    protected IAuthorizeRequestMatchers filterMatchers;
+    protected IAuthorizeRequestMatchers authorizeRequestMatchers;
 
 
     @Autowired
@@ -67,6 +75,8 @@ public class WebSecurityConfigurerAdapter {
     protected AbstractSecurityUserDetailsService userDetailsService;
     @Autowired
     protected PersistentTokenRepository persistentTokenRepository;
+    @Autowired
+    protected SecurityContextRepository securityContextRepository;
 
     //  @Autowired
     /* 权限异常配置 */
@@ -116,6 +126,10 @@ public class WebSecurityConfigurerAdapter {
 
         csrf(http);
 
+        http.securityContext((context) -> context
+                .securityContextRepository(securityContextRepository)
+        );
+
     }
 
 
@@ -137,7 +151,7 @@ public class WebSecurityConfigurerAdapter {
 
         /* 表单登录 */
         http.formLogin(login -> login
-                .loginPage(securityProperties.getSignInPage()) // 登录页面路径
+                .loginPage(flySecurityProperties.getSignInPage()) // 登录页面路径
                 .loginProcessingUrl(SecurityConstants.DEFAULT_LOGIN_PROCESSING_URL_FORM) // 登录访问后台认证地址
                 .successHandler(authenticationSuccessHandler)
                 .failureHandler(authenticationFailureHandler)
@@ -161,7 +175,7 @@ public class WebSecurityConfigurerAdapter {
      */
     public void authorizeHttpRequests(HttpSecurity http) throws Exception {
         http.authorizeHttpRequests(authorize -> authorize
-                        .requestMatchers(filterMatchers.requestMatcher())
+                        .requestMatchers(authorizeRequestMatchers.requestMatcher())
                         .permitAll()
                         .anyRequest()
                         /* authenticated 与 access 只能使用一个, 自定义鉴权时, 使用 access */
@@ -186,8 +200,8 @@ public class WebSecurityConfigurerAdapter {
         http.logout(logout -> logout
                         .logoutRequestMatcher(
                                 new OrRequestMatcher(
-                                        new AntPathRequestMatcher(securityProperties.getLogout(), "GET"),
-                                        new AntPathRequestMatcher(securityProperties.getLogout(), "POST")
+                                        new AntPathRequestMatcher(flySecurityProperties.getLogout(), "GET"),
+                                        new AntPathRequestMatcher(flySecurityProperties.getLogout(), "POST")
                                 )
                         )
                         // 退出登录访问地址

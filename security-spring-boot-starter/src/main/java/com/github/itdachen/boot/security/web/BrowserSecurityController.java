@@ -1,7 +1,7 @@
 package com.github.itdachen.boot.security.web;
 
 import com.github.itdachen.boot.autoconfigure.security.constants.SecurityConstants;
-import com.github.itdachen.boot.autoconfigure.security.properties.SecurityProperties;
+import com.github.itdachen.boot.autoconfigure.security.properties.FlySecurityProperties;
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
 import org.slf4j.Logger;
@@ -30,10 +30,10 @@ public class BrowserSecurityController {
     private static final Logger logger = LoggerFactory.getLogger(BrowserSecurityController.class);
     private final RequestCache requestCache = new HttpSessionRequestCache();
     private final RedirectStrategy redirectStrategy = new DefaultRedirectStrategy();
-    private final SecurityProperties securityProperties;
+    private final FlySecurityProperties flySecurityProperties;
 
-    public BrowserSecurityController(SecurityProperties securityProperties) {
-        this.securityProperties = securityProperties;
+    public BrowserSecurityController(FlySecurityProperties flySecurityProperties) {
+        this.flySecurityProperties = flySecurityProperties;
     }
 
     /***
@@ -50,7 +50,7 @@ public class BrowserSecurityController {
     @ResponseBody
     public void requireAuthentication(HttpServletRequest request, HttpServletResponse response) throws IOException {
         SavedRequest savedRequest = requestCache.getRequest(request, response);
-        String signInPage = securityProperties.getSignInPage();
+        String signInPage = flySecurityProperties.getSignInPage();
 //        final String contextPath = ContextPathHandler.contextPath();
 //        signInPage = AuthorizeHttpRequestsHandler.anyRequestUriHandler(contextPath, signInPage);
 

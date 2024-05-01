@@ -1,6 +1,6 @@
 package com.github.itdachen.boot.security.handler;
 
-import com.github.itdachen.boot.autoconfigure.security.properties.SecurityProperties;
+import com.github.itdachen.boot.autoconfigure.security.properties.FlySecurityProperties;
 import jakarta.servlet.ServletException;
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
@@ -16,10 +16,10 @@ import java.io.IOException;
  */
 public class AuthenticationEntryPointHandler implements AuthenticationEntryPoint {
 
-    private final SecurityProperties securityProperties;
+    private final FlySecurityProperties flySecurityProperties;
 
-    public AuthenticationEntryPointHandler(SecurityProperties securityProperties) {
-        this.securityProperties = securityProperties;
+    public AuthenticationEntryPointHandler(FlySecurityProperties flySecurityProperties) {
+        this.flySecurityProperties = flySecurityProperties;
     }
 
 
@@ -28,6 +28,6 @@ public class AuthenticationEntryPointHandler implements AuthenticationEntryPoint
                          HttpServletResponse response,
                          AuthenticationException authentication) throws IOException, ServletException {
         // 跳转到登录页面
-        response.sendRedirect(securityProperties.getSignOutUrl());
+        response.sendRedirect(flySecurityProperties.getSignOutUrl());
     }
 }

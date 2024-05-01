@@ -1,6 +1,6 @@
 package com.github.itdachen.boot.security;
 
-import com.github.itdachen.boot.autoconfigure.security.properties.SecurityProperties;
+import com.github.itdachen.boot.autoconfigure.security.properties.FlySecurityProperties;
 import com.github.itdachen.boot.security.handler.AuthenticationFailureHandler;
 import com.github.itdachen.boot.security.handler.AuthenticationFailureListener;
 import com.github.itdachen.boot.security.handler.AuthenticationSuccessHandler;
@@ -8,15 +8,11 @@ import com.github.itdachen.boot.security.log.IAuthFailureCredentialsLogHandler;
 import com.github.itdachen.boot.security.log.IAuthSuccessCredentialsLogHandler;
 import com.github.itdachen.boot.security.log.management.AuthFailureLogHandlerManagement;
 import com.github.itdachen.boot.security.log.management.AuthSuccessLogHandlerManagement;
-import com.github.itdachen.boot.security.user.CurrentUserInfo;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.boot.autoconfigure.condition.ConditionalOnMissingBean;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
-import org.springframework.context.event.EventListener;
-import org.springframework.security.authentication.event.AuthenticationFailureBadCredentialsEvent;
-import org.springframework.web.bind.annotation.RestControllerAdvice;
 
 /**
  * 认证成功和失败配置
@@ -28,10 +24,10 @@ import org.springframework.web.bind.annotation.RestControllerAdvice;
 public class AuthenticationHandlerAutoConfiguration {
     private static final Logger logger = LoggerFactory.getLogger(AuthenticationHandlerAutoConfiguration.class);
 
-    private final SecurityProperties securityProperties;
+    private final FlySecurityProperties flySecurityProperties;
 
-    public AuthenticationHandlerAutoConfiguration(SecurityProperties securityProperties) {
-        this.securityProperties = securityProperties;
+    public AuthenticationHandlerAutoConfiguration(FlySecurityProperties flySecurityProperties) {
+        this.flySecurityProperties = flySecurityProperties;
     }
 
     /***
@@ -43,7 +39,7 @@ public class AuthenticationHandlerAutoConfiguration {
      */
     @Bean
     public AuthenticationSuccessHandler authenticationSuccessHandler() {
-        return new AuthenticationSuccessHandler(securityProperties);
+        return new AuthenticationSuccessHandler(flySecurityProperties);
     }
 
     /***
@@ -55,7 +51,7 @@ public class AuthenticationHandlerAutoConfiguration {
      */
     @Bean("authenticationFailureHandler")
     public AuthenticationFailureHandler authenticationFailureHandler() {
-        return new AuthenticationFailureHandler(securityProperties);
+        return new AuthenticationFailureHandler(flySecurityProperties);
     }
 
     /***
