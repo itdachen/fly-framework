@@ -109,18 +109,18 @@ public class FlyWebSecurityAutoConfiguration {
         return new BCryptPasswordEncoder();
     }
 
-//    /***
-//     * 默认拦截器
-//     *
-//     * @author 王大宸
-//     * @date 2024/5/1 22:38
-//     * @return org.springframework.web.servlet.HandlerInterceptor
-//     */
-//    @Bean
-//    @ConditionalOnMissingBean(HandlerInterceptor.class)
-//    public HandlerInterceptor flyWebSecurityInterceptor() {
-//        return new FlyWebSecurityInterceptor();
-//    }
+    /***
+     * 默认拦截器
+     *
+     * @author 王大宸
+     * @date 2024/5/1 22:38
+     * @return org.springframework.web.servlet.HandlerInterceptor
+     */
+    @Bean
+    @ConditionalOnMissingBean(HandlerInterceptor.class)
+    public HandlerInterceptor flyWebSecurityInterceptor() {
+        return new FlyWebSecurityInterceptor();
+    }
 
     /**
      * 记住我 持久化指定保存 session 的方法

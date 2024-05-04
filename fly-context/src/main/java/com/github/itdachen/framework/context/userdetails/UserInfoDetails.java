@@ -1,6 +1,5 @@
 package com.github.itdachen.framework.context.userdetails;
 
-import com.github.itdachen.framework.context.constants.YesOrNotConstant;
 import org.apache.commons.lang3.builder.ToStringBuilder;
 import org.apache.commons.lang3.builder.ToStringStyle;
 

@@ -1,8 +1,8 @@
 package com.github.itdachen.boot.security.resolvers;
 
 import com.github.itdachen.boot.security.context.SecurityContextHandler;
-import com.github.itdachen.boot.security.user.CurrentUserInfo;
 import com.github.itdachen.framework.context.annotation.CurrentUser;
+import com.github.itdachen.framework.context.handler.GlobalContextUserDetailsHandler;
 import com.github.itdachen.framework.context.userdetails.UserInfoDetails;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -17,8 +17,8 @@ import org.springframework.web.method.support.ModelAndViewContainer;
  * Created by 王大宸 on 2023/04/10 16:04
  * Created with IntelliJ IDEA.
  */
-public class CurrentUserMethodArgumentResolver implements HandlerMethodArgumentResolver {
-    private static final Logger logger = LoggerFactory.getLogger(CurrentUserMethodArgumentResolver.class);
+public class FlyUserDetailsMethodArgumentResolver implements HandlerMethodArgumentResolver {
+    private static final Logger logger = LoggerFactory.getLogger(FlyUserDetailsMethodArgumentResolver.class);
 
     @Override
     public boolean supportsParameter(MethodParameter parameter) {
@@ -28,14 +28,15 @@ public class CurrentUserMethodArgumentResolver implements HandlerMethodArgumentR
 
     @Override
     public UserInfoDetails resolveArgument(MethodParameter parameter,
-                                              ModelAndViewContainer mavContainer,
-                                              NativeWebRequest webRequest,
-                                              WebDataBinderFactory binderFactory) throws Exception {
-        Object principal = SecurityContextHandler.getUserInfo();
-        if (principal instanceof UserInfoDetails userInfo) {
-            return userInfo;
-        }
-        return null;
+                                           ModelAndViewContainer mavContainer,
+                                           NativeWebRequest webRequest,
+                                           WebDataBinderFactory binderFactory) throws Exception {
+//        Object principal = SecurityContextHandler.getUserInfo();
+//        if (principal instanceof UserInfoDetails userInfo) {
+//            return userInfo;
+//        }
+//        return null;
+        return GlobalContextUserDetailsHandler.getUserDetails();
     }
 
 }

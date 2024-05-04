@@ -76,8 +76,7 @@ public class SecurityContextHandler {
      * @param userDetails userDetails
      * @return void
      */
-    public static void setCurrentUserInfo(CurrentUserInfo userInfoDetails,
-                                          UserInfoDetails userDetails) {
+    public static void setCurrentUserInfo(CurrentUserInfo userInfoDetails, UserInfoDetails userDetails) {
         userInfoDetails.setId(userDetails.getId());
         userInfoDetails.setUsername(userDetails.getUsername());
         userInfoDetails.setLoginMethod(userDetails.getLoginMethod());

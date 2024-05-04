@@ -1,16 +1,13 @@
 package com.github.itdachen.boot.run;
 
-import com.github.itdachen.boot.run.banner.SpringBootBootstrapBanner;
 import com.github.itdachen.boot.run.constants.SeparatorLine;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.boot.ConfigurableBootstrapContext;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.SpringApplicationRunListener;
-import org.springframework.boot.builder.SpringApplicationBuilder;
 import org.springframework.context.ConfigurableApplicationContext;
 import org.springframework.core.env.ConfigurableEnvironment;
-import org.springframework.core.env.Environment;
 import org.springframework.util.StopWatch;
 
 import java.lang.management.ManagementFactory;

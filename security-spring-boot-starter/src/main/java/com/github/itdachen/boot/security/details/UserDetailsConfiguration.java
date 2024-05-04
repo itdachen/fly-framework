@@ -11,20 +11,20 @@ import org.springframework.security.web.context.SecurityContextRepository;
  * @author 王大宸
  * @date 2023-12-17 14:25
  */
-@Configuration
-public class UserDetailsConfiguration {
-
-    private final SecurityContextRepository securityContextRepository;
-
-    public UserDetailsConfiguration(SecurityContextRepository securityContextRepository) {
-        this.securityContextRepository = securityContextRepository;
-    }
-
-
-    @Bean
-    @ConditionalOnMissingBean(IRefreshUserDetails.class)
-    public IRefreshUserDetails refreshUserDetails() {
-        return new RefreshUserDetailsHandler(securityContextRepository);
-    }
-
-}
+//@Configuration
+//public class UserDetailsConfiguration {
+//
+//    private final SecurityContextRepository securityContextRepository;
+//
+//    public UserDetailsConfiguration(SecurityContextRepository securityContextRepository) {
+//        this.securityContextRepository = securityContextRepository;
+//    }
+//
+//
+////    @Bean
+////    @ConditionalOnMissingBean(IRefreshUserDetails.class)
+////    public IRefreshUserDetails refreshUserDetails() {
+////        return new RefreshUserDetailsHandler(securityContextRepository);
+////    }
+//
+//}
