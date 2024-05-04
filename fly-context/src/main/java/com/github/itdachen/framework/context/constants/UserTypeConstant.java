@@ -15,22 +15,22 @@ public class UserTypeConstant {
     /**
      * 超级管理员类型
      */
-    public static final String SUPER_ADMINISTRATOR = "1";
+    public static final String SUPER_ADMINISTRATOR = "Y";
 
     /**
      * 租户管理员账号
      */
-    public static final String TENANT_ADMINISTRATOR = "2";
+    public static final String TENANT_ADMINISTRATOR = "TA";
 
     /**
      * 内部用户(员工)
      */
-    public static final String INSIDE_USER = "3";
+    public static final String INSIDE_USER = "I";
 
     /**
      * 会员账户/用户
      */
-    public static final String MEMBER = "4";
+    public static final String MEMBER = "M";
 
 
 }

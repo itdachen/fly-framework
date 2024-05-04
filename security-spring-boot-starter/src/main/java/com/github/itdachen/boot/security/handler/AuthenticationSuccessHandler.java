@@ -1,9 +1,8 @@
 package com.github.itdachen.boot.security.handler;
 
 import com.github.itdachen.boot.autoconfigure.security.properties.FlySecurityProperties;
-import com.github.itdachen.boot.security.log.LogAsyncFactory;
+import com.github.itdachen.boot.security.log.IAuthSuccessCredentialsLogHandler;
 import com.github.itdachen.boot.autoconfigure.security.constants.SecurityConstants;
-import com.github.itdachen.framework.threads.manager.AsyncThreadsManager;
 import jakarta.servlet.ServletException;
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
@@ -13,6 +12,7 @@ import org.springframework.security.core.Authentication;
 import org.springframework.security.web.authentication.SavedRequestAwareAuthenticationSuccessHandler;
 
 import java.io.IOException;
+import java.util.concurrent.*;
 
 /**
  * Description: 登录成功处理器
@@ -24,10 +24,26 @@ public class AuthenticationSuccessHandler extends SavedRequestAwareAuthenticatio
     private static final Logger logger = LoggerFactory.getLogger(AuthenticationSuccessHandler.class);
 
     private final FlySecurityProperties flySecurityProperties;
+    private final IAuthSuccessCredentialsLogHandler authSuccessCredentialsLogHandler;
 
-    public AuthenticationSuccessHandler(FlySecurityProperties flySecurityProperties) {
+    public AuthenticationSuccessHandler(FlySecurityProperties flySecurityProperties,
+                                        IAuthSuccessCredentialsLogHandler authSuccessCredentialsLogHandler) {
         this.flySecurityProperties = flySecurityProperties;
+        this.authSuccessCredentialsLogHandler = authSuccessCredentialsLogHandler;
     }
+
+    private static final ThreadPoolExecutor threadPoolExecutor = new ThreadPoolExecutor(8,
+            16, 3,
+            TimeUnit.SECONDS,
+            new ArrayBlockingQueue<>(1000),
+            new ThreadFactory() {
+                @Override
+                public Thread newThread(Runnable r) {
+                    Thread thread = new Thread(r);
+                    thread.setName("authentication-success-handler-thread-" + ThreadLocalRandom.current().nextInt(1000));
+                    return thread;
+                }
+            });
 
     @Override
     public void onAuthenticationSuccess(HttpServletRequest request,
@@ -39,7 +55,19 @@ public class AuthenticationSuccessHandler extends SavedRequestAwareAuthenticatio
 //        user.setType(netType);
 
         /* 登录成功数据入库 */
-        AsyncThreadsManager.me().execute(LogAsyncFactory.successTimerTask(request, response, authentication, request.getSession().getId()));
+        //   AsyncThreadsManager.me().execute(LogAsyncFactory.successTimerTask(request, response, authentication, request.getSession().getId()));
+
+
+        threadPoolExecutor.execute(new Runnable() {
+            @Override
+            public void run() {
+                try {
+                    authSuccessCredentialsLogHandler.handler(request, response, authentication, request.getSession().getId());
+                } catch (Exception e) {
+                    logger.error("登录成功日志入库失败!");
+                }
+            }
+        });
 
         /* 登录成功之后的回调地址属性 */
         setTargetUrlParameter(SecurityConstants.REDIRECT_URI);

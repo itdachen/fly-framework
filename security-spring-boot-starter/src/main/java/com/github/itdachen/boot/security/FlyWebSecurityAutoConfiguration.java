@@ -13,6 +13,7 @@ import com.github.itdachen.boot.security.third.service.impl.DefaultThirdPlatform
 import org.springframework.boot.autoconfigure.condition.ConditionalOnMissingBean;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
+import org.springframework.context.annotation.Lazy;
 import org.springframework.core.env.Environment;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.security.crypto.password.PasswordEncoder;
@@ -42,11 +43,11 @@ public class FlyWebSecurityAutoConfiguration {
     private final Environment env;
 
 
-    public FlyWebSecurityAutoConfiguration(DataSource dataSource,
-                                           SecurityContextRepository securityContextRepository,
-                                           FlySecurityProperties flySecurityProperties,
-                                           SecuritySessionProperties sessionProperties,
-                                           Environment env) {
+    public FlyWebSecurityAutoConfiguration(@Lazy DataSource dataSource,
+                                           @Lazy SecurityContextRepository securityContextRepository,
+                                           @Lazy FlySecurityProperties flySecurityProperties,
+                                           @Lazy SecuritySessionProperties sessionProperties,
+                                           @Lazy Environment env) {
         this.flySecurityProperties = flySecurityProperties;
         this.sessionProperties = sessionProperties;
         this.env = env;

@@ -2,7 +2,6 @@ package com.github.itdachen.boot.security;
 
 import com.github.itdachen.boot.autoconfigure.security.properties.FlySecurityProperties;
 import com.github.itdachen.boot.security.handler.AuthenticationFailureHandler;
-import com.github.itdachen.boot.security.handler.AuthenticationFailureListener;
 import com.github.itdachen.boot.security.handler.AuthenticationSuccessHandler;
 import com.github.itdachen.boot.security.log.IAuthFailureCredentialsLogHandler;
 import com.github.itdachen.boot.security.log.IAuthSuccessCredentialsLogHandler;
@@ -39,7 +38,7 @@ public class AuthenticationHandlerAutoConfiguration {
      */
     @Bean
     public AuthenticationSuccessHandler authenticationSuccessHandler() {
-        return new AuthenticationSuccessHandler(flySecurityProperties);
+        return new AuthenticationSuccessHandler(flySecurityProperties, authSuccessCredentialsLogHandler());
     }
 
     /***
@@ -51,7 +50,7 @@ public class AuthenticationHandlerAutoConfiguration {
      */
     @Bean("authenticationFailureHandler")
     public AuthenticationFailureHandler authenticationFailureHandler() {
-        return new AuthenticationFailureHandler(flySecurityProperties);
+        return new AuthenticationFailureHandler(flySecurityProperties, authFailureCredentialsLogHandler());
     }
 
     /***
@@ -81,11 +80,18 @@ public class AuthenticationHandlerAutoConfiguration {
     }
 
 
-    @Bean
-    public AuthenticationFailureListener authenticationFailureListener() {
-        logger.info("正在配置登录失败监听...");
-        return new AuthenticationFailureListener();
-    }
+//    /***
+//     * 正在配置登录失败监听
+//     *
+//     * @author 王大宸
+//     * @date 2024/5/4 22:09
+//     * @return com.github.itdachen.boot.security.handler.AuthenticationFailureListener
+//     */
+//    @Bean
+//    public AuthenticationFailureListener authenticationFailureListener() {
+//        logger.info("正在配置登录失败监听...");
+//        return new AuthenticationFailureListener();
+//    }
 
 //    @Bean
 //    @EventListener

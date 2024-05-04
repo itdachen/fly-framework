@@ -1,6 +1,5 @@
 package com.github.itdachen.boot.security.log;
 
-import com.github.itdachen.framework.spring.SpringBeanUtils;
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
 import org.springframework.security.core.Authentication;
@@ -13,6 +12,7 @@ import java.util.TimerTask;
  * Created by 王大宸 on 2023-07-12 15:58
  * Created with IntelliJ IDEA.
  */
+@Deprecated
 public class LogAsyncFactory {
 
     /***
@@ -26,20 +26,20 @@ public class LogAsyncFactory {
      * @param sessionId sessionId
      * @return java.util.TimerTask
      */
-    public static TimerTask successTimerTask(HttpServletRequest request,
-                                             HttpServletResponse response,
-                                             Authentication authentication,
-                                             String sessionId) {
-        return new TimerTask() {
-            @Override
-            public void run() {
-                SpringBeanUtils.getBean(IAuthSuccessCredentialsLogHandler.class).handler(request,
-                        response,
-                        authentication,
-                        sessionId);
-            }
-        };
-    }
+//    public static TimerTask successTimerTask(HttpServletRequest request,
+//                                             HttpServletResponse response,
+//                                             Authentication authentication,
+//                                             String sessionId) {
+//        return new TimerTask() {
+//            @Override
+//            public void run() {
+//                SpringBeanUtils.getBean(IAuthSuccessCredentialsLogHandler.class).handler(request,
+//                        response,
+//                        authentication,
+//                        sessionId);
+//            }
+//        };
+//    }
 
     /***
      * 登录失败记录
@@ -52,19 +52,19 @@ public class LogAsyncFactory {
      * @param sessionId sessionId
      * @return java.util.TimerTask
      */
-    public static TimerTask failureTimerTask(HttpServletRequest request,
-                                             HttpServletResponse response,
-                                             AuthenticationException exception,
-                                             String sessionId) {
-        return new TimerTask() {
-            @Override
-            public void run() {
-                SpringBeanUtils.getBean(IAuthFailureCredentialsLogHandler.class).handler(request,
-                        response,
-                        exception,
-                        sessionId);
-            }
-        };
-    }
+//    public static TimerTask failureTimerTask(HttpServletRequest request,
+//                                             HttpServletResponse response,
+//                                             AuthenticationException exception,
+//                                             String sessionId) {
+//        return new TimerTask() {
+//            @Override
+//            public void run() {
+//                SpringBeanUtils.getBean(IAuthFailureCredentialsLogHandler.class).handler(request,
+//                        response,
+//                        exception,
+//                        sessionId);
+//            }
+//        };
+//    }
 
 }

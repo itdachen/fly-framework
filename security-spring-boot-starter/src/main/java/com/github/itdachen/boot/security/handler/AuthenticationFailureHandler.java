@@ -4,9 +4,8 @@ import com.github.itdachen.boot.autoconfigure.security.constants.SecurityConstan
 import com.github.itdachen.boot.autoconfigure.security.properties.FlySecurityProperties;
 import com.github.itdachen.boot.security.constants.LoginModeConstant;
 import com.github.itdachen.boot.security.exception.BizSecurityException;
-import com.github.itdachen.boot.security.log.LogAsyncFactory;
+import com.github.itdachen.boot.security.log.IAuthFailureCredentialsLogHandler;
 import com.github.itdachen.framework.core.utils.StringUtils;
-import com.github.itdachen.framework.threads.manager.AsyncThreadsManager;
 import jakarta.servlet.ServletException;
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
@@ -17,6 +16,7 @@ import org.springframework.security.web.authentication.SimpleUrlAuthenticationFa
 
 import java.io.IOException;
 import java.util.List;
+import java.util.concurrent.*;
 
 /**
  * Description: 登录失败处理器
@@ -28,10 +28,27 @@ public class AuthenticationFailureHandler extends SimpleUrlAuthenticationFailure
     private static final Logger logger = LoggerFactory.getLogger(AuthenticationFailureHandler.class);
 
     private final FlySecurityProperties flySecurityProperties;
+    private final IAuthFailureCredentialsLogHandler authFailureCredentialsLogHandler;
 
-    public AuthenticationFailureHandler(FlySecurityProperties flySecurityProperties) {
+    public AuthenticationFailureHandler(FlySecurityProperties flySecurityProperties,
+                                        IAuthFailureCredentialsLogHandler authFailureCredentialsLogHandler) {
         this.flySecurityProperties = flySecurityProperties;
+        this.authFailureCredentialsLogHandler = authFailureCredentialsLogHandler;
     }
+
+    private static final ThreadPoolExecutor threadPoolExecutor = new ThreadPoolExecutor(8,
+            16, 3,
+            TimeUnit.SECONDS,
+            new ArrayBlockingQueue<>(1000),
+            new ThreadFactory() {
+                @Override
+                public Thread newThread(Runnable r) {
+                    Thread thread = new Thread(r);
+                    // AuthenticationFailureHandler
+                    thread.setName("authentication-failure-handler-thread-" + ThreadLocalRandom.current().nextInt(1000));
+                    return thread;
+                }
+            });
 
 
     /* (non-Javadoc)
@@ -69,8 +86,19 @@ public class AuthenticationFailureHandler extends SimpleUrlAuthenticationFailure
         final String message = exception.getMessage();
 
         /* 登录失败数据入库 */
-        AsyncThreadsManager.me().execute(LogAsyncFactory.failureTimerTask(request, response, exception, request.getSession().getId()));
+        // AsyncThreadsManager.me().execute(LogAsyncFactory.failureTimerTask(request, response, exception, request.getSession().getId()));
 
+        AuthenticationException e = exception;
+        threadPoolExecutor.execute(new Runnable() {
+            @Override
+            public void run() {
+                try {
+                    authFailureCredentialsLogHandler.handler(request, response, e, request.getSession().getId());
+                } catch (Exception e) {
+                    logger.error("登录失败日志入库失败!");
+                }
+            }
+        });
 
         String type = LoginModeConstant.PASSWORD;
         // 手机号码登录失败

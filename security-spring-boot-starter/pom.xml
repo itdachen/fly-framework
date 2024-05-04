@@ -19,37 +19,37 @@
         <!--            <groupId>javax.servlet</groupId>-->
         <!--            <artifactId>javax.servlet-api</artifactId>-->
         <!--        </dependency>-->
-
-        <dependency>
-            <groupId>com.github.itdachen</groupId>
-            <artifactId>fly-core</artifactId>
-        </dependency>
-        <dependency>
-            <groupId>com.github.itdachen</groupId>
-            <artifactId>fly-runner</artifactId>
-        </dependency>
-        <!-- 配置文件 -->
         <dependency>
             <groupId>com.github.itdachen</groupId>
             <artifactId>fly-boot-autoconfigure</artifactId>
         </dependency>
         <dependency>
-            <groupId>org.springframework.boot</groupId>
-            <artifactId>spring-boot-configuration-processor</artifactId>
+            <groupId>com.github.itdachen</groupId>
+            <artifactId>fly-core</artifactId>
         </dependency>
+<!--        <dependency>-->
+<!--            <groupId>com.github.itdachen</groupId>-->
+<!--            <artifactId>fly-runner</artifactId>-->
+<!--        </dependency>-->
+        <!-- 配置文件 -->
+
+<!--        <dependency>-->
+<!--            <groupId>org.springframework.boot</groupId>-->
+<!--            <artifactId>spring-boot-configuration-processor</artifactId>-->
+<!--        </dependency>-->
         <!-- 安全认证模块 -->
         <dependency>
             <groupId>org.springframework.boot</groupId>
             <artifactId>spring-boot-starter-security</artifactId>
         </dependency>
-        <dependency>
-            <groupId>org.springframework.boot</groupId>
-            <artifactId>spring-boot-starter-thymeleaf</artifactId>
-        </dependency>
-        <dependency>
-            <groupId>org.thymeleaf.extras</groupId>
-            <artifactId>thymeleaf-extras-springsecurity6</artifactId>
-        </dependency>
+<!--        <dependency>-->
+<!--            <groupId>org.springframework.boot</groupId>-->
+<!--            <artifactId>spring-boot-starter-thymeleaf</artifactId>-->
+<!--        </dependency>-->
+<!--        <dependency>-->
+<!--            <groupId>org.thymeleaf.extras</groupId>-->
+<!--            <artifactId>thymeleaf-extras-springsecurity6</artifactId>-->
+<!--        </dependency>-->
         <dependency>
             <groupId>org.springframework</groupId>
             <artifactId>spring-webmvc</artifactId>
@@ -70,10 +70,10 @@
             <groupId>com.github.itdachen</groupId>
             <artifactId>fly-tools</artifactId>
         </dependency>
-        <dependency>
-            <groupId>com.github.itdachen</groupId>
-            <artifactId>fly-thread-pool</artifactId>
-        </dependency>
+<!--        <dependency>-->
+<!--            <groupId>com.github.itdachen</groupId>-->
+<!--            <artifactId>fly-thread-pool</artifactId>-->
+<!--        </dependency>-->
         <dependency>
             <groupId>cn.hutool</groupId>
             <artifactId>hutool-http</artifactId>

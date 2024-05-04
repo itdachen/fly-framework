@@ -37,45 +37,58 @@ import org.springframework.security.web.util.matcher.OrRequestMatcher;
 public class WebSecurityConfigurerAdapter {
 
     @Autowired
+    @Lazy
     protected ValidateCodeFilter validateCodeFilter;
 
     @Autowired
+    @Lazy
     /* 登录成功处理 */
     protected AuthenticationSuccessHandler authenticationSuccessHandler;
     @Autowired
+    @Lazy
     /* 登录失败处理 */
     protected AuthenticationFailureHandler authenticationFailureHandler;
     @Autowired
+    @Lazy
     protected FlySecurityProperties flySecurityProperties;
 
     /* 不需要认证的路径 */
 //    @Autowired(required = false)
 //    @Lazy
     @Autowired
+    @Lazy
     protected IAuthorizeRequestMatchers authorizeRequestMatchers;
 
 
     @Autowired
+    @Lazy
     protected SecuritySessionProperties sessionProperties;
     @Autowired
+    @Lazy
     /* session 过期处理 */
     protected SessionInformationExpiredStrategy sessionInformationExpiredStrategy;
     @Autowired
+    @Lazy
     /* session 失效处理 */
     protected InvalidSessionStrategy invalidSessionStrategy;
 
     @Autowired
+    @Lazy
     /* 退出处理 */
     protected LogoutSuccessHandler logoutSuccessHandler;
 
     @Autowired
+    @Lazy
     protected SecurityRememberMeProperties rememberMeProperties;
 
     @Autowired
+    @Lazy
     protected AbstractSecurityUserDetailsService userDetailsService;
     @Autowired
+    @Lazy
     protected PersistentTokenRepository persistentTokenRepository;
     @Autowired
+    @Lazy
     protected SecurityContextRepository securityContextRepository;
 
     //  @Autowired
@@ -89,8 +102,10 @@ public class WebSecurityConfigurerAdapter {
 
     /* 自定义登录 */
     @Autowired
+    @Lazy
     protected MobileAuthenticationSecurityConfigurer mobileAuthenticationSecurityConfigurer;
     @Autowired
+    @Lazy
     protected PlatformAuthenticationSecurityConfigurerAdapter platformAuthenticationSecurityConfigurerAdapter;
 
 

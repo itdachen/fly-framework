@@ -7,7 +7,9 @@ import com.github.itdachen.framework.context.handler.GlobalContextUserDetailsHan
 import com.github.itdachen.framework.context.jwt.IJwtInfo;
 import com.github.itdachen.framework.context.userdetails.UserInfoDetails;
 
+import java.time.LocalDate;
 import java.time.LocalDateTime;
+import java.time.format.DateTimeFormatter;
 import java.util.Map;
 
 /**
@@ -444,11 +446,11 @@ public class BizContextHandler {
      */
     public static LocalDateTime getExpTime() {
         String lastTime = GlobalContextThreadLocalHandler.returnObjectValue(GlobalContextThreadLocalHandler.get(UserInfoConstant.EXP_TIME));
-        return LocalDateTime.parse(lastTime, DateFormatConstants.DATE_TIME_FORMATTER);
+        return toLocalDateTime(lastTime);
     }
 
     public static void setExpTime(LocalDateTime value) {
-        String format = DateFormatConstants.S_DATE_TIME_FORMATTER.format(value);
+        String format = toLocalDateTime(value);
         GlobalContextThreadLocalHandler.set(UserInfoConstant.EXP_TIME, format);
     }
 
@@ -458,11 +460,11 @@ public class BizContextHandler {
      */
     public static LocalDateTime getLastTime() {
         String lastTime = GlobalContextThreadLocalHandler.returnObjectValue(GlobalContextThreadLocalHandler.get(UserInfoConstant.LAST_TIME));
-        return LocalDateTime.parse(lastTime, DateFormatConstants.DATE_TIME_FORMATTER);
+        return toLocalDateTime(lastTime);
     }
 
     public static void setLastTime(LocalDateTime value) {
-        String format = DateFormatConstants.S_DATE_TIME_FORMATTER.format(value);
+        String format = toLocalDateTime(value);
         GlobalContextThreadLocalHandler.set(UserInfoConstant.LAST_TIME, format);
     }
 
@@ -568,6 +570,22 @@ public class BizContextHandler {
      */
     public static void remove() {
         GlobalContextThreadLocalHandler.remove();
+    }
+
+    private static LocalDateTime toLocalDateTime(String strLocalTime) {
+        //1.具有转换功能的对象
+        DateTimeFormatter df = DateTimeFormatter.ofPattern("yyyy-MM-dd HH:mm:ss");
+//2.要转换的对象
+        LocalDateTime time = LocalDateTime.now();
+//3.发动功能
+        String localTime = df.format(time);
+//3.LocalDate发动，将字符串转换成  df格式的LocalDateTime对象，的功能
+        return LocalDateTime.parse(strLocalTime, df);
+    }
+
+    private static String toLocalDateTime(LocalDateTime dateTime) {
+        DateTimeFormatter formatter = DateTimeFormatter.ofPattern("yyyy-MM-dd HH:mm:ss");
+        return dateTime.format(formatter);
     }
 
 }

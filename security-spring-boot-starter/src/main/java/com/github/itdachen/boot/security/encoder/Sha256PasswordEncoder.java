@@ -21,7 +21,7 @@ public class Sha256PasswordEncoder implements PasswordEncoder {
      * 加密
      *
      * @author 王大宸
-     * @date 2024/5/4 21:29
+     * @date 2024/5/4 21:38
      * @param charSequence charSequence
      * @return java.lang.String
      */
