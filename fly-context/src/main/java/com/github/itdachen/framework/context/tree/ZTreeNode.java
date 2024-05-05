@@ -1,6 +1,9 @@
 package com.github.itdachen.framework.context.tree;
 
 import java.io.Serializable;
+import java.util.ArrayList;
+import java.util.List;
+import java.util.Map;
 
 /**
  * Description: 树结构返回对象
@@ -96,6 +99,17 @@ public class ZTreeNode implements Serializable {
      */
     private String attr5;
 
+    private List<ZTreeNode> children;
+
+    public ZTreeNode() {
+    }
+
+    public ZTreeNode(String id, String name, String parentId) {
+        this.id = id;
+        this.name = name;
+        this.parentId = parentId;
+    }
+
     public ZTreeNode(Builder builder) {
         this.id = builder.id;
         this.name = builder.name;
@@ -112,9 +126,6 @@ public class ZTreeNode implements Serializable {
         this.attr3 = builder.attr3;
         this.attr4 = builder.attr4;
         this.attr5 = builder.attr5;
-    }
-
-    public ZTreeNode() {
     }
 
     public static class Builder {
@@ -334,4 +345,14 @@ public class ZTreeNode implements Serializable {
     public void setAttr5(String attr5) {
         this.attr5 = attr5;
     }
+
+    public List<ZTreeNode> getChildren() {
+        return children;
+    }
+
+    public void setChildren(List<ZTreeNode> children) {
+        this.children = children;
+    }
+
+
 }
