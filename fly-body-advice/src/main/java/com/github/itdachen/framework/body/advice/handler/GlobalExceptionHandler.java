@@ -9,6 +9,7 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.http.HttpStatus;
 import org.springframework.web.HttpRequestMethodNotSupportedException;
+import org.springframework.web.bind.MethodArgumentNotValidException;
 import org.springframework.web.bind.annotation.ExceptionHandler;
 import org.springframework.web.bind.annotation.RestControllerAdvice;
 
@@ -75,6 +76,25 @@ public class GlobalExceptionHandler {
             return ServerResponse.errStatusMsg(429, "系统繁忙, 请稍后再试!");
         }
         return ServerResponse.errStatusMsg(429, ex.getMessage());
+    }
+
+    /***
+     * 方法参数验证异常
+     *
+     * @author 王大宸
+     * @date 2024/5/5 22:11
+     * @param response response
+     * @param ex ex
+     * @return com.github.itdachen.framework.core.response.ServerResponse<java.lang.String>
+     */
+    @ExceptionHandler(MethodArgumentNotValidException.class)
+    public ServerResponse<String> methodArgumentNotValidException(HttpServletResponse response, MethodArgumentNotValidException ex) {
+        logger.error("methodArgumentNotValidException: {}", ex.getMessage());
+        response.setStatus(HttpStatus.OK.value());
+        if (StringUtils.isEmpty(ex.getMessage())) {
+            return ServerResponse.errStatusMsg(500, "系统繁忙, 请稍后再试!");
+        }
+        return ServerResponse.errStatusMsg(500, ex.getMessage());
     }
 
     /***

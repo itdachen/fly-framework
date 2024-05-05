@@ -8,9 +8,15 @@ import org.apache.commons.lang3.StringUtils;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.http.HttpStatus;
+import org.springframework.validation.BindingResult;
+import org.springframework.validation.ObjectError;
 import org.springframework.web.HttpRequestMethodNotSupportedException;
+import org.springframework.web.bind.MethodArgumentNotValidException;
 import org.springframework.web.bind.annotation.ExceptionHandler;
 import org.springframework.web.bind.annotation.RestControllerAdvice;
+
+import java.util.ArrayList;
+import java.util.List;
 
 /**
  * Description: 全局异常处理
@@ -76,6 +82,58 @@ public class GlobalExceptionHandler {
         }
         return ServerResponse.errStatusMsg(429, ex.getMessage());
     }
+
+
+    /***
+     * 方法参数验证异常
+     *
+     * @author 王大宸
+     * @date 2024/5/5 22:11
+     * @param response response
+     * @param ex ex
+     * @return com.github.itdachen.framework.core.response.ServerResponse<java.lang.String>
+     */
+    @ExceptionHandler(MethodArgumentNotValidException.class)
+    public ServerResponse<String> methodArgumentNotValidException(HttpServletResponse response, MethodArgumentNotValidException ex) {
+        logger.error("methodArgumentNotValidException: {}", ex.getMessage());
+        response.setStatus(HttpStatus.OK.value());
+        if (StringUtils.isEmpty(ex.getMessage())) {
+            return ServerResponse.errStatusMsg(500, "发生了一个错误, 请联系管理员!");
+        }
+        return handleBindingResult(ex.getBindingResult());
+    }
+
+
+    /***
+     * 处理【MethodArgumentNotValidException】异常；提取错误信息，构建 ServerResponse 统一返回对象；
+     *
+     * @author 王大宸
+     * @date 2024/5/5 22:20
+     * @param result result
+     * @return ApiRestResponse
+     */
+    private ServerResponse<String> handleBindingResult(BindingResult result) {
+        //把【MethodArgumentNotValidException异常】处理为，对应的ApiRestResponse统一返回对象；
+        //这儿创建一个List集合；后面我们在MethodArgumentNotValidException中获取的错误信息，都存放在这个集合中去；
+        List<String> list = new ArrayList<>();
+        if (result.hasErrors()) {//如果BindingResult中，包含错误，就获取其中所有的错误信息；
+            List<ObjectError> allErrors = result.getAllErrors();
+            //遍历所有的错误信息；
+            for (int i = 0; i < allErrors.size(); i++) {
+                ObjectError objectError = allErrors.get(i);
+                //提取具体的错误信息；
+                String message = objectError.getDefaultMessage();
+                //将错误信息，添加到list集合中
+                list.add(message);
+            }
+        }
+        if (list.size() == 0) {
+            return ServerResponse.err();
+        }
+        //根据MethodArgumentNotValidException异常的具体错误信息，构建 ServerResponse 统一返回对象；
+        return ServerResponse.errStatusMsg(10012, list.toString());
+    }
+
 
     /***
      * 断言异常
