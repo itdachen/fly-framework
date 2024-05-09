@@ -20,17 +20,17 @@ public class UserTypeConstant {
     /**
      * 租户管理员账号
      */
-    public static final String TENANT_ADMINISTRATOR = "TA";
+    public static final String TENANT_ADMINISTRATOR = "TEA";
 
     /**
      * 内部用户(员工)
      */
-    public static final String INSIDE_USER = "I";
+    public static final String INSIDE_USER = "IN";
 
     /**
      * 会员账户/用户
      */
-    public static final String MEMBER = "M";
+    public static final String MEMBER = "ME";
 
 
 }
