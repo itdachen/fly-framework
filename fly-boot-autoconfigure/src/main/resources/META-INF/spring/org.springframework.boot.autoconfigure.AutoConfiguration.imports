@@ -3,3 +3,4 @@ com.github.itdachen.boot.autoconfigure.security.SecurityAutoConfiguration
 com.github.itdachen.boot.autoconfigure.oss.OssAutoConfiguration
 com.github.itdachen.boot.autoconfigure.jwt.JwtAutoConfiguration
 com.github.itdachen.boot.autoconfigure.datasource.DatasourceAutoConfiguration
+com.github.itdachen.boot.autoconfigure.AppContextAware
