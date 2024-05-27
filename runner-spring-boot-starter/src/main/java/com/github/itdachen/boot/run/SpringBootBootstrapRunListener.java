@@ -131,7 +131,7 @@ public class SpringBootBootstrapRunListener implements SpringApplicationRunListe
         logger.info("\n" + SeparatorLine.SEPARATOR_LINE + "\n\t" +
                         "application [ {} ] successfully started \n\t" +
                         "time consuming: \t{} s \n\t" +
-                        "profiles: \t\t{}\n\t" +
+                        "profiles: \t\t\t{}\n\t" +
                         "thread: \t\t\t{}\n\t" +
                         "request address: \t{}\n" + SeparatorLine.SEPARATOR_LINE,
                 environment.getProperty("spring.application.name"),
