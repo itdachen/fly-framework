@@ -47,14 +47,20 @@ public class LocalFileUploadHandler extends FileUploadService {
 
             // 文件上传
             String src = fileUpload(file, filePath() + "/");
+            String url = MapPathUtils.loadHttp(properties.getMapPath(),
+                    src,
+                    properties.getDiskFolder(),
+                    properties.getLocalHttp()
+            );
+
             // 文件网络地址处理
-            String url = MapPathUtils.mapPath(properties.getMapPath()) + src.replace(properties.getDiskFolder(), "");
-            url = url.replaceAll("//", "/");
-            if (properties.getLocalHttp().endsWith("/")) {
-                url = properties.getLocalHttp().substring(0, properties.getLocalHttp().length() - 1) + url;
-            } else {
-                url = properties.getLocalHttp() + url;
-            }
+//            String url = MapPathUtils.mapPath(properties.getMapPath()) + src.replace(properties.getDiskFolder(), "");
+//            url = url.replaceAll("//", "/");
+//            if (properties.getLocalHttp().endsWith("/")) {
+//                url = properties.getLocalHttp().substring(0, properties.getLocalHttp().length() - 1) + url;
+//            } else {
+//                url = properties.getLocalHttp() + url;
+//            }
             return new FileInfo.Builder()
                     .url(url)
                     .name(fileName)

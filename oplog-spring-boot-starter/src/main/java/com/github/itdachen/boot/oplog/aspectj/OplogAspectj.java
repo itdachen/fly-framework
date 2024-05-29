@@ -106,14 +106,8 @@ public class OplogAspectj {
         OplogClient apiLog = new OplogClient();
         apiLog.setRequestMethod(ServletUtils.getRequest().getMethod());
 
-        // setRequestValue(apiLog, joinPoint);
-
         // 请求参数
-        if (joinPoint.getArgs()[0] instanceof MultipartFile) {
-            apiLog.setParams(((MultipartFile) joinPoint.getArgs()[0]).getOriginalFilename());
-        } else {
-            apiLog.setParams(JSON.toJSONString(joinPoint.getArgs()));
-        }
+        apiLog.setParams(getRequestValue(joinPoint));
 
         apiLog.setTenantId(BizContextHandler.getTenantId());
 
@@ -140,16 +134,21 @@ public class OplogAspectj {
 
     /**
      * 获取请求的参数，放到log中
-     *
-     * @param apiLog 操作日志
      */
-    private void setRequestValue(OplogClient apiLog, JoinPoint joinPoint) {
-
-        // 请求参数
-        if (joinPoint.getArgs()[0] instanceof MultipartFile) {
-            apiLog.setParams(((MultipartFile) joinPoint.getArgs()[0]).getOriginalFilename());
-        } else {
-            apiLog.setParams(JSON.toJSONString(joinPoint.getArgs()));
+    private String getRequestValue(JoinPoint joinPoint) {
+        try {
+            if (joinPoint.getArgs()[0] instanceof MultipartFile) {
+                return ((MultipartFile) joinPoint.getArgs()[0]).getOriginalFilename();
+            }
+            Object[] args = joinPoint.getArgs();
+            int length = args.length;
+            if (1 == length) {
+                return JSON.toJSONString(joinPoint.getArgs());
+            } else {
+                return JSON.toJSONString(args[length - 1]);
+            }
+        } catch (Exception e) {
+            return "{}";
         }
 
 

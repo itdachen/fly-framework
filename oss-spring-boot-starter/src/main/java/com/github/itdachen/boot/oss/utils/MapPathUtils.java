@@ -22,6 +22,29 @@ public class MapPathUtils {
     }
 
     /***
+     * 网络访问路径处理
+     *
+     * @author 王大宸
+     * @date 2024/5/28 14:24
+     * @param mapPath mapPath
+     * @param diskUri diskUri
+     * @param diskFolder diskFolder
+     * @param bizHttp bizHttp
+     * @return java.lang.String
+     */
+    public static String loadHttp(String mapPath, String diskUri, String diskFolder, String bizHttp) {
+        // 文件网络地址处理
+        String url = mapPath(mapPath) + diskUri.replace(diskFolder, "");
+        url = url.replaceAll("//", "/");
+        if (bizHttp.endsWith("/")) {
+            url = bizHttp.substring(0, bizHttp.length() - 1) + url;
+        } else {
+            url = bizHttp + url;
+        }
+        return url;
+    }
+
+    /***
      * 过滤路径处理
      *
      * @author 王大宸
