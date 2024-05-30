@@ -59,23 +59,24 @@ public class ServerResponse<T> implements Serializable {
         return new ServerResponse<T>(ReturnCode.SUCCESS.getSuccess(), ReturnCode.SUCCESS.getStatus(), ReturnCode.SUCCESS.getMessage(), null);
     }
 
-    public static <T> ServerResponse<T> okMsg(String msg) {
-        return new ServerResponse<T>(ReturnCode.SUCCESS.getSuccess(), ReturnCode.SUCCESS.getStatus(), msg, null);
-    }
-
-    public static <T> ServerResponse<T> okData(T data) {
+    public static <T> ServerResponse<T> ok(T data) {
         return new ServerResponse<T>(ReturnCode.SUCCESS.getSuccess(), ReturnCode.SUCCESS.getStatus(), ReturnCode.SUCCESS.getMessage(), data);
     }
 
-    public static <T> ServerResponse<T> okMsgData(String msg, T data) {
-        return new ServerResponse<T>(ReturnCode.SUCCESS.getSuccess(), ReturnCode.SUCCESS.getStatus(), msg, data);
-    }
 
-    public static <T> ServerResponse<T> okStatusMsg(int status, String msg) {
+    public static <T> ServerResponse<T> ok(String msg) {
         return new ServerResponse<T>(ReturnCode.SUCCESS.getSuccess(), ReturnCode.SUCCESS.getStatus(), msg, null);
     }
 
-    public static <T> ServerResponse<T> okStatusMsgDate(int status, String msg, T data) {
+    public static <T> ServerResponse<T> ok(String msg, T data) {
+        return new ServerResponse<T>(ReturnCode.SUCCESS.getSuccess(), ReturnCode.SUCCESS.getStatus(), msg, data);
+    }
+
+    public static <T> ServerResponse<T> ok(int status, String msg) {
+        return new ServerResponse<T>(ReturnCode.SUCCESS.getSuccess(), status, msg, null);
+    }
+
+    public static <T> ServerResponse<T> ok(int status, String msg, T data) {
         return new ServerResponse<T>(ReturnCode.SUCCESS.getSuccess(), status, msg, data);
     }
 
@@ -86,27 +87,28 @@ public class ServerResponse<T> implements Serializable {
         return new ServerResponse<T>(ReturnCode.SERVER_ERROR.getSuccess(), ReturnCode.SERVER_ERROR.getStatus(), ReturnCode.SERVER_ERROR.getMessage(), null);
     }
 
-    public static <T> ServerResponse<T> errMsg(String msg) {
+    public static <T> ServerResponse<T> err(String msg) {
         return new ServerResponse<T>(ReturnCode.SERVER_ERROR.getSuccess(), ReturnCode.SERVER_ERROR.getStatus(), msg, null);
     }
 
-    public static <T> ServerResponse<T> errData(T data) {
+    public static <T> ServerResponse<T> err(T data) {
         return new ServerResponse<T>(ReturnCode.SERVER_ERROR.getSuccess(), ReturnCode.SERVER_ERROR.getStatus(), ReturnCode.SERVER_ERROR.getMessage(), data);
     }
 
-    public static <T> ServerResponse<T> errMsgData(String msg, T data) {
+    public static <T> ServerResponse<T> err(String msg, T data) {
         return new ServerResponse<T>(ReturnCode.SERVER_ERROR.getSuccess(), ReturnCode.SERVER_ERROR.getStatus(), msg, data);
     }
 
-    public static <T> ServerResponse<T> errStatusMsg(int status, String msg) {
+    public static <T> ServerResponse<T> err(int status, String msg) {
         return new ServerResponse<T>(ReturnCode.SERVER_ERROR.getSuccess(), status, msg, null);
     }
 
-    public static <T> ServerResponse<T> errStatus(int status) {
+
+    public static <T> ServerResponse<T> err(int status) {
         return new ServerResponse<T>(ReturnCode.SERVER_ERROR.getSuccess(), status, null, null);
     }
 
-    public static <T> ServerResponse<T> errStatusMsgDate(int status, String msg, T data) {
+    public static <T> ServerResponse<T> err(int status, String msg, T data) {
         return new ServerResponse<T>(ReturnCode.SERVER_ERROR.getSuccess(), status, msg, data);
     }
 

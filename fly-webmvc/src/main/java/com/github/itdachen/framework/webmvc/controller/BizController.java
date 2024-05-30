@@ -47,7 +47,7 @@ public class BizController<BizService extends IBizService<D, V, Q, PK>, D, V, Q 
     @ResponseBody
     @Log(title = "分页查询" , type = LogType.GET_PAGE_DATA)
     public ServerResponse<TableData<V>> page(Q params) throws Exception {
-        return ServerResponse.okData(bizService.page(params));
+        return ServerResponse.ok(bizService.page(params));
     }
 
     /***
@@ -62,7 +62,7 @@ public class BizController<BizService extends IBizService<D, V, Q, PK>, D, V, Q 
     @ResponseBody
     @Log(title = "新增" , type = LogType.SAVE)
     public ServerResponse<V> saveInfo(@Valid @RequestBody D d) throws Exception {
-        return ServerResponse.okData(bizService.saveInfo(d));
+        return ServerResponse.ok(bizService.saveInfo(d));
     }
 
     /***
@@ -77,7 +77,7 @@ public class BizController<BizService extends IBizService<D, V, Q, PK>, D, V, Q 
     @ResponseBody
     @Log(title = "修改/编辑" , type = LogType.UPDATE)
     public ServerResponse<V> updateInfo(@Valid @RequestBody D d) throws Exception {
-        return ServerResponse.okData(bizService.updateInfo(d));
+        return ServerResponse.ok(bizService.updateInfo(d));
     }
 
     /***
@@ -91,7 +91,7 @@ public class BizController<BizService extends IBizService<D, V, Q, PK>, D, V, Q 
     @GetMapping(value = "/{pk}" )
     @ResponseBody
     public ServerResponse<V> selectByPrimaryKey(@PathVariable("pk" ) PK pk) throws Exception {
-        return ServerResponse.okData(bizService.selectByPrimaryKey(pk));
+        return ServerResponse.ok(bizService.selectByPrimaryKey(pk));
     }
 
     /***
@@ -106,7 +106,7 @@ public class BizController<BizService extends IBizService<D, V, Q, PK>, D, V, Q 
     @ResponseBody
     @Log(title = "删除" , type = LogType.REMOVE)
     public ServerResponse<Integer> deleteByPrimaryKey(@PathVariable("pk" ) PK pk) throws Exception {
-        return ServerResponse.okData(bizService.deleteByPrimaryKey(pk));
+        return ServerResponse.ok(bizService.deleteByPrimaryKey(pk));
     }
 
     /***

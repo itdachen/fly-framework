@@ -86,7 +86,7 @@ public class AbstractBrowserSessionStrategy {
         if (isConcurrency()) {
             message = message + "，有可能是并发登录导致的";
         }
-        return ServerResponse.errMsg(message);
+        return ServerResponse.err(message);
     }
 
     /**

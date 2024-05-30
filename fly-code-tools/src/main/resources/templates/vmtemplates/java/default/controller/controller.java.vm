@@ -107,7 +107,7 @@ public class ${ClassName}Controller {
     @PreAuthorize("hasAuthority('${permsPrefix}:query')")
     @ResponseBody
     public ServerResponse< TableData < ${ClassName}VO > > find${ClassName}Page(${ClassName}Query params) throws Exception {
-        return  ServerResponse.okData(${className}Service.find${ClassName}Page(params));
+        return  ServerResponse.ok(${className}Service.find${ClassName}Page(params));
     }
 
     /***
@@ -123,7 +123,7 @@ public class ${ClassName}Controller {
     @ResponseBody
     @Log(title = "新增", type = LogType.SAVE)
     public ServerResponse< ${ClassName}VO > save${ClassName}(@Validated @RequestBody ${ClassName}DTO ${className}DTO) throws Exception {
-        return ServerResponse.okData(${className}Service.save${ClassName}(${className}DTO));
+        return ServerResponse.ok(${className}Service.save${ClassName}(${className}DTO));
     }
 
     /***
@@ -139,7 +139,7 @@ public class ${ClassName}Controller {
     @ResponseBody
     @Log(title = "修改", type = LogType.UPDATE)
     public ServerResponse< ${ClassName}VO > update${ClassName}(@Validated @RequestBody ${ClassName}DTO ${className}DTO) throws Exception {
-        return ServerResponse.okData(${className}Service.update${ClassName}(${className}DTO));
+        return ServerResponse.ok(${className}Service.update${ClassName}(${className}DTO));
     }
 
     /***
@@ -153,7 +153,7 @@ public class ${ClassName}Controller {
     @GetMapping(value = "/{id}")
     @PreAuthorize("hasAuthority('${permsPrefix}:view')")
     public ServerResponse< ${ClassName}VO > get${ClassName}ById(@PathVariable("id") ${primaryKey} id) throws Exception {
-        return ServerResponse.okData(${className}Service.get${ClassName}ById(id));
+        return ServerResponse.ok(${className}Service.get${ClassName}ById(id));
     }
 
     /***

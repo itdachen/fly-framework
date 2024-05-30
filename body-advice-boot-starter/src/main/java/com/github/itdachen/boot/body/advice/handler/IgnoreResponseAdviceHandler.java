@@ -55,14 +55,14 @@ public class IgnoreResponseAdviceHandler implements ResponseBodyAdvice<Object> {
         if (returnType.getGenericParameterType().equals(String.class)) {
             try {
                 // 将数据包装在 ServerResponse 里后，再转换为json字符串响应给前端
-                return new ObjectMapper().writeValueAsString(ServerResponse.okData(data));
+                return new ObjectMapper().writeValueAsString(ServerResponse.ok(data));
             } catch (JsonProcessingException e) {
                 logger.error("返回String类型错误: ", e);
-                return ServerResponse.errMsg("返回String类型错误");
+                return ServerResponse.err("返回String类型错误");
             }
         }
         // 将原本的数据包装在ServerResponse里
-        return ServerResponse.okData(data);
+        return ServerResponse.ok(data);
     }
 
 }

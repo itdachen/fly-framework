@@ -38,10 +38,10 @@ public class VerifyTicketAuthorizationCodeController {
     public ServerResponse<VerifyTicketToken> verifyTicket(String code) {
         try {
             VerifyTicketToken tokenVo = thirdVerifyTicketTokenService.findVerifyTicketToken(code);
-            return ServerResponse.okData(tokenVo);
+            return ServerResponse.ok(tokenVo);
         } catch (Exception e) {
             logger.error("第三方平台用户票据认证失败: {}", e.getMessage());
-            return ServerResponse.errMsg("系统错误, 请联系管理人员!");
+            return ServerResponse.err("系统错误, 请联系管理人员!");
         }
     }
 

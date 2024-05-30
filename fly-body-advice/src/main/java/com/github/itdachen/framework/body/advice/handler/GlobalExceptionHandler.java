@@ -36,9 +36,9 @@ public class GlobalExceptionHandler {
         logger.error(ex.getMessage());
         response.setStatus(HttpStatus.OK.value());
         if (StringUtils.isEmpty(ex.getMessage())) {
-            return ServerResponse.errMsg("出现未知错误, 请联系技术人员!");
+            return ServerResponse.err("出现未知错误, 请联系技术人员!");
         }
-        return ServerResponse.errStatusMsg(ex.getStatus(), ex.getMessage());
+        return ServerResponse.err(ex.getStatus(), ex.getMessage());
     }
 
     /**
@@ -46,7 +46,7 @@ public class GlobalExceptionHandler {
      */
     @ExceptionHandler({HttpRequestMethodNotSupportedException.class})
     public ServerResponse<String> handlerHttpRequestMethodNotSupportedException(HttpRequestMethodNotSupportedException e) {
-        return ServerResponse.errMsg("不支持' " + e.getMethod() + " '请求");
+        return ServerResponse.err("不支持' " + e.getMethod() + " '请求");
     }
 
     /**
@@ -55,7 +55,7 @@ public class GlobalExceptionHandler {
     @ExceptionHandler(RuntimeException.class)
     public ServerResponse<String> handlerRuntimeException(RuntimeException ex) {
         logger.error("运行时异常: ", ex);
-        return ServerResponse.errMsg("发生了一个错误, 请联系管理员！");
+        return ServerResponse.err("发生了一个错误, 请联系管理员！");
     }
 
 
@@ -73,9 +73,9 @@ public class GlobalExceptionHandler {
         logger.error("RateLimiterException: {}", ex.getMessage());
         response.setStatus(HttpStatus.OK.value());
         if (StringUtils.isEmpty(ex.getMessage())) {
-            return ServerResponse.errStatusMsg(429, "系统繁忙, 请稍后再试!");
+            return ServerResponse.err(429, "系统繁忙, 请稍后再试!");
         }
-        return ServerResponse.errStatusMsg(429, ex.getMessage());
+        return ServerResponse.err(429, ex.getMessage());
     }
 
     /***
@@ -92,9 +92,9 @@ public class GlobalExceptionHandler {
         logger.error("methodArgumentNotValidException: {}", ex.getMessage());
         response.setStatus(HttpStatus.OK.value());
         if (StringUtils.isEmpty(ex.getMessage())) {
-            return ServerResponse.errStatusMsg(500, "系统繁忙, 请稍后再试!");
+            return ServerResponse.err(500, "系统繁忙, 请稍后再试!");
         }
-        return ServerResponse.errStatusMsg(500, ex.getMessage());
+        return ServerResponse.err(500, ex.getMessage());
     }
 
     /***
@@ -111,9 +111,9 @@ public class GlobalExceptionHandler {
 //        logger.error("断言异常: ", ex);
 //        response.setStatus(HttpStatus.OK.value());
 //        if (StringUtils.isEmpty(ex.getMessage())) {
-//            return ServerResponse.errMsg("出现未知错误, 请联系技术人员!");
+//            return ServerResponse.err("出现未知错误, 请联系技术人员!");
 //        }
-//        return ServerResponse.errMsg(ex.getMessage());
+//        return ServerResponse.err(ex.getMessage());
 //    }
 
 
@@ -131,20 +131,20 @@ public class GlobalExceptionHandler {
         response.setStatus(HttpStatus.OK.value());
         if (null == ex) {
             logger.error("发生了一个未知错误, Exception 为空 ...");
-            return ServerResponse.errMsg("发生了一个错误, 请联系管理员！");
+            return ServerResponse.err("发生了一个错误, 请联系管理员！");
         }
         Throwable cause = ex.getCause();
         if (null == cause) {
             logger.error("服务器发生了一个错误: {}", ex.getMessage(), ex);
-            return ServerResponse.errMsg("发生了一个错误, 请联系管理员！");
+            return ServerResponse.err("发生了一个错误, 请联系管理员！");
         }
         if (null == ex.getCause().getMessage() || "".equals(ex.getCause().getMessage())
                 || "null".equals(ex.getCause().getMessage())) {
             logger.error("服务器发生了一个错误, 提示消息 [ ex.getCause().getMessage() ] 为空！", ex);
-            return ServerResponse.errMsg("发生了一个错误, 请联系管理员！");
+            return ServerResponse.err("发生了一个错误, 请联系管理员！");
         }
         logger.error("服务器发生了一个错误: {}", ex.getCause().getMessage(), ex);
-        return ServerResponse.errMsg("发生了一个错误, 请联系管理员！");
+        return ServerResponse.err("发生了一个错误, 请联系管理员！");
     }
 
 

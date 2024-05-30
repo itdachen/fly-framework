@@ -44,7 +44,7 @@ public class BaseController<BizService extends IBaseService<T, PK>, T, PK> {
     @ResponseBody
     @Log(title = "分页查询", type = LogType.GET_PAGE_DATA)
     public ServerResponse<TableData<T>> page(Map<String,Object> params) throws Exception {
-        return ServerResponse.okData(bizService.page(params));
+        return ServerResponse.ok(bizService.page(params));
     }
 
     /***
@@ -59,7 +59,7 @@ public class BaseController<BizService extends IBaseService<T, PK>, T, PK> {
     @ResponseBody
     @Log(title = "新增", type = LogType.SAVE)
     public ServerResponse<T> saveInfo(@Valid @RequestBody T t) throws Exception {
-        return ServerResponse.okData(bizService.saveInfo(t));
+        return ServerResponse.ok(bizService.saveInfo(t));
     }
 
     /***
@@ -74,7 +74,7 @@ public class BaseController<BizService extends IBaseService<T, PK>, T, PK> {
     @ResponseBody
     @Log(title = "修改/编辑", type = LogType.UPDATE)
     public ServerResponse<T> updateInfo(@Valid @RequestBody T t) throws Exception {
-        return ServerResponse.okData(bizService.updateInfo(t));
+        return ServerResponse.ok(bizService.updateInfo(t));
     }
 
     /***
@@ -88,7 +88,7 @@ public class BaseController<BizService extends IBaseService<T, PK>, T, PK> {
     @GetMapping(value = "/{id}")
     @ResponseBody
     public ServerResponse<T> selectByPrimaryKey(@PathVariable("id") PK id) throws Exception {
-        return ServerResponse.okData(bizService.selectByPrimaryKey(id));
+        return ServerResponse.ok(bizService.selectByPrimaryKey(id));
     }
 
     /***
@@ -103,7 +103,7 @@ public class BaseController<BizService extends IBaseService<T, PK>, T, PK> {
     @ResponseBody
     @Log(title = "删除", type = LogType.REMOVE)
     public ServerResponse<Integer> deleteByPrimaryKey(@PathVariable("id") PK id) throws Exception {
-        return ServerResponse.okData(bizService.deleteByPrimaryKey(id));
+        return ServerResponse.ok(bizService.deleteByPrimaryKey(id));
     }
 
     /***
