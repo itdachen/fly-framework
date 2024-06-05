@@ -6,6 +6,7 @@ import com.github.itdachen.framework.context.handler.GlobalContextThreadLocalHan
 import com.github.itdachen.framework.context.handler.GlobalContextUserDetailsHandler;
 import com.github.itdachen.framework.context.jwt.IJwtInfo;
 import com.github.itdachen.framework.context.userdetails.UserInfoDetails;
+import org.apache.commons.lang3.StringUtils;
 
 import java.time.LocalDate;
 import java.time.LocalDateTime;
@@ -573,17 +574,23 @@ public class BizContextHandler {
     }
 
     private static LocalDateTime toLocalDateTime(String strLocalTime) {
+        if (StringUtils.isEmpty(strLocalTime)) {
+            return null;
+        }
         //1.具有转换功能的对象
         DateTimeFormatter df = DateTimeFormatter.ofPattern("yyyy-MM-dd HH:mm:ss");
-//2.要转换的对象
-        LocalDateTime time = LocalDateTime.now();
-//3.发动功能
-        String localTime = df.format(time);
-//3.LocalDate发动，将字符串转换成  df格式的LocalDateTime对象，的功能
+//         //2.要转换的对象
+//        LocalDateTime time = LocalDateTime.now();
+//         //3.发动功能
+//        String localTime = df.format(time);
+        //3.LocalDate发动，将字符串转换成  df格式的LocalDateTime对象，的功能
         return LocalDateTime.parse(strLocalTime, df);
     }
 
     private static String toLocalDateTime(LocalDateTime dateTime) {
+        if (null == dateTime) {
+            return null;
+        }
         DateTimeFormatter formatter = DateTimeFormatter.ofPattern("yyyy-MM-dd HH:mm:ss");
         return dateTime.format(formatter);
     }

@@ -94,7 +94,18 @@ public class GlobalContextUserDetailsHandler {
      */
     public static void contextUserHandler(IJwtInfo jwtInfo) {
         BizContextHandler.setTokenId(jwtInfo.getTokenId());
+
+        BizContextHandler.setId(jwtInfo.getUserId());
+        BizContextHandler.setUsername(jwtInfo.getUniqueName());
+        BizContextHandler.setTenantId(jwtInfo.getTenantId());
+        BizContextHandler.setUserId(jwtInfo.getUserId());
+        BizContextHandler.setNickName(jwtInfo.getNickName());
+
         final Map<String, String> otherInfo = jwtInfo.getOtherInfo();
+
+        if (null == otherInfo || otherInfo.isEmpty()){
+            return;
+        }
 
         /* 登录信息 */
         BizContextHandler.setId(jwtInfo.getUserId());
@@ -150,8 +161,13 @@ public class GlobalContextUserDetailsHandler {
         BizContextHandler.setHostBrowser(otherInfo.get(UserInfoConstant.HOST_BROWSER));
 
         /* 密码更新时间 */
-        BizContextHandler.setExpTime(LocalDateTime.parse(otherInfo.get(UserInfoConstant.EXP_TIME), DateFormatConstants.DATE_TIME_FORMATTER));
-        BizContextHandler.setLastTime(LocalDateTime.parse(otherInfo.get(UserInfoConstant.LAST_TIME), DateFormatConstants.DATE_TIME_FORMATTER));
+        if (null != otherInfo.get(UserInfoConstant.EXP_TIME)) {
+            BizContextHandler.setExpTime(LocalDateTime.parse(otherInfo.get(UserInfoConstant.EXP_TIME), DateFormatConstants.DATE_TIME_FORMATTER));
+        }
+        if (null != otherInfo.get(UserInfoConstant.LAST_TIME)) {
+            BizContextHandler.setLastTime(LocalDateTime.parse(otherInfo.get(UserInfoConstant.LAST_TIME), DateFormatConstants.DATE_TIME_FORMATTER));
+        }
+
     }
 
 
