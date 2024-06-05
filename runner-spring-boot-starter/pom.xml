@@ -6,7 +6,7 @@
     <parent>
         <groupId>com.github.itdachen</groupId>
         <artifactId>fly-framework</artifactId>
-        <version>1.0.5</version>
+      <version>1.0.7</version>
     </parent>
 
     <artifactId>runner-spring-boot-starter</artifactId>
@@ -40,11 +40,6 @@
             <artifactId>spring-boot</artifactId>
         </dependency>
         <dependency>
-            <groupId>com.github.itdachen</groupId>
-            <artifactId>fly-spring</artifactId>
-        </dependency>
-
-        <dependency>
             <groupId>jakarta.servlet</groupId>
             <artifactId>jakarta.servlet-api</artifactId>
         </dependency>
@@ -55,6 +50,10 @@
         <dependency>
             <groupId>org.springframework</groupId>
             <artifactId>spring-web</artifactId>
+        </dependency>
+        <dependency>
+            <groupId>com.github.itdachen</groupId>
+            <artifactId>fly-boot-autoconfigure</artifactId>
         </dependency>
     </dependencies>
 

@@ -1,6 +1,6 @@
 package com.github.itdachen.boot.run.handler;
 
-import com.github.itdachen.framework.spring.SpringBeanUtils;
+import com.github.itdachen.boot.autoconfigure.AppContextHelper;
 import org.apache.commons.lang3.StringUtils;
 import org.springframework.core.env.Environment;
 
@@ -10,7 +10,7 @@ import org.springframework.core.env.Environment;
  * Created with IntelliJ IDEA.
  */
 public class ContextPathHandler {
-    private static final Environment environment = SpringBeanUtils.getBean("environment");
+    private static final Environment environment = AppContextHelper.getBean("environment");
 
     public static String contextPath() {
         String contextPath = environment.getProperty("server.servlet.context-path");

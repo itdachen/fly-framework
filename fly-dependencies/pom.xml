@@ -6,7 +6,7 @@
     <groupId>com.github.itdachen</groupId>
     <artifactId>fly-dependencies</artifactId>
     <name>${project.artifactId}</name>
-    <version>1.0.5</version>
+    <version>1.0.7</version>
     <packaging>pom</packaging>
     <description>项目依赖统一管理</description>
 
@@ -141,16 +141,6 @@
             </dependency>
             <dependency>
                 <groupId>com.github.itdachen</groupId>
-                <artifactId>fly-runner</artifactId>
-                <version>${project.version}</version>
-            </dependency>
-            <dependency>
-                <groupId>com.github.itdachen</groupId>
-                <artifactId>fly-spring</artifactId>
-                <version>${project.version}</version>
-            </dependency>
-            <dependency>
-                <groupId>com.github.itdachen</groupId>
                 <artifactId>fly-tools</artifactId>
                 <version>${project.version}</version>
             </dependency>
@@ -171,17 +161,7 @@
             </dependency>
             <dependency>
                 <groupId>com.github.itdachen</groupId>
-                <artifactId>fly-code-tools</artifactId>
-                <version>${project.version}</version>
-            </dependency>
-            <dependency>
-                <groupId>com.github.itdachen</groupId>
                 <artifactId>fly-sensitive</artifactId>
-                <version>${project.version}</version>
-            </dependency>
-            <dependency>
-                <groupId>com.github.itdachen</groupId>
-                <artifactId>fly-thread-pool</artifactId>
                 <version>${project.version}</version>
             </dependency>
             <dependency>

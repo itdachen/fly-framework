@@ -58,8 +58,6 @@
 | fly-oss                          | 文件上传模块                    |
 | fly-jwt                          | JSON Web Token (JWT)封装实现  |
 | fly-webmvc                       | 通用 MVC 封装模块               |
-| fly-runner                       | SpringBoot 启动 runner 日志模块 |
-| fly-spring                       | 关于 Spring 部分组件工具封装模块      |
 | fly-tools                        | 工具类模块                     |
 | fly-rbac                         | RBAC 鉴权模块                 |
 | fly-assets                       | 前端资源模块                    |

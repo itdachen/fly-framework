@@ -6,7 +6,7 @@
     <groupId>com.github.itdachen</groupId>
     <artifactId>fly-framework</artifactId>
     <name>${project.artifactId}</name>
-    <version>1.0.5</version>
+    <version>1.0.7</version>
     <packaging>pom</packaging>
 
     <properties>
@@ -36,15 +36,11 @@
         <module>fly-core</module>
         <module>fly-hardware</module>
         <module>fly-webmvc</module>
-        <module>fly-runner</module>
-        <module>fly-spring</module>
         <module>fly-tools</module>
         <module>fly-crypto</module>
         <module>fly-body-advice</module>
         <module>fly-weixin</module>
-        <module>fly-code-tools</module>
         <module>fly-sensitive</module>
-        <module>fly-thread-pool</module>
         <module>fly-msg-body</module>
         <module>fly-boot-autoconfigure</module>
         <module>datasource-crypto-boot-starter</module>

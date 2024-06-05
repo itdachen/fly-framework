@@ -2,14 +2,15 @@ package com.github.itdachen.boot.oplog.aspectj;
 
 import com.alibaba.fastjson.JSON;
 import com.alibaba.fastjson.JSONObject;
+import com.github.itdachen.boot.autoconfigure.AppContextHelper;
 import com.github.itdachen.boot.oplog.constants.OplogConstant;
 import com.github.itdachen.boot.oplog.entity.OplogClient;
 import com.github.itdachen.boot.oplog.manager.OplogAsyncFactory;
+import com.github.itdachen.boot.oplog.manager.service.IOplogClientService;
 import com.github.itdachen.framework.context.BizContextHandler;
 import com.github.itdachen.framework.context.annotation.CheckApiClient;
 import com.github.itdachen.framework.context.annotation.Log;
 import com.github.itdachen.framework.context.id.IdUtils;
-import com.github.itdachen.framework.threads.manager.AsyncThreadsManager;
 import com.github.itdachen.framework.tools.ServletUtils;
 import org.aspectj.lang.JoinPoint;
 import org.aspectj.lang.annotation.AfterReturning;
@@ -21,6 +22,7 @@ import org.slf4j.LoggerFactory;
 import org.springframework.web.multipart.MultipartFile;
 
 import java.time.LocalDateTime;
+import java.util.concurrent.*;
 
 /**
  * Description: 操作日志 AOP
@@ -31,6 +33,21 @@ import java.time.LocalDateTime;
 //@Component
 public class OplogAspectj {
     private static final Logger logger = LoggerFactory.getLogger(OplogAspectj.class);
+
+    private static final ThreadPoolExecutor threadPoolExecutor = new ThreadPoolExecutor(8,
+            16,
+            3,
+            TimeUnit.SECONDS,
+            new ArrayBlockingQueue<>(1000),
+            new ThreadFactory() {
+                @Override
+                public Thread newThread(Runnable r) {
+                    Thread thread = new Thread(r);
+                    thread.setName("oplog-aspect-thread-" + ThreadLocalRandom.current().nextInt(1000));
+                    return thread;
+                }
+            });
+
 
     @Pointcut("@annotation(log)")
     public void logPointCut(Log log) {
@@ -61,7 +78,20 @@ public class OplogAspectj {
 
         try {
             // 保存数据库
-            AsyncThreadsManager.me().execute(OplogAsyncFactory.recordOplog(apiLog));
+            // AsyncThreadsManager.me().execute(OplogAsyncFactory.recordOplog(apiLog));
+
+            threadPoolExecutor.execute(new Runnable() {
+                @Override
+                public void run() {
+                    try {
+                        AppContextHelper.getBean(IOplogClientService.class).save(apiLog);
+                    } catch (Exception e) {
+                        logger.error("操作日志数据入库异常: ", e);
+                    }
+                }
+            });
+
+
         } catch (Exception exp) {
             // 记录本地异常日志
             logger.error("==前置通知异常==异常信息: {}", exp.getMessage(), exp);
@@ -92,7 +122,16 @@ public class OplogAspectj {
 
         try {
             // 保存数据库
-            AsyncThreadsManager.me().execute(OplogAsyncFactory.recordOplog(apiLog));
+            threadPoolExecutor.execute(new Runnable() {
+                @Override
+                public void run() {
+                    try {
+                        AppContextHelper.getBean(IOplogClientService.class).save(apiLog);
+                    } catch (Exception e) {
+                        logger.error("操作日志数据入库异常: ", e);
+                    }
+                }
+            });
         } catch (Exception exp) {
             // 记录本地异常日志
             logger.error("==前置通知异常==异常信息: {}", exp.getMessage(), exp);
@@ -142,6 +181,9 @@ public class OplogAspectj {
             }
             Object[] args = joinPoint.getArgs();
             int length = args.length;
+            if (0 == length) {
+                return "";
+            }
             if (1 == length) {
                 return JSON.toJSONString(joinPoint.getArgs());
             } else {
