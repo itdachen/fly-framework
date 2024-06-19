@@ -1,7 +1,7 @@
 package com.github.itdachen.cloud.jwt.parse;
 
-import com.github.itdachen.boot.autoconfigure.cloud.jwt.properties.CloudAppClientProperties;
-import com.github.itdachen.boot.autoconfigure.cloud.jwt.properties.CloudTokenProperties;
+import com.github.itdachen.boot.autoconfigure.cloud.auth.properties.CloudAppClientProperties;
+import com.github.itdachen.boot.autoconfigure.cloud.auth.properties.CloudTokenProperties;
 import com.github.itdachen.cloud.jwt.IVerifyTicketPublicKeyHelper;
 import com.github.itdachen.cloud.jwt.IVerifyTicketTokenHelper;
 import com.github.itdachen.cloud.jwt.parse.factory.ParseTokenFactory;

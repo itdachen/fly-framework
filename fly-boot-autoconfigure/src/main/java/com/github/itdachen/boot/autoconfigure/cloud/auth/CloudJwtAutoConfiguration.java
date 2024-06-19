@@ -1,7 +1,7 @@
-package com.github.itdachen.boot.autoconfigure.cloud.jwt;
+package com.github.itdachen.boot.autoconfigure.cloud.auth;
 
-import com.github.itdachen.boot.autoconfigure.cloud.jwt.properties.CloudAppClientProperties;
-import com.github.itdachen.boot.autoconfigure.cloud.jwt.properties.CloudTokenProperties;
+import com.github.itdachen.boot.autoconfigure.cloud.auth.properties.CloudAppClientProperties;
+import com.github.itdachen.boot.autoconfigure.cloud.auth.properties.CloudTokenProperties;
 import org.springframework.boot.context.properties.EnableConfigurationProperties;
 import org.springframework.context.annotation.Configuration;
 

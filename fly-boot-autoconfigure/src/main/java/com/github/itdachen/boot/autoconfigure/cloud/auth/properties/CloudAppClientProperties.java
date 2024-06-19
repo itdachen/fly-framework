@@ -1,4 +1,4 @@
-package com.github.itdachen.boot.autoconfigure.cloud.jwt.properties;
+package com.github.itdachen.boot.autoconfigure.cloud.auth.properties;
 
 import org.springframework.boot.context.properties.ConfigurationProperties;
 

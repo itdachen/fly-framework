@@ -1,4 +1,4 @@
-package com.github.itdachen.boot.autoconfigure.cloud.jwt.enums;
+package com.github.itdachen.boot.autoconfigure.cloud.auth.enums;
 
 /**
  * Description: 生成 token 类型

@@ -10,6 +10,7 @@ import com.github.itdachen.boot.oplog.manager.service.IOplogClientService;
 import com.github.itdachen.framework.context.BizContextHandler;
 import com.github.itdachen.framework.context.annotation.CheckApiClient;
 import com.github.itdachen.framework.context.annotation.Log;
+import com.github.itdachen.framework.context.constants.YesOrNotConstant;
 import com.github.itdachen.framework.context.id.IdUtils;
 import com.github.itdachen.framework.tools.ServletUtils;
 import org.aspectj.lang.JoinPoint;
@@ -22,6 +23,8 @@ import org.slf4j.LoggerFactory;
 import org.springframework.web.multipart.MultipartFile;
 
 import java.time.LocalDateTime;
+import java.util.Collection;
+import java.util.List;
 import java.util.concurrent.*;
 
 /**
@@ -66,15 +69,28 @@ public class OplogAspectj {
 
         /* 操作日志基础信息 */
         OplogClient apiLog = setRequest(joinPoint, log);
-
-        JSONObject json = (JSONObject) JSON.toJSON(resJson);
         apiLog.setMakeUseStatus(OplogConstant.IS_OK);
-        apiLog.setMsg(json.getString("msg"));
-        apiLog.setJsonResult(JSONObject.toJSONString(resJson));
 
-        if (!json.getBooleanValue("success")) {
-            apiLog.setMakeUseStatus(OplogConstant.IS_ERR);
+        apiLog.setMakeUseStatus("200");
+        apiLog.setMsg("操作成功！");
+        apiLog.setJsonResult("[]");
+
+        if (resJson instanceof Collection) {
+            apiLog.setMsg("操作成功！");
+            apiLog.setJsonResult("[]");
+        } else if (resJson.getClass().isArray()) {
+            apiLog.setMsg("操作成功！");
+            apiLog.setJsonResult("[]");
+        } else {
+            /* 响应数据 */
+            JSONObject json = JSONObject.parseObject(resJson.toString());
+            apiLog.setMsg(json.getString("msg"));
+            apiLog.setJsonResult(JSONObject.toJSONString(resJson));
+            if (!json.getBooleanValue("success")) {
+                apiLog.setMakeUseStatus(OplogConstant.IS_ERR);
+            }
         }
+
 
         try {
             // 保存数据库

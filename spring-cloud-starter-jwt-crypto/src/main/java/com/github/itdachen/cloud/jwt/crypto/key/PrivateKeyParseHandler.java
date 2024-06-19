@@ -1,11 +1,10 @@
 package com.github.itdachen.cloud.jwt.crypto.key;
 
-import com.github.itdachen.boot.autoconfigure.cloud.jwt.enums.JwtTokenEnumType;
-import com.github.itdachen.boot.autoconfigure.cloud.jwt.properties.CloudTokenProperties;
+import com.github.itdachen.boot.autoconfigure.cloud.auth.enums.JwtTokenEnumType;
+import com.github.itdachen.boot.autoconfigure.cloud.auth.properties.CloudTokenProperties;
 import com.github.itdachen.cloud.jwt.ITokenSecretKeyHandler;
 import com.github.itdachen.cloud.jwt.contents.SignatureAlgorithmContents;
 import com.github.itdachen.framework.context.jwt.key.JwtSecretKey;
-import io.jsonwebtoken.Jwts;
 import io.jsonwebtoken.security.SignatureAlgorithm;
 
 import java.security.KeyPair;

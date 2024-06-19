@@ -1,6 +1,6 @@
-package com.github.itdachen.boot.autoconfigure.cloud.jwt.properties;
+package com.github.itdachen.boot.autoconfigure.cloud.auth.properties;
 
-import com.github.itdachen.boot.autoconfigure.cloud.jwt.enums.JwtTokenEnumType;
+import com.github.itdachen.boot.autoconfigure.cloud.auth.enums.JwtTokenEnumType;
 import org.springframework.boot.context.properties.ConfigurationProperties;
 
 /**

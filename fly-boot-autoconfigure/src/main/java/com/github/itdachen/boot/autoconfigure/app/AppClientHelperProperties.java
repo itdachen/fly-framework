@@ -1,24 +1,23 @@
-package com.github.itdachen.boot.autoconfigure;
+package com.github.itdachen.boot.autoconfigure.app;
 
-import com.github.itdachen.boot.autoconfigure.app.AppInfoProperties;
-import com.github.itdachen.boot.autoconfigure.app.PlatformInfoProperties;
+import com.github.itdachen.boot.autoconfigure.AppContextHelper;
 
 /**
- * 应用信息帮手
+ * AppProperties
  *
  * @author 王大宸
- * @date 2024-06-03 15:49
+ * @date 2024-06-19 16:10
  */
-public class AppHelper {
+public class AppClientHelperProperties {
 
     /***
      * 获取应用信息
      *
      * @author 王大宸
-     * @date 2024/6/3 15:52
+     * @date 2024/6/19 16:12
      * @return com.github.itdachen.boot.autoconfigure.app.AppInfoProperties
      */
-    public static AppInfoProperties appInfo() {
+    public AppInfoProperties properties() {
         return AppContextHelper.getBean(AppInfoProperties.class);
     }
 
@@ -26,10 +25,10 @@ public class AppHelper {
      * 获取平台信息
      *
      * @author 王大宸
-     * @date 2024/6/3 15:52
+     * @date 2024/6/19 16:12
      * @return com.github.itdachen.boot.autoconfigure.app.PlatformInfoProperties
      */
-    public static PlatformInfoProperties platformInfo() {
+    public PlatformInfoProperties platform() {
         return AppContextHelper.getBean(PlatformInfoProperties.class);
     }
 

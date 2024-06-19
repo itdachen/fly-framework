@@ -1,6 +1,6 @@
 package com.github.itdachen.cloud.jwt.parse.matchers.impl;
 
-import com.github.itdachen.boot.autoconfigure.cloud.jwt.properties.CloudAppClientProperties;
+import com.github.itdachen.boot.autoconfigure.cloud.auth.properties.CloudAppClientProperties;
 import com.github.itdachen.cloud.jwt.parse.matchers.IRequestPassMatchers;
 
 import java.util.List;

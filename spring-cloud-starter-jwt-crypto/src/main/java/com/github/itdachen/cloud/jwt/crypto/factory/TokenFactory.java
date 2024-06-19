@@ -1,7 +1,7 @@
 package com.github.itdachen.cloud.jwt.crypto.factory;
 
-import com.github.itdachen.boot.autoconfigure.cloud.jwt.enums.JwtTokenEnumType;
-import com.github.itdachen.boot.autoconfigure.cloud.jwt.properties.CloudTokenProperties;
+import com.github.itdachen.boot.autoconfigure.cloud.auth.enums.JwtTokenEnumType;
+import com.github.itdachen.boot.autoconfigure.cloud.auth.properties.CloudTokenProperties;
 import com.github.itdachen.cloud.jwt.crypto.token.AbstractCreateTokenHandler;
 import com.github.itdachen.cloud.jwt.crypto.token.EcCreateTokenHandler;
 import com.github.itdachen.cloud.jwt.crypto.token.RsaCreateTokenHandler;

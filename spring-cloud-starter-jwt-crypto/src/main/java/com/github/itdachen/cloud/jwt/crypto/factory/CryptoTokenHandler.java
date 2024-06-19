@@ -1,6 +1,6 @@
 package com.github.itdachen.cloud.jwt.crypto.factory;
 
-import com.github.itdachen.boot.autoconfigure.cloud.jwt.properties.CloudTokenProperties;
+import com.github.itdachen.boot.autoconfigure.cloud.auth.properties.CloudTokenProperties;
 import com.github.itdachen.cloud.jwt.ICryptoTokenHandler;
 import com.github.itdachen.cloud.jwt.crypto.AuthTokenSecretKey;
 import com.github.itdachen.framework.context.jwt.IJwtInfo;
