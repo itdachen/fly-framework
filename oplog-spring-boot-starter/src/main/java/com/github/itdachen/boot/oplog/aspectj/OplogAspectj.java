@@ -83,7 +83,8 @@ public class OplogAspectj {
             apiLog.setJsonResult("[]");
         } else {
             /* 响应数据 */
-            JSONObject json = JSONObject.parseObject(resJson.toString());
+            JSONObject json = (JSONObject) JSON.toJSON(resJson);
+           // JSONObject json = JSONObject.parseObject(resJson.toString());
             apiLog.setMsg(json.getString("msg"));
             apiLog.setJsonResult(JSONObject.toJSONString(resJson));
             if (!json.getBooleanValue("success")) {
