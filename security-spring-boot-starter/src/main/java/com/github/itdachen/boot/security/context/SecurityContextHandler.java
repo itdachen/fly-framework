@@ -108,9 +108,14 @@ public class SecurityContextHandler {
         userInfoDetails.setRoleFlag(userDetails.getRoleFlag());
 
         /* 区域信息 */
-        userInfoDetails.setProvId(userDetails.getProvId());
-        userInfoDetails.setCityId(userDetails.getCityId());
-        userInfoDetails.setCountyId(userDetails.getCountyId());
+        userInfoDetails.setProvCode(userDetails.getProvCode());
+        userInfoDetails.setProvName(userDetails.getProvName());
+        userInfoDetails.setCityCode(userDetails.getCityCode());
+        userInfoDetails.setCityName(userDetails.getCityName());
+        userInfoDetails.setCountyCode(userDetails.getProvCode());
+        userInfoDetails.setCountyName(userDetails.getCountyName());
+        userInfoDetails.setStreetCode(userDetails.getStreetCode());
+        userInfoDetails.setStreetName(userDetails.getStreetName());
 
         /* 部门信息 */
         userInfoDetails.setDeptId(userDetails.getDeptId());

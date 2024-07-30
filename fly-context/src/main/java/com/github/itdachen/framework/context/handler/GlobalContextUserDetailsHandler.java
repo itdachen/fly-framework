@@ -59,9 +59,14 @@ public class GlobalContextUserDetailsHandler {
         BizContextHandler.setRoleFlag(userDetails.getRoleFlag());
 
         /* 区域信息 */
-        BizContextHandler.setProvId(userDetails.getProvId());
-        BizContextHandler.setCityId(userDetails.getCityId());
-        BizContextHandler.setCountyId(userDetails.getCountyId());
+        BizContextHandler.setProvCode(userDetails.getProvCode());
+        BizContextHandler.setProvName(userDetails.getProvName());
+        BizContextHandler.setCityCode(userDetails.getCityCode());
+        BizContextHandler.setCityName(userDetails.getCityName());
+        BizContextHandler.setCountyCode(userDetails.getProvCode());
+        BizContextHandler.setCountyName(userDetails.getCountyName());
+        BizContextHandler.setStreetCode(userDetails.getStreetCode());
+        BizContextHandler.setStreetName(userDetails.getStreetCode());
 
         /* 部门信息 */
         BizContextHandler.setDeptId(userDetails.getDeptId());
@@ -147,9 +152,15 @@ public class GlobalContextUserDetailsHandler {
         BizContextHandler.setDeptType(otherInfo.get(UserInfoConstant.DEPT_TYPE));
 
         /* 账号行政区域信息 */
-        BizContextHandler.setProvId(otherInfo.get(UserInfoConstant.PROV_ID));
-        BizContextHandler.setCityId(otherInfo.get(UserInfoConstant.CITY_ID));
-        BizContextHandler.setCountyId(otherInfo.get(UserInfoConstant.COUNTY_ID));
+        BizContextHandler.setProvCode(otherInfo.get(UserInfoConstant.PROV_ID));
+        BizContextHandler.setProvName(otherInfo.get(UserInfoConstant.PROV_NAME));
+        BizContextHandler.setCityCode(otherInfo.get(UserInfoConstant.CITY_ID));
+        BizContextHandler.setCityName(otherInfo.get(UserInfoConstant.CITY_NAME));
+        BizContextHandler.setCountyCode(otherInfo.get(UserInfoConstant.COUNTY_ID));
+        BizContextHandler.setCountyName(otherInfo.get(UserInfoConstant.COUNTY_NAME));
+        BizContextHandler.setStreetCode(otherInfo.get(UserInfoConstant.STREET_CODE));
+        BizContextHandler.setStreetName(otherInfo.get(UserInfoConstant.STREET_NAME));
+
 
         /* 登录主机信息 */
         BizContextHandler.setHostIp(otherInfo.get(UserInfoConstant.HOST_IP));
@@ -211,9 +222,15 @@ public class GlobalContextUserDetailsHandler {
         userInfoDetails.setRoleFlag(BizContextHandler.getRoleFlag());
 
         /* 区域信息 */
-        userInfoDetails.setProvId(BizContextHandler.getProvId());
-        userInfoDetails.setCityId(BizContextHandler.getCityId());
-        userInfoDetails.setCountyId(BizContextHandler.getCountyId());
+        userInfoDetails.setProvCode(BizContextHandler.getProvCode());
+        userInfoDetails.setProvName(BizContextHandler.getProvName());
+        userInfoDetails.setCityCode(BizContextHandler.getCityCode());
+        userInfoDetails.setCityName(BizContextHandler.getCityName());
+        userInfoDetails.setCountyCode(BizContextHandler.getProvCode());
+        userInfoDetails.setCountyName(BizContextHandler.getCountyName());
+        userInfoDetails.setStreetCode(BizContextHandler.getStreetCode());
+        userInfoDetails.setStreetName(BizContextHandler.getStreetName());
+
 
         /* 部门信息 */
         userInfoDetails.setDeptId(BizContextHandler.getDeptId());
@@ -279,9 +296,15 @@ public class GlobalContextUserDetailsHandler {
         userInfoDetails.setRoleFlag(userDetails.getRoleFlag());
 
         /* 区域信息 */
-        userInfoDetails.setProvId(userDetails.getProvId());
-        userInfoDetails.setCityId(userDetails.getCityId());
-        userInfoDetails.setCountyId(userDetails.getCountyId());
+        userInfoDetails.setProvCode(userDetails.getProvCode());
+        userInfoDetails.setProvName(userDetails.getProvName());
+        userInfoDetails.setCityCode(userDetails.getCityCode());
+        userInfoDetails.setCityName(userDetails.getCityName());
+        userInfoDetails.setCountyCode(userDetails.getProvCode());
+        userInfoDetails.setCountyName(userDetails.getCountyName());
+        userInfoDetails.setStreetCode(userDetails.getStreetCode());
+        userInfoDetails.setStreetName(userDetails.getStreetName());
+
 
         /* 部门信息 */
         userInfoDetails.setDeptId(userDetails.getDeptId());

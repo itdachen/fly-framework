@@ -332,35 +332,76 @@ public class BizContextHandler {
     /**
      * 身份所属省份代码, 例如: 贵州-52
      */
-    public static String getProvId() {
+    public static String getProvCode() {
         return GlobalContextThreadLocalHandler.returnObjectValue(GlobalContextThreadLocalHandler.get(UserInfoConstant.PROV_ID));
     }
 
-    public static void setProvId(String value) {
+    public static void setProvCode(String value) {
         GlobalContextThreadLocalHandler.set(UserInfoConstant.PROV_ID, value);
+    }
+
+    public static String getProvName() {
+        return GlobalContextThreadLocalHandler.returnObjectValue(GlobalContextThreadLocalHandler.get(UserInfoConstant.PROV_NAME));
+    }
+
+    public static void setProvName(String value) {
+        GlobalContextThreadLocalHandler.set(UserInfoConstant.PROV_NAME, value);
     }
 
     /**
      * 身份所属市州代码, 例如: 贵阳-5201
      */
-    public static String getCityId() {
+    public static String getCityCode() {
         return GlobalContextThreadLocalHandler.returnObjectValue(GlobalContextThreadLocalHandler.get(UserInfoConstant.CITY_ID));
     }
 
-    public static void setCityId(String value) {
+    public static void setCityCode(String value) {
         GlobalContextThreadLocalHandler.set(UserInfoConstant.CITY_ID, value);
+    }
+
+    public static String getCityName() {
+        return GlobalContextThreadLocalHandler.returnObjectValue(GlobalContextThreadLocalHandler.get(UserInfoConstant.CITY_NAME));
+    }
+
+    public static void setCityName(String value) {
+        GlobalContextThreadLocalHandler.set(UserInfoConstant.CITY_NAME, value);
     }
 
     /**
      * 身份所属区县代码, 例如: 贵阳南明-520101
      */
-    public static String getCountyId() {
+    public static String getCountyCode() {
         return GlobalContextThreadLocalHandler.returnObjectValue(GlobalContextThreadLocalHandler.get(UserInfoConstant.COUNTY_ID));
     }
 
-    public static void setCountyId(String value) {
+    public static void setCountyCode(String value) {
         GlobalContextThreadLocalHandler.set(UserInfoConstant.COUNTY_ID, value);
     }
+
+    public static String getCountyName() {
+        return GlobalContextThreadLocalHandler.returnObjectValue(GlobalContextThreadLocalHandler.get(UserInfoConstant.COUNTY_NAME));
+    }
+
+    public static void setCountyName(String value) {
+        GlobalContextThreadLocalHandler.set(UserInfoConstant.COUNTY_NAME, value);
+    }
+
+    public static void setStreetCode(String value) {
+        GlobalContextThreadLocalHandler.set(UserInfoConstant.STREET_CODE, value);
+    }
+
+    public static String getStreetCode() {
+        return GlobalContextThreadLocalHandler.returnObjectValue(GlobalContextThreadLocalHandler.get(UserInfoConstant.STREET_CODE));
+    }
+
+    public static void setStreetName(String value) {
+        GlobalContextThreadLocalHandler.set(UserInfoConstant.STREET_NAME, value);
+    }
+
+    public static String getStreetName() {
+        return GlobalContextThreadLocalHandler.returnObjectValue(GlobalContextThreadLocalHandler.get(UserInfoConstant.STREET_NAME));
+    }
+
 
     /**
      * 登录主机IP

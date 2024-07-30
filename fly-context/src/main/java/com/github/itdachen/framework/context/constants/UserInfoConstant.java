@@ -123,14 +123,27 @@ public class UserInfoConstant {
     public static final String PROV_ID = "provId";
 
     /**
+     * 身份所属省份代码, 例如: 贵州-52
+     */
+    public static final String PROV_NAME = "provName";
+
+    /**
      * 身份所属市州代码, 例如: 贵阳-5201
      */
     public static final String CITY_ID = "cityId";
+
+    public static final String CITY_NAME = "cityName";
 
     /**
      * 身份所属区县代码, 例如: 贵阳云岩-520101
      */
     public static final String COUNTY_ID = "countyId";
+    public static final String COUNTY_NAME = "countyName";
+
+    public static final String STREET_CODE = "streetCode";
+    public static final String STREET_NAME = "streetName";
+
+
 
     /**
      * 身份所属部门ID

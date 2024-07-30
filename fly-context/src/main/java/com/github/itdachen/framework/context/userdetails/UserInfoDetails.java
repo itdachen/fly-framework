@@ -14,7 +14,6 @@ import java.time.LocalDateTime;
 public class UserInfoDetails implements Serializable {
     private static final Long serialVersionUID = 6829345754240159691L;
 
-
     /**
      * 用户ID
      */
@@ -128,17 +127,42 @@ public class UserInfoDetails implements Serializable {
     /**
      * 身份所属省ID, 例如: 贵州-52
      */
-    private String provId;
+    private String provCode;
+
+    /**
+     * 省名称, 例如: 贵州省
+     */
+    private String provName;
 
     /**
      * 身份所属市/州ID,例如: 贵阳-5201
      */
-    private String cityId;
+    private String cityCode;
 
     /**
-     * 身份所属区/县ID例如: 贵阳云岩-520101
+     * 身份所属市/州,例如: 贵阳
      */
-    private String countyId;
+    private String cityName;
+
+    /**
+     * 身份所属区/县ID例如: 贵阳云岩-520102
+     */
+    private String countyCode;
+
+    /**
+     * 身份所属区/县例如: 贵阳云岩
+     */
+    private String countyName;
+
+    /**
+     * 街道ID
+     */
+    private String streetCode;
+
+    /**
+     * 街道名称
+     */
+    private String streetName;
 
     /**
      * 身份所属部门ID
@@ -214,7 +238,7 @@ public class UserInfoDetails implements Serializable {
     public UserInfoDetails() {
     }
 
-    public UserInfoDetails(String id, String username, String password, String platId, String platName, String appId, String appName, String appVersion, String appContextPath, String tenantId, String tenantTitle, String loginMethod, String nickName, String avatar, String email, String sex, String userType, String telephone, String validFlag, String roleId, String roleName, String roleFlag, String provId, String cityId, String countyId, String deptId, String deptTitle, String deptType, String deptLevel, String deptParentId, String hostIp, String hostOs, String hostBrowser, String hostAddr, String hostUserAgent, String hostProv, String hostCity, LocalDateTime expTime, LocalDateTime lastTime) {
+    public UserInfoDetails(String id, String username, String password, String platId, String platName, String appId, String appName, String appVersion, String appContextPath, String tenantId, String tenantTitle, String loginMethod, String nickName, String avatar, String email, String sex, String userType, String telephone, String validFlag, String roleId, String roleName, String roleFlag, String provCode, String provName, String cityCode, String cityName, String countyCode, String countyName, String streetCode, String streetName, String deptId, String deptTitle, String deptType, String deptLevel, String deptParentId, String hostIp, String hostOs, String hostBrowser, String hostAddr, String hostUserAgent, String hostProv, String hostCity, LocalDateTime expTime, LocalDateTime lastTime) {
         this.id = id;
         this.username = username;
         this.password = password;
@@ -237,9 +261,14 @@ public class UserInfoDetails implements Serializable {
         this.roleId = roleId;
         this.roleName = roleName;
         this.roleFlag = roleFlag;
-        this.provId = provId;
-        this.cityId = cityId;
-        this.countyId = countyId;
+        this.provCode = provCode;
+        this.provName = provName;
+        this.cityCode = cityCode;
+        this.cityName = cityName;
+        this.countyCode = countyCode;
+        this.countyName = countyName;
+        this.streetCode = streetCode;
+        this.streetName = streetName;
         this.deptId = deptId;
         this.deptTitle = deptTitle;
         this.deptType = deptType;
@@ -260,7 +289,7 @@ public class UserInfoDetails implements Serializable {
         return new UserInfoDetailsBuilder();
     }
 
-    private static class UserInfoDetailsBuilder {
+    public static class UserInfoDetailsBuilder {
         private String id;
         private String username;
         private String password;
@@ -283,9 +312,14 @@ public class UserInfoDetails implements Serializable {
         private String roleId;
         private String roleName;
         private String roleFlag;
-        private String provId;
-        private String cityId;
-        private String countyId;
+        private String provCode;
+        private String provName;
+        private String cityCode;
+        private String cityName;
+        private String countyCode;
+        private String countyName;
+        private String streetCode;
+        private String streetName;
         private String deptId;
         private String deptTitle;
         private String deptType;
@@ -437,20 +471,50 @@ public class UserInfoDetails implements Serializable {
         }
 
         /* 身份所属省ID, 例如: 贵州-52 */
-        public UserInfoDetailsBuilder provId(String provId) {
-            this.provId = provId;
+        public UserInfoDetailsBuilder provCode(String provCode) {
+            this.provCode = provCode;
+            return this;
+        }
+
+        /* 省名称, 例如: 贵州省 */
+        public UserInfoDetailsBuilder provName(String provName) {
+            this.provName = provName;
             return this;
         }
 
         /* 身份所属市/州ID,例如: 贵阳-5201 */
-        public UserInfoDetailsBuilder cityId(String cityId) {
-            this.cityId = cityId;
+        public UserInfoDetailsBuilder cityCode(String cityCode) {
+            this.cityCode = cityCode;
             return this;
         }
 
-        /* 身份所属区/县ID例如: 贵阳云岩-520101 */
-        public UserInfoDetailsBuilder countyId(String countyId) {
-            this.countyId = countyId;
+        /* 身份所属市/州,例如: 贵阳 */
+        public UserInfoDetailsBuilder cityName(String cityName) {
+            this.cityName = cityName;
+            return this;
+        }
+
+        /* 身份所属区/县ID例如: 贵阳云岩-520102 */
+        public UserInfoDetailsBuilder countyCode(String countyCode) {
+            this.countyCode = countyCode;
+            return this;
+        }
+
+        /* 身份所属区/县例如: 贵阳云岩 */
+        public UserInfoDetailsBuilder countyName(String countyName) {
+            this.countyName = countyName;
+            return this;
+        }
+
+        /* 街道ID */
+        public UserInfoDetailsBuilder streetCode(String streetCode) {
+            this.streetCode = streetCode;
+            return this;
+        }
+
+        /* 街道名称 */
+        public UserInfoDetailsBuilder streetName(String streetName) {
+            this.streetName = streetName;
             return this;
         }
 
@@ -561,9 +625,14 @@ public class UserInfoDetails implements Serializable {
                     roleId,
                     roleName,
                     roleFlag,
-                    provId,
-                    cityId,
-                    countyId,
+                    provCode,
+                    provName,
+                    cityCode,
+                    cityName,
+                    countyCode,
+                    countyName,
+                    streetCode,
+                    streetName,
                     deptId,
                     deptTitle,
                     deptType,
@@ -760,28 +829,68 @@ public class UserInfoDetails implements Serializable {
         return roleFlag;
     }
 
-    public void setProvId(String provId) {
-        this.provId = provId;
+    public void setProvCode(String provCode) {
+        this.provCode = provCode;
     }
 
-    public String getProvId() {
-        return provId;
+    public String getProvCode() {
+        return provCode;
     }
 
-    public void setCityId(String cityId) {
-        this.cityId = cityId;
+    public void setProvName(String provName) {
+        this.provName = provName;
     }
 
-    public String getCityId() {
-        return cityId;
+    public String getProvName() {
+        return provName;
     }
 
-    public void setCountyId(String countyId) {
-        this.countyId = countyId;
+    public void setCityCode(String cityCode) {
+        this.cityCode = cityCode;
     }
 
-    public String getCountyId() {
-        return countyId;
+    public String getCityCode() {
+        return cityCode;
+    }
+
+    public void setCityName(String cityName) {
+        this.cityName = cityName;
+    }
+
+    public String getCityName() {
+        return cityName;
+    }
+
+    public void setCountyCode(String countyCode) {
+        this.countyCode = countyCode;
+    }
+
+    public String getCountyCode() {
+        return countyCode;
+    }
+
+    public void setCountyName(String countyName) {
+        this.countyName = countyName;
+    }
+
+    public String getCountyName() {
+        return countyName;
+    }
+
+    public void setStreetCode(String streetCode) {
+        this.streetCode = streetCode;
+    }
+
+    public String getStreetCode() {
+        return streetCode;
+    }
+
+    public void setStreetName(String streetName) {
+        this.streetName = streetName;
+    }
+
+    public String getStreetName() {
+        return streetName;
     }
 
     public void setDeptId(String deptId) {
@@ -922,9 +1031,14 @@ public class UserInfoDetails implements Serializable {
                 .append("roleId", getRoleId())
                 .append("roleName", getRoleName())
                 .append("roleFlag", getRoleFlag())
-                .append("provId", getProvId())
-                .append("cityId", getCityId())
-                .append("countyId", getCountyId())
+                .append("provCode", getProvCode())
+                .append("provName", getProvName())
+                .append("cityCode", getCityCode())
+                .append("cityName", getCityName())
+                .append("countyCode", getCountyCode())
+                .append("countyName", getCountyName())
+                .append("streetCode", getStreetCode())
+                .append("streetName", getStreetName())
                 .append("deptId", getDeptId())
                 .append("deptTitle", getDeptTitle())
                 .append("deptType", getDeptType())
