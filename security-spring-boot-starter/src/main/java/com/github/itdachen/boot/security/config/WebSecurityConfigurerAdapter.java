@@ -7,6 +7,7 @@ import com.github.itdachen.boot.autoconfigure.security.properties.session.Securi
 import com.github.itdachen.boot.security.authentication.mobile.MobileAuthenticationSecurityConfigurer;
 import com.github.itdachen.boot.security.authentication.platforms.PlatformAuthenticationSecurityConfigurerAdapter;
 import com.github.itdachen.boot.security.details.AbstractSecurityUserDetailsService;
+import com.github.itdachen.boot.security.handler.AuthenticationLogoutHandler;
 import com.github.itdachen.boot.security.matchers.IAuthorizeRequestMatchers;
 import com.github.itdachen.boot.security.validate.code.filter.ValidateCodeFilter;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -219,6 +220,7 @@ public class WebSecurityConfigurerAdapter {
                                         new AntPathRequestMatcher(flySecurityProperties.getLogout(), "POST")
                                 )
                         )
+                        .addLogoutHandler(new AuthenticationLogoutHandler()) // 自定义退出登录处理
                         // 退出登录访问地址
                         // .logoutUrl(securityProperties.getLogout())
                         // 删除浏览器里面 cookie 里面的认证信息

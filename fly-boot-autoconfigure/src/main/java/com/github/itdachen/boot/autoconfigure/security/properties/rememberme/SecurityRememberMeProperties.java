@@ -36,9 +36,9 @@ public class SecurityRememberMeProperties {
     private String corsCookieDomain;
 
     /**
-     * 是否永远记住
+     * 是否永远记住(如果是永远记住, 登录失效后, 会重新自动登录)
      */
-    private Boolean alwaysRemember = Boolean.TRUE;
+    private Boolean alwaysRemember = Boolean.FALSE;
 
 
     public String getKey() {

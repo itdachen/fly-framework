@@ -7,6 +7,7 @@ import com.github.itdachen.boot.oplog.constants.OplogConstant;
 import com.github.itdachen.boot.oplog.entity.OplogClient;
 import com.github.itdachen.boot.oplog.manager.OplogAsyncFactory;
 import com.github.itdachen.boot.oplog.manager.service.IOplogClientService;
+import com.github.itdachen.boot.oplog.utils.ResCollectionUtils;
 import com.github.itdachen.framework.context.BizContextHandler;
 import com.github.itdachen.framework.context.annotation.CheckApiClient;
 import com.github.itdachen.framework.context.annotation.Log;
@@ -37,9 +38,7 @@ import java.util.concurrent.*;
 public class OplogAspectj {
     private static final Logger logger = LoggerFactory.getLogger(OplogAspectj.class);
 
-    private static final ThreadPoolExecutor threadPoolExecutor = new ThreadPoolExecutor(8,
-            16,
-            3,
+    private static final ThreadPoolExecutor threadPoolExecutor = new ThreadPoolExecutor(8, 16, 3,
             TimeUnit.SECONDS,
             new ArrayBlockingQueue<>(1000),
             new ThreadFactory() {
@@ -75,16 +74,12 @@ public class OplogAspectj {
         apiLog.setMsg("操作成功！");
         apiLog.setJsonResult("[]");
 
-        if (resJson instanceof Collection) {
-            apiLog.setMsg("操作成功！");
-            apiLog.setJsonResult("[]");
-        } else if (resJson.getClass().isArray()) {
-            apiLog.setMsg("操作成功！");
-            apiLog.setJsonResult("[]");
+        if (ResCollectionUtils.isArray(resJson)){
+            apiLog.setJsonResult(JSONObject.toJSONString(resJson));
         } else {
             /* 响应数据 */
-            JSONObject json = (JSONObject) JSON.toJSON(resJson);
-           // JSONObject json = JSONObject.parseObject(resJson.toString());
+            String jsonString = JSONObject.toJSONString(resJson);
+            JSONObject json = JSONObject.parseObject(jsonString);
             apiLog.setMsg(json.getString("msg"));
             apiLog.setJsonResult(JSONObject.toJSONString(resJson));
             if (!json.getBooleanValue("success")) {
@@ -131,7 +126,8 @@ public class OplogAspectj {
         OplogClient apiLog = setRequest(joinPoint, log);
 
         /* 响应数据 */
-        JSONObject json = (JSONObject) JSON.toJSON(ex);
+        String jsonString = JSONObject.toJSONString(ex);
+        JSONObject json = JSONObject.parseObject(jsonString);
 
         apiLog.setJsonResult(getMessage(json.getIntValue("status"), ex.getMessage()));
         apiLog.setMakeUseStatus(OplogConstant.IS_ERR);

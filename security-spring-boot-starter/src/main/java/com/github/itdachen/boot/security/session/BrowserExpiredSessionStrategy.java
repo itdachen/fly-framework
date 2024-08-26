@@ -19,6 +19,8 @@ public class BrowserExpiredSessionStrategy extends AbstractBrowserSessionStrateg
 
     @Override
     public void onExpiredSessionDetected(SessionInformationExpiredEvent event) throws IOException, ServletException {
+        String sessionId = event.getSessionInformation().getSessionId();
+     //   System.err.println("session 失效, sessionID: " + sessionId);
         onSessionInvalid(event.getRequest(), event.getResponse());
     }
 

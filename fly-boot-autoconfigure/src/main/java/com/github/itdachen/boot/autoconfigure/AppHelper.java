@@ -13,7 +13,7 @@ import com.github.itdachen.boot.autoconfigure.security.SecurityHelperProperties;
  * @author 王大宸
  * @date 2024-06-03 15:49
  */
-public class AppHelperProperties {
+public class AppHelper {
 
     /***
      * 应用信息
