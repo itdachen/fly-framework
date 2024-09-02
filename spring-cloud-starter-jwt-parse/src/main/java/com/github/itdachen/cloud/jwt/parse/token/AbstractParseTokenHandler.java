@@ -8,9 +8,7 @@ import io.jsonwebtoken.Jws;
 import io.jsonwebtoken.Jwts;
 
 import java.security.PublicKey;
-import java.util.HashMap;
-import java.util.Map;
-import java.util.Set;
+import java.util.*;
 
 /**
  * AbstractParseJwtsTokenHandler
@@ -46,25 +44,25 @@ public abstract class AbstractParseTokenHandler {
     }
 
     /***
-    * 解析 token
-    *
-    * @author 王大宸
-    * @date 2023/12/26 22:06
+     * 解析 token
+     *
+     * @author 王大宸
+     * @date 2023/12/26 22:06
      * @param claimsJws claimsJws
-    * @return com.github.itdachen.framework.context.jwt.IJwtInfo
-    */
+     * @return com.github.itdachen.framework.context.jwt.IJwtInfo
+     */
     protected IJwtInfo parseJWTInfo(Jws<Claims> claimsJws) {
         return parseJWTInfo(claimsJws.getPayload());
     }
 
     /***
-    * 解析 token
-    *
-    * @author 王大宸
-    * @date 2023/12/26 22:08
+     * 解析 token
+     *
+     * @author 王大宸
+     * @date 2023/12/26 22:08
      * @param claims claims
-    * @return com.github.itdachen.framework.context.jwt.IJwtInfo
-    */
+     * @return com.github.itdachen.framework.context.jwt.IJwtInfo
+     */
     protected IJwtInfo parseJWTInfo(Claims claims) {
         Set<Map.Entry<String, Object>> entries = claims.entrySet();
         Map<String, String> otherInfo = new HashMap<String, String>();
@@ -92,15 +90,28 @@ public abstract class AbstractParseTokenHandler {
 //        String nickName = claims.get(UserInfoConstant.NICK_NAME, String.class);
 //        String tokenId = claims.get(UserInfoConstant.TOKEN_ID, String.class);
 
-        return new JwtTokenInfo(
-                getObjectValue(claims.get(UserInfoConstant.ACCOUNT)),
-                getObjectValue(claims.get(UserInfoConstant.USER_ID)),
-                getObjectValue(claims.get(UserInfoConstant.NICK_NAME)),
-                claims.getId(),
-                claims.getSubject(),
-                claims.getExpiration(),
-                otherInfo
-        );
+
+        return new JwtTokenInfo.Builder()
+                .username(getObjectValue(claims.get(UserInfoConstant.ACCOUNT)))
+                .userId(getObjectValue(claims.get(UserInfoConstant.USER_ID)))
+                .nickName(getObjectValue(claims.get(UserInfoConstant.NICK_NAME)))
+                .subject(claims.getSubject())
+                .tenantId(getObjectValue(claims.get(UserInfoConstant.TENANT_ID)))
+                .tokenId(claims.getId())
+                .token("")
+                .expireTime(claims.getExpiration())
+                .otherInfo(otherInfo)
+                .build();
+
+//        return new JwtTokenInfo(
+//                getObjectValue(claims.get(UserInfoConstant.ACCOUNT)),
+//                getObjectValue(claims.get(UserInfoConstant.USER_ID)),
+//                getObjectValue(claims.get(UserInfoConstant.NICK_NAME)),
+//                claims.getId(),
+//                claims.getSubject(),
+//                claims.getExpiration(),
+//                otherInfo
+//        );
     }
 
 
