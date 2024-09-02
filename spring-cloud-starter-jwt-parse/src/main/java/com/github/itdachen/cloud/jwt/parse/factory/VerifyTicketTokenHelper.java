@@ -2,6 +2,7 @@ package com.github.itdachen.cloud.jwt.parse.factory;
 
 import com.github.itdachen.cloud.jwt.IVerifyTicketTokenHelper;
 import com.github.itdachen.cloud.jwt.parse.TokenPublicKey;
+import com.github.itdachen.framework.context.BizContextHandler;
 import com.github.itdachen.framework.context.exception.ClientTokenException;
 import com.github.itdachen.framework.context.jwt.IJwtInfo;
 import io.jsonwebtoken.ExpiredJwtException;
@@ -34,6 +35,7 @@ public class VerifyTicketTokenHelper implements IVerifyTicketTokenHelper {
     @Override
     public IJwtInfo parseToken(String token) throws Exception {
         try {
+            BizContextHandler.setToken(token);
             return parseTokenFactory.build().parse(token, publicKey.getPublicKey());
         } catch (SignatureException se) {
             logger.error("密钥错误: ", se);
@@ -52,4 +54,30 @@ public class VerifyTicketTokenHelper implements IVerifyTicketTokenHelper {
             throw new ClientTokenException("密钥解析错误");
         }
     }
+
+
+    @Override
+    public void parse(String token) throws Exception {
+        try {
+            IJwtInfo ijwtInfo = parseTokenFactory.build().parse(token, publicKey.getPublicKey());
+            BizContextHandler.setContextHandler(ijwtInfo);
+            BizContextHandler.setToken(token);
+        } catch (SignatureException se) {
+            logger.error("密钥错误: ", se);
+            throw new ClientTokenException("密钥错误");
+        } catch (MalformedJwtException me) {
+            logger.error("密钥算法或者密钥转换错误: ", me);
+            throw new ClientTokenException("密钥算法或者密钥转换错误");
+        } catch (MissingClaimException mce) {
+            logger.error("密钥缺少校验数据: ", mce);
+            throw new ClientTokenException("密钥缺少校验数据");
+        } catch (ExpiredJwtException mce) {
+            logger.error("密钥已过期: ", mce);
+            throw new ClientTokenException("密钥已过期");
+        } catch (JwtException jwte) {
+            logger.error("密钥解析错误: ", jwte);
+            throw new ClientTokenException("密钥解析错误");
+        }
+    }
+
 }

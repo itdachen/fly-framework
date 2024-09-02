@@ -86,7 +86,6 @@ public class UserAuthRestInterceptor implements HandlerInterceptor {
             token = token.substring(UserInfoConstant.TOKEN_TYPE.length());
         }
         try {
-
             final IJwtInfo ijwtInfo = verifyTicketTokenService.parseToken(token);
             BizContextHandler.setContextHandler(ijwtInfo);
             return true;

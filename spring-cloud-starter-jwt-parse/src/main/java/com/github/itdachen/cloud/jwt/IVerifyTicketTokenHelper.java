@@ -15,4 +15,6 @@ public interface IVerifyTicketTokenHelper {
 
     IJwtInfo parseToken(String token) throws Exception;
 
+    void parse(String token) throws Exception;
+
 }
