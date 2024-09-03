@@ -227,6 +227,12 @@ public class UserInfoConstant {
      */
     public static final String TOKEN = "token";
 
+
+    /**
+     * 用户 token 类型: access_token, refresh_token
+     */
+    public static final String TOKEN_TICKET = "tokenTicket";
+
     /**
      * 用户 token
      */

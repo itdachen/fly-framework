@@ -15,12 +15,12 @@ public class AppInfoProperties {
     /**
      * 应用ID
      */
-    private String appId = "";
+    private String appId = "web_app";
 
     /**
      * 应用秘钥
      */
-    private String appSecret = "";
+    private String appSecret = "web_app";
 
     /**
      * 项目名称
@@ -61,7 +61,7 @@ public class AppInfoProperties {
     /**
      * 简称
      */
-    private String toAs = "";
+    private String toAs = "FLY-NEXT-ADMIN";
 
     /**
      * 默认后台模板类型

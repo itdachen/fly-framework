@@ -28,11 +28,22 @@ public class CryptoTokenHandler implements ICryptoTokenHandler {
 
 
     @Override
-    public String token(IJwtInfo jwtInfo) throws Exception {
-        return tokenFactory.build().token(
+    public String accessToken(IJwtInfo jwtInfo) throws Exception {
+        String accessToken = tokenFactory.build().token(
                 jwtInfo,
                 authTokenSecretKey.getPrivateKey(),
                 cloudTokenProperties.getExpires(),
+                cloudTokenProperties.getIssuer()
+        );
+        return accessToken;
+    }
+
+    @Override
+    public String refreshToken(IJwtInfo jwtInfo) throws Exception {
+        return tokenFactory.build().token(
+                jwtInfo,
+                authTokenSecretKey.getPrivateKey(),
+                cloudTokenProperties.getExpires() * 5,
                 cloudTokenProperties.getIssuer()
         );
     }

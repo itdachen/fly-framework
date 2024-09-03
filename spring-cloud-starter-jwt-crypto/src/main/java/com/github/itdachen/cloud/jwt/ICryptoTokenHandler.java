@@ -19,7 +19,9 @@ public interface ICryptoTokenHandler {
      * @param jwtInfo    用户信息
      * @return java.lang.String
      */
-    String token(IJwtInfo jwtInfo) throws Exception;
+    String accessToken(IJwtInfo jwtInfo) throws Exception;
+
+    String refreshToken(IJwtInfo jwtInfo) throws Exception;
 
 
 }

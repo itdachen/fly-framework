@@ -195,8 +195,12 @@ public class LocalDateUtils {
      * @param localDateTime localDateTime
      * @return java.lang.String
      */
-    public static String localDateTime(LocalDateTime localDateTime) {
-        return DateFormatConstants.S_DATE_TIME_FORMATTER.format(localDateTime);
+    public static String toLocalDateTime(LocalDateTime localDateTime) {
+        if (null == localDateTime) {
+            return null;
+        }
+        DateTimeFormatter formatter = DateTimeFormatter.ofPattern(DateFormatConstants.DATE_TIME_FORMATTER_PATTERN);
+        return localDateTime.format(formatter);
     }
 
     /***
@@ -208,6 +212,9 @@ public class LocalDateUtils {
      * @return java.time.LocalDateTime
      */
     public static LocalDateTime toLocalDateTime(String localDateTime) {
+        if (null == localDateTime) {
+            return null;
+        }
         return LocalDateTime.parse(localDateTime, DateFormatConstants.DATE_TIME_FORMATTER);
     }
 
@@ -398,6 +405,9 @@ public class LocalDateUtils {
      * @return java.time.LocalDate
      */
     public static LocalDate toLocalDate(String value) {
+        if (null == value) {
+            return null;
+        }
         return toLocalDate(value, "yyyy-MM-dd");
     }
 
