@@ -34,8 +34,29 @@ public class VerifyTicketTokenHelper implements IVerifyTicketTokenHelper {
 
     @Override
     public IJwtInfo parseToken(String token) throws Exception {
+        BizContextHandler.setToken(token);
+        return parseTokenInfo(token);
+    }
+
+
+    @Override
+    public void parse(String token) throws Exception {
+        IJwtInfo iJwtInfo = parseTokenInfo(token);
+        BizContextHandler.setContextHandler(iJwtInfo);
+        BizContextHandler.setToken(token);
+    }
+
+
+    /***
+     * 统一解析 token
+     *
+     * @author 王大宸
+     * @date 2024/9/6 14:20
+     * @param token token
+     * @return com.github.itdachen.framework.context.jwt.IJwtInfo
+     */
+    private IJwtInfo parseTokenInfo(String token) throws Exception {
         try {
-            BizContextHandler.setToken(token);
             return parseTokenFactory.build().parse(token, publicKey.getPublicKey());
         } catch (SignatureException se) {
             logger.error("密钥错误: ", se);
@@ -53,31 +74,8 @@ public class VerifyTicketTokenHelper implements IVerifyTicketTokenHelper {
             logger.error("密钥解析错误: ", jwte);
             throw new ClientTokenException("密钥解析错误");
         }
+
     }
 
-
-    @Override
-    public void parse(String token) throws Exception {
-        try {
-            IJwtInfo ijwtInfo = parseTokenFactory.build().parse(token, publicKey.getPublicKey());
-            BizContextHandler.setContextHandler(ijwtInfo);
-            BizContextHandler.setToken(token);
-        } catch (SignatureException se) {
-            logger.error("密钥错误: ", se);
-            throw new ClientTokenException("密钥错误");
-        } catch (MalformedJwtException me) {
-            logger.error("密钥算法或者密钥转换错误: ", me);
-            throw new ClientTokenException("密钥算法或者密钥转换错误");
-        } catch (MissingClaimException mce) {
-            logger.error("密钥缺少校验数据: ", mce);
-            throw new ClientTokenException("密钥缺少校验数据");
-        } catch (ExpiredJwtException mce) {
-            logger.error("密钥已过期: ", mce);
-            throw new ClientTokenException("密钥已过期");
-        } catch (JwtException jwte) {
-            logger.error("密钥解析错误: ", jwte);
-            throw new ClientTokenException("密钥解析错误");
-        }
-    }
 
 }
