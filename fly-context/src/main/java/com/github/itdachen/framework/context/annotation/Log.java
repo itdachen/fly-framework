@@ -22,4 +22,9 @@ public @interface Log {
      */
     String type() default "OTHER";
 
+    /**
+     * 版本号
+     */
+    String version() default "v1.0";
+
 }

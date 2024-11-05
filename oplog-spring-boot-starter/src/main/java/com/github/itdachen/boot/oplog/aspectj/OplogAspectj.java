@@ -5,13 +5,11 @@ import com.alibaba.fastjson.JSONObject;
 import com.github.itdachen.boot.autoconfigure.AppContextHelper;
 import com.github.itdachen.boot.oplog.constants.OplogConstant;
 import com.github.itdachen.boot.oplog.entity.OplogClient;
-import com.github.itdachen.boot.oplog.manager.OplogAsyncFactory;
 import com.github.itdachen.boot.oplog.manager.service.IOplogClientService;
 import com.github.itdachen.boot.oplog.utils.ResCollectionUtils;
 import com.github.itdachen.framework.context.BizContextHandler;
 import com.github.itdachen.framework.context.annotation.CheckApiClient;
 import com.github.itdachen.framework.context.annotation.Log;
-import com.github.itdachen.framework.context.constants.YesOrNotConstant;
 import com.github.itdachen.framework.context.id.IdUtils;
 import com.github.itdachen.framework.tools.ServletUtils;
 import org.aspectj.lang.JoinPoint;
@@ -73,8 +71,9 @@ public class OplogAspectj {
         apiLog.setMakeUseStatus("200");
         apiLog.setMsg("操作成功！");
         apiLog.setJsonResult("[]");
-
-        if (ResCollectionUtils.isArray(resJson)){
+        if (null == resJson) {
+            apiLog.setJsonResult("[]");
+        } else if (ResCollectionUtils.isArray(resJson)) {
             apiLog.setJsonResult(JSONObject.toJSONString(resJson));
         } else {
             /* 响应数据 */
@@ -195,7 +194,7 @@ public class OplogAspectj {
             Object[] args = joinPoint.getArgs();
             int length = args.length;
             if (0 == length) {
-                return "";
+                return "{}";
             }
             if (1 == length) {
                 return JSON.toJSONString(joinPoint.getArgs());

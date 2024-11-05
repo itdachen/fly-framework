@@ -244,7 +244,11 @@
                 <artifactId>spring-cloud-starter-openfeign</artifactId>
                 <version>${project.version}</version>
             </dependency>
-
+            <dependency>
+                <groupId>com.github.itdachen</groupId>
+                <artifactId>api-sign-boot-starter</artifactId>
+                <version>${project.version}</version>
+            </dependency>
 
             <!-- alibaba json -->
             <dependency>

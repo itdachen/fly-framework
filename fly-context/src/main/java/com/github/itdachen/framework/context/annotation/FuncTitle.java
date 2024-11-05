@@ -23,5 +23,10 @@ public @interface FuncTitle {
      */
     String appId() default "PC";
 
+    /**
+     * 版本号
+     */
+    String version() default "v1";
+
 
 }

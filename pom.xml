@@ -58,6 +58,7 @@
         <module>spring-cloud-starter-jwt-parse</module>
         <module>spring-cloud-starter-openfeign</module>
         <module>runner-spring-boot-starter</module>
+        <module>api-sign-boot-starter</module>
     </modules>
 
     <build>
