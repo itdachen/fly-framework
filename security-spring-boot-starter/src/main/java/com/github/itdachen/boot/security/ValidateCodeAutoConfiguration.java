@@ -36,18 +36,15 @@ public class ValidateCodeAutoConfiguration {
     private final SecurityImageCodeProperties imageCodeProperties;
     private final SecuritySmsCodeProperties smsCodeProperties;
     private final AuthenticationFailureHandler authenticationFailureHandler;
-    private final ValidateCodeProcessorHolder validateCodeProcessorHolder;
     private final Environment env;
 
     public ValidateCodeAutoConfiguration(SecurityImageCodeProperties imageCodeProperties,
                                          SecuritySmsCodeProperties smsCodeProperties,
                                          AuthenticationFailureHandler authenticationFailureHandler,
-                                         ValidateCodeProcessorHolder validateCodeProcessorHolder,
                                          Environment env) {
         this.imageCodeProperties = imageCodeProperties;
         this.smsCodeProperties = smsCodeProperties;
         this.authenticationFailureHandler = authenticationFailureHandler;
-        this.validateCodeProcessorHolder = validateCodeProcessorHolder;
         this.env = env;
     }
 
@@ -111,22 +108,6 @@ public class ValidateCodeAutoConfiguration {
     }
 
     /***
-     * 验证码过滤器
-     *
-     * @author 王大宸
-     * @date 2024/11/27 16:53
-     * @return com.github.itdachen.boot.security.validate.code.filter.ValidateCodeFilter
-     */
-    @Bean("validateCodeFilter")
-    public ValidateCodeFilter validateCodeFilter() {
-        return new ValidateCodeFilter(authenticationFailureHandler,
-                imageCodeProperties,
-                smsCodeProperties,
-                validateCodeProcessorHolder,
-                env);
-    }
-
-    /***
      * 图片验证码处理器
      *
      * @author 王大宸
@@ -158,7 +139,6 @@ public class ValidateCodeAutoConfiguration {
      * @return com.github.itdachen.boot.security.validate.code.processor.ValidateCodeProcessorHolder
      */
     @Bean("validateCodeProcessorHolder")
-    // @DependsOn({"imageValidateCodeProcessor", "smsCodeProcessor"})
     public ValidateCodeProcessorHolder validateCodeProcessorHolder() {
         Map<String, ValidateCodeProcessor> validateCodeProcessors = new HashMap<>();
         validateCodeProcessors.put("imageValidateCodeProcessor", imageCodeProcessor());
@@ -166,5 +146,20 @@ public class ValidateCodeAutoConfiguration {
         return new ValidateCodeProcessorHolder(validateCodeProcessors);
     }
 
+    /***
+     * 验证码过滤器
+     *
+     * @author 王大宸
+     * @date 2024/11/27 16:53
+     * @return com.github.itdachen.boot.security.validate.code.filter.ValidateCodeFilter
+     */
+    @Bean("validateCodeFilter")
+    public ValidateCodeFilter validateCodeFilter() {
+        return new ValidateCodeFilter(authenticationFailureHandler,
+                imageCodeProperties,
+                smsCodeProperties,
+                validateCodeProcessorHolder(),
+                env);
+    }
 
 }
