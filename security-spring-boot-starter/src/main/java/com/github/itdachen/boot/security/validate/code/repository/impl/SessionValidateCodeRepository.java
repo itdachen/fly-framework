@@ -12,7 +12,7 @@ import org.springframework.web.context.request.ServletWebRequest;
  * Created by 王大宸 on 2022-10-16 14:03
  * Created with IntelliJ IDEA.
  */
-@Component
+//@Component
 public class SessionValidateCodeRepository  implements ValidateCodeRepository {
     /**
      * 验证码放入session时的前缀

@@ -46,31 +46,32 @@
 
 ### 🛠️ 组件模块
 
-| 模块                               | 介绍                        |
-|----------------------------------|---------------------------|
-| fly-dependencies                 | 项目依赖全局管理 pom              |
-| fly-autoconfigure-processor      | 项目配置模块(所有模块配置文件统一管理)      |
-| fly-cloud-gateway-dynamic-routes | Gateway Nacos 动态网关        |
-| fly-context                      | 当前上下文模块                   |
-| fly-core                         | 项目核心模块                    |
-| fly-hardware                     | 系统参数调用封装（CUP,内存,JVM信息等）   |
-| fly-datasource                   | 数据库加密模块                   |
-| fly-oss                          | 文件上传模块                    |
-| fly-jwt                          | JSON Web Token (JWT)封装实现  |
-| fly-webmvc                       | 通用 MVC 封装模块               |
-| fly-tools                        | 工具类模块                     |
-| fly-rbac                         | RBAC 鉴权模块                 |
-| fly-assets                       | 前端资源模块                    |
-| fly-oplog                        | 基于 AOP 日志记录模块             |
-| fly-security                     | SpringSecurity 安全认证模块     |
-| fly-body-advice                  | 统一返回数据格式模块                |
-| fly-weixin                       | 微信开发模块                    |
-| fly-rate-limiter                 | 自定义限流模块                   |
-| fly-sensitive                    | 数据脱敏模块                    |
-| fly-thread-pool                  | 自定义线程池模块                  |
-| fly-cloud-jwt-core               | jwt 认证 token 认证核心模块       |
-| fly-cloud-jwt-crypto             | jwt 认证 token 加密模块         |
-| fly-cloud-jwt-parse              | jwt 认证 token 解析模块         |
+| 模块                               | 介绍                       |
+|----------------------------------|--------------------------|
+| fly-dependencies                 | 项目依赖全局管理 pom             |
+| fly-autoconfigure-processor      | 项目配置模块(所有模块配置文件统一管理)     |
+| fly-cloud-gateway-dynamic-routes | Gateway Nacos 动态网关       |
+| fly-context                      | 当前上下文模块                  |
+| fly-core                         | 项目核心模块                   |
+| fly-hardware                     | 系统参数调用封装（CUP,内存,JVM信息等）  |
+| fly-datasource                   | 数据库加密模块                  |
+| fly-oss                          | 文件上传模块                   |
+| fly-jwt                          | JSON Web Token (JWT)封装实现 |
+| fly-webmvc                       | 通用 MVC 封装模块              |
+| fly-tools                        | 工具类模块                    |
+| fly-rbac                         | RBAC 鉴权模块                |
+| fly-assets                       | 前端资源模块                   |
+| fly-oplog                        | 基于 AOP 日志记录模块            |
+| fly-security                     | SpringSecurity 安全认证模块    |
+| fly-body-advice                  | 统一返回数据格式模块               |
+| fly-weixin                       | 微信开发模块                   |
+| fly-rate-limiter                 | 自定义限流模块                  |
+| fly-sensitive                    | 数据脱敏模块                   |
+| fly-thread-pool                  | 自定义线程池模块                 |
+| fly-cloud-jwt-core               | jwt 认证 token 认证核心模块      |
+| fly-cloud-jwt-crypto             | jwt 认证 token 加密模块        |
+| fly-cloud-jwt-parse              | jwt 认证 token 解析模块        |
+| api-sign-boot-starter            | 接口签名模块                   |
 
 ### 💒 代码仓库
 

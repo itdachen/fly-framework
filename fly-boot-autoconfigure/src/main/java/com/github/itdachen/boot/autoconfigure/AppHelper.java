@@ -6,6 +6,7 @@ import com.github.itdachen.boot.autoconfigure.datasource.DataSourceHelperPropert
 import com.github.itdachen.boot.autoconfigure.jwt.JwtAppClientHelperProperties;
 import com.github.itdachen.boot.autoconfigure.oss.OssHelperProperties;
 import com.github.itdachen.boot.autoconfigure.security.SecurityHelperProperties;
+import com.github.itdachen.boot.autoconfigure.wechat.WeChatHelperProperties;
 
 /**
  * 获取配置信息
@@ -81,5 +82,17 @@ public class AppHelper {
     public static SecurityHelperProperties security() {
         return new SecurityHelperProperties();
     }
+
+    /***
+     * 微信配置
+     *
+     * @author 王大宸
+     * @date 2024/11/21 11:23
+     * @return com.github.itdachen.boot.autoconfigure.wechat.WeChatHelperProperties
+     */
+    public static WeChatHelperProperties weChat() {
+        return new WeChatHelperProperties();
+    }
+
 
 }

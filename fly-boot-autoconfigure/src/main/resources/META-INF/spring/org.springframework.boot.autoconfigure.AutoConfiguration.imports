@@ -6,3 +6,4 @@ com.github.itdachen.boot.autoconfigure.datasource.DatasourceAutoConfiguration
 com.github.itdachen.boot.autoconfigure.AppContextAware
 com.github.itdachen.boot.autoconfigure.cloud.auth.CloudJwtAutoConfiguration
 com.github.itdachen.boot.autoconfigure.cloud.gateway.GatewayAutoConfiguration
+com.github.itdachen.boot.autoconfigure.wechat.WeChatAutoConfiguration

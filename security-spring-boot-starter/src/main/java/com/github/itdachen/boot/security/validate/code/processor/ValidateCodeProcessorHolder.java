@@ -11,7 +11,7 @@ import java.util.Map;
  * Created by 王大宸 on 2021-11-26 22:38
  * Created with IntelliJ IDEA.
  */
-@Component
+//@Component
 public class ValidateCodeProcessorHolder {
 
     private final Map<String, ValidateCodeProcessor> validateCodeProcessors;

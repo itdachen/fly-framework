@@ -2,14 +2,28 @@ package com.github.itdachen.boot.security;
 
 import com.github.itdachen.boot.autoconfigure.security.properties.code.SecurityImageCodeProperties;
 import com.github.itdachen.boot.autoconfigure.security.properties.code.SecuritySmsCodeProperties;
+import com.github.itdachen.boot.security.handler.AuthenticationFailureHandler;
 import com.github.itdachen.boot.security.validate.ValidateCodeGenerator;
+import com.github.itdachen.boot.security.validate.code.filter.ValidateCodeFilter;
 import com.github.itdachen.boot.security.validate.code.image.ImageCodeGenerator;
+import com.github.itdachen.boot.security.validate.code.image.ImageCodeProcessor;
+import com.github.itdachen.boot.security.validate.code.processor.ValidateCodeProcessor;
+import com.github.itdachen.boot.security.validate.code.processor.ValidateCodeProcessorHolder;
+import com.github.itdachen.boot.security.validate.code.repository.ValidateCodeRepository;
+import com.github.itdachen.boot.security.validate.code.repository.impl.SessionValidateCodeRepository;
 import com.github.itdachen.boot.security.validate.code.sms.DefaultSmsCodeSender;
 import com.github.itdachen.boot.security.validate.code.sms.SmsCodeGenerator;
+import com.github.itdachen.boot.security.validate.code.sms.SmsCodeProcessor;
 import com.github.itdachen.boot.security.validate.code.sms.SmsCodeSender;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.autoconfigure.condition.ConditionalOnMissingBean;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
+import org.springframework.context.annotation.DependsOn;
+import org.springframework.core.env.Environment;
+
+import java.util.HashMap;
+import java.util.Map;
 
 /**
  * Description: 验证码 bean 配置
@@ -21,11 +35,20 @@ public class ValidateCodeAutoConfiguration {
 
     private final SecurityImageCodeProperties imageCodeProperties;
     private final SecuritySmsCodeProperties smsCodeProperties;
+    private final AuthenticationFailureHandler authenticationFailureHandler;
+    private final ValidateCodeProcessorHolder validateCodeProcessorHolder;
+    private final Environment env;
 
     public ValidateCodeAutoConfiguration(SecurityImageCodeProperties imageCodeProperties,
-                                         SecuritySmsCodeProperties smsCodeProperties) {
+                                         SecuritySmsCodeProperties smsCodeProperties,
+                                         AuthenticationFailureHandler authenticationFailureHandler,
+                                         ValidateCodeProcessorHolder validateCodeProcessorHolder,
+                                         Environment env) {
         this.imageCodeProperties = imageCodeProperties;
         this.smsCodeProperties = smsCodeProperties;
+        this.authenticationFailureHandler = authenticationFailureHandler;
+        this.validateCodeProcessorHolder = validateCodeProcessorHolder;
+        this.env = env;
     }
 
     /***
@@ -49,12 +72,12 @@ public class ValidateCodeAutoConfiguration {
     }
 
     /***
-    * 短信验证码生成
-    *
-    * @author 王大宸
-    * @date 2023/12/23 1:29
-    * @return com.github.itdachen.boot.security.validate.code.sms.SmsCodeGenerator
-    */
+     * 短信验证码生成
+     *
+     * @author 王大宸
+     * @date 2023/12/23 1:29
+     * @return com.github.itdachen.boot.security.validate.code.sms.SmsCodeGenerator
+     */
     @Bean
     public SmsCodeGenerator smsCodeGenerator() {
         return new SmsCodeGenerator(smsCodeProperties);
@@ -74,7 +97,74 @@ public class ValidateCodeAutoConfiguration {
         return new DefaultSmsCodeSender();
     }
 
+    /***
+     * 浏览器验证码处理器
+     *
+     * @author 王大宸
+     * @date 2024/11/27 16:54
+     * @return com.github.itdachen.boot.security.validate.code.repository.ValidateCodeRepository
+     */
+    @Bean
+    @ConditionalOnMissingBean(ValidateCodeRepository.class)
+    public ValidateCodeRepository sessionValidateCodeRepository() {
+        return new SessionValidateCodeRepository();
+    }
 
+    /***
+     * 验证码过滤器
+     *
+     * @author 王大宸
+     * @date 2024/11/27 16:53
+     * @return com.github.itdachen.boot.security.validate.code.filter.ValidateCodeFilter
+     */
+    @Bean("validateCodeFilter")
+    public ValidateCodeFilter validateCodeFilter() {
+        return new ValidateCodeFilter(authenticationFailureHandler,
+                imageCodeProperties,
+                smsCodeProperties,
+                validateCodeProcessorHolder,
+                env);
+    }
+
+    /***
+     * 图片验证码处理器
+     *
+     * @author 王大宸
+     * @date 2024/11/27 16:53
+     * @return com.github.itdachen.boot.security.validate.code.processor.ValidateCodeProcessor
+     */
+    @Bean("imageValidateCodeProcessor")
+    public ValidateCodeProcessor imageCodeProcessor() {
+        return new ImageCodeProcessor();
+    }
+
+    /***
+     * 短信验证码处理器
+     *
+     * @author 王大宸
+     * @date 2024/11/27 16:53
+     * @return com.github.itdachen.boot.security.validate.code.processor.ValidateCodeProcessor
+     */
+    @Bean("smsCodeProcessor")
+    public ValidateCodeProcessor smsCodeProcessor() {
+        return new SmsCodeProcessor();
+    }
+
+    /***
+     * 获取验证码处理
+     *
+     * @author 王大宸
+     * @date 2024/11/27 16:54
+     * @return com.github.itdachen.boot.security.validate.code.processor.ValidateCodeProcessorHolder
+     */
+    @Bean("validateCodeProcessorHolder")
+    // @DependsOn({"imageValidateCodeProcessor", "smsCodeProcessor"})
+    public ValidateCodeProcessorHolder validateCodeProcessorHolder() {
+        Map<String, ValidateCodeProcessor> validateCodeProcessors = new HashMap<>();
+        validateCodeProcessors.put("imageValidateCodeProcessor", imageCodeProcessor());
+        validateCodeProcessors.put("smsCodeProcessor", smsCodeProcessor());
+        return new ValidateCodeProcessorHolder(validateCodeProcessors);
+    }
 
 
 }

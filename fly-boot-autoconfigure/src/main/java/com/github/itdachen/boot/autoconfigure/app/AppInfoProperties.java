@@ -61,7 +61,7 @@ public class AppInfoProperties {
     /**
      * 简称
      */
-    private String toAs = "FLY-NEXT-ADMIN";
+    private String toAs = "";
 
     /**
      * 默认后台模板类型

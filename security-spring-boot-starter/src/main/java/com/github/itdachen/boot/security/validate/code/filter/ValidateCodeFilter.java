@@ -29,7 +29,7 @@ import java.util.Set;
  * Created by 王大宸 on 2021-11-27 10:25
  * Created with IntelliJ IDEA.
  */
-@Component("validateCodeFilter")
+//@Component("validateCodeFilter")
 public class ValidateCodeFilter extends OncePerRequestFilter implements InitializingBean {
 
     /**
