@@ -15,7 +15,8 @@ import org.springframework.web.context.request.ServletWebRequest;
  * Created by 王大宸 on 2021-11-27 10:18
  * Created with IntelliJ IDEA.
  */
-@RestController
+//@RestController
+@Deprecated
 public class ValidateCodeController {
 
     private final ValidateCodeProcessorHolder validateCodeProcessorHolder;
@@ -34,7 +35,7 @@ public class ValidateCodeController {
      * @param type
      * @return void
      */
-    @GetMapping(SecurityConstants.DEFAULT_VALIDATE_CODE_URL_PREFIX + "/{type}")
+//    @GetMapping("/code/{type}")
     public void createCode(HttpServletRequest request,
                            HttpServletResponse response,
                            @PathVariable("type") String type) throws Exception {

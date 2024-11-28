@@ -2,6 +2,8 @@ package com.github.itdachen.boot.security.validate.code.processor;
 
 import com.github.itdachen.boot.security.exception.ValidateCodeException;
 import com.github.itdachen.boot.security.validate.code.enums.ValidateCodeType;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.stereotype.Component;
 
 import java.util.Map;
@@ -13,6 +15,7 @@ import java.util.Map;
  */
 //@Component
 public class ValidateCodeProcessorHolder {
+    private static final Logger logger = LoggerFactory.getLogger(ValidateCodeProcessorHolder.class);
 
     private final Map<String, ValidateCodeProcessor> validateCodeProcessors;
 
@@ -27,7 +30,8 @@ public class ValidateCodeProcessorHolder {
     public ValidateCodeProcessor findValidateCodeProcessor(String type) {
         String name = type.toLowerCase() + ValidateCodeProcessor.class.getSimpleName();
         ValidateCodeProcessor processor = validateCodeProcessors.get(name);
-        if (processor == null) {
+        if (null == processor) {
+            logger.error("验证码处理器 " + name + " 不存在！！！");
             throw new ValidateCodeException("验证码处理器" + name + "不存在");
         }
         return processor;

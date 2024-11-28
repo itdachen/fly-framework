@@ -25,7 +25,7 @@ import java.util.Map;
 import java.util.Set;
 
 /**
- * Description: 验证码过滤器
+ * Description: 验证码过滤器(需要验证码的访问路径)
  * Created by 王大宸 on 2021-11-27 10:25
  * Created with IntelliJ IDEA.
  */

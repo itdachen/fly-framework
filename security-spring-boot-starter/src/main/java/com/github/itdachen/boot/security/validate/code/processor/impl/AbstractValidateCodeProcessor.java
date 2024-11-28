@@ -7,6 +7,8 @@ import com.github.itdachen.boot.security.validate.code.enums.ValidateCodeType;
 import com.github.itdachen.boot.security.validate.code.processor.ValidateCodeProcessor;
 import com.github.itdachen.boot.security.validate.code.repository.ValidateCodeRepository;
 import org.apache.commons.lang3.StringUtils;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.ServletRequestBindingException;
 import org.springframework.web.bind.ServletRequestUtils;
@@ -20,7 +22,7 @@ import java.util.Map;
  * Created with IntelliJ IDEA.
  */
 public abstract class AbstractValidateCodeProcessor<C extends ValidateCode> implements ValidateCodeProcessor {
-
+    private static final Logger logger = LoggerFactory.getLogger(AbstractValidateCodeProcessor.class);
     /**
      * 收集系统中所有的 {@link ValidateCodeGenerator} 接口的实现。
      */
@@ -50,6 +52,7 @@ public abstract class AbstractValidateCodeProcessor<C extends ValidateCode> impl
         String generatorName = type + ValidateCodeGenerator.class.getSimpleName();
         ValidateCodeGenerator validateCodeGenerator = validateCodeGenerators.get(generatorName);
         if (validateCodeGenerator == null) {
+            logger.error("验证码生成器 " + generatorName + " 不存在");
             throw new ValidateCodeException("验证码生成器" + generatorName + "不存在");
         }
         return (C) validateCodeGenerator.generate(request);

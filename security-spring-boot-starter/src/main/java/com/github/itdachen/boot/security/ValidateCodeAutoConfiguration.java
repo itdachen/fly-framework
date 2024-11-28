@@ -4,6 +4,8 @@ import com.github.itdachen.boot.autoconfigure.security.properties.code.SecurityI
 import com.github.itdachen.boot.autoconfigure.security.properties.code.SecuritySmsCodeProperties;
 import com.github.itdachen.boot.security.handler.AuthenticationFailureHandler;
 import com.github.itdachen.boot.security.validate.ValidateCodeGenerator;
+import com.github.itdachen.boot.security.validate.code.filter.DefaultImageAbstractValidateCodeGeneratingFilter;
+import com.github.itdachen.boot.security.validate.code.filter.DefaultSmsAbstractValidateCodeGeneratingFilter;
 import com.github.itdachen.boot.security.validate.code.filter.ValidateCodeFilter;
 import com.github.itdachen.boot.security.validate.code.image.ImageCodeGenerator;
 import com.github.itdachen.boot.security.validate.code.image.ImageCodeProcessor;
@@ -76,7 +78,8 @@ public class ValidateCodeAutoConfiguration {
      * @return com.github.itdachen.boot.security.validate.code.sms.SmsCodeGenerator
      */
     @Bean
-    public SmsCodeGenerator smsCodeGenerator() {
+    @ConditionalOnMissingBean(name = "smsValidateCodeGenerator")
+    public ValidateCodeGenerator smsValidateCodeGenerator() {
         return new SmsCodeGenerator(smsCodeProperties);
     }
 
@@ -115,7 +118,7 @@ public class ValidateCodeAutoConfiguration {
      * @return com.github.itdachen.boot.security.validate.code.processor.ValidateCodeProcessor
      */
     @Bean("imageValidateCodeProcessor")
-    public ValidateCodeProcessor imageCodeProcessor() {
+    public ValidateCodeProcessor imageValidateCodeProcessor() {
         return new ImageCodeProcessor();
     }
 
@@ -126,8 +129,8 @@ public class ValidateCodeAutoConfiguration {
      * @date 2024/11/27 16:53
      * @return com.github.itdachen.boot.security.validate.code.processor.ValidateCodeProcessor
      */
-    @Bean("smsCodeProcessor")
-    public ValidateCodeProcessor smsCodeProcessor() {
+    @Bean("smsValidateCodeProcessor")
+    public ValidateCodeProcessor smsValidateCodeProcessor() {
         return new SmsCodeProcessor();
     }
 
@@ -141,8 +144,8 @@ public class ValidateCodeAutoConfiguration {
     @Bean("validateCodeProcessorHolder")
     public ValidateCodeProcessorHolder validateCodeProcessorHolder() {
         Map<String, ValidateCodeProcessor> validateCodeProcessors = new HashMap<>();
-        validateCodeProcessors.put("imageValidateCodeProcessor", imageCodeProcessor());
-        validateCodeProcessors.put("smsCodeProcessor", smsCodeProcessor());
+        validateCodeProcessors.put("imageValidateCodeProcessor", imageValidateCodeProcessor());
+        validateCodeProcessors.put("smsValidateCodeProcessor", smsValidateCodeProcessor());
         return new ValidateCodeProcessorHolder(validateCodeProcessors);
     }
 
@@ -160,6 +163,30 @@ public class ValidateCodeAutoConfiguration {
                 smsCodeProperties,
                 validateCodeProcessorHolder(),
                 env);
+    }
+
+    /***
+     * 获取图形验证码
+     *
+     * @author 王大宸
+     * @date 2024/11/28 16:05
+     * @return com.github.itdachen.boot.security.validate.code.filter.DefaultImageAbstractValidateCodeGeneratingFilter
+     */
+    @Bean("imageValidateCodeGeneratingFilter")
+    public DefaultImageAbstractValidateCodeGeneratingFilter imageAbstractValidateCodeGeneratingFilter() {
+        return new DefaultImageAbstractValidateCodeGeneratingFilter(validateCodeProcessorHolder());
+    }
+
+    /***
+     * 获取短信验证码
+     *
+     * @author 王大宸
+     * @date 2024/11/28 16:06
+     * @return com.github.itdachen.boot.security.validate.code.filter.DefaultSmsAbstractValidateCodeGeneratingFilter
+     */
+    @Bean("smsValidateCodeGeneratingFilter")
+    public DefaultSmsAbstractValidateCodeGeneratingFilter smsAbstractValidateCodeGeneratingFilter() {
+        return new DefaultSmsAbstractValidateCodeGeneratingFilter(validateCodeProcessorHolder());
     }
 
 }

@@ -28,6 +28,7 @@ import java.util.Map;
  * @author 王大宸
  * @date 2024-11-27 17:14
  */
+@Deprecated
 public class CreateValidateCodeFilter extends OncePerRequestFilter implements InitializingBean {
 
     /**
