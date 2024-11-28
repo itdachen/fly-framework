@@ -37,8 +37,7 @@ public abstract class AbstractValidateCodeGeneratingFilter extends GenericFilter
         } else {
 
             try {
-                validateCodeProcessorHolder.findValidateCodeProcessor(this.validateCodeType)
-                        .create(new ServletWebRequest(request, response));
+                validateCodeProcessorHolder.findValidateCodeProcessor(this.validateCodeType).create(new ServletWebRequest(request, response));
             } catch (Exception e) {
 //                String type = "图形";
 //                if ("sms".equals(this.validateCodeType)) {
