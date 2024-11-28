@@ -34,6 +34,8 @@ import java.util.Map;
  */
 @Configuration
 public class ValidateCodeAutoConfiguration {
+    private static final String IMAGE_VALIDATE_CODE_PROCESSOR = "imageValidateCodeProcessor";
+    private static final String SMS_VALIDATE_CODE_PROCESSOR = "smsValidateCodeProcessor";
 
     private final SecurityImageCodeProperties imageCodeProperties;
     private final SecuritySmsCodeProperties smsCodeProperties;
@@ -117,7 +119,7 @@ public class ValidateCodeAutoConfiguration {
      * @date 2024/11/27 16:53
      * @return com.github.itdachen.boot.security.validate.code.processor.ValidateCodeProcessor
      */
-    @Bean("imageValidateCodeProcessor")
+    @Bean(IMAGE_VALIDATE_CODE_PROCESSOR)
     public ValidateCodeProcessor imageValidateCodeProcessor() {
         return new ImageCodeProcessor();
     }
@@ -129,7 +131,7 @@ public class ValidateCodeAutoConfiguration {
      * @date 2024/11/27 16:53
      * @return com.github.itdachen.boot.security.validate.code.processor.ValidateCodeProcessor
      */
-    @Bean("smsValidateCodeProcessor")
+    @Bean(SMS_VALIDATE_CODE_PROCESSOR)
     public ValidateCodeProcessor smsValidateCodeProcessor() {
         return new SmsCodeProcessor();
     }
@@ -144,8 +146,8 @@ public class ValidateCodeAutoConfiguration {
     @Bean("validateCodeProcessorHolder")
     public ValidateCodeProcessorHolder validateCodeProcessorHolder() {
         Map<String, ValidateCodeProcessor> validateCodeProcessors = new HashMap<>();
-        validateCodeProcessors.put("imageValidateCodeProcessor", imageValidateCodeProcessor());
-        validateCodeProcessors.put("smsValidateCodeProcessor", smsValidateCodeProcessor());
+        validateCodeProcessors.put(IMAGE_VALIDATE_CODE_PROCESSOR, imageValidateCodeProcessor());
+        validateCodeProcessors.put(SMS_VALIDATE_CODE_PROCESSOR, smsValidateCodeProcessor());
         return new ValidateCodeProcessorHolder(validateCodeProcessors);
     }
 
