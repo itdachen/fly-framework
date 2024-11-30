@@ -151,11 +151,6 @@
             </dependency>
             <dependency>
                 <groupId>com.github.itdachen</groupId>
-                <artifactId>fly-body-advice</artifactId>
-                <version>${project.version}</version>
-            </dependency>
-            <dependency>
-                <groupId>com.github.itdachen</groupId>
                 <artifactId>fly-weixin</artifactId>
                 <version>${project.version}</version>
             </dependency>
@@ -247,6 +242,11 @@
             <dependency>
                 <groupId>com.github.itdachen</groupId>
                 <artifactId>api-sign-boot-starter</artifactId>
+                <version>${project.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>com.github.itdachen</groupId>
+                <artifactId>wechat-spring-boot-starter</artifactId>
                 <version>${project.version}</version>
             </dependency>
 
