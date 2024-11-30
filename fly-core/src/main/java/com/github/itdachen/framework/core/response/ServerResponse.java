@@ -130,6 +130,14 @@ public class ServerResponse<T> implements Serializable {
         return new ServerResponse<T>(ReturnCode.EXCEPTION.getSuccess(), status, msg, null);
     }
 
+    public static String getOKBody(int status, String msg, String jsonData) {
+        return "{\"success\":\"true\",\"status\":\"" + status + "\", \"msg\":\"" + msg + "\",\"data\": " + jsonData + "}";
+    }
+
+    public static String getErrBody(int status, String msg, String jsonData) {
+        return "{\"success\":\"false\",\"status\":\"" + status + "\", \"msg\":\"" + msg + "\",\"data\": " + jsonData + "}";
+    }
+
 
     public T getData() {
         return data;

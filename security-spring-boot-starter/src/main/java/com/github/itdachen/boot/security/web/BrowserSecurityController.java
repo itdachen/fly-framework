@@ -25,7 +25,7 @@ import java.io.IOException;
  * Created by 王大宸 on 2022-09-25 11:34
  * Created with IntelliJ IDEA.
  */
-@Controller
+//@Controller
 public class BrowserSecurityController {
     private static final Logger logger = LoggerFactory.getLogger(BrowserSecurityController.class);
     private final RequestCache requestCache = new HttpSessionRequestCache();
@@ -45,9 +45,9 @@ public class BrowserSecurityController {
      * @param response
      * @return com.itdachen.auth.core.response.ServerResponse<java.lang.String>
      */
-    @RequestMapping(SecurityConstants.DEFAULT_UN_AUTHENTICATION_URL)
-    @ResponseStatus(code = HttpStatus.UNAUTHORIZED)
-    @ResponseBody
+//    @RequestMapping(SecurityConstants.DEFAULT_UN_AUTHENTICATION_URL)
+//    @ResponseStatus(code = HttpStatus.UNAUTHORIZED)
+//    @ResponseBody
     public void requireAuthentication(HttpServletRequest request, HttpServletResponse response) throws IOException {
         SavedRequest savedRequest = requestCache.getRequest(request, response);
         String signInPage = flySecurityProperties.getSignInPage();

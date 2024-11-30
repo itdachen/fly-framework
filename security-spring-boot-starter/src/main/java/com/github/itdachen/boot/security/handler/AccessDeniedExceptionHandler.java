@@ -20,7 +20,7 @@ import java.io.IOException;
  * Created by 王大宸 on 2022-09-23 16:41
  * Created with IntelliJ IDEA.
  */
-@Component
+//@Component
 @Deprecated
 public class AccessDeniedExceptionHandler implements AccessDeniedHandler {
     private static final Logger logger = LoggerFactory.getLogger(AccessDeniedExceptionHandler.class);

@@ -7,6 +7,7 @@ import com.github.itdachen.boot.security.log.IAuthFailureCredentialsLogHandler;
 import com.github.itdachen.boot.security.log.IAuthSuccessCredentialsLogHandler;
 import com.github.itdachen.boot.security.log.management.AuthFailureLogHandlerManagement;
 import com.github.itdachen.boot.security.log.management.AuthSuccessLogHandlerManagement;
+import com.github.itdachen.boot.security.web.AuthenticationRequireFilter;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.boot.autoconfigure.condition.ConditionalOnMissingBean;
@@ -77,6 +78,18 @@ public class AuthenticationHandlerAutoConfiguration {
     @ConditionalOnMissingBean(IAuthSuccessCredentialsLogHandler.class)
     public IAuthSuccessCredentialsLogHandler authSuccessCredentialsLogHandler() {
         return new AuthSuccessLogHandlerManagement();
+    }
+
+    /***
+     * 认证需要访问的地址过滤, 所有需要认证的, 而没有认证的, 都走这个过滤器
+     *
+     * @author 王大宸
+     * @date 2024/11/30 23:21
+     * @return com.github.itdachen.boot.security.web.AuthenticationRequireFilter
+     */
+    @Bean
+    public AuthenticationRequireFilter authenticationRequireFilter() {
+        return new AuthenticationRequireFilter(flySecurityProperties);
     }
 
 

@@ -28,7 +28,7 @@ import java.util.Map;
  * @author 王大宸
  * @date 2023/11/14 10:26
  */
-@Controller
+//@Controller
 public class ThirdPlatformForwardController {
     private final RedirectStrategy redirectStrategy = new DefaultRedirectStrategy();
 
@@ -57,7 +57,7 @@ public class ThirdPlatformForwardController {
      * @param params params
      * @return void
      */
-    @GetMapping(SecurityConstants.VERIFY_TICKET_PLATFORM_FORWARD)
+  //  @GetMapping(SecurityConstants.VERIFY_TICKET_PLATFORM_FORWARD)
     public void serviceForward(HttpServletRequest request,
                                HttpServletResponse response,
                                @RequestParam Map<String, String> params) throws Exception {

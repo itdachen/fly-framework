@@ -1,13 +1,17 @@
 package com.github.itdachen.boot.security;
 
+import com.github.itdachen.boot.autoconfigure.app.AppInfoProperties;
 import com.github.itdachen.boot.autoconfigure.security.properties.FlySecurityProperties;
 import com.github.itdachen.boot.autoconfigure.security.properties.session.SecuritySessionProperties;
+import com.github.itdachen.boot.autoconfigure.security.properties.third.SecurityThirdProperties;
 import com.github.itdachen.boot.security.details.IRefreshUserDetails;
 import com.github.itdachen.boot.security.details.RefreshUserDetailsHandler;
 import com.github.itdachen.boot.security.interceptor.FlyWebSecurityInterceptor;
 import com.github.itdachen.boot.security.matchers.IAuthorizeRequestMatchers;
 import com.github.itdachen.boot.security.matchers.impl.AuthorizeRequestMatchersImpl;
 import com.github.itdachen.boot.security.rememberme.CustomJdbcPersistentTokenRepository;
+import com.github.itdachen.boot.security.third.filter.ThirdPlatformForwardFilter;
+import com.github.itdachen.boot.security.third.filter.VerifyTicketAuthorizationCodeFilter;
 import com.github.itdachen.boot.security.third.service.IThirdPlatformVerifyTicketTokenService;
 import com.github.itdachen.boot.security.third.service.impl.DefaultThirdPlatformVerifyTicketToken;
 import org.springframework.boot.autoconfigure.condition.ConditionalOnMissingBean;
@@ -150,6 +154,24 @@ public class FlyWebSecurityAutoConfiguration {
                 new RequestAttributeSecurityContextRepository(),
                 new HttpSessionSecurityContextRepository()
         );
+    }
+
+    
+    /***
+     * 服务转发, 跳转到其他应用服务
+     *
+     * @author 王大宸
+     * @date 2024/12/1 0:03
+     * @return com.github.itdachen.boot.security.third.filter.ThirdPlatformForwardFilter
+     */
+    @Bean
+    public ThirdPlatformForwardFilter thirdPlatformForwardFilter() {
+        return new ThirdPlatformForwardFilter();
+    }
+
+    @Bean
+    public VerifyTicketAuthorizationCodeFilter verifyTicketAuthorizationCodeFilter(){
+        return  new VerifyTicketAuthorizationCodeFilter();
     }
 
 

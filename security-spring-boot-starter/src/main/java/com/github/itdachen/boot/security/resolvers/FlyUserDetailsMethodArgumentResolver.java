@@ -1,6 +1,5 @@
 package com.github.itdachen.boot.security.resolvers;
 
-import com.github.itdachen.boot.security.context.SecurityContextHandler;
 import com.github.itdachen.framework.context.annotation.CurrentUser;
 import com.github.itdachen.framework.context.handler.GlobalContextUserDetailsHandler;
 import com.github.itdachen.framework.context.userdetails.UserInfoDetails;
@@ -31,11 +30,6 @@ public class FlyUserDetailsMethodArgumentResolver implements HandlerMethodArgume
                                            ModelAndViewContainer mavContainer,
                                            NativeWebRequest webRequest,
                                            WebDataBinderFactory binderFactory) throws Exception {
-//        Object principal = SecurityContextHandler.getUserInfo();
-//        if (principal instanceof UserInfoDetails userInfo) {
-//            return userInfo;
-//        }
-//        return null;
         return GlobalContextUserDetailsHandler.getUserDetails();
     }
 

@@ -20,7 +20,7 @@ import java.util.Date;
  */
 public class CustomJdbcPersistentTokenRepository extends JdbcDaoSupport implements PersistentTokenRepository {
     /* 记住我数据库表名 */
-    private static final String REMEMBER_ME_TABLE_NAME = "sys_persistent_logins";
+    private static final String REMEMBER_ME_TABLE_NAME = "ta_fly_persistent_logins";
     private static final String tokensBySeriesSql = "select username,series,token,last_used from " + REMEMBER_ME_TABLE_NAME + " where series = ?";
     private static final String insertTokenSql = "insert into " + REMEMBER_ME_TABLE_NAME + " (username, series, token, last_used) values(?,?,?,?)";
     private static final String updateTokenSql = "update " + REMEMBER_ME_TABLE_NAME + " set token = ?, last_used = ? where series = ?";

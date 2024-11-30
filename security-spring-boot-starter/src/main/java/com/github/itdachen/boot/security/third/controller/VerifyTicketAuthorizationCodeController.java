@@ -15,7 +15,7 @@ import org.springframework.web.bind.annotation.RestController;
  * Created by 王大宸 on 2023/04/03 17:07
  * Created with IntelliJ IDEA.
  */
-@RestController
+//@RestController
 public class VerifyTicketAuthorizationCodeController {
     private static final Logger logger = LoggerFactory.getLogger(VerifyTicketAuthorizationCodeController.class);
     private final IThirdPlatformVerifyTicketTokenService thirdVerifyTicketTokenService;
@@ -34,7 +34,7 @@ public class VerifyTicketAuthorizationCodeController {
      * @param code code
      * @return cn.edu.hubu.framework.core.response.ServerResponse<java.lang.String>
      */
-    @RequestMapping(SecurityConstants.VERIFY_TICKET_TOKEN)
+  //  @RequestMapping(SecurityConstants.VERIFY_TICKET_TOKEN)
     public ServerResponse<VerifyTicketToken> verifyTicket(String code) {
         try {
             VerifyTicketToken tokenVo = thirdVerifyTicketTokenService.findVerifyTicketToken(code);
