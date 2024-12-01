@@ -99,7 +99,7 @@ public class ReturnStatusCode {
                 return "访问客户端ip未注册，不在ip白名单中";
             }
             default -> {
-                return null;
+                return "微信官方发生了一个错误";
             }
         }
     }
