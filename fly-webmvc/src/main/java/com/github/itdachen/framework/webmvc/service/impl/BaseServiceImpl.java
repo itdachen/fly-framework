@@ -1,5 +1,6 @@
 package com.github.itdachen.framework.webmvc.service.impl;
 
+import com.github.itdachen.framework.context.exception.BizException;
 import com.github.itdachen.framework.core.response.TableData;
 import com.github.itdachen.framework.webmvc.entity.EntityUtils;
 import com.github.itdachen.framework.webmvc.service.IBaseService;
@@ -126,7 +127,7 @@ public class BaseServiceImpl<IBizMapper extends Mapper<T>, T, PK> implements IBa
 
     @Override
     public void dataExpToExcel(HttpServletRequest request, HttpServletResponse response, Map<String,Object> params) throws Exception {
-
+        throw new BizException("请重写导出方法");
     }
 
 }

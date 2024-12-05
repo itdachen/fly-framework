@@ -1,5 +1,6 @@
 package com.github.itdachen.boot.sign.api;
 
+
 import com.github.itdachen.boot.autoconfigure.AppContextHelper;
 
 /**

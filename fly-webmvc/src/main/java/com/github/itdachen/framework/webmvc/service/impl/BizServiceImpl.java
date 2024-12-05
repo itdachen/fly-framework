@@ -1,6 +1,7 @@
 package com.github.itdachen.framework.webmvc.service.impl;
 
 import com.github.itdachen.framework.webmvc.convert.IBizConvertMapper;
+import com.github.itdachen.framework.webmvc.poi.WorkBookUtils;
 import com.github.pagehelper.Page;
 import com.github.pagehelper.PageHelper;
 import com.github.itdachen.framework.core.biz.BizQuery;
@@ -22,6 +23,7 @@ import tk.mybatis.mapper.common.Mapper;
 import tk.mybatis.mapper.entity.Example;
 
 import java.lang.reflect.ParameterizedType;
+import java.util.ArrayList;
 import java.util.Iterator;
 import java.util.List;
 import java.util.Map;
@@ -154,6 +156,17 @@ public class BizServiceImpl<IBizMapper extends Mapper<T>, T, D, V, Q extends Biz
     @Override
     public void dataExpToExcel(HttpServletRequest request, HttpServletResponse response, Q params) throws Exception {
 
+        WorkBookUtils.export(request, response)
+                .params(params)
+                .title("")
+                .upload(true)
+                .rowNum(true)
+                .fields(new ArrayList<>())
+                .data(new ArrayList<>())
+                .execute();
+
+
+        throw new BizException("请重写导出方法");
     }
 
     /**
