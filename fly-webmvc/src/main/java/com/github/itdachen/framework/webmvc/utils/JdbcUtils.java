@@ -1,11 +1,11 @@
 package com.github.itdachen.framework.webmvc.utils;
 
+import jakarta.persistence.Column;
+import jakarta.persistence.Table;
 import org.apache.commons.lang3.StringUtils;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
-import javax.persistence.Column;
-import javax.persistence.Table;
 import java.lang.reflect.Field;
 import java.lang.reflect.InvocationTargetException;
 import java.lang.reflect.Method;

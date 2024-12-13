@@ -30,7 +30,7 @@ public class AppInfoProperties {
     /**
      * 上下文(不用配置)
      */
-    @Value("${server.servlet.context-path}")
+//    @Value("${server.servlet.context-path}")
     private String contextPath = "";
 
     /**

@@ -6,7 +6,7 @@
     <groupId>com.github.itdachen</groupId>
     <artifactId>fly-framework</artifactId>
     <name>${project.artifactId}</name>
-    <version>1.0.7</version>
+    <version>1.1.0-RC</version>
     <packaging>pom</packaging>
 
     <properties>
