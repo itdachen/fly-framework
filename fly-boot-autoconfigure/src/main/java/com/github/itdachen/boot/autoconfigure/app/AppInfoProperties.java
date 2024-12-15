@@ -1,5 +1,6 @@
 package com.github.itdachen.boot.autoconfigure.app;
 
+import com.github.itdachen.boot.autoconfigure.AppContextHelper;
 import com.github.itdachen.boot.autoconfigure.app.enums.BackstageTemplateEnum;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.boot.context.properties.ConfigurationProperties;
@@ -154,10 +155,15 @@ public class AppInfoProperties {
     }
 
     public String getContextPath() {
-        if ("".equals(contextPath) || null == contextPath) {
-            return "";
+        if (!"".equals(this.contextPath) && null != this.contextPath) {
+            return contextPath;
         }
-        return contextPath;
+        final String contextEnvPath = AppContextHelper.contextPath();
+        if (null != contextEnvPath && !"".equals(contextEnvPath)) {
+            setContextPath(contextEnvPath);
+            return contextEnvPath;
+        }
+        return "";
     }
 
     public void setContextPath(String contextPath) {
@@ -165,7 +171,7 @@ public class AppInfoProperties {
     }
 
     public String getToAs() {
-        if ("".equals(toAs) || null == toAs) {
+        if ("".equals(this.toAs) || null == this.toAs) {
             return appName;
         }
         return toAs;

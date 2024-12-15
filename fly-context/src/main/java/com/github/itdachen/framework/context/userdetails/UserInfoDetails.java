@@ -13,7 +13,7 @@ import java.util.Objects;
  * Created by 王大宸 on 2023/04/15 21:29
  * Created with IntelliJ IDEA.
  */
-public class UserInfoDetails extends HashMap<String, Objects> implements Serializable {
+public class UserInfoDetails implements Serializable {
     private static final Long serialVersionUID = 6829345754240159691L;
 
     /**

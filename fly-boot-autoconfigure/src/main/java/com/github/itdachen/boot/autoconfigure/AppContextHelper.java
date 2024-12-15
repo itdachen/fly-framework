@@ -1,6 +1,7 @@
 package com.github.itdachen.boot.autoconfigure;
 
 import org.springframework.context.ApplicationContext;
+import org.springframework.core.env.Environment;
 
 /**
  * 应用上下文
@@ -9,6 +10,7 @@ import org.springframework.context.ApplicationContext;
  * @date 2024/5/22 22:44
  */
 public class AppContextHelper {
+    private static final Environment environment = AppContextHelper.getBean("environment");
 
     /**
      * Spring Application上下文对象
@@ -19,6 +21,21 @@ public class AppContextHelper {
      */
     public static ApplicationContext context() {
         return AppContextAware.getInstance();
+    }
+
+    /***
+     * 获取服务上下文
+     *
+     * @author 王大宸
+     * @date 2024/12/15 16:35
+     * @return java.lang.String
+     */
+    public static String contextPath() {
+        String contextPath = environment.getProperty("server.servlet.context-path");
+        if (null == contextPath || "".equals(contextPath)) {
+            return "";
+        }
+        return contextPath;
     }
 
     /***
