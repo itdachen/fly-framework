@@ -1,6 +1,7 @@
 package com.github.itdachen.cloud.jwt.parse.interceptor;
 
 import com.github.itdachen.cloud.jwt.IVerifyTicketTokenHelper;
+import com.github.itdachen.cloud.jwt.parse.verified.IVerifiedTicketUrlService;
 import com.github.itdachen.framework.context.BizContextHandler;
 import com.github.itdachen.framework.context.annotation.IgnoreUserToken;
 import com.github.itdachen.framework.context.constants.UserInfoConstant;
@@ -29,9 +30,12 @@ public class UserAuthRestInterceptor implements HandlerInterceptor {
     private static final Logger logger = LoggerFactory.getLogger(UserAuthRestInterceptor.class);
 
     private final IVerifyTicketTokenHelper verifyTicketTokenService;
+    private final IVerifiedTicketUrlService verifiedTicketUrlService;
 
-    public UserAuthRestInterceptor(IVerifyTicketTokenHelper verifyTicketTokenService) {
+    public UserAuthRestInterceptor(IVerifyTicketTokenHelper verifyTicketTokenService,
+                                   IVerifiedTicketUrlService verifiedTicketUrlService) {
         this.verifyTicketTokenService = verifyTicketTokenService;
+        this.verifiedTicketUrlService = verifiedTicketUrlService;
     }
 
     @Override
@@ -52,20 +56,12 @@ public class UserAuthRestInterceptor implements HandlerInterceptor {
             return true;
         }
 
-        // 是否鉴权
-        String header = request.getHeader(UserInfoConstant.VERIFIED_TICKET);
-        boolean passFlag = UserInfoConstant.VERIFIED_TICKET_VALUE.equals(header);
-        if (!passFlag) {
-            // 是否内部调用
-            header = request.getHeader(UserInfoConstant.NAL_FEIGN);
-            passFlag = UserInfoConstant.NAL_FEIGN_VALUE.equals(header);
-        }
-        /* 既没有通过网关鉴权, 也不是内网调用, 返回非法请求 */
-        if (!passFlag) {
+        // 是否鉴权 IVerifiedTicketUrl
+        boolean verifiedTicket = verifiedTicketUrlService.handler(request);
+        if (!verifiedTicket) {
             writeErrorResponse(response, HttpStatus.OK.value(), HttpStatus.BAD_REQUEST.value(), "非法请求");
             return false;
         }
-
 
         String token = request.getHeader(UserInfoConstant.HEADER_AUTHORIZATION);
         if (StringUtils.isEmpty(token)) {

@@ -9,6 +9,8 @@ import com.github.itdachen.cloud.jwt.parse.factory.VerifyTicketTokenHelper;
 import com.github.itdachen.cloud.jwt.parse.key.PublicKeyParseHandler;
 import com.github.itdachen.cloud.jwt.parse.matchers.IRequestPassMatchers;
 import com.github.itdachen.cloud.jwt.parse.matchers.impl.DefaultRequestPassMatchers;
+import com.github.itdachen.cloud.jwt.parse.verified.DefaultVerifiedTicketUrlService;
+import com.github.itdachen.cloud.jwt.parse.verified.IVerifiedTicketUrlService;
 import org.springframework.boot.autoconfigure.condition.ConditionalOnMissingBean;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
@@ -83,5 +85,17 @@ public class ParseTokenAutoConfiguration {
         return new PublicKeyParseHandler();
     }
 
+    /***
+     * 权限校验
+     *
+     * @author 王大宸
+     * @date 2024/12/18 10:28
+     * @return com.github.itdachen.cloud.jwt.parse.verified.IVerifiedTicketUrlService
+     */
+    @Bean
+    @ConditionalOnMissingBean(IVerifiedTicketUrlService.class)
+    public IVerifiedTicketUrlService defaultVerifiedTicketUrlService() {
+        return new DefaultVerifiedTicketUrlService();
+    }
 
 }
