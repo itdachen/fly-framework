@@ -1,4 +1,4 @@
-package com.github.itdachen.framework.context.tree;
+package com.github.itdachen.framework.context.tree.lay;
 
 import java.io.Serializable;
 import java.util.ArrayList;
@@ -21,11 +21,21 @@ public class LayTree implements Serializable {
     /**
      * 树结构数据
      */
-    private List<LayTreeNode> data = new ArrayList<>();
+    private List<TreeNode> data = new ArrayList<>();
 
-    public LayTree(List<String> checked, List<LayTreeNode> data) {
+    public LayTree(List<String> checked, List<TreeNode> data) {
         this.checked = checked;
         this.data = data;
+    }
+
+    public LayTree checked(List<String> checked) {
+        this.checked = checked;
+        return this;
+    }
+
+    public LayTree data(List<TreeNode> data) {
+        this.data = data;
+        return this;
     }
 
 
@@ -37,11 +47,11 @@ public class LayTree implements Serializable {
         this.checked = checked;
     }
 
-    public List<LayTreeNode> getData() {
+    public List<TreeNode> getData() {
         return data;
     }
 
-    public void setData(List<LayTreeNode> data) {
+    public void setData(List<TreeNode> data) {
         this.data = data;
     }
 

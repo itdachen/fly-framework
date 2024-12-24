@@ -1,17 +1,18 @@
-package com.github.itdachen.framework.context.tree;
+package com.github.itdachen.framework.context.tree.lay;
 
 import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.List;
 
 /**
- * Lay-vue 树结构
+ * TreeNode
  *
  * @author 王大宸
- * @date 2024-12-24 10:21
+ * @date 2024-12-24 14:47
  */
-public class LayTreeNode implements Serializable {
+public class TreeNode implements Serializable {
     private static final long serialVersionUID = 415337031177257051L;
+
 
     /**
      * ID
@@ -31,32 +32,61 @@ public class LayTreeNode implements Serializable {
     /**
      * 子项
      */
-    private List<LayTreeNode> children = new ArrayList<>();
+    private List<TreeNode> children = new ArrayList<>();
 
-    public LayTreeNode(String id, String title) {
+    public TreeNode() {
+    }
+
+    public TreeNode(String id, String title) {
         this.id = id;
         this.title = title;
     }
 
-    public LayTreeNode(String id, String title, Boolean spread, List<LayTreeNode> children) {
+    public TreeNode(String id, String title, Boolean spread, List<TreeNode> children) {
         this.id = id;
         this.title = title;
         this.spread = spread;
         this.children = children;
     }
 
-    public LayTreeNode(String id, String title, List<LayTreeNode> children) {
+    public TreeNode(String id, String title, List<TreeNode> children) {
         this.id = id;
         this.title = title;
         this.spread = false;
         this.children = children;
     }
 
-    public LayTreeNode(String id, String title, Boolean spread) {
+    public TreeNode(String id, String title, Boolean spread) {
         this.id = id;
         this.title = title;
         this.spread = spread;
     }
+
+
+    /* ID */
+    public TreeNode id(String id) {
+        this.id = id;
+        return this;
+    }
+
+    /*  标题 */
+    public TreeNode title(String title) {
+        this.title = title;
+        return this;
+    }
+
+    /* 是否展开 */
+    public TreeNode spread(Boolean spread) {
+        this.spread = spread;
+        return this;
+    }
+
+    /*  子项  */
+    public TreeNode children(List<TreeNode> children) {
+        this.children = children;
+        return this;
+    }
+
 
     public String getId() {
         return id;
@@ -82,14 +112,13 @@ public class LayTreeNode implements Serializable {
         this.spread = spread;
     }
 
-    public List<LayTreeNode> getChildren() {
+    public List<TreeNode> getChildren() {
         return children;
     }
 
-    public void setChildren(List<LayTreeNode> children) {
+    public void setChildren(List<TreeNode> children) {
         this.children = children;
     }
-
 
 
 }
