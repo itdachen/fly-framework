@@ -14,6 +14,7 @@ import tk.mybatis.mapper.common.Mapper;
 import tk.mybatis.mapper.entity.Example;
 
 import java.lang.reflect.ParameterizedType;
+import java.util.ArrayList;
 import java.util.Iterator;
 import java.util.List;
 import java.util.Map;
@@ -128,6 +129,16 @@ public class BaseServiceImpl<IBizMapper extends Mapper<T>, T, PK> implements IBa
     @Override
     public void dataExpToExcel(HttpServletRequest request, HttpServletResponse response, Map<String,Object> params) throws Exception {
         throw new BizException("请重写导出方法");
+
+//        WorkBookUtils.export()
+//                .request(null)
+//                .response(null)
+//                .title("")
+//                .fields(new ArrayList<>())
+//                .list(new ArrayList<>())
+//                .params(null)
+//                .execute();
+
     }
 
 }
