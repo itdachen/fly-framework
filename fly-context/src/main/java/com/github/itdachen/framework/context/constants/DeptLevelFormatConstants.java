@@ -19,7 +19,7 @@ public class DeptLevelFormatConstants {
     /**
      * 总部 00 00 00 00 00 00 00
      */
-    public static final String ROOT_LEVEL_FORMAT = "0000%s00000000";
+    public static final String ROOT_LEVEL_FORMAT = "1000%s00000000";
 
 
     /**
@@ -46,12 +46,6 @@ public class DeptLevelFormatConstants {
      * 村/社区级
      */
     public static final String VILLAGE_LEVEL_FORMAT = "%s00%s00";
-
-//    public static void main(String[] args) {
-//        String format = String.format(STREET_LEVEL_FORMAT, "520101123", "12");
-//        System.err.println(format);
-//    }
-
 
     /***
      * 生成部门代码
