@@ -30,22 +30,22 @@ public class DeptLevelFormatConstants {
     /**
      * 市/州级
      */
-    public static final String CITY_LEVEL_FORMAT = "%s00000000%s00";
+    public static final String CITY_LEVEL_FORMAT = "%s000000%s00";
 
     /**
      * 区/县级
      */
-    public static final String COUNT_LEVEL_FORMAT = "%s000000%s00";
+    public static final String COUNT_LEVEL_FORMAT = "%s0000%s00";
 
     /**
      * 乡镇/街道级
      */
-    public static final String STREET_LEVEL_FORMAT = "%s0000%s00";
+    public static final String STREET_LEVEL_FORMAT = "%s00%s00";
 
     /**
      * 村/社区级
      */
-    public static final String VILLAGE_LEVEL_FORMAT = "%s00%s00";
+    public static final String VILLAGE_LEVEL_FORMAT = "%s%s00";
 
     /***
      * 生成部门代码
