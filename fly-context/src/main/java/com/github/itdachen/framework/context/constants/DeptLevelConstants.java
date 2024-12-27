@@ -39,4 +39,30 @@ public class DeptLevelConstants {
      */
     public static final String VILLAGE_LEVEL = "50";
 
+
+    /***
+     * 根据当前部门层级获取下一级部门层级
+     *
+     * @author 王大宸
+     * @date 2024/12/27 23:22
+     * @param level 部门层级
+     * @return java.lang.String
+     */
+    public static String findNextLevel(String level) {
+        if (ROOT_LEVEL.equals(level)) {
+            return PROV_LEVEL;
+        }
+        if (PROV_LEVEL.equals(level)) {
+            return CITY_LEVEL;
+        }
+        if (CITY_LEVEL.equals(level)) {
+            return COUNT_LEVEL;
+        }
+        if (COUNT_LEVEL.equals(level)) {
+            return STREET_LEVEL;
+        }
+        return VILLAGE_LEVEL;
+    }
+
+
 }
