@@ -1,5 +1,7 @@
 package com.github.itdachen.framework.core.biz;
 
+import com.github.itdachen.framework.context.BizContextHandler;
+
 import java.io.Serializable;
 
 /**
@@ -19,6 +21,11 @@ public class BizQuery implements Serializable {
      * 默认每页查询十条
      */
     private int limit = 10;
+
+    /**
+     * 租户ID
+     */
+    public String tenantId = BizContextHandler.getTenantId();
 
     public BizQuery() {
     }
@@ -42,6 +49,14 @@ public class BizQuery implements Serializable {
 
     public void setLimit(int limit) {
         this.limit = limit;
+    }
+
+    public String getTenantId() {
+        return tenantId;
+    }
+
+    public void setTenantId(String tenantId) {
+        this.tenantId = tenantId;
     }
 
 }
