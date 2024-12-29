@@ -22,7 +22,7 @@ public class CloudTokenProperties {
     private String issuer = "com.github.itdachen";
 
     /**
-     * 有效时间, 定义默认有效期为 2 小时, 单位：分钟
+     * 有效时间, 定义默认有效期为 2 (60*60*2) 小时, 单位：秒
      */
     private long expires = 7200;
 
