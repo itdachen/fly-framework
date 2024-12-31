@@ -40,6 +40,12 @@ public class TreeNode implements Serializable {
      */
     private Boolean spread = false;
 
+
+    /**
+     * 是否禁用
+     */
+    private Boolean disabled = false;
+
     /**
      * 子项
      */
@@ -151,6 +157,14 @@ public class TreeNode implements Serializable {
 
     public void setSpread(Boolean spread) {
         this.spread = spread;
+    }
+
+    public Boolean getDisabled() {
+        return disabled;
+    }
+
+    public void setDisabled(Boolean disabled) {
+        this.disabled = disabled;
     }
 
     public List<TreeNode> getChildren() {
