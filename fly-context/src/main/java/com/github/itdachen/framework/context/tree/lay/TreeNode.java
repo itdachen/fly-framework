@@ -25,6 +25,17 @@ public class TreeNode implements Serializable {
     private String title;
 
     /**
+     * 类型
+     */
+    private String type;
+
+    /**
+     * 图标
+     */
+    private String icon;
+
+
+    /**
      * 是否展开
      */
     private Boolean spread = false;
@@ -120,5 +131,19 @@ public class TreeNode implements Serializable {
         this.children = children;
     }
 
+    public String getType() {
+        return type;
+    }
 
+    public void setType(String type) {
+        this.type = type;
+    }
+
+    public String getIcon() {
+        return icon;
+    }
+
+    public void setIcon(String icon) {
+        this.icon = icon;
+    }
 }
