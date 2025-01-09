@@ -44,6 +44,19 @@ public class ServerResponse<T> implements Serializable {
         this.data = data;
     }
 
+    /***
+     * 成功消息
+     */
+    public static String okMsg(String msg) {
+        return "{\"success\":\"true\",\"status\":\"" + 200 + "\", \"msg\":\"" + msg + "\",\"data\": null}";
+    }
+
+    /***
+     * 错误消息
+     */
+    public static String errMsg(String msg) {
+        return "{\"success\":\"true\",\"status\":\"" + 500 + "\", \"msg\":\"" + msg + "\",\"data\": null}";
+    }
 
     /***
      * 错误消息
