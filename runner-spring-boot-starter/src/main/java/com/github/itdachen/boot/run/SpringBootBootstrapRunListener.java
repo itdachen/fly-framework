@@ -36,10 +36,10 @@ public class SpringBootBootstrapRunListener implements SpringApplicationRunListe
     }
 
     /***
-     * 应用启动
+     * run 方法第一次被执行时调用，早期初始化工作
      *
      * @author 王大宸
-     * @date 2024/5/27 21:46
+     * @date 2025/1/22 20:29
      * @param bootstrapContext bootstrapContext
      * @return void
      */
@@ -56,7 +56,7 @@ public class SpringBootBootstrapRunListener implements SpringApplicationRunListe
     }
 
     /***
-     * 应用启动, 环境准备
+     * environment 创建后，ApplicationContext 创建前
      *
      * @author 王大宸
      * @date 2024/5/27 21:47
@@ -66,8 +66,6 @@ public class SpringBootBootstrapRunListener implements SpringApplicationRunListe
      */
     @Override
     public void environmentPrepared(ConfigurableBootstrapContext bootstrapContext, ConfigurableEnvironment environment) {
-        //   System.out.println("spring boot bootstrap environmentPrepared");
-
         final String runLog = SeparatorLine.SEPARATOR_LINE + "\n" +
                 "\twelcome use [ " + environment.getProperty("spring.application.name") + " ] application\n" +
                 "\tapplication [ " + environment.getProperty("spring.application.name") + " ] starting\n" +
@@ -79,7 +77,7 @@ public class SpringBootBootstrapRunListener implements SpringApplicationRunListe
     }
 
     /***
-     * 应用上下文准备
+     * ApplicationContext 实例创建，部分属性设置了
      *
      * @author 王大宸
      * @date 2024/5/27 21:47
@@ -92,7 +90,7 @@ public class SpringBootBootstrapRunListener implements SpringApplicationRunListe
     }
 
     /***
-     * 应用上下文加载
+     * ApplicationContext 加载后，refresh 前
      *
      * @author 王大宸
      * @date 2024/5/27 21:47
@@ -104,13 +102,22 @@ public class SpringBootBootstrapRunListener implements SpringApplicationRunListe
         //  System.out.println("spring boot bootstrap contextLoaded");
     }
 
+    /***
+     * refresh 后
+     *
+     * @author 王大宸
+     * @date 2025/1/22 20:31
+     * @param context context
+     * @param timeTaken timeTaken
+     * @return void
+     */
     @Override
     public void started(ConfigurableApplicationContext context, Duration timeTaken) {
         // System.out.println("spring boot bootstrap started");
     }
 
     /***
-     * 应用启动成功
+     * 所有初始化完成后，run 结束前
      *
      * @author 王大宸
      * @date 2024/5/27 21:46
@@ -122,7 +129,7 @@ public class SpringBootBootstrapRunListener implements SpringApplicationRunListe
     public void ready(ConfigurableApplicationContext context, Duration timeTaken) {
         /* 启动耗时, 单位: 秒 */
         long seconds = timeTaken.getSeconds();
-      //  logger.info("spring boot application successfully started");
+        //  logger.info("spring boot application successfully started");
         ConfigurableEnvironment environment = context.getEnvironment();
         final String http = environment.getProperty("server.ssl.key-store") != null ? "https" : "http";
         final String port = environment.getProperty("server.port");
@@ -143,7 +150,7 @@ public class SpringBootBootstrapRunListener implements SpringApplicationRunListe
     }
 
     /***
-     * 应用启动失败
+     * 初始化失败后
      *
      * @author 王大宸
      * @date 2024/5/27 21:46
