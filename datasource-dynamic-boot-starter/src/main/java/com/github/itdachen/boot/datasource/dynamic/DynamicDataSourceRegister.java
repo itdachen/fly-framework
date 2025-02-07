@@ -109,7 +109,7 @@ public class DynamicDataSourceRegister implements BeanDefinitionRegistryPostProc
 
         /* 数据库加密配置 */
         BindResult<DataSourceProperties> cryptoProperties = Binder.get(environment)
-                .bind("hubu.datasource", DataSourceProperties.class);
+                .bind("fly.datasource", DataSourceProperties.class);
         if (!cryptoProperties.isBound()) {
             cryptoConfiguration = new DataSourceProperties();
             cryptoConfiguration.setEncoder(DataSourceEncoderTypeEnum.NOOP);
