@@ -13,6 +13,16 @@ public class PermissionInfo implements Serializable {
     private String id;
 
     /**
+     * 应用ID
+     */
+    private String appId;
+
+    /**
+     * 应用名称
+     */
+    private String appName;
+
+    /**
      * 权限标识, 资源编码
      */
     private String permission;
@@ -48,6 +58,22 @@ public class PermissionInfo implements Serializable {
 
     public void setId(String id) {
         this.id = id;
+    }
+
+    public String getAppId() {
+        return appId;
+    }
+
+    public void setAppId(String appId) {
+        this.appId = appId;
+    }
+
+    public String getAppName() {
+        return appName;
+    }
+
+    public void setAppName(String appName) {
+        this.appName = appName;
     }
 
     public String getPermission() {
@@ -98,10 +124,13 @@ public class PermissionInfo implements Serializable {
         this.menu = menu;
     }
 
+
     @Override
     public String toString() {
         return "PermissionInfo{" +
                 "id='" + id + '\'' +
+                ", appId='" + appId + '\'' +
+                ", appName='" + appName + '\'' +
                 ", permission='" + permission + '\'' +
                 ", uri='" + uri + '\'' +
                 ", method='" + method + '\'' +
