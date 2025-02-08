@@ -182,6 +182,94 @@ public class GlobalContextUserDetailsHandler {
     }
 
 
+
+    public static UserInfoDetails setUserDetails(IJwtInfo jwtInfo) {
+        UserInfoDetails userInfoDetails = new UserInfoDetails();
+        userInfoDetails.setPassword("");
+        // BizContextHandler.setTokenId(jwtInfo.getTokenId());
+
+        userInfoDetails.setId(jwtInfo.getUserId());
+        userInfoDetails.setUsername(jwtInfo.getUniqueName());
+        userInfoDetails.setTenantId(jwtInfo.getTenantId());
+        userInfoDetails.setNickName(jwtInfo.getNickName());
+
+        final Map<String, String> otherInfo = jwtInfo.getOtherInfo();
+        if (null == otherInfo || otherInfo.isEmpty()){
+            return userInfoDetails;
+        }
+
+        /* 登录信息 */
+        userInfoDetails.setId(jwtInfo.getUserId());
+        userInfoDetails.setUsername(jwtInfo.getUniqueName());
+        userInfoDetails.setLoginMethod(otherInfo.get(UserInfoConstant.LOGIN_METHOD));
+
+        /* 平台/应用信息 */
+        userInfoDetails.setPlatId(otherInfo.get(UserInfoConstant.PLAT_ID));
+        userInfoDetails.setPlatName(otherInfo.get(UserInfoConstant.PLAT_NAME));
+        userInfoDetails.setAppId(otherInfo.get(UserInfoConstant.APP_ID));
+        userInfoDetails.setAppName(otherInfo.get(UserInfoConstant.APP_NAME));
+        userInfoDetails.setAppVersion(otherInfo.get(UserInfoConstant.APP_VERSION));
+        userInfoDetails.setAppContextPath(otherInfo.get(UserInfoConstant.APP_CONTEXT_PATH));
+
+        /* 租户信息 */
+        userInfoDetails.setTenantId(jwtInfo.getTenantId());
+        userInfoDetails.setTenantTitle(otherInfo.get(UserInfoConstant.TENANT_TITLE));
+
+        /* 基础信息 */
+        userInfoDetails.setId(jwtInfo.getUserId());
+        userInfoDetails.setNickName(jwtInfo.getNickName());
+        userInfoDetails.setAvatar(otherInfo.get(UserInfoConstant.AVATAR));
+        userInfoDetails.setEmail(otherInfo.get(UserInfoConstant.E_MAIL));
+        userInfoDetails.setSex(otherInfo.get(UserInfoConstant.SEX));
+        userInfoDetails.setUserType(otherInfo.get(UserInfoConstant.USER_TYPE));
+        userInfoDetails.setTelephone(otherInfo.get(UserInfoConstant.TELEPHONE));
+        userInfoDetails.setValidFlag(otherInfo.get(UserInfoConstant.VALID_FLAG));
+
+        /* 身份信息 */
+        userInfoDetails.setRoleId(otherInfo.get(UserInfoConstant.ROLE_ID));
+        userInfoDetails.setRoleName(otherInfo.get(UserInfoConstant.ROLE_NAME));
+        userInfoDetails.setRoleFlag(otherInfo.get(UserInfoConstant.ROLE_FLAG));
+
+        /* 部门信息 */
+        userInfoDetails.setDeptId(otherInfo.get(UserInfoConstant.DEPT_ID));
+        userInfoDetails.setDeptTitle(otherInfo.get(UserInfoConstant.DEPT_TITLE));
+        userInfoDetails.setDeptParentId(otherInfo.get(UserInfoConstant.DEPT_PARENT_ID));
+        userInfoDetails.setDeptLevel(otherInfo.get(UserInfoConstant.DEPT_LEVEL));
+        userInfoDetails.setDeptType(otherInfo.get(UserInfoConstant.DEPT_TYPE));
+
+        /* 账号行政区域信息 */
+        userInfoDetails.setProvCode(otherInfo.get(UserInfoConstant.PROV_ID));
+        userInfoDetails.setProvName(otherInfo.get(UserInfoConstant.PROV_NAME));
+        userInfoDetails.setCityCode(otherInfo.get(UserInfoConstant.CITY_ID));
+        userInfoDetails.setCityName(otherInfo.get(UserInfoConstant.CITY_NAME));
+        userInfoDetails.setCountyCode(otherInfo.get(UserInfoConstant.COUNTY_ID));
+        userInfoDetails.setCountyName(otherInfo.get(UserInfoConstant.COUNTY_NAME));
+        userInfoDetails.setStreetCode(otherInfo.get(UserInfoConstant.STREET_CODE));
+        userInfoDetails.setStreetName(otherInfo.get(UserInfoConstant.STREET_NAME));
+
+
+        /* 登录主机信息 */
+        userInfoDetails.setHostIp(otherInfo.get(UserInfoConstant.HOST_IP));
+        userInfoDetails.setHostProv(otherInfo.get(UserInfoConstant.HOST_PROV));
+        userInfoDetails.setHostCity(otherInfo.get(UserInfoConstant.HOST_CITY));
+        userInfoDetails.setHostAddr(otherInfo.get(UserInfoConstant.HOST_ADDR));
+        userInfoDetails.setHostUserAgent(otherInfo.get(UserInfoConstant.HOST_USER_AGENT));
+        userInfoDetails.setHostOs(otherInfo.get(UserInfoConstant.HOST_OS));
+        userInfoDetails.setHostBrowser(otherInfo.get(UserInfoConstant.HOST_BROWSER));
+
+        /* 密码更新时间 */
+        if (null != otherInfo.get(UserInfoConstant.EXP_TIME)) {
+            userInfoDetails.setExpTime(LocalDateTime.parse(otherInfo.get(UserInfoConstant.EXP_TIME), DateFormatConstants.DATE_TIME_FORMATTER));
+        }
+        if (null != otherInfo.get(UserInfoConstant.LAST_TIME)) {
+            userInfoDetails.setLastTime(LocalDateTime.parse(otherInfo.get(UserInfoConstant.LAST_TIME), DateFormatConstants.DATE_TIME_FORMATTER));
+        }
+
+
+        return userInfoDetails;
+    }
+
+
     /***
      * 获取当前线程中的用户所有信息
      *
