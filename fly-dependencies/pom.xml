@@ -20,11 +20,11 @@
         <!-- Spring Cloud/Spring Boot 组件依赖 -->
         <spring-cloud-dependencies.version>2024.0.0</spring-cloud-dependencies.version>
         <spring-cloud-alibaba-dependencies.version>2023.0.3.2</spring-cloud-alibaba-dependencies.version>
-        <spring.boot.version>3.4.0</spring.boot.version>
+        <spring.boot.version>3.4.2</spring.boot.version>
         <spring.boot.admin.server.version>3.4.1</spring.boot.admin.server.version>
 
         <!-- 分布式 -->
-        <dubbo.version>3.3.2</dubbo.version>
+        <dubbo.version>3.3.3</dubbo.version>
         <org.redisson.version>3.24.3</org.redisson.version>
         <kryo-serializers.version>0.45</kryo-serializers.version>
         <kryo.version>4.0.2</kryo.version>
