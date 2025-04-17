@@ -67,7 +67,7 @@
         <!-- 解析请求信息中的用户信息 -->
         <eu.bitwalker.version>1.21</eu.bitwalker.version>
 
-        <!-- redisson -->
+        <!-- redisson 分布式锁 -->
         <org.redisson.version>3.45.1</org.redisson.version>
 
         <!-- 数据库 -->
