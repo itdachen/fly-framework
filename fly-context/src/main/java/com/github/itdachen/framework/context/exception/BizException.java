@@ -5,7 +5,7 @@ package com.github.itdachen.framework.context.exception;
  * Created by 王大宸 on 2023/02/12 22:04
  * Created with IntelliJ IDEA.
  */
-public class BizException extends Exception {
+public class BizException extends RuntimeException {
 
     private Integer status = 500;
 
