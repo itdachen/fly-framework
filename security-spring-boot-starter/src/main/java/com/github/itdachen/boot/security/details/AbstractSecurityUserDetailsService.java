@@ -124,7 +124,7 @@ public abstract class AbstractSecurityUserDetailsService implements UserDetailsS
      * @param userInfoDetails userInfoDetails
      * @return void
      */
-    private void setAppInfo(UserInfoDetails userInfoDetails) {
+    protected void setAppInfo(UserInfoDetails userInfoDetails) {
         userInfoDetails.setPlatId(platformInfoProperties.getId());
         userInfoDetails.setPlatName(platformInfoProperties.getTitle());
         userInfoDetails.setAppId(appInfoProperties.getAppId());
@@ -146,7 +146,7 @@ public abstract class AbstractSecurityUserDetailsService implements UserDetailsS
      * @param grantedAuthorities      权限
      * @return com.github.itdachen.framework.security.user.CurrentUserInfo
      */
-    private CurrentUserInfo currentUser(UserInfoDetails user,
+    protected CurrentUserInfo currentUser(UserInfoDetails user,
                                         boolean enabled,
                                         boolean accountNonExpired,
                                         boolean credentialsNonExpired,
