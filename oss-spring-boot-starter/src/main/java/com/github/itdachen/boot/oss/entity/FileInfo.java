@@ -38,6 +38,17 @@ public class FileInfo implements Serializable {
      */
     private String md5;
 
+    public FileInfo() {
+    }
+
+    public FileInfo(String name, String format, String url, Long size, String md5) {
+        this.url = url;
+        this.name = name;
+        this.size = size;
+        this.format = format;
+        this.md5 = md5;
+    }
+
     public FileInfo(Builder builder) {
         this.url = builder.url;
         this.name = builder.name;
