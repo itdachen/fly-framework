@@ -36,6 +36,25 @@ public enum ReturnCode {
     PARAMS_VALID(false, 400001, "参数校验错误！"),
     PARAMS_VALID_MSG(false, 400002, "参数校验错误！"),
 
+    /**
+     * 订单
+     */
+    ORDER_CONFIRM_PRICE_FAIL(false, 280002, "创建订单-验价失败"),
+    ORDER_CONFIRM_REPEAT(false, 280008, "订单恶意-重复提交"),
+    ORDER_CONFIRM_TOKEN_EQUAL_FAIL(false, 280009, "订单令牌缺少"),
+    ORDER_CONFIRM_NOT_EXIST(false, 280010, "订单不存在"),
+
+    /**
+     * 支付
+     */
+    PAY_ORDER_FAIL(false, 300001, "创建支付订单失败"),
+    PAY_ORDER_CALLBACK_SIGN_FAIL(false, 300002, "支付订单回调验证签失败"),
+    PAY_ORDER_CALLBACK_NOT_SUCCESS(false, 300003, "支付回调更新处理失败"),
+    PAY_ORDER_NOT_EXIST(false, 300005, "订单不存在"),
+    PAY_ORDER_STATE_ERROR(false, 300006, "订单状态不正常"),
+    PAY_ORDER_PAY_TIMEOUT(false, 300007, "订单支付超时"),
+
+
     ;
 
     // 响应是否成功
