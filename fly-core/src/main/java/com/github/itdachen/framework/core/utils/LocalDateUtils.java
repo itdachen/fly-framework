@@ -187,6 +187,37 @@ public class LocalDateUtils {
         return today().isLeapYear();
     }
 
+
+    /***
+     * 获取当前时间的 string 类型
+     *
+     * @author 王大宸
+     * @date 2020/11/3 10:59
+     * @param format 时间格式
+     * @return java.lang.String
+     */
+    public static String getLocalDateTime(String format) {
+        return LocalDateTime.now().format(DateTimeFormatter.ofPattern(format));
+    }
+
+    /***
+     * 获取当前时间的 string 类型
+     *
+     * @author 王大宸
+     * @date 2020/11/3 10:58
+     * @param
+     * @return java.lang.String
+     */
+    public static String getLocalDateTime() {
+        return getLocalDateTime(DateFormatConstants.DATE_TIME_FORMATTER_PATTERN);
+    }
+
+    public static String getLocalDate(){
+        return  LocalDate.now().format(DateTimeFormatter.ofPattern(DateFormatConstants.DATE_FORMATTER_PATTERN));
+    }
+
+
+
     /***
      * 将 LocalDateTime 转成字符串
      *
