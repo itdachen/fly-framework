@@ -93,13 +93,15 @@ public class ZTreeNode implements Serializable {
      */
     private String attr4;
 
-
     /**
      * 备用属性5
      */
     private String attr5;
 
-    private List<ZTreeNode> children;
+    private String text;
+    private String value;
+
+    private List<ZTreeNode> children = new ArrayList<>();
 
     public ZTreeNode() {
     }
@@ -108,6 +110,12 @@ public class ZTreeNode implements Serializable {
         this.id = id;
         this.name = name;
         this.parentId = parentId;
+    }
+
+    public ZTreeNode(String text, String value, List<ZTreeNode> children) {
+        this.text = text;
+        this.value = value;
+        this.children = children;
     }
 
     public ZTreeNode(Builder builder) {
@@ -344,6 +352,22 @@ public class ZTreeNode implements Serializable {
 
     public void setAttr5(String attr5) {
         this.attr5 = attr5;
+    }
+
+    public String getText() {
+        return text;
+    }
+
+    public void setText(String text) {
+        this.text = text;
+    }
+
+    public String getValue() {
+        return value;
+    }
+
+    public void setValue(String value) {
+        this.value = value;
     }
 
     public List<ZTreeNode> getChildren() {
