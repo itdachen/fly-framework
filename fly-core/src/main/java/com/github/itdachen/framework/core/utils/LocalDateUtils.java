@@ -212,10 +212,18 @@ public class LocalDateUtils {
         return getLocalDateTime(DateFormatConstants.DATE_TIME_FORMATTER_PATTERN);
     }
 
-    public static String getLocalDate(){
-        return  LocalDate.now().format(DateTimeFormatter.ofPattern(DateFormatConstants.DATE_FORMATTER_PATTERN));
+    public static String getLocalDateTimeMillis() {
+        // 获取当前时间
+        LocalDateTime currentTime = LocalDateTime.now();
+        // 格式化日期时间
+        DateTimeFormatter formatter = DateTimeFormatter.ofPattern(DateFormatConstants.DATE_TIME_FORMATTER_PATTERN_MILLIS);
+        return currentTime.format(formatter);
     }
 
+
+    public static String getLocalDate() {
+        return LocalDate.now().format(DateTimeFormatter.ofPattern(DateFormatConstants.DATE_FORMATTER_PATTERN));
+    }
 
 
     /***

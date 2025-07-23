@@ -11,6 +11,7 @@ import java.time.format.DateTimeFormatter;
 public class DateFormatConstants {
 
     public static final String DATE_TIME_FORMATTER_PATTERN = "yyyy-MM-dd HH:mm:ss";
+    public static final String DATE_TIME_FORMATTER_PATTERN_MILLIS = "yyyy-MM-dd HH:mm:ss.SSS";
     public static final String DATE_FORMATTER_PATTERN = "yyyy-MM-dd";
     public static final String TIME_FORMATTER_PATTERN = "HH:mm:ss";
 
