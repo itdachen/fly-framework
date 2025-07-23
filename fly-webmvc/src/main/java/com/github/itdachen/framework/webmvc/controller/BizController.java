@@ -118,7 +118,7 @@ public class BizController<BizService extends IBizService<D, V, Q, PK>, D, V, Q 
      * @param response response
      * @return void
      */
-    @DeleteMapping(value = "/exp" )
+    @GetMapping(value = "/exp" )
     @ResponseBody
     @Log(title = "导出" , type = LogType.EXPORT)
     public void dataExpToExcel(HttpServletRequest request, HttpServletResponse response, Q params) throws Exception {

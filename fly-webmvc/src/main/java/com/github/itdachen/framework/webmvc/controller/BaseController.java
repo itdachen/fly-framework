@@ -115,7 +115,7 @@ public class BaseController<BizService extends IBaseService<T, PK>, T, PK> {
      * @param response response
      * @return void
      */
-    @DeleteMapping(value = "/exp" )
+    @GetMapping(value = "/exp" )
     @ResponseBody
     @Log(title = "导出" , type = LogType.EXPORT)
     public void dataExpToExcel(HttpServletRequest request, HttpServletResponse response, Map<String,Object> params) throws Exception {
