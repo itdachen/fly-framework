@@ -12,7 +12,17 @@ import java.lang.annotation.Target;
  */
 @Retention(RetentionPolicy.RUNTIME)
 @Target({ElementType.METHOD})
-public @interface PagePreviewLog {
+public @interface PageView {
+
+    /**
+     * 功能名称
+     */
+    String func() default "";
+
+    /**
+     * 功能Id
+     */
+    String funcId() default "";
 
     /***
      * 页面名称
