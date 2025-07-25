@@ -21,6 +21,8 @@ public interface FileHelper {
      */
     FileInfo upload(MultipartFile file) throws Exception;
 
+    FileInfo upload(MultipartFile file, String diskFolder) throws Exception;
+
     /***
      * 文件下载
      *

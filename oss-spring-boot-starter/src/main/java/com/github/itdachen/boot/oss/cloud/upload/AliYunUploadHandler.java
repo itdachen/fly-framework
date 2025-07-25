@@ -29,7 +29,7 @@ public class AliYunUploadHandler extends FileUploadService {
 
 
     @Override
-    public FileInfo upload(MultipartFile file) throws Exception {
+    public FileInfo upload(MultipartFile file, String diskFolder) throws Exception {
         //oss客户端构建
         // OSS ossClient = new OSSClientBuilder().build(endpoint, accessKeyId, accessKeySecret);
         OSS ossClient = new OSSClientBuilder().build(properties.getEndpoint(),
@@ -47,7 +47,7 @@ public class AliYunUploadHandler extends FileUploadService {
         final String extendsion = originalFilename.substring(originalFilename.lastIndexOf("."));
 
         //在oss上的bucket创建文件夹
-        String newFilename = filePath() + "/" + fileName + extendsion;
+        String newFilename = filePath(diskFolder) + "/" + fileName + extendsion;
 
         try {
             long size = file.getSize();
@@ -75,4 +75,6 @@ public class AliYunUploadHandler extends FileUploadService {
         }
         return null;
     }
+
+
 }

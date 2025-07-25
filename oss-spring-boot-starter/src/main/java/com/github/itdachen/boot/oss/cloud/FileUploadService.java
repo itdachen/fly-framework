@@ -14,7 +14,7 @@ import java.util.UUID;
  * Created with IntelliJ IDEA.
  */
 public abstract class FileUploadService {
-//    protected FlyOssAutoconfigureProperties properties;
+    //    protected FlyOssAutoconfigureProperties properties;
     protected IVerifyFileHeaderService verifyFileHeaderService;
 
     /***
@@ -25,7 +25,7 @@ public abstract class FileUploadService {
      * @param file file
      * @return com.github.itdachen.framework.file.entity.FileInfo
      */
-    public abstract FileInfo upload(MultipartFile file) throws Exception;
+    public abstract FileInfo upload(MultipartFile file, String diskFolder) throws Exception;
 
 
     /**
@@ -35,13 +35,24 @@ public abstract class FileUploadService {
      * @author 王大宸
      * @date 2022/8/19 15:39
      */
-    protected String filePath() {
+    protected String filePath(String diskFolder) {
         // return LocalDate.now().getYear() + "/" + LocalDate.now().getMonthValue() + "/";
+
+        String filePath = "";
+        if (null != diskFolder) {
+            if (!diskFolder.startsWith("/")) {
+                diskFolder = "/" + diskFolder;
+            }
+            if (!diskFolder.endsWith("/")) {
+                diskFolder = diskFolder + "/";
+            }
+            filePath += diskFolder;
+        }
 
         /* 2023/06/12/ */
         LocalDateTime ldt = LocalDateTime.now();
         DateTimeFormatter pattern = DateTimeFormatter.ofPattern("yyyy/MM/dd");
-        return pattern.format(ldt);
+        return filePath += pattern.format(ldt);
     }
 
     /**

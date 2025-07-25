@@ -32,7 +32,7 @@ public class LocalFileUploadHandler extends FileUploadService {
 
 
     @Override
-    public FileInfo upload(MultipartFile file) throws Exception {
+    public FileInfo upload(MultipartFile file, String diskFolder) throws Exception {
         try {
             if (StringUtils.isEmpty(file.getOriginalFilename())) {
                 throw new Exception("请选择需要上传的文件");
@@ -46,7 +46,7 @@ public class LocalFileUploadHandler extends FileUploadService {
             String fileName = file.getOriginalFilename();
 
             // 文件上传
-            String src = fileUpload(file, filePath() + "/");
+            String src = fileUpload(file, filePath(diskFolder) + "/");
             String url = MapPathUtils.loadHttp(properties.getMapPath(),
                     src,
                     properties.getDiskFolder(),
@@ -83,7 +83,13 @@ public class LocalFileUploadHandler extends FileUploadService {
      * @return java.lang.String
      */
     public String fileUpload(MultipartFile file, String filePath) throws IOException {
-        filePath = properties.getDiskFolder() + filePath;
+        if (!properties.getDiskFolder().endsWith("/")) {
+            filePath = properties.getDiskFolder() + "/" + filePath;
+        } else {
+            filePath = properties.getDiskFolder() + filePath;
+        }
+
+
         //如果文件路径不存在 创建路径
         File fileDir = new File(filePath.replaceAll("//", "/"));
         if (!fileDir.exists()) {

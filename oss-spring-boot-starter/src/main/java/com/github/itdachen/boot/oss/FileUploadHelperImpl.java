@@ -29,7 +29,12 @@ public class FileUploadHelperImpl implements FileHelper {
      * @return com.github.itdachen.framework.file.entity.FileInfo
      */
     public FileInfo upload(MultipartFile file) throws Exception {
-        return factory.build().upload(file);
+        return factory.build().upload(file, null);
+    }
+
+
+    public FileInfo upload(MultipartFile file, String diskFolder) throws Exception {
+        return factory.build().upload(file, diskFolder);
     }
 
     /***
