@@ -133,7 +133,7 @@ public class BaseController<BizService extends IBaseService<T, PK>, T, PK> {
      * @param file file
      * @return void
      */
-    @GetMapping(value = "/imp")
+    @PostMapping(value = "/imp")
     @ResponseBody
     @Log(title = LogType.IMPORT_MSG, type = LogType.IMPORT)
     public void impInfo(HttpServletRequest request, HttpServletResponse response, @RequestParam("file") MultipartFile file) throws Exception {
