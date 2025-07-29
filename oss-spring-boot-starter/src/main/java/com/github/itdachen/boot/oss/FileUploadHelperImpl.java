@@ -1,8 +1,8 @@
 package com.github.itdachen.boot.oss;
 
-import com.github.itdachen.boot.oss.entity.FileInfo;
 import com.github.itdachen.boot.oss.factory.FileFactory;
 import com.github.itdachen.boot.oss.utils.FileMd5HexUtils;
+import com.github.itdachen.framework.context.models.FileInfo;
 import jakarta.servlet.http.HttpServletResponse;
 import org.springframework.web.multipart.MultipartFile;
 

@@ -5,7 +5,7 @@ import com.aliyun.oss.OSSClientBuilder;
 import com.aliyun.oss.model.PutObjectResult;
 import com.github.itdachen.boot.autoconfigure.oss.properties.OssAliYunAutoconfigureProperties;
 import com.github.itdachen.boot.oss.cloud.FileUploadService;
-import com.github.itdachen.boot.oss.entity.FileInfo;
+import com.github.itdachen.framework.context.models.FileInfo;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.web.multipart.MultipartFile;

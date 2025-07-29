@@ -23,7 +23,7 @@ public class LogType {
      * 修改操作
      */
     public final static String UPDATE = "2";
-    public final static String UPDATE_MSG = "修改";
+    public final static String UPDATE_MSG = "更新/编辑/修改";
 
     /**
      * 删除操作

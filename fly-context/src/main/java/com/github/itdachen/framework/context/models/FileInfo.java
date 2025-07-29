@@ -1,4 +1,4 @@
-package com.github.itdachen.boot.oss.entity;
+package com.github.itdachen.framework.context.models;
 
 import org.apache.commons.lang3.builder.ToStringBuilder;
 import org.apache.commons.lang3.builder.ToStringStyle;

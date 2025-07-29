@@ -14,6 +14,7 @@ import jakarta.validation.Valid;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.WebDataBinder;
 import org.springframework.web.bind.annotation.*;
+import org.springframework.web.multipart.MultipartFile;
 
 /**
  * 通用控制器
@@ -45,7 +46,7 @@ public class BizController<BizService extends IBizService<D, V, Q, PK>, D, V, Q 
      */
     @GetMapping(value = "/page" )
     @ResponseBody
-    @Log(title = "分页查询" , type = LogType.GET_PAGE_DATA)
+    @Log(title = LogType.GET_PAGE_DATA_MSG, type = LogType.GET_PAGE_DATA)
     public ServerResponse<TableData<V>> page(Q params) throws Exception {
         return ServerResponse.ok(bizService.page(params));
     }
@@ -60,7 +61,7 @@ public class BizController<BizService extends IBizService<D, V, Q, PK>, D, V, Q 
      */
     @PostMapping(value = "" )
     @ResponseBody
-    @Log(title = "新增" , type = LogType.SAVE)
+    @Log(title = LogType.SAVE_MSG, type = LogType.SAVE)
     public ServerResponse<V> saveInfo(@Valid @RequestBody D d) throws Exception {
         return ServerResponse.ok(bizService.saveInfo(d));
     }
@@ -75,7 +76,7 @@ public class BizController<BizService extends IBizService<D, V, Q, PK>, D, V, Q 
      */
     @PutMapping(value = "/{pk}" )
     @ResponseBody
-    @Log(title = "修改/编辑" , type = LogType.UPDATE)
+    @Log(title = LogType.UPDATE_MSG, type = LogType.UPDATE)
     public ServerResponse<V> updateInfo(@Valid @RequestBody D d) throws Exception {
         return ServerResponse.ok(bizService.updateInfo(d));
     }
@@ -104,7 +105,7 @@ public class BizController<BizService extends IBizService<D, V, Q, PK>, D, V, Q 
      */
     @DeleteMapping(value = "/{pk}" )
     @ResponseBody
-    @Log(title = "删除" , type = LogType.REMOVE)
+    @Log(title = LogType.REMOVE_MSG, type = LogType.REMOVE)
     public ServerResponse<Integer> deleteByPrimaryKey(@PathVariable("pk" ) PK pk) throws Exception {
         return ServerResponse.ok(bizService.deleteByPrimaryKey(pk));
     }
@@ -120,9 +121,28 @@ public class BizController<BizService extends IBizService<D, V, Q, PK>, D, V, Q 
      */
     @GetMapping(value = "/exp" )
     @ResponseBody
-    @Log(title = "导出" , type = LogType.EXPORT)
-    public void dataExpToExcel(HttpServletRequest request, HttpServletResponse response, Q params) throws Exception {
-        bizService.dataExpToExcel(request, response, params);
+    @Log(title = LogType.EXPORT_MSG, type = LogType.EXPORT)
+    public void expInfo(HttpServletRequest request, HttpServletResponse response, Q params) throws Exception {
+        bizService.expInfo(request, response, params);
     }
+
+
+    /***
+     * 导入
+     *
+     * @author 王大宸
+     * @date 2025/7/29 18:51
+     * @param request request
+     * @param response response
+     * @param file file
+     * @return void
+     */
+    @GetMapping(value = "/imp")
+    @ResponseBody
+    @Log(title = LogType.IMPORT_MSG, type = LogType.IMPORT)
+    public void impInfo(HttpServletRequest request, HttpServletResponse response, @RequestParam("file") MultipartFile file) throws Exception {
+        bizService.impInfo(request, response, file);
+    }
+
 
 }

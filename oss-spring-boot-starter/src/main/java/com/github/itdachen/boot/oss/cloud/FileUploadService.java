@@ -1,7 +1,7 @@
 package com.github.itdachen.boot.oss.cloud;
 
-import com.github.itdachen.boot.oss.entity.FileInfo;
 import com.github.itdachen.boot.oss.service.IVerifyFileHeaderService;
+import com.github.itdachen.framework.context.models.FileInfo;
 import org.springframework.web.multipart.MultipartFile;
 
 import java.time.LocalDateTime;

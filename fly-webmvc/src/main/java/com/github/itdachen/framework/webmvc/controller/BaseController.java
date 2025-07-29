@@ -12,15 +12,16 @@ import jakarta.validation.Valid;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.WebDataBinder;
 import org.springframework.web.bind.annotation.*;
+import org.springframework.web.multipart.MultipartFile;
 
 import java.util.Map;
 
 /***
-* 通用 Controller
-*
-* @author 王大宸
-* @date 2023/11/15 10:16
-*/
+ * 通用 Controller
+ *
+ * @author 王大宸
+ * @date 2023/11/15 10:16
+ */
 public class BaseController<BizService extends IBaseService<T, PK>, T, PK> {
 
     @Autowired
@@ -42,8 +43,8 @@ public class BaseController<BizService extends IBaseService<T, PK>, T, PK> {
      */
     @GetMapping(value = "/page")
     @ResponseBody
-    @Log(title = "分页查询", type = LogType.GET_PAGE_DATA)
-    public ServerResponse<TableData<T>> page(Map<String,Object> params) throws Exception {
+    @Log(title = LogType.GET_PAGE_DATA_MSG, type = LogType.GET_PAGE_DATA)
+    public ServerResponse<TableData<T>> page(Map<String, Object> params) throws Exception {
         return ServerResponse.ok(bizService.page(params));
     }
 
@@ -57,7 +58,7 @@ public class BaseController<BizService extends IBaseService<T, PK>, T, PK> {
      */
     @PostMapping(value = "")
     @ResponseBody
-    @Log(title = "新增", type = LogType.SAVE)
+    @Log(title = LogType.SAVE_MSG, type = LogType.SAVE)
     public ServerResponse<T> saveInfo(@Valid @RequestBody T t) throws Exception {
         return ServerResponse.ok(bizService.saveInfo(t));
     }
@@ -72,7 +73,7 @@ public class BaseController<BizService extends IBaseService<T, PK>, T, PK> {
      */
     @PutMapping(value = "/{id}")
     @ResponseBody
-    @Log(title = "修改/编辑", type = LogType.UPDATE)
+    @Log(title = LogType.UPDATE_MSG, type = LogType.UPDATE)
     public ServerResponse<T> updateInfo(@Valid @RequestBody T t) throws Exception {
         return ServerResponse.ok(bizService.updateInfo(t));
     }
@@ -101,7 +102,7 @@ public class BaseController<BizService extends IBaseService<T, PK>, T, PK> {
      */
     @DeleteMapping(value = "/{id}")
     @ResponseBody
-    @Log(title = "删除", type = LogType.REMOVE)
+    @Log(title = LogType.REMOVE_MSG, type = LogType.REMOVE)
     public ServerResponse<Integer> deleteByPrimaryKey(@PathVariable("id") PK id) throws Exception {
         return ServerResponse.ok(bizService.deleteByPrimaryKey(id));
     }
@@ -115,11 +116,28 @@ public class BaseController<BizService extends IBaseService<T, PK>, T, PK> {
      * @param response response
      * @return void
      */
-    @GetMapping(value = "/exp" )
+    @GetMapping(value = "/exp")
     @ResponseBody
-    @Log(title = "导出" , type = LogType.EXPORT)
-    public void dataExpToExcel(HttpServletRequest request, HttpServletResponse response, Map<String,Object> params) throws Exception {
-        bizService.dataExpToExcel(request, response, params);
+    @Log(title = LogType.EXPORT_MSG, type = LogType.EXPORT)
+    public void dataExpToExcel(HttpServletRequest request, HttpServletResponse response, Map<String, Object> params) throws Exception {
+        bizService.expInfo(request, response, params);
+    }
+
+    /***
+     * 导入
+     *
+     * @author 王大宸
+     * @date 2025/7/29 18:51
+     * @param request request
+     * @param response response
+     * @param file file
+     * @return void
+     */
+    @GetMapping(value = "/imp")
+    @ResponseBody
+    @Log(title = LogType.IMPORT_MSG, type = LogType.IMPORT)
+    public void impInfo(HttpServletRequest request, HttpServletResponse response, @RequestParam("file") MultipartFile file) throws Exception {
+        bizService.impInfo(request, response, file);
     }
 
 

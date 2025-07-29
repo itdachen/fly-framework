@@ -19,6 +19,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.jdbc.core.JdbcTemplate;
 import org.springframework.transaction.annotation.Transactional;
 import org.springframework.util.CollectionUtils;
+import org.springframework.web.multipart.MultipartFile;
 import tk.mybatis.mapper.common.Mapper;
 import tk.mybatis.mapper.entity.Example;
 
@@ -154,19 +155,26 @@ public class BizServiceImpl<IBizMapper extends Mapper<T>, T, D, V, Q extends Biz
     }
 
     @Override
-    public void dataExpToExcel(HttpServletRequest request, HttpServletResponse response, Q params) throws Exception {
+    public void expInfo(HttpServletRequest request, HttpServletResponse response, Q params) throws Exception {
+        logger.warn("请重写导出方法");
 
-        WorkBookUtils.export(request, response)
-                .params(params)
-                .title("")
-                .upload(true)
-                .rowNum(true)
-                .fields(new ArrayList<>())
-                .data(new ArrayList<>())
-                .execute();
+//        WorkBookUtils.export(request, response)
+//                .params(params)
+//                .title("-")
+//                .upload(true)
+//                .rowNum(true)
+//                .fields(new ArrayList<>())
+//                .data(new ArrayList<>())
+//                .execute();
 
 
         throw new BizException("请重写导出方法");
+    }
+
+    @Override
+    public void impInfo(HttpServletRequest request, HttpServletResponse response, MultipartFile file) throws Exception {
+        logger.warn("请重写导入方法");
+        throw new BizException("请重写导入方法");
     }
 
     /**

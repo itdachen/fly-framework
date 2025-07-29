@@ -4,6 +4,7 @@ package com.github.itdachen.framework.webmvc.service;
 import com.github.itdachen.framework.core.response.TableData;
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
+import org.springframework.web.multipart.MultipartFile;
 
 import java.util.Map;
 import java.util.Objects;
@@ -86,7 +87,19 @@ public interface IBaseService<T, PK> {
      * @param params params
      * @return void
      */
-    void dataExpToExcel(HttpServletRequest request, HttpServletResponse response, Map<String, Object> params) throws Exception;
+    void expInfo(HttpServletRequest request, HttpServletResponse response, Map<String, Object> params) throws Exception;
+
+    /***
+     * 导入
+     *
+     * @author 王大宸
+     * @date 2025/7/29 18:53
+     * @param request request
+     * @param response response
+     * @param file file
+     * @return void
+     */
+    void impInfo(HttpServletRequest request, HttpServletResponse response, MultipartFile file) throws Exception;
 
 
 }

@@ -1,10 +1,10 @@
 package com.github.itdachen.framework.webmvc.service;
 
 import com.github.itdachen.framework.core.biz.BizQuery;
-import com.github.itdachen.framework.context.exception.BizException;
 import com.github.itdachen.framework.core.response.TableData;
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
+import org.springframework.web.multipart.MultipartFile;
 
 /**
  * Description: 通用服务接口
@@ -78,6 +78,19 @@ public interface IBizService<D, V, Q extends BizQuery, PK> {
      * @param params params
      * @return void
      */
-    void dataExpToExcel(HttpServletRequest request, HttpServletResponse response, Q params) throws Exception;
+    void expInfo(HttpServletRequest request, HttpServletResponse response, Q params) throws Exception;
+
+    /***
+     * 导入
+     *
+     * @author 王大宸
+     * @date 2025/7/29 18:53
+     * @param request request
+     * @param response response
+     * @param file file
+     * @return void
+     */
+    void impInfo(HttpServletRequest request, HttpServletResponse response, MultipartFile file) throws Exception;
+
 
 }

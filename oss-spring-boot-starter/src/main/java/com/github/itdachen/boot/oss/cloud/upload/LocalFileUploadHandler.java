@@ -2,9 +2,9 @@ package com.github.itdachen.boot.oss.cloud.upload;
 
 import com.github.itdachen.boot.autoconfigure.oss.properties.OssLocalAutoconfigureProperties;
 import com.github.itdachen.boot.oss.cloud.FileUploadService;
-import com.github.itdachen.boot.oss.entity.FileInfo;
 import com.github.itdachen.boot.oss.service.IVerifyFileHeaderService;
 import com.github.itdachen.boot.oss.utils.MapPathUtils;
+import com.github.itdachen.framework.context.models.FileInfo;
 import org.apache.commons.lang3.StringUtils;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;

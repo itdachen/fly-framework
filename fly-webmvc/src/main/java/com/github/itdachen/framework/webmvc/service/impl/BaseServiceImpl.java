@@ -9,7 +9,10 @@ import com.github.pagehelper.Page;
 import com.github.pagehelper.PageHelper;
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.web.multipart.MultipartFile;
 import tk.mybatis.mapper.common.Mapper;
 import tk.mybatis.mapper.entity.Example;
 
@@ -26,6 +29,7 @@ import java.util.Map;
  * @date 2023/11/15 10:15
  */
 public class BaseServiceImpl<IBizMapper extends Mapper<T>, T, PK> implements IBaseService<T, PK> {
+    private static final Logger logger = LoggerFactory.getLogger(BaseServiceImpl.class);
 
     @Autowired
     protected IBizMapper bizMapper;
@@ -127,7 +131,8 @@ public class BaseServiceImpl<IBizMapper extends Mapper<T>, T, PK> implements IBa
     }
 
     @Override
-    public void dataExpToExcel(HttpServletRequest request, HttpServletResponse response, Map<String,Object> params) throws Exception {
+    public void expInfo(HttpServletRequest request, HttpServletResponse response, Map<String, Object> params) throws Exception {
+        logger.warn("请重写导出方法");
         throw new BizException("请重写导出方法");
 
 //        WorkBookUtils.export()
@@ -140,5 +145,12 @@ public class BaseServiceImpl<IBizMapper extends Mapper<T>, T, PK> implements IBa
 //                .execute();
 
     }
+
+    @Override
+    public void impInfo(HttpServletRequest request, HttpServletResponse response, MultipartFile file) throws Exception {
+        logger.warn("请重写导入方法");
+        throw new BizException("请重写导入方法");
+    }
+
 
 }
