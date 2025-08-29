@@ -177,7 +177,7 @@ public class UserInfoDetails implements Serializable {
     private String deptTitle;
 
     /**
-     * 身份所属部门类型, 例如:10-董事会;11-总裁
+     * 身份所属部门类型/部门职能代码, 例如:10-董事会;11-总裁
      */
     private String deptType;
 
