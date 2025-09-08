@@ -10,6 +10,9 @@ import java.io.Serializable;
 public class PermissionInfo implements Serializable {
     private static final long serialVersionUID = 5547194437832239204L;
 
+    /**
+     * 权限ID(菜单ID/按钮资源ID)
+     */
     private String id;
 
     /**
@@ -38,14 +41,19 @@ public class PermissionInfo implements Serializable {
     private String method;
 
     /**
-     * 请求类型, 资源类型: button, url
+     * 请求类型, 资源类型: button, url, page
      */
     private String type;
 
     /**
      * 操作名称(资源名称): 新增, 修改, 删除, 查询
      */
-    private String name;
+    private String name = "其他";
+
+    /**
+     * 操作代码: SAVE,UPDATE,REMOVE 等
+     */
+    private String code = "OTHER";
 
     /**
      * 菜单名称: 用户管理, 菜单管理等
@@ -116,6 +124,14 @@ public class PermissionInfo implements Serializable {
         this.name = name;
     }
 
+    public String getCode() {
+        return code;
+    }
+
+    public void setCode(String code) {
+        this.code = code;
+    }
+
     public String getMenu() {
         return menu;
     }
@@ -136,7 +152,10 @@ public class PermissionInfo implements Serializable {
                 ", method='" + method + '\'' +
                 ", type='" + type + '\'' +
                 ", name='" + name + '\'' +
+                ", code='" + code + '\'' +
                 ", menu='" + menu + '\'' +
                 '}';
     }
+
+
 }
