@@ -1,2 +1,3 @@
 com.github.itdachen.boot.oplog.OplogAutoConfiguration
+com.github.itdachen.boot.oplog.OplogAspectjAutoConfiguration
 com.github.itdachen.boot.oplog.OplogOOXmlPoiAutoConfiguration

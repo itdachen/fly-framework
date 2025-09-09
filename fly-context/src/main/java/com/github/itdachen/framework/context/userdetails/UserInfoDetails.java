@@ -20,212 +20,212 @@ public class UserInfoDetails implements Serializable {
     /**
      * 用户ID
      */
-    private String id;
+    private String id = "-";
 
     /**
      * 登录账号
      */
-    private String username;
+    private String username = "-";
 
     /**
      * 登录密码(登录成功后重置为空)
      */
-    private String password;
+    private String password = "-";
 
     /**
      * 登录平台ID
      */
-    private String platId;
+    private String platId = "-";
 
     /**
      * 登录平台名称
      */
-    private String platName;
+    private String platName = "-";
 
     /**
      * 应用ID
      */
-    private String appId;
+    private String appId = "-";
 
     /**
      * 应用名称
      */
-    private String appName;
+    private String appName = "-";
 
     /**
      * 应用版本号
      */
-    private String appVersion;
+    private String appVersion = "-";
 
     /**
      * 应用上下文
      */
-    private String appContextPath;
+    private String appContextPath = "-";
 
     /**
      * 租户ID/公司ID
      */
-    private String tenantId;
+    private String tenantId = "-";
 
     /**
      * 租户名称
      */
-    private String tenantTitle;
+    private String tenantTitle = "-";
 
     /**
      * 登录方式
      */
-    private String loginMethod;
+    private String loginMethod = "-";
 
     /**
      * 昵称/姓名
      */
-    private String nickName;
+    private String nickName = "-";
 
     /**
      * 头像
      */
-    private String avatar;
+    private String avatar = "-";
 
     /**
      * 电子邮箱
      */
-    private String email;
+    private String email = "-";
 
     /**
      * 性别
      */
-    private String sex;
+    private String sex = "-";
 
     /**
      * 用户类型: Y-超级管理员账号;N-普通账号
      */
-    private String userType;
+    private String userType = "-";
 
     /**
      * 电话号码
      */
-    private String telephone;
+    private String telephone = "-";
 
     /**
      * 有效标志: Y-有效;N-无效
      */
-    private String validFlag;
+    private String validFlag = "-";
 
     /**
      * 身份ID
      */
-    private String roleId;
+    private String roleId = "-";
 
     /**
      * 身份名称
      */
-    private String roleName;
+    private String roleName = "-";
 
     /**
      * 主身份标识: Y-主身份;N-非主身份标识
      */
-    private String roleFlag;
+    private String roleFlag = "-";
 
     /**
      * 身份所属省ID, 例如: 贵州-52
      */
-    private String provCode;
+    private String provCode = "-";
 
     /**
      * 省名称, 例如: 贵州省
      */
-    private String provName;
+    private String provName = "-";
 
     /**
      * 身份所属市/州ID,例如: 贵阳-5201
      */
-    private String cityCode;
+    private String cityCode = "-";
 
     /**
      * 身份所属市/州,例如: 贵阳
      */
-    private String cityName;
+    private String cityName = "-";
 
     /**
      * 身份所属区/县ID例如: 贵阳云岩-520102
      */
-    private String countyCode;
+    private String countyCode = "-";
 
     /**
      * 身份所属区/县例如: 贵阳云岩
      */
-    private String countyName;
+    private String countyName = "-";
 
     /**
      * 街道ID
      */
-    private String townCode;
+    private String townCode = "-";
 
     /**
      * 街道名称
      */
-    private String townName;
+    private String townName = "-";
 
     /**
      * 身份所属部门ID
      */
-    private String deptId;
+    private String deptId = "-";
 
     /**
      * 身份所属部门名称
      */
-    private String deptTitle;
+    private String deptTitle = "-";
 
     /**
      * 身份所属部门类型/部门职能代码, 例如:10-董事会;11-总裁
      */
-    private String deptType;
+    private String deptType = "-";
 
     /**
      * 身份所属部门等级, 例如:00-总部;10-省级
      */
-    private String deptLevel;
+    private String deptLevel = "-";
 
     /**
      * 身份所属上级部门代码
      */
-    private String deptParentId;
+    private String deptParentId = "-";
 
     /**
      * 操作主机IP
      */
-    private String hostIp;
+    private String hostIp = "-";
 
     /**
      * 操作主机系统
      */
-    private String hostOs;
+    private String hostOs = "-";
 
     /**
      * 操作主机浏览器
      */
-    private String hostBrowser;
+    private String hostBrowser = "-";
 
     /**
      * 操作地址, 例如: 贵州省贵阳市观山湖区...
      */
-    private String hostAddr;
+    private String hostAddr = "-";
 
     /**
      * 操作主机浏览器代理信息
      */
-    private String hostUserAgent;
+    private String hostUserAgent = "-";
 
     /**
      * 操作主机所在省ID
      */
-    private String hostProv;
+    private String hostProv = "-";
 
     /**
      * 操作主机所在市/州ID
      */
-    private String hostCity;
+    private String hostCity = "-";
 
     /**
      * 密码过期时间
@@ -295,48 +295,48 @@ public class UserInfoDetails implements Serializable {
     }
 
     public static class UserInfoDetailsBuilder {
-        private String id;
-        private String username;
-        private String password;
-        private String platId;
-        private String platName;
-        private String appId;
-        private String appName;
-        private String appVersion;
-        private String appContextPath;
-        private String tenantId;
-        private String tenantTitle;
-        private String loginMethod;
-        private String nickName;
-        private String avatar;
-        private String email;
-        private String sex;
-        private String userType;
-        private String telephone;
-        private String validFlag;
-        private String roleId;
-        private String roleName;
-        private String roleFlag;
-        private String provCode;
-        private String provName;
-        private String cityCode;
-        private String cityName;
-        private String countyCode;
-        private String countyName;
-        private String townCode;
-        private String townName;
-        private String deptId;
-        private String deptTitle;
-        private String deptType;
-        private String deptLevel;
-        private String deptParentId;
-        private String hostIp;
-        private String hostOs;
-        private String hostBrowser;
-        private String hostAddr;
-        private String hostUserAgent;
-        private String hostProv;
-        private String hostCity;
+        private String id = "-";
+        private String username = "-";
+        private String password = "-";
+        private String platId = "-";
+        private String platName = "-";
+        private String appId = "-";
+        private String appName = "-";
+        private String appVersion = "-";
+        private String appContextPath = "-";
+        private String tenantId = "-";
+        private String tenantTitle = "-";
+        private String loginMethod = "-";
+        private String nickName = "-";
+        private String avatar = "-";
+        private String email = "-";
+        private String sex = "-";
+        private String userType = "-";
+        private String telephone = "-";
+        private String validFlag = "-";
+        private String roleId = "-";
+        private String roleName = "-";
+        private String roleFlag = "-";
+        private String provCode = "-";
+        private String provName = "-";
+        private String cityCode = "-";
+        private String cityName = "-";
+        private String countyCode = "-";
+        private String countyName = "-";
+        private String townCode = "-";
+        private String townName = "-";
+        private String deptId = "-";
+        private String deptTitle = "-";
+        private String deptType = "-";
+        private String deptLevel = "-";
+        private String deptParentId = "-";
+        private String hostIp = "-";
+        private String hostOs = "-";
+        private String hostBrowser = "-";
+        private String hostAddr = "-";
+        private String hostUserAgent = "-";
+        private String hostProv = "-";
+        private String hostCity = "-";
         private LocalDateTime expTime;
         private LocalDateTime lastTime;
 

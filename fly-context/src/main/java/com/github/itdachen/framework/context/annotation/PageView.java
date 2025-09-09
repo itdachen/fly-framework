@@ -22,14 +22,9 @@ public @interface PageView {
     PageTypeEnum value() default PageTypeEnum.OTHER;
 
     /**
-     * 功能名称
+     * 版本号
      */
-    String func() default "";
-
-    /**
-     * 功能Id
-     */
-    String funcId() default "";
+    String version() default "v1.0";
 
 
 }

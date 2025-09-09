@@ -11,6 +11,7 @@ import java.time.LocalDateTime;
  * Created by 王大宸 on 2022/08/27 21:12
  * Created with IntelliJ IDEA.
  */
+@Deprecated
 public class OplogClient implements Serializable {
     private static final long serialVersionUID = 5196495926190816449L;
     /**

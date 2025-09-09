@@ -11,6 +11,7 @@ import java.io.Serializable;
  * @author 王大宸
  * @date 2025-09-09 16:44
  */
+@Deprecated
 public class OplogInfoV2 implements Serializable {
     private static final long serialVersionUID = 1L;
 
