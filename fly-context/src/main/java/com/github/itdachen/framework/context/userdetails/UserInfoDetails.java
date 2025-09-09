@@ -1,5 +1,6 @@
 package com.github.itdachen.framework.context.userdetails;
 
+import com.github.itdachen.framework.context.BizContextHandler;
 import org.apache.commons.lang3.builder.ToStringBuilder;
 import org.apache.commons.lang3.builder.ToStringStyle;
 
@@ -159,12 +160,12 @@ public class UserInfoDetails implements Serializable {
     /**
      * 街道ID
      */
-    private String streetCode;
+    private String townCode;
 
     /**
      * 街道名称
      */
-    private String streetName;
+    private String townName;
 
     /**
      * 身份所属部门ID
@@ -240,7 +241,9 @@ public class UserInfoDetails implements Serializable {
     public UserInfoDetails() {
     }
 
-    public UserInfoDetails(String id, String username, String password, String platId, String platName, String appId, String appName, String appVersion, String appContextPath, String tenantId, String tenantTitle, String loginMethod, String nickName, String avatar, String email, String sex, String userType, String telephone, String validFlag, String roleId, String roleName, String roleFlag, String provCode, String provName, String cityCode, String cityName, String countyCode, String countyName, String streetCode, String streetName, String deptId, String deptTitle, String deptType, String deptLevel, String deptParentId, String hostIp, String hostOs, String hostBrowser, String hostAddr, String hostUserAgent, String hostProv, String hostCity, LocalDateTime expTime, LocalDateTime lastTime) {
+    public UserInfoDetails(String id, String username, String password, String platId, String platName, String appId, String appName, String appVersion, String appContextPath, String tenantId, String tenantTitle, String loginMethod, String nickName, String avatar, String email, String sex, String userType, String telephone, String validFlag, String roleId, String roleName, String roleFlag, String provCode, String provName, String cityCode, String cityName, String countyCode, String countyName,
+                           String townCode, String townName,
+                           String deptId, String deptTitle, String deptType, String deptLevel, String deptParentId, String hostIp, String hostOs, String hostBrowser, String hostAddr, String hostUserAgent, String hostProv, String hostCity, LocalDateTime expTime, LocalDateTime lastTime) {
         this.id = id;
         this.username = username;
         this.password = password;
@@ -269,8 +272,8 @@ public class UserInfoDetails implements Serializable {
         this.cityName = cityName;
         this.countyCode = countyCode;
         this.countyName = countyName;
-        this.streetCode = streetCode;
-        this.streetName = streetName;
+        this.townCode = townCode;
+        this.townName = townName;
         this.deptId = deptId;
         this.deptTitle = deptTitle;
         this.deptType = deptType;
@@ -320,8 +323,8 @@ public class UserInfoDetails implements Serializable {
         private String cityName;
         private String countyCode;
         private String countyName;
-        private String streetCode;
-        private String streetName;
+        private String townCode;
+        private String townName;
         private String deptId;
         private String deptTitle;
         private String deptType;
@@ -509,14 +512,14 @@ public class UserInfoDetails implements Serializable {
         }
 
         /* 街道ID */
-        public UserInfoDetailsBuilder streetCode(String streetCode) {
-            this.streetCode = streetCode;
+        public UserInfoDetailsBuilder townCode(String townCode) {
+            this.townCode = townCode;
             return this;
         }
 
         /* 街道名称 */
-        public UserInfoDetailsBuilder streetName(String streetName) {
-            this.streetName = streetName;
+        public UserInfoDetailsBuilder townName(String townName) {
+            this.townName = townName;
             return this;
         }
 
@@ -633,8 +636,8 @@ public class UserInfoDetails implements Serializable {
                     cityName,
                     countyCode,
                     countyName,
-                    streetCode,
-                    streetName,
+                    townCode,
+                    townName,
                     deptId,
                     deptTitle,
                     deptType,
@@ -879,20 +882,20 @@ public class UserInfoDetails implements Serializable {
         return countyName;
     }
 
-    public void setStreetCode(String streetCode) {
-        this.streetCode = streetCode;
+    public String getTownCode() {
+        return townCode;
     }
 
-    public String getStreetCode() {
-        return streetCode;
+    public void setTownCode(String townCode) {
+        this.townCode = townCode;
     }
 
-    public void setStreetName(String streetName) {
-        this.streetName = streetName;
+    public String getTownName() {
+        return townName;
     }
 
-    public String getStreetName() {
-        return streetName;
+    public void setTownName(String townName) {
+        this.townName = townName;
     }
 
     public void setDeptId(String deptId) {
@@ -1039,8 +1042,8 @@ public class UserInfoDetails implements Serializable {
                 .append("cityName", getCityName())
                 .append("countyCode", getCountyCode())
                 .append("countyName", getCountyName())
-                .append("streetCode", getStreetCode())
-                .append("streetName", getStreetName())
+                .append("townCode", getTownCode())
+                .append("townName", getTownName())
                 .append("deptId", getDeptId())
                 .append("deptTitle", getDeptTitle())
                 .append("deptType", getDeptType())

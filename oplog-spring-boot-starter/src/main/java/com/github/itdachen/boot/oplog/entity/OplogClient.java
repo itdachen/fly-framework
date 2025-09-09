@@ -26,151 +26,151 @@ public class OplogClient implements Serializable {
     /**
      * 服务ID
      */
-    private String serviceId;
+    private String serviceId = "-";
 
 
     /**
      * 客户端id: PC端, 微程序, APP等
      */
-    private String clientId;
+    private String clientId = "-";
 
 
     /**
      * http 请求id
      */
-    private String requestId;
+    private String requestId = "-";
 
 
     /**
      * 日志标题: 用户管理, 菜单管理等
      */
-    private String menuTitle;
+    private String menuTitle = "-";
 
 
     /**
      * 操作类型: 新增, 修改, 删除, 查看
      */
-    private String makeUseType;
+    private String makeUseType = "-";
 
 
     /**
      * 日志类型: button-按钮, uri-链接
      */
-    private String logType;
+    private String logType = "-";
 
 
     /**
      * 操作IP地址
      */
-    private String makeUseIp;
+    private String makeUseIp = "-";
 
 
     /**
      * 操作地址
      */
-    private String makeUseAddress;
+    private String makeUseAddress = "-";
 
 
     /**
      * 操作状态: 成功, 失败, 异常
      */
-    private String makeUseStatus;
+    private String makeUseStatus = "-";
 
 
     /**
      * 用户代理
      */
-    private String userAgent;
+    private String userAgent = "-";
 
 
     /**
      * 请求URI
      */
-    private String requestUri;
+    private String requestUri = "-";
 
 
     /**
      * 操作方式
      */
-    private String requestMethod;
+    private String requestMethod = "-";
 
 
     /**
      * 操作提交的数据
      */
-    private String params;
+    private String params = "-";
 
 
     /**
      * 返回数据
      */
-    private String jsonResult;
+    private String jsonResult = "-";
 
 
     /**
      * 删除标记
      */
-    private String delFlag;
+    private String delFlag = "N";
 
 
     /**
      * 异常信息
      */
-    private String exception;
+    private String exception = "-";
 
 
     /**
      * 备注
      */
-    private String remarks;
+    private String remarks = "-";
 
 
     /**
      * 服务端处理耗时
      */
-    private String executeTime;
+    private String executeTime = "-";
 
 
     /**
      * 返回消息
      */
-    private String msg;
+    private String msg = "-";
 
 
     /**
      * 创建时间
      */
-    private LocalDateTime createTime;
+    private LocalDateTime createTime = LocalDateTime.now();
 
 
     /**
      * 创建人
      */
-    private String createUser;
+    private String createUser = "-";
 
 
     /**
      * 创建人id
      */
-    private String createUserId;
+    private String createUserId = "-";
 
 
     /**
      * 更新时间
      */
-    private LocalDateTime updateTime;
+    private LocalDateTime updateTime = LocalDateTime.now();
 
 
     /**
      * 更新人
      */
-    private String updateUser;
+    private String updateUser = "-";
 
 
     /**
      * 更新人id
      */
-    private String updateUserId;
+    private String updateUserId = "-";
 
 
     public OplogClient() {

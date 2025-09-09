@@ -72,8 +72,8 @@ public class TokenUserDetailsHandler {
         otherInfo.put(UserInfoConstant.CITY_NAME, userDetails.getCityName());
         otherInfo.put(UserInfoConstant.COUNTY_ID, userDetails.getCountyCode());
         otherInfo.put(UserInfoConstant.COUNTY_NAME, userDetails.getCountyName());
-        otherInfo.put(UserInfoConstant.STREET_CODE, userDetails.getStreetCode());
-        otherInfo.put(UserInfoConstant.STREET_NAME, userDetails.getStreetName());
+        otherInfo.put(UserInfoConstant.TOWN_CODE, userDetails.getTownCode());
+        otherInfo.put(UserInfoConstant.TOWN_NAME, userDetails.getTownName());
 
         /* 访问主机信息 */
         otherInfo.put(UserInfoConstant.HOST_IP, userDetails.getHostIp());

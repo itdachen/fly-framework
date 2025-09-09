@@ -1,5 +1,7 @@
 package com.github.itdachen.framework.context.annotation;
 
+import com.github.itdachen.framework.context.enums.PageTypeEnum;
+
 import java.lang.annotation.ElementType;
 import java.lang.annotation.Retention;
 import java.lang.annotation.RetentionPolicy;
@@ -15,6 +17,11 @@ import java.lang.annotation.Target;
 public @interface PageView {
 
     /**
+     * 页面类型
+     */
+    PageTypeEnum value() default PageTypeEnum.OTHER;
+
+    /**
      * 功能名称
      */
     String func() default "";
@@ -24,19 +31,5 @@ public @interface PageView {
      */
     String funcId() default "";
 
-    /***
-     * 页面名称
-     */
-    String title() default "";
-
-    /**
-     * 页面类型
-     */
-    String pageType() default "";
-
-    /**
-     * 客户端id
-     */
-    String clientId() default "";
 
 }

@@ -114,8 +114,8 @@ public class SecurityContextHandler {
         userInfoDetails.setCityName(userDetails.getCityName());
         userInfoDetails.setCountyCode(userDetails.getProvCode());
         userInfoDetails.setCountyName(userDetails.getCountyName());
-        userInfoDetails.setStreetCode(userDetails.getStreetCode());
-        userInfoDetails.setStreetName(userDetails.getStreetName());
+        userInfoDetails.setTownCode(userDetails.getTownCode());
+        userInfoDetails.setTownName(userDetails.getTownName());
 
         /* 部门信息 */
         userInfoDetails.setDeptId(userDetails.getDeptId());

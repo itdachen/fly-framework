@@ -1,5 +1,7 @@
 package com.github.itdachen.framework.context.annotation;
 
+import com.github.itdachen.framework.context.enums.LogTypeEnum;
+
 import java.lang.annotation.*;
 
 /**
@@ -12,15 +14,7 @@ import java.lang.annotation.*;
 @Retention(RetentionPolicy.RUNTIME)
 public @interface Log {
 
-    /***
-     * 操作标题: 新增,修改,删除
-     */
-    String title();
-
-    /**
-     * 操作类型: SAVE, UPDATE, DELETE等
-     */
-    String type() default "OTHER";
+    LogTypeEnum value() default LogTypeEnum.OTHER;
 
     /**
      * 版本号

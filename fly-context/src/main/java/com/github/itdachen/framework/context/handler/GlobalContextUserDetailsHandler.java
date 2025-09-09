@@ -65,8 +65,8 @@ public class GlobalContextUserDetailsHandler {
         BizContextHandler.setCityName(userDetails.getCityName());
         BizContextHandler.setCountyCode(userDetails.getProvCode());
         BizContextHandler.setCountyName(userDetails.getCountyName());
-        BizContextHandler.setStreetCode(userDetails.getStreetCode());
-        BizContextHandler.setStreetName(userDetails.getStreetCode());
+        BizContextHandler.setTownCode(userDetails.getTownCode());
+        BizContextHandler.setTownName(userDetails.getTownCode());
 
         /* 部门信息 */
         BizContextHandler.setDeptId(userDetails.getDeptId());
@@ -158,8 +158,8 @@ public class GlobalContextUserDetailsHandler {
         BizContextHandler.setCityName(otherInfo.get(UserInfoConstant.CITY_NAME));
         BizContextHandler.setCountyCode(otherInfo.get(UserInfoConstant.COUNTY_ID));
         BizContextHandler.setCountyName(otherInfo.get(UserInfoConstant.COUNTY_NAME));
-        BizContextHandler.setStreetCode(otherInfo.get(UserInfoConstant.STREET_CODE));
-        BizContextHandler.setStreetName(otherInfo.get(UserInfoConstant.STREET_NAME));
+        BizContextHandler.setTownCode(otherInfo.get(UserInfoConstant.TOWN_CODE));
+        BizContextHandler.setTownName(otherInfo.get(UserInfoConstant.TOWN_NAME));
 
 
         /* 登录主机信息 */
@@ -244,8 +244,8 @@ public class GlobalContextUserDetailsHandler {
         userInfoDetails.setCityName(otherInfo.get(UserInfoConstant.CITY_NAME));
         userInfoDetails.setCountyCode(otherInfo.get(UserInfoConstant.COUNTY_ID));
         userInfoDetails.setCountyName(otherInfo.get(UserInfoConstant.COUNTY_NAME));
-        userInfoDetails.setStreetCode(otherInfo.get(UserInfoConstant.STREET_CODE));
-        userInfoDetails.setStreetName(otherInfo.get(UserInfoConstant.STREET_NAME));
+        userInfoDetails.setTownCode(otherInfo.get(UserInfoConstant.TOWN_CODE));
+        userInfoDetails.setTownName(otherInfo.get(UserInfoConstant.TOWN_NAME));
 
 
         /* 登录主机信息 */
@@ -316,8 +316,8 @@ public class GlobalContextUserDetailsHandler {
         userInfoDetails.setCityName(BizContextHandler.getCityName());
         userInfoDetails.setCountyCode(BizContextHandler.getProvCode());
         userInfoDetails.setCountyName(BizContextHandler.getCountyName());
-        userInfoDetails.setStreetCode(BizContextHandler.getStreetCode());
-        userInfoDetails.setStreetName(BizContextHandler.getStreetName());
+        userInfoDetails.setTownCode(BizContextHandler.getTownCode());
+        userInfoDetails.setTownName(BizContextHandler.getTownName());
 
 
         /* 部门信息 */
@@ -390,8 +390,8 @@ public class GlobalContextUserDetailsHandler {
         userInfoDetails.setCityName(userDetails.getCityName());
         userInfoDetails.setCountyCode(userDetails.getProvCode());
         userInfoDetails.setCountyName(userDetails.getCountyName());
-        userInfoDetails.setStreetCode(userDetails.getStreetCode());
-        userInfoDetails.setStreetName(userDetails.getStreetName());
+        userInfoDetails.setTownCode(userDetails.getTownCode());
+        userInfoDetails.setTownName(userDetails.getTownName());
 
 
         /* 部门信息 */

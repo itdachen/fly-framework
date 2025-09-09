@@ -140,8 +140,8 @@ public class UserInfoConstant {
     public static final String COUNTY_ID = "countyId";
     public static final String COUNTY_NAME = "countyName";
 
-    public static final String STREET_CODE = "streetCode";
-    public static final String STREET_NAME = "streetName";
+    public static final String TOWN_CODE = "townCode";
+    public static final String TOWN_NAME = "townName";
 
 
 

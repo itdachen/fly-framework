@@ -1,6 +1,7 @@
 package com.github.itdachen.framework.webmvc.controller;
 
 import com.github.itdachen.framework.context.annotation.Log;
+import com.github.itdachen.framework.context.enums.LogTypeEnum;
 import com.github.itdachen.framework.core.biz.BizQuery;
 import com.github.itdachen.framework.core.constants.LogType;
 import com.github.itdachen.framework.context.exception.BizException;
@@ -46,7 +47,7 @@ public class BizController<BizService extends IBizService<D, V, Q, PK>, D, V, Q 
      */
     @GetMapping(value = "/page" )
     @ResponseBody
-    @Log(title = LogType.GET_PAGE_DATA_MSG, type = LogType.GET_PAGE_DATA)
+    @Log(value = LogTypeEnum.PAGE)
     public ServerResponse<TableData<V>> page(Q params) throws Exception {
         return ServerResponse.ok(bizService.page(params));
     }
@@ -61,7 +62,7 @@ public class BizController<BizService extends IBizService<D, V, Q, PK>, D, V, Q 
      */
     @PostMapping(value = "" )
     @ResponseBody
-    @Log(title = LogType.SAVE_MSG, type = LogType.SAVE)
+    @Log(value = LogTypeEnum.SAVE)
     public ServerResponse<V> saveInfo(@Valid @RequestBody D d) throws Exception {
         return ServerResponse.ok(bizService.saveInfo(d));
     }
@@ -76,7 +77,7 @@ public class BizController<BizService extends IBizService<D, V, Q, PK>, D, V, Q 
      */
     @PutMapping(value = "/{pk}" )
     @ResponseBody
-    @Log(title = LogType.UPDATE_MSG, type = LogType.UPDATE)
+    @Log(value = LogTypeEnum.UPDATE)
     public ServerResponse<V> updateInfo(@Valid @RequestBody D d) throws Exception {
         return ServerResponse.ok(bizService.updateInfo(d));
     }
@@ -91,6 +92,7 @@ public class BizController<BizService extends IBizService<D, V, Q, PK>, D, V, Q 
      */
     @GetMapping(value = "/{pk}" )
     @ResponseBody
+    @Log(value = LogTypeEnum.GET)
     public ServerResponse<V> selectByPrimaryKey(@PathVariable("pk" ) PK pk) throws Exception {
         return ServerResponse.ok(bizService.selectByPrimaryKey(pk));
     }
@@ -105,7 +107,7 @@ public class BizController<BizService extends IBizService<D, V, Q, PK>, D, V, Q 
      */
     @DeleteMapping(value = "/{pk}" )
     @ResponseBody
-    @Log(title = LogType.REMOVE_MSG, type = LogType.REMOVE)
+    @Log(value = LogTypeEnum.REMOVE)
     public ServerResponse<Integer> deleteByPrimaryKey(@PathVariable("pk" ) PK pk) throws Exception {
         return ServerResponse.ok(bizService.deleteByPrimaryKey(pk));
     }
@@ -121,7 +123,7 @@ public class BizController<BizService extends IBizService<D, V, Q, PK>, D, V, Q 
      */
     @GetMapping(value = "/exp" )
     @ResponseBody
-    @Log(title = LogType.EXPORT_MSG, type = LogType.EXPORT)
+    @Log(value = LogTypeEnum.EXPORT)
     public void expInfo(HttpServletRequest request, HttpServletResponse response, Q params) throws Exception {
         bizService.expInfo(request, response, params);
     }
@@ -139,7 +141,7 @@ public class BizController<BizService extends IBizService<D, V, Q, PK>, D, V, Q 
      */
     @PostMapping(value = "/imp")
     @ResponseBody
-    @Log(title = LogType.IMPORT_MSG, type = LogType.IMPORT)
+    @Log(value = LogTypeEnum.IMPORT)
     public void impInfo(HttpServletRequest request, HttpServletResponse response, @RequestParam("file") MultipartFile file) throws Exception {
         bizService.impInfo(request, response, file);
     }

@@ -386,20 +386,20 @@ public class BizContextHandler {
         GlobalContextThreadLocalHandler.set(UserInfoConstant.COUNTY_NAME, value);
     }
 
-    public static void setStreetCode(String value) {
-        GlobalContextThreadLocalHandler.set(UserInfoConstant.STREET_CODE, value);
+    public static void setTownCode(String value) {
+        GlobalContextThreadLocalHandler.set(UserInfoConstant.TOWN_CODE, value);
     }
 
-    public static String getStreetCode() {
-        return GlobalContextThreadLocalHandler.returnObjectValue(GlobalContextThreadLocalHandler.get(UserInfoConstant.STREET_CODE));
+    public static String getTownCode() {
+        return GlobalContextThreadLocalHandler.returnObjectValue(GlobalContextThreadLocalHandler.get(UserInfoConstant.TOWN_CODE));
     }
 
-    public static void setStreetName(String value) {
-        GlobalContextThreadLocalHandler.set(UserInfoConstant.STREET_NAME, value);
+    public static void setTownName(String value) {
+        GlobalContextThreadLocalHandler.set(UserInfoConstant.TOWN_NAME, value);
     }
 
-    public static String getStreetName() {
-        return GlobalContextThreadLocalHandler.returnObjectValue(GlobalContextThreadLocalHandler.get(UserInfoConstant.STREET_NAME));
+    public static String getTownName() {
+        return GlobalContextThreadLocalHandler.returnObjectValue(GlobalContextThreadLocalHandler.get(UserInfoConstant.TOWN_NAME));
     }
 
 

@@ -20,6 +20,6 @@ public @interface CheckApiClient {
     /**
      * 客户端id
      */
-    String clientId();
+    String clientId() default "WEB_APP";
 
 }

@@ -1,8 +1,9 @@
 package com.github.itdachen.boot.oplog.manager;
 
 import com.github.itdachen.boot.autoconfigure.AppContextHelper;
+import com.github.itdachen.boot.oplog.entity.LogInfo;
 import com.github.itdachen.boot.oplog.entity.OplogClient;
-import com.github.itdachen.boot.oplog.manager.service.IOplogClientService;
+import com.github.itdachen.boot.oplog.manager.service.IOplogClientHandler;
 import com.github.itdachen.framework.context.exception.BizException;
 import com.github.itdachen.framework.tools.ip.AddressUtils;
 
@@ -21,13 +22,13 @@ public class OplogAsyncFactory {
      * @param apiLog 操作日志信息
      * @return 任务task
      */
-    public static TimerTask recordOplog(final OplogClient apiLog) throws BizException {
+    public static TimerTask recordOplog(final LogInfo apiLog) throws BizException {
         return new TimerTask() {
             @Override
             public void run() {
                 // 远程查询操作地点
-                apiLog.setMakeUseAddress(AddressUtils.getRealAddressByIP(apiLog.getMakeUseIp()));
-                AppContextHelper.getBean(IOplogClientService.class).save(apiLog);
+                apiLog.setHostAddress(AddressUtils.getRealAddressByIP(apiLog.getHostIp()));
+                AppContextHelper.getBean(IOplogClientHandler.class).save(apiLog);
             }
         };
     }

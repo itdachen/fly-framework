@@ -1,5 +1,6 @@
 package com.github.itdachen.boot.oplog.manager.service;
 
+import com.github.itdachen.boot.oplog.entity.LogInfo;
 import com.github.itdachen.boot.oplog.entity.OplogClient;
 
 /**
@@ -7,8 +8,8 @@ import com.github.itdachen.boot.oplog.entity.OplogClient;
  * Created by 王大宸 on 2021-12-01 16:42
  * Created with IntelliJ IDEA.
  */
-public interface IOplogClientService {
+public interface IOplogClientHandler {
 
-    void save(OplogClient oplogClient);
+    void save( LogInfo oplogInfo);
 
 }

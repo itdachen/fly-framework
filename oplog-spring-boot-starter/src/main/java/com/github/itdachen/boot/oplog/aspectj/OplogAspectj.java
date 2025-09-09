@@ -4,14 +4,21 @@ import com.alibaba.fastjson.JSON;
 import com.alibaba.fastjson.JSONObject;
 import com.github.itdachen.boot.autoconfigure.AppContextHelper;
 import com.github.itdachen.boot.oplog.constants.OplogConstant;
+import com.github.itdachen.boot.oplog.entity.LogInfo;
 import com.github.itdachen.boot.oplog.entity.OplogClient;
-import com.github.itdachen.boot.oplog.manager.service.IOplogClientService;
+import com.github.itdachen.boot.oplog.manager.service.IOplogClientHandler;
 import com.github.itdachen.boot.oplog.utils.ResCollectionUtils;
 import com.github.itdachen.framework.context.BizContextHandler;
 import com.github.itdachen.framework.context.annotation.CheckApiClient;
+import com.github.itdachen.framework.context.annotation.FuncTitle;
 import com.github.itdachen.framework.context.annotation.Log;
 import com.github.itdachen.framework.context.id.IdUtils;
 import com.github.itdachen.framework.tools.ServletUtils;
+import com.github.itdachen.framework.tools.ip.IpAddressUtils;
+import com.github.itdachen.framework.tools.request.BrowserUtils;
+import com.github.itdachen.framework.tools.request.OSUtils;
+import com.github.itdachen.framework.tools.useragent.UserAgentUtils;
+import jakarta.servlet.http.HttpServletRequest;
 import org.aspectj.lang.JoinPoint;
 import org.aspectj.lang.annotation.AfterReturning;
 import org.aspectj.lang.annotation.AfterThrowing;
@@ -22,8 +29,6 @@ import org.slf4j.LoggerFactory;
 import org.springframework.web.multipart.MultipartFile;
 
 import java.time.LocalDateTime;
-import java.util.Collection;
-import java.util.List;
 import java.util.concurrent.*;
 
 /**
@@ -65,24 +70,26 @@ public class OplogAspectj {
         }
 
         /* 操作日志基础信息 */
-        OplogClient apiLog = setRequest(joinPoint, log);
-        apiLog.setMakeUseStatus(OplogConstant.IS_OK);
+        LogInfo oplogInfo = setRequest(joinPoint, log);
 
-        apiLog.setMakeUseStatus("200");
-        apiLog.setMsg("操作成功！");
-        apiLog.setJsonResult("[]");
+        oplogInfo.setResponseCode("200");
+        oplogInfo.setResponseJson("{}");
+        oplogInfo.setResponseStatus(OplogConstant.IS_OK);
+        oplogInfo.setResponseMsg("操作成功！");
+
+
         if (null == resJson) {
-            apiLog.setJsonResult("[]");
+            oplogInfo.setResponseJson("{}");
         } else if (ResCollectionUtils.isArray(resJson)) {
-            apiLog.setJsonResult(JSONObject.toJSONString(resJson));
+            oplogInfo.setResponseJson(JSONObject.toJSONString(resJson));
         } else {
             /* 响应数据 */
             String jsonString = JSONObject.toJSONString(resJson);
             JSONObject json = JSONObject.parseObject(jsonString);
-            apiLog.setMsg(json.getString("msg"));
-            apiLog.setJsonResult(JSONObject.toJSONString(resJson));
+            oplogInfo.setResponseMsg(json.getString("msg"));
+            oplogInfo.setResponseJson(JSONObject.toJSONString(resJson));
             if (!json.getBooleanValue("success")) {
-                apiLog.setMakeUseStatus(OplogConstant.IS_ERR);
+                oplogInfo.setResponseStatus(OplogConstant.IS_ERR);
             }
         }
 
@@ -95,7 +102,7 @@ public class OplogAspectj {
                 @Override
                 public void run() {
                     try {
-                        AppContextHelper.getBean(IOplogClientService.class).save(apiLog);
+                        AppContextHelper.getBean(IOplogClientHandler.class).save(oplogInfo);
                     } catch (Exception e) {
                         logger.error("操作日志数据入库异常: ", e);
                     }
@@ -122,15 +129,17 @@ public class OplogAspectj {
         }
 
         /* 操作日志基础信息 */
-        OplogClient apiLog = setRequest(joinPoint, log);
+        LogInfo oplogInfo = setRequest(joinPoint, log);
 
         /* 响应数据 */
         String jsonString = JSONObject.toJSONString(ex);
         JSONObject json = JSONObject.parseObject(jsonString);
 
-        apiLog.setJsonResult(getMessage(json.getIntValue("status"), ex.getMessage()));
-        apiLog.setMakeUseStatus(OplogConstant.IS_ERR);
-        apiLog.setMsg(json.getString("msg"));
+        oplogInfo.setResponseCode(json.getString("status"));
+        oplogInfo.setResponseJson(jsonString);
+        oplogInfo.setResponseStatus(OplogConstant.IS_ERR);
+        oplogInfo.setResponseMsg(getMessage(json.getIntValue("status"), ex.getMessage()));
+
 
         try {
             // 保存数据库
@@ -138,7 +147,7 @@ public class OplogAspectj {
                 @Override
                 public void run() {
                     try {
-                        AppContextHelper.getBean(IOplogClientService.class).save(apiLog);
+                        AppContextHelper.getBean(IOplogClientHandler.class).save(oplogInfo);
                     } catch (Exception e) {
                         logger.error("操作日志数据入库异常: ", e);
                     }
@@ -152,35 +161,50 @@ public class OplogAspectj {
     }
 
 
-    private OplogClient setRequest(JoinPoint joinPoint, Log log) {
+    private LogInfo setRequest(JoinPoint joinPoint, Log log) {
         // *========数据库日志=========*//
-        OplogClient apiLog = new OplogClient();
-        apiLog.setRequestMethod(ServletUtils.getRequest().getMethod());
+        HttpServletRequest request = ServletUtils.getRequest();
 
-        // 请求参数
-        apiLog.setParams(getRequestValue(joinPoint));
+        String userAgent = request.getHeader("user-agent");
+        if (null == userAgent) {
+            userAgent = request.getHeader("User-Agent");
+        }
 
-        apiLog.setTenantId(BizContextHandler.getTenantId());
 
-        apiLog.setServiceId(ServletUtils.getRequest().getContextPath());
-        apiLog.setRequestUri(ServletUtils.getRequest().getRequestURI());
-        apiLog.setMakeUseIp(ServletUtils.getIPAddress());
-        apiLog.setLogType(log.type());
-        apiLog.setMakeUseType(log.title());
+        LogInfo logInfo = new LogInfo().builder()
+                .id(IdUtils.getId())
+                .opCode(log.value().getCode())
+                .opTitle(log.value().getTitle())
+                .opVersion(log.version())
+                .opTime(LocalDateTime.now())
+
+
+                .hostIp(IpAddressUtils.getNetworkIp(request))
+                .hostAddress("-")
+                .hostOs(OSUtils.osInfo(request))
+                .hostBrowser(BrowserUtils.browserInfo(request))
+                .userAgent(userAgent)
+
+                .requestId(request.getRequestId())
+                .requestUri(request.getRequestURI())
+                .requestMethod(request.getMethod())
+                .requestParams(getRequestValue(joinPoint)) // 请求参数
+
+                .build();
+
 
         CheckApiClient apiClient = joinPoint.getTarget().getClass().getAnnotation(CheckApiClient.class);
         if (null != apiClient) {
-            apiLog.setMenuTitle(apiClient.title());
-            apiLog.setClientId(apiClient.clientId());
+            logInfo.setMenuTitle(apiClient.title());
+        }
+        if (null == apiClient) {
+            FuncTitle funcTitle = joinPoint.getTarget().getClass().getAnnotation(FuncTitle.class);
+            if (null != funcTitle) {
+                logInfo.setMenuTitle(funcTitle.value());
+            }
         }
 
-        // 获取当前的用户
-        apiLog.setId(IdUtils.getId());
-        apiLog.setCreateTime(LocalDateTime.now());
-        apiLog.setCreateUser(BizContextHandler.getNickName());
-        apiLog.setCreateUserId(BizContextHandler.getUserId());
-
-        return apiLog;
+        return logInfo;
     }
 
     /**
