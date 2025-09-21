@@ -9,6 +9,12 @@ package com.github.itdachen.framework.context.constants;
  */
 public class DeptLevelConstants {
 
+
+    /**
+     * 总部
+     */
+    public static final String ROOT_CODE = "0000000000000000";
+
     /**
      * 总部
      */
