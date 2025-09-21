@@ -61,7 +61,10 @@ public class DeptLevelConstants {
         if (COUNT_LEVEL.equals(level)) {
             return TOWN_LEVEL;
         }
-        return VILLAGE_LEVEL;
+        if (TOWN_LEVEL.equals(level)) {
+            return VILLAGE_LEVEL;
+        }
+        return ROOT_LEVEL;
     }
 
 
