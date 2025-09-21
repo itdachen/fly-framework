@@ -32,7 +32,7 @@ public class DeptLevelConstants {
     /**
      * 乡镇/街道级
      */
-    public static final String STREET_LEVEL = "40";
+    public static final String TOWN_LEVEL = "40";
 
     /**
      * 村/社区级
@@ -59,7 +59,7 @@ public class DeptLevelConstants {
             return COUNT_LEVEL;
         }
         if (COUNT_LEVEL.equals(level)) {
-            return STREET_LEVEL;
+            return TOWN_LEVEL;
         }
         return VILLAGE_LEVEL;
     }
