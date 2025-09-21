@@ -1,14 +1,12 @@
 package com.github.itdachen.framework.context.constants;
 
-import com.github.itdachen.framework.context.BizContextHandler;
-
 /**
  * 市州/区县/分部 等 部门格式
- * 例如: 52 01 02 03 04 23 00
- * 格式: 省(52) 市州(01) 区县(02) 乡镇(03) 街道办/村/序号(04) 职能(23) 备用(00)
+ * 例如: 52 01 102 03 04 23 00
+ * 格式: 省(52) 市州(01) 区县(02) 乡镇(03) 镇/村/街道办/序号(04) 职能(123) 备用(00, 例如: 1部,2部,3部等)
  * <p>
  * 总部和省级部门格式:
- * 例如: 52 00 23 00 00 00 00
+ * 例如: 52 00 102 00 00 00 00
  * 格式: 省(52) 占位符(00) 职能(23)  占位符(00) 占位符(00) 占位符(00) 占位符(00)
  *
  * @author 王大宸
@@ -40,7 +38,7 @@ public class DeptLevelFormatConstants {
     /**
      * 乡镇/街道级
      */
-    public static final String STREET_LEVEL_FORMAT = "%s00%s00";
+    public static final String TOWN_LEVEL_FORMAT = "%s00%s00";
 
     /**
      * 村/社区级
@@ -70,8 +68,8 @@ public class DeptLevelFormatConstants {
         if (DeptLevelConstants.COUNT_LEVEL.equals(level)) {
             return String.format(COUNT_LEVEL_FORMAT, areaCode, funcCode);
         }
-        if (DeptLevelConstants.STREET_LEVEL.equals(level)) {
-            return String.format(STREET_LEVEL_FORMAT, areaCode, funcCode);
+        if (DeptLevelConstants.TOWN_LEVEL.equals(level)) {
+            return String.format(TOWN_LEVEL_FORMAT, areaCode, funcCode);
         }
         if (DeptLevelConstants.VILLAGE_LEVEL.equals(level)) {
             return String.format(VILLAGE_LEVEL_FORMAT, areaCode, funcCode);
