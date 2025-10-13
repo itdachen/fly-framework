@@ -39,6 +39,16 @@ public class ExpParamsSettings<Q> {
     private String title = "导出文件";
 
     /**
+     * 菜单功能ID, 对应菜单表
+     */
+    private String funcId = "-";
+
+    /**
+     * 菜单功能名称, 对应菜单表
+     */
+    private String funcTitle = "-";
+
+    /**
      * 二级表头
      */
     private List<String> fields = new ArrayList<>();
@@ -76,6 +86,25 @@ public class ExpParamsSettings<Q> {
         this.response = response;
         this.userDetails = userDetails;
         this.title = title;
+        this.fields = fields;
+        this.params = params;
+    }
+
+
+    public ExpParamsSettings(HttpServletRequest request,
+                             HttpServletResponse response,
+                             UserInfoDetails userDetails,
+                             String title,
+                             String funcId,
+                             String funcTitle,
+                             List<String> fields,
+                             Q params) {
+        this.request = request;
+        this.response = response;
+        this.userDetails = userDetails;
+        this.title = title;
+        this.funcId = funcId;
+        this.funcTitle = funcTitle;
         this.fields = fields;
         this.params = params;
     }
@@ -198,4 +227,19 @@ public class ExpParamsSettings<Q> {
     }
 
 
+    public String getFuncId() {
+        return funcId;
+    }
+
+    public void setFuncId(String funcId) {
+        this.funcId = funcId;
+    }
+
+    public String getFuncTitle() {
+        return funcTitle;
+    }
+
+    public void setFuncTitle(String funcTitle) {
+        this.funcTitle = funcTitle;
+    }
 }
