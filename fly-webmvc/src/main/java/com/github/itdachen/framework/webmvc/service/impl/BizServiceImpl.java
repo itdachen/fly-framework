@@ -1,7 +1,7 @@
 package com.github.itdachen.framework.webmvc.service.impl;
 
+import com.github.itdachen.framework.webmvc.utils.ConvertBeanUtils;
 import com.github.itdachen.framework.webmvc.convert.IBizConvertMapper;
-import com.github.itdachen.framework.webmvc.poi.WorkBookUtils;
 import com.github.pagehelper.Page;
 import com.github.pagehelper.PageHelper;
 import com.github.itdachen.framework.core.biz.BizQuery;
@@ -24,8 +24,7 @@ import tk.mybatis.mapper.common.Mapper;
 import tk.mybatis.mapper.entity.Example;
 
 import java.lang.reflect.ParameterizedType;
-import java.util.ArrayList;
-import java.util.Iterator;
+import java.lang.reflect.Type;
 import java.util.List;
 import java.util.Map;
 
@@ -67,25 +66,21 @@ public class BizServiceImpl<IBizMapper extends Mapper<T>, T, D, V, Q extends Biz
      */
     @Override
     public TableData<V> page(Q params) throws Exception {
-        Class<T> clazz = (Class<T>) ((ParameterizedType) getClass().getGenericSuperclass()).getActualTypeArguments()[0];
-        Example example = new Example(clazz);
+        // Class<Q> clazz = getQueryInstance();
+        Class<T> tClazz = getEntityClazz();
+
+        Example example = new Example(tClazz);
         String s = String.valueOf(params);
         Map<String, String> stringStringMap = StringUtils.strObjToHashMap(s);
-        if (!stringStringMap.entrySet().isEmpty()) {
+        stringStringMap.remove("page");
+        stringStringMap.remove("limit");
+        if (stringStringMap.entrySet().size() > 0) {
             Example.Criteria criteria = example.createCriteria();
-
-            Iterator<Map.Entry<String, String>> iterator = stringStringMap.entrySet().iterator();
-            String key;
-            while (iterator.hasNext()) {
-                key = String.valueOf(iterator.next());
-                criteria.andLike(key, "%" + stringStringMap.get(key) + "%");
+            for (Map.Entry<String, String> entry : stringStringMap.entrySet()) {
+                criteria.andLike(entry.getKey(), "%" + entry.getValue().toString() + "%");
             }
-
-//            for (Map.Entry<String, String> entry : stringStringMap.entrySet()) {
-//                criteria.orLike(entry.getKey(), entry.getValue() == null ? "" : "%" + entry.getValue() + "%")
-//                        .orEqualTo(entry.getKey(), entry.getValue() == null ? "" : entry.getValue());
-//            }
         }
+
         example.setOrderByClause("id DESC");
         Page<V> page = PageHelper.startPage(params.getPage(), params.getLimit());
         List<V> list = (List<V>) bizMapper.selectByExample(example);
@@ -103,11 +98,12 @@ public class BizServiceImpl<IBizMapper extends Mapper<T>, T, D, V, Q extends Biz
     @Override
     @Transactional(rollbackFor = Exception.class)
     public V saveInfo(D d) throws Exception {
-        T t = bizConvertMapper.toJavaObject(d);
+        T t = ConvertBeanUtils.convert(d, getEntityClazz());
         EntityUtils.setCreatAndUpdateInfo(t);
         bizMapper.insertSelective(t);
-        return bizConvertMapper.toJavaObjectVO(t);
+        return ConvertBeanUtils.convert(t, getVOClazz());
     }
+
 
     /***
      * 根据主键查询数据
@@ -120,7 +116,7 @@ public class BizServiceImpl<IBizMapper extends Mapper<T>, T, D, V, Q extends Biz
     @Override
     public V selectByPrimaryKey(PK id) throws Exception {
         T t = bizMapper.selectByPrimaryKey(id);
-        return bizConvertMapper.toJavaObjectVO(t);
+        return ConvertBeanUtils.convert(t, getVOClazz());
     }
 
     /***
@@ -134,10 +130,10 @@ public class BizServiceImpl<IBizMapper extends Mapper<T>, T, D, V, Q extends Biz
     @Override
     @Transactional(rollbackFor = Exception.class)
     public V updateInfo(D d) throws Exception {
-        T t = bizConvertMapper.toJavaObject(d);
+        T t = ConvertBeanUtils.convert(d, getEntityClazz());
         EntityUtils.setUpdatedInfo(t);
         bizMapper.updateByPrimaryKeySelective(t);
-        return bizConvertMapper.toJavaObjectVO(t);
+        return ConvertBeanUtils.convert(t, getVOClazz());
     }
 
     /***
@@ -154,8 +150,20 @@ public class BizServiceImpl<IBizMapper extends Mapper<T>, T, D, V, Q extends Biz
         return bizMapper.deleteByPrimaryKey(id);
     }
 
+    /***
+     * 数据导出
+     *
+     * @author 王大宸
+     * @date 2025/10/17 0:47
+     * @param request request
+     * @param response response
+     * @param params params
+     * @return void
+     */
     @Override
-    public void expInfo(HttpServletRequest request, HttpServletResponse response, Q params) throws Exception {
+    public void expInfo(HttpServletRequest request,
+                        HttpServletResponse response,
+                        Q params) throws Exception {
         logger.warn("请重写导出方法");
 
 //        WorkBookUtils.export(request, response)
@@ -171,8 +179,20 @@ public class BizServiceImpl<IBizMapper extends Mapper<T>, T, D, V, Q extends Biz
         throw new BizException("请重写导出方法");
     }
 
+    /***
+     * 数据导入
+     *
+     * @author 王大宸
+     * @date 2025/10/17 0:47
+     * @param request request
+     * @param response response
+     * @param file file
+     * @return void
+     */
     @Override
-    public void impInfo(HttpServletRequest request, HttpServletResponse response, MultipartFile file) throws Exception {
+    public void impInfo(HttpServletRequest request,
+                        HttpServletResponse response,
+                        MultipartFile file) throws Exception {
         logger.warn("请重写导入方法");
         throw new BizException("请重写导入方法");
     }
@@ -225,5 +245,48 @@ public class BizServiceImpl<IBizMapper extends Mapper<T>, T, D, V, Q extends Biz
         }
     }
 
+
+    /***
+     * 获取表泛型实体类
+     *
+     * @author 王大宸
+     * @date 2025/10/16 22:46
+     * @return T
+     * @since 1.5
+     */
+    private T getEntityInstance() throws Exception {
+        ParameterizedType ptype = (ParameterizedType) this.getClass().getGenericSuperclass();
+        Class<T> clazz = (Class<T>) ptype.getActualTypeArguments()[1];
+        return clazz.newInstance();
+
+//        Type[] actualTypeArguments = ptype.getActualTypeArguments();
+//        for (Type actualTypeArgument : actualTypeArguments) {
+//            if (actualTypeArgument.getTypeName().contains("entity")) {
+//                System.err.println(actualTypeArgument.getTypeName());
+//                Class<T> clazz = (Class<T>) actualTypeArgument;
+//                return clazz.newInstance();
+//            }
+//        }
+
+    }
+
+    private Class<T> getEntityClazz() throws Exception {
+        ParameterizedType ptype = (ParameterizedType) this.getClass().getGenericSuperclass();
+        return (Class<T>) ptype.getActualTypeArguments()[1];
+    }
+
+
+    private Class<V> getVOClazz() throws Exception {
+        ParameterizedType ptype = (ParameterizedType) this.getClass().getGenericSuperclass();
+        Type[] actualTypeArguments = ptype.getActualTypeArguments();
+        for (Type actualTypeArgument : actualTypeArguments) {
+            if (actualTypeArgument.getTypeName().contains("vo")
+                    && (actualTypeArgument.getTypeName().endsWith("VO")
+                    || actualTypeArgument.getTypeName().endsWith("Vo"))) {
+                return (Class<V>) actualTypeArgument;
+            }
+        }
+        return null;
+    }
 
 }
