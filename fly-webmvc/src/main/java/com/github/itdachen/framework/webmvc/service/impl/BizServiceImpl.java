@@ -50,12 +50,6 @@ public class BizServiceImpl<IBizMapper extends Mapper<T>, T, D, V, Q extends Biz
     @Autowired
     protected JdbcTemplate jdbcTemplate;
 
-    private final IBizConvertMapper<T, D, V> bizConvertMapper;
-
-    public BizServiceImpl(IBizConvertMapper<T, D, V> bizConvertMapper) {
-        this.bizConvertMapper = bizConvertMapper;
-    }
-
     /***
      * 分页查询
      *

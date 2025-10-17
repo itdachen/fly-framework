@@ -45,7 +45,10 @@ public class ConvertBeanUtils {
         if (sourceList == null) {
             return null;
         }
-        List targetList = new ArrayList((int) (sourceList.size() / 0.75) + 1);
+        if (sourceList.isEmpty()) {
+            return new ArrayList<>();
+        }
+        List<T> targetList = new ArrayList<T>((int) (sourceList.size() / 0.75) + 1);
         for (K source : sourceList) {
             targetList.add(convert(source, targetClass));
         }
@@ -65,7 +68,7 @@ public class ConvertBeanUtils {
         try {
             return targetClass.newInstance();
         } catch (Exception e) {
-            throw new BeanInstantiationException(targetClass, "instantiation error", e);
+            throw new BeanInstantiationException(targetClass, "instantiation error" , e);
         }
     }
 
