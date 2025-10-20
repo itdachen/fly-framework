@@ -1,0 +1,23 @@
+package com.github.itdachen.boot.redis.key;
+
+import org.springframework.context.annotation.Conditional;
+import org.springframework.context.annotation.Configuration;
+
+/**
+ * 用户 Key 案列
+ *
+ * @author 王大宸
+ * @date 2025-10-20 16:10
+ */
+@Configuration
+@Conditional(RedisKeyLoadMatch.class)
+public class UserInfoCacheKeyBuilder extends RedisKeyBuilder {
+
+    private static final String USER_INFO_KEY = "user";
+
+    public String buildUserInfoKey(String userId) {
+        return super.getPrefix() + USER_INFO_KEY + super.getSplitItem() + userId;
+    }
+
+
+}

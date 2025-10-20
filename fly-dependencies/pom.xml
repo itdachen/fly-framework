@@ -249,6 +249,12 @@
                 <artifactId>wechat-spring-boot-starter</artifactId>
                 <version>${project.version}</version>
             </dependency>
+            <dependency>
+                <groupId>com.github.itdachen</groupId>
+                <artifactId>redis-fly-spring-boot-starter</artifactId>
+                <version>${project.version}</version>
+            </dependency>
+
 
             <!-- alibaba json -->
             <dependency>
