@@ -9,7 +9,7 @@
         <version>1.1.0-RC</version>
     </parent>
 
-    <artifactId>redis-fly-spring-boot-starter</artifactId>
+    <artifactId>fly-redis-spring-boot-starter</artifactId>
     <name>${project.artifactId}</name>
     <packaging>jar</packaging>
     <description>Redis 自定义封装</description>

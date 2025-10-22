@@ -11,23 +11,23 @@ public class JwtRedisKeyConstants {
     /**
      * token 私钥存储 key
      */
-    public static final String USER_PRI_KEY = "FLY:AUTH:JWT:PRI";
+    public static final String USER_PRI_KEY = "JWT:PRI";
 
     /**
      * token 公钥存储 key
      */
-    public static final String USER_PUB_KEY = "FLY:AUTH:JWT:PUB";
+    public static final String USER_PUB_KEY = "JWT:PUB";
 
     /**
      * token 算法存储 key
      */
-    public static final String USER_PRI_KEY_ALG = "FLY:AUTH:JWT:ALG";
+    public static final String USER_PRI_KEY_ALG = "JWT:ALG";
 
-    public static final String TOKEN_STORE_PREFIX = "FLY:OAUTH:";
+    public static final String TOKEN_STORE_PREFIX = "FLY:JWT:";
 
 
-    public static final String SERVICE_PRI_KEY = "FLY:AUTH:CLIENT:PRI";
+    public static final String SERVICE_PRI_KEY = "CLIENT:PRI";
 
-    public static final String SERVICE_PUB_KEY = "FLY:AUTH:CLIENT:PUB";
+    public static final String SERVICE_PUB_KEY = "CLIENT:PUB";
 
 }
