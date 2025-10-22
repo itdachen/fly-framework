@@ -1,5 +1,7 @@
 package com.github.itdachen.boot.redis.key;
 
+import com.github.itdachen.boot.redis.key.builder.RedisKeyBuilder;
+import com.github.itdachen.boot.redis.key.builder.RedisKeyLoadMatch;
 import org.springframework.context.annotation.Conditional;
 import org.springframework.context.annotation.Configuration;
 

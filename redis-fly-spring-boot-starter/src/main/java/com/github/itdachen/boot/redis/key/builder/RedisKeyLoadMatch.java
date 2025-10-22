@@ -1,4 +1,4 @@
-package com.github.itdachen.boot.redis.key;
+package com.github.itdachen.boot.redis.key.builder;
 
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;

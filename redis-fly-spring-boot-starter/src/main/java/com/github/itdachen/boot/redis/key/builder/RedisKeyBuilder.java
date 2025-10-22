@@ -1,4 +1,4 @@
-package com.github.itdachen.boot.redis.key;
+package com.github.itdachen.boot.redis.key.builder;
 
 import org.springframework.beans.factory.annotation.Value;
 
