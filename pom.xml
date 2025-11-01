@@ -59,7 +59,8 @@
         <module>runner-spring-boot-starter</module>
         <module>api-sign-boot-starter</module>
         <module>wechat-spring-boot-starter</module>
-        <module>fly-redis-spring-boot-starter</module>
+        <module>redis-spring-boot-starter</module>
+        <module>shardingsphere-jdbc-spring-boot-stater</module>
     </modules>
 
     <build>

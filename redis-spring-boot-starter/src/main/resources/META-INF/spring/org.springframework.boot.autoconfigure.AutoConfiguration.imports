@@ -1,0 +1,5 @@
+com.github.itdachen.framework.boot.redis.FlyRedisAutoConfiguration
+com.github.itdachen.framework.boot.redis.key.UserInfoCacheKeyBuilder
+com.github.itdachen.framework.boot.redis.key.AuthCacheKeyBuilder
+com.github.itdachen.framework.boot.redis.key.DictCacheKeyBuilder
+com.github.itdachen.framework.boot.redis.key.MemberCacheKeyBuilder

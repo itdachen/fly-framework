@@ -47,6 +47,7 @@
         <tk.mybatis.boot>5.0.1</tk.mybatis.boot>
         <org.mybatis>3.5.17</org.mybatis>
         <org.mybatis.boot>3.0.4</org.mybatis.boot>
+        <shardingsphere-jdbc-core.version>5.3.2</shardingsphere-jdbc-core.version>
 
         <!-- 工具集 -->
         <poi.version>5.2.3</poi.version>
@@ -251,7 +252,7 @@
             </dependency>
             <dependency>
                 <groupId>com.github.itdachen</groupId>
-                <artifactId>fly-redis-spring-boot-starter</artifactId>
+                <artifactId>redis-spring-boot-starter</artifactId>
                 <version>${project.version}</version>
             </dependency>
 
@@ -447,6 +448,11 @@
                 <groupId>org.redisson</groupId>
                 <artifactId>redisson</artifactId>
                 <version>${org.redisson.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>org.apache.shardingsphere</groupId>
+                <artifactId>shardingsphere-jdbc-core</artifactId>
+                <version>${shardingsphere-jdbc-core.version}</version>
             </dependency>
 
 
