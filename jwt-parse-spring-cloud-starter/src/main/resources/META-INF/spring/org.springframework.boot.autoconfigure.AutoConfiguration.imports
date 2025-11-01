@@ -1,0 +1,2 @@
+com.github.itdachen.framework.cloud.jwt.parse.ParseTokenAutoConfiguration
+com.github.itdachen.framework.cloud.jwt.parse.TokenPublicKey

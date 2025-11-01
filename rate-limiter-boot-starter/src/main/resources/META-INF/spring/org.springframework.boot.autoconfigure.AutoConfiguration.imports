@@ -1,1 +1,1 @@
-com.github.itdachen.boot.rate.limiter.RateLimiterAutoConfiguration
+com.github.itdachen.framework.boot.rate.limiter.RateLimiterAutoConfiguration

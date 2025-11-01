@@ -1,3 +1,3 @@
-com.github.itdachen.boot.rbac.RbacAutoConfiguration
-com.github.itdachen.boot.rbac.PermissionCacheAutoConfiguration
-com.github.itdachen.boot.rbac.PermissionJdbcAutoConfiguration
+com.github.itdachen.framework.boot.rbac.RbacAutoConfiguration
+com.github.itdachen.framework.boot.rbac.PermissionCacheAutoConfiguration
+com.github.itdachen.framework.boot.rbac.PermissionJdbcAutoConfiguration

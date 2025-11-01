@@ -2,8 +2,8 @@ package com.github.itdachen.framework.webmvc.poi;
 
 import com.fasterxml.jackson.core.JsonProcessingException;
 import com.fasterxml.jackson.databind.ObjectMapper;
-import com.github.itdachen.boot.autoconfigure.AppContextHelper;
-import com.github.itdachen.boot.autoconfigure.oss.properties.OssLocalAutoconfigureProperties;
+import com.github.itdachen.framework.boot.autoconfigure.AppContextHelper;
+import com.github.itdachen.framework.boot.autoconfigure.oss.properties.OssLocalAutoconfigureProperties;
 import com.github.itdachen.framework.core.utils.StringUtils;
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;

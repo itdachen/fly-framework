@@ -1,4 +1,0 @@
-com.github.itdachen.cloud.openfeign.config.FeignConfig
-com.github.itdachen.cloud.openfeign.config.FeignOkHttpConfig
-com.github.itdachen.cloud.openfeign.config.RestTemplateConfig
-com.github.itdachen.cloud.openfeign.decoder.FeignServerResponseDecoderConfig

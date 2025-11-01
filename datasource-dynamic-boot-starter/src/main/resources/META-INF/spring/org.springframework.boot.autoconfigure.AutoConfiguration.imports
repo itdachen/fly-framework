@@ -1,1 +1,1 @@
-com.github.itdachen.boot.datasource.DynamicDateSourceAutoConfiguration
+com.github.itdachen.framework.boot.datasource.DynamicDateSourceAutoConfiguration

@@ -52,10 +52,10 @@
         <module>rbac-spring-boot-starter</module>
         <module>jwt-spring-boot-starter</module>
         <module>body-advice-boot-starter</module>
-        <module>spring-cloud-starter-gateway-dynamic-routes</module>
-        <module>spring-cloud-starter-jwt-crypto</module>
-        <module>spring-cloud-starter-jwt-parse</module>
-        <module>spring-cloud-starter-openfeign</module>
+        <module>gateway-dynamic-routes-spring-cloud-starter</module>
+        <module>jwt-crypto-spring-cloud-starter</module>
+        <module>jwt-parse-spring-cloud-starter</module>
+        <module>openfeign-spring-cloud-starter</module>
         <module>runner-spring-boot-starter</module>
         <module>api-sign-boot-starter</module>
         <module>wechat-spring-boot-starter</module>

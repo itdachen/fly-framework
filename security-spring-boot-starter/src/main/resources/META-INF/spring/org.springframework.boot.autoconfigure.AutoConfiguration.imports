@@ -1,8 +1,8 @@
-com.github.itdachen.boot.security.FlyWebSecurityAutoConfiguration
-com.github.itdachen.boot.security.AuthenticationHandlerAutoConfiguration
-com.github.itdachen.boot.security.SecurityConfigurerAdapterAutoConfiguration
-com.github.itdachen.boot.security.SecurityExceptionAutoConfiguration
-com.github.itdachen.boot.security.SecuritySessionAutoConfiguration
-com.github.itdachen.boot.security.ValidateCodeAutoConfiguration
-com.github.itdachen.boot.security.RbacAuthorizationHandlerAutoConfiguration
-com.github.itdachen.boot.security.RbacAuthorizationAutoConfiguration
+com.github.itdachen.framework.boot.security.FlyWebSecurityAutoConfiguration
+com.github.itdachen.framework.boot.security.AuthenticationHandlerAutoConfiguration
+com.github.itdachen.framework.boot.security.SecurityConfigurerAdapterAutoConfiguration
+com.github.itdachen.framework.boot.security.SecurityExceptionAutoConfiguration
+com.github.itdachen.framework.boot.security.SecuritySessionAutoConfiguration
+com.github.itdachen.framework.boot.security.ValidateCodeAutoConfiguration
+com.github.itdachen.framework.boot.security.RbacAuthorizationHandlerAutoConfiguration
+com.github.itdachen.framework.boot.security.RbacAuthorizationAutoConfiguration

@@ -1,1 +1,1 @@
-com.github.itdachen.framework.shardingsphere.jdbc.driver.ShardingSphereNacosDriverURLProvider
+com.github.itdachen.framework.boot.shardingsphere.jdbc.driver.ShardingSphereNacosDriverURLProvider

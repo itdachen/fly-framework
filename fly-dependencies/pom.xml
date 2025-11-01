@@ -222,22 +222,22 @@
             </dependency>
             <dependency>
                 <groupId>com.github.itdachen</groupId>
-                <artifactId>spring-cloud-starter-gateway-dynamic-routes</artifactId>
+                <artifactId>gateway-dynamic-routes-spring-cloud-starter</artifactId>
                 <version>${project.version}</version>
             </dependency>
             <dependency>
                 <groupId>com.github.itdachen</groupId>
-                <artifactId>spring-cloud-starter-jwt-crypto</artifactId>
+                <artifactId>jwt-crypto-spring-cloud-starter</artifactId>
                 <version>${project.version}</version>
             </dependency>
             <dependency>
                 <groupId>com.github.itdachen</groupId>
-                <artifactId>spring-cloud-starter-jwt-parse</artifactId>
+                <artifactId>jwt-parse-spring-cloud-starter</artifactId>
                 <version>${project.version}</version>
             </dependency>
             <dependency>
                 <groupId>com.github.itdachen</groupId>
-                <artifactId>spring-cloud-starter-openfeign</artifactId>
+                <artifactId>openfeign-spring-cloud-starter</artifactId>
                 <version>${project.version}</version>
             </dependency>
             <dependency>

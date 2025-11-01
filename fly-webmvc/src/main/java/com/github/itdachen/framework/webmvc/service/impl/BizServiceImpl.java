@@ -1,7 +1,6 @@
 package com.github.itdachen.framework.webmvc.service.impl;
 
 import com.github.itdachen.framework.webmvc.utils.ConvertBeanUtils;
-import com.github.itdachen.framework.webmvc.convert.IBizConvertMapper;
 import com.github.pagehelper.Page;
 import com.github.pagehelper.PageHelper;
 import com.github.itdachen.framework.core.biz.BizQuery;

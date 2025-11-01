@@ -1,2 +1,2 @@
-com.github.itdachen.boot.jwt.JWTHelper
-com.github.itdachen.boot.jwt.core.AuthKeyConfiguration
+com.github.itdachen.framework.boot.jwt.JWTHelper
+com.github.itdachen.framework.boot.jwt.core.AuthKeyConfiguration
