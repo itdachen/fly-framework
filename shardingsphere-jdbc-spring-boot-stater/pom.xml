@@ -9,10 +9,11 @@
         <version>1.1.0-RC</version>
     </parent>
 
+    <groupId>com.github.itdachen.boot</groupId>
     <artifactId>shardingsphere-jdbc-spring-boot-stater</artifactId>
     <name>${project.artifactId}</name>
     <packaging>jar</packaging>
-    <description>shardingsphere-jdbc 自定义封装</description>
+    <description>shardingsphere-jdbc 分库分表自定义封装</description>
 
 
     <dependencies>

@@ -9,6 +9,7 @@
       <version>1.1.0-RC</version>
     </parent>
 
+    <groupId>com.github.itdachen.cloud</groupId>
     <artifactId>jwt-crypto-spring-cloud-starter</artifactId>
     <name>${project.artifactId}</name>
     <packaging>jar</packaging>
@@ -17,10 +18,10 @@
     <dependencies>
         <dependency>
             <groupId>com.github.itdachen</groupId>
-            <artifactId>fly-context</artifactId>
+            <artifactId>fly-core</artifactId>
         </dependency>
         <dependency>
-            <groupId>com.github.itdachen</groupId>
+            <groupId>com.github.itdachen.boot</groupId>
             <artifactId>fly-boot-autoconfigure</artifactId>
         </dependency>
         <dependency>
@@ -53,10 +54,7 @@
             <groupId>io.jsonwebtoken</groupId>
             <artifactId>jjwt-jackson</artifactId>
         </dependency>
-        <dependency>
-            <groupId>com.github.itdachen</groupId>
-            <artifactId>fly-core</artifactId>
-        </dependency>
+
         <!--        <dependency>-->
         <!--            <groupId>io.jsonwebtoken</groupId>-->
         <!--            <artifactId>jjwt-gson</artifactId>-->

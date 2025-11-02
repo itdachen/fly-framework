@@ -9,6 +9,7 @@
       <version>1.1.0-RC</version>
     </parent>
 
+    <groupId>com.github.itdachen.boot</groupId>
     <artifactId>jwt-spring-boot-starter</artifactId>
     <name>${project.artifactId}</name>
     <packaging>jar</packaging>
@@ -24,11 +25,11 @@
             <artifactId>fly-context</artifactId>
         </dependency>
         <dependency>
-            <groupId>com.github.itdachen</groupId>
+            <groupId>com.github.itdachen.boot</groupId>
             <artifactId>fly-boot-autoconfigure</artifactId>
         </dependency>
 <!--        <dependency>-->
-<!--            <groupId>com.github.itdachen.framework.cloud</groupId>-->
+<!--            <groupId>com.github.itdachen.cloud</groupId>-->
 <!--            <artifactId>fly-cloud-jwt-core</artifactId>-->
 <!--        </dependency>-->
 

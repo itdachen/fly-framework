@@ -9,6 +9,7 @@
         <version>1.1.0-RC</version>
     </parent>
 
+    <groupId>com.github.itdachen.boot</groupId>
     <artifactId>redis-spring-boot-starter</artifactId>
     <name>${project.artifactId}</name>
     <packaging>jar</packaging>

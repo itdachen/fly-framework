@@ -9,6 +9,7 @@
       <version>1.1.0-RC</version>
     </parent>
 
+    <groupId>com.github.itdachen.boot</groupId>
     <artifactId>datasource-dynamic-boot-starter</artifactId>
     <name>${project.artifactId}</name>
     <packaging>jar</packaging>
@@ -23,7 +24,7 @@
         </dependency>
 
         <dependency>
-            <groupId>com.github.itdachen</groupId>
+            <groupId>com.github.itdachen.boot</groupId>
             <artifactId>fly-boot-autoconfigure</artifactId>
         </dependency>
 
@@ -47,7 +48,7 @@
             <artifactId>aspectjweaver</artifactId>
         </dependency>
         <dependency>
-            <groupId>com.github.itdachen</groupId>
+            <groupId>com.github.itdachen.boot</groupId>
             <artifactId>datasource-crypto-boot-starter</artifactId>
         </dependency>
 

@@ -22,10 +22,6 @@
 
         <dependency>
             <groupId>com.github.itdachen</groupId>
-            <artifactId>fly-context</artifactId>
-        </dependency>
-        <dependency>
-            <groupId>com.github.itdachen</groupId>
             <artifactId>fly-core</artifactId>
         </dependency>
 
@@ -73,7 +69,7 @@
             <version>2.6.12</version>
         </dependency>
         <dependency>
-            <groupId>com.github.itdachen</groupId>
+            <groupId>com.github.itdachen.boot</groupId>
             <artifactId>fly-boot-autoconfigure</artifactId>
         </dependency>
         <dependency>
