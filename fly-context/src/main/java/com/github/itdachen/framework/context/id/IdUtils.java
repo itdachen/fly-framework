@@ -5,6 +5,7 @@ import com.github.itdachen.framework.context.id.utils.GuidUtils;
 import com.github.itdachen.framework.context.id.utils.SnowflakeUtils;
 
 import java.util.Random;
+import java.util.UUID;
 
 /**
  * Description: ID 生成工具, 对外调用
@@ -52,6 +53,12 @@ public class IdUtils {
     public static String guid() {
         return GuidUtils.nextGuid();
     }
+
+
+    public static long getMostSigBits() {
+        return UUID.randomUUID().getMostSignificantBits();
+    }
+
 
     /***
      * 获取 GUID
