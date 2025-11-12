@@ -39,12 +39,11 @@ public class BaseServiceImpl<IBizMapper extends Mapper<T>, T, PK> implements IBa
      *
      * @author 王大宸
      * @date 2023/11/15 10:18
-     * @param params params
+     * @param query params
      * @return com.github.itdachen.framework.core.response.TableData<T>
      */
     @Override
-    public TableData<T> page(Map<String, Object> params) {
-        Query query = new Query(params);
+    public TableData<T> page(Query query) {
         Class<T> clazz = (Class<T>) ((ParameterizedType) getClass().getGenericSuperclass()).getActualTypeArguments()[1];
         Example example = new Example(clazz);
         if (query.entrySet().size() > 0) {
@@ -53,7 +52,7 @@ public class BaseServiceImpl<IBizMapper extends Mapper<T>, T, PK> implements IBa
             String key;
             while (iterator.hasNext()) {
                 key = String.valueOf(iterator.next());
-                criteria.andLike(key, "%" + params.get(key) + "%");
+                criteria.andLike(key, "%" + query.get(key) + "%");
             }
         }
         Page<Object> result = PageHelper.startPage(query.getPage(), query.getLimit());

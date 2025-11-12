@@ -5,6 +5,7 @@ import com.github.itdachen.framework.context.enums.LogTypeEnum;
 import com.github.itdachen.framework.core.response.ServerResponse;
 import com.github.itdachen.framework.core.response.TableData;
 import com.github.itdachen.framework.webmvc.service.IBaseService;
+import com.github.itdachen.framework.webmvc.utils.Query;
 import com.github.itdachen.framework.webmvc.utils.StringEscapeEditor;
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
@@ -45,7 +46,7 @@ public class BaseController<BizService extends IBaseService<T, PK>, T, PK> {
     @ResponseBody
     @Log(value = LogTypeEnum.PAGE)
     public ServerResponse<TableData<T>> page(Map<String, Object> params) throws Exception {
-        return ServerResponse.ok(bizService.page(params));
+        return ServerResponse.ok(bizService.page(new Query(params)));
     }
 
     /***

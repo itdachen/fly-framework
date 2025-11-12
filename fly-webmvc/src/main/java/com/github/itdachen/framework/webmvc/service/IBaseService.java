@@ -2,6 +2,7 @@ package com.github.itdachen.framework.webmvc.service;
 
 
 import com.github.itdachen.framework.core.response.TableData;
+import com.github.itdachen.framework.webmvc.utils.Query;
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
 import org.springframework.web.multipart.MultipartFile;
@@ -22,10 +23,10 @@ public interface IBaseService<T, PK> {
      *
      * @author 王大宸
      * @date 2023/11/15 10:18
-     * @param params params
+     * @param query params
      * @return com.github.itdachen.framework.core.response.TableData<T>
      */
-    TableData<T> page(Map<String, Object> params);
+    TableData<T> page(Query query);
 
     /***
      * 新增
