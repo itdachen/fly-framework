@@ -3,6 +3,7 @@ package com.github.itdachen.framework.core.biz;
 import com.github.itdachen.framework.context.BizContextHandler;
 
 import java.io.Serializable;
+import jakarta.validation.constraints.*;
 
 /**
  * Description: 查询基础类
@@ -20,6 +21,7 @@ public class BizQuery implements Serializable {
     /**
      * 默认每页查询十条
      */
+    @Max(value = 100, message = "【每页条数】不能超过100")
     private int limit = 10;
 
     /**
