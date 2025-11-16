@@ -17,7 +17,7 @@ import java.io.IOException;
 
 /**
  * Description:
- * Created by 王大宸 on 2022-09-25 11:34
+ * Created by 剑鸣秋朔 on 2022-09-25 11:34
  * Created with IntelliJ IDEA.
  */
 //@Controller
@@ -34,7 +34,7 @@ public class BrowserSecurityController {
     /***
      * 当需要身份认证时，跳转到这里, 做统一处理
      *
-     * @author 王大宸
+     * @author 剑鸣秋朔
      * @date 2021/11/27 10:56
      * @param request
      * @param response
@@ -61,7 +61,7 @@ public class BrowserSecurityController {
     /***
      * session 过期处理
      *
-     * @author 王大宸
+     * @author 剑鸣秋朔
      * @date 2022/9/25 11:34
      * @return java.lang.String
      */

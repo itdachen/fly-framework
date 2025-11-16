@@ -7,7 +7,7 @@ import java.math.BigDecimal;
 
 /**
  * Description: 退款回调返回数据信息
- * Created by 王大宸 on 2023/04/11 22:04
+ * Created by 剑鸣秋朔 on 2023/04/11 22:04
  * Created with IntelliJ IDEA.
  */
 public class WeChatCallbackRefund {

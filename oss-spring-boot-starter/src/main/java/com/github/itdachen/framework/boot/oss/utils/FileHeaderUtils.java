@@ -14,7 +14,7 @@ import java.util.Objects;
 
 /**
  * Description: 获取文件头
- * Created by 王大宸 on 2023/02/17 9:09
+ * Created by 剑鸣秋朔 on 2023/02/17 9:09
  * Created with IntelliJ IDEA.
  */
 public class FileHeaderUtils {
@@ -155,7 +155,7 @@ public class FileHeaderUtils {
     /***
      * 获取文件头
      *
-     * @author 王大宸
+     * @author 剑鸣秋朔
      * @date 2023/1/4 10:04
      * @param file file
      * @return java.lang.String
@@ -211,7 +211,7 @@ public class FileHeaderUtils {
     /***
      * 根据制定文件的文件头判断其文件类型
      *
-     * @author 王大宸
+     * @author 剑鸣秋朔
      * @date 2023/1/4 14:15
      * @param filePath filePath
      * @return java.lang.String

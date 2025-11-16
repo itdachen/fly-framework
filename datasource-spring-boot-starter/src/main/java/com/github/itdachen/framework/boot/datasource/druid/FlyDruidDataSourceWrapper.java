@@ -13,7 +13,7 @@ import java.util.List;
 
 /**
  * Description: 阿里巴巴开源数据源自定义配置,连接地址可以加密
- * Created by 王大宸 on 2023/02/07 14:24
+ * Created by 剑鸣秋朔 on 2023/02/07 14:24
  * Created with IntelliJ IDEA.
  */
 //@ConfigurationProperties("spring.datasource.druid")

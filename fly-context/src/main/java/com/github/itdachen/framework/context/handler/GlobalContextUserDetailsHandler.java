@@ -12,7 +12,7 @@ import java.util.Map;
 /***
  * 全局获取用户信息处理
  *
- * @author 王大宸
+ * @author 剑鸣秋朔
  * @date 2023/11/27 21:26
  */
 public class GlobalContextUserDetailsHandler {
@@ -21,7 +21,7 @@ public class GlobalContextUserDetailsHandler {
     /***
      * 将用户信息添加到当前线程中
      *
-     * @author 王大宸
+     * @author 剑鸣秋朔
      * @date 2024/4/13 23:37
      * @param userDetails userDetails
      * @return void
@@ -92,7 +92,7 @@ public class GlobalContextUserDetailsHandler {
     /***
      * 将用户信息添加到当前线程中
      *
-     * @author 王大宸
+     * @author 剑鸣秋朔
      * @date 2024/4/13 23:37
      * @param jwtInfo jwtInfo
      * @return void
@@ -273,7 +273,7 @@ public class GlobalContextUserDetailsHandler {
     /***
      * 获取当前线程中的用户所有信息
      *
-     * @author 王大宸
+     * @author 剑鸣秋朔
      * @date 2024/4/13 23:37
      * @return com.github.itdachen.framework.context.userdetails.UserInfoDetails
      */
@@ -346,7 +346,7 @@ public class GlobalContextUserDetailsHandler {
     /***
      * 重新 set 值(用处不大, 解决在其他地方被继承时, 无法序列化, 需要重新 new 一个对象)
      *
-     * @author 王大宸
+     * @author 剑鸣秋朔
      * @date 2024/4/13 23:36
      * @param userDetails userDetails
      * @return com.github.itdachen.framework.context.userdetails.UserInfoDetails

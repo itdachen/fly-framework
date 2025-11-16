@@ -10,7 +10,7 @@ import org.springframework.context.annotation.Primary;
 /**
  * FlyHikariDataSourceAutoConfiguration
  *
- * @author 王大宸
+ * @author 剑鸣秋朔
  * @date 2024-01-10 22:29
  */
 @Configuration

@@ -13,7 +13,7 @@ import java.security.PrivateKey;
 /**
  * PrivateKeyParseHandler
  *
- * @author 王大宸
+ * @author 剑鸣秋朔
  * @date 2023-12-23 22:18
  */
 public class PrivateKeyParseHandler implements ITokenSecretKeyHandler {
@@ -39,7 +39,7 @@ public class PrivateKeyParseHandler implements ITokenSecretKeyHandler {
     /***
      * 根据字符串获取私钥
      *
-     * @author 王大宸
+     * @author 剑鸣秋朔
      * @date 2023/12/23 23:11
      * @param privateKey privateKey
      * @param algorithm algorithm

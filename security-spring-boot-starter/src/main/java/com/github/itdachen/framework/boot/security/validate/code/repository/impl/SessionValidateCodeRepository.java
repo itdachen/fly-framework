@@ -8,7 +8,7 @@ import org.springframework.web.context.request.ServletWebRequest;
 
 /**
  * Description: 浏览器验证码处理器
- * Created by 王大宸 on 2022-10-16 14:03
+ * Created by 剑鸣秋朔 on 2022-10-16 14:03
  * Created with IntelliJ IDEA.
  */
 //@Component
@@ -30,7 +30,7 @@ public class SessionValidateCodeRepository  implements ValidateCodeRepository {
     /***
      * 构建验证码放入session时的key
      *
-     * @author 王大宸
+     * @author 剑鸣秋朔
      * @date 2021/11/27 11:19
      * @param request
      * @param validateCodeType

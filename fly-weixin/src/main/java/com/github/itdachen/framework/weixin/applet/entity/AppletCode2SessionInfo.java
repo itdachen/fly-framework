@@ -5,7 +5,7 @@ import org.apache.commons.lang3.builder.ToStringStyle;
 
 /**
  * Description:
- * Created by 王大宸 on 2023/03/19 0:08
+ * Created by 剑鸣秋朔 on 2023/03/19 0:08
  * Created with IntelliJ IDEA.
  */
 public class AppletCode2SessionInfo {

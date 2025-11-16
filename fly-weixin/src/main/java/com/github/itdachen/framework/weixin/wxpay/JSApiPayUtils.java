@@ -16,7 +16,7 @@ import java.util.Map;
 
 /**
  * Description: JSAPI 支付
- * Created by 王大宸 on 2023/04/11 21:50
+ * Created by 剑鸣秋朔 on 2023/04/11 21:50
  * Created with IntelliJ IDEA.
  */
 public class JSApiPayUtils {
@@ -25,7 +25,7 @@ public class JSApiPayUtils {
     /***
      * wxJsApiPay
      *
-     * @author 王大宸
+     * @author 剑鸣秋朔
      * @date 2023/4/11 21:52
      * @param payOrderInfo payOrderInfo
      * @param wxPayClient wxPayClient

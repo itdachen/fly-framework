@@ -5,7 +5,7 @@ import java.io.Serializable;
 /**
  * 上传的文件信息
  *
- * @author 王大宸
+ * @author 剑鸣秋朔
  * @date 2025-07-22 11:26
  */
 public class PoiUploadInfo implements Serializable {

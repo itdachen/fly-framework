@@ -8,7 +8,7 @@ import org.slf4j.LoggerFactory;
 /**
  * Session 过期监听
  *
- * @author 王大宸
+ * @author 剑鸣秋朔
  * @date 2024-08-13 14:41
  */
 public class HttpSessionExpiredListener implements HttpSessionListener {
@@ -17,7 +17,7 @@ public class HttpSessionExpiredListener implements HttpSessionListener {
 //    /***
 //    * Session创建时的逻辑
 //    *
-//    * @author 王大宸
+//    * @author 剑鸣秋朔
 //    * @date 2024/8/26 16:20
 //     * @param se se
 //    * @return void
@@ -30,7 +30,7 @@ public class HttpSessionExpiredListener implements HttpSessionListener {
     /***
      * Session 销毁监听
      *
-     * @author 王大宸
+     * @author 剑鸣秋朔
      * @date 2024/8/13 14:43
      * @param se se
      * @return void

@@ -8,7 +8,7 @@ import java.io.Serializable;
 /**
  * OplogInfoV2
  *
- * @author 王大宸
+ * @author 剑鸣秋朔
  * @date 2025-09-09 16:44
  */
 @Deprecated

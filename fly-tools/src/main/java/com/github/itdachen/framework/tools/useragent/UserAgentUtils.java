@@ -11,7 +11,7 @@ import java.util.TreeMap;
 
 /**
  * Description: 获取客户端信息
- * Created by 王大宸 on 2023-08-17 21:54
+ * Created by 剑鸣秋朔 on 2023-08-17 21:54
  * Created with IntelliJ IDEA.
  */
 public class UserAgentUtils {
@@ -23,7 +23,7 @@ public class UserAgentUtils {
     /***
      * 获取浏览器对象
      *
-     * @author 王大宸
+     * @author 剑鸣秋朔
      * @date 2023/8/17 22:01
      * @param agent agent
      * @return eu.bitwalker.useragentutils.Browser
@@ -36,7 +36,7 @@ public class UserAgentUtils {
     /***
      * 获取浏览器对象
      *
-     * @author 王大宸
+     * @author 剑鸣秋朔
      * @date 2023/8/17 22:01
      * @param userAgent userAgent
      * @return eu.bitwalker.useragentutils.Browser
@@ -48,7 +48,7 @@ public class UserAgentUtils {
     /***
      * 获取浏览器名称
      *
-     * @author 王大宸
+     * @author 剑鸣秋朔
      * @date 2023/8/17 22:04
      * @param agent agent
      * @return java.lang.String
@@ -60,7 +60,7 @@ public class UserAgentUtils {
     /***
      * 获取浏览器名称
      *
-     * @author 王大宸
+     * @author 剑鸣秋朔
      * @date 2023/8/17 22:04
      * @param userAgent userAgent
      * @return java.lang.String
@@ -72,7 +72,7 @@ public class UserAgentUtils {
     /***
      * 获取操作系统
      *
-     * @author 王大宸
+     * @author 剑鸣秋朔
      * @date 2023/8/17 22:02
      * @param agent agent
      * @return eu.bitwalker.useragentutils.OperatingSystem
@@ -85,7 +85,7 @@ public class UserAgentUtils {
     /***
      * 获取操作系统
      *
-     * @author 王大宸
+     * @author 剑鸣秋朔
      * @date 2023/8/17 22:02
      * @param userAgent userAgent
      * @return eu.bitwalker.useragentutils.OperatingSystem
@@ -97,7 +97,7 @@ public class UserAgentUtils {
     /***
      * 获取设备类型
      *
-     * @author 王大宸
+     * @author 剑鸣秋朔
      * @date 2023/8/17 22:04
      * @param agent agent
      * @return java.lang.String
@@ -110,7 +110,7 @@ public class UserAgentUtils {
     /***
      * 获取设备类型
      *
-     * @author 王大宸
+     * @author 剑鸣秋朔
      * @date 2023/8/17 22:04
      * @param userAgent userAgent
      * @return java.lang.String
@@ -122,7 +122,7 @@ public class UserAgentUtils {
     /***
      *  获取os: windwos、IOS、Android
      *
-     * @author 王大宸
+     * @author 剑鸣秋朔
      * @date 2023/8/17 22:05
      * @param agent agent
      * @return java.lang.String
@@ -134,7 +134,7 @@ public class UserAgentUtils {
     /***
      *  获取os: windwos、IOS、Android
      *
-     * @author 王大宸
+     * @author 剑鸣秋朔
      * @date 2023/8/17 22:05
      * @param userAgent userAgent
      * @return java.lang.String
@@ -147,7 +147,7 @@ public class UserAgentUtils {
     /***
      * 获取设备厂家
      *
-     * @author 王大宸
+     * @author 剑鸣秋朔
      * @date 2023/8/17 22:05
      * @param agent agent
      * @return java.lang.String
@@ -159,7 +159,7 @@ public class UserAgentUtils {
     /***
      * 获取设备厂家
      *
-     * @author 王大宸
+     * @author 剑鸣秋朔
      * @date 2023/8/17 22:06
      * @param userAgent userAgent
      * @return java.lang.String
@@ -171,7 +171,7 @@ public class UserAgentUtils {
     /***
      * 操作系统版本
      *
-     * @author 王大宸
+     * @author 剑鸣秋朔
      * @date 2023/8/17 22:06
      * @param userAgent userAgent
      * @return Android 1.x、Intel Mac OS X 10.15
@@ -231,7 +231,7 @@ public class UserAgentUtils {
     /***
      * 获取设备对象
      *
-     * @author 王大宸
+     * @author 剑鸣秋朔
      * @date 2023/8/17 21:58
      * @param agent agent
      * @return com.github.itdachen.framework.tools.useragent.DeviceInfo

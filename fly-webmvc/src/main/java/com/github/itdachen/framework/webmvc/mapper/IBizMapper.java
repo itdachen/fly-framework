@@ -6,7 +6,7 @@ import java.util.List;
 
 /**
  * Description: 基础 mapper
- * Created by 王大宸 on 2023/03/15 15:08
+ * Created by 剑鸣秋朔 on 2023/03/15 15:08
  * Created with IntelliJ IDEA.
  */
 //public interface IBizMapper<T, V, Q, PK> extends Mapper<T> {
@@ -14,7 +14,7 @@ import java.util.List;
 //    /***
 //     * 查询集合
 //     *
-//     * @author 王大宸
+//     * @author 剑鸣秋朔
 //     * @date 2023/3/15 15:12
 //     * @param query query
 //     * @return java.util.List<V>
@@ -24,7 +24,7 @@ import java.util.List;
 //    /***
 //     * 查询 VO 对象返回
 //     *
-//     * @author 王大宸
+//     * @author 剑鸣秋朔
 //     * @date 2023/3/15 15:13
 //     * @param id id
 //     * @return V

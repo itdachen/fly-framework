@@ -22,7 +22,7 @@ import java.util.Set;
 
 /**
  * Description:
- * Created by 王大宸 on 2022-09-23 15:34
+ * Created by 剑鸣秋朔 on 2022-09-23 15:34
  * Created with IntelliJ IDEA.
  */
 public abstract class AbstractSecurityUserDetailsService implements UserDetailsService {
@@ -40,7 +40,7 @@ public abstract class AbstractSecurityUserDetailsService implements UserDetailsS
     /***
      * 根据手机号码查询用户信息
      *
-     * @author 王大宸
+     * @author 剑鸣秋朔
      * @date 2021/11/27 11:35
      * @param mobile 手机号码
      * @return com.github.itdachen.framework.security.user.CurrentUserInfo
@@ -54,7 +54,7 @@ public abstract class AbstractSecurityUserDetailsService implements UserDetailsS
     /***
      * 根据认证票据, 完成用户信息认证
      *
-     * @author 王大宸
+     * @author 剑鸣秋朔
      * @date 2023/11/13 16:29
      * @param token  认证票据
      * @return cn.edu.hubu.framework.security.user.CurrentUserInfo
@@ -67,7 +67,7 @@ public abstract class AbstractSecurityUserDetailsService implements UserDetailsS
     /***
      * 校验用户信息
      *
-     * @author 王大宸
+     * @author 剑鸣秋朔
      * @date 2024/4/29 22:52
      * @param userInfoDetails userInfoDetails
      * @return com.github.itdachen.boot.security.user.CurrentUserInfo
@@ -107,7 +107,7 @@ public abstract class AbstractSecurityUserDetailsService implements UserDetailsS
     /***
      * 获取用户权限
      *
-     * @author 王大宸
+     * @author 剑鸣秋朔
      * @date 2024/4/29 22:50
      * @param userInfoDetails userInfoDetails
      * @return void
@@ -118,7 +118,7 @@ public abstract class AbstractSecurityUserDetailsService implements UserDetailsS
     /***
      * 设置应用信息
      *
-     * @author 王大宸
+     * @author 剑鸣秋朔
      * @date 2024/4/29 23:10
      * @param userInfoDetails userInfoDetails
      * @return void
@@ -135,7 +135,7 @@ public abstract class AbstractSecurityUserDetailsService implements UserDetailsS
     /***
      * 用户登录返回用户信息
      *
-     * @author 王大宸
+     * @author 剑鸣秋朔
      * @date 2021/11/27 11:39
      * @param user                    用户信息
      * @param enabled                 账号是否可用

@@ -10,7 +10,7 @@ import java.util.Base64;
 /**
  * 签名及校验工具类
  *
- * @author 王大宸
+ * @author 剑鸣秋朔
  * @date 2024-11-04 10:43
  */
 public class HmacSHA1Utils {
@@ -21,7 +21,7 @@ public class HmacSHA1Utils {
     /***
      * 使用 HmacSHA1 算法进行签名
      *
-     * @author 王大宸
+     * @author 剑鸣秋朔
      * @date 2024/11/4 10:32
      * @param secretKey 密钥
      * @param data      数据
@@ -42,7 +42,7 @@ public class HmacSHA1Utils {
     /***
      * 验证签名
      *
-     * @author 王大宸
+     * @author 剑鸣秋朔
      * @date 2024/11/4 10:32
      * @param secretKey 密钥
      * @param data 数据

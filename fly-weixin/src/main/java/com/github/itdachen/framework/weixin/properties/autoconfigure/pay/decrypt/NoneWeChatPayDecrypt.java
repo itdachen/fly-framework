@@ -5,7 +5,7 @@ import com.github.itdachen.framework.weixin.properties.autoconfigure.pay.WeChatP
 
 /**
  * Description: 不加密
- * Created by 王大宸 on 2023/04/11 22:59
+ * Created by 剑鸣秋朔 on 2023/04/11 22:59
  * Created with IntelliJ IDEA.
  */
 public class NoneWeChatPayDecrypt implements IWeChatPayProperties {

@@ -15,7 +15,7 @@ import java.util.GregorianCalendar;
 
 /**
  * Description: 时间工具类
- * Created by 王大宸 on 2023/02/12 23:00
+ * Created by 剑鸣秋朔 on 2023/02/12 23:00
  * Created with IntelliJ IDEA.
  */
 public class LocalDateUtils {
@@ -31,7 +31,7 @@ public class LocalDateUtils {
     /***
      * 获取今天日期
      *
-     * @author 王大宸
+     * @author 剑鸣秋朔
      * @date 2023/2/12 23:01
      * @return java.time.LocalDate
      */
@@ -42,7 +42,7 @@ public class LocalDateUtils {
     /***
      * 今天当前时间
      *
-     * @author 王大宸
+     * @author 剑鸣秋朔
      * @date 2023/2/12 23:48
      * @return java.time.LocalDateTime
      */
@@ -53,7 +53,7 @@ public class LocalDateUtils {
     /***
      * 获取今天日期
      *
-     * @author 王大宸
+     * @author 剑鸣秋朔
      * @date 2023/2/12 23:24
      * @return java.lang.String
      */
@@ -64,7 +64,7 @@ public class LocalDateUtils {
     /***
      * 明天当前时间
      *
-     * @author 王大宸
+     * @author 剑鸣秋朔
      * @date 2023/2/12 23:46
      * @return java.time.LocalDateTime
      */
@@ -75,7 +75,7 @@ public class LocalDateUtils {
     /***
      * 昨天当前时间
      *
-     * @author 王大宸
+     * @author 剑鸣秋朔
      * @date 2023/2/12 23:47
      * @return java.time.LocalDateTime
      */
@@ -86,7 +86,7 @@ public class LocalDateUtils {
     /***
      * 获取当前年
      *
-     * @author 王大宸
+     * @author 剑鸣秋朔
      * @date 2023/2/12 23:02
      * @return int
      */
@@ -97,7 +97,7 @@ public class LocalDateUtils {
     /***
      * 获取当前月
      *
-     * @author 王大宸
+     * @author 剑鸣秋朔
      * @date 2023/2/12 23:02
      * @return int
      */
@@ -108,7 +108,7 @@ public class LocalDateUtils {
     /***
      * 获取当前月当前日(获取今天是本月的几号)
      *
-     * @author 王大宸
+     * @author 剑鸣秋朔
      * @date 2023/2/12 23:03
      * @return int
      */
@@ -119,7 +119,7 @@ public class LocalDateUtils {
     /***
      * 设置特定日期
      *
-     * @author 王大宸
+     * @author 剑鸣秋朔
      * @date 2023/2/12 23:05
      * @param year       特定日期, 年
      * @param month      特定日期: 月
@@ -133,7 +133,7 @@ public class LocalDateUtils {
     /***
      * 指定某月某天, 例如: 2月12日
      *
-     * @author 王大宸
+     * @author 剑鸣秋朔
      * @date 2023/2/12 23:12
      * @param month  指定月
      * @param dayOfMonth 指定天
@@ -146,7 +146,7 @@ public class LocalDateUtils {
     /***
      * 获取一周以后
      *
-     * @author 王大宸
+     * @author 剑鸣秋朔
      * @date 2023/2/12 23:14
      * @return java.time.LocalDate
      */
@@ -157,7 +157,7 @@ public class LocalDateUtils {
     /***
      * 一年以后
      *
-     * @author 王大宸
+     * @author 剑鸣秋朔
      * @date 2023/2/12 23:14
      * @return java.time.LocalDate
      */
@@ -168,7 +168,7 @@ public class LocalDateUtils {
     /***
      * 一年之前
      *
-     * @author 王大宸
+     * @author 剑鸣秋朔
      * @date 2023/2/12 23:15
      * @return java.time.LocalDate
      */
@@ -179,7 +179,7 @@ public class LocalDateUtils {
     /***
      * 是否闰年
      *
-     * @author 王大宸
+     * @author 剑鸣秋朔
      * @date 2023/2/12 23:16
      * @return java.lang.Boolean
      */
@@ -191,7 +191,7 @@ public class LocalDateUtils {
     /***
      * 获取当前时间的 string 类型
      *
-     * @author 王大宸
+     * @author 剑鸣秋朔
      * @date 2020/11/3 10:59
      * @param format 时间格式
      * @return java.lang.String
@@ -203,7 +203,7 @@ public class LocalDateUtils {
     /***
      * 获取当前时间的 string 类型
      *
-     * @author 王大宸
+     * @author 剑鸣秋朔
      * @date 2020/11/3 10:58
      * @param
      * @return java.lang.String
@@ -229,7 +229,7 @@ public class LocalDateUtils {
     /***
      * 将 LocalDateTime 转成字符串
      *
-     * @author 王大宸
+     * @author 剑鸣秋朔
      * @date 2023/2/12 23:25
      * @param localDateTime localDateTime
      * @return java.lang.String
@@ -245,7 +245,7 @@ public class LocalDateUtils {
     /***
      * 字符串时间转 LocalDateTime
      *
-     * @author 王大宸
+     * @author 剑鸣秋朔
      * @date 2023/2/12 23:28
      * @param localDateTime localDateTime
      * @return java.time.LocalDateTime
@@ -260,7 +260,7 @@ public class LocalDateUtils {
     /***
      * Date 转 LocalDateTime
      *
-     * @author 王大宸
+     * @author 剑鸣秋朔
      * @date 2023/2/12 23:29
      * @param date date
      * @return java.time.LocalDateTime
@@ -274,7 +274,7 @@ public class LocalDateUtils {
     /***
      * LocalDateTime 转 Date
      *
-     * @author 王大宸
+     * @author 剑鸣秋朔
      * @date 2023/2/12 23:31
      * @param localDateTime localDateTime
      * @return java.util.Date
@@ -288,7 +288,7 @@ public class LocalDateUtils {
     /***
      * LocalDate 转 Date
      *
-     * @author 王大宸
+     * @author 剑鸣秋朔
      * @date 2023/2/12 23:32
      * @param localDate localDate
      * @return java.util.Date
@@ -302,7 +302,7 @@ public class LocalDateUtils {
     /***
      * 将数字时间, 转成 Date 类型, 例如: 42156
      *
-     * @author 王大宸
+     * @author 剑鸣秋朔
      * @date 2023/6/9 10:30
      * @param numDays numDays
      * @return java.util.Date
@@ -318,7 +318,7 @@ public class LocalDateUtils {
     /***
      * 本月第一天
      *
-     * @author 王大宸
+     * @author 剑鸣秋朔
      * @date 2023/6/9 10:59
 
      * @return java.lang.String
@@ -330,7 +330,7 @@ public class LocalDateUtils {
     /***
      * 根据年月, 获取第一天
      *
-     * @author 王大宸
+     * @author 剑鸣秋朔
      * @date 2023/2/12 23:43
      * @param localDate localDate
      * @return java.lang.String
@@ -342,7 +342,7 @@ public class LocalDateUtils {
     /***
      * 获取本月最后一天
      *
-     * @author 王大宸
+     * @author 剑鸣秋朔
      * @date 2023/6/9 11:01
      * @return java.lang.String
      */
@@ -353,7 +353,7 @@ public class LocalDateUtils {
     /***
      * 根据年月, 获取最后一天
      *
-     * @author 王大宸
+     * @author 剑鸣秋朔
      * @date 2023/2/12 23:43
      * @param localDate localDate
      * @return java.lang.String
@@ -365,7 +365,7 @@ public class LocalDateUtils {
     /***
      * LocalDateTime 生成指定时间段的随机时间
      *
-     * @author 王大宸
+     * @author 剑鸣秋朔
      * @date 2023/2/12 23:44
      * @param startDay startDay
      * @param endDay endDay
@@ -404,7 +404,7 @@ public class LocalDateUtils {
     /***
      * 将 Date 转成 LocalDate 类型
      *
-     * @author 王大宸
+     * @author 剑鸣秋朔
      * @date 2023/6/9 10:37
      * @param date date
      * @return java.time.LocalDate
@@ -422,7 +422,7 @@ public class LocalDateUtils {
     /***
      * 将数字时间, 转成 LocalDate 类型, 例如: 42156
      *
-     * @author 王大宸
+     * @author 剑鸣秋朔
      * @date 2023/6/9 10:30
      * @param numDays numDays
      * @return java.time.LocalDate
@@ -438,7 +438,7 @@ public class LocalDateUtils {
     /***
      * 将字符串类型转成 LocalDate 类型
      *
-     * @author 王大宸
+     * @author 剑鸣秋朔
      * @date 2023/6/9 10:51
      * @param value value
      * @return java.time.LocalDate
@@ -453,7 +453,7 @@ public class LocalDateUtils {
     /***
      * 将字符串类型转成 LocalDate 类型
      *
-     * @author 王大宸
+     * @author 剑鸣秋朔
      * @date 2023/6/9 10:51
      * @param value  字符串数据
      * @param format 时间格式类型
@@ -480,7 +480,7 @@ public class LocalDateUtils {
     /***
      * timestamp 转 字符串，默认日期格式
      *
-     * @author 王大宸
+     * @author 剑鸣秋朔
      * @date 2023/6/26 20:42
      * @param timestamp timestamp
      * @return java.lang.String
@@ -492,7 +492,7 @@ public class LocalDateUtils {
     /***
      * 获取当天剩余的秒数
      *
-     * @author 王大宸
+     * @author 剑鸣秋朔
      * @date 2023/6/26 20:43
      * @param currentDate 年月日时间
      * @return java.lang.Integer
@@ -509,7 +509,7 @@ public class LocalDateUtils {
     /***
      * 获取当天剩余的秒数
      *
-     * @author 王大宸
+     * @author 剑鸣秋朔
      * @date 2023/6/26 20:46
      * @param currentDate 年月日时间
      * @return java.lang.Integer
@@ -521,7 +521,7 @@ public class LocalDateUtils {
     /***
      * 今天剩余多少秒
      *
-     * @author 王大宸
+     * @author 剑鸣秋朔
      * @date 2023/6/26 20:46
      * @return java.lang.Integer
      */

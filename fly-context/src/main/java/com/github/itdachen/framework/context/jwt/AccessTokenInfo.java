@@ -5,7 +5,7 @@ import java.util.Map;
 
 /**
  * Description: 生成 token,返回数据类型
- * Created by 王大宸 on 2023/04/30 14:55
+ * Created by 剑鸣秋朔 on 2023/04/30 14:55
  * Created with IntelliJ IDEA.
  */
 public class AccessTokenInfo implements Serializable {

@@ -5,7 +5,7 @@ import java.util.Map;
 
 /**
  * Description: 使用 ThreadLocal  存储每一个线程中的信息
- * Created by 王大宸 on 2022-06-28 15:34
+ * Created by 剑鸣秋朔 on 2022-06-28 15:34
  * Created with IntelliJ IDEA.
  */
 public class GlobalContextThreadLocalHandler {
@@ -15,7 +15,7 @@ public class GlobalContextThreadLocalHandler {
     /***
      * 向线程中添加信息
      *
-     * @author 王大宸
+     * @author 剑鸣秋朔
      * @date 2022/6/28 15:35
      * @param key    添加的 key
      * @param value  添加的值
@@ -33,7 +33,7 @@ public class GlobalContextThreadLocalHandler {
     /***
      * 获取线程中的信息
      *
-     * @author 王大宸
+     * @author 剑鸣秋朔
      * @date 2022/6/28 15:35
      * @param key 需要获取信息的 key
      * @return java.lang.Object
@@ -51,7 +51,7 @@ public class GlobalContextThreadLocalHandler {
     /***
      * 返回线程信息
      *
-     * @author 王大宸
+     * @author 剑鸣秋朔
      * @date 2022/6/28 15:35
      * @param value value
      * @return java.lang.String
@@ -64,7 +64,7 @@ public class GlobalContextThreadLocalHandler {
     /***
      * 清空线程信息
      *
-     * @author 王大宸
+     * @author 剑鸣秋朔
      * @date 2022/6/28 15:35
      */
     public static void remove() {

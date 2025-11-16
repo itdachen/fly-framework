@@ -4,7 +4,7 @@ import com.github.itdachen.framework.msg.enums.HttpStatusCode;
 
 /**
  * Description: 自定义基础异常
- * Created by 王大宸 on 2023-08-01 9:31
+ * Created by 剑鸣秋朔 on 2023-08-01 9:31
  * Created with IntelliJ IDEA.
  */
 public class BizException extends Exception {

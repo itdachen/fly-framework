@@ -22,7 +22,7 @@ import java.io.IOException;
 
 /**
  * Description: 用户认证拦截器
- * Created by 王大宸 on 2023/05/05 15:19
+ * Created by 剑鸣秋朔 on 2023/05/05 15:19
  * Created with IntelliJ IDEA.
  */
 public class UserAuthRestInterceptor implements HandlerInterceptor {

@@ -17,7 +17,7 @@ import java.util.Objects;
 /**
  * 实现动态数据源，根据 AbstractRoutingDataSource 路由到不同数据源中
  *
- * @author 王大宸
+ * @author 剑鸣秋朔
  * @date 2023-12-30 17:33
  */
 public class DynamicDataSourceRouting extends AbstractRoutingDataSource {
@@ -28,7 +28,7 @@ public class DynamicDataSourceRouting extends AbstractRoutingDataSource {
     /***
      * DynamicDataSourceRouting
      *
-     * @author 王大宸
+     * @author 剑鸣秋朔
      * @date 2023/12/30 19:04
      * @param defaultDataSource 默认数据源
      * @param targetDataSources 所有数据源
@@ -49,7 +49,7 @@ public class DynamicDataSourceRouting extends AbstractRoutingDataSource {
     /***
      * 添加数据源信息
      *
-     * @author 王大宸
+     * @author 剑鸣秋朔
      * @date 2023/12/30 19:37
      * @param dataSources 数据源实体集合
      * @return java.lang.Boolean 返回添加结果

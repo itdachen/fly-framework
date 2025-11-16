@@ -8,7 +8,7 @@ import org.springframework.web.multipart.MultipartFile;
 /**
  * 文件上传接口的默认实现
  *
- * @author 王大宸
+ * @author 剑鸣秋朔
  * @date 2025-07-29 17:43
  */
 public class DefaultOOXmlPoiFileUploadHandler implements IOOXmlPoiFileUploadHandler {

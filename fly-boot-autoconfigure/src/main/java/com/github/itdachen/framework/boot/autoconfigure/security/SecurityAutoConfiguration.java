@@ -11,7 +11,7 @@ import org.springframework.context.annotation.Configuration;
 
 /**
  * Description: fly-security 模块配置文件
- * Created by 王大宸 on 2023-07-08 23:08
+ * Created by 剑鸣秋朔 on 2023-07-08 23:08
  * Created with IntelliJ IDEA.
  */
 @Configuration

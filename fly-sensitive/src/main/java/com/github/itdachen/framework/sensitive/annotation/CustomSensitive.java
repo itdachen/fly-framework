@@ -12,7 +12,7 @@ import java.lang.annotation.Target;
 
 /**
  * 万能脱敏注解, 自定义长度及符号
- * Created by 王大宸 on 2023-07-05 17:00
+ * Created by 剑鸣秋朔 on 2023-07-05 17:00
  * Created with IntelliJ IDEA.
  */
 @Target(ElementType.FIELD) // 作用在字段上

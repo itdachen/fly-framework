@@ -20,7 +20,7 @@ import java.io.OutputStream;
 /**
  * 文件上传默认实现
  *
- * @author 王大宸
+ * @author 剑鸣秋朔
  * @date 2025-07-25 17:21
  */
 public class DefaultOOXmlPoiImpFileUploadHandler implements IOOXmlPoiImpFileUploadHandler {

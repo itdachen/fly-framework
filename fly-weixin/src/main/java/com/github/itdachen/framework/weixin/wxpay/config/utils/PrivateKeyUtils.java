@@ -10,7 +10,7 @@ import java.security.PrivateKey;
 
 /**
  * Description: 获取商户的私钥文件
- * Created by 王大宸 on 2023/04/11 21:38
+ * Created by 剑鸣秋朔 on 2023/04/11 21:38
  * Created with IntelliJ IDEA.
  */
 public class PrivateKeyUtils {
@@ -18,7 +18,7 @@ public class PrivateKeyUtils {
     /***
      * 获取商户的私钥文件
      *
-     * @author 王大宸
+     * @author 剑鸣秋朔
      * @date 2023/4/11 21:38
      * @param privateKeyPath privateKeyPath
      * @return java.security.PrivateKey

@@ -2,7 +2,7 @@ package com.github.itdachen.framework.boot.jwt.constants;
 
 /**
  * Description: token 加密方式
- * Created by 王大宸 on 2022-06-29 9:43
+ * Created by 剑鸣秋朔 on 2022-06-29 9:43
  * Created with IntelliJ IDEA.
  */
 public class EncryptionType {

@@ -8,7 +8,7 @@ import org.slf4j.LoggerFactory;
 /**
  * ThirdPlatformVerifyTicketTokenServiceImpl
  *
- * @author 王大宸
+ * @author 剑鸣秋朔
  * @date 2023-11-14 10:04
  */
 public class DefaultThirdPlatformVerifyTicketToken implements IThirdPlatformVerifyTicketTokenService {

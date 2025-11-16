@@ -12,7 +12,7 @@ import java.io.IOException;
 
 /**
  * Description:
- * Created by 王大宸 on 2021-12-01 17:13
+ * Created by 剑鸣秋朔 on 2021-12-01 17:13
  * Created with IntelliJ IDEA.
  */
 public class ServletUtils {
@@ -20,7 +20,7 @@ public class ServletUtils {
     /***
      * 功能说明：获取ip地址
      *
-     * @author 王大宸
+     * @author 剑鸣秋朔
      * @date 2020/8/18 15:05
      * @param
      * @return java.lang.String
@@ -32,7 +32,7 @@ public class ServletUtils {
     /***
      * 功能说明：获取ip
      *
-     * @author 王大宸
+     * @author 剑鸣秋朔
      * @date 2020/8/18 15:04
      * @param request
      * @return java.lang.String

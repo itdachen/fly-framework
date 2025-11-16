@@ -9,7 +9,7 @@ import java.util.Collection;
 /**
  * 认证 token , 每个都必须要
  *
- * @author 王大宸
+ * @author 剑鸣秋朔
  * @date 2023-11-13 16:04
  */
 public class PlatformAuthenticationToken extends AbstractAuthenticationToken {
@@ -28,7 +28,7 @@ public class PlatformAuthenticationToken extends AbstractAuthenticationToken {
     /***
      * 构造函数
      *
-     * @author 王大宸
+     * @author 剑鸣秋朔
      * @date 2023/1/12 10:40
      * @param principal 登录账号
      * @return

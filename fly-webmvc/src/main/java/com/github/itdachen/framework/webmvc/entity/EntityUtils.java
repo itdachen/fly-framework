@@ -17,7 +17,7 @@ import java.util.Objects;
 
 /**
  * Description: 实体类操作工具
- * Created by 王大宸 on 2022-06-29 10:05
+ * Created by 剑鸣秋朔 on 2022-06-29 10:05
  * Created with IntelliJ IDEA.
  */
 public class EntityUtils {

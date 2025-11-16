@@ -5,7 +5,7 @@ import jakarta.servlet.http.HttpServletRequest;
 /**
  * AjaxUtils
  *
- * @author 王大宸
+ * @author 剑鸣秋朔
  * @date 2024-05-23 17:11
  */
 public class AjaxUtils {

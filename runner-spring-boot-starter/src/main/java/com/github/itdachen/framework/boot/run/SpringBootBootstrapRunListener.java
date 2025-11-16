@@ -21,7 +21,7 @@ import java.util.Arrays;
 /**
  * 自定义启动日志模块
  *
- * @author 王大宸
+ * @author 剑鸣秋朔
  * @date 2024-01-08 21:19
  */
 public class SpringBootBootstrapRunListener implements SpringApplicationRunListener {
@@ -39,7 +39,7 @@ public class SpringBootBootstrapRunListener implements SpringApplicationRunListe
     /***
      * run 方法第一次被执行时调用，早期初始化工作
      *
-     * @author 王大宸
+     * @author 剑鸣秋朔
      * @date 2025/1/22 20:29
      * @param bootstrapContext bootstrapContext
      * @return void
@@ -59,7 +59,7 @@ public class SpringBootBootstrapRunListener implements SpringApplicationRunListe
     /***
      * environment 创建后，ApplicationContext 创建前
      *
-     * @author 王大宸
+     * @author 剑鸣秋朔
      * @date 2024/5/27 21:47
      * @param bootstrapContext bootstrapContext
      * @param environment environment
@@ -84,7 +84,7 @@ public class SpringBootBootstrapRunListener implements SpringApplicationRunListe
     /***
      * ApplicationContext 实例创建，部分属性设置了
      *
-     * @author 王大宸
+     * @author 剑鸣秋朔
      * @date 2024/5/27 21:47
      * @param context context
      * @return void
@@ -97,7 +97,7 @@ public class SpringBootBootstrapRunListener implements SpringApplicationRunListe
     /***
      * ApplicationContext 加载后，refresh 前
      *
-     * @author 王大宸
+     * @author 剑鸣秋朔
      * @date 2024/5/27 21:47
      * @param context context
      * @return void
@@ -110,7 +110,7 @@ public class SpringBootBootstrapRunListener implements SpringApplicationRunListe
     /***
      * refresh 后
      *
-     * @author 王大宸
+     * @author 剑鸣秋朔
      * @date 2025/1/22 20:31
      * @param context context
      * @param timeTaken timeTaken
@@ -124,7 +124,7 @@ public class SpringBootBootstrapRunListener implements SpringApplicationRunListe
     /***
      * 所有初始化完成后，run 结束前
      *
-     * @author 王大宸
+     * @author 剑鸣秋朔
      * @date 2024/5/27 21:46
      * @param context context
      * @param timeTaken timeTaken
@@ -159,7 +159,7 @@ public class SpringBootBootstrapRunListener implements SpringApplicationRunListe
     /***
      * 初始化失败后
      *
-     * @author 王大宸
+     * @author 剑鸣秋朔
      * @date 2024/5/27 21:46
      * @param context context
      * @param exception exception
@@ -173,7 +173,7 @@ public class SpringBootBootstrapRunListener implements SpringApplicationRunListe
     /***
      * 获取服务器IP
      *
-     * @author 王大宸
+     * @author 剑鸣秋朔
      * @date 2024/5/27 21:46
      * @return java.lang.String
      */

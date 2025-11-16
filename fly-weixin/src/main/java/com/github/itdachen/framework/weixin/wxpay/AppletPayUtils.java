@@ -9,7 +9,7 @@ import org.apache.http.impl.client.CloseableHttpClient;
 
 /**
  * Description: 微信小程序支付
- * Created by 王大宸 on 2023/04/11 21:47
+ * Created by 剑鸣秋朔 on 2023/04/11 21:47
  * Created with IntelliJ IDEA.
  */
 public class AppletPayUtils {

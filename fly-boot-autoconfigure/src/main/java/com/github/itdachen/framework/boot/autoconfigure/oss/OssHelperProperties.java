@@ -8,7 +8,7 @@ import com.github.itdachen.framework.boot.autoconfigure.oss.properties.OssProper
 /**
  * OssHelperProperties
  *
- * @author 王大宸
+ * @author 剑鸣秋朔
  * @date 2024-06-19 16:40
  */
 public class OssHelperProperties {

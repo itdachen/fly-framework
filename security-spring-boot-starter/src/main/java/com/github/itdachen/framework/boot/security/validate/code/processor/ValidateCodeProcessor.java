@@ -4,7 +4,7 @@ import org.springframework.web.context.request.ServletWebRequest;
 
 /**
  * Description:
- * Created by 王大宸 on 2021-11-26 22:37
+ * Created by 剑鸣秋朔 on 2021-11-26 22:37
  * Created with IntelliJ IDEA.
  */
 public interface ValidateCodeProcessor {
@@ -17,7 +17,7 @@ public interface ValidateCodeProcessor {
     /***
      * 创建校验码
      *
-     * @author 王大宸
+     * @author 剑鸣秋朔
      * @date 2021/11/26 22:38
      * @param request
      * @return void
@@ -27,7 +27,7 @@ public interface ValidateCodeProcessor {
     /***
      * 校验验证码
      *
-     * @author 王大宸
+     * @author 剑鸣秋朔
      * @date 2021/11/26 22:38
      * @param servletWebRequest
      * @return void

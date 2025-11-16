@@ -9,7 +9,7 @@ import org.springframework.security.core.userdetails.UserDetails;
 
 /**
  * Description: 认证处理器
- * Created by 王大宸 on 2023-12-09 23:46
+ * Created by 剑鸣秋朔 on 2023-12-09 23:46
  * Created with IntelliJ IDEA.
  */
 public class MobileAuthenticationProvider implements AuthenticationProvider {

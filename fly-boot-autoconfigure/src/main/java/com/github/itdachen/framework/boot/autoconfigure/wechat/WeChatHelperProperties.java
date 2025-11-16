@@ -6,7 +6,7 @@ import com.github.itdachen.framework.boot.autoconfigure.wechat.properties.WeChat
 /**
  * WeChatHelperProperties
  *
- * @author 王大宸
+ * @author 剑鸣秋朔
  * @date 2024-11-21 11:22
  */
 public class WeChatHelperProperties {

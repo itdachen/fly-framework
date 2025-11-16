@@ -12,7 +12,7 @@ import java.util.Map;
 /**
  * 微信请求基础
  *
- * @author 王大宸
+ * @author 剑鸣秋朔
  * @date 2024/12/1 15:32
  */
 public class WeChatBizHttp {
@@ -21,7 +21,7 @@ public class WeChatBizHttp {
     /***
      * http 请求默认请求头
      *
-     * @author 王大宸
+     * @author 剑鸣秋朔
      * @date 2023/2/5 1:00
      * @return java.util.Map<java.lang.String, java.lang.String>
      */
@@ -76,7 +76,7 @@ public class WeChatBizHttp {
     /***
      * GET 请求, 获取指定 Key 的数据
      *
-     * @author 王大宸
+     * @author 剑鸣秋朔
      * @date 2023/3/19 0:42
      * @param uri uri
      * @param containsKey containsKey
@@ -91,7 +91,7 @@ public class WeChatBizHttp {
     /***
      * 获取 json 中指定 key 的数据
      *
-     * @author 王大宸
+     * @author 剑鸣秋朔
      * @date 2023/3/19 0:39
      * @param json  alibaba JSONObject
      * @param containsKey 指定的 Key
@@ -109,7 +109,7 @@ public class WeChatBizHttp {
     /***
      * 获取 json 中指定 key 的数据
      *
-     * @author 王大宸
+     * @author 剑鸣秋朔
      * @date 2023/3/19 0:39
      * @param json  alibaba JSONObject
      * @param containsKey 指定的 Key
@@ -122,7 +122,7 @@ public class WeChatBizHttp {
     /***
      * 异常提醒
      *
-     * @author 王大宸
+     * @author 剑鸣秋朔
      * @date 2023/2/5 1:20
      * @param body body
      * @return void
@@ -157,7 +157,7 @@ public class WeChatBizHttp {
     /***
      * 是否请求成功
      *
-     * @author 王大宸
+     * @author 剑鸣秋朔
      * @date 2023/5/29 10:09
      * @param json json
      * @return java.lang.Boolean

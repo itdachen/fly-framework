@@ -10,7 +10,7 @@ import org.springframework.core.env.Environment;
 
 /**
  * Description: 随机负载均衡策略配置类
- * Created by 王大宸 on 2023/05/05 21:05
+ * Created by 剑鸣秋朔 on 2023/05/05 21:05
  * Created with IntelliJ IDEA.
  */
 public class RandomLoadBalancerConfig {

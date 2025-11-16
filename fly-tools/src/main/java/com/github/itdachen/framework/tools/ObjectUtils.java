@@ -11,7 +11,7 @@ import java.util.*;
 
 /**
  * Description: 对象转换工具类  implements ApplicationContextAware
- * Created by 王大宸 on 2021-12-01 17:12
+ * Created by 剑鸣秋朔 on 2021-12-01 17:12
  * Created with IntelliJ IDEA.
  */
 public class ObjectUtils {
@@ -34,7 +34,7 @@ public class ObjectUtils {
     /***
      * Description：obj 转 Object
      *
-     * @author 王大宸
+     * @author 剑鸣秋朔
      * @date 2020-2-8 14:54
      * @param obj                传入对象
      * @param destinationClass  目标对象
@@ -50,7 +50,7 @@ public class ObjectUtils {
     /***
      * 功能说明：对象转换
      *
-     * @author 王大宸
+     * @author 剑鸣秋朔
      * @date 2019/4/4 23:37
      * @param source 资源对象
      * @param destination 目标对象实例
@@ -63,7 +63,7 @@ public class ObjectUtils {
     /***
      * 功能说明： 对象装换
      *
-     * @author 王大宸
+     * @author 剑鸣秋朔
      * @date 2019/4/4 23:37
      * @param sourceList  资源对象列表
      * @param destinationClass  目标对象类型
@@ -80,7 +80,7 @@ public class ObjectUtils {
     /***
      * 功能说明： 对象转 map
      *
-     * @author 王大宸
+     * @author 剑鸣秋朔
      * @date 2020/7/16 22:25
      * @param obj
      * @return Map<String, Object>
@@ -106,7 +106,7 @@ public class ObjectUtils {
     /***
      * 功能说明： 将 object 转成 list<T>
      *
-     * @author 王大宸
+     * @author 剑鸣秋朔
      * @date 2019/4/4 23:37
      * @param obj    资源对象列表
      * @param clazz  目标对象类型

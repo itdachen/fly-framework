@@ -5,7 +5,7 @@ import org.springframework.boot.context.properties.ConfigurationProperties;
 
 /**
  * Description: Spring Security Session 配置
- * Created by 王大宸 on 2022-09-23 10:03
+ * Created by 剑鸣秋朔 on 2022-09-23 10:03
  * Created with IntelliJ IDEA.
  */
 @ConfigurationProperties(prefix = "fly.security.session")

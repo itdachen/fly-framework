@@ -13,7 +13,7 @@ import org.springframework.web.method.support.ModelAndViewContainer;
 
 /**
  * Description: 配置解析器，用来封装当前登录用户的信息
- * Created by 王大宸 on 2023/04/30 16:05
+ * Created by 剑鸣秋朔 on 2023/04/30 16:05
  * Created with IntelliJ IDEA.
  */
 public class UserAuthRestMethodArgumentResolver implements HandlerMethodArgumentResolver {

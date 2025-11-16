@@ -4,7 +4,7 @@ import com.github.itdachen.framework.sensitive.ISensitiveHandler;
 
 /**
  * 卡号脱敏, 身份证号码, 银行卡号 等
- * Created by 王大宸 on 2023-07-05 16:41
+ * Created by 剑鸣秋朔 on 2023-07-05 16:41
  * Created with IntelliJ IDEA.
  */
 public class CardNoSensitiveHandler implements ISensitiveHandler {

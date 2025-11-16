@@ -7,7 +7,7 @@ import java.security.PublicKey;
 /**
  * 存放解析 token 公钥
  *
- * @author 王大宸
+ * @author 剑鸣秋朔
  * @date 2023-12-28 20:07
  */
 @Configuration

@@ -4,7 +4,7 @@ package com.github.itdachen.framework.context.constants;
  * 部门等级
  * 00-总部/10-省级/20-市州级/30-区县级/40-乡镇/街道级
  *
- * @author 王大宸
+ * @author 剑鸣秋朔
  * @date 2024/5/6 23:03
  */
 public class DeptLevelConstants {
@@ -49,7 +49,7 @@ public class DeptLevelConstants {
     /***
      * 根据当前部门层级获取下一级部门层级
      *
-     * @author 王大宸
+     * @author 剑鸣秋朔
      * @date 2024/12/27 23:22
      * @param level 部门层级
      * @return java.lang.String

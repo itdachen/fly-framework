@@ -2,7 +2,7 @@ package com.github.itdachen.framework.context.exception;
 
 /**
  * Description: 自定义基础异常
- * Created by 王大宸 on 2023/02/12 22:04
+ * Created by 剑鸣秋朔 on 2023/02/12 22:04
  * Created with IntelliJ IDEA.
  */
 public class BizException extends RuntimeException {

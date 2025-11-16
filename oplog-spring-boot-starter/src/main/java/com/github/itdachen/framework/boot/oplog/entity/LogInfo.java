@@ -10,7 +10,7 @@ import java.time.LocalDateTime;
 /**
  * 操作日志
  *
- * @author 王大宸
+ * @author 剑鸣秋朔
  * @date 2025-09-09 16:47
  */
 public class LogInfo implements Serializable {

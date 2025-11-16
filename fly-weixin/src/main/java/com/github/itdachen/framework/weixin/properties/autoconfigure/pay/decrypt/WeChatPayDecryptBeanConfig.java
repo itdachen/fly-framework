@@ -8,7 +8,7 @@ import org.springframework.context.annotation.Configuration;
 
 /**
  * Description: 解密方式， 默认不加密
- * Created by 王大宸 on 2023/04/11 23:29
+ * Created by 剑鸣秋朔 on 2023/04/11 23:29
  * Created with IntelliJ IDEA.
  */
 @Configuration

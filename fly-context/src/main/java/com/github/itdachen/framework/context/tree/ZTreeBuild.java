@@ -6,7 +6,7 @@ import java.util.List;
 /**
  * ZTreeBuild
  *
- * @author 王大宸
+ * @author 剑鸣秋朔
  * @date 2024/5/5 21:21
  */
 public class ZTreeBuild {
@@ -25,7 +25,7 @@ public class ZTreeBuild {
     /***
      * 构造方法
      *
-     * @author 王大宸
+     * @author 剑鸣秋朔
      * @date 2024/5/5 21:33
      * @param nodeList 将数据集合赋值给nodeList，即所有数据作为所有节点。
      * @param parentId 根节点ID

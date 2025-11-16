@@ -7,7 +7,7 @@ import java.lang.annotation.*;
 /**
  * Description: 分布式限流注解
  * 基于 redis + lua 脚本的分布式限流
- * Created by 王大宸 on 2023-07-03 11:12
+ * Created by 剑鸣秋朔 on 2023-07-03 11:12
  * Created with IntelliJ IDEA.
  */
 @Retention(RetentionPolicy.RUNTIME)

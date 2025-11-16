@@ -9,7 +9,7 @@ import org.springframework.context.annotation.Lazy;
 /***
  * 默认权限配置
  *
- * @author 王大宸
+ * @author 剑鸣秋朔
  * @date 2023/11/27 20:28
  */
 @Configuration

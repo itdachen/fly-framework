@@ -8,7 +8,7 @@ import java.io.IOException;
 /**
  * 响应信息
  *
- * @author 王大宸
+ * @author 剑鸣秋朔
  * @date 2025/7/25 22:49
  */
 public class ReplyResponseMsgUtils {
@@ -17,7 +17,7 @@ public class ReplyResponseMsgUtils {
     /***
      * 执行导出, 返回给前端消息
      *
-     * @author 王大宸
+     * @author 剑鸣秋朔
      * @date 2025/7/19 2:21
      * @return com.github.itdachen.ooxml.poi.OOXmlPoiExpHelper<T, Q>
      */

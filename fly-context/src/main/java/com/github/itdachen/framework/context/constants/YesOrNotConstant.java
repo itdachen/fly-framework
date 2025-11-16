@@ -2,7 +2,7 @@ package com.github.itdachen.framework.context.constants;
 
 /**
  * Description: 是与否常量
- * Created by 王大宸 on 2023/02/12 21:53
+ * Created by 剑鸣秋朔 on 2023/02/12 21:53
  * Created with IntelliJ IDEA.
  */
 public class YesOrNotConstant {

@@ -2,7 +2,7 @@ package com.github.itdachen.framework.weixin.properties.autoconfigure.pay;
 
 /**
  * Description: 微信支付配置文件
- * Created by 王大宸 on 2023/04/11 21:29
+ * Created by 剑鸣秋朔 on 2023/04/11 21:29
  * Created with IntelliJ IDEA.
  */
 public class WeChatPayConfigurationProperties {

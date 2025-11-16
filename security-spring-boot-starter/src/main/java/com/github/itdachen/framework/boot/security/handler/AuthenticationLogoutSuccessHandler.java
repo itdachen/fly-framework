@@ -13,7 +13,7 @@ import java.io.IOException;
 
 /**
  * Description: 退出成功处理器
- * Created by 王大宸 on 2022-09-23 16:43
+ * Created by 剑鸣秋朔 on 2022-09-23 16:43
  * Created with IntelliJ IDEA.
  */
 public class AuthenticationLogoutSuccessHandler implements LogoutSuccessHandler {

@@ -2,7 +2,7 @@ package com.github.itdachen.framework.weixin.wxpay.api;
 
 /**
  * Description: 微信订单支付系列接口
- * Created by 王大宸 on 2023/04/11 21:55
+ * Created by 剑鸣秋朔 on 2023/04/11 21:55
  * Created with IntelliJ IDEA.
  */
 public class WeChatPayApi {

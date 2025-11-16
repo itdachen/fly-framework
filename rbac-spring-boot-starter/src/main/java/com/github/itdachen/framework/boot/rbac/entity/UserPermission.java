@@ -4,7 +4,7 @@ import java.io.Serializable;
 
 /**
  * Description: 权限校验参数
- * Created by 王大宸 on 2023/05/06 17:20
+ * Created by 剑鸣秋朔 on 2023/05/06 17:20
  * Created with IntelliJ IDEA.
  */
 public class UserPermission implements Serializable {

@@ -9,7 +9,7 @@ import org.springframework.context.annotation.EnableAspectJAutoProxy;
 /**
  * 切面配置类
  *
- * @author 王大宸
+ * @author 剑鸣秋朔
  * @date 2025/9/9 22:25
  */
 @Configuration

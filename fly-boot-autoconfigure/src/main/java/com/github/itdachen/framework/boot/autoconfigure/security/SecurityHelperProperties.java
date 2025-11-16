@@ -11,7 +11,7 @@ import com.github.itdachen.framework.boot.autoconfigure.security.properties.thir
 /**
  * Spring Security 安全认证配置
  *
- * @author 王大宸
+ * @author 剑鸣秋朔
  * @date 2024-06-19 16:43
  */
 public class SecurityHelperProperties {

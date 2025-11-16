@@ -13,7 +13,7 @@ import java.util.Map;
 
 /**
  * Description: 当前线程中全局获取用户信息
- * Created by 王大宸 on 2022-06-28 15:34
+ * Created by 剑鸣秋朔 on 2022-06-28 15:34
  * Created with IntelliJ IDEA.
  */
 public class BizContextHandler {
@@ -558,7 +558,7 @@ public class BizContextHandler {
     /***
      * 获取当前线程中的用户所有信息
      *
-     * @author 王大宸
+     * @author 剑鸣秋朔
      * @date 2024/4/13 23:37
      * @return com.github.itdachen.framework.context.userdetails.UserInfoDetails
      */
@@ -570,7 +570,7 @@ public class BizContextHandler {
     /***
      * 重新 set 值(用处不大, 怕其他地方被继承时, 无法序列化)
      *
-     * @author 王大宸
+     * @author 剑鸣秋朔
      * @date 2024/4/13 23:36
      * @param userDetails userDetails
      * @return com.github.itdachen.framework.context.userdetails.UserInfoDetails
@@ -582,7 +582,7 @@ public class BizContextHandler {
     /***
      * 将用户信息添加到当前线程中
      *
-     * @author 王大宸
+     * @author 剑鸣秋朔
      * @date 2024/4/13 23:37
      * @param userDetails userDetails
      * @return void
@@ -595,7 +595,7 @@ public class BizContextHandler {
     /***
      * 将用户信息添加到当前线程中
      *
-     * @author 王大宸
+     * @author 剑鸣秋朔
      * @date 2024/4/13 23:37
      * @param jwtInfo jwtInfo
      * @return void

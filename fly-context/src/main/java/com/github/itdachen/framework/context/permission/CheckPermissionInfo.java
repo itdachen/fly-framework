@@ -4,7 +4,7 @@ import java.io.Serializable;
 
 /**
  * Description: 鉴权是否通过
- * Created by 王大宸 on 2022-12-13 11:28
+ * Created by 剑鸣秋朔 on 2022-12-13 11:28
  * Created with IntelliJ IDEA.
  */
 public class CheckPermissionInfo implements Serializable {

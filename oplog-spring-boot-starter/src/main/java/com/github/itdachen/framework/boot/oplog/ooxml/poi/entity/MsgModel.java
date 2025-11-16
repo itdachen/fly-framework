@@ -10,7 +10,7 @@ import java.util.List;
 /**
  * 通知消息
  *
- * @author 王大宸
+ * @author 剑鸣秋朔
  * @date 2025-07-22 10:54
  */
 public class MsgModel implements Serializable {

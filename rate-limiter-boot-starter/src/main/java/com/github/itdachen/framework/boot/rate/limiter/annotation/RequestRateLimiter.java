@@ -5,7 +5,7 @@ import java.util.concurrent.TimeUnit;
 
 /**
  * Description: 自定义限流注解 (单机模式)
- * Created by 王大宸 on 2023-07-03 9:56
+ * Created by 剑鸣秋朔 on 2023-07-03 9:56
  * Created with IntelliJ IDEA.
  */
 @Retention(RetentionPolicy.RUNTIME)

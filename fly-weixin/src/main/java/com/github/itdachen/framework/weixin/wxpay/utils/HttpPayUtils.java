@@ -17,7 +17,7 @@ import java.util.Map;
 
 /**
  * Description:  http 数据处理
- * Created by 王大宸 on 2023/04/11 21:54
+ * Created by 剑鸣秋朔 on 2023/04/11 21:54
  * Created with IntelliJ IDEA.
  */
 public class HttpPayUtils {
@@ -91,7 +91,7 @@ public class HttpPayUtils {
     /***
      * 将通知参数转化为字符串
      *
-     * @author 王大宸
+     * @author 剑鸣秋朔
      * @date 2023/4/11 22:00
      * @param request request
      * @return java.lang.String

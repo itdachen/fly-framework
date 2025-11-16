@@ -9,7 +9,7 @@ import org.springframework.context.annotation.Configuration;
 /**
  * RbacAuthorizationHandlerAutoConfiguration
  *
- * @author 王大宸
+ * @author 剑鸣秋朔
  * @date 2024-01-10 21:53
  */
 @Configuration

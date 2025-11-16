@@ -2,7 +2,7 @@ package com.github.itdachen.framework.context.constants;
 
 /**
  * Description: 全局用户信息存储 key
- * Created by 王大宸 on 2022-06-28 15:37
+ * Created by 剑鸣秋朔 on 2022-06-28 15:37
  * Created with IntelliJ IDEA.
  */
 public class UserInfoConstant {

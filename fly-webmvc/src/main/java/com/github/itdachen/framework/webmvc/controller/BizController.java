@@ -23,7 +23,7 @@ import org.springframework.web.multipart.MultipartFile;
  * V (Vo): 视图对象，主要用于给前端返回页面参数使用
  * Q (Query): 查询对象, 禁止使用 Map 传输查询参数
  * PK: 实体类对象主键类型
- * Created by 王大宸 on 2022-06-30 10:32
+ * Created by 剑鸣秋朔 on 2022-06-30 10:32
  * Created with IntelliJ IDEA.
  */
 public class BizController<BizService extends IBizService<D, V, Q, PK>, D, V, Q extends BizQuery, PK> {
@@ -40,7 +40,7 @@ public class BizController<BizService extends IBizService<D, V, Q, PK>, D, V, Q 
     /***
      * 分页查询
      *
-     * @author 王大宸
+     * @author 剑鸣秋朔
      * @date 2023/11/15 10:26
      * @param params 分页查询参数
      * @return com.github.itdachen.framework.core.response.ServerResponse<com.github.itdachen.framework.core.response.TableData < V>>
@@ -55,7 +55,7 @@ public class BizController<BizService extends IBizService<D, V, Q, PK>, D, V, Q 
     /***
      * 新增
      *
-     * @author 王大宸
+     * @author 剑鸣秋朔
      * @date 2023/11/15 10:26
      * @param d 需要新增的数据
      * @return com.github.itdachen.framework.core.response.ServerResponse<V>
@@ -70,7 +70,7 @@ public class BizController<BizService extends IBizService<D, V, Q, PK>, D, V, Q 
     /***
      * 更新
      *
-     * @author 王大宸
+     * @author 剑鸣秋朔
      * @date 2023/11/15 10:26
      * @param d 需要更新的数据
      * @return com.github.itdachen.framework.core.response.ServerResponse<V>
@@ -85,7 +85,7 @@ public class BizController<BizService extends IBizService<D, V, Q, PK>, D, V, Q 
     /***
      * 根据id查询
      *
-     * @author 王大宸
+     * @author 剑鸣秋朔
      * @date 2023/11/15 10:26
      * @param pk 需要查询数据的主键
      * @return com.github.itdachen.framework.core.response.ServerResponse<V>
@@ -100,7 +100,7 @@ public class BizController<BizService extends IBizService<D, V, Q, PK>, D, V, Q 
     /***
      * 删除数据
      *
-     * @author 王大宸
+     * @author 剑鸣秋朔
      * @date 2023/11/15 10:27
      * @param pk 需要删除数据的主键
      * @return com.github.itdachen.framework.core.response.ServerResponse<java.lang.Integer>
@@ -115,7 +115,7 @@ public class BizController<BizService extends IBizService<D, V, Q, PK>, D, V, Q 
     /***
      * 导出
      *
-     * @author 王大宸
+     * @author 剑鸣秋朔
      * @date 2024/4/16 21:52
      * @param request request
      * @param response response
@@ -132,7 +132,7 @@ public class BizController<BizService extends IBizService<D, V, Q, PK>, D, V, Q 
     /***
      * 导入
      *
-     * @author 王大宸
+     * @author 剑鸣秋朔
      * @date 2025/7/29 18:51
      * @param request request
      * @param response response

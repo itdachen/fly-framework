@@ -7,7 +7,7 @@ import com.github.itdachen.framework.boot.wechat.applet.model.JsCode2Session;
 /**
  * 获取小程序 openid
  *
- * @author 王大宸
+ * @author 剑鸣秋朔
  * @date 2024/12/1 0:29
  */
 public class JsCode2SessionApi {

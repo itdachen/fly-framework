@@ -3,7 +3,7 @@ package com.github.itdachen.framework.boot.datasource.context;
 /**
  * 通过get，set，remove方法来获取、设置、删除当前线程对应的数据源。
  *
- * @author 王大宸
+ * @author 剑鸣秋朔
  * @date 2023-12-30 17:31
  */
 public class DataSourceContextHolder {
@@ -20,7 +20,7 @@ public class DataSourceContextHolder {
     /***
      * 设置数据源
      *
-     * @author 王大宸
+     * @author 剑鸣秋朔
      * @date 2023/12/30 19:00
      * @param dataSourceName 数据源名称
      * @return void
@@ -32,7 +32,7 @@ public class DataSourceContextHolder {
     /***
      * 获取当前线程的数据源
      *
-     * @author 王大宸
+     * @author 剑鸣秋朔
      * @date 2023/12/30 19:00
      * @return java.lang.String
      */
@@ -43,7 +43,7 @@ public class DataSourceContextHolder {
     /***
      * 删除当前数据源
      *
-     * @author 王大宸
+     * @author 剑鸣秋朔
      * @date 2023/12/30 19:00
      * @return void
      */

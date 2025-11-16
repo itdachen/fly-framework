@@ -14,7 +14,7 @@ import java.security.cert.X509Certificate;
 
 /**
  * Description: 通用http发送方法
- * Created by 王大宸 on 2020-10-08 19:20
+ * Created by 剑鸣秋朔 on 2020-10-08 19:20
  * Created with IntelliJ IDEA.
  */
 public class HttpUtils {

@@ -4,7 +4,7 @@ import java.util.UUID;
 
 /**
  * Description: 针对 uuid 做二次进化, 短的 uuid
- * Created by 王大宸 on 2023/02/12 22:54
+ * Created by 剑鸣秋朔 on 2023/02/12 22:54
  * Created with IntelliJ IDEA.
  */
 public class UuidUtils {

@@ -5,7 +5,7 @@ import org.springframework.security.core.Authentication;
 
 /**
  * Description: 登录失败监听
- * Created by 王大宸 on 2022-11-16 17:11
+ * Created by 剑鸣秋朔 on 2022-11-16 17:11
  * Created with IntelliJ IDEA.
  */
 public class AuthenticationFailureListener implements ApplicationListener<AuthenticationFailureBadCredentialsEvent> {

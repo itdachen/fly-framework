@@ -19,7 +19,7 @@ import org.springframework.security.web.savedrequest.RequestCache;
 
 /**
  * Description: 短信认证配置
- * Created by 王大宸 on 2023-12-09 23:45
+ * Created by 剑鸣秋朔 on 2023-12-09 23:45
  * Created with IntelliJ IDEA.
  */
 public class MobileAuthenticationSecurityConfigurer implements SecurityConfigurer<DefaultSecurityFilterChain, HttpSecurity> {

@@ -27,7 +27,7 @@ import java.util.Map;
 
 /**
  * Description: 验证码 bean 配置
- * Created by 王大宸 on 2021-11-27 10:31
+ * Created by 剑鸣秋朔 on 2021-11-27 10:31
  * Created with IntelliJ IDEA.
  */
 @Configuration
@@ -58,7 +58,7 @@ public class ValidateCodeAutoConfiguration {
      * 如果已经存在,就不会使用现在配置的这个 Bean ,而是使用找到的那个 Bean
      * 以增量的方式去适应变化
      *
-     * @author 王大宸
+     * @author 剑鸣秋朔
      * @date 2021/11/27 10:32
      * @return com.github.itdachen.boot.security.validate.ValidateCodeGenerator
      */
@@ -73,7 +73,7 @@ public class ValidateCodeAutoConfiguration {
     /***
      * 短信验证码生成
      *
-     * @author 王大宸
+     * @author 剑鸣秋朔
      * @date 2023/12/23 1:29
      * @return com.github.itdachen.boot.security.validate.code.sms.SmsCodeGenerator
      */
@@ -87,7 +87,7 @@ public class ValidateCodeAutoConfiguration {
      * 短信验证码发送器(需要调用方自行实现发送验证码的调用接口)
      * 这里写的是接口的类名,在系统中,找到了 SmsCodeSender 接口的实现,就不会走我们默认设计的 send 方法
      *
-     * @author 王大宸
+     * @author 剑鸣秋朔
      * @date 2021/11/27 10:33
      * @return com.github.itdachen.boot.security.validate.code.sms.SmsCodeSender
      */
@@ -100,7 +100,7 @@ public class ValidateCodeAutoConfiguration {
     /***
      * 浏览器验证码处理器
      *
-     * @author 王大宸
+     * @author 剑鸣秋朔
      * @date 2024/11/27 16:54
      * @return com.github.itdachen.boot.security.validate.code.repository.ValidateCodeRepository
      */
@@ -113,7 +113,7 @@ public class ValidateCodeAutoConfiguration {
     /***
      * 图片验证码处理器
      *
-     * @author 王大宸
+     * @author 剑鸣秋朔
      * @date 2024/11/27 16:53
      * @return com.github.itdachen.boot.security.validate.code.processor.ValidateCodeProcessor
      */
@@ -125,7 +125,7 @@ public class ValidateCodeAutoConfiguration {
     /***
      * 短信验证码处理器
      *
-     * @author 王大宸
+     * @author 剑鸣秋朔
      * @date 2024/11/27 16:53
      * @return com.github.itdachen.boot.security.validate.code.processor.ValidateCodeProcessor
      */
@@ -137,7 +137,7 @@ public class ValidateCodeAutoConfiguration {
     /***
      * 获取验证码处理
      *
-     * @author 王大宸
+     * @author 剑鸣秋朔
      * @date 2024/11/27 16:54
      * @return com.github.itdachen.boot.security.validate.code.processor.ValidateCodeProcessorHolder
      */
@@ -152,7 +152,7 @@ public class ValidateCodeAutoConfiguration {
     /***
      * 验证码过滤器
      *
-     * @author 王大宸
+     * @author 剑鸣秋朔
      * @date 2024/11/27 16:53
      * @return com.github.itdachen.boot.security.validate.code.filter.ValidateCodeFilter
      */
@@ -168,7 +168,7 @@ public class ValidateCodeAutoConfiguration {
     /***
      * 获取图形验证码
      *
-     * @author 王大宸
+     * @author 剑鸣秋朔
      * @date 2024/11/28 16:05
      * @return com.github.itdachen.boot.security.validate.code.filter.DefaultImageAbstractValidateCodeGeneratingFilter
      */
@@ -180,7 +180,7 @@ public class ValidateCodeAutoConfiguration {
     /***
      * 获取短信验证码
      *
-     * @author 王大宸
+     * @author 剑鸣秋朔
      * @date 2024/11/28 16:06
      * @return com.github.itdachen.boot.security.validate.code.filter.DefaultSmsAbstractValidateCodeGeneratingFilter
      */

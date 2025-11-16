@@ -18,7 +18,7 @@ import org.springframework.context.annotation.Configuration;
 /**
  * 自动配置
  *
- * @author 王大宸
+ * @author 剑鸣秋朔
  * @date 2023-12-23 22:26
  */
 @Configuration
@@ -36,7 +36,7 @@ public class ParseTokenAutoConfiguration {
     /***
      * 需要自定义不拦截路径, 从写一个类实现 IRequestPassMatchers 接口类即可
      *
-     * @author 王大宸
+     * @author 剑鸣秋朔
      * @date 2023/5/6 16:48
      * @return com.github.itdachen.auth.jwts.parse.matchers.IRequestPassMatchers
      */
@@ -49,7 +49,7 @@ public class ParseTokenAutoConfiguration {
     /***
      * token 解析工厂
      *
-     * @author 王大宸
+     * @author 剑鸣秋朔
      * @date 2023/12/23 22:31
      * @return com.github.itdachen.cloud.jwt.parse.factory.ParseTokenFactory
      */
@@ -62,7 +62,7 @@ public class ParseTokenAutoConfiguration {
     /***
      * 解析 token, 调用工厂模式
      *
-     * @author 王大宸
+     * @author 剑鸣秋朔
      * @date 2023/12/23 22:37
      * @return com.github.itdachen.cloud.jwt.IVerifyTicketTokenHelper
      */
@@ -75,7 +75,7 @@ public class ParseTokenAutoConfiguration {
     /***
      * 公钥解析
      *
-     * @author 王大宸
+     * @author 剑鸣秋朔
      * @date 2023/12/23 22:28
      * @return com.github.itdachen.cloud.jwt.IVerifyTicketPublicKeyHelper
      */
@@ -88,7 +88,7 @@ public class ParseTokenAutoConfiguration {
     /***
      * 权限校验
      *
-     * @author 王大宸
+     * @author 剑鸣秋朔
      * @date 2024/12/18 10:28
      * @return com.github.itdachen.cloud.jwt.parse.verified.IVerifiedTicketUrlService
      */

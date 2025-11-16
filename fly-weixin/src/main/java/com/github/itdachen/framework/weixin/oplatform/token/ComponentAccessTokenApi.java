@@ -10,7 +10,7 @@ import org.slf4j.LoggerFactory;
  * Description:  第三方平台接口的调用凭据, 每个令牌的有效期为 2 小时
  * 微信后台推送验证票据:
  * https://developers.weixin.qq.com/doc/oplatform/Third-party_Platforms/2.0/api/ThirdParty/token/component_verify_ticket.html
- * Created by 王大宸 on 2023/03/19 0:56
+ * Created by 剑鸣秋朔 on 2023/03/19 0:56
  * Created with IntelliJ IDEA.
  */
 public class ComponentAccessTokenApi extends WeChatBizHttp {
@@ -21,7 +21,7 @@ public class ComponentAccessTokenApi extends WeChatBizHttp {
     /***
      * 获取令牌
      *
-     * @author 王大宸
+     * @author 剑鸣秋朔
      * @date 2023/3/19 1:20
      * @param appId     第三方平台 appid
      * @param appSecret 第三方平台 appsecret

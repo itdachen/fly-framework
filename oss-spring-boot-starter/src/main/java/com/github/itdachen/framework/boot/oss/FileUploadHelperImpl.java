@@ -9,7 +9,7 @@ import org.springframework.web.multipart.MultipartFile;
 /**
  * FileInfoHelper
  *
- * @author 王大宸
+ * @author 剑鸣秋朔
  * @date 2023-12-27 21:57
  */
 public class FileUploadHelperImpl implements FileHelper {
@@ -23,7 +23,7 @@ public class FileUploadHelperImpl implements FileHelper {
     /***
      * 文件上传
      *
-     * @author 王大宸
+     * @author 剑鸣秋朔
      * @date 2023/4/11 21:27
      * @param file file
      * @return com.github.itdachen.framework.file.entity.FileInfo
@@ -40,7 +40,7 @@ public class FileUploadHelperImpl implements FileHelper {
     /***
      * 文件下载
      *
-     * @author 王大宸
+     * @author 剑鸣秋朔
      * @date 2023/2/13 9:52
      * @param response response
      * @param uri      文件地址, 以 http 或 https 开头
@@ -54,7 +54,7 @@ public class FileUploadHelperImpl implements FileHelper {
     /***
      * 获取文件MD5
      *
-     * @author 王大宸
+     * @author 剑鸣秋朔
      * @date 2023/4/15 0:07
      * @param file file
      * @return java.lang.String

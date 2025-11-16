@@ -3,7 +3,7 @@ package com.github.itdachen.framework.core.enums;
 /**
  * 消息分类
  *
- * @author 王大宸
+ * @author 剑鸣秋朔
  * @date 2025-07-22 10:45
  */
 public enum MsgClazzEnum {

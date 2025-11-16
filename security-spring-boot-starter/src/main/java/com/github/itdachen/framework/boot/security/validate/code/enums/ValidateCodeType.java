@@ -4,7 +4,7 @@ import com.github.itdachen.framework.boot.autoconfigure.security.constants.Secur
 
 /**
  * Description: 验证码类型
- * Created by 王大宸 on 2021-11-26 22:40
+ * Created by 剑鸣秋朔 on 2021-11-26 22:40
  * Created with IntelliJ IDEA.
  */
 public enum ValidateCodeType {

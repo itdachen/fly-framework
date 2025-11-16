@@ -2,7 +2,7 @@ package com.github.itdachen.framework.core.constants;
 
 /**
  * Description:
- * Created by 王大宸 on 2020-10-08 19:15
+ * Created by 剑鸣秋朔 on 2020-10-08 19:15
  * Created with IntelliJ IDEA.
  */
 public class Constants {

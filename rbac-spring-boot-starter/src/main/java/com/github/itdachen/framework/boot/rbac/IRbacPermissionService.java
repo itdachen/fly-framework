@@ -4,7 +4,7 @@ import com.github.itdachen.framework.context.permission.CheckPermissionInfo;
 
 /**
  * Description: Rbac 鉴权
- * Created by 王大宸 on 2022-12-13 11:25
+ * Created by 剑鸣秋朔 on 2022-12-13 11:25
  * Created with IntelliJ IDEA.
  */
 public interface IRbacPermissionService {
@@ -12,7 +12,7 @@ public interface IRbacPermissionService {
     /***
      * Rbac 鉴权
      *
-     * @author 王大宸
+     * @author 剑鸣秋朔
      * @date 2022/12/13 14:42
      * @param userId        当前登录用户ID
      * @param jobId         当前工作岗位

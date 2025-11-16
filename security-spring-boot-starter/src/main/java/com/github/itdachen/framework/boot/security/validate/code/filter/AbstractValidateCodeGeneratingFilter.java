@@ -13,7 +13,7 @@ import java.io.IOException;
 /**
  * 验证码生成方式
  *
- * @author 王大宸
+ * @author 剑鸣秋朔
  * @date 2024-11-28 15:35
  */
 public abstract class AbstractValidateCodeGeneratingFilter extends GenericFilterBean {
@@ -55,7 +55,7 @@ public abstract class AbstractValidateCodeGeneratingFilter extends GenericFilter
     /***
      * 地址校验
      *
-     * @author 王大宸
+     * @author 剑鸣秋朔
      * @date 2024/11/28 15:38
      * @param request request
      * @return boolean
@@ -67,7 +67,7 @@ public abstract class AbstractValidateCodeGeneratingFilter extends GenericFilter
     /***
      * 请求路径校验
      *
-     * @author 王大宸
+     * @author 剑鸣秋朔
      * @date 2024/11/28 15:39
      * @param request request
      * @param url url

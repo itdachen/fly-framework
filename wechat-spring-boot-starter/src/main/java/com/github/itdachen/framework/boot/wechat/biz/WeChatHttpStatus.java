@@ -6,7 +6,7 @@ import java.util.Map;
 /**
  * 微信官方返回状态码
  *
- * @author 王大宸
+ * @author 剑鸣秋朔
  * @date 2024/12/1 15:08
  */
 public class WeChatHttpStatus {

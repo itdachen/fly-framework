@@ -31,7 +31,7 @@ import java.util.Map;
  * 如果没有第三方应用信息, 可直接填写 http 请求地址, 例如: /platform/forward/verify/ticket?uri=https://127.0.0.1:8080/authentication/third/platform
  * 推荐使用第一种
  *
- * @author 王大宸
+ * @author 剑鸣秋朔
  * @date 2024/11/30 23:25
  */
 public class ThirdPlatformForwardFilter extends GenericFilterBean {
@@ -78,7 +78,7 @@ public class ThirdPlatformForwardFilter extends GenericFilterBean {
     /***
      * 过滤处理
      *
-     * @author 王大宸
+     * @author 剑鸣秋朔
      * @date 2024/11/30 23:33
      * @param request request
      * @param response response
@@ -160,7 +160,7 @@ public class ThirdPlatformForwardFilter extends GenericFilterBean {
     /***
      * 拼接权限标识码
      *
-     * @author 王大宸
+     * @author 剑鸣秋朔
      * @date 2023/11/14 15:57
      * @param uri uri
      * @param preAuthCode preAuthCode

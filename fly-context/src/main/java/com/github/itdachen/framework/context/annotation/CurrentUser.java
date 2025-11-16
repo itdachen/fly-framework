@@ -8,7 +8,7 @@ import java.lang.annotation.Target;
 /**
  * Description:  在 Controller 的方法参数中使用此注解
  * * 该方法在映射时会注入当前登录的 CurrentUserDetails 信息
- * Created by 王大宸 on 2023/04/10 10:19
+ * Created by 剑鸣秋朔 on 2023/04/10 10:19
  * Created with IntelliJ IDEA.
  */
 @Target(ElementType.PARAMETER)// 可用在方法的参数上

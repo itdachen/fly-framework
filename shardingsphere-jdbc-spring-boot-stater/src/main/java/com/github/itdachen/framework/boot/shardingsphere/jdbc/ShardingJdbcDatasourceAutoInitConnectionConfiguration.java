@@ -12,7 +12,7 @@ import java.sql.Connection;
 /**
  * 后续考虑如何将这个配置类做成一个参数控制
  *
- * @author 王大宸
+ * @author 剑鸣秋朔
  * @date 2025/11/1 22:48
  */
 @Configuration

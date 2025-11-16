@@ -15,7 +15,7 @@ import java.util.Map;
 
 /**
  * Description: 微信后台推送 xml 解析
- * Created by 王大宸 on 2023/03/19 1:42
+ * Created by 剑鸣秋朔 on 2023/03/19 1:42
  * Created with IntelliJ IDEA.
  */
 public class ComponentVerifyTicketUtils {
@@ -66,7 +66,7 @@ public class ComponentVerifyTicketUtils {
     /***
      * 微信后台推送验证票据解析
      *
-     * @author 王大宸
+     * @author 剑鸣秋朔
      * @date 2023/3/19 1:53
      * @param msgMap msgMap
      * @return com.github.itdachen.framework.weixin.oplatform.entity.VerifyTicketInfo

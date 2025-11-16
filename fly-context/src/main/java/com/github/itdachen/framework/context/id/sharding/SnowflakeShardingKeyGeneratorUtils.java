@@ -5,7 +5,7 @@ import java.util.Properties;
 
 /**
  * Description: 雪花算法
- * Created by 王大宸 on 2023-06-19 23:26
+ * Created by 剑鸣秋朔 on 2023-06-19 23:26
  * Created with IntelliJ IDEA.
  */
 public final class SnowflakeShardingKeyGeneratorUtils {

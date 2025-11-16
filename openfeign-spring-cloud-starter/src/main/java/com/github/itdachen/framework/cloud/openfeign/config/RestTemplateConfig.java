@@ -21,7 +21,7 @@ import java.util.concurrent.TimeUnit;
 
 /**
  * Description: 高性能 RestTemplate 封装
- * Created by 王大宸 on 2023-06-12 19:26
+ * Created by 剑鸣秋朔 on 2023-06-12 19:26
  * Created with IntelliJ IDEA.
  */
 @Configuration
@@ -45,7 +45,7 @@ public class RestTemplateConfig {
      * 2、通过http连接池可以减少连接建⽴与释放的时间，提升http请求的性能
      * 3、Spring的 restTemplate 是对 httpclient 进⾏了封装, ⽽ httpclient 是⽀持池化机制
      *
-     * @author 王大宸
+     * @author 剑鸣秋朔
      * @date 2023/6/12 19:26
      * @return org.springframework.http.client.ClientHttpRequestFactory
      */

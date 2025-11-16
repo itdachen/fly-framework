@@ -8,7 +8,7 @@ import java.math.BigDecimal;
 
 /**
  * Description:
- * Created by 王大宸 on 2023/04/11 21:52
+ * Created by 剑鸣秋朔 on 2023/04/11 21:52
  * Created with IntelliJ IDEA.
  */
 public class WeChatPayOrderInfo implements Serializable {

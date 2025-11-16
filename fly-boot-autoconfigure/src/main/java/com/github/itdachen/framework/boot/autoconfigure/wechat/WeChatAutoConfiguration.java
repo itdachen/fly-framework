@@ -7,7 +7,7 @@ import org.springframework.context.annotation.Configuration;
 /**
  * 微信配置
  *
- * @author 王大宸
+ * @author 剑鸣秋朔
  * @date 2024-11-21 11:17
  */
 @Configuration

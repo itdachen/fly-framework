@@ -8,7 +8,7 @@ import java.io.Serializable;
 /**
  * AppletCode2Session
  *
- * @author 王大宸
+ * @author 剑鸣秋朔
  * @date 2024/12/1 15:37
  */
 public class JsCode2Session implements Serializable {

@@ -28,7 +28,7 @@ import org.springframework.security.web.util.matcher.OrRequestMatcher;
 
 /**
  * Description: 认证适配器
- * Created by 王大宸 on 2023-11-27 19:55
+ * Created by 剑鸣秋朔 on 2023-11-27 19:55
  * Created with IntelliJ IDEA.
  */
 public class WebSecurityConfigurerAdapter {
@@ -109,7 +109,7 @@ public class WebSecurityConfigurerAdapter {
     /***
      * 配置
      *
-     * @author 王大宸
+     * @author 剑鸣秋朔
      * @date 2023/11/27 20:58
      * @param http http
      * @return void
@@ -148,7 +148,7 @@ public class WebSecurityConfigurerAdapter {
     /***
      * 表单登录 ( 账号密码登录/验证码登录 )
      *
-     * @author 王大宸
+     * @author 剑鸣秋朔
      * @date 2023/11/27 20:05
      * @param http http
      * @return void
@@ -180,7 +180,7 @@ public class WebSecurityConfigurerAdapter {
     /***
      * authorizeHttpRequests
      *
-     * @author 王大宸
+     * @author 剑鸣秋朔
      * @date 2023/11/27 20:05
      * @param http http
      * @return void
@@ -202,7 +202,7 @@ public class WebSecurityConfigurerAdapter {
     /***
      * 退出登录
      *
-     * @author 王大宸
+     * @author 剑鸣秋朔
      * @date 2023/11/27 20:05
      * @param http http
      * @return void
@@ -233,7 +233,7 @@ public class WebSecurityConfigurerAdapter {
     /***
      * 记住我
      *
-     * @author 王大宸
+     * @author 剑鸣秋朔
      * @date 2023/11/27 20:05
      * @param http http
      * @return void
@@ -259,7 +259,7 @@ public class WebSecurityConfigurerAdapter {
     /***
      * 认证异常处理
      *
-     * @author 王大宸
+     * @author 剑鸣秋朔
      * @date 2023/11/27 20:04
      * @param http http
      * @return void
@@ -275,7 +275,7 @@ public class WebSecurityConfigurerAdapter {
     /***
      * session 管理器
      *
-     * @author 王大宸
+     * @author 剑鸣秋朔
      * @date 2023/11/27 20:03
      * @param http http
      * @return void
@@ -312,7 +312,7 @@ public class WebSecurityConfigurerAdapter {
     /***
      * 自定义登录扩展, 引入方重写这个方法即可
      *
-     * @author 王大宸
+     * @author 剑鸣秋朔
      * @date 2023/11/27 20:13
      * @param http http
      * @return void

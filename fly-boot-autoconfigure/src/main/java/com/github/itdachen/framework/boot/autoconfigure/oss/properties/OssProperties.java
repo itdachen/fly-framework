@@ -5,7 +5,7 @@ import org.springframework.boot.context.properties.ConfigurationProperties;
 
 /**
  * Description: 文件上传配置
- * Created by 王大宸 on 2023-07-06 15:26
+ * Created by 剑鸣秋朔 on 2023-07-06 15:26
  * Created with IntelliJ IDEA.
  */
 @ConfigurationProperties(prefix = "fly.oss")

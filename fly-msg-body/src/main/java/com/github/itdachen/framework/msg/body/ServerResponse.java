@@ -8,7 +8,7 @@ import java.io.Serializable;
 /**
  * 全局业务返回数据格式
  *
- * @author 王大宸
+ * @author 剑鸣秋朔
  * @date 2023/02/12 22:07
  */
 public class ServerResponse<T> implements Serializable {

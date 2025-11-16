@@ -7,7 +7,7 @@ import javax.imageio.ImageIO;
 
 /**
  * Description: 图片验证码处理器
- * Created by 王大宸 on 2021-11-26 22:36
+ * Created by 剑鸣秋朔 on 2021-11-26 22:36
  * Created with IntelliJ IDEA.
  */
 //@Component("imageValidateCodeProcessor")
@@ -16,7 +16,7 @@ public class ImageCodeProcessor  extends AbstractValidateCodeProcessor<ImageCode
     /***
      * 发送图形验证码，将其写到响应中
      *
-     * @author 王大宸
+     * @author 剑鸣秋朔
      * @date 2021/11/26 22:37
      * @param request
      * @param imageCode

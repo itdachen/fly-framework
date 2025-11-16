@@ -31,7 +31,7 @@ import javax.sql.DataSource;
 /**
  * WebSecurityAutoConfiguration
  *
- * @author 王大宸
+ * @author 剑鸣秋朔
  * @date 2023-12-23 0:57
  */
 @Configuration
@@ -61,7 +61,7 @@ public class FlyWebSecurityAutoConfiguration {
     /***
      * 获取平台信息, 获取用户认证票据接口
      *
-     * @author 王大宸
+     * @author 剑鸣秋朔
      * @date 2023/11/14 10:31
      * @return cn.edu.hubu.framework.security.third.service.IThirdPlatformVerifyTicketTokenService
      */
@@ -75,7 +75,7 @@ public class FlyWebSecurityAutoConfiguration {
     /***
      * 动态刷新用户信息默认配置
      *
-     * @author 王大宸
+     * @author 剑鸣秋朔
      * @date 2023/12/19 14:44
      * @return cn.edu.hubu.security.details.IRefreshUserDetails
      */
@@ -88,7 +88,7 @@ public class FlyWebSecurityAutoConfiguration {
     /***
      * 添加默认的不拦截接口, 从配置文件中读取出来
      *
-     * @author 王大宸
+     * @author 剑鸣秋朔
      * @date 2023/12/23 1:26
      * @return com.github.itdachen.boot.security.matchers.IFilterMatchers
      */
@@ -102,7 +102,7 @@ public class FlyWebSecurityAutoConfiguration {
     /***
      * 默认密码加密方式
      *
-     * @author 王大宸
+     * @author 剑鸣秋朔
      * @date 2023/7/9 15:01
      * @return org.springframework.security.crypto.password.PasswordEncoder
      */
@@ -115,7 +115,7 @@ public class FlyWebSecurityAutoConfiguration {
     /***
      * 默认拦截器
      *
-     * @author 王大宸
+     * @author 剑鸣秋朔
      * @date 2024/5/1 22:38
      * @return org.springframework.web.servlet.HandlerInterceptor
      */
@@ -129,7 +129,7 @@ public class FlyWebSecurityAutoConfiguration {
      * 记住我 持久化指定保存 session 的方法
      *
      * @return org.springframework.security.web.authentication.rememberme.PersistentTokenRepository
-     * @author 王大宸
+     * @author 剑鸣秋朔
      * @date 2022/9/23 16:56
      */
     @Bean
@@ -158,7 +158,7 @@ public class FlyWebSecurityAutoConfiguration {
     /***
      * 服务转发, 跳转到其他应用服务
      *
-     * @author 王大宸
+     * @author 剑鸣秋朔
      * @date 2024/12/1 0:03
      * @return com.github.itdachen.boot.security.third.filter.ThirdPlatformForwardFilter
      */

@@ -3,7 +3,7 @@ package com.github.itdachen.framework.core.enums;
 /**
  * 通知类型
  *
- * @author 王大宸
+ * @author 剑鸣秋朔
  * @date 2025-07-22 10:43
  */
 public enum NoticeTypeEnum {

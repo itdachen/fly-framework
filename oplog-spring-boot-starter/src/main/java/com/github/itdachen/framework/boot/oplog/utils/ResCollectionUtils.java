@@ -5,7 +5,7 @@ import java.util.Collection;
 /**
  * 判断是否集合
  *
- * @author 王大宸
+ * @author 剑鸣秋朔
  * @date 2024-08-26 15:54
  */
 public class ResCollectionUtils {

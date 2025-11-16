@@ -18,7 +18,7 @@ import java.util.Properties;
 /**
  * GatewayDynamicRoutesAutoConfiguration
  *
- * @author 王大宸
+ * @author 剑鸣秋朔
  * @date 2023-12-23 0:34
  */
 @Configuration
@@ -47,7 +47,7 @@ public class GatewayDynamicRoutesAutoConfiguration {
     /***
      * 配置信息
      *
-     * @author 王大宸
+     * @author 剑鸣秋朔
      * @date 2024/7/25 17:07
      * @return com.alibaba.nacos.api.config.ConfigService
      */

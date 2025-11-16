@@ -7,7 +7,7 @@ import com.github.itdachen.framework.weixin.properties.autoconfigure.pay.WeChatP
 
 /**
  * Description: AES 解密
- * Created by 王大宸 on 2023/04/11 23:03
+ * Created by 剑鸣秋朔 on 2023/04/11 23:03
  * Created with IntelliJ IDEA.
  */
 public class AesWeChatPayDecrypt implements IWeChatPayProperties {

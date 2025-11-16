@@ -4,7 +4,7 @@ import com.google.common.hash.Hashing;
 
 /**
  * Description: 短链码生成工具类
- * Created by 王大宸 on 2023-10-18 14:29
+ * Created by 剑鸣秋朔 on 2023-10-18 14:29
  * Created with IntelliJ IDEA.
  */
 public class ShortLinkUtils {

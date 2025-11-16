@@ -24,7 +24,7 @@ import java.security.PrivateKey;
 
 /**
  * Description: 微信支付配置
- * Created by 王大宸 on 2023/04/11 21:28
+ * Created by 剑鸣秋朔 on 2023/04/11 21:28
  * Created with IntelliJ IDEA.
  */
 @Configuration

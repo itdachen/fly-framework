@@ -20,7 +20,7 @@ import java.util.List;
 
 /**
  * Description: 全局异常处理
- * Created by 王大宸 on 2023/02/26 23:42
+ * Created by 剑鸣秋朔 on 2023/02/26 23:42
  * Created with IntelliJ IDEA.
  */
 @RestControllerAdvice(basePackages = {"com.github.itdachen"})
@@ -30,7 +30,7 @@ public class GlobalExceptionHandler {
     /***
      * 统一异常处理,自定义抛出异常
      *
-     * @author 王大宸
+     * @author 剑鸣秋朔
      * @date 2023/3/18 18:34
      * @param response response
      * @param ex ex
@@ -67,7 +67,7 @@ public class GlobalExceptionHandler {
     /***
      * 限流异常
      *
-     * @author 王大宸
+     * @author 剑鸣秋朔
      * @date 2023/7/3 11:25
      * @param response response
      * @param ex ex
@@ -87,7 +87,7 @@ public class GlobalExceptionHandler {
     /***
      * 方法参数验证异常
      *
-     * @author 王大宸
+     * @author 剑鸣秋朔
      * @date 2024/5/5 22:11
      * @param response response
      * @param ex ex
@@ -107,7 +107,7 @@ public class GlobalExceptionHandler {
     /***
      * 处理【MethodArgumentNotValidException】异常；提取错误信息，构建 ServerResponse 统一返回对象；
      *
-     * @author 王大宸
+     * @author 剑鸣秋朔
      * @date 2024/5/5 22:20
      * @param result result
      * @return ApiRestResponse
@@ -138,7 +138,7 @@ public class GlobalExceptionHandler {
     /***
      * 断言异常
      *
-     * @author 王大宸
+     * @author 剑鸣秋朔
      * @date 2023/4/29 18:50
      * @param response response
      * @param ex ex
@@ -158,7 +158,7 @@ public class GlobalExceptionHandler {
     /***
      * 其他异常
      *
-     * @author 王大宸
+     * @author 剑鸣秋朔
      * @date 2023/3/18 18:34
      * @param response response
      * @param ex ex

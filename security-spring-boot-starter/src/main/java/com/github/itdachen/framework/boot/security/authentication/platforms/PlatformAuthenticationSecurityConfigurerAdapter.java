@@ -20,7 +20,7 @@ import org.springframework.security.web.savedrequest.RequestCache;
 /**
  * 第三方平台跳转登录认证处理器
  *
- * @author 王大宸
+ * @author 剑鸣秋朔
  * @date 2023-12-18 14:35
  */
 //@Component("platformAuthenticationSecurityAdapter")

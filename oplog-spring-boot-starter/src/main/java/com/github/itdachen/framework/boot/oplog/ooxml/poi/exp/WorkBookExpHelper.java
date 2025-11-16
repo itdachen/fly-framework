@@ -17,7 +17,7 @@ import java.util.concurrent.*;
 /**
  * WorkBookExpHelper
  *
- * @author 王大宸
+ * @author 剑鸣秋朔
  * @date 2025/7/19 1:51
  */
 public class WorkBookExpHelper<T, Q> {
@@ -120,7 +120,7 @@ public class WorkBookExpHelper<T, Q> {
     /***
      * 导出操作, 循环导出一个或者多个文件
      *
-     * @author 王大宸
+     * @author 剑鸣秋朔
      * @date 2025/7/10 15:09
      * @param settings settings
      * @return void

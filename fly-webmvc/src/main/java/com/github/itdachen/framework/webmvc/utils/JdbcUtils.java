@@ -20,7 +20,7 @@ import java.util.List;
 
 /**
  * Description: 通过反射, 生成批量添加和批量更新的 sql 语句 (不建议使用)
- * Created by 王大宸 on 2022-03-14 16:41
+ * Created by 剑鸣秋朔 on 2022-03-14 16:41
  * Created with IntelliJ IDEA.
  */
 public class JdbcUtils {
@@ -36,7 +36,7 @@ public class JdbcUtils {
     /***
      * 功能说明：批量添加
      *
-     * @author 王大宸
+     * @author 剑鸣秋朔
      * @date 2019/3/17 1:19
      * @param list     数据集合
      * @param entity   类
@@ -112,7 +112,7 @@ public class JdbcUtils {
      * 返回批量更新sql语句
      * 注意：T中必须有Table和Column注解，主键必须名id
      *
-     * @author 王大宸
+     * @author 剑鸣秋朔
      * @date 2022/6/30 11:10
      * @param list list
      * @param t1 t1
@@ -198,7 +198,7 @@ public class JdbcUtils {
      *
      * Class<T> entity
      *
-     * @author 王大宸
+     * @author 剑鸣秋朔
      * @date 2019/7/23 18:18
      * @param t   T
      * @param
@@ -263,7 +263,7 @@ public class JdbcUtils {
      *
      *  字段为 null 的不更新
      *
-     * @author 王大宸
+     * @author 剑鸣秋朔
      * @date 2019/7/23 15:50
      * @param t       T
      * @param entity  类对象
@@ -343,7 +343,7 @@ public class JdbcUtils {
     /***
      * 功能说明：jdbc 根据id删除
      *
-     * @author 王大宸
+     * @author 剑鸣秋朔
      * @date 2019/7/23 15:40
      * @param id      需要删除数据的id
      * @param entity  类对象
@@ -361,7 +361,7 @@ public class JdbcUtils {
     /***
      * 功能说明：jdbc 根据id查询
      *
-     * @author 王大宸
+     * @author 剑鸣秋朔
      * @date 2019/7/23 18:50
      * @param id       需要查询数据的 id
      * @param entity   类对象
@@ -394,7 +394,7 @@ public class JdbcUtils {
     /***
      * 功能说明：根据 code 查询数据
      *
-     * @author 王大宸
+     * @author 剑鸣秋朔
      * @date 2019-7-24 11:53
      * @param code     需要查询数据的 code
      * @param entity   类对象
@@ -411,7 +411,7 @@ public class JdbcUtils {
     /***
      * 功能说明：查询所有
      *
-     * @author 王大宸
+     * @author 剑鸣秋朔
      * @date 2019-7-24 15:44
      * @param entity  类对象
      * @return java.lang.String
@@ -443,7 +443,7 @@ public class JdbcUtils {
     /***
      * 功能说明： 分页
      *
-     * @author 王大宸
+     * @author 剑鸣秋朔
      * @date 2019/7/23 22:40
      * @param entity       类对象
      * @param fieldName    字段名称
@@ -493,7 +493,7 @@ public class JdbcUtils {
     /***
      * 功能说明：查询分页总条数
      *
-     * @author 王大宸
+     * @author 剑鸣秋朔
      * @date 2019-7-24 16:40
      * @param entity       类对象
      * @param fieldName    字段名称
@@ -514,7 +514,7 @@ public class JdbcUtils {
     /***
      * 功能说明： 下划线转驼峰
      *
-     * @author 王大宸
+     * @author 剑鸣秋朔
      * @date 2019/7/23 19:31
      * @param inputString  带下划线的字段
      * @return java.lang.String
@@ -544,7 +544,7 @@ public class JdbcUtils {
     /***
      * 功能说明：时间转成 String 类型
      *
-     * @author 王大宸
+     * @author 剑鸣秋朔
      * @date 2019/4/11 20:21
      * @param date 时间
      * @return java.lang.String
@@ -558,7 +558,7 @@ public class JdbcUtils {
     /***
      * 功能说明：时间转成 String 类型
      *
-     * @author 王大宸
+     * @author 剑鸣秋朔
      * @date 2019/7/23 21:53
      * @param date
      * @return java.lang.String

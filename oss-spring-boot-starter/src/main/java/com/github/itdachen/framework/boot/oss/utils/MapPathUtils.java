@@ -2,7 +2,7 @@ package com.github.itdachen.framework.boot.oss.utils;
 
 /**
  * Description: 映射路径处理
- * Created by 王大宸 on 2023/02/13 9:25
+ * Created by 剑鸣秋朔 on 2023/02/13 9:25
  * Created with IntelliJ IDEA.
  */
 public class MapPathUtils {
@@ -10,7 +10,7 @@ public class MapPathUtils {
     /***
      * 映射路径处理
      *
-     * @author 王大宸
+     * @author 剑鸣秋朔
      * @date 2023/2/13 9:32
      * @param path path
      * @return java.lang.String
@@ -24,7 +24,7 @@ public class MapPathUtils {
     /***
      * 网络访问路径处理
      *
-     * @author 王大宸
+     * @author 剑鸣秋朔
      * @date 2024/5/28 14:24
      * @param mapPath mapPath
      * @param diskUri diskUri
@@ -47,7 +47,7 @@ public class MapPathUtils {
     /***
      * 过滤路径处理
      *
-     * @author 王大宸
+     * @author 剑鸣秋朔
      * @date 2023/2/13 9:32
      * @param path path
      * @return java.lang.String

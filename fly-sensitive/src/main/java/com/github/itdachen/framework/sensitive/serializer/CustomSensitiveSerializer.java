@@ -14,7 +14,7 @@ import java.util.Objects;
 
 /**
  * Description: 序列化
- * Created by 王大宸 on 2023-07-05 17:20
+ * Created by 剑鸣秋朔 on 2023-07-05 17:20
  * Created with IntelliJ IDEA.
  */
 public class CustomSensitiveSerializer extends JsonSerializer<String> implements ContextualSerializer {

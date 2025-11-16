@@ -9,7 +9,7 @@ import java.util.concurrent.ThreadLocalRandom;
 /**
  * 保证每个 Docker 容器的日志挂载目录唯一性
  *
- * @author 王大宸
+ * @author 剑鸣秋朔
  * @date 2025-08-29 16:21
  */
 public class IpLogConversionRule extends PropertyDefinerBase {

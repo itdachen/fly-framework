@@ -9,7 +9,7 @@ import java.util.List;
 /**
  * 刷新用户权限
  *
- * @author 王大宸
+ * @author 剑鸣秋朔
  * @date 2023-12-17 14:15
  */
 public interface IRefreshUserDetails {
@@ -17,7 +17,7 @@ public interface IRefreshUserDetails {
     /***
      * 刷新用户信息
      *
-     * @author 王大宸
+     * @author 剑鸣秋朔
      * @date 2023/12/17 14:37
      * @param request request
      * @param response response
@@ -31,7 +31,7 @@ public interface IRefreshUserDetails {
     /***
      * 刷新用户信息
      *
-     * @author 王大宸
+     * @author 剑鸣秋朔
      * @date 2023/12/17 14:59
      * @param request request
      * @param response response
@@ -47,7 +47,7 @@ public interface IRefreshUserDetails {
     /***
      * 刷新权限信息
      *
-     * @author 王大宸
+     * @author 剑鸣秋朔
      * @date 2023/12/17 14:37
      * @param request request
      * @param response response

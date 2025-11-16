@@ -2,7 +2,7 @@ package com.github.itdachen.framework.boot.autoconfigure.datasource.constants;
 
 /**
  * Description: 数据库连接池加密, 默认加密 kay
- * Created by 王大宸 on 2023-09-11 9:40
+ * Created by 剑鸣秋朔 on 2023-09-11 9:40
  * Created with IntelliJ IDEA.
  */
 public class DataSourceSecretKey {

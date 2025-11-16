@@ -9,7 +9,7 @@ import java.util.TimerTask;
 
 /**
  * Description:
- * Created by 王大宸 on 2023-07-12 15:58
+ * Created by 剑鸣秋朔 on 2023-07-12 15:58
  * Created with IntelliJ IDEA.
  */
 @Deprecated
@@ -18,7 +18,7 @@ public class LogAsyncFactory {
     /***
      * 登录成功任务
      *
-     * @author 王大宸
+     * @author 剑鸣秋朔
      * @date 2023/7/12 16:00
      * @param request request
      * @param response response
@@ -44,7 +44,7 @@ public class LogAsyncFactory {
     /***
      * 登录失败记录
      *
-     * @author 王大宸
+     * @author 剑鸣秋朔
      * @date 2023/7/12 16:01
      * @param request request
      * @param response response

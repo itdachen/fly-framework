@@ -9,7 +9,7 @@ import java.util.List;
 /**
  * 类型转换
  *
- * @author 王大宸
+ * @author 剑鸣秋朔
  * @date 2025/10/17 0:48
  */
 public class ConvertBeanUtils {
@@ -17,7 +17,7 @@ public class ConvertBeanUtils {
     /***
      * 将一个对象转成目标对象
      *
-     * @author 王大宸
+     * @author 剑鸣秋朔
      * @date 2025/10/17 0:56
      * @param source 源数据
      * @param targetClass 目标数据类类型, 例如: User.class
@@ -35,7 +35,7 @@ public class ConvertBeanUtils {
     /***
      * 将List对象转换成目标对象，注意实现是ArrayList
      *
-     * @author 王大宸
+     * @author 剑鸣秋朔
      * @date 2025/10/17 0:56
      * @param sourceList sourceList
      * @param targetClass targetClass
@@ -59,7 +59,7 @@ public class ConvertBeanUtils {
     /***
      * 根据类类型获取实例
      *
-     * @author 王大宸
+     * @author 剑鸣秋朔
      * @date 2025/10/17 0:56
      * @param targetClass targetClass
      * @return T

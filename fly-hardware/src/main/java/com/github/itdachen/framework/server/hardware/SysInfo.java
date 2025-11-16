@@ -5,7 +5,7 @@ import java.io.Serializable;
 /**
  * 服务器系统信息
  *
- * @author 王大宸
+ * @author 剑鸣秋朔
  * @date 2023/02/07 11:05
  */
 public class SysInfo implements Serializable {

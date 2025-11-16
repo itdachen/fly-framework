@@ -15,7 +15,7 @@ import java.io.IOException;
 
 /**
  * Description:
- * Created by 王大宸 on 2021-11-27 11:14
+ * Created by 剑鸣秋朔 on 2021-11-27 11:14
  * Created with IntelliJ IDEA.
  */
 public class AbstractBrowserSessionStrategy {
@@ -49,7 +49,7 @@ public class AbstractBrowserSessionStrategy {
     /***
      * session 过期处理
      *
-     * @author 王大宸
+     * @author 剑鸣秋朔
      * @date 2021/11/27 11:16
      * @param request
      * @param response

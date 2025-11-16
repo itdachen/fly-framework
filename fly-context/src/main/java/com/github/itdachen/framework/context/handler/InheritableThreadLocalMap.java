@@ -8,7 +8,7 @@ import java.util.Map;
  * A --> threadLocal ("userId",1001)
  * A --> new Thread(B) --> B线程属于 A 线程的子线程，threadLocal get("userId")
  *
- * @author 王大宸
+ * @author 剑鸣秋朔
  * @date 2025-10-21 10:49
  */
 public class InheritableThreadLocalMap<T extends Map<Object, Object>> extends InheritableThreadLocal<Map<Object, Object>> {

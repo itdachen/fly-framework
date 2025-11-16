@@ -2,7 +2,7 @@ package com.github.itdachen.framework.weixin.common.outcome;
 
 /**
  * Description: 通用返回状态码
- * Created by 王大宸 on 2023/03/18 22:48
+ * Created by 剑鸣秋朔 on 2023/03/18 22:48
  * Created with IntelliJ IDEA.
  */
 public class ReturnStatusCode {
@@ -16,7 +16,7 @@ public class ReturnStatusCode {
     /***
      * 根据状态码, 返回错误信息
      *
-     * @author 王大宸
+     * @author 剑鸣秋朔
      * @date 2023/3/18 23:04
      * @param codeValue 状态码
      * @return java.lang.String

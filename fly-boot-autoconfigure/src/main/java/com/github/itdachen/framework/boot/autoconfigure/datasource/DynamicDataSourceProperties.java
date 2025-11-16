@@ -9,7 +9,7 @@ import java.util.Map;
 /***
 * 多数据源配置
 *
-* @author 王大宸
+* @author 剑鸣秋朔
 * @date 2023-12-30 20:10
 */
 @ConfigurationProperties(prefix = "spring.datasource")

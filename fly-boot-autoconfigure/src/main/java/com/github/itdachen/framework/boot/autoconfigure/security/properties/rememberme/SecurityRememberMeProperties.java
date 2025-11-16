@@ -4,7 +4,7 @@ import org.springframework.boot.context.properties.ConfigurationProperties;
 
 /**
  * Description: 记住我
- * Created by 王大宸 on 2022-09-29 16:25
+ * Created by 剑鸣秋朔 on 2022-09-29 16:25
  * Created with IntelliJ IDEA.
  */
 @ConfigurationProperties(prefix = "fly.security.rememberme")

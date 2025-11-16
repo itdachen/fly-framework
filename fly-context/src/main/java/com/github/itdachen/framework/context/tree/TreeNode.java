@@ -7,7 +7,7 @@ import java.util.List;
  * Description: 树结构数据类型
  * T: 数据类型
  * E: 选中的数据类型, 例如: Integer, String
- * Created by 王大宸 on 2023/05/15 21:48
+ * Created by 剑鸣秋朔 on 2023/05/15 21:48
  * Created with IntelliJ IDEA.
  */
 public class TreeNode<T, E> implements Serializable {

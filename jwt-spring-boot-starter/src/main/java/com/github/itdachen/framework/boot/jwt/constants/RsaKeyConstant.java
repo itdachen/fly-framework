@@ -2,7 +2,7 @@ package com.github.itdachen.framework.boot.jwt.constants;
 
 /**
  * Description:
- * Created by 王大宸 on 2022-06-29 10:40
+ * Created by 剑鸣秋朔 on 2022-06-29 10:40
  * Created with IntelliJ IDEA.
  */
 public class RsaKeyConstant {

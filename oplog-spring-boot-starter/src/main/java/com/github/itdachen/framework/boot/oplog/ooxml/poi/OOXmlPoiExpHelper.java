@@ -12,7 +12,7 @@ import java.io.IOException;
 /**
  * 导出
  *
- * @author 王大宸
+ * @author 剑鸣秋朔
  * @date 2025/7/19 1:43
  */
 public class OOXmlPoiExpHelper<T, Q> {
@@ -71,7 +71,7 @@ public class OOXmlPoiExpHelper<T, Q> {
     /***
      * 导出
      *
-     * @author 王大宸
+     * @author 剑鸣秋朔
      * @date 2025/7/19 2:04
      * @return com.github.itdachen.ooxml.poi.OOXmlPoiExpHelper<T, Q>
      */
@@ -84,7 +84,7 @@ public class OOXmlPoiExpHelper<T, Q> {
     /***
      * 执行导出, 返回给前端消息
      *
-     * @author 王大宸
+     * @author 剑鸣秋朔
      * @date 2025/7/19 2:21
      * @return com.github.itdachen.ooxml.poi.OOXmlPoiExpHelper<T, Q>
      */

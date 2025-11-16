@@ -3,7 +3,7 @@ package com.github.itdachen.framework.boot.datasource.dynamic;
 /**
  * 初始化数据源
  *
- * @author 王大宸
+ * @author 剑鸣秋朔
  * @date 2023-12-30 17:53
  */
 //public class LoadDataSourceRunner implements CommandLineRunner {

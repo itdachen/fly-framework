@@ -15,7 +15,7 @@ import java.util.Map;
 /**
  * AbstractCreateTokenHandler
  *
- * @author 王大宸
+ * @author 剑鸣秋朔
  * @date 2023-12-23 21:54
  */
 public abstract class AbstractCreateTokenHandler implements ICryptoTokenService {
@@ -62,7 +62,7 @@ public abstract class AbstractCreateTokenHandler implements ICryptoTokenService 
     /***
      * 将用户信息封装成 Map
      *
-     * @author 王大宸
+     * @author 剑鸣秋朔
      * @date 2023/4/24 0:45
      * @param jwtInfo jwtInfo
      * @return java.util.Map<java.lang.String, java.lang.Object>

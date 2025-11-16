@@ -14,7 +14,7 @@ import org.springframework.util.Assert;
 
 /**
  * Description: 短信登录过滤器
- * Created by 王大宸 on 2023-12-09 23:43
+ * Created by 剑鸣秋朔 on 2023-12-09 23:43
  * Created with IntelliJ IDEA.
  */
 public class MobileAuthenticationFilter extends AbstractAuthenticationProcessingFilter {

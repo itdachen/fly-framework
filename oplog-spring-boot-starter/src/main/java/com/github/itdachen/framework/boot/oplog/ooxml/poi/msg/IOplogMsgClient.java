@@ -7,7 +7,7 @@ import com.github.itdachen.framework.context.userdetails.UserInfoDetails;
 /**
  * 消息入库操作
  *
- * @author 王大宸
+ * @author 剑鸣秋朔
  * @date 2025-07-22 11:13
  */
 public interface IOplogMsgClient {
@@ -16,7 +16,7 @@ public interface IOplogMsgClient {
     /***
      * 新增消息信息
      *
-     * @author 王大宸
+     * @author 剑鸣秋朔
      * @date 2025/7/22 11:14
      * @param msgModel notifyMsgInfo
      * @return void
@@ -27,7 +27,7 @@ public interface IOplogMsgClient {
     /***
      * 追加消息信息
      *
-     * @author 王大宸
+     * @author 剑鸣秋朔
      * @date 2025/7/22 11:16
      * @param msgModel notifyMsgInfo
      * @return void
@@ -38,7 +38,7 @@ public interface IOplogMsgClient {
     /***
      * 添加消息文件
      *
-     * @author 王大宸
+     * @author 剑鸣秋朔
      * @date 2025/7/25 22:42
      * @param msgFileModel msgFileModel
      * @return void

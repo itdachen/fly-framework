@@ -21,7 +21,7 @@ import java.util.concurrent.*;
 /**
  * 操作日志处理
  *
- * @author 王大宸
+ * @author 剑鸣秋朔
  * @date 2025-07-22 11:19
  */
 public class WorkBookExpLogHandler {
@@ -41,7 +41,7 @@ public class WorkBookExpLogHandler {
     /***
      * 添加导出日志文件信息
      *
-     * @author 王大宸
+     * @author 剑鸣秋朔
      * @date 2025/7/22 15:08
      * @param request request
      * @param userDetails 用户信息

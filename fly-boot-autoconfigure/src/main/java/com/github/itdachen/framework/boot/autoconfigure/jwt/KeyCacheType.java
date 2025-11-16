@@ -2,7 +2,7 @@ package com.github.itdachen.framework.boot.autoconfigure.jwt;
 
 /**
  * Description:
- * Created by 王大宸 on 2023-07-22 14:50
+ * Created by 剑鸣秋朔 on 2023-07-22 14:50
  * Created with IntelliJ IDEA.
  */
 public enum KeyCacheType {

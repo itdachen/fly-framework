@@ -17,7 +17,7 @@ import org.springframework.context.annotation.Configuration;
 /**
  * 认证成功和失败配置
  *
- * @author 王大宸
+ * @author 剑鸣秋朔
  * @date 2023-12-23 1:00
  */
 @Configuration
@@ -33,7 +33,7 @@ public class AuthenticationHandlerAutoConfiguration {
     /***
      * 认证成功处理器
      *
-     * @author 王大宸
+     * @author 剑鸣秋朔
      * @date 2023/12/23 1:03
      * @return com.github.itdachen.boot.security.handler.AuthenticationSuccessHandler
      */
@@ -45,7 +45,7 @@ public class AuthenticationHandlerAutoConfiguration {
     /***
      * 认证失败处理器
      *
-     * @author 王大宸
+     * @author 剑鸣秋朔
      * @date 2023/12/23 1:03
      * @return com.github.itdachen.boot.security.handler.AuthenticationFailureHandler
      */
@@ -57,7 +57,7 @@ public class AuthenticationHandlerAutoConfiguration {
     /***
      * 指定默认登录失败记录方法
      *
-     * @author 王大宸
+     * @author 剑鸣秋朔
      * @date 2023/7/9 14:34
      * @return com.github.itdachen.framework.security.log.IAuthFailureCredentialsLogHandler
      */
@@ -70,7 +70,7 @@ public class AuthenticationHandlerAutoConfiguration {
     /***
      * 指定默认登录成功记录方式
      *
-     * @author 王大宸
+     * @author 剑鸣秋朔
      * @date 2023/7/9 14:34
      * @return com.github.itdachen.framework.security.log.IAuthSuccessCredentialsLogHandler
      */
@@ -83,7 +83,7 @@ public class AuthenticationHandlerAutoConfiguration {
     /***
      * 认证需要访问的地址过滤, 所有需要认证的, 而没有认证的, 都走这个过滤器
      *
-     * @author 王大宸
+     * @author 剑鸣秋朔
      * @date 2024/11/30 23:21
      * @return com.github.itdachen.boot.security.web.AuthenticationRequireFilter
      */
@@ -96,7 +96,7 @@ public class AuthenticationHandlerAutoConfiguration {
 //    /***
 //     * 正在配置登录失败监听
 //     *
-//     * @author 王大宸
+//     * @author 剑鸣秋朔
 //     * @date 2024/5/4 22:09
 //     * @return com.github.itdachen.boot.security.handler.AuthenticationFailureListener
 //     */

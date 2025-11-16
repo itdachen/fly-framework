@@ -8,7 +8,7 @@ import java.util.List;
 /**
  * 读取表格
  *
- * @author 王大宸
+ * @author 剑鸣秋朔
  * @date 2025-07-25 15:17
  */
 public interface IReadWorkBookHandler<T> {
@@ -16,7 +16,7 @@ public interface IReadWorkBookHandler<T> {
     /***
      *
      *
-     * @author 王大宸
+     * @author 剑鸣秋朔
      * @date 2025/7/25 22:16
      * @param list      存放数据的集合
      * @param row       表格行数据
@@ -28,7 +28,7 @@ public interface IReadWorkBookHandler<T> {
     /***
      * 读取行
      *
-     * @author 王大宸
+     * @author 剑鸣秋朔
      * @date 2025/7/29 16:23
      * @param userDetails 用户信息
      * @param list       存放数据的集合
@@ -42,7 +42,7 @@ public interface IReadWorkBookHandler<T> {
     /***
      * 最终数据处理, 数据入库
      *
-     * @author 王大宸
+     * @author 剑鸣秋朔
      * @date 2025/7/25 15:36
      * @param list list
      * @return void

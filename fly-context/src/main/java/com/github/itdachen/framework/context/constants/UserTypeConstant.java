@@ -2,7 +2,7 @@ package com.github.itdachen.framework.context.constants;
 
 /**
  * Description: 用户类型
- * Created by 王大宸 on 2022-06-29 14:37
+ * Created by 剑鸣秋朔 on 2022-06-29 14:37
  * Created with IntelliJ IDEA.
  */
 public class UserTypeConstant {

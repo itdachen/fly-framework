@@ -14,7 +14,7 @@ import org.springframework.web.servlet.ModelAndView;
 
 /**
  * Description: 认证信息拦截器
- * Created by 王大宸 on 2022-09-23 17:21
+ * Created by 剑鸣秋朔 on 2022-09-23 17:21
  * Created with IntelliJ IDEA.
  */
 public class FlyWebSecurityInterceptor implements HandlerInterceptor {

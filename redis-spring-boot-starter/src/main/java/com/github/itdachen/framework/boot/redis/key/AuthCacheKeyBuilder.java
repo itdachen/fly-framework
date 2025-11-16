@@ -8,7 +8,7 @@ import org.springframework.context.annotation.Configuration;
 /**
  * AuthCacheKeyBuilder
  *
- * @author 王大宸
+ * @author 剑鸣秋朔
  * @date 2025-10-20 16:13
  */
 @Configuration

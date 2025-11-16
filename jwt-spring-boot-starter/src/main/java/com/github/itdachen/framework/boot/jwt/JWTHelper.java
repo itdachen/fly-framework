@@ -11,7 +11,7 @@ import java.util.Date;
 
 /**
  * Description: 加密 / 解密处理
- * Created by 王大宸 on 2022-06-29 10:56
+ * Created by 剑鸣秋朔 on 2022-06-29 10:56
  * Created with IntelliJ IDEA.
  */
 @Configuration
@@ -29,7 +29,7 @@ public class JWTHelper {
     /***
      * 生成 token
      *
-     * @author 王大宸
+     * @author 剑鸣秋朔
      * @date 2023/7/22 13:47
      * @param jwtInfo jwtInfo
      * @return java.lang.String
@@ -57,7 +57,7 @@ public class JWTHelper {
     /***
      * 生成 token
      *
-     * @author 王大宸
+     * @author 剑鸣秋朔
      * @date 2023/7/22 13:47
      * @param jwtInfo jwtInfo
      * @param date date
@@ -86,7 +86,7 @@ public class JWTHelper {
     /***
      * 解析 token
      *
-     * @author 王大宸
+     * @author 剑鸣秋朔
      * @date 2023/7/22 13:47
      * @param token token
      * @return com.github.itdachen.framework.cloud.jwt.core.IJwtInfo
@@ -98,7 +98,7 @@ public class JWTHelper {
     /***
      * 解析 token
      *
-     * @author 王大宸
+     * @author 剑鸣秋朔
      * @date 2023/7/22 15:14
      * @param token token
      * @param pubKey pubKey

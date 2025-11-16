@@ -5,7 +5,7 @@ import jakarta.servlet.http.HttpServletRequest;
 /**
  * VerifiedTicketUrlServiceImpl
  *
- * @author 王大宸
+ * @author 剑鸣秋朔
  * @date 2024-12-18 10:22
  */
 public class DefaultVerifiedTicketUrlService implements IVerifiedTicketUrlService {

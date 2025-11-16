@@ -27,7 +27,7 @@ import javax.sql.DataSource;
  * alibaba Druid 自定义连接, 添加加密
  * 排除默认的 DruidDataSourceAutoConfigure 配置启动
  *
- * @author 王大宸
+ * @author 剑鸣秋朔
  * @date 2024-01-10 21:35
  */
 @Configuration

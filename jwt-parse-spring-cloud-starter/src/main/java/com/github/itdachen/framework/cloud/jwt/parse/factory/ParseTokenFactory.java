@@ -8,7 +8,7 @@ import com.github.itdachen.framework.cloud.jwt.parse.token.RsaParseTokenHandler;
 
 /**
  * Description: token 解析工厂
- * Created by 王大宸 on 2023/04/30 15:35
+ * Created by 剑鸣秋朔 on 2023/04/30 15:35
  * Created with IntelliJ IDEA.
  */
 public class ParseTokenFactory {

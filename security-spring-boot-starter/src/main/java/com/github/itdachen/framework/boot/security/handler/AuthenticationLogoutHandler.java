@@ -9,7 +9,7 @@ import org.springframework.security.web.authentication.logout.SecurityContextLog
 /**
  * 自定义退出登录
  *
- * @author 王大宸
+ * @author 剑鸣秋朔
  * @date 2024-08-26 16:13
  */
 public class AuthenticationLogoutHandler implements LogoutHandler {

@@ -5,7 +5,7 @@ import java.time.LocalDateTime;
 
 /**
  * Description: 验证码
- * Created by 王大宸 on 2021-11-26 22:33
+ * Created by 剑鸣秋朔 on 2021-11-26 22:33
  * Created with IntelliJ IDEA.
  */
 public class ValidateCode implements Serializable {

@@ -39,7 +39,7 @@ import java.util.Map;
  * * 1、entity 里的每一个字段，与数据库相对应;
  * * 2、vo 里的每一个字段，是和你前台 html 页面相对应;
  * * 3、dto 这是用来转换从 entity 到 vo，或者从 vo 到 entity 的中间的东西。（DTO中拥有的字段应该是entity中或者是vo中的一个子集）
- * Created by 王大宸 on 2022-06-30 9:47
+ * Created by 剑鸣秋朔 on 2022-06-30 9:47
  * Created with IntelliJ IDEA.
  */
 public class BizServiceImpl<IBizMapper extends Mapper<T>, T, D, V, Q extends BizQuery, PK> implements IBizService<D, V, Q, PK> {
@@ -52,7 +52,7 @@ public class BizServiceImpl<IBizMapper extends Mapper<T>, T, D, V, Q extends Biz
     /***
      * 分页查询
      *
-     * @author 王大宸
+     * @author 剑鸣秋朔
      * @date 2023/11/15 10:28
      * @param params 查询参数
      * @return com.github.itdachen.framework.core.response.TableData<V>
@@ -83,7 +83,7 @@ public class BizServiceImpl<IBizMapper extends Mapper<T>, T, D, V, Q extends Biz
     /***
      * 新增数据
      *
-     * @author 王大宸
+     * @author 剑鸣秋朔
      * @date 2023/11/15 10:28
      * @param d 需要新增的数据
      * @return V
@@ -101,7 +101,7 @@ public class BizServiceImpl<IBizMapper extends Mapper<T>, T, D, V, Q extends Biz
     /***
      * 根据主键查询数据
      *
-     * @author 王大宸
+     * @author 剑鸣秋朔
      * @date 2023/11/15 10:28
      * @param id 需要查询的主键
      * @return V
@@ -115,7 +115,7 @@ public class BizServiceImpl<IBizMapper extends Mapper<T>, T, D, V, Q extends Biz
     /***
      * 更新数据
      *
-     * @author 王大宸
+     * @author 剑鸣秋朔
      * @date 2023/11/15 10:27
      * @param d 需要更新的数据
      * @return V
@@ -132,7 +132,7 @@ public class BizServiceImpl<IBizMapper extends Mapper<T>, T, D, V, Q extends Biz
     /***
      * 根据主键删除数据
      *
-     * @author 王大宸
+     * @author 剑鸣秋朔
      * @date 2023/11/15 10:27
      * @param id 需要删除数据的主键
      * @return int
@@ -146,7 +146,7 @@ public class BizServiceImpl<IBizMapper extends Mapper<T>, T, D, V, Q extends Biz
     /***
      * 数据导出
      *
-     * @author 王大宸
+     * @author 剑鸣秋朔
      * @date 2025/10/17 0:47
      * @param request request
      * @param response response
@@ -175,7 +175,7 @@ public class BizServiceImpl<IBizMapper extends Mapper<T>, T, D, V, Q extends Biz
     /***
      * 数据导入
      *
-     * @author 王大宸
+     * @author 剑鸣秋朔
      * @date 2025/10/17 0:47
      * @param request request
      * @param response response
@@ -242,7 +242,7 @@ public class BizServiceImpl<IBizMapper extends Mapper<T>, T, D, V, Q extends Biz
     /***
      * 获取表泛型实体类
      *
-     * @author 王大宸
+     * @author 剑鸣秋朔
      * @date 2025/10/16 22:46
      * @return T
      * @since 1.5

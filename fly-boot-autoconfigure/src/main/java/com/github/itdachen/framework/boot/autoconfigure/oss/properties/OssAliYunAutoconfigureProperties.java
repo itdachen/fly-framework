@@ -4,7 +4,7 @@ import org.springframework.boot.context.properties.ConfigurationProperties;
 
 /**
  * Description: 阿里云存储配置
- * Created by 王大宸 on 2023-06-12 22:07
+ * Created by 剑鸣秋朔 on 2023-06-12 22:07
  * Created with IntelliJ IDEA.
  */
 @ConfigurationProperties(prefix = "fly.oss.ali")

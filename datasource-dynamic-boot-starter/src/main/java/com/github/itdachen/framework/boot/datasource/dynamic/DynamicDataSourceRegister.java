@@ -25,7 +25,7 @@ import java.util.Map;
 /**
  * 自动注册
  *
- * @author 王大宸
+ * @author 剑鸣秋朔
  * @date 2023-12-30 19:29
  */
 public class DynamicDataSourceRegister implements BeanDefinitionRegistryPostProcessor, EnvironmentAware {

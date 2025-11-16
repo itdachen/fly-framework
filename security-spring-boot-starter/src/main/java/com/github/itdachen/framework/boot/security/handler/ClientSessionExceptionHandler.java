@@ -21,7 +21,7 @@ import java.io.IOException;
 
 /**
  * Description: 认证异常处理
- * Created by 王大宸 on 2021-11-27 10:57
+ * Created by 剑鸣秋朔 on 2021-11-27 10:57
  * Created with IntelliJ IDEA.
  */
 public class ClientSessionExceptionHandler {
@@ -43,7 +43,7 @@ public class ClientSessionExceptionHandler {
     /***
      * 当前登录用户异常
      *
-     * @author 王大宸
+     * @author 剑鸣秋朔
      * @date 2021/11/27 10:58
      * @param request
      * @param response
@@ -66,7 +66,7 @@ public class ClientSessionExceptionHandler {
     /***
      * 权限不足
      *
-     * @author 王大宸
+     * @author 剑鸣秋朔
      * @date 2021/11/27 11:29
      * @param request
      * @param response

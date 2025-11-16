@@ -7,7 +7,7 @@ import org.slf4j.LoggerFactory;
 /**
  * DefaultOOXmlPoiLogClient
  *
- * @author 王大宸
+ * @author 剑鸣秋朔
  * @date 2025-07-29 17:53
  */
 public class DefaultOOXmlPoiLogClient implements IOOXmlPoiLogClient {

@@ -9,7 +9,7 @@ import java.io.*;
 
 /**
  * Description: 文件下载
- * Created by 王大宸 on 2023/02/10 16:45
+ * Created by 剑鸣秋朔 on 2023/02/10 16:45
  * Created with IntelliJ IDEA.
  */
 public abstract class DownloadService {
@@ -18,7 +18,7 @@ public abstract class DownloadService {
     /***
      * 文件下载抽象方法, 交给具体的实现类去实现
      *
-     * @author 王大宸
+     * @author 剑鸣秋朔
      * @date 2022/8/17 9:54
      * @param response response
      * @param uri  文件请求路径, http 请求
@@ -33,7 +33,7 @@ public abstract class DownloadService {
     /***
      * 下载文件通用方法(从本地服务器下载到浏览器)
      *
-     * @author 王大宸
+     * @author 剑鸣秋朔
      * @date 2022/8/16 10:44
      * @param response response
      * @param localUri 本地文件地址(服务器上存储位置)
@@ -78,7 +78,7 @@ public abstract class DownloadService {
     /***
      * 如果文件名为空, 则默认使用路径文件名, 如果文件名存在,添加文件后缀
      *
-     * @author 王大宸
+     * @author 剑鸣秋朔
      * @date 2022/8/16 14:37
      * @param uri 文件http路径
      * @param filename 文件名称

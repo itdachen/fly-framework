@@ -12,7 +12,7 @@ import org.springframework.web.multipart.MultipartFile;
  * V: 查询数据返回对象
  * Q: 查询对象, 禁止使用 Map 传输查询参数
  * PK: 实体类对象主键类型
- * Created by 王大宸 on 2022-06-30 9:25
+ * Created by 剑鸣秋朔 on 2022-06-30 9:25
  * Created with IntelliJ IDEA.
  */
 public interface IBizService<D, V, Q extends BizQuery, PK> {
@@ -20,7 +20,7 @@ public interface IBizService<D, V, Q extends BizQuery, PK> {
     /***
      * 分页查询
      *
-     * @author 王大宸
+     * @author 剑鸣秋朔
      * @date 2023/11/15 10:28
      * @param params 查询参数
      * @return com.github.itdachen.framework.core.response.TableData<V>
@@ -31,7 +31,7 @@ public interface IBizService<D, V, Q extends BizQuery, PK> {
     /***
      * 新增数据
      *
-     * @author 王大宸
+     * @author 剑鸣秋朔
      * @date 2023/11/15 10:28
      * @param d 需要新增的数据
      * @return V
@@ -41,7 +41,7 @@ public interface IBizService<D, V, Q extends BizQuery, PK> {
     /***
      * 根据主键查询数据
      *
-     * @author 王大宸
+     * @author 剑鸣秋朔
      * @date 2023/11/15 10:28
      * @param id 需要查询的主键
      * @return V
@@ -51,7 +51,7 @@ public interface IBizService<D, V, Q extends BizQuery, PK> {
     /***
      * 更新数据
      *
-     * @author 王大宸
+     * @author 剑鸣秋朔
      * @date 2023/11/15 10:27
      * @param d 需要更新的数据
      * @return V
@@ -61,7 +61,7 @@ public interface IBizService<D, V, Q extends BizQuery, PK> {
     /***
      * 根据主键删除数据
      *
-     * @author 王大宸
+     * @author 剑鸣秋朔
      * @date 2023/11/15 10:27
      * @param id 需要删除数据的主键
      * @return int
@@ -71,7 +71,7 @@ public interface IBizService<D, V, Q extends BizQuery, PK> {
     /***
      * 导出
      *
-     * @author 王大宸
+     * @author 剑鸣秋朔
      * @date 2024/4/16 21:54
      * @param request request
      * @param response response
@@ -83,7 +83,7 @@ public interface IBizService<D, V, Q extends BizQuery, PK> {
     /***
      * 导入
      *
-     * @author 王大宸
+     * @author 剑鸣秋朔
      * @date 2025/7/29 18:53
      * @param request request
      * @param response response

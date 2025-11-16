@@ -9,7 +9,7 @@ import org.slf4j.LoggerFactory;
 /**
  * Description: 校验授权码
  * 测试: http://153.12.72.167:7080/verify/ticket/token/authorize?code=1643160334707593216
- * Created by 王大宸 on 2023/04/03 17:07
+ * Created by 剑鸣秋朔 on 2023/04/03 17:07
  * Created with IntelliJ IDEA.
  */
 //@RestController
@@ -26,7 +26,7 @@ public class VerifyTicketAuthorizationCodeController {
      * 失败: 返回 error
      * 成功: 返回税务机关代码和登录代码, 并删除 redis 缓存
      *
-     * @author 王大宸
+     * @author 剑鸣秋朔
      * @date 2023/4/4 11:30
      * @param code code
      * @return cn.edu.hubu.framework.core.response.ServerResponse<java.lang.String>

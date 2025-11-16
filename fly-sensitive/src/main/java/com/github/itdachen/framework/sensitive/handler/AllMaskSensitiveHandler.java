@@ -4,7 +4,7 @@ import com.github.itdachen.framework.sensitive.ISensitiveHandler;
 
 /**
  * 全部脱敏, 全隐藏，如： ***
- * Created by 王大宸 on 2023-07-05 16:45
+ * Created by 剑鸣秋朔 on 2023-07-05 16:45
  * Created with IntelliJ IDEA.
  */
 public class AllMaskSensitiveHandler implements ISensitiveHandler {

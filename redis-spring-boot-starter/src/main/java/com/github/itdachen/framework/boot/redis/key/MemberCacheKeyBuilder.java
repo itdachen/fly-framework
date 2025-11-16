@@ -8,7 +8,7 @@ import org.springframework.context.annotation.Configuration;
 /**
  * MemberCacheKeyBuilder
  *
- * @author 王大宸
+ * @author 剑鸣秋朔
  * @date 2025/10/22 20:38
  */
 @Configuration

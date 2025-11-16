@@ -7,7 +7,7 @@ import java.util.List;
 /**
  * 分页返回数据格式
  *
- * @author 王大宸
+ * @author 剑鸣秋朔
  * @date 2023/02/12 22:51
  */
 public class TableData<T> implements Serializable {

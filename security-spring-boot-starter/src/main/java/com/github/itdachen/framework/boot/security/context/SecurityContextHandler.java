@@ -11,7 +11,7 @@ import org.springframework.security.core.context.SecurityContextHolder;
 
 /**
  * Description: 当前登录信息上下文
- * Created by 王大宸 on 2022-09-23 10:07
+ * Created by 剑鸣秋朔 on 2022-09-23 10:07
  * Created with IntelliJ IDEA.
  */
 public class SecurityContextHandler {
@@ -20,7 +20,7 @@ public class SecurityContextHandler {
     /***
      * 获取当前认证信息
      *
-     * @author 王大宸
+     * @author 剑鸣秋朔
      * @date 2021/1/22 14:25
      * @param
      * @return org.springframework.security.core.Authentication
@@ -32,7 +32,7 @@ public class SecurityContextHandler {
     /***
      * 获取当前登录用户
      *
-     * @author 王大宸
+     * @author 剑鸣秋朔
      * @date 2021/1/22 14:23
      * @param
      * @return com.home.security.model.CurrentUser
@@ -60,7 +60,7 @@ public class SecurityContextHandler {
     /***
      * 设置登录用户信息
      *
-     * @author 王大宸
+     * @author 剑鸣秋朔
      * @date 2024/4/4 0:16
      * @param userInfoDetails userInfoDetails
      * @param userDetails userDetails

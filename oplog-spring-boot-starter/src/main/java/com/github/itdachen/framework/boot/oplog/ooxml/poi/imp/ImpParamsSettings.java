@@ -8,7 +8,7 @@ import jakarta.servlet.http.HttpServletResponse;
 /**
  * 导入参数设置
  *
- * @author 王大宸
+ * @author 剑鸣秋朔
  * @date 2025/7/25 22:18
  */
 public class ImpParamsSettings {

@@ -13,7 +13,7 @@ import java.util.*;
 /**
  * AbstractParseJwtsTokenHandler
  *
- * @author 王大宸
+ * @author 剑鸣秋朔
  * @date 2023-12-23 21:59
  */
 public abstract class AbstractParseTokenHandler {
@@ -29,7 +29,7 @@ public abstract class AbstractParseTokenHandler {
     /***
      * 默认解析token方法
      *
-     * @author 王大宸
+     * @author 剑鸣秋朔
      * @date 2023/12/23 22:46
      * @param token token
      * @param publicKey publicKey
@@ -46,7 +46,7 @@ public abstract class AbstractParseTokenHandler {
     /***
      * 解析 token
      *
-     * @author 王大宸
+     * @author 剑鸣秋朔
      * @date 2023/12/26 22:06
      * @param claimsJws claimsJws
      * @return com.github.itdachen.framework.context.jwt.IJwtInfo
@@ -58,7 +58,7 @@ public abstract class AbstractParseTokenHandler {
     /***
      * 解析 token
      *
-     * @author 王大宸
+     * @author 剑鸣秋朔
      * @date 2023/12/26 22:08
      * @param claims claims
      * @return com.github.itdachen.framework.context.jwt.IJwtInfo

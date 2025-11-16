@@ -14,7 +14,7 @@ import java.time.Instant;
 
 /**
  * Description: 微信验签工具类
- * Created by 王大宸 on 2023/04/11 22:15
+ * Created by 剑鸣秋朔 on 2023/04/11 22:15
  * Created with IntelliJ IDEA.
  */
 public class WeChatSignatureVerification {

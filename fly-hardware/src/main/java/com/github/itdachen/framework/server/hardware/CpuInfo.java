@@ -8,7 +8,7 @@ import java.io.Serializable;
 /**
  * CUP 信息
  *
- * @author 王大宸
+ * @author 剑鸣秋朔
  * @date 2023/02/07 11:05
  */
 public class CpuInfo implements Serializable {

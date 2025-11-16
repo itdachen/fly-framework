@@ -8,7 +8,7 @@ import java.io.Serializable;
 /**
  * 消息文件
  *
- * @author 王大宸
+ * @author 剑鸣秋朔
  * @date 2025-07-22 10:49
  */
 public class MsgFileModel implements Serializable {

@@ -8,7 +8,7 @@ import java.lang.annotation.Target;
 /**
  * 接口签名注解
  *
- * @author 王大宸
+ * @author 剑鸣秋朔
  * @date 2024-11-04 10:21
  */
 @Retention(RetentionPolicy.RUNTIME)

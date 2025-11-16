@@ -3,7 +3,7 @@ package com.github.itdachen.framework.context.enums;
 /**
  * 页面类型
  *
- * @author 王大宸
+ * @author 剑鸣秋朔
  * @date 2025/9/8 21:59
  */
 public enum PageTypeEnum {

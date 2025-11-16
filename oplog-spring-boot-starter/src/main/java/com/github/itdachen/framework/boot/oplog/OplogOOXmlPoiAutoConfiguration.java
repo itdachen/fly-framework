@@ -13,7 +13,7 @@ import org.springframework.context.annotation.Configuration;
 /**
  * Poi 导入导出自动化配置
  *
- * @author 王大宸
+ * @author 剑鸣秋朔
  * @date 2025-07-29 17:48
  */
 @Configuration
@@ -22,7 +22,7 @@ public class OplogOOXmlPoiAutoConfiguration {
     /***
      * 导入导出/文件上传
      *
-     * @author 王大宸
+     * @author 剑鸣秋朔
      * @date 2025/7/29 17:50
      * @return com.github.itdachen.boot.oplog.ooxml.poi.fileupload.IOOXmlPoiFileUploadHandler
      */
@@ -35,7 +35,7 @@ public class OplogOOXmlPoiAutoConfiguration {
     /***
      * 导入导出日志接口
      *
-     * @author 王大宸
+     * @author 剑鸣秋朔
      * @date 2025/7/29 17:55
      * @return com.github.itdachen.boot.oplog.ooxml.poi.log.IOOXmlPoiLogClient
      */
@@ -48,7 +48,7 @@ public class OplogOOXmlPoiAutoConfiguration {
     /***
      * 添加消息接口
      *
-     * @author 王大宸
+     * @author 剑鸣秋朔
      * @date 2025/7/29 18:01
      * @return com.github.itdachen.boot.oplog.ooxml.poi.msg.IOplogMsgClient
      */

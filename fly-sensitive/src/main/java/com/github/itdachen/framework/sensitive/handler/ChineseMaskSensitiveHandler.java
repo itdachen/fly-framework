@@ -11,7 +11,7 @@ import org.apache.commons.lang3.StringUtils;
  * 3-4字，如：用于掩（用*掩）、用于掩码（用**码）
  * 5-6字，如：用于掩码测（用于*码测）、用于掩码测试（用于**测试）
  * 大于6字，如：用于掩码测试的字符串（用于掩****字符串）
- * Created by 王大宸 on 2023-07-05 16:57
+ * Created by 剑鸣秋朔 on 2023-07-05 16:57
  * Created with IntelliJ IDEA.
  */
 public class ChineseMaskSensitiveHandler implements ISensitiveHandler {

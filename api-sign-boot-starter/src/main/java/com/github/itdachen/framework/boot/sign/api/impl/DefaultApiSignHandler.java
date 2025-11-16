@@ -6,7 +6,7 @@ import com.github.itdachen.framework.crypto.hmac.HmacSHA1Utils;
 /**
  * 签名默认处理方式
  *
- * @author 王大宸
+ * @author 剑鸣秋朔
  * @date 2024-11-04 11:06
  */
 public class DefaultApiSignHandler implements IApiSignHandler {

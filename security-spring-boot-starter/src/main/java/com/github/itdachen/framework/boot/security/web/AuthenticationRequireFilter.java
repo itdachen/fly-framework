@@ -23,7 +23,7 @@ import java.io.IOException;
 /**
  * 认证需要访问的地址过滤, 所有需要认证的, 而没有认证的, 都走这个过滤器
  *
- * @author 王大宸
+ * @author 剑鸣秋朔
  * @date 2024/11/30 23:06
  */
 public class AuthenticationRequireFilter extends GenericFilterBean {
@@ -69,7 +69,7 @@ public class AuthenticationRequireFilter extends GenericFilterBean {
     /***
      * 地址校验
      *
-     * @author 王大宸
+     * @author 剑鸣秋朔
      * @date 2024/11/28 15:38
      * @param request request
      * @return boolean

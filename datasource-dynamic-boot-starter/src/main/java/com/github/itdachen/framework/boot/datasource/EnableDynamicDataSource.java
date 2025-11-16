@@ -17,7 +17,7 @@ import java.lang.annotation.*;
  * <p>
  * 可以不使用这个注解, 在项目启动的时候只初始化默认数据源, 其他数据源从默认数据源中加载
  *
- * @author 王大宸
+ * @author 剑鸣秋朔
  * @date 2023-12-30 19:17
  */
 @Inherited

@@ -2,7 +2,7 @@ package com.github.itdachen.framework.weixin.oplatform.contents;
 
 /**
  * Description: 票据类型
- * Created by 王大宸 on 2023/03/19 1:44
+ * Created by 剑鸣秋朔 on 2023/03/19 1:44
  * Created with IntelliJ IDEA.
  */
 public class VerifyTicketInfoType {

@@ -14,7 +14,7 @@ import java.util.List;
 
 /**
  * Description:
- * Created by 王大宸 on 2022-09-23 17:24
+ * Created by 剑鸣秋朔 on 2022-09-23 17:24
  * Created with IntelliJ IDEA.
  */
 public class AuthorizeRequestMatchersImpl implements IAuthorizeRequestMatchers {
@@ -66,7 +66,7 @@ public class AuthorizeRequestMatchersImpl implements IAuthorizeRequestMatchers {
     /***
      * 去除重复的
      *
-     * @author 王大宸
+     * @author 剑鸣秋朔
      * @date 2022/9/25 12:04
      * @param list list
      * @return java.lang.String[]
@@ -86,7 +86,7 @@ public class AuthorizeRequestMatchersImpl implements IAuthorizeRequestMatchers {
     /***
      * 系统自带不拦截路径
      *
-     * @author 王大宸
+     * @author 剑鸣秋朔
      * @date 2023/12/19 14:50
      * @return java.lang.String[]
      */

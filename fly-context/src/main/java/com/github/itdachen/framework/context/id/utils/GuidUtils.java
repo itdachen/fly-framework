@@ -13,7 +13,7 @@ import java.util.Random;
 /**
  * RandomGUID
  *
- * @author 王大宸
+ * @author 剑鸣秋朔
  * @date 2023-12-26 22:28
  */
 public class GuidUtils {

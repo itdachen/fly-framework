@@ -4,7 +4,7 @@ import java.io.Serializable;
 
 /**
  * Description: 权限信息
- * Created by 王大宸 on 2022-10-16 13:48
+ * Created by 剑鸣秋朔 on 2022-10-16 13:48
  * Created with IntelliJ IDEA.
  */
 public class PermissionInfo implements Serializable {

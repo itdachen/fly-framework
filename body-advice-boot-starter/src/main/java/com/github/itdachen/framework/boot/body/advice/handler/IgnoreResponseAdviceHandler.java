@@ -16,7 +16,7 @@ import org.springframework.web.servlet.mvc.method.annotation.ResponseBodyAdvice;
 
 /**
  * Description: 全局统一响应处理
- * Created by 王大宸 on 2023/02/26 23:43
+ * Created by 剑鸣秋朔 on 2023/02/26 23:43
  * Created with IntelliJ IDEA.
  */
 @RestControllerAdvice(basePackages = {"com.github.itdachen"})
@@ -29,7 +29,7 @@ public class IgnoreResponseAdviceHandler implements ResponseBodyAdvice<Object> {
      * 1、ServerResponse            返回类型为 ServerResponse 的不拦截
      * 2、IgnoreResponseAdvice      添加 IgnoreResponseAdvice 注解的不拦截
      *
-     * @author 王大宸
+     * @author 剑鸣秋朔
      * @date 2021/11/20 15:01
      * @param returnType   返回数据统一结果集
      * @param aClass       数据类型

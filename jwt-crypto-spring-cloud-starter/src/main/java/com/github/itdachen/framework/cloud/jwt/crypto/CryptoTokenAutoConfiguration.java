@@ -13,7 +13,7 @@ import org.springframework.context.annotation.Configuration;
 /**
  * 配置
  *
- * @author 王大宸
+ * @author 剑鸣秋朔
  * @date 2023-12-23 21:52
  */
 @Configuration
@@ -31,7 +31,7 @@ public class CryptoTokenAutoConfiguration {
     /***
      * 工厂模式
      *
-     * @author 王大宸
+     * @author 剑鸣秋朔
      * @date 2023/12/23 23:19
      * @return com.github.itdachen.boot.jwt.crypto.factory.TokenFactory
      */
@@ -44,7 +44,7 @@ public class CryptoTokenAutoConfiguration {
     /***
      * 生成 token, 调用工厂
      *
-     * @author 王大宸
+     * @author 剑鸣秋朔
      * @date 2023/12/23 23:18
      * @return com.github.itdachen.boot.jwt.ICryptoTokenHandler
      */
@@ -58,7 +58,7 @@ public class CryptoTokenAutoConfiguration {
     /***
      * 初始化公钥/私钥
      *
-     * @author 王大宸
+     * @author 剑鸣秋朔
      * @date 2023/12/23 23:05
      * @return com.github.itdachen.boot.jwt.IJwtSecretKeyHandler
      */

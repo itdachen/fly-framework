@@ -10,7 +10,7 @@ import java.time.LocalDateTime;
 /**
  * 页面访问日志
  *
- * @author 王大宸
+ * @author 剑鸣秋朔
  * @date 2025/9/9 22:03
  */
 public class PageViewLog implements Serializable {

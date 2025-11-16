@@ -7,7 +7,7 @@ import java.util.List;
 /***
  * 初始化系统鉴权
  *
- * @author 王大宸
+ * @author 剑鸣秋朔
  * @date 2023/11/27 20:25
  */
 public interface IRequestAuthorizationHandler {

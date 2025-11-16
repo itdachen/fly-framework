@@ -15,7 +15,7 @@ import java.util.Date;
 /**
  * Description: 自定义 记住我 实现
  * 数据库结构在 db 文件下
- * Created by 王大宸 on 2022-11-04 9:31
+ * Created by 剑鸣秋朔 on 2022-11-04 9:31
  * Created with IntelliJ IDEA.
  */
 public class CustomJdbcPersistentTokenRepository extends JdbcDaoSupport implements PersistentTokenRepository {

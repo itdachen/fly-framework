@@ -4,7 +4,7 @@ import org.springframework.security.core.AuthenticationException;
 
 /**
  * Description: 安全认证自定义基础异常
- * Created by 王大宸 on 2022-10-16 13:38
+ * Created by 剑鸣秋朔 on 2022-10-16 13:38
  * Created with IntelliJ IDEA.
  */
 public class BizSecurityException  extends AuthenticationException {

@@ -7,7 +7,7 @@ import jakarta.validation.constraints.*;
 
 /**
  * Description: 查询基础类
- * Created by 王大宸 on 2023/02/12 22:00
+ * Created by 剑鸣秋朔 on 2023/02/12 22:00
  * Created with IntelliJ IDEA.
  */
 public class BizQuery implements Serializable {

@@ -11,7 +11,7 @@ import org.springframework.context.annotation.Configuration;
 /**
  * OplogAutoConfiguration
  *
- * @author 王大宸
+ * @author 剑鸣秋朔
  * @date 2023-12-22 23:57
  */
 @Configuration

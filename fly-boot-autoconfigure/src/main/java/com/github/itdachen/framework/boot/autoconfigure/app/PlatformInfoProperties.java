@@ -5,7 +5,7 @@ import org.springframework.boot.context.properties.ConfigurationProperties;
 /**
  * 平台配置
  *
- * @author 王大宸
+ * @author 剑鸣秋朔
  * @date 2024/4/3 22:11
  */
 @ConfigurationProperties(prefix = "fly.plat")

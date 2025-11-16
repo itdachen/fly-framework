@@ -23,7 +23,7 @@ import java.util.concurrent.Executor;
 /**
  * 加载动态路由
  *
- * @author 王大宸
+ * @author 剑鸣秋朔
  * @date 2024-07-25 16:59
  */
 @Configuration

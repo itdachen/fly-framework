@@ -5,7 +5,7 @@ import org.springframework.boot.context.properties.ConfigurationProperties;
 
 /**
  * Description: 数据库加密配置
- * Created by 王大宸 on 2023-08-15 9:19
+ * Created by 剑鸣秋朔 on 2023-08-15 9:19
  * Created with IntelliJ IDEA.
  */
 @ConfigurationProperties(prefix = "fly.datasource")

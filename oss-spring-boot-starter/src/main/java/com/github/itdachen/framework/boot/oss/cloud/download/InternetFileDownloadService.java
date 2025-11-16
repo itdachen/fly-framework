@@ -13,7 +13,7 @@ import java.net.URL;
 
 /**
  * Description: 网址文件下载(其他服务器)
- * Created by 王大宸 on 2022-08-16 9:59
+ * Created by 剑鸣秋朔 on 2022-08-16 9:59
  * Created with IntelliJ IDEA.
  */
 public class InternetFileDownloadService extends DownloadService {

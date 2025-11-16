@@ -6,7 +6,7 @@ import java.util.UUID;
 
 /**
  * Description: jwt token 用户信息
- * Created by 王大宸 on 2023/04/30 14:51
+ * Created by 剑鸣秋朔 on 2023/04/30 14:51
  * Created with IntelliJ IDEA.
  */
 public class JwtTokenInfo implements IJwtInfo {

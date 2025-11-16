@@ -17,7 +17,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 /**
  * VerifyTicketTokenHelper
  *
- * @author 王大宸
+ * @author 剑鸣秋朔
  * @date 2023-12-23 22:32
  */
 public class VerifyTicketTokenHelper implements IVerifyTicketTokenHelper {
@@ -50,7 +50,7 @@ public class VerifyTicketTokenHelper implements IVerifyTicketTokenHelper {
     /***
      * 统一解析 token
      *
-     * @author 王大宸
+     * @author 剑鸣秋朔
      * @date 2024/9/6 14:20
      * @param token token
      * @return com.github.itdachen.framework.context.jwt.IJwtInfo

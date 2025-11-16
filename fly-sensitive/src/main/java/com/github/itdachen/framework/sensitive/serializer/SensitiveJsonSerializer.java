@@ -14,7 +14,7 @@ import java.util.Objects;
 
 /**
  * Description: 脱敏序列化
- * Created by 王大宸 on 2023-07-05 16:31
+ * Created by 剑鸣秋朔 on 2023-07-05 16:31
  * Created with IntelliJ IDEA.
  */
 public class SensitiveJsonSerializer extends JsonSerializer<String> implements ContextualSerializer {
@@ -53,7 +53,7 @@ public class SensitiveJsonSerializer extends JsonSerializer<String> implements C
     /***
      * 设置脱敏
      *
-     * @author 王大宸
+     * @author 剑鸣秋朔
      * @date 2023/7/4 16:49
      * @param jsonSerializer jsonSerializer
      * @param beanProperty beanProperty

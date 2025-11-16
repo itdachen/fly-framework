@@ -4,7 +4,7 @@ import org.springframework.boot.context.properties.ConfigurationProperties;
 
 /**
  * Description: 基于 Nacos 动态网关路由配置
- * Created by 王大宸 on 2023-07-06 15:53
+ * Created by 剑鸣秋朔 on 2023-07-06 15:53
  * Created with IntelliJ IDEA.
  */
 @ConfigurationProperties(prefix = "fly.cloud.gateway.routes")

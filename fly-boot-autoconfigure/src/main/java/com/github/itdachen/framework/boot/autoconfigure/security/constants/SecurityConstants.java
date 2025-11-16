@@ -2,7 +2,7 @@ package com.github.itdachen.framework.boot.autoconfigure.security.constants;
 
 /**
  * Description: 安全认证常量
- * Created by 王大宸 on 2022-09-23 10:06
+ * Created by 剑鸣秋朔 on 2022-09-23 10:06
  * Created with IntelliJ IDEA.
  */
 public class SecurityConstants {

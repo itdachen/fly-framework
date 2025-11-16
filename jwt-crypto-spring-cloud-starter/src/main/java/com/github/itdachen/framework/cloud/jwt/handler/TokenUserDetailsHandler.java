@@ -10,7 +10,7 @@ import java.util.Map;
 /**
  * 用户信息处理
  *
- * @author 王大宸
+ * @author 剑鸣秋朔
  * @date 2024-09-03 16:19
  */
 public class TokenUserDetailsHandler {
@@ -18,7 +18,7 @@ public class TokenUserDetailsHandler {
     /***
      * 将用户信息转成 Map
      *
-     * @author 王大宸
+     * @author 剑鸣秋朔
      * @date 2024/9/3 16:31
      * @param userDetails userDetails
      * @param tokenType tokenType
@@ -94,7 +94,7 @@ public class TokenUserDetailsHandler {
     /***
      * 返回给前端的信息
      *
-     * @author 王大宸
+     * @author 剑鸣秋朔
      * @date 2024/9/3 16:30
      * @param userDetails userDetails
      * @return java.util.Map<java.lang.String, java.lang.Object>

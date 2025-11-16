@@ -3,7 +3,7 @@ package com.github.itdachen.framework.context.constants;
 /**
  * 用户登录类型
  *
- * @author 王大宸
+ * @author 剑鸣秋朔
  * @date 2024-09-03 16:21
  */
 public class LoginMethodConstant {

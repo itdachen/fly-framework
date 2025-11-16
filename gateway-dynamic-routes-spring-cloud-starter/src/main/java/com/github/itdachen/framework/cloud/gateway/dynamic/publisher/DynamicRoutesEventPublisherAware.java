@@ -12,7 +12,7 @@ import reactor.core.publisher.Mono;
 /**
  * 动态路由增删改方法
  *
- * @author 王大宸
+ * @author 剑鸣秋朔
  * @date 2024-07-25 15:54
  */
 public class DynamicRoutesEventPublisherAware implements IRouteEventPublisherService, ApplicationEventPublisherAware {

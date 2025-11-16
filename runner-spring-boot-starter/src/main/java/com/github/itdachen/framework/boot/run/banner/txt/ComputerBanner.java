@@ -2,7 +2,7 @@ package com.github.itdachen.framework.boot.run.banner.txt;
 
 /**
  * Description:
- * Created by 王大宸 on 2022-11-15 14:09
+ * Created by 剑鸣秋朔 on 2022-11-15 14:09
  * Created with IntelliJ IDEA.
  */
 public class ComputerBanner {

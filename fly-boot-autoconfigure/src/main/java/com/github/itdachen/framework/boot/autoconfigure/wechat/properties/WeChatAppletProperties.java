@@ -5,7 +5,7 @@ import org.springframework.boot.context.properties.ConfigurationProperties;
 /**
  * 微信小程序配置
  *
- * @author 王大宸
+ * @author 剑鸣秋朔
  * @date 2024-11-21 11:14
  */
 @ConfigurationProperties(prefix = "fly.wechat.applet")

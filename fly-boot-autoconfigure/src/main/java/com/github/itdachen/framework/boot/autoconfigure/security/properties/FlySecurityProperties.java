@@ -8,7 +8,7 @@ import java.util.List;
 
 /**
  * Description: 基于 Spring Security 配置
- * Created by 王大宸 on 2023-07-06 15:30
+ * Created by 剑鸣秋朔 on 2023-07-06 15:30
  * Created with IntelliJ IDEA.
  */
 @ConfigurationProperties(prefix = "fly.security")

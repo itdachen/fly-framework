@@ -12,7 +12,7 @@ import java.util.Map;
 
 /**
  * Description: 默认登录失败记录方式
- * Created by 王大宸 on 2023-07-09 14:22
+ * Created by 剑鸣秋朔 on 2023-07-09 14:22
  * Created with IntelliJ IDEA.
  */
 public class AuthFailureLogHandlerManagement implements IAuthFailureCredentialsLogHandler {

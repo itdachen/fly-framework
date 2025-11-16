@@ -13,7 +13,7 @@ import org.springframework.context.annotation.Configuration;
 
 /**
  * Description: 注册 ServerResponseDecoder 到 Feign 中
- * Created by 王大宸 on 2023/05/05 20:55
+ * Created by 剑鸣秋朔 on 2023/05/05 20:55
  * Created with IntelliJ IDEA.
  */
 @Configuration(proxyBeanMethods = false)

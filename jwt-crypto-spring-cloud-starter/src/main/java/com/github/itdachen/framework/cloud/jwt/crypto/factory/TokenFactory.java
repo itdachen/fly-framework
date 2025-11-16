@@ -9,7 +9,7 @@ import com.github.itdachen.framework.cloud.jwt.crypto.token.RsaCreateTokenHandle
 /**
  * 创建 token 工厂
  *
- * @author 王大宸
+ * @author 剑鸣秋朔
  * @date 2023-12-23 21:52
  */
 public class TokenFactory {

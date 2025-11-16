@@ -4,7 +4,7 @@ import jakarta.servlet.http.HttpServletRequest;
 
 /**
  * Description: 根据请求获取操作系统
- * Created by 王大宸 on 2023-07-01 13:24
+ * Created by 剑鸣秋朔 on 2023-07-01 13:24
  * Created with IntelliJ IDEA.
  */
 public class OSUtils {

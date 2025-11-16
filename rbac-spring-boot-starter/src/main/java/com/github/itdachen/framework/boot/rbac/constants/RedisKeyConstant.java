@@ -2,7 +2,7 @@ package com.github.itdachen.framework.boot.rbac.constants;
 
 /**
  * Description: sys_element
- * Created by 王大宸 on 2022-04-02 10:12
+ * Created by 剑鸣秋朔 on 2022-04-02 10:12
  * Created with IntelliJ IDEA.
  */
 public class RedisKeyConstant {

@@ -2,7 +2,7 @@ package com.github.itdachen.framework.context.exception;
 
 /**
  * Description: 客户端异常
- * Created by 王大宸 on 2022-09-23 10:08
+ * Created by 剑鸣秋朔 on 2022-09-23 10:08
  * Created with IntelliJ IDEA.
  */
 public class ClientTokenException extends Exception {

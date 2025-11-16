@@ -22,7 +22,7 @@ import java.io.IOException;
  * Description: 校验授权码
  * 测试: http://127.0.0.1:7080/fly/verify/ticket/token/authorize?code=1643160334707593216
  *
- * @author 王大宸
+ * @author 剑鸣秋朔
  * @date 2024/11/30 23:25
  */
 public class VerifyTicketAuthorizationCodeFilter extends GenericFilterBean {
@@ -58,7 +58,7 @@ public class VerifyTicketAuthorizationCodeFilter extends GenericFilterBean {
     /***
      * 过滤器逻辑处理
      *
-     * @author 王大宸
+     * @author 剑鸣秋朔
      * @date 2024/11/30 23:42
      * @param request request
      * @param response response

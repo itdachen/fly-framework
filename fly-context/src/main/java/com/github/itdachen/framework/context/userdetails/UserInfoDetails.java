@@ -11,7 +11,7 @@ import java.util.Objects;
 
 /**
  * Description: 用户信息封装
- * Created by 王大宸 on 2023/04/15 21:29
+ * Created by 剑鸣秋朔 on 2023/04/15 21:29
  * Created with IntelliJ IDEA.
  */
 public class UserInfoDetails implements Serializable {

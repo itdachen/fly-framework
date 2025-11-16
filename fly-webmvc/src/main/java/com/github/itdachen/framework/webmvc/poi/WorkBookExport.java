@@ -31,7 +31,7 @@ import java.util.concurrent.*;
 /**
  * 导出
  *
- * @author 王大宸
+ * @author 剑鸣秋朔
  * @date 2024-12-04 9:42
  */
 public class WorkBookExport extends WorkBookBase<WorkBookExport> {
@@ -236,7 +236,7 @@ public class WorkBookExport extends WorkBookBase<WorkBookExport> {
     /***
      * 设置表头
      *
-     * @author 王大宸
+     * @author 剑鸣秋朔
      * @date 2024/5/28 10:22
      * @param workbook workbook
      * @param sheet sheet
@@ -304,7 +304,7 @@ public class WorkBookExport extends WorkBookBase<WorkBookExport> {
     /***
      * 将文件保持至服务器
      *
-     * @author 王大宸
+     * @author 剑鸣秋朔
      * @date 2024/5/28 11:20
      * @param workbook workbook
      * @return void
@@ -362,7 +362,7 @@ public class WorkBookExport extends WorkBookBase<WorkBookExport> {
     /***
      * 文件网络地址处理
      *
-     * @author 王大宸
+     * @author 剑鸣秋朔
      * @date 2024/5/28 14:24
      * @param mapPath    映射路径, 例如: upload
      * @param diskUri    文件存放的磁盘详细地址, 例如: D:/upload/excel/exp/2024/05/28/xxxxx.xlsx
@@ -475,7 +475,7 @@ public class WorkBookExport extends WorkBookBase<WorkBookExport> {
     /***
      * 映射路径处理
      *
-     * @author 王大宸
+     * @author 剑鸣秋朔
      * @date 2023/2/13 9:32
      * @param path path
      * @return java.lang.String

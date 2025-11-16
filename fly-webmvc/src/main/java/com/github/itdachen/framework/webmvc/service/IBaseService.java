@@ -13,7 +13,7 @@ import java.util.Objects;
 /***
  * 通用 Service
  *
- * @author 王大宸
+ * @author 剑鸣秋朔
  * @date 2023/11/15 10:15
  */
 public interface IBaseService<T, PK> {
@@ -21,7 +21,7 @@ public interface IBaseService<T, PK> {
     /***
      * 分页查询
      *
-     * @author 王大宸
+     * @author 剑鸣秋朔
      * @date 2023/11/15 10:18
      * @param query params
      * @return com.github.itdachen.framework.core.response.TableData<T>
@@ -31,7 +31,7 @@ public interface IBaseService<T, PK> {
     /***
      * 新增
      *
-     * @author 王大宸
+     * @author 剑鸣秋朔
      * @date 2023/11/15 10:19
      * @param t t
      * @return T
@@ -41,7 +41,7 @@ public interface IBaseService<T, PK> {
     /***
      * 根据主键查询
      *
-     * @author 王大宸
+     * @author 剑鸣秋朔
      * @date 2023/11/15 10:20
      * @param id id
      * @return T
@@ -51,7 +51,7 @@ public interface IBaseService<T, PK> {
     /***
      * 编辑
      *
-     * @author 王大宸
+     * @author 剑鸣秋朔
      * @date 2023/11/15 10:20
      * @param t t
      * @return T
@@ -61,7 +61,7 @@ public interface IBaseService<T, PK> {
     /***
      * 根据主键删除
      *
-     * @author 王大宸
+     * @author 剑鸣秋朔
      * @date 2023/11/15 10:31
      * @param id id
      * @return int
@@ -71,7 +71,7 @@ public interface IBaseService<T, PK> {
     /***
      * 根据对象, 查询一条数据
      *
-     * @author 王大宸
+     * @author 剑鸣秋朔
      * @date 2023/11/15 10:34
      * @param t t
      * @return T
@@ -81,7 +81,7 @@ public interface IBaseService<T, PK> {
     /***
      * 导出
      *
-     * @author 王大宸
+     * @author 剑鸣秋朔
      * @date 2024/4/16 21:54
      * @param request request
      * @param response response
@@ -93,7 +93,7 @@ public interface IBaseService<T, PK> {
     /***
      * 导入
      *
-     * @author 王大宸
+     * @author 剑鸣秋朔
      * @date 2025/7/29 18:53
      * @param request request
      * @param response response

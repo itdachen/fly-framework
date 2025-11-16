@@ -9,7 +9,7 @@ import java.util.UUID;
 
 /**
  * Description: ID 生成工具, 对外调用
- * Created by 王大宸 on 2023/01/05 9:33
+ * Created by 剑鸣秋朔 on 2023/01/05 9:33
  * Created with IntelliJ IDEA.
  */
 public class IdUtils {
@@ -20,7 +20,7 @@ public class IdUtils {
     /***
      * 获取随机长度的串
      *
-     * @author 王大宸
+     * @author 剑鸣秋朔
      * @date 2025/6/10 16:42
      * @param length length
      * @return java.lang.String
@@ -46,7 +46,7 @@ public class IdUtils {
     /***
      * 获取 GUID
      *
-     * @author 王大宸
+     * @author 剑鸣秋朔
      * @date 2023/12/26 22:40
      * @return java.lang.String
      */
@@ -63,7 +63,7 @@ public class IdUtils {
     /***
      * 获取 GUID
      *
-     * @author 王大宸
+     * @author 剑鸣秋朔
      * @date 2023/12/26 22:43
      * @param secure secure
      * @return java.lang.String

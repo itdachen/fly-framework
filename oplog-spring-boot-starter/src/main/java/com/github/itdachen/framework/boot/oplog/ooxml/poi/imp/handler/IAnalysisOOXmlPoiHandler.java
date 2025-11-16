@@ -8,7 +8,7 @@ import org.apache.poi.ss.usermodel.Workbook;
 /**
  * 解析表格
  *
- * @author 王大宸
+ * @author 剑鸣秋朔
  * @date 2025/7/25 22:05
  */
 public interface IAnalysisOOXmlPoiHandler<T> {
@@ -16,7 +16,7 @@ public interface IAnalysisOOXmlPoiHandler<T> {
     /***
      * 解析表格
      *
-     * @author 王大宸
+     * @author 剑鸣秋朔
      * @date 2025/7/29 16:42
      * @param workbook 表格数据
      * @param settings 设置参数

@@ -5,7 +5,7 @@ import java.lang.annotation.*;
 /**
  * 功能名称注解
  *
- * @author 王大宸
+ * @author 剑鸣秋朔
  * @date 2024/4/19 21:28
  */
 @Documented //会被javadoc命令识别

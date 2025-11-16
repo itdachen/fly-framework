@@ -18,7 +18,7 @@ import java.util.concurrent.*;
 /**
  * 解析数据, 默认实现
  *
- * @author 王大宸
+ * @author 剑鸣秋朔
  * @date 2025/7/25 22:23
  */
 public class DefaultAnalysisOOXmlPoiHandler<T> implements IAnalysisOOXmlPoiHandler<T> {
@@ -38,7 +38,7 @@ public class DefaultAnalysisOOXmlPoiHandler<T> implements IAnalysisOOXmlPoiHandl
     /***
      * 文件解析
      *
-     * @author 王大宸
+     * @author 剑鸣秋朔
      * @date 2025/7/25 23:18
      * @param settings     settings
      * @param readWorkBook readWorkBook

@@ -29,7 +29,7 @@ import java.util.Properties;
  * #      connection-timeout: 4000
  * #      max-lifetime: 60000
  *
- * @author 王大宸
+ * @author 剑鸣秋朔
  * @date 2025/11/1 22:50
  */
 public class ShardingSphereNacosDriverURLProvider implements ShardingSphereDriverURLProvider {

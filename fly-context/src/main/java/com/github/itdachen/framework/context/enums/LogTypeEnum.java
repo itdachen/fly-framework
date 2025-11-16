@@ -3,7 +3,7 @@ package com.github.itdachen.framework.context.enums;
 /**
  * 操作日志类型
  *
- * @author 王大宸
+ * @author 剑鸣秋朔
  * @date 2025/9/8 21:43
  */
 public enum LogTypeEnum {

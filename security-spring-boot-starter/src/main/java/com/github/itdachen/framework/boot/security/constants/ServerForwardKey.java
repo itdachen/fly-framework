@@ -2,7 +2,7 @@ package com.github.itdachen.framework.boot.security.constants;
 
 /**
  * Description:
- * Created by 王大宸 on 2023/04/04 16:10
+ * Created by 剑鸣秋朔 on 2023/04/04 16:10
  * Created with IntelliJ IDEA.
  */
 public class ServerForwardKey {

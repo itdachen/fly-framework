@@ -10,7 +10,7 @@ import org.slf4j.LoggerFactory;
 
 /**
  * Description: 获取用户信息
- * Created by 王大宸 on 2023/03/18 23:50
+ * Created by 剑鸣秋朔 on 2023/03/18 23:50
  * Created with IntelliJ IDEA.
  */
 public class AppletCode2SessionApi extends WeChatBizHttp {
@@ -21,7 +21,7 @@ public class AppletCode2SessionApi extends WeChatBizHttp {
     /***
      * 小程序登录
      *
-     * @author 王大宸
+     * @author 剑鸣秋朔
      * @date 2023/3/19 0:34
      * @param appId     小程序 appId
      * @param appSecret 小程序秘钥
@@ -51,7 +51,7 @@ public class AppletCode2SessionApi extends WeChatBizHttp {
     /***
      * 获取用户 openId
      *
-     * @author 王大宸
+     * @author 剑鸣秋朔
      * @date 2023/3/19 0:43
      * @param appId     小程序 appId
      * @param appSecret 小程序秘钥
@@ -66,7 +66,7 @@ public class AppletCode2SessionApi extends WeChatBizHttp {
     /***
      * 错误码
      *
-     * @author 王大宸
+     * @author 剑鸣秋朔
      * @date 2023/3/19 0:33
      * @param codeValue codeValue
      * @return java.lang.String

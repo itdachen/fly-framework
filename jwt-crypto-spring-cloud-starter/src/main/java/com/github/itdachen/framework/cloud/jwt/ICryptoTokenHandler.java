@@ -5,7 +5,7 @@ import com.github.itdachen.framework.context.jwt.IJwtInfo;
 /**
  * 创建 token
  *
- * @author 王大宸
+ * @author 剑鸣秋朔
  * @date 2023-12-23 21:45
  */
 public interface ICryptoTokenHandler {
@@ -14,7 +14,7 @@ public interface ICryptoTokenHandler {
     /***
      * 创建 token
      *
-     * @author 王大宸
+     * @author 剑鸣秋朔
      * @date 2023/12/23 21:48
      * @param jwtInfo    用户信息
      * @return java.lang.String

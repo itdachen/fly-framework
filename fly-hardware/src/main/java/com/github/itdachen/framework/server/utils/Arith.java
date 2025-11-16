@@ -5,7 +5,7 @@ import java.math.RoundingMode;
 
 /**
  * Description:
- * Created by 王大宸 on 2023/02/13 0:06
+ * Created by 剑鸣秋朔 on 2023/02/13 0:06
  * Created with IntelliJ IDEA.
  */
 public class Arith {

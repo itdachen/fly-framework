@@ -3,7 +3,7 @@ package com.github.itdachen.framework.context.exception;
 /**
  * 接口签名异常
  *
- * @author 王大宸
+ * @author 剑鸣秋朔
  * @date 2024-11-04 10:24
  */
 public class ApiSignException extends Exception {

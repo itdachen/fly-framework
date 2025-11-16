@@ -7,7 +7,7 @@ import java.lang.annotation.Target;
 
 /**
  * Description: API 作废注解
- * Created by 王大宸 on 2023-07-26 21:59
+ * Created by 剑鸣秋朔 on 2023-07-26 21:59
  * Created with IntelliJ IDEA.
  */
 @Retention(RetentionPolicy.RUNTIME)

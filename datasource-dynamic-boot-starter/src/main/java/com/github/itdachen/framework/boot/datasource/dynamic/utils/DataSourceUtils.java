@@ -18,7 +18,7 @@ import java.util.List;
 /**
  * DataSourceUtils
  *
- * @author 王大宸
+ * @author 剑鸣秋朔
  * @date 2023-12-30 19:39
  */
 public class DataSourceUtils {
@@ -49,7 +49,7 @@ public class DataSourceUtils {
     /***
      * 数据库连接解密
      *
-     * @author 王大宸
+     * @author 剑鸣秋朔
      * @date 2023/9/11 15:50
      * @param dataSourceInfo dataSourceInfo
      * @return cn.edu.hubu.framework.autoconfigure.datasource.DataSourceInfo
@@ -75,7 +75,7 @@ public class DataSourceUtils {
     /***
      * 获取加密配置文件
      *
-     * @author 王大宸
+     * @author 剑鸣秋朔
      * @date 2023/9/11 16:08
      * @param environment environment
      * @return cn.edu.hubu.framework.autoconfigure.datasource.DataSourceCryptoProperties

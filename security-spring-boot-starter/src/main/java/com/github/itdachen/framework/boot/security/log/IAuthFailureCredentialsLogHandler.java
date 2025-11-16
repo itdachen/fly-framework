@@ -6,7 +6,7 @@ import org.springframework.security.core.AuthenticationException;
 
 /**
  * Description: 登录失败日志
- * Created by 王大宸 on 2023-07-09 14:20
+ * Created by 剑鸣秋朔 on 2023-07-09 14:20
  * Created with IntelliJ IDEA.
  */
 public interface IAuthFailureCredentialsLogHandler {
@@ -14,7 +14,7 @@ public interface IAuthFailureCredentialsLogHandler {
     /***
      * handler
      *
-     * @author 王大宸
+     * @author 剑鸣秋朔
      * @date 2023/7/9 14:29
      * @param request request      请求
      * @param response response    返回

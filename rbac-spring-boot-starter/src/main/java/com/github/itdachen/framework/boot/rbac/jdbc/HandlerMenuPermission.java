@@ -7,7 +7,7 @@ import java.util.List;
 
 /**
  * Description: 菜单权限处理
- * Created by 王大宸 on 2022-12-13 15:16
+ * Created by 剑鸣秋朔 on 2022-12-13 15:16
  * Created with IntelliJ IDEA.
  */
 public class HandlerMenuPermission {

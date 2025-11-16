@@ -37,7 +37,7 @@ public class ExcelUtil {
     /***
      *获取 Excel 文件类容
      *
-     * @author 王大宸
+     * @author 剑鸣秋朔
      * @date 2022/10/17 9:23
      * @param filePath 文件路径
      * @return java.util.List<java.util.Map < java.lang.String, java.lang.Object>>
@@ -70,7 +70,7 @@ public class ExcelUtil {
     /***
      * 写入文件内容
      *
-     * @author 王大宸
+     * @author 剑鸣秋朔
      * @date 2022/10/17 9:23
      * @param outPath outPath
      * @return boolean
@@ -111,7 +111,7 @@ public class ExcelUtil {
     /***
      * 导出通用方法
      *
-     * @author 王大宸
+     * @author 剑鸣秋朔
      * @date 2022/10/17 9:23
      * @param fields        表头字段名称
      * @param exportDate    导出数据
@@ -249,7 +249,7 @@ public class ExcelUtil {
     /***
      * 获取 excel 中的数据
      *
-     * @author 王大宸
+     * @author 剑鸣秋朔
      * @date 2022/10/17 9:23
      * @param in in
      * @param fileName fileName

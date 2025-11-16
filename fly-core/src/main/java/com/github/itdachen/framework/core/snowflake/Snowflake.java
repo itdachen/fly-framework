@@ -2,7 +2,7 @@ package com.github.itdachen.framework.core.snowflake;
 
 /**
  * Description: 雪花算法生成分布式全局唯一id(有序)
- * Created by 王大宸 on 2023/01/05 9:31
+ * Created by 剑鸣秋朔 on 2023/01/05 9:31
  * Created with IntelliJ IDEA.
  */
 public class Snowflake {

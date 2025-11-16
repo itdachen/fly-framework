@@ -6,7 +6,7 @@ import java.util.List;
 
 /**
  * Description: 从数据库获取权限抽象类 METHOD_GET
- * Created by 王大宸 on 2022-12-13 14:51
+ * Created by 剑鸣秋朔 on 2022-12-13 14:51
  * Created with IntelliJ IDEA.
  */
 public abstract class AbstractPermissionJdbcService implements IPermissionJdbcService {
@@ -14,7 +14,7 @@ public abstract class AbstractPermissionJdbcService implements IPermissionJdbcSe
     /***
      * 查询所有权限接口
      *
-     * @author 王大宸
+     * @author 剑鸣秋朔
      * @date 2022/12/13 15:09
      * @return java.util.List<com.github.itdachen.framework.context.permission.PermissionInfo>
      */
@@ -28,7 +28,7 @@ public abstract class AbstractPermissionJdbcService implements IPermissionJdbcSe
     /***
      * 菜单查询接口
      *
-     * @author 王大宸
+     * @author 剑鸣秋朔
      * @date 2022/12/13 15:07
      * @return java.util.List<com.github.itdachen.framework.context.permission.PermissionInfo>
      */
@@ -37,7 +37,7 @@ public abstract class AbstractPermissionJdbcService implements IPermissionJdbcSe
     /***
      * 查询所有的按钮权限接口
      *
-     * @author 王大宸
+     * @author 剑鸣秋朔
      * @date 2022/12/13 15:08
      * @return java.util.List<com.github.itdachen.framework.context.permission.PermissionInfo>
      */

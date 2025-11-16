@@ -6,7 +6,7 @@ import java.util.List;
 /**
  * DictLabel
  *
- * @author 王大宸
+ * @author 剑鸣秋朔
  * @date 2024-10-15 9:16
  */
 public class LabelNode implements Serializable {

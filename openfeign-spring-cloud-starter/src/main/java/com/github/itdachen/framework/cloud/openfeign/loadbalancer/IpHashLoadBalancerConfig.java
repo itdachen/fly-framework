@@ -9,7 +9,7 @@ import org.springframework.core.env.Environment;
 
 /**
  * Description: IP 负载均衡策略配置类
- * Created by 王大宸 on 2023/05/05 21:04
+ * Created by 剑鸣秋朔 on 2023/05/05 21:04
  * Created with IntelliJ IDEA.
  */
 public class IpHashLoadBalancerConfig {

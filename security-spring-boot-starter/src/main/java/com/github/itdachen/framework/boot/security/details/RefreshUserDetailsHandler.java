@@ -18,7 +18,7 @@ import java.util.Set;
 /**
  * 刷新用户信息
  *
- * @author 王大宸
+ * @author 剑鸣秋朔
  * @date 2023-12-17 14:17
  */
 public class RefreshUserDetailsHandler implements IRefreshUserDetails {
@@ -32,7 +32,7 @@ public class RefreshUserDetailsHandler implements IRefreshUserDetails {
     /***
      * 刷新用户信息
      *
-     * @author 王大宸
+     * @author 剑鸣秋朔
      * @date 2023/12/17 14:37
      * @param request request
      * @param response response
@@ -49,7 +49,7 @@ public class RefreshUserDetailsHandler implements IRefreshUserDetails {
     /***
      * 刷新用户信息
      *
-     * @author 王大宸
+     * @author 剑鸣秋朔
      * @date 2023/12/17 14:41
      * @param request request
      * @param response response
@@ -68,7 +68,7 @@ public class RefreshUserDetailsHandler implements IRefreshUserDetails {
     /***
      * 刷新权限信息
      *
-     * @author 王大宸
+     * @author 剑鸣秋朔
      * @date 2023/12/17 14:37
      * @param request request
      * @param response response
@@ -98,7 +98,7 @@ public class RefreshUserDetailsHandler implements IRefreshUserDetails {
     /***
      * 更新用户信息
      *
-     * @author 王大宸
+     * @author 剑鸣秋朔
      * @date 2023/12/17 15:01
      * @param request request
      * @param response response

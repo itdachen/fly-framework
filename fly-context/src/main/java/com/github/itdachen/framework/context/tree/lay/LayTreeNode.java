@@ -7,7 +7,7 @@ import java.util.List;
 /**
  * Lay-vue 树结构
  *
- * @author 王大宸
+ * @author 剑鸣秋朔
  * @date 2024-12-24 10:21
  */
 public class LayTreeNode implements Serializable {

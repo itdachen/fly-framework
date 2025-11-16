@@ -2,7 +2,7 @@ package com.github.itdachen.framework.tools.useragent;
 
 /**
  * Description: 设备信息对象
- * Created by 王大宸 on 2023-08-17 21:55
+ * Created by 剑鸣秋朔 on 2023-08-17 21:55
  * Created with IntelliJ IDEA.
  */
 public class DeviceInfo {

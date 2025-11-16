@@ -14,7 +14,7 @@ import java.io.IOException;
  * 默认图形验证码处理生成
  * 模仿: org.springframework.security.web.authentication.ui.DefaultLoginPageGeneratingFilter
  *
- * @author 王大宸
+ * @author 剑鸣秋朔
  * @date 2024-11-28 15:32
  */
 public class DefaultImageAbstractValidateCodeGeneratingFilter extends AbstractValidateCodeGeneratingFilter {

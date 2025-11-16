@@ -2,7 +2,7 @@ package com.github.itdachen.framework.boot.rbac.constants;
 
 /**
  * Description: 资源类型
- * Created by 王大宸 on 2022-12-13 14:56
+ * Created by 剑鸣秋朔 on 2022-12-13 14:56
  * Created with IntelliJ IDEA.
  */
 public class ElementTypeConstant {

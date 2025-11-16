@@ -6,7 +6,7 @@ import java.util.List;
 
 /**
  * Description: 微服务客户端认证信息配置
- * Created by 王大宸 on 2023-07-15 0:57
+ * Created by 剑鸣秋朔 on 2023-07-15 0:57
  * Created with IntelliJ IDEA.
  */
 @ConfigurationProperties(prefix = "fly.cloud.auth.app")

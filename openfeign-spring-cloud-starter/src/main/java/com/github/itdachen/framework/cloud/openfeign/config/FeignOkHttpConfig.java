@@ -12,7 +12,7 @@ import java.util.concurrent.TimeUnit;
 
 /**
  * Description: okhttp 配置 Feign
- * Created by 王大宸 on 2023/05/05 20:49
+ * Created by 剑鸣秋朔 on 2023/05/05 20:49
  * Created with IntelliJ IDEA.
  */
 @Configuration

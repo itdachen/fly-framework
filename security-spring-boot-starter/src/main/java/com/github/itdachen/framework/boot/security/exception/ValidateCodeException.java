@@ -4,7 +4,7 @@ import org.springframework.security.core.AuthenticationException;
 
 /**
  * Description: 验证码异常
- * Created by 王大宸 on 2022-09-23 14:25
+ * Created by 剑鸣秋朔 on 2022-09-23 14:25
  * Created with IntelliJ IDEA.
  */
 public class ValidateCodeException extends AuthenticationException {

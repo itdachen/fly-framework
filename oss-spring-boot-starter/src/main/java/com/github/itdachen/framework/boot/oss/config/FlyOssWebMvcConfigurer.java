@@ -11,7 +11,7 @@ import org.springframework.web.servlet.config.annotation.WebMvcConfigurer;
 
 /**
  * Description: 文件映射
- * Created by 王大宸 on 2023/02/10 16:55
+ * Created by 剑鸣秋朔 on 2023/02/10 16:55
  * Created with IntelliJ IDEA.
  */
 @Configuration
@@ -30,7 +30,7 @@ public class FlyOssWebMvcConfigurer implements WebMvcConfigurer {
     /***
      * 本地文件上传映射
      *
-     * @author 王大宸
+     * @author 剑鸣秋朔
      * @date 2023/8/19 21:51
      * @param registry registry
      * @return void

@@ -13,7 +13,7 @@ import org.springframework.security.web.util.matcher.AntPathRequestMatcher;
 /**
  * 内部开发平台跳转 认证过滤器
  *
- * @author 王大宸
+ * @author 剑鸣秋朔
  * @date 2023-11-13 16:02
  */
 public class PlatformAuthenticationFilter extends AbstractAuthenticationProcessingFilter {

@@ -4,7 +4,7 @@ import jakarta.servlet.http.HttpServletRequest;
 
 /**
  * Description: 根据请求获取浏览器名称和版本号
- * Created by 王大宸 on 2023-07-01 13:27
+ * Created by 剑鸣秋朔 on 2023-07-01 13:27
  * Created with IntelliJ IDEA.
  */
 public class BrowserUtils {

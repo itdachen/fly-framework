@@ -4,7 +4,7 @@ import org.springframework.boot.context.properties.ConfigurationProperties;
 
 /**
  * Description: 单体项目 jwt token 配置
- * Created by 王大宸 on 2023-07-22 13:31
+ * Created by 剑鸣秋朔 on 2023-07-22 13:31
  * Created with IntelliJ IDEA.
  */
 @ConfigurationProperties(prefix = "fly.auth.jwt")

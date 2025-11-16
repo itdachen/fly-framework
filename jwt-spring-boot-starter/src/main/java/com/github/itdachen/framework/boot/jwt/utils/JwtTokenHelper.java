@@ -11,7 +11,7 @@ import java.util.Map;
 
 /**
  * Description: 私钥加密 token,公钥解析 token
- * Created by 王大宸 on 2023-07-22 13:25
+ * Created by 剑鸣秋朔 on 2023-07-22 13:25
  * Created with IntelliJ IDEA.
  */
 public class JwtTokenHelper {
@@ -19,7 +19,7 @@ public class JwtTokenHelper {
     /***
      * 密钥加密token
      *
-     * @author 王大宸
+     * @author 剑鸣秋朔
      * @date 2022/6/29 11:01
      * @param jwtInfo jwtInfo
      * @param priKey priKey
@@ -54,7 +54,7 @@ public class JwtTokenHelper {
     /***
      * 获取token中的用户信息
      *
-     * @author 王大宸
+     * @author 剑鸣秋朔
      * @date 2023/7/22 13:44
      * @param token token
      * @param pubKey pubKey

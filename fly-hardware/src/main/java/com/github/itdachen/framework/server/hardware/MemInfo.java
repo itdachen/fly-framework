@@ -7,7 +7,7 @@ import java.io.Serializable;
 /**
  * 内存信息
  *
- * @author 王大宸
+ * @author 剑鸣秋朔
  * @date 2023/02/07 11:05
  */
 public class MemInfo implements Serializable {

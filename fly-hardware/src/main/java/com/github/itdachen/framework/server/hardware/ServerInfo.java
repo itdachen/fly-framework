@@ -19,7 +19,7 @@ import java.util.Properties;
 
 /**
  * Description: 服务器监控信息
- * Created by 王大宸 on 2023/02/13 0:04
+ * Created by 剑鸣秋朔 on 2023/02/13 0:04
  * Created with IntelliJ IDEA.
  */
 public class ServerInfo implements Serializable {

@@ -14,7 +14,7 @@ import org.springframework.context.annotation.Configuration;
 /**
  * DataSourceDecryptAutoConfiguration
  *
- * @author 王大宸
+ * @author 剑鸣秋朔
  * @date 2023-12-27 20:54
  */
 @Configuration
@@ -29,7 +29,7 @@ public class DataSourceDecryptAutoConfiguration {
     /***
      * 解密工厂
      *
-     * @author 王大宸
+     * @author 剑鸣秋朔
      * @date 2023/12/27 20:56
      * @return com.github.itdachen.boot.datasource.crypto.factory.DataSourceDecryptFactory
      */
@@ -41,7 +41,7 @@ public class DataSourceDecryptAutoConfiguration {
     /***
      * 加密工厂
      *
-     * @author 王大宸
+     * @author 剑鸣秋朔
      * @date 2023/12/27 21:03
      * @return com.github.itdachen.boot.datasource.crypto.factory.DataSourceEncryptFactory
      */
@@ -53,7 +53,7 @@ public class DataSourceDecryptAutoConfiguration {
     /***
     * 默认解密方式
     *
-    * @author 王大宸
+    * @author 剑鸣秋朔
     * @date 2023/12/27 21:05
     * @return com.github.itdachen.boot.datasource.crypto.IDataSourceDecrypt
     */
@@ -66,7 +66,7 @@ public class DataSourceDecryptAutoConfiguration {
     /***
     * 默认加密方策略
     *
-    * @author 王大宸
+    * @author 剑鸣秋朔
     * @date 2023/12/27 21:05
     * @return com.github.itdachen.boot.datasource.crypto.IDataSourceEncrypt
     */

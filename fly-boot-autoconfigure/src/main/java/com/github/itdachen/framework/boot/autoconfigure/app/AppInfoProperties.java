@@ -6,7 +6,7 @@ import org.springframework.boot.context.properties.ConfigurationProperties;
 
 /**
  * Description: 应用配置
- * Created by 王大宸 on 2024-04-03 22:10
+ * Created by 剑鸣秋朔 on 2024-04-03 22:10
  * Created with IntelliJ IDEA.
  */
 @ConfigurationProperties(prefix = "fly.app")

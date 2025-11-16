@@ -22,7 +22,7 @@ import java.time.LocalDateTime;
 /**
  * 认证处理器
  *
- * @author 王大宸
+ * @author 剑鸣秋朔
  * @date 2023-11-13 16:05
  */
 public class PlatformAuthenticationProvider implements AuthenticationProvider {

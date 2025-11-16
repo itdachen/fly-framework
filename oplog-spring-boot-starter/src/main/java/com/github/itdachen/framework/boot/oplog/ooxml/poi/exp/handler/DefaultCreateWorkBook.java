@@ -21,7 +21,7 @@ import java.util.List;
 /**
  * 创建表格默认实现方式
  *
- * @author 王大宸
+ * @author 剑鸣秋朔
  * @date 2025/7/11 23:44
  */
 public class DefaultCreateWorkBook<T, Q> implements ICreateWorkBook<T, Q> {
@@ -31,7 +31,7 @@ public class DefaultCreateWorkBook<T, Q> implements ICreateWorkBook<T, Q> {
     /***
      * 创建表格
      *
-     * @author 王大宸
+     * @author 剑鸣秋朔
      * @date 2025/7/22 15:18
      * @param settings settings
      * @param handler handler
@@ -121,7 +121,7 @@ public class DefaultCreateWorkBook<T, Q> implements ICreateWorkBook<T, Q> {
     /***
      * 文件上传至服务器
      *
-     * @author 王大宸
+     * @author 剑鸣秋朔
      * @date 2025/7/28 9:35
      * @param msgId msgId
      * @param fileTitle fileTitle

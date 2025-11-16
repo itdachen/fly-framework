@@ -11,7 +11,7 @@ import java.security.MessageDigest;
 /***
  * 自定义加密配置
  *
- * @author 王大宸
+ * @author 剑鸣秋朔
  * @date 2022/10/16 13:54
  */
 public class Sha256PasswordEncoder implements PasswordEncoder {
@@ -20,7 +20,7 @@ public class Sha256PasswordEncoder implements PasswordEncoder {
     /***
      * 加密
      *
-     * @author 王大宸
+     * @author 剑鸣秋朔
      * @date 2024/5/4 21:38
      * @param charSequence charSequence
      * @return java.lang.String
@@ -40,7 +40,7 @@ public class Sha256PasswordEncoder implements PasswordEncoder {
     /***
      * 密码校验
      *
-     * @author 王大宸
+     * @author 剑鸣秋朔
      * @date 2024/5/4 21:29
      * @param charSequence charSequence
      * @param s s

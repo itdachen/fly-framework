@@ -3,7 +3,7 @@ package com.github.itdachen.framework.boot.oplog.ooxml.poi.constants;
 /**
  * 日志名称后缀
  *
- * @author 王大宸
+ * @author 剑鸣秋朔
  * @date 2025-07-29 18:42
  */
 public class OOXmlPoiConstants {

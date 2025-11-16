@@ -4,7 +4,7 @@ import java.io.Serializable;
 
 /**
  * Description: 微信小程序发起支付返回给小程序的信息
- * Created by 王大宸 on 2023/04/11 21:49
+ * Created by 剑鸣秋朔 on 2023/04/11 21:49
  * Created with IntelliJ IDEA.
  */
 public class AppletPayResponse  implements Serializable {

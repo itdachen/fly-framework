@@ -7,7 +7,7 @@ package com.github.itdachen.framework.core.enums;
  * * 3xx: 重定向--要完成请求必须进行更进一步的操作。
  * * 4xx: 客户端错误--请求有语法错误或请求无法实现。
  * * 5xx: 服务器端错误--服务器未能实现合法的请求
- * Created by 王大宸 on 2023/02/12 22:08
+ * Created by 剑鸣秋朔 on 2023/02/12 22:08
  * Created with IntelliJ IDEA.
  */
 public enum ReturnCode {

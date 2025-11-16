@@ -8,7 +8,7 @@ import java.net.UnknownHostException;
 
 /**
  * Description: 获取 IP 地址
- * Created by 王大宸 on 2023/01/05 16:44
+ * Created by 剑鸣秋朔 on 2023/01/05 16:44
  * Created with IntelliJ IDEA.
  */
 public class IpAddressUtils {
@@ -16,7 +16,7 @@ public class IpAddressUtils {
     /***
      * 获取公网IP
      *
-     * @author 王大宸
+     * @author 剑鸣秋朔
      * @date 2023/3/30 16:23
      * @param request request
      * @return java.lang.String
@@ -42,7 +42,7 @@ public class IpAddressUtils {
     /***
      * 获取IP
      *
-     * @author 王大宸
+     * @author 剑鸣秋朔
      * @date 2023/3/30 16:16
      * @param request request
      * @return java.lang.String

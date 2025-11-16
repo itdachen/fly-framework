@@ -4,7 +4,7 @@ import org.apache.commons.lang3.StringUtils;
 
 /**
  * Description: 数据脱敏
- * Created by 王大宸 on 2023-07-04 17:02
+ * Created by 剑鸣秋朔 on 2023-07-04 17:02
  * Created with IntelliJ IDEA.
  */
 public class MaskUtils {
@@ -126,7 +126,7 @@ public class MaskUtils {
     /***
      * 对字符串进行脱敏处理
      *
-     * @author 王大宸
+     * @author 剑鸣秋朔
      * @date 2023/7/4 17:12
      * @param word        被脱敏的字符
      * @param startLength 被保留的开始长度 前余n位
@@ -150,7 +150,7 @@ public class MaskUtils {
     /***
      * 通用脱敏方法
      *
-     * @author 王大宸
+     * @author 剑鸣秋朔
      * @date 2023/7/4 17:07
      * @param value value
      * @return java.lang.String

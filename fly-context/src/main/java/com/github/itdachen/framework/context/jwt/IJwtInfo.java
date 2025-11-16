@@ -5,7 +5,7 @@ import java.util.Map;
 
 /**
  * Description: 用户信息
- * Created by 王大宸 on 2023/04/30 14:48
+ * Created by 剑鸣秋朔 on 2023/04/30 14:48
  * Created with IntelliJ IDEA.
  */
 public interface IJwtInfo {

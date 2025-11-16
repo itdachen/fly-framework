@@ -2,7 +2,7 @@ package com.github.itdachen.framework.context.constants;
 
 /**
  * Description: 资源常量
- * Created by 王大宸 on 2023/02/12 21:59
+ * Created by 剑鸣秋朔 on 2023/02/12 21:59
  * Created with IntelliJ IDEA.
  */
 public class MenuElementConstant {

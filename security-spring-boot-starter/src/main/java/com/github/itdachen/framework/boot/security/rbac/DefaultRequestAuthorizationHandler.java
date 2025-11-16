@@ -8,7 +8,7 @@ import java.util.List;
 /***
  * 默认加载系统权限
  *
- * @author 王大宸
+ * @author 剑鸣秋朔
  * @date 2023/11/27 20:31
  */
 public class DefaultRequestAuthorizationHandler implements IRequestAuthorizationHandler {

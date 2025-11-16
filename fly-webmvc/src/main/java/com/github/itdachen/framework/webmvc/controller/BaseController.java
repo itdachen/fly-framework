@@ -20,7 +20,7 @@ import java.util.Map;
 /***
  * 通用 Controller
  *
- * @author 王大宸
+ * @author 剑鸣秋朔
  * @date 2023/11/15 10:16
  */
 public class BaseController<BizService extends IBaseService<T, PK>, T, PK> {
@@ -37,7 +37,7 @@ public class BaseController<BizService extends IBaseService<T, PK>, T, PK> {
     /***
      * 分页查询
      *
-     * @author 王大宸
+     * @author 剑鸣秋朔
      * @date 2023/11/15 10:26
      * @param params 分页查询参数
      * @return com.github.itdachen.framework.core.response.ServerResponse<com.github.itdachen.framework.core.response.TableData < V>>
@@ -52,7 +52,7 @@ public class BaseController<BizService extends IBaseService<T, PK>, T, PK> {
     /***
      * 新增
      *
-     * @author 王大宸
+     * @author 剑鸣秋朔
      * @date 2023/11/15 10:26
      * @param t 需要新增的数据
      * @return com.github.itdachen.framework.core.response.ServerResponse<T>
@@ -67,7 +67,7 @@ public class BaseController<BizService extends IBaseService<T, PK>, T, PK> {
     /***
      * 更新
      *
-     * @author 王大宸
+     * @author 剑鸣秋朔
      * @date 2023/11/15 10:26
      * @param t 需要更新的数据
      * @return com.github.itdachen.framework.core.response.ServerResponse<T>
@@ -82,7 +82,7 @@ public class BaseController<BizService extends IBaseService<T, PK>, T, PK> {
     /***
      * 根据id查询
      *
-     * @author 王大宸
+     * @author 剑鸣秋朔
      * @date 2023/11/15 10:26
      * @param id 需要查询数据的id
      * @return com.github.itdachen.framework.core.response.ServerResponse<T>
@@ -97,7 +97,7 @@ public class BaseController<BizService extends IBaseService<T, PK>, T, PK> {
     /***
      * 删除数据
      *
-     * @author 王大宸
+     * @author 剑鸣秋朔
      * @date 2023/11/15 10:27
      * @param id 需要删除数据的id
      * @return com.github.itdachen.framework.core.response.ServerResponse<java.lang.Integer>
@@ -112,7 +112,7 @@ public class BaseController<BizService extends IBaseService<T, PK>, T, PK> {
     /***
      * 导出
      *
-     * @author 王大宸
+     * @author 剑鸣秋朔
      * @date 2024/4/16 21:52
      * @param request request
      * @param response response
@@ -128,7 +128,7 @@ public class BaseController<BizService extends IBaseService<T, PK>, T, PK> {
     /***
      * 导入
      *
-     * @author 王大宸
+     * @author 剑鸣秋朔
      * @date 2025/7/29 18:51
      * @param request request
      * @param response response

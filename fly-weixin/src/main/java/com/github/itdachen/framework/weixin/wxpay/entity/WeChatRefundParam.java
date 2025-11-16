@@ -6,7 +6,7 @@ import java.util.List;
 /**
  * Description: 退款申请
  * 微信支付订单号，微信支付订单号和商家订单号二选一，这个是必不可少的，原订单金额也是必填的，微信会做二次验证。
- * Created by 王大宸 on 2023/04/11 22:31
+ * Created by 剑鸣秋朔 on 2023/04/11 22:31
  * Created with IntelliJ IDEA.
  */
 public class WeChatRefundParam {

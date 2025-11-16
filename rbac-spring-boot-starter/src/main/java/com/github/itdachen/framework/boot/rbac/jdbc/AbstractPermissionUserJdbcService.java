@@ -6,7 +6,7 @@ import java.util.List;
 
 /**
  * Description:
- * Created by 王大宸 on 2022-12-13 15:14
+ * Created by 剑鸣秋朔 on 2022-12-13 15:14
  * Created with IntelliJ IDEA.
  */
 public abstract class AbstractPermissionUserJdbcService implements IPermissionUserJdbcService {
@@ -14,7 +14,7 @@ public abstract class AbstractPermissionUserJdbcService implements IPermissionUs
     /***
      * 获取个人岗位权限
      *
-     * @author 王大宸
+     * @author 剑鸣秋朔
      * @date 2022/12/13 14:12
      * @param userId 当前登录用户ID
      * @param jobId  当前岗位ID
@@ -32,7 +32,7 @@ public abstract class AbstractPermissionUserJdbcService implements IPermissionUs
     /***
      * 获取当前用户所有菜单
      *
-     * @author 王大宸
+     * @author 剑鸣秋朔
      * @date 2022/12/13 14:13
      * @param userId 当前登录用户ID
      * @return java.util.List<com.github.itdachen.framework.context.permission.PermissionInfo>
@@ -48,7 +48,7 @@ public abstract class AbstractPermissionUserJdbcService implements IPermissionUs
     /***
      * 根据ip和岗位查询角色拥有菜单权限
      *
-     * @author 王大宸
+     * @author 剑鸣秋朔
      * @date 2022/12/13 15:30
      * @param userId 当前用户id
      * @param hostIp 当前登录系统ip
@@ -62,7 +62,7 @@ public abstract class AbstractPermissionUserJdbcService implements IPermissionUs
     /***
      * 根据ip和岗位查询角色拥有按钮权限
      *
-     * @author 王大宸
+     * @author 剑鸣秋朔
      * @date 2022/12/13 15:31
      * @param userId 当前用户id
      * @param hostIp 当前登录系统ip
@@ -76,7 +76,7 @@ public abstract class AbstractPermissionUserJdbcService implements IPermissionUs
     /***
      * 根据ip查询角色拥有菜单权限
      *
-     * @author 王大宸
+     * @author 剑鸣秋朔
      * @date 2022/12/13 15:29
      * @param userId 用户id
      * @param hostIp 当前系统 ip
@@ -88,7 +88,7 @@ public abstract class AbstractPermissionUserJdbcService implements IPermissionUs
     /***
      * 根据ip查询用户按钮权限
      *
-     * @author 王大宸
+     * @author 剑鸣秋朔
      * @date 2022/12/13 15:30
      * @param userId 用户id
      * @param hostIp 当前系统 ip

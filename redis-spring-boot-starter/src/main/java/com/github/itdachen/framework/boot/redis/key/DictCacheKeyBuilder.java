@@ -8,7 +8,7 @@ import org.springframework.context.annotation.Configuration;
 /**
  * 数据字典缓存 key
  *
- * @author 王大宸
+ * @author 剑鸣秋朔
  * @date 2025/10/22 20:35
  */
 @Configuration

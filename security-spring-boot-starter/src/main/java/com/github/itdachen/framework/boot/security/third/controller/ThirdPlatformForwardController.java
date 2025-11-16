@@ -23,7 +23,7 @@ import java.util.Map;
  *  如果有第三方应用信息, 可用填写平台信息, 以英文冒号隔开, 例如: /platform/forward/verify/ticket?uri=TEST_P:/authentication/third/platform
  *  如果没有第三方应用信息, 可直接填写 http 请求地址, 例如: /platform/forward/verify/ticket?uri=https://127.0.0.1:8080/authentication/third/platform
  *  推荐使用第一种
- * @author 王大宸
+ * @author 剑鸣秋朔
  * @date 2023/11/14 10:26
  */
 //@Controller
@@ -48,7 +48,7 @@ public class ThirdPlatformForwardController {
      * 1、税务机关代码
      * 2、登录代码
      * 3、携带临时 code，有效时限五分钟，用于其他平台登录校验
-     * @author 王大宸
+     * @author 剑鸣秋朔
      * @date 2023/4/3 17:04
      * @param request request
      * @param response response
@@ -112,7 +112,7 @@ public class ThirdPlatformForwardController {
     /***
      * 拼接权限标识码
      *
-     * @author 王大宸
+     * @author 剑鸣秋朔
      * @date 2023/11/14 15:57
      * @param uri uri
      * @param preAuthCode preAuthCode

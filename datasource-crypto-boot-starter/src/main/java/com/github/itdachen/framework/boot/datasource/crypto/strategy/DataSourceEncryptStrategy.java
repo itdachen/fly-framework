@@ -5,7 +5,7 @@ import com.github.itdachen.framework.boot.datasource.crypto.factory.DataSourceEn
 
 /**
  * Description: 不加密
- * Created by 王大宸 on 2023-08-15 9:32
+ * Created by 剑鸣秋朔 on 2023-08-15 9:32
  * Created with IntelliJ IDEA.
  */
 public class DataSourceEncryptStrategy implements IDataSourceEncrypt {

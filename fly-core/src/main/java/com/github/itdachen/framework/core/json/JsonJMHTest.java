@@ -3,7 +3,7 @@ package com.github.itdachen.framework.core.json;
 /**
  * JsonJMHTest 测试
  *
- * @author 王大宸
+ * @author 剑鸣秋朔
  * @date 2025-05-06 14:30
  */
 public class JsonJMHTest {

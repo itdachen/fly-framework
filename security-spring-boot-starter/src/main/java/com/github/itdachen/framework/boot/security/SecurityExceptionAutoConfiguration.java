@@ -9,7 +9,7 @@ import org.springframework.web.bind.annotation.RestControllerAdvice;
 /**
  * 异常配置
  *
- * @author 王大宸
+ * @author 剑鸣秋朔
  * @date 2023-12-23 1:04
  */
 @Configuration
@@ -25,7 +25,7 @@ public class SecurityExceptionAutoConfiguration {
     /***
     * 异常统一处理
     *
-    * @author 王大宸
+    * @author 剑鸣秋朔
     * @date 2023/12/23 1:09
     * @return com.github.itdachen.boot.security.handler.ClientSessionExceptionHandler
     */

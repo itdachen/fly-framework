@@ -6,7 +6,7 @@ import io.jsonwebtoken.security.SignatureAlgorithm;
 /**
  * SignatureAlgorithmContents
  *
- * @author 王大宸
+ * @author 剑鸣秋朔
  * @date 2023-12-26 22:12
  */
 public class SignatureAlgorithmContents {

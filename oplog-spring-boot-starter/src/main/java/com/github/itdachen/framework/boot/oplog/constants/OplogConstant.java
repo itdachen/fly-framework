@@ -2,7 +2,7 @@ package com.github.itdachen.framework.boot.oplog.constants;
 
 /**
  * Description:
- * Created by 王大宸 on 2023/01/17 16:38
+ * Created by 剑鸣秋朔 on 2023/01/17 16:38
  * Created with IntelliJ IDEA.
  */
 public class OplogConstant {
@@ -40,7 +40,7 @@ public class OplogConstant {
     /***
      * 根据转入的值,获取明文
      *
-     * @author 王大宸
+     * @author 剑鸣秋朔
      * @date 2021/12/1 16:56
      * @param value
      * @return java.lang.String

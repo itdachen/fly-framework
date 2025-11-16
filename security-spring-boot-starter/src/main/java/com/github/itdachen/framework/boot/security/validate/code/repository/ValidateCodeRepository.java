@@ -6,7 +6,7 @@ import org.springframework.web.context.request.ServletWebRequest;
 
 /**
  * Description: 验证码存储方式
- * Created by 王大宸 on 2021-11-26 22:41
+ * Created by 剑鸣秋朔 on 2021-11-26 22:41
  * Created with IntelliJ IDEA.
  */
 public interface ValidateCodeRepository {
@@ -14,7 +14,7 @@ public interface ValidateCodeRepository {
     /***
      * 保存验证码
      *
-     * @author 王大宸
+     * @author 剑鸣秋朔
      * @date 2021/11/26 22:42
      * @param request
      * @param code
@@ -26,7 +26,7 @@ public interface ValidateCodeRepository {
     /***
      * 获取验证码
      *
-     * @author 王大宸
+     * @author 剑鸣秋朔
      * @date 2021/11/26 22:42
      * @param request
      * @param validateCodeType
@@ -37,7 +37,7 @@ public interface ValidateCodeRepository {
     /***
      * 移除验证码
      *
-     * @author 王大宸
+     * @author 剑鸣秋朔
      * @date 2021/11/26 22:42
      * @param request
      * @param codeType

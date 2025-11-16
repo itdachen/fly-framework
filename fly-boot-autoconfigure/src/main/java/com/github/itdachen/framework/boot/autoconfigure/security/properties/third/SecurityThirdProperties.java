@@ -5,7 +5,7 @@ import org.springframework.boot.context.properties.ConfigurationProperties;
 /**
  * 第三方平台跳转认证信息
  *
- * @author 王大宸
+ * @author 剑鸣秋朔
  * @date 2023-11-14 17:22
  */
 @ConfigurationProperties(prefix = "fly.security.third")

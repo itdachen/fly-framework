@@ -8,7 +8,7 @@ import java.io.IOException;
 
 /**
  * Description: session 过期处理
- * Created by 王大宸 on 2021-11-27 11:17
+ * Created by 剑鸣秋朔 on 2021-11-27 11:17
  * Created with IntelliJ IDEA.
  */
 public class BrowserExpiredSessionStrategy extends AbstractBrowserSessionStrategy implements SessionInformationExpiredStrategy {

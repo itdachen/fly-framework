@@ -8,7 +8,7 @@ import java.io.InputStream;
 
 /**
  * Description: 获取文件 MD5
- * Created by 王大宸 on 2023/02/13 9:35
+ * Created by 剑鸣秋朔 on 2023/02/13 9:35
  * Created with IntelliJ IDEA.
  */
 public class FileMd5HexUtils {

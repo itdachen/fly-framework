@@ -10,7 +10,7 @@ import java.util.List;
 
 /**
  * Description: 查询权限默认接口
- * Created by 王大宸 on 2022-12-13 14:34
+ * Created by 剑鸣秋朔 on 2022-12-13 14:34
  * Created with IntelliJ IDEA.
  */
 public class DefaultPermissionJdbcService extends AbstractPermissionJdbcService {

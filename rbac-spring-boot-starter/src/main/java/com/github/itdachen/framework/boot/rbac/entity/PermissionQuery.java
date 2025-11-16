@@ -4,7 +4,7 @@ import java.io.Serializable;
 
 /**
  * Description: 权限查询参数
- * Created by 王大宸 on 2023/05/06 17:19
+ * Created by 剑鸣秋朔 on 2023/05/06 17:19
  * Created with IntelliJ IDEA.
  */
 public class PermissionQuery implements Serializable {

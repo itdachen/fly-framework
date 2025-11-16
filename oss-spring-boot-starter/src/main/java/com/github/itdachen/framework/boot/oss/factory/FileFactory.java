@@ -14,7 +14,7 @@ import com.github.itdachen.framework.boot.oss.service.IVerifyFileHeaderService;
 
 /**
  * Description: 文件上传/下载工厂
- * Created by 王大宸 on 2023/02/10 16:50
+ * Created by 剑鸣秋朔 on 2023/02/10 16:50
  * Created with IntelliJ IDEA.
  */
 public class FileFactory {
@@ -36,7 +36,7 @@ public class FileFactory {
     /***
      * 文件上传
      *
-     * @author 王大宸
+     * @author 剑鸣秋朔
      * @date 2023/4/11 21:15
      * @return com.github.itdachen.framework.file.cloud.FileUploadService
      */
@@ -51,7 +51,7 @@ public class FileFactory {
     /***
      * 文件下载
      *
-     * @author 王大宸
+     * @author 剑鸣秋朔
      * @date 2023/4/11 21:28
      * @param uri uri
      * @return com.github.itdachen.framework.file.cloud.DownloadService

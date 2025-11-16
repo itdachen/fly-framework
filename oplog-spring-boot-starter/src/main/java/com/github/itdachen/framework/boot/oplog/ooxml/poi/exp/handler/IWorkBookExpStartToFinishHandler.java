@@ -6,7 +6,7 @@ import org.springframework.util.StopWatch;
 /**
  * 开始 结束
  *
- * @author 王大宸
+ * @author 剑鸣秋朔
  * @date 2025/10/12 13:13
  */
 public interface IWorkBookExpStartToFinishHandler<Q> {
@@ -14,7 +14,7 @@ public interface IWorkBookExpStartToFinishHandler<Q> {
     /***
      * 开始
      *
-     * @author 王大宸
+     * @author 剑鸣秋朔
      * @date 2025/10/12 13:35
      * @param msgId msgId
      * @param stopWatch stopWatch
@@ -26,7 +26,7 @@ public interface IWorkBookExpStartToFinishHandler<Q> {
     /***
      * 完成
      *
-     * @author 王大宸
+     * @author 剑鸣秋朔
      * @date 2025/10/12 13:35
      * @param msgId msgId
      * @param stopWatch stopWatch

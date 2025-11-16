@@ -6,7 +6,7 @@ import com.github.itdachen.framework.boot.autoconfigure.cloud.auth.properties.Cl
 /**
  * CloudHelperProperties
  *
- * @author 王大宸
+ * @author 剑鸣秋朔
  * @date 2024-06-19 16:19
  */
 public class CloudHelperProperties {
@@ -14,7 +14,7 @@ public class CloudHelperProperties {
     /***
      * 微服务模块安全认证
      *
-     * @author 王大宸
+     * @author 剑鸣秋朔
      * @date 2024/6/19 16:31
      * @return com.github.itdachen.boot.autoconfigure.cloud.jwt.properties.CloudAuthHelperProperties
      */
@@ -25,7 +25,7 @@ public class CloudHelperProperties {
     /***
     * 网关配置
     *
-    * @author 王大宸
+    * @author 剑鸣秋朔
     * @date 2024/6/19 16:35
     * @return com.github.itdachen.boot.autoconfigure.cloud.gateway.CloudGatewayHelperProperties
     */

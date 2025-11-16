@@ -9,7 +9,7 @@ import org.springframework.beans.factory.annotation.Value;
 
 /**
  * Description: hikari 数据源自定义配置,连接地址可以加密
- * Created by 王大宸 on 2023/01/28 15:10
+ * Created by 剑鸣秋朔 on 2023/01/28 15:10
  * Created with IntelliJ IDEA.
  */
 //@Configuration

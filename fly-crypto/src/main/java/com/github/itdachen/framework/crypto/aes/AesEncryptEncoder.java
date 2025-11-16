@@ -11,7 +11,7 @@ import java.util.Base64;
 
 /**
  * Description: AES 对称加密
- * Created by 王大宸 on 2023/01/28 15:14
+ * Created by 剑鸣秋朔 on 2023/01/28 15:14
  * Created with IntelliJ IDEA.
  */
 public class AesEncryptEncoder {
@@ -34,7 +34,7 @@ public class AesEncryptEncoder {
     /***
      * 对明文密钥进行二次封装，生成最终密钥
      *
-     * @author 王大宸
+     * @author 剑鸣秋朔
      * @date 2022/1/5 14:42
      * @param secretKey 明文密钥
      * @return javax.crypto.spec.SecretKeySpec
@@ -51,7 +51,7 @@ public class AesEncryptEncoder {
     /***
      * 字符串加密
      *
-     * @author 王大宸
+     * @author 剑鸣秋朔
      * @date 2022/1/5 14:43
      * @param str         需要加密的字符串
      * @param secretKey   明文密钥
@@ -73,7 +73,7 @@ public class AesEncryptEncoder {
     /***
      * 字符串解密
      *
-     * @author 王大宸
+     * @author 剑鸣秋朔
      * @date 2022/1/5 14:44
      * @param str         加密的字符串
      * @param secretKey   明文密钥

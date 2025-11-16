@@ -5,7 +5,7 @@ import org.apache.commons.lang3.StringUtils;
 
 /**
  * Description: 身份证号码脱敏
- * Created by 王大宸 on 2023-07-04 16:51
+ * Created by 剑鸣秋朔 on 2023-07-04 16:51
  * Created with IntelliJ IDEA.
  */
 public class IdCardSensitiveHandler implements ISensitiveHandler {

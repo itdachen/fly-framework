@@ -12,7 +12,7 @@ import java.util.Random;
 
 /**
  * Description:
- * Created by 王大宸 on 2021-11-26 22:35
+ * Created by 剑鸣秋朔 on 2021-11-26 22:35
  * Created with IntelliJ IDEA.
  */
 public class ImageCodeGenerator implements ValidateCodeGenerator {

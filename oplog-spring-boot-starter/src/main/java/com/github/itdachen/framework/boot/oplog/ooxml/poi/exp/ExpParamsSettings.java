@@ -11,7 +11,7 @@ import java.util.List;
 /**
  * 表格设置
  *
- * @author 王大宸
+ * @author 剑鸣秋朔
  * @date 2025/7/11 23:48
  */
 public class ExpParamsSettings<Q> {

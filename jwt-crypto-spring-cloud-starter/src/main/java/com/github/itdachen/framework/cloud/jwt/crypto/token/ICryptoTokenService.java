@@ -7,7 +7,7 @@ import java.security.PrivateKey;
 /**
  * ICryptoTokenService
  *
- * @author 王大宸
+ * @author 剑鸣秋朔
  * @date 2023-12-28 20:19
  */
 public interface ICryptoTokenService {
@@ -15,7 +15,7 @@ public interface ICryptoTokenService {
     /***
      * 创建 token
      *
-     * @author 王大宸
+     * @author 剑鸣秋朔
      * @date 2023/12/23 21:48
      * @param jwtInfo    用户信息
      * @param privateKey 私钥

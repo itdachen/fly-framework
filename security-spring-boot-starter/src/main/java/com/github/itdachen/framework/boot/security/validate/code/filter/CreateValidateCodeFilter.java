@@ -19,7 +19,7 @@ import java.util.Map;
 /**
  * 生成验证码
  *
- * @author 王大宸
+ * @author 剑鸣秋朔
  * @date 2024-11-27 17:14
  */
 @Deprecated
@@ -84,7 +84,7 @@ public class CreateValidateCodeFilter extends OncePerRequestFilter implements In
     /***
      * 读取上下文, 如果上下文不存在, 则返回空字符串
      *
-     * @author 王大宸
+     * @author 剑鸣秋朔
      * @date 2023/2/15 9:22
      * @return java.lang.String
      */
@@ -100,7 +100,7 @@ public class CreateValidateCodeFilter extends OncePerRequestFilter implements In
     /***
      * 讲系统中配置的需要校验验证码的URL根据校验的类型放入map
      *
-     * @author 王大宸
+     * @author 剑鸣秋朔
      * @date 2021/11/27 10:25
      * @param urlString
      * @param type

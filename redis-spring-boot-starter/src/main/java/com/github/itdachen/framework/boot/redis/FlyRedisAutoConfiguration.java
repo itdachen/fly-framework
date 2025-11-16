@@ -11,7 +11,7 @@ import org.springframework.data.redis.serializer.StringRedisSerializer;
 /**
  * FlyRedisAutoConfiguration
  *
- * @author 王大宸
+ * @author 剑鸣秋朔
  * @date 2025-10-20 15:57
  */
 @Configuration

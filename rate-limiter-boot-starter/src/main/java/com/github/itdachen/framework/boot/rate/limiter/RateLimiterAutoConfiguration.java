@@ -10,7 +10,7 @@ import org.springframework.data.redis.core.RedisTemplate;
 /**
  * 自动配置
  *
- * @author 王大宸
+ * @author 剑鸣秋朔
  * @date 2023-12-23 0:12
  */
 @Configuration

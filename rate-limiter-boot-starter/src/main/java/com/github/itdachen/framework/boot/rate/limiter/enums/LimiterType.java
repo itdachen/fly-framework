@@ -2,7 +2,7 @@ package com.github.itdachen.framework.boot.rate.limiter.enums;
 
 /**
  * Description:
- * Created by 王大宸 on 2023-07-03 11:18
+ * Created by 剑鸣秋朔 on 2023-07-03 11:18
  * Created with IntelliJ IDEA.
  */
 public enum LimiterType {

@@ -7,7 +7,7 @@ import java.util.List;
 
 /**
  * Description: 网关忽略的路径
- * Created by 王大宸 on 2023-07-06 16:12
+ * Created by 剑鸣秋朔 on 2023-07-06 16:12
  * Created with IntelliJ IDEA.
  */
 @ConfigurationProperties(prefix = "fly.cloud.gateway.ignore")

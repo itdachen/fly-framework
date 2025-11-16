@@ -9,7 +9,7 @@ import org.slf4j.LoggerFactory;
 /**
  * DefaultOplogMsgClient
  *
- * @author 王大宸
+ * @author 剑鸣秋朔
  * @date 2025-07-29 17:58
  */
 public class DefaultOplogMsgClient implements IOplogMsgClient {

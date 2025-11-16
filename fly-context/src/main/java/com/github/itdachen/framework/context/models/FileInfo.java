@@ -7,7 +7,7 @@ import java.io.Serializable;
 
 /**
  * Description: 文件上传成功返回结果集
- * Created by 王大宸 on 2023/02/10 16:11
+ * Created by 剑鸣秋朔 on 2023/02/10 16:11
  * Created with IntelliJ IDEA.
  */
 public class FileInfo implements Serializable {

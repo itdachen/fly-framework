@@ -17,7 +17,7 @@ import java.util.UUID;
 /**
  * 导出接触类
  *
- * @author 王大宸
+ * @author 剑鸣秋朔
  * @date 2025-07-08 16:27
  */
 public class ExcelExpUtils {
@@ -39,7 +39,7 @@ public class ExcelExpUtils {
     /***
      * 设置表头
      *
-     * @author 王大宸
+     * @author 剑鸣秋朔
      * @date 2025/7/8 17:06
      * @param workbook workbook
      * @param sheet sheet
@@ -113,7 +113,7 @@ public class ExcelExpUtils {
     /***
      * 设置表格样式/内容文本字体
      *
-     * @author 王大宸
+     * @author 剑鸣秋朔
      * @date 2025/7/8 17:10
      * @param workbook workbook
      * @return void
@@ -149,7 +149,7 @@ public class ExcelExpUtils {
     /***
      * 默认导出处理
      *
-     * @author 王大宸
+     * @author 剑鸣秋朔
      * @date 2025/7/9 9:48
      * @param workbook workbook
      * @param sheet sheet
@@ -203,7 +203,7 @@ public class ExcelExpUtils {
     /***
      * 获取导出文件名称
      *
-     * @author 王大宸
+     * @author 剑鸣秋朔
      * @date 2025/7/24 9:40
      * @param title       导出标题
      * @param bookNum     第几个文件

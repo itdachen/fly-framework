@@ -14,7 +14,7 @@ import java.math.BigDecimal;
 /**
  * 导出工具类
  *
- * @author 王大宸
+ * @author 剑鸣秋朔
  * @date 2025-07-25 10:29
  */
 public class ExcelImpUtils {
@@ -22,7 +22,7 @@ public class ExcelImpUtils {
     /***
      * 是否是 2003 的 excel，返回 true 是 2003
      *
-     * @author 王大宸
+     * @author 剑鸣秋朔
      * @date 2025/7/25 10:30
      * @param filePath filePath
      * @return boolean
@@ -34,7 +34,7 @@ public class ExcelImpUtils {
     /***
      * 是否是 2007 的 excel，返回 true 是 2007
      *
-     * @author 王大宸
+     * @author 剑鸣秋朔
      * @date 2025/7/25 10:30
      * @param filePath filePath
      * @return boolean
@@ -47,7 +47,7 @@ public class ExcelImpUtils {
     /***
      * 验证 EXCEL 文件
      *
-     * @author 王大宸
+     * @author 剑鸣秋朔
      * @date 2025/7/25 10:31
      * @param filePath filePath
      * @return boolean
@@ -60,7 +60,7 @@ public class ExcelImpUtils {
     /***
      * 获取文件表格
      *
-     * @author 王大宸
+     * @author 剑鸣秋朔
      * @date 2025/7/25 15:01
      * @param path path
      * @return org.apache.poi.ss.usermodel.Workbook
@@ -121,7 +121,7 @@ public class ExcelImpUtils {
     /***
      * 获取文件内有几个 Sheet
      *
-     * @author 王大宸
+     * @author 剑鸣秋朔
      * @date 2025/7/25 15:01
      * @param workbook workbook
      * @return int
@@ -134,7 +134,7 @@ public class ExcelImpUtils {
     /***
      * 获取 Sheet 内容
      *
-     * @author 王大宸
+     * @author 剑鸣秋朔
      * @date 2025/7/25 15:02
      * @param wb wb
      * @param sheetIndex sheetIndex

@@ -23,7 +23,7 @@ import java.util.concurrent.*;
 /**
  * 导入日志
  *
- * @author 王大宸
+ * @author 剑鸣秋朔
  * @date 2025-07-28 10:16
  */
 public class OOXmlPoiImpLogHandler {
@@ -43,7 +43,7 @@ public class OOXmlPoiImpLogHandler {
     /***
      * 添加导出日志文件信息
      *
-     * @author 王大宸
+     * @author 剑鸣秋朔
      * @date 2025/7/22 15:08
      * @param msgId       消息ID
      * @param uploadInfo  文件上传信息

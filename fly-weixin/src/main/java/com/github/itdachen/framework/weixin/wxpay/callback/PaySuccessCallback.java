@@ -8,7 +8,7 @@ import java.math.BigDecimal;
 
 /**
  * Description: 微信支付成功回调返回的数据
- * Created by 王大宸 on 2023/04/11 22:02
+ * Created by 剑鸣秋朔 on 2023/04/11 22:02
  * Created with IntelliJ IDEA.
  */
 public class PaySuccessCallback implements Serializable {

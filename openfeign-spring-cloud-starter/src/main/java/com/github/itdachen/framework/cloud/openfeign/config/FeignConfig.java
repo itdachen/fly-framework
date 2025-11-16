@@ -18,7 +18,7 @@ import static java.util.concurrent.TimeUnit.SECONDS;
 
 /**
  * Description: OpenFeign 配置类
- * Created by 王大宸 on 2023/05/05 20:48
+ * Created by 剑鸣秋朔 on 2023/05/05 20:48
  * Created with IntelliJ IDEA.
  */
 @Configuration
@@ -35,7 +35,7 @@ public class FeignConfig {
      *  Logger.Level.BASIC:   紧记录请求方法,url,响应状态码及执行时间
      *  Logger.Level.HEADERS:
      *  Logger.Level.FULL:    最相信信息
-     * @author 王大宸
+     * @author 剑鸣秋朔
      * @date 2021/8/26 21:51
      * @return feign.Logger.Level
      */
@@ -50,7 +50,7 @@ public class FeignConfig {
      * period = 100 发起当前请求的时间间隔, 单位是 ms
      * maxPeriod = 1000 发起当前请求的最大时间间隔, 单位是 ms
      * maxAttempts = 5 最多请求次数
-     * @author 王大宸
+     * @author 剑鸣秋朔
      * @date 2021/8/26 21:43
      * @return feign.Retryer
      */
@@ -66,7 +66,7 @@ public class FeignConfig {
     /***
      * 对请求的连接和响应时间进行限制
      *
-     * @author 王大宸
+     * @author 剑鸣秋朔
      * @date 2021/8/26 21:42
      * @return feign.Request.Options
      */
@@ -84,7 +84,7 @@ public class FeignConfig {
     /***
      * 给 Feign 配置请求拦截器, Feign 调用时, 把 Header 也传递到服务提供方
      * RequestInterceptor 是我们提供给 open-feign 的请求拦截器, 把 Header 信息传递
-     * @author 王大宸
+     * @author 剑鸣秋朔
      * @date 2021/9/22 14:04
      * @return feign.RequestInterceptor
      */

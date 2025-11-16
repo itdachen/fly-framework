@@ -29,7 +29,7 @@ import java.util.concurrent.*;
 /**
  * OOXmlPoiImpHelper
  *
- * @author 王大宸
+ * @author 剑鸣秋朔
  * @date 2025-07-25 15:58
  */
 public class OOXmlPoiImpHelper<T> {
@@ -89,7 +89,7 @@ public class OOXmlPoiImpHelper<T> {
     /***
      * 读取数据
      *
-     * @author 王大宸
+     * @author 剑鸣秋朔
      * @date 2025/7/25 22:57
      * @param readWorkBook readWorkBook
      * @return com.github.itdachen.ooxml.poi.OOXmlPoiImpHelper<T>
@@ -120,7 +120,7 @@ public class OOXmlPoiImpHelper<T> {
     /***
      * 导入
      *
-     * @author 王大宸
+     * @author 剑鸣秋朔
      * @date 2025/7/25 16:03
      * @return com.github.itdachen.ooxml.poi.OOXmlPoiImpHelper<T>
      */
@@ -203,7 +203,7 @@ public class OOXmlPoiImpHelper<T> {
     /***
      * 执行导入, 返回给前端消息
      *
-     * @author 王大宸
+     * @author 剑鸣秋朔
      * @date 2025/7/25 22:52
      * @return com.github.itdachen.ooxml.poi.OOXmlPoiImpHelper<T>
      */

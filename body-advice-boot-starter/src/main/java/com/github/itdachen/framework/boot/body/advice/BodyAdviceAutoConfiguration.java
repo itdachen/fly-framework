@@ -23,7 +23,7 @@ import java.time.format.DateTimeFormatter;
  * 全局响应和全局异常配置
  *
  *
- * @author 王大宸
+ * @author 剑鸣秋朔
  * @date 2023-12-23 0:47
  */
 @Configuration
@@ -33,7 +33,7 @@ public class BodyAdviceAutoConfiguration {
     /***
      * java8 + 时间序列化
      *
-     * @author 王大宸
+     * @author 剑鸣秋朔
      * @date 2023/12/23 0:48
      * @return org.springframework.boot.autoconfigure.jackson.Jackson2ObjectMapperBuilderCustomizer
      */

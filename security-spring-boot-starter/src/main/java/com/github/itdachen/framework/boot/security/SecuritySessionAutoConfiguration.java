@@ -19,7 +19,7 @@ import org.springframework.security.web.session.SessionInformationExpiredStrateg
 
 /**
  * Description:
- * Created by 王大宸 on 2021-11-27 11:26
+ * Created by 剑鸣秋朔 on 2021-11-27 11:26
  * Created with IntelliJ IDEA.
  */
 @Configuration
@@ -41,7 +41,7 @@ public class SecuritySessionAutoConfiguration {
     /***
      * 功能说明：无效 session 处理
      * 用户可以通过重写 InvalidSessionStrategy 接口,覆盖这里默认的接口
-     * @author 王大宸
+     * @author 剑鸣秋朔
      * @date 2021/1/3 22:51
      * @param
      * @return org.springframework.security.web.session.InvalidSessionStrategy
@@ -55,7 +55,7 @@ public class SecuritySessionAutoConfiguration {
     /***
      * 功能说明：session 过期处理
      * 用户可以通过重写 SessionInformationExpiredStrategy 接口,覆盖这里默认的接口
-     * @author 王大宸
+     * @author 剑鸣秋朔
      * @date 2021/1/3 22:52
      * @param
      * @return org.springframework.security.web.session.SessionInformationExpiredStrategy
@@ -70,7 +70,7 @@ public class SecuritySessionAutoConfiguration {
      * 退出登录
      * 用户可以通过重写 LogoutSuccessHandler 接口,覆盖这里默认的接口
      *
-     * @author 王大宸
+     * @author 剑鸣秋朔
      * @date 2021/11/27 11:27
      * @param
      * @return org.springframework.security.web.authentication.logout.LogoutSuccessHandler

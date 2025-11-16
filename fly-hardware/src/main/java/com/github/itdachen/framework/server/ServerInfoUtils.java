@@ -4,7 +4,7 @@ import com.github.itdachen.framework.server.hardware.ServerInfo;
 
 /**
  * Description: 获取服务器信息
- * Created by 王大宸 on 2023/02/13 0:18
+ * Created by 剑鸣秋朔 on 2023/02/13 0:18
  * Created with IntelliJ IDEA.
  */
 public class ServerInfoUtils {

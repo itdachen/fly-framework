@@ -11,7 +11,7 @@ import com.github.itdachen.framework.boot.autoconfigure.wechat.WeChatHelperPrope
 /**
  * 获取配置信息
  *
- * @author 王大宸
+ * @author 剑鸣秋朔
  * @date 2024-06-03 15:49
  */
 public class AppHelper {
@@ -19,7 +19,7 @@ public class AppHelper {
     /***
      * 应用信息
      *
-     * @author 王大宸
+     * @author 剑鸣秋朔
      * @date 2024/6/19 16:14
      * @return com.github.itdachen.boot.autoconfigure.app.AppClientProperties
      */
@@ -30,7 +30,7 @@ public class AppHelper {
     /***
      * 数据源
      *
-     * @author 王大宸
+     * @author 剑鸣秋朔
      * @date 2024/6/19 17:02
      * @return com.github.itdachen.boot.autoconfigure.datasource.DataSourceHelperProperties
      */
@@ -41,7 +41,7 @@ public class AppHelper {
     /***
      * jwt 配置
      *
-     * @author 王大宸
+     * @author 剑鸣秋朔
      * @date 2024/6/19 17:03
      * @return com.github.itdachen.boot.autoconfigure.jwt.JwtAppClientHelperProperties
      */
@@ -53,7 +53,7 @@ public class AppHelper {
     /***
      * 微服务配置
      *
-     * @author 王大宸
+     * @author 剑鸣秋朔
      * @date 2024/6/19 16:42
      * @return com.github.itdachen.boot.autoconfigure.cloud.CloudHelperProperties
      */
@@ -64,7 +64,7 @@ public class AppHelper {
     /***
      * 文件上传配置
      *
-     * @author 王大宸
+     * @author 剑鸣秋朔
      * @date 2024/6/19 16:42
      * @return com.github.itdachen.boot.autoconfigure.oss.OssHelperProperties
      */
@@ -75,7 +75,7 @@ public class AppHelper {
     /***
      * Spring Security 安全认证配置
      *
-     * @author 王大宸
+     * @author 剑鸣秋朔
      * @date 2024/6/19 16:44
      * @return com.github.itdachen.boot.autoconfigure.security.SecurityHelperProperties
      */
@@ -86,7 +86,7 @@ public class AppHelper {
     /***
      * 微信配置
      *
-     * @author 王大宸
+     * @author 剑鸣秋朔
      * @date 2024/11/21 11:23
      * @return com.github.itdachen.boot.autoconfigure.wechat.WeChatHelperProperties
      */

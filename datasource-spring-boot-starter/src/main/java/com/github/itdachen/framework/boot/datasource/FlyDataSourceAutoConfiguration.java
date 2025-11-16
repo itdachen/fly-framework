@@ -13,7 +13,7 @@ import javax.sql.DataSource;
 /**
  * DataSourceAutoConfiguration
  *
- * @author 王大宸
+ * @author 剑鸣秋朔
  * @date 2023-12-27 21:10
  */
 @Configuration
@@ -32,7 +32,7 @@ public class FlyDataSourceAutoConfiguration {
     /***
      * 增加 Jdbc 模板支持
      *
-     * @author 王大宸
+     * @author 剑鸣秋朔
      * @date 2023/3/28 17:24
      * @return org.springframework.jdbc.core.JdbcTemplate
      */

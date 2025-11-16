@@ -2,7 +2,7 @@ package com.github.itdachen.framework.context.jwt.key;
 
 /**
  * Description: 私钥/公钥对象
- * Created by 王大宸 on 2023/04/30 14:55
+ * Created by 剑鸣秋朔 on 2023/04/30 14:55
  * Created with IntelliJ IDEA.
  */
 public class JwtSecretKey {

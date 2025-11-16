@@ -5,7 +5,7 @@ import org.apache.commons.lang3.StringUtils;
 
 /**
  * 车牌号
- * Created by 王大宸 on 2023-07-05 16:13
+ * Created by 剑鸣秋朔 on 2023-07-05 16:13
  * Created with IntelliJ IDEA.
  */
 public class CarNumberSensitiveHandler implements ISensitiveHandler {

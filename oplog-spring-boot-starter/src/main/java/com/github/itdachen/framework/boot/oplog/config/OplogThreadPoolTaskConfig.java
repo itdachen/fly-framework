@@ -8,7 +8,7 @@ import java.util.concurrent.ThreadPoolExecutor;
 /**
  * 异步线程配置
  *
- * @author 王大宸
+ * @author 剑鸣秋朔
  * @date 2025-09-09 16:32
  */
 public class OplogThreadPoolTaskConfig {

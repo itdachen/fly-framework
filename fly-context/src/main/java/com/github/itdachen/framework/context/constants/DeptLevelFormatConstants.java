@@ -11,7 +11,7 @@ package com.github.itdachen.framework.context.constants;
  * <p>
  * 以下备注, 以部门职能代码 102 为例
  *
- * @author 王大宸
+ * @author 剑鸣秋朔
  * @date 2024/12/27 21:18
  */
 public class DeptLevelFormatConstants {
@@ -54,7 +54,7 @@ public class DeptLevelFormatConstants {
     /***
      * 生成部门代码
      *
-     * @author 王大宸
+     * @author 剑鸣秋朔
      * @date 2024/12/27 21:55
      * @param areaCode 行政编码
      * @param level    部门层级

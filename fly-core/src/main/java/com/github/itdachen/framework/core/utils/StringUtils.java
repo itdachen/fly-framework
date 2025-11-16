@@ -6,7 +6,7 @@ import java.util.*;
 
 /**
  * Description: 自定义封装字符串工具类
- * Created by 王大宸 on 2022-06-29 9:16
+ * Created by 剑鸣秋朔 on 2022-06-29 9:16
  * Created with IntelliJ IDEA.
  */
 public class StringUtils extends org.apache.commons.lang3.StringUtils {
@@ -30,7 +30,7 @@ public class StringUtils extends org.apache.commons.lang3.StringUtils {
     /***
      * String 转成 list
      *
-     * @author 王大宸
+     * @author 剑鸣秋朔
      * @date 2020/11/12 14:22
      * @param str      需要转的字符串
      * @param strByte  分隔符号
@@ -47,7 +47,7 @@ public class StringUtils extends org.apache.commons.lang3.StringUtils {
      * 字符串对象转 map
      * 字符串格式:  {tenantId=dasgdfgssads, telephone=13212345678, email=itdachen@163.com}
      *
-     * @author 王大宸
+     * @author 剑鸣秋朔
      * @date 2022/3/16 13:15
      * @param strObj    字符串对象
      * @return java.util.Map<java.lang.String, java.lang.Object>
@@ -161,7 +161,7 @@ public class StringUtils extends org.apache.commons.lang3.StringUtils {
     /***
      * 前面数字补充
      *
-     * @author 王大宸
+     * @author 剑鸣秋朔
      * @date 2022/3/23 14:55
      * @param length  总长度
      * @param num     需要补充的数字
@@ -446,7 +446,7 @@ public class StringUtils extends org.apache.commons.lang3.StringUtils {
     /***
      * 从字符串中提取字母
      * 例如: 你好 asb 我是 Msx ,返回: asbMsx
-     * @author 王大宸
+     * @author 剑鸣秋朔
      * @date 2021/1/4 11:35
      * @param str str
      * @return java.lang.String
@@ -461,7 +461,7 @@ public class StringUtils extends org.apache.commons.lang3.StringUtils {
     /***
      * 字符串排序
      * 例如: ACBD ==> ABCD
-     * @author 王大宸
+     * @author 剑鸣秋朔
      * @date 2021/1/4 11:36
      * @param str str
      * @return java.lang.String
@@ -486,7 +486,7 @@ public class StringUtils extends org.apache.commons.lang3.StringUtils {
     /***
      * 从字符串中提取字母并排序
      *
-     * @author 王大宸
+     * @author 剑鸣秋朔
      * @date 2021/1/4 11:38
      * @param str 字符串
      * @return java.lang.String
@@ -502,7 +502,7 @@ public class StringUtils extends org.apache.commons.lang3.StringUtils {
     /***
      * 是否仅包括数字和字母
      *
-     * @author 王大宸
+     * @author 剑鸣秋朔
      * @date 2023/6/26 19:48
      * @param str 需要判断的字符串
      * @return boolean

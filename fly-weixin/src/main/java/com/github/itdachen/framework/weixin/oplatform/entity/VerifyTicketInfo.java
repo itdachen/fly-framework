@@ -4,7 +4,7 @@ import java.io.Serializable;
 
 /**
  * Description:
- * Created by 王大宸 on 2023-01-30 20:23
+ * Created by 剑鸣秋朔 on 2023-01-30 20:23
  * Created with IntelliJ IDEA.
  */
 public class VerifyTicketInfo implements Serializable {

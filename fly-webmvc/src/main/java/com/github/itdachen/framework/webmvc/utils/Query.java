@@ -5,7 +5,7 @@ import java.util.Map;
 
 /**
  * Description: 查询参数
- * Created by 王大宸 on 2023-11-15 10:10
+ * Created by 剑鸣秋朔 on 2023-11-15 10:10
  * Created with IntelliJ IDEA.
  */
 public class Query extends LinkedHashMap<String, Object> {

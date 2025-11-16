@@ -25,7 +25,7 @@ import java.util.function.Consumer;
 
 /**
  * Description: 微信支付成功回调
- * Created by 王大宸 on 2023/04/11 22:12
+ * Created by 剑鸣秋朔 on 2023/04/11 22:12
  * Created with IntelliJ IDEA.
  */
 public class WeChatPayCallbackUtils {
@@ -34,7 +34,7 @@ public class WeChatPayCallbackUtils {
     /***
      * 微信支付创建订单回调方法
      *
-     * @author 王大宸
+     * @author 剑鸣秋朔
      * @date 2023/2/22 23:03
      * @param request request
      * @param response response

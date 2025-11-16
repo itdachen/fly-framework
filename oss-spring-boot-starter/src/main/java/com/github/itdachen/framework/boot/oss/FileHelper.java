@@ -6,7 +6,7 @@ import org.springframework.web.multipart.MultipartFile;
 
 /**
  * Description: 文件上传/下载对外接口
- * Created by 王大宸 on 2023/02/13 9:49
+ * Created by 剑鸣秋朔 on 2023/02/13 9:49
  * Created with IntelliJ IDEA.
  */
 public interface FileHelper {
@@ -14,7 +14,7 @@ public interface FileHelper {
     /***
      * 文件上传
      *
-     * @author 王大宸
+     * @author 剑鸣秋朔
      * @date 2023/12/27 21:59
      * @param file file
      * @return com.github.itdachen.boot.oss.entity.FileInfo
@@ -26,7 +26,7 @@ public interface FileHelper {
     /***
      * 文件下载
      *
-     * @author 王大宸
+     * @author 剑鸣秋朔
      * @date 2023/12/27 21:59
      * @param response response
      * @param uri uri
@@ -38,7 +38,7 @@ public interface FileHelper {
     /***
      * 获取文件 MD5
      *
-     * @author 王大宸
+     * @author 剑鸣秋朔
      * @date 2023/12/27 21:59
      * @param file file
      * @return java.lang.String

@@ -7,7 +7,7 @@ import org.slf4j.LoggerFactory;
 
 /**
  * Description: 默认操作日志展示方式,打印到控制台
- * Created by 王大宸 on 2021-12-01 16:44
+ * Created by 剑鸣秋朔 on 2021-12-01 16:44
  * Created with IntelliJ IDEA.
  */
 public class DefaultOplogClientHandlerImpl implements IOplogClientHandler {
