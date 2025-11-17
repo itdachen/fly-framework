@@ -9,7 +9,12 @@
     <version>1.1.0-RC</version>
     <packaging>pom</packaging>
     <description>项目依赖统一管理</description>
+    <url>https://gitee.com/itdachen/fly-framework</url>
 
+
+    <!-- spring cloud 与 spring boot 对应版本查询
+     https://start.spring.io/actuator/info
+     -->
     <properties>
         <java.version>17</java.version>
         <maven.compiler.source>${java.version}</maven.compiler.source>
@@ -18,21 +23,24 @@
         <project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
 
         <!-- Spring Cloud/Spring Boot 组件依赖 -->
-        <spring-cloud-dependencies.version>2024.0.0</spring-cloud-dependencies.version>
-        <spring-cloud-alibaba-dependencies.version>2023.0.3.2</spring-cloud-alibaba-dependencies.version>
-        <spring.boot.version>3.4.2</spring.boot.version>
+        <spring-cloud-dependencies.version>2024.0.2</spring-cloud-dependencies.version>
+        <spring-cloud-alibaba-dependencies.version>2023.0.3.4</spring-cloud-alibaba-dependencies.version>
+        <spring.boot.version>3.4.11</spring.boot.version>
         <spring.boot.admin.server.version>3.4.1</spring.boot.admin.server.version>
 
         <!-- 分布式 -->
-        <dubbo.version>3.3.3</dubbo.version>
-        <org.redisson.version>3.24.3</org.redisson.version>
         <kryo-serializers.version>0.45</kryo-serializers.version>
         <kryo.version>4.0.2</kryo.version>
-        <io.seata.version>2.0.0</io.seata.version>
+        <dubbo.version>3.3.5</dubbo.version>
+        <dubbo-spring-boot.version>3.3.5</dubbo-spring-boot.version>
+        <seata-spring-boot.version>2.0.0</seata-spring-boot.version>
         <spring-cloud-zipkin.version>2.2.8.RELEASE</spring-cloud-zipkin.version>
-        <feign.httpclient>12.1</feign.httpclient>
         <netflix-hystrix.version>2.2.10.RELEASE</netflix-hystrix.version>
 
+        <!-- 分布式调度 -->
+        <xxl-job.version>3.2.0</xxl-job.version>
+        <!-- redisson 分布式锁 -->
+        <org.redisson.version>3.52.0</org.redisson.version>
 
         <!-- alibaba -->
         <com.alibaba.fastjson2>2.0.53</com.alibaba.fastjson2>
@@ -40,13 +48,14 @@
         <com.alibaba.druid>1.2.20</com.alibaba.druid>
         <com.alibaba.easyexcel>3.2.1</com.alibaba.easyexcel>
 
+
         <!-- 持久层依赖 -->
         <pagehelper>6.1.0</pagehelper>
         <pagehelper.boot>2.1.0</pagehelper.boot>
         <tk.mybatis>5.0.1</tk.mybatis>
         <tk.mybatis.boot>5.0.1</tk.mybatis.boot>
-        <org.mybatis>3.5.17</org.mybatis>
-        <org.mybatis.boot>3.0.4</org.mybatis.boot>
+        <org.mybatis>3.5.19</org.mybatis>
+        <org.mybatis.boot>3.0.5</org.mybatis.boot>
         <shardingsphere-jdbc-core.version>5.3.2</shardingsphere-jdbc-core.version>
 
         <!-- 工具集 -->
@@ -54,26 +63,23 @@
         <cn.hutool.version>5.8.34</cn.hutool.version>
         <commons.io.version>2.13.0</commons.io.version>
         <commons-lang.version>2.6</commons-lang.version>
-        <dozer-core.version>7.0.0</dozer-core.version>
-        <com.google.guava>32.1.1-jre</com.google.guava>
-        <javax.servlet.version>4.0.1</javax.servlet.version>
+        <com.google.guava>33.5.0-jre</com.google.guava>
 
         <!-- JWT -->
-        <io.jsonwebtoken.jjwt.version>0.12.6</io.jsonwebtoken.jjwt.version>
+        <io.jsonwebtoken.jjwt.version>0.13.0</io.jsonwebtoken.jjwt.version>
         <joda-time.version>2.12.2</joda-time.version>
 
-        <!-- 分布式调度 -->
-        <xxl-job.version>2.4.2</xxl-job.version>
-
-        <!-- 解析请求信息中的用户信息 -->
-        <eu.bitwalker.version>1.21</eu.bitwalker.version>
-
-        <!-- redisson 分布式锁 -->
-        <org.redisson.version>3.45.1</org.redisson.version>
 
         <!-- 数据库 -->
         <mysql.version>8.0.33</mysql.version>
 
+
+        <!-- 下面的依赖版本，不会变动的 -->
+        <!-- 解析请求信息中的用户信息: Jan 24, 2018 -->
+        <eu.bitwalker.version>1.21</eu.bitwalker.version>
+        <javax.servlet.version>4.0.1</javax.servlet.version>
+        <!-- Mar 05, 2024 -->
+        <dozer-core.version>7.0.0</dozer-core.version>
     </properties>
 
     <dependencyManagement>
@@ -112,6 +118,13 @@
                 <version>${spring.boot.admin.server.version}</version>
                 <type>pom</type>
                 <scope>import</scope>
+            </dependency>
+
+
+            <dependency>
+                <groupId>org.apache.dubbo</groupId>
+                <artifactId>dubbo-spring-boot-starter</artifactId>
+                <version>${dubbo-spring-boot.version}</version>
             </dependency>
 
             <!-- fly 依赖 -->
@@ -342,6 +355,12 @@
                 <groupId>org.apache.dubbo</groupId>
                 <artifactId>dubbo-spring-boot-starter</artifactId>
                 <version>${dubbo.version}</version>
+            </dependency>
+
+            <dependency>
+                <groupId>io.seata</groupId>
+                <artifactId>seata-spring-boot-starter</artifactId>
+                <version>${seata-spring-boot.version}</version>
             </dependency>
 
             <!-- 通用工具类 -->
